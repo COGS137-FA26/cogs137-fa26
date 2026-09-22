@@ -763,7 +763,7 @@ ggplot(d, aes(x = area, y = percentages, fill = voted)) +
 ### Code
 
 ```{r cs01, fig.show = "hide"}
-WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
+WB <- read_csv("data/Blood.csv")
 
 WB <- WB |> 
   mutate(Treatment = fct_recode(Treatment, 

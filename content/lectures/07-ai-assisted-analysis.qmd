@@ -98,7 +98,7 @@ We decided an effective version of this plot should:
 
 A vague prompt:
 
-```
+```         
 make this brexit plot better
 ```
 
@@ -106,7 +106,7 @@ make this brexit plot better
 
 A precise prompt:
 
-```
+```         
 I have a tibble `brexit` with two character columns: `opinion`
 ("Right", "Wrong", "Don't know") and `region` (e.g. "rest_of_south").
 Using ggplot2, make a bar chart with opinion on the y-axis, one facet
@@ -201,31 +201,11 @@ Facet labels still need cleaning. How would you do it? (Hint: `mutate()` + `case
 > Among participants who smoked the high-dose joint, do frequent users have higher blood THC than occasional users in the first 30 minutes after smoking?
 
 ```{r cs01-data, echo = FALSE}
-WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
-
-WB <- WB |> 
-  mutate(Treatment = fct_recode(Treatment, 
-                                "5.9% THC (low dose)" = "5.90%",
-                                "13.4% THC (high dose)" = "13.40%"),
-         Treatment = fct_relevel(Treatment, "Placebo", "5.9% THC (low dose)")) |> 
-  janitor::clean_names() |>
-  rename(thcoh = x11_oh_thc,
-         thccooh = thc_cooh,
-         thccooh_gluc = thc_cooh_gluc,
-         thcv = thc_v) |>
-  mutate(timepoint = case_when(time_from_start < 0 ~ "pre-smoking",
-                               time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
-                               time_from_start > 30 & time_from_start <= 70 ~ "31-70 min",
-                               time_from_start > 70 & time_from_start <= 100 ~ "71-100 min",
-                               time_from_start > 100 & time_from_start <= 180 ~ "101-180 min",
-                               time_from_start > 180 & time_from_start <= 210 ~ "181-210 min",
-                               time_from_start > 210 & time_from_start <= 240 ~ "211-240 min",
-                               time_from_start > 240 & time_from_start <= 270 ~ "241-270 min",
-                               time_from_start > 270 & time_from_start <= 300 ~ "271-300 min",
-                               time_from_start > 300 ~ "301+ min"))
+source("src/cs01_functions.R")
+WB <- read_csv("data/Blood.csv") |> clean_cs01("WB")
 ```
 
-We'll use the (cleaned) whole blood data from CS01 (same cleaning as the `ggplot2` notes).
+We'll use the (cleaned) whole blood data from CS01 (`clean_cs01()`, same as the `ggplot2` notes).
 
 ## AI's answer
 
@@ -323,12 +303,12 @@ Every fix here was a **decision about the question**. AI couldn't make it for us
 
 The words you've learned are exactly the words that get better results:
 
-| Instead of...            | Try...                                                         |
-|--------------------------|----------------------------------------------------------------|
-| "make it look better"    | "map `opinion` to fill, remove the legend, use `theme_minimal()`" |
-| "split it up by region"  | "facet by `region` in one row"                                 |
-| "only the early ones"    | "filter to `time_from_start > 0 & time_from_start <= 30`"      |
-| "average it"             | "one mean per `id`, then compare groups"                       |
+| Instead of...           | Try...                                                            |
+|-------------------------|-------------------------------------------------------------------|
+| "make it look better"   | "map `opinion` to fill, remove the legend, use `theme_minimal()`" |
+| "split it up by region" | "facet by `region` in one row"                                    |
+| "only the early ones"   | "filter to `time_from_start > 0 & time_from_start <= 30`"         |
+| "average it"            | "one mean per `id`, then compare groups"                          |
 
 ## Prompting tips
 

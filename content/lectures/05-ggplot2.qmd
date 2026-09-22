@@ -81,46 +81,35 @@ ggplot(data = [dataset],
 ## Data: CS01 WB
 
 ```{r load-data-real, message=FALSE}
-WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
+WB <- read_csv("data/Blood.csv")
 ```
 
 ## The Data {.smaller}
 
 ```{r message=FALSE}
-WB |>
-  datatable()
+glimpse(WB)
 ```
 
 ## The Cleaning
 
-Note: this is the code from the end of 04-dplyr notes, combined into a single chunk.
+We've packaged the cleaning from the `dplyr` notes into one function, `clean_cs01()`, saved in `src/cs01_functions.R`:
 
 ```{r}
-WB <- WB |> 
-  mutate(Treatment = fct_recode(Treatment, 
-                                "5.9% THC (low dose)" = "5.90%",
-                                "13.4% THC (high dose)" = "13.40%"),
-         Treatment = fct_relevel(Treatment, "Placebo", "5.9% THC (low dose)")) |> 
-  janitor::clean_names() |>
-  rename(thcoh = x11_oh_thc,
-         thccooh = thc_cooh,
-         thccooh_gluc = thc_cooh_gluc,
-         thcv = thc_v) |>
-  mutate(timepoint = case_when(time_from_start < 0 ~ "pre-smoking",
-                               time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
-                               time_from_start > 30 & time_from_start <= 70 ~ "31-70 min",
-                               time_from_start > 70 & time_from_start <= 100 ~ "71-100 min",
-                               time_from_start > 100 & time_from_start <= 180 ~ "101-180 min",
-                               time_from_start > 180 & time_from_start <= 210 ~ "181-210 min",
-                               time_from_start > 210 & time_from_start <= 240 ~ "211-240 min",
-                               time_from_start > 240 & time_from_start <= 270 ~ "241-270 min",
-                               time_from_start > 270 & time_from_start <= 300 ~ "271-300 min",
-                               time_from_start > 300 ~ "301+ min"))
-
+#| echo: false
+knitr::read_chunk("src/cs01_functions.R")
 ```
 
-[<i class="fa fa-user" aria-hidden="true"></i>   Why are there two mutates? Could they have all been in a single mutate?]{style="background-color: #ADD8E6"}
+```{r cs01_windows, echo=FALSE}
+```
 
+```{r cs01_clean}
+```
+
+```{r}
+WB <- WB |> clean_cs01("WB")
+```
+
+[<i class="fa fa-user" aria-hidden="true"></i>   Compare to the `case_when()` in the `dplyr` notes: what does `cut()` do here?]{style="background-color: #ADD8E6"}
 
 ## A Plot
 

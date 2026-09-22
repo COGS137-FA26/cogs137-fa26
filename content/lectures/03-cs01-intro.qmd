@@ -318,28 +318,22 @@ BR <- read_csv("data/Breath.csv")
 OF <- read_csv("data/OF.csv")
 ```
 
-```{r, echo=FALSE, eval=FALSE}
-WB <- read_csv("content/lectures/data/Blood.csv")
-BR <- read_csv("content/lectures/data/Breath.csv")
-OF <- read_csv("content/lectures/data/OF.csv")
-```
-
 ## First Look at the data (WB)
 
 ```{r, echo=FALSE}
-DT::datatable(WB)
+glimpse(WB)
 ```
 
 ## First Look at the data (OF)
 
 ```{r, echo=FALSE}
-DT::datatable(OF)
+glimpse(OF)
 ```
 
 ## First Look at the data (BR)
 
 ```{r, echo=FALSE}
-DT::datatable(BR)
+glimpse(BR)
 ```
 
 # Analysis

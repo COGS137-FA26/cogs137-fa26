@@ -165,7 +165,7 @@ To get started with lecture code: `library(tidyverse)`
 ## Whole Blood (WB) Data from THC Study
 
 ```{r load-data-real, message=FALSE}
-WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
+WB <- read_csv("data/Blood.csv")
 ```
 
 ::: callout-important
@@ -511,7 +511,7 @@ WB <- WB |>
 
 ```{r}
 WB |> 
-  mutate(timepoint = case_when(time_from_start < 0 ~ "pre-smoking",
+  mutate(timepoint = case_when(time_from_start <= 0 ~ "pre-smoking",
                                time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
                                time_from_start > 30 & time_from_start <= 70 ~ "31-70 min",
                                time_from_start > 70 & time_from_start <= 100 ~ "71-100 min",
@@ -528,6 +528,10 @@ WB |>
 . . .
 
 Note: This code could have been combined with the above...I just wanted to discuss it for simplicity in lecture separately.
+
+::: aside
+Going forward, this cleaning lives in one function, `clean_cs01()` (in `src/cs01_functions.R`), which does the same thing with `cut()`.
+:::
 
 ## CS01 Data Cleaning
 

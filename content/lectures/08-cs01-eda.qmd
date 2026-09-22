@@ -16,6 +16,9 @@ library(tidyverse)
 library(patchwork)
 library(emo)
 
+# CS01 helper functions (displayed throughout these notes)
+knitr::read_chunk("src/cs01_functions.R")
+
 knitr::opts_chunk$set(dpi=300, echo=TRUE, warning=FALSE, message=FALSE) 
 ```
 
@@ -266,6 +269,13 @@ cs01_data <- read_csv("data/cs01_combined.csv") |>
 ```
 
 
+## Time windows & compounds {.scrollable}
+
+Defined once in `src/cs01_functions.R` (and used by `clean_cs01()`, which made the time windows in this file):
+
+```{r cs01_windows}
+```
+
 # CS01: EDA {background-color="#92A86A"}
 
 ## Single Variable (basic) plots
@@ -289,11 +299,16 @@ ggplot(cs01_data, aes(x=thc)) +
 
 But what if we consider our experiment/the structure of our data? We have three different matrices...and a whole bunch of compounds. With wide data, it's not easy to plot these distributions, so you may want to pivot those data....
 
-```{r}
-cs01_long <- cs01_data |> 
-  select(1:5,time_from_start,everything()) |>
-  pivot_longer(7:15) 
+```{r cs01_to_long}
 ```
+
+```{r}
+cs01_long <- cs01_to_long(cs01_data)
+```
+
+::: aside
+We select the compound columns *by name* (`cs01_compounds`), not by position (e.g. `7:15`), so this keeps working if the columns move.
+:::
 
 . . . 
 
@@ -302,7 +317,7 @@ Distributions across all compounds:
 ```{r}
 ggplot(cs01_long, aes(x=value)) + 
   geom_histogram() +
-  facet_wrap(~name)
+  facet_wrap(~compound)
 ```
 
 ...but this still doesn't get at the differences between matrices *and* compound.
@@ -313,7 +328,7 @@ Plotting some of these data...
 
 ```{r}
 cs01_long |>
-  mutate(group_compound=paste0(fluid_type,": ", name)) |>
+  mutate(group_compound=paste0(fluid_type, ": ", compound)) |>
 ggplot(aes(x=value)) + 
   geom_histogram() + 
   facet_wrap(~group_compound, scales="free")
@@ -324,7 +339,7 @@ ggplot(aes(x=value)) +
 
 ```{r}
 cs01_long |> 
-  filter(name=="thc") |>
+  filter(compound == "thc") |>
   ggplot(aes(x=group, y=value)) + 
   geom_boxplot() +
   facet_wrap(~fluid_type, scales="free")
@@ -334,7 +349,7 @@ cs01_long |>
 
 ```{r}
 cs01_long |> 
-  filter(name=="thc") |>
+  filter(compound == "thc") |>
   ggplot(aes(x=treatment, y=value)) + 
   geom_boxplot() +
   facet_wrap(~fluid_type, scales="free")
@@ -344,7 +359,7 @@ cs01_long |>
 
 ```{r}
 cs01_long |> 
-  filter(name=="thc", (timepoint=="0-30 min" | timepoint=="0-40 min")) |>
+  filter(compound == "thc", timepoint %in% cs01_early_windows) |>
   ggplot(aes(x=treatment, y=value)) + 
   geom_boxplot() +
   facet_wrap(~fluid_type, scales="free")
@@ -399,43 +414,33 @@ Additional resource: [https://r4ds.hadley.nz/functions](https://r4ds.hadley.nz/f
 ::: panel-tabset
 ### Function
 
-Our first user-defined function: 
+Shared colors & theme (used by every CS01 plot):
 
-```{r}
-plot_scatter_time <- function(matrix) {
-  cs01_long |> 
-      filter(!is.na(time_from_start), fluid_type==matrix) |>
-      ggplot(aes(x=time_from_start, y=value, color=group)) + 
-        geom_point() +
-        facet_wrap(~name, scales="free") +
-        scale_color_manual(values=c("#19831C", "#A27FC9")) +
-        theme_classic() +
-        labs(title=matrix,
-             x="Time From Start (min)") +
-        theme(legend.position="bottom",
-              legend.title=element_blank(),
-              strip.background=element_blank(),
-              plot.title.position="plot") 
-}
+```{r cs01_theme}
+```
+
+Our first user-defined function takes the data and the matrix as arguments:
+
+```{r cs01_plot_time}
 ```
 
 
 ### Plots (WB)
 
 ```{r compounds-wb}
-plot_scatter_time(matrix="WB")
+plot_scatter_time(cs01_long, "WB")
 ```
 
 ### OF
 
 ```{r compounds-of}
-plot_scatter_time(matrix="OF")
+plot_scatter_time(cs01_long, "OF")
 ```
 
 ### BR
 
 ```{r compounds-br}
-plot_scatter_time(matrix="BR")
+plot_scatter_time(cs01_long, "BR")
 ```
 
 ### Thoughts
@@ -452,12 +457,11 @@ plot_scatter_time(matrix="BR")
 
 ## Dropping Duplicates (w/n time window)
 
+```{r cs01_drop_dups}
+```
+
 ```{r}
-cs01_nodups <- cs01_data |> 
-    filter(!is.na(timepoint)) |> 
-    group_by(fluid_type, timepoint) |> 
-    distinct(id, .keep_all=TRUE) |> 
-    ungroup()
+cs01_nodups <- drop_dups(cs01_data)
 ```
 
 . . . 
@@ -465,9 +469,7 @@ cs01_nodups <- cs01_data |>
 Now to pivot_longer that...
 
 ```{r}
-cs01_nodups_long <- cs01_nodups |> 
-  select(1:5,time_from_start,everything()) |>
-  pivot_longer(7:15) 
+cs01_nodups_long <- cs01_to_long(cs01_nodups)
 ```
 
 ::: callout-note
@@ -480,49 +482,27 @@ While I drop duplicates *after* making the plots above, you and your group will 
 ::: panel-tabset
 ### Function
 
-```{r}
-boxplot_frequency_of_use <- function(matrix){
-  cs01_nodups_long |> 
-    filter(fluid_type == matrix,
-           timepoint == "0-30 min" | timepoint == "0-40 min") |>
-  ggplot(aes(x=group, y=value, fill=group)) + 
-    geom_jitter(position=position_jitter(width=.3,
-                                        height=0),
-                size=0.8, 
-                color="gray50")  +
-    geom_boxplot(outlier.shape=NA, alpha=0.6) +
-    facet_wrap(~name, scales="free") +
-    scale_x_discrete(labels=function(x) str_wrap(x, width=10)) +
-    scale_y_continuous(limits=c(0, NA), 
-                       expand=expansion(mult=c(0, 0.1))) +
-    scale_fill_manual(values=c("#19831C", "#A27FC9")) +
-    theme_classic() +
-    labs(title=paste0(matrix)) + 
-    theme(text=element_text(size=12),
-          legend.position="bottom",
-          legend.title=element_blank(),
-          panel.grid=element_blank(),
-          plot.title.position="plot",
-          strip.background=element_blank())
-}
+One function for both "frequency of use" and "treatment" comparisons: `x` says what to compare.
+
+```{r cs01_plot_boxplots}
 ```
 
 ### WB
 
 ```{r, warning=FALSE}
-boxplot_frequency_of_use("WB")
+plot_boxplots(cs01_nodups_long, "WB", x = group)
 ```
 
 ### OF
 
 ```{r, warning=FALSE}
-boxplot_frequency_of_use("OF")
+plot_boxplots(cs01_nodups_long, "OF", x = group)
 ```
 
 ### BR
 
 ```{r, warning=FALSE}
-boxplot_frequency_of_use("BR")
+plot_boxplots(cs01_nodups_long, "BR", x = group)
 ```
 
 ### Thoughts
@@ -539,56 +519,35 @@ boxplot_frequency_of_use("BR")
 ::: panel-tabset
 ### Function
 
-```{r}
-boxplot_treatment <- function(matrix){
-  cs01_nodups_long |> 
-    filter(fluid_type == matrix,
-           timepoint == "0-30 min" | timepoint == "0-40 min") |>
-  ggplot(aes(x=treatment, y=value, fill=group)) + 
-    geom_jitter(position=position_jitter(width=.3,
-                                        height=0),
-                size=0.8, 
-                color="gray50")  +
-    geom_boxplot(outlier.size=0.1, alpha=0.8) +
-    facet_wrap(~name, scales="free") +
-    scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +
-    scale_y_continuous(limits=c(0, NA), 
-                       expand=expansion(mult=c(0, 0.1))) +
-    scale_fill_manual(values=c("#19831C", "#A27FC9")) +
-    theme_classic() +
-    labs(title=paste0(matrix), y="Measurement (ng/mL)") + 
-    theme(text=element_text(size=12),
-          legend.position="bottom",
-          legend.title=element_blank(),
-          panel.grid=element_blank(),
-          plot.title.position="plot",
-          strip.background=element_blank())
-}
+Same function as before...just a different `x`:
+
+```{r, eval=FALSE}
+plot_boxplots(cs01_nodups_long, "WB", x = treatment)
 ```
 
 ### WB
 
 ```{r all-the-plots-treatment, out.width='100%', fig.height=6}
-boxplot_treatment("WB")
+plot_boxplots(cs01_nodups_long, "WB", x = treatment)
 ```
 
 ### OF
 
 ```{r, out.width='100%', fig.height=6}
-boxplot_treatment("OF")
+plot_boxplots(cs01_nodups_long, "OF", x = treatment)
 ```
 
 ### BR
 
 ```{r}
-boxplot_treatment("BR")
+plot_boxplots(cs01_nodups_long, "BR", x = treatment)
 ```
 
 ### Thoughts
 
 ::: incremental
 - Argument for combining treatment groups? 
-- We now have very similar `ggplot2` code across a few plots. This can be improved using`theme_set()`. You set theme parameters at top of your qmd...and then those will apply across all plots.
+- Shared `ggplot2` settings live in `theme_cs01()` and `cs01_colors`, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that's a function waiting to happen.
 - These last two sets of plots have only focused on that first timepoint. You'll probably want to look beyond that. 
 :::
 
@@ -625,17 +584,6 @@ Sensitivity, specificity & choosing cutoffs: the core of the CS01 question.
 
 . . .
 
-**Post-smoking** (cutoff == 0)
-
-Cannot be a TP or FP if zero...
-
--   TP = THC group, value \> cutoff),
--   FN = THC group, value \<= cutoff),
--   FP = Placebo group, value \> cutoff),
--   TN = Placebo group, value \< cutoff)
-
-. . .
-
 **Pre-smoking**
 
 Cannot be a TP or FN before consuming...
@@ -655,175 +603,37 @@ This is beyond code I would expect you all to be able to write yourself. It's he
 ## Calculating Sensitivity and Specificity
 
 ::: panel-tabset
-### Calculate
+### The idea
 
-```{r}
-make_calculations <- function(dataset, cutoff, compound, timepoint_use){
-  ## remove NAs
-  df <- dataset |>
-    select(treatment, {{ compound }}, timepoint) |>
-    filter(timepoint == timepoint_use, !is.na({{ compound }}))
+For every matrix × compound × time window × cutoff, count TPs, FNs, FPs, and TNs.
 
-  if(nrow(df)>0){
-    if(timepoint_use == "pre-smoking"){
-      output <- df |> 
-        summarize(TP = 0,
-                  FN = 0,
-                  FP = sum(!!sym(compound) >= cutoff),
-                  TN = sum(!!sym(compound) < cutoff)) 
-    }else{
-      if(cutoff == 0){
-        output_pre <- df |> 
-          filter(timepoint_use == "pre-smoking") |>
-          summarize(TP = 0,
-                    FN = 0,
-                    FP = sum(!!sym(compound) >= cutoff),
-                    TN = sum(!!sym(compound) < cutoff)) 
-        
-        output <- df |> 
-          filter(timepoint_use != "pre-smoking") |>
-          summarize(TP = sum(treatment != "Placebo" & !!sym(compound) > cutoff),
-                    FN = sum(treatment != "Placebo" & !!sym(compound) <= cutoff),
-                    FP = sum(treatment == "Placebo" & !!sym(compound) > cutoff),
-                    TN = sum(treatment == "Placebo" & !!sym(compound) < cutoff))
-        
-        output <- output + output_pre
-      }else{
-        output_pre <- df |> 
-          filter(timepoint_use == "pre-smoking") |>
-          summarise(TP = 0,
-                    FN = 0,
-                    FP = sum(!!sym(compound) >= cutoff),
-                    TN = sum(!!sym(compound) < cutoff)) 
-        
-        output <- df |> 
-          filter(timepoint_use != "pre-smoking") |>
-          summarise(TP = sum(treatment != "Placebo" & !!sym(compound) >= cutoff),
-                    FN = sum(treatment != "Placebo" & !!sym(compound) < cutoff),
-                    FP = sum(treatment == "Placebo" & !!sym(compound) >= cutoff),
-                    TN = sum(treatment == "Placebo" & !!sym(compound) < cutoff))
-        
-        output <- output + output_pre
-      }
-    }
-  
-  # clean things up; make calculations on above values
-  output <- output |>
-    mutate(detection_limit = cutoff,
-           compound = compound,
-           time_window = timepoint_use,
-           NAs = nrow(dataset) - nrow(df),
-           N = nrow(dataset),
-           Sensitivity = (TP/(TP + FN)), 
-           Specificity = (TN /(TN + FP)),
-           PPV = (TP/(TP+FP)),
-           NPV = (TN/(TN + FN)),
-           Efficiency = ((TP + TN)/(TP + TN + FP + FN))*100
-    )
-  return(output)
-}
-}
-```
-
-
-::: callout-note
-`\{{ compound }\}` is used to refer to the argument stored in the compound parameter; `!!sym(compound)` is used to dynamically refer to the column whose name is stored in compound. `sym()` converts the string in compound into a symbol that refers to the column, and `!!` unquotes it to evaluate the column in the expression.
+::: incremental
+1.  Start with the long, de-duplicated data (one row per person × window × compound)
+2.  Copy each row once per cutoff (`cross_join()`)
+3.  Label each row: *used* (THC group, after smoking)? *detected* (value ≥ cutoff)?
+4.  `group_by()` + `summarize()` to count...exactly what you learned in the `dplyr` notes
 :::
 
-### Apply
+### Code
 
-Map the above for each matrix...
-
-```{r}
-sens_spec_cpd <- function(dataset, cpd, timepoints){
-  args2 <- list(start = timepoints$start, 
-                stop = timepoints$stop, 
-                tpt_use = timepoints$timepoint)
-  out <- args2 |> 
-    pmap_dfr(make_calculations, dataset, compound = cpd)
-  return(out)
-}
-
+```{r cs01_sens_spec}
 ```
 
 ### Run
 
--   determine what cutoff values to try
--   carry out above function on those cutoffs
-
-:::
-
-## Calculate
-
 Reminder: Currently, states have laws on the books from zero tolerance (detection of any level) to 5ng/mL THC
 
-::: panel-tabset
-### WB
-
-```{r, cache=TRUE}
-# specify which calculations to make
-cutoffs <- c(0.5, 1, 2, 5, 10)
-compounds <- cs01_nodups_long |> filter(fluid_type=="WB") |> filter(!is.na(value)) |> distinct(name) |> pull(name)
-WB_timepoints <- c("pre-smoking","0-30 min","31-70 min", "71-100 min","101-180 min","181-210 min", "211-240 min","241-270 min", "271-300 min", "301+ min") 
-WB <- cs01_data |> filter(fluid_type=="WB")
-
-# Specify all parameter combinations
-param_grid <- expand.grid(
-  cutoffs = cutoffs,
-  compounds = compounds,
-  timepoint_use = WB_timepoints)
-
-
-# Calculate for all cutoff-compound-timepoint combinations
-WB_ss <- purrr::pmap_dfr(param_grid, ~ make_calculations(dataset=WB, cutoff = ..1, compound = as.character(..2), timepoint_use = ..3))
-
-WB_ss
+```{r}
+cs01_ss <- sens_spec(cs01_nodups_long, cutoffs = c(0.5, 1, 2, 5, 10))
+cs01_ss
 ```
 
-### OF
+### THC @ 5 ng/mL
 
-```{r, cache=TRUE}
-# specify which calculations to make
-cutoffs <- c(0.5, 1, 2, 5, 10)
-compounds <- cs01_nodups_long |> filter(fluid_type=="OF") |> filter(!is.na(value)) |> distinct(name) |> pull(name)
-OF_timepoints <- c("pre-smoking","0-30 min","31-90 min",
-                   "91-180 min", "181-210 min", "211-240 min",
-                   "241-270 min", "271+ min") 
-OF <- cs01_data |> filter(fluid_type=="OF")
-
-# Specify all parameter combinations
-param_grid <- expand.grid(
-  cutoffs = cutoffs,
-  compounds = compounds,
-  timepoint_use = OF_timepoints)
-
-# Calculate for all cutoff-compound-timepoint combinations
-OF_ss <- purrr::pmap_dfr(param_grid, ~ make_calculations(dataset=OF, cutoff = ..1, compound = as.character(..2), timepoint_use = ..3))
-
-OF_ss
-```
-
-### BR
-
-```{r, cache=TRUE}
-# specify which calculations to make
-cutoffs <- c(0.5, 1, 2, 5, 10)
-compounds <- cs01_nodups_long |> filter(fluid_type=="BR") |> filter(!is.na(value)) |> distinct(name) |> pull(name)
-BR_timepoints <- c("pre-smoking","0-40 min","41-90 min",
-                   "91-180 min", "181-210 min", "211-240 min",
-                   "241-270 min", "271+ min")
-BR <- cs01_data |> filter(fluid_type=="BR")
-
-# Specify all parameter combinations
-param_grid <- expand.grid(
-  cutoffs = cutoffs,
-  compounds = compounds,
-  timepoint_use = OF_timepoints)
-
-# Calculate for all cutoff-compound-timepoint combinations
-BR_ss <- purrr::pmap_dfr(param_grid, ~ make_calculations(dataset=BR, cutoff = ..1, compound = as.character(..2), timepoint_use = ..3))
-
-BR_ss
+```{r}
+cs01_ss |>
+  filter(compound == "thc", cutoff == 5) |>
+  select(fluid_type, timepoint, TP, FN, FP, TN, sensitivity, specificity)
 ```
 :::
 
@@ -834,101 +644,25 @@ BR_ss
 
 Note: requires `library(patchwork)`
 
-```{r}
-plot_cutoffs <- function(dataset, timepoint_use_variable, tissue, cpd){
-    # control colors and lines used in plots
-    col_val = c("#D9D9D9", "#BDBDBD", "#969696", "#636363", "#252525")
-    lines = rep("solid", 5)
-    
-    # prep data
-    df_ss <- dataset |> 
-      filter(compound == cpd) |>
-      mutate(time_window = fct_relevel(as.factor(time_window), levels(timepoint_use_variable)),
-             detection_limit = as.factor(detection_limit),
-             Sensitivity =  round(Sensitivity*100, 0),
-             Specificity =  round(Specificity*100, 0))        
-      
-    # plot sensitivity
-    p1 <- df_ss |> 
-      ggplot(aes(x = time_window, y = Sensitivity, 
-                 color = detection_limit)) + 
-      geom_line(linewidth = 1.2, aes(group = detection_limit, 
-                                linetype = detection_limit)) + 
-      geom_point(show.legend=FALSE) + 
-      ylim(0,100) +
-      scale_x_discrete(labels = function(x) str_wrap(x, width = 5)) +
-      scale_linetype_manual(values=lines) +
-      scale_color_manual(values = col_val, name = "Cutoff \n (ng/mL)",
-                        guide = guide_legend(override.aes = list(linetype = c(1),
-                        shape = rep(NA, length(lines))) )) +
-      theme_classic() +
-      theme(plot.title.position = "plot",
-            axis.title = element_text(size=14),
-            axis.text = element_text(size=10),
-            legend.position = "none", 
-            panel.grid = element_blank(),
-            strip.background = element_blank()
-            ) +
-      guides(linetype = "none") +
-      labs(x = "Time Window (min)", 
-           y = "Sensitivity", 
-           title = paste0(tissue,": ", toupper(cpd)) )
-  
-  # plot specificity
-  p2 <- df_ss |> 
-      ggplot(aes(x = time_window, y = Specificity,
-                 group = detection_limit, 
-                 color = detection_limit, 
-                 linetype = detection_limit)) + 
-      geom_line(linewidth = 1.2) +
-      geom_point() + 
-      ylim(0,100) +
-      scale_color_manual(values = col_val) +
-      scale_x_discrete(labels = function(x) str_wrap(x, width = 5)) +
-      scale_linetype_manual(values = lines, 
-                            guide = guide_legend(override.aes = list(linetype = "solid",
-                                                                     shape = rep(NA, length(lines))) )) +
-      theme_classic() +
-      theme(axis.title = element_text(size=14),
-            axis.text = element_text(size=10),
-            legend.position = c(0.35, 0.25),
-            panel.grid = element_blank(),
-            strip.background = element_blank()) +
-      labs(x = "Time Window", 
-           y = "Specificity",
-           title = "" )
-  
-  # combine plots (uses patchwork)
-  p1 + p2
-  
-}
+```{r cs01_plot_cutoffs}
 ```
 
 ### WB
 
 ```{r}
-plot_cutoffs(dataset=WB_ss, 
-             timepoint_use_variable=WB$timepoint, 
-             tissue="Blood", 
-             cpd="thc")
+plot_cutoffs(cs01_ss, "WB", "thc", title = "Blood")
 ```
 
 ### OF
 
 ```{r}
-plot_cutoffs(dataset=OF_ss, 
-             timepoint_use_variable=OF$timepoint, 
-             tissue="Oral Fluid", 
-             cpd="thc")
+plot_cutoffs(cs01_ss, "OF", "thc", title = "Oral Fluid")
 ```
 
 ### BR
 
 ```{r}
-plot_cutoffs(dataset=BR_ss, 
-             timepoint_use_variable=BR$timepoint, 
-             tissue="Breath", 
-             cpd="thc")
+plot_cutoffs(cs01_ss, "BR", "thc", title = "Breath")
 ```
 
 ### Thoughts
@@ -936,8 +670,8 @@ plot_cutoffs(dataset=BR_ss,
 - This is only THC
 - For five semi-random cutoffs
 - There are other compounds and other cutoffs to consider
+- Breath THC is measured in pg/pad (not ng/mL), so these cutoffs don't separate anything for breath (the lines overlap). What cutoffs would make sense there?
 :::
-
 
 ## Possible Extensions
 

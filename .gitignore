@@ -7,7 +7,8 @@ Thumbs.db
 
 # do not include large datasets/THC data
 content/lectures/data
-content/lectures/src
+content/lectures/src/*
+!content/lectures/src/cs01_functions.R
 content/exams/data
 docs/lectures/data
 docs/lectures/src
