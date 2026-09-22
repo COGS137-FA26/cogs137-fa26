@@ -49,10 +49,9 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 -   `r emo::ji('clipboard')` Lecture Participation survey "due" after class
 
 Note: Get the data data in RStudio for today if you haven't already (and `install.packages` `"OCSdata"`, `"skimr"`, and `"GGally"`.
-
-```{r}
 -->
 
+```{r}
 # install.packages("OCSdata")
 # OCSdata::raw_data("ocs-bp-air-pollution", outpath = getwd())
 pm <- read_csv("OCS_data/data/raw/pm25_data.csv")

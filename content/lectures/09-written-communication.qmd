@@ -56,6 +56,7 @@ Notes:
 - lab 03 scores and feedback posted; everyone received feedback; check GH issue
 - lab 05 is available and the focus this Fri/Mon lab...but not due until after CS01. Best to do it before CS01, as it will help CS01 completion
 - Thursday will be semi-guided class time for working on your case study. Communicate with your group to encourage attendance.
+-->
 
 ```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -63,7 +64,6 @@ library(emo)
 library(knitr)
 library(kableExtra)
 library(googlesheets4)
--->
 
 # ggplot2 color palette with gray
 color_palette <- list(gray = "#999999", 
