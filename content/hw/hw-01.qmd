@@ -1,0 +1,22 @@
+---
+title: "HW 01 - R Basics"
+---
+
+This assignment is meant to get you comfortable with 1) the format of homework assignments in this course and 2) writing R code in RStudio. The specific questions on this assignment will be simpler and should take you less time than those on future assignments. This assignment focuses on variables, operators, datasets, and `dplyr` basics.
+
+# Getting started
+
+Here are the steps for getting started:
+
+-   Start by navigating to the hw01 GitHub URL (found on Canvas)
+-   Clone this repo into RStudio on datahub
+-   Make any changes needed as outlined by the tasks you need to complete for the assignment
+-   Periodically knit your file and take a look at the document generated
+-   Commit changes (for example, once per each new part)
+-   Push all your changes back to your GitHub repo
+
+You can of course push multiple to GitHub times throughout the assignment. Your final push at the deadline will be used for grading. (This means even if you made mistakes before that on GitHub, you wouldn't be penalized for them, so long as the final state of your work is correct).
+
+::: callout-important
+You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML. Both your .Rmd and .html files should be on GitHub.
+:::

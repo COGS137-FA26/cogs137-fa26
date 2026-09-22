@@ -1,0 +1,39 @@
+/*-- scss:defaults --*/
+
+@import 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap';
+
+$font-family: "Atkinson Hyperlegible", sans-serif;
+$link-color: #92a76a;
+$hover-color: lighten($link-color, 20%);
+
+
+// Navigation element colors
+$sidebar-fg: #FFFFFF;
+$sidebar-hl: #92a76a;
+
+/*-- scss:rules --*/
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $hover-color;
+    border-bottom: 1px solid $hover-color;
+  }
+}
+
+.project {
+  padding: 1em;
+  border: 1pt dotted #263459;
+  margin-bottom: 15px;
+}
+
+div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
+  font-weight: bold;
+}
+
+
+.sidebar a.active {
+  color: #FFFFFF;  /* Change to your desired color */
+}

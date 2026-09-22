@@ -1,0 +1,19 @@
+{
+  "hash": "ab4322b737e5aa4296d2ea4c8b90e9d1",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab 03: Exploring & Visualizing Data\"\nauthor: \"\"\nformat:\n  revealjs:\n    embed-resources: true\n    slide-number: true\n    chalkboard: false \n    preview-links: auto\n    logo: img/cogs137-logo-hex.png\n    footer: <https://cogs137.github.io/website/>\n    execute:\n      echo: true\n---\n\n\n# Lab 03: Exploring & Visualizing Data {background-color=\"#0E3A53\"}\n\n## Agenda\n\n1.  **Tips:**\n\nBriefly review a question regarding sorting.\\\nReview numeric vs categorical variable types.\n\n2.  **Lab introduction:**\n\nReview FiveThirtyEight article on college majors.\n\n## Lab Intro\n\n-   Lab instructions posted on the course website.\n\n-   [The Economic Guide To Picking A College Major](https://fivethirtyeight.com/features/the-economic-guide-to-picking-a-college-major/) by Ben Casselman\n\n## Reminders\n\n-   Start with `library(tidyverse)` (includes `tidyr`, `readr`, `dplyr`, etc.)\n-   Clone using 'SSH' link from GitHub\n-   Knit to .html & push both .Rmd and .html to GitHub\n\n## Tips {.scrollable}\n\n-   Be ready to troubleshoot your document, since it will likely fail to knit on multiple occasions throughout the process. Read the error message carefully and take note of which line is preventing a successful knit.\n\n-   Make sure to keep track of your various chunks and to keep text and code in the right place.\n\n-   Remember that your R Markdown file is not aware of your project's global environment and can only make use of variables, functions, etc. that you have loaded or defined in the document.\n\n-   Remind yourself how the pipe operator (`|>`) works.\n\n-   If you're unsure how a function works or what its arguments are, type `?` in front of it and hit enter (`?read_csv` for instance). The \"Help\" tab will open and provide a summary of the function as well as some examples.\n\n\n::: {.cell}\n\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

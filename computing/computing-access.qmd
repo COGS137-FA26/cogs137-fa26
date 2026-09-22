@@ -1,0 +1,9 @@
+---
+title: "Computing access"
+---
+
+To access RStudio for this class, go to the [datahub](https://datahub.ucsd.edu/hub/spawn) space for this course.
+
+Students enrolled in this course will automatically have access to RStudio through UCSD's datahub. Use your UCSD login to access this course and select the COGS 137 environment.
+
+If you do not have access and have *just* enrolled in the course, please give it 24 hours after enrollment to have access. Once a student has Canvas access to the course, they will also have datahub access.

@@ -1,0 +1,375 @@
+---
+title: "02-cs01-intro"
+author: "Professor Shannon Ellis"
+date: "2024-10-04"
+
+format:
+  html: 
+    output-file: 02-cs01-intro.html
+    embed-resources: true
+  revealjs:
+    output-file: 02-cs01-intro-slides.html
+    slide-number: true
+    chalkboard: false
+    preview-links: auto
+    logo: images/cogs137-logo-hex.png
+    css: slides.css
+---
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+
+knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE) 
+```
+
+# CS01: Biomarkers of Recent Use {background-color="#92A86A"}
+
+## Q&A {.smaller}
+
+> Q: Does R let you perform arithmetic across number and integer types?\
+> A: Yup! For example `7L + 2` gives you 9. (Similarly `7L + 2.2` gives 9.2)
+
+> Q: I am confused on how to open up projects, what it means to comit and pull.\
+> A: We'll review this again today!
+
+> Q: I am very new to using Github, so using Github is a bit confusing, but probably just b/c I am very new to it.\
+> A: This is a normal feeling at the start of this course! I promise in a week it will feel more comfortable!
+
+> Q: I'm curious about the usage of R versus Python. Are there certain situations where R is more useful than Python?\
+> A: In a nutshell, *almost* everything you can do in one you can do in the other. However, in my opinion, R is most useful when 1) cleaning data, 2) using statistical models, and 3) visualizing data. (On the flip side, when I'm writing software, using APIs, and gathering data, I typically turn to Python.)
+
+> Q: How do I save my lecture practice into a new file in R?\
+> A: I would recommend opening a new .Rmd file and then saving it with the name of the lecture.
+
+> Q: i noticed that global variables remain in the environment panel even when i delete that variable in my rmd script. does it matter that they are still there? i tried clicking the broom and rerunning the code, and only the variables i wanted remained, but is this the right way to go about changing or deleting variables in my code?\
+> A: Yup! The broom will clean up your environment! There is also an `rm()` function if you ever want to remove an individual variable from your environment.
+
+> Q: Am I supposed to create an "R Markdown" or an "R Notebook"?\
+> A: I'll demo R Markdown, so encouraging use of that.
+
+> Q: Will we be covering any syntax guidelines when programming in R? For example, in other programming languages indents/spaces are necessary for many functions but I'm wondering if there is anything like that used in R.\
+> A: I will highlight them as we go! R does not necessitate whitespace ever, but stylistically, we will encourage it. What I teach will be based off of this [style guide](https://style.tidyverse.org/).
+
+> Q: How many points are there in total for the extra credits\
+> A: I'm not totally sure yet. At least a few points.
+
+> Q: I wonder what will be the format of the lab session?\
+> A: Typically a short presentation (5 min) at the beginning to explain the lab or discuss the most difficult/confusing part. Then, time to work on lab and get questions answered by staff.
+
+> Q: Could you please post the slides one or two days before class? I would like to review them in advance so I can better follow along during the lecture and not feel lost.   A: I totally understand the request, and I'll do my best! (For example, these have been up since Monday), but I'm re-doing the slides up to class many days. While the examples will change this quarter, the concepts will overlap with last Fall, so feel free to reference [those notes](https://cogs137.github.io/website/).
+
+> Q: What are the main parts of the R interface that we will be interacting with?\
+> A: RMarkdown files, R Console, Git pane, Files pane, and Plots pane
+
+> Q: I had a question about the survey for participation. I'm usually busy right after class. Is there any way to get credit for it even if I submit it a couple of hours later or for it to open a little before class ends.\
+> A: I do typically end class a few minutes early for completion then and we're working to open it a few minutes before class ends. It's always fine to fill it out later if it's open. It will always be open until at least 5PM.
+
+## Course Announcements
+
+**Due Dates**:
+
+-   Student survey due Fri 10/4 (11:59 PM; #finaid)
+-   **Lab 01** now available (due *next* Thursday 10/10)
+    -   No in-class lab this Friday; *Monday's lab is happening*
+-   Lecture Participation survey "due" after class
+
+Note:
+
+-   Run this in console once: `options(download.file.method="wget")`
+-   We're going to *start* CS01 in lecture/lab before you know your group mates.
+-   Reminder to Shannon: demo lab clone, push pull
+
+## Agenda
+
+-   Background
+-   Data Intro
+-   Paper Results
+-   Wrangle
+
+# Background {background-color="#92A86A"}
+
+## Case Studies in COGS 137
+
+-   Question + Data Provided
+-   Wrangling + Analysis Discussed/Presented in Class
+-   In groups:
+    -   reproduce the analysis
+    -   extend the analysis
+
+## Deliverables
+
+-   Full Rmd report (explanations, text and story matter!)
+-   General Audience communication
+
+## CS01: Biomarkers of Recent Use
+
+-   Focuses on Data Wrangling and EDA
+-   Uses real research data from a collaboration w/ Rob Fitgerald's group
+
+## Motor Vehicle Accidents (MVAs)
+
+-   2/3 of US trauma center admissions are due to MVAs
+-   \~60% of such patients testing positive for drugs or alcohol
+-   Alcohol and cannabis are most frequently detected
+
+Source: [https://academic.oup.com/clinchem/article/59/3/478/5621997]()
+
+## Legalization of Marijuana
+
+-   Federally illegal in the US
+-   Decriminalized in many states
+-   Medically available in 15 states
+-   Legal for recreational use in 24 states (including CA)
+
+## Increased roadside surveys
+
+::: incremental
+-   25% increase in use nationwide from 2002 to 2015 ([survey](https://rosap.ntl.bts.gov/view/dot/1913))
+-   THC detection in drivers increased by 48% from 2007 to 2014
+-   Increased prevalence of consumption -\> possible intoxication -\> possible impaired driving -\> public health concern
+:::
+
+## DUI of Alcohol (DUIA)
+
+::: incremental
+-   The science is there. Don't do it.
+-   DUIA has decreased since the 1970s
+    -   \% of nighttime, weekend drivers testing over the legal limit (BAC \> 0.08 g/dL) decreased from 7.5% (1973) to 2.2% (2007) [link]((https://rosap.ntl.bts.gov/view/dot/1913))
+:::
+
+## DUI of Cannabis
+
+-   In a 2007 survey, 16.3% of nighttime drivers were drug-positive [link](https://rosap.ntl.bts.gov/view/dot/1913)
+    -   8.6% of these tested positive for THC
+-   Experimental and cognitive studies suggest cannabis-induced impairment increases risk of motor vehicle crashes:
+
+. . .
+
+> Evidence suggests recent smoking and/or blood THC concentrations 2–5 ng/mL are associated with substantial driving impairment, particularly in occasional smokers.[link](https://academic.oup.com/clinchem/article/59/3/478/5621997)
+
+## Roadside Detection
+
+-   *per se* laws: "a driver is deemed to have committed an offense if THC is detected at or above a pre-determined cutoff" [link](https://doi.org/10.1080/15389588.2020.1851685)
+
+. . .
+
+-   Defining cutoffs for safe driving is difficult
+-   THC concentration differs by:
+    -   "smoking topography" (time to smoke; number of puffs)
+    -   frequency of use
+    -   route of ingestion
+
+. . .
+
+As of 2021...[link](https://www.tandfonline.com/doi/full/10.1080/15389588.2020.1851685)
+
+::: incremental
+-   19 states have *per se* or zero tolerance cannabis laws
+-   States with *per se* laws (Illinois, Montana, Nevada, Ohio, Pennsylvania, Washington and West Virginia), cutoffs range from 1 to 5 ng/mL THC in whole blood.
+-   In 3 states, *per se* limits also apply to THC metabolites
+-   Colorado: "reasonable inference" - blood contained \>5 ng/mL THC at the time of the offense
+-   3 states zero tolerance for THC; 8 states for THC and metabolites
+:::
+
+## Metabolism
+
+::: incremental
+-   peak blood concentrations occur during smoking, then drop rapidly [link](https://academic.oup.com/jat/article/36/6/405/791790)
+-   subjective 'high' persists for several hours, varies greatly between individuals
+-   THC concentrations remain detectable in frequent users longer than occasional users [link](https://academic.oup.com/clinchem/article/59/3/519/5622035)
+-   THC and certain metabolites can be detected in blood for weeks to months after use and do not necessarily indicate impairment
+:::
+
+## Detection
+
+Various approaches:
+
+1.  Detect impairment (officers detect DUIC)
+2.  Detect recent use (test for compounds)
+3.  Combine recent use + impairment
+
+. . .
+
+**Focus here**: Can we identify a biomarker of recent use?
+
+-   recent use: defined here as within 3h
+-   testing THC and metabolites in blood, oral fluid (OF), and breath
+
+## Aside: Case Study Report
+
+-   Your Case study will need a background section
+-   It can use/summarize/paraphrase the information here (you should cite the source, not me)
+-   But, you're *not* limited to this information
+-   You are allowed/encouraged to dig deeper, include what's most important, add to, remove, etc.
+-   There are a lot of citations in this section - go ahead and peruse them/others/use references in these papers
+
+# Question {background-color="#92A86A"}
+
+Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?
+
+# The Data {background-color="#92A86A"}
+
+## Participants
+
+-   placebo-controlled, double-blinded, randomized study
+
+. . .
+
+-   recruited:
+    -   volunteers 21-55 y/o
+    -   had a driver's license
+    -   self-reported cannabis use \>= 4x in the past month
+
+. . .
+
+-   Participants were:
+    -   compensated
+    -   medically evaluated (for safety)
+    -   asked to refrain from use for 2d prior to participation
+    -   exclusion criteria: OF THC concentration ≥5 ng/mL on day of study (n=7)
+
+. . .
+
+-   Study included 191 participants
+
+## Demographics
+
+![](images/02/demographics.png)
+
+Source: [Hoffman et al.](https://academic.oup.com/jat/article/45/8/851/6309824?login=false)
+
+## Experimental Design
+
+Participants were:
+
+::: incremental
+-   randomly assigned to receive a cigarette containing placebo (0.02%), or 5.9% or 13.4% THC
+-   Blood, OF and breath were collected prior to smoking
+-   smoked a 700 mg cigarette *ad libitum* within 10 min, with a minimum of four puffs.
+-   After smoking, 4 additional OF and breath and 8 blood collections were completed at time points up to ∼6h from the start of smoking.
+-   Participants ate and drank water between collections, although not within 10 min of OF collection.
+:::
+
+## Timeline
+
+![](images/02/experiment.jpeg)
+
+Source: [Fitzgerald et al.](https://academic.oup.com/clinchem/article/69/7/724/7179849?login=false)
+
+## Consumption
+
+![](images/02/puffs.jpeg) Source: [Hoffman et al.](https://academic.oup.com/jat/article/45/8/851/6309824?login=false)
+
+## Topography
+
+![](images/02/topography.png) Source: [Hoffman et al.](https://academic.oup.com/jat/article/45/8/851/6309824?login=false)
+
+## What do we recall?
+
+-   Summarize what we know about Detection of Impairment for DUIC.
+-   Summarize what experiment was carried out.
+-   Summarize what we know about the data so far.
+
+## Subjective Highness
+
+![](images/02/highness.jpeg)
+
+Source: [Hoffman et al.](https://academic.oup.com/jat/article/45/8/851/6309824?login=false)
+
+## Our Datasets
+
+Three matrices:
+
+-   Blood (WB): 8 compounds; 190 participants
+-   Oral Fluid (OF): 7 compounds; 192 participants
+-   Breath (BR): 1 compound; 191 participants
+
+. . .
+
+Variables:
+
+-   `ID` | participants identifier
+-   `Treatment` | placebo, 5.90%, 13.40%
+-   `Group` | Occasional user, Frequent user
+-   `Timepoint` | indicator of which point in the timeline participant's collection occurred
+-   `time.from.start` | number of minutes from consumption
+-   & measurements for individual compounds
+
+## The Data
+
+You'll have access once your groups/repos are created...(today I want people to follow along; there will be time to try on your own soon!)
+
+::: callout-important
+These data are for our use only and not to be shared widely, so this case study cannot be put in your portfolio, but CS02 and your final project can!
+:::
+
+```{r, eval=TRUE}
+WB <- read_csv("data/Blood.csv")
+BR <- read_csv("data/Breath.csv")
+OF <- read_csv("data/OF.csv")
+```
+
+```{r, echo=FALSE, eval=FALSE}
+WB <- read_csv("content/lectures/data/Blood.csv")
+BR <- read_csv("content/lectures/data/Breath.csv")
+OF <- read_csv("content/lectures/data/OF.csv")
+```
+
+## First Look at the data (WB)
+
+```{r, echo=FALSE}
+DT::datatable(WB)
+```
+
+## First Look at the data (OF)
+
+```{r, echo=FALSE}
+DT::datatable(OF)
+```
+
+## First Look at the data (BR)
+
+```{r, echo=FALSE}
+DT::datatable(BR)
+```
+
+# Analysis
+
+Where We're Headed...
+
+Results from: Hubbard et al (2021) Biomarkers of Recent Cannabis Use in Blood, Oral Fluid and Breath [link](https://academic.oup.com/jat/article/45/8/820/6311388?login=false#303593274)
+
+## Fig 1: Pre-smoking
+
+![](images/02/01_concentrations_pre.jpg)
+
+## Fig 2: Sensitivity and Specificity
+
+![](images/02/02_known_cutoffs_THC_combined.jpg)
+
+## Fig 3: Cross-compound relationship
+
+![](images/02/03_regression.jpg)
+
+## Fig 4: Cutoffs
+
+![](images/02/04_known_cutoffs_CBN_combined.jpg)
+
+## Fig 5: Youden
+
+![](images/02/05_ss_cutoffs_combined.jpg)
+
+. . .
+
+...and if there's time PPV and Accuracy post 3h
+
+## What Came After
+
+![](images/02/duic_toxicology.jpeg) Source: [Fiztgerald et al.](https://academic.oup.com/clinchem/article/69/7/724/7179849?login=false)
+
+## Recap {.smaller background-color="#92A86A"}
+
+-   Could you summarize/explain background presented?
+-   Could you summarize the experiment that was done?
+-   Could you describe the datasets? (variables, observations, values, etc.)

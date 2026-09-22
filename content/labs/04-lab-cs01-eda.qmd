@@ -1,0 +1,67 @@
+---
+title: "Lab 04 - CS01 EDA"
+date: "2024-10-31"
+output: 
+  html: 
+    highlight: pygments
+    css: lab.css
+    preview-links: auto
+---
+
+```{r include=FALSE}
+library(tidyverse)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE     # for regression output
+  )
+```
+
+# Introduction
+
+The main goals of this lab are for you to really deepen your knowledge surrounding the CS01 data by continuing EDA beyond what was presented and discussed in class.
+
+# Getting started
+
+To get started, accept the lab04 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+
+# Packages
+
+The only package required for completion of this lab is `tidyverse`, as `ggplot2` (which you'll be using a lot in this lab) is one of the packages in the `tidyverse`. Be sure to import the `tidyverse` prior to completing the lab. Additional packages are allowed, but not expected nor required.
+
+# Data
+
+In this lab, you'll start from the cleaned version of the three data files you would have had after the completion of lab02. This file is the same file you were provided in lab03, and can be read in as follows:
+
+``` r
+cs_data <- read_csv("data/cs01_combined.csv")
+```
+
+# Exercises
+
+## Part 1: Building beyond class
+
+### Exercise 1
+
+Take one of the more involved visualizations generated in class during CS01 EDA lectures (anything in the notes from "Compounds across time" ([this part](https://cogs137-fa24.github.io/cogs137-fa24/content/lectures/06-cs01-eda.html#compounds-across-time)) or later) and improve upon the visualization to either 1) improve the clarity of the visualization and/or tell the story being communicated more clearly. Your code will likely look very similar to what was presented in class (and that's OK), but should not be the exact same. And, note that you may need to do include some of the data wrangling from that set of notes to get the dataset into the necessary format for visualization (i.e. wide -\> long).
+
+### Exercise 2
+
+Describe what changes you made above and why you chose to make those changes.
+
+## Part 2: Learning something new
+
+### Exercise 3
+
+Consider all we have discussed and plotted through the EDA presented in class and what you did in lab03. Now that you have a better understanding of the data and experiment, carry out some EDA to learn something beyond what was previously displayed/discussed in class and beyond what you did in lab03.
+
+### Exercise 4
+
+Describe what new information you learned from what you generated above.
+
+# Submit
+
+::: callout-important
+You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+:::
+
+*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 4! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

@@ -1,0 +1,120 @@
+---
+title: "CS01: Biomarkers of Recent Use"
+date: "Due: Nov 4, 2024 (11:59 PM)"
+output: 
+  html: 
+    highlight: pygments
+    preview-links: auto
+    execute:
+      eval: false
+---
+
+This is where you get to put together all you've learned so far this quarter into a full data science report! This report will include your analysis from top (the background and question) to bottom (your analysis, interpretation, and conclusions.)
+
+We'll be grading to see that you have: 1) all necessary code for each section of the project. 2) explanatory text that guides the reader from start to finish. 3) polished visualizations that allow the reader to both understand the data you're working with an your conclusions.
+
+This will be submitted and graded as a group. **One submission per group.**
+
+## Getting started
+
+Here are the steps for getting started:
+
+:::aside
+Avoid waiting until the end to knit for the first time. It will be better/easier/less of a headache if you knit periodically and know it's all working as intended.
+:::
+
+-   This will be completed in cs01 group repository that has been created for you and your group mates.
+-   Three data files have been provided for you in the `data/` directory, one for each matrix (blood, oral fluid, breath).
+-   Code + write away in the provided .Rmd document!
+-   Periodically knit and commit changes (for example, once per each new part)
+-   Push all your changes back to your GitHub repo
+-   This case study will be graded from the HTML file on your group's GitHub repo.
+
+
+:::aside
+  A reminder that there is a [book dedicated to RMarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/html-output.html), with a whole section on controlling HTML output, in case you want to customize your output in some way.
+:::
+
+
+
+### Imports
+
+You are allowed to import whichever packages you like for this case study report.
+
+## Main Question
+
+All groups will be answering the following question in their case study:
+
+> Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?
+
+:::aside
+As noted in class, different groups may have different answers, and that's ok. You have to explain your thinking and use your analysis to help guide your conclusions.
+:::
+
+## Case Study Report
+
+Your case study can be organized however you see best fit, but we'll be looking for the following *general* sections:
+
+-   Title
+-   Authors
+-   Background/Introduction
+-   Question(s)
+-   Data
+    -   Data Explanation
+    -   Data Import
+    -   Data Wrangling
+-   Analysis
+-   Results & Discussion (including limitations of your work)
+-   Conclusion
+
+:::aside
+Now, you may want to combine some of these sections (i.e. include your results and discussion among your analysis code). That's *totally* allowed, but we'll be looking to see that your report includes sufficient information to understand what you did, why you did it, and what your results are.
+:::
+
+### Extending the Analysis
+
+In addition to getting the code presented in class working, adding explanatory text to your report, and generating polished visualizations, you and your group must "extend the analysis" beyond what was presented in class in a meaningful way. Now "meaningful" is not a very-easily-measured term. A meaningful extension could be carrying out analysis to answer an additional question beyond what was presented in class, or asking the same main question among subgroups, or finding a related dataset and incorporating it into your case study. To determine whether your extension is "meaningful," you and your group should be able to answer "yes" to the question "Does our extension add something important to this report beyond what was presented in class?"
+
+:::aside
+This extension should be included/woven into your report, meaning it should only be "separated out" as its own section if it makes most sense for the story you're telling.
+:::
+
+## General Communication
+
+Each group will need to convey the most important finding(s) to a *general audience* through some form of communication.
+
+This is very open-ended in its format. It could be a short video, an infographic, an effective email, a graphic, Instagram slides, a short presentation, etc. It will be submitted by one group member on Canvas. (All group members will receive credit.)
+
+The specific audience you want to target can be specified (i.e. police officers, undergraduate students, parents, etc.); however, the assumption is that these are NOT data scientists.
+
+Your communication SHOULD include your take-home message…and that may be all it includes! Basically, we want you to distill down your case study to its most important message and then convey that to the general public in an effective manner.
+
+It should NOT contain specifics of your analysis or anywhere near all the information included in your report.
+
+## Group Feedback
+
+There will be a form to submit upon submission of the case study to provide feedback about working with your group mates. This is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn't happen, I want to be sure I'm aware of the circumstances and follow up as necessary.
+
+## Strong Case Studies...
+
+-   can be read from start to finish and make sense (i.e. if you displayed only text and outputs from code, the story would make sense)
+
+-   have text to guide the viewer throughout, including interpretations of all viz/calculations, that explain to the reader what the results have to do with the question(s) at hand
+
+-   have clean, easy-to-read code
+
+-   have clear, well-designed visualizations, with consistent colors/style throughout report.
+
+## Common Deductions
+
+In past iterations of the course, students have commonly lost points on CS01 for the following reasons:
+
+-   **Background & Question** \| 1) background section is lacking necessary information for the reader; often, the information missing pertains to the groups extension question; 2) report doesn't state question(s) being answered clearly
+
+-   **Data** \| Failing to introduce the dataset(s) and the information contained in each
+
+-   **Visualization** \| 1) including *all* the visualizations a group could think of without deciding which best tell the story 2) including multiple visualizations that all display the same information in slightly different ways
+
+-   **Analysis** \| 1) lacking explanation to guide the viewer. All plots and calculations should be explained/interpreted, explaining what we learn from the plot more than just what is included on the plot or what analysis was carried out. We care about the *why* a lot. 2) making decisions without explanation (i.e. choosing a seemingly-random cutoff without explanation as to why). 3) Referencing things before they're explained (i.e. referencing T2A without having text explaining what that is)
+
+-   **Results, Discussion & Conclusion** \| numbers/results presented without sufficient guidance as to what the results mean *in the context of your question*

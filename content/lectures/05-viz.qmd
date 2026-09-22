@@ -1,0 +1,722 @@
+---
+title: "05-viz"
+author: "Professor Shannon Ellis"
+date: "2024-10-17"
+
+format:
+  html: 
+    output-file: 05-viz.html
+  revealjs:
+    output-file: 05-viz-slides.html
+---
+
+# Effective Data Visualization {background-color="#92A86A"}
+
+Slides modified from [datascienceinabox.org](https://datasciencebox.org/)
+
+## Q&A {.smaller}
+
+> Q: Does ggplot2 allow access to the same color schemes that we use in Python? I'm familiar with using Matplot.lib, but it seems slightly different for ggplot2.\
+> A: You can directly control color in R. We'll discuss that, but you can also use a ton of available color palletes. See [here](https://r-charts.com/color-palettes/).You'll find what you largely have in [matplotlib](https://matplotlib.org/stable/users/explain/colors/colormaps.html) but also additional palettes. 
+
+> Q: What are some common aesthetics options for graphs?\
+> A: Discussing this today!
+
+> Q: Why in the world anyone would think that %>% is an acceptable operator \
+> A: Hadley Wickham (the developer) has made SO many incredible updates to the consistency and syntax in R. This was just NOT one of them.
+
+## Course Announcements
+
+**Due Dates**:
+
+- **Lab 02** due tonight (11:59 PM)
+  - ~~`Group` re-coded as with WB/OF~~ <- removed from instructions
+- Lecture Participation survey "due" after class
+
+**Notes**:
+
+-   Lab03 now available
+-   Lab01 scores posted; Scores on Canvas; feedback as "issue" on GH
+-   Case Study Groups will be sent tomorrow; will discuss case study in class on Tues.
+
+## Suggested Reading
+
+-   R4DS Chapter 11: [Data Communication](https://r4ds.hadley.nz/communication)
+-   The Glamour of Graphics: \[[video](https://www.rstudio.com/resources/rstudioconf-2020/the-glamour-of-graphics/)\] \[[slides](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html)\] \[[Prof's slides inspired by Will's talk](https://docs.google.com/presentation/d/1wT9M4J2O72s_pbcoqmaNLgBQJIUi2SzmvSmULmOWbSM/edit?usp=sharing)\]
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(scales)
+
+knitr::opts_chunk$set(fig.height = 3.5, dpi = 300, echo=TRUE) 
+```
+
+## Keep it simple
+
+::: columns
+::: {.column width="50%"}
+```{r pie-3d, echo = FALSE, out.width="100%"}
+knitr::include_graphics("images/05/pie-3d.jpg")
+```
+:::
+
+::: {.column width="50%"}
+```{r pie-to-bar, echo = FALSE, out.width="100%"}
+d <- tribble(
+  ~category, ~value,
+  "Cutting tools", 0.03,
+  "Buildings and administration", 0.22,
+  "Labor", 0.31,
+  "Machinery", 0.27,
+  "Workplace materials", 0.17
+)
+ggplot(d, aes(x = fct_reorder(category, value), y = value)) +
+  geom_col() +
+  theme_minimal() +
+  coord_flip() +
+  labs(x = "", y = "")
+```
+:::
+:::
+
+## Use color to draw attention
+
+::: columns
+::: {.column width="50%"}
+```{r echo = FALSE, out.width="100%"}
+d |>
+  mutate(category = str_replace(category, " ", "\n")) |>
+  ggplot(aes(x = category, y = value, fill = category)) +
+  geom_col() +
+  theme_minimal() +
+  labs(x = "", y = "") +
+  theme(legend.position = "none")
+```
+:::
+
+::: {.column width="50%"}
+```{r echo = FALSE, out.width="100%"}
+ggplot(d, aes(x = fct_reorder(category, value), y = value, fill = category)) +
+  geom_col() +
+  theme_minimal() +
+  coord_flip() +
+  labs(x = "", y = "") +
+  scale_fill_manual(values = c("red", rep("gray", 4))) +
+  theme(legend.position = "none")
+```
+:::
+:::
+
+## Tell a story
+
+```{r echo = FALSE, out.width = "100%"}
+knitr::include_graphics("images/05/time-series-story.png")
+```
+
+::: aside
+Credit: Angela Zoss and Eric Monson, Duke DVS
+:::
+
+# Principles for effective visualizations {background-color="#92A86A"}
+
+## Principles for effective visualizations
+
+-   Order matters
+-   Put long categories on the y-axis
+-   Keep scales consistent
+-   Select meaningful colors
+-   Use meaningful and nonredundant labels
+
+## Data
+
+In September 2019, YouGov survey asked 1,639 GB adults the following question:
+
+::: columns
+::: {.column width="50%"}
+> In hindsight, do you think Britain was right/wrong to vote to leave EU?
+>
+> -   Right to leave\
+> -   Wrong to leave\
+> -   Don't know
+:::
+
+::: {.column width="50%"}
+```{r echo = FALSE}
+brexit <- tibble(
+  opinion = c(
+    rep("Right", 664), rep("Wrong", 787), rep("Don't know", 188)
+  ),
+  region = c(
+    rep("london", 63), rep("rest_of_south", 241), rep("midlands_wales", 145), rep("north", 176), rep("scot", 39),
+    rep("london", 110), rep("rest_of_south", 257), rep("midlands_wales", 152), rep("north", 176), rep("scot", 92),
+    rep("london", 24), rep("rest_of_south", 49), rep("midlands_wales", 57), rep("north", 48), rep("scot", 10)
+  )
+)
+```
+
+```{r echo = FALSE, out.width="100%"}
+ggplot(brexit, aes(x = opinion)) +
+  geom_bar()
+```
+:::
+:::
+
+::: aside
+Source: [YouGov Survey Results](https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/x0msmggx08/YouGov%20-%20Brexit%20and%202019%20election.pdf), retrieved Oct 7, 2019
+:::
+
+## The Data: Code
+
+```{r, eval=FALSE}
+brexit <- tibble(
+  opinion = c(
+    rep("Right", 664), rep("Wrong", 787), rep("Don't know", 188)
+  ),
+  region = c(
+    rep("london", 63), rep("rest_of_south", 241), rep("midlands_wales", 145), rep("north", 176), rep("scot", 39),
+    rep("london", 110), rep("rest_of_south", 257), rep("midlands_wales", 152), rep("north", 176), rep("scot", 92),
+    rep("london", 24), rep("rest_of_south", 49), rep("midlands_wales", 57), rep("north", 48), rep("scot", 10)
+  )
+)
+```
+
+## Order matters
+
+**Alphabetical is rarely ideal**
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="default-opinion", echo = FALSE}
+```
+
+### Code
+
+```{r default-opinion, fig.show = "hide"}
+ggplot(brexit, aes(x = opinion)) +
+  geom_bar()
+```
+:::
+
+## Order by frequency
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="infreq", echo = FALSE}
+```
+
+### Code
+
+`fct_infreq`: Reorder factors' levels by frequency
+
+```{r infreq, fig.show = "hide"}
+#| code-line-numbers: "1"
+
+ggplot(brexit, aes(x = fct_infreq(opinion))) + 
+  geom_bar()
+```
+:::
+
+## Clean up labels
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="labels", echo = FALSE}
+```
+
+### Code
+
+```{r labels, fig.show = "hide"}
+#| code-line-numbers: "3-6"
+
+ggplot(brexit, aes(x = opinion)) +
+  geom_bar() +
+  labs( 
+    x = "Opinion", 
+    y = "Count" 
+  ) 
+```
+:::
+
+------------------------------------------------------------------------
+
+## Avoiding Alphabetical Order
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="region-default", echo = FALSE}
+```
+
+### Code
+
+```{r region-default, fig.show = "hide"}
+ggplot(brexit, aes(x = region)) +
+  geom_bar()
+```
+:::
+
+## Use inherent level order
+
+::: panel-tabset
+### Relevel
+
+`fct_relevel`: Reorder factor levels using a custom order
+
+```{r relevel, fig.show = "hide"}
+#| code-line-numbers: "3-6"
+
+brexit <- brexit |>
+  mutate(
+    region = fct_relevel( 
+      region,
+      "london", "rest_of_south", "midlands_wales", "north", "scot"
+    )
+  )
+```
+
+### Plot
+
+```{r echo=FALSE}
+ggplot(brexit, aes(x = region)) +
+  geom_bar()
+```
+:::
+
+------------------------------------------------------------------------
+
+## Clean up labels
+
+::: panel-tabset
+### Recode
+
+`fct_recode`: Change factor levels by hand
+
+```{r recode, fig.show = "hide"}
+#| code-line-numbers: "3-10"
+
+brexit <- brexit |>
+  mutate(
+    region = fct_recode( 
+      region,
+      London = "london",
+      `Rest of South` = "rest_of_south",
+      `Midlands / Wales` = "midlands_wales",
+      North = "north",
+      Scotland = "scot"
+    )
+  )
+```
+
+### Plot
+
+```{r recode-plot, echo=FALSE}
+ggplot(brexit, aes(x = region)) +
+  geom_bar()
+```
+:::
+
+## Put long categories on the y-axis
+
+**Long categories can be hard to read**
+
+```{r ref.label="recode-plot", echo = FALSE}
+```
+
+## Move them to the y-axis
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="flip", echo = FALSE}
+```
+
+### Code
+
+```{r flip, fig.show = "hide"}
+#| code-line-numbers: "1"
+
+ggplot(brexit, aes(y = region)) + 
+  geom_bar()
+```
+:::
+
+## And reverse the order of levels
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="rev", echo = FALSE}
+```
+
+### Code
+
+`fct_rev`: Reverse order of factor levels
+
+```{r rev, fig.show = "hide"}
+#| code-line-numbers: "1"
+
+ggplot(brexit, aes(y = fct_rev(region))) + 
+  geom_bar()
+```
+:::
+
+## Clean up labels
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="labels-again", echo = FALSE}
+```
+
+### Code
+
+```{r labels-again, fig.show = "hide"}
+#| code-line-numbers: "3-6"
+
+ggplot(brexit, aes(y = fct_rev(region))) +
+  geom_bar() +
+  labs( 
+    x = "Count", 
+    y = "Region" 
+  ) 
+```
+:::
+
+# Pick a purpose {background-color="#92A86A"}
+
+## Segmented bar plots can be hard to read
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="segment", echo = FALSE}
+```
+
+### Code
+
+```{r segment, fig.show = "hide"}
+#| code-line-numbers: "1"
+
+ggplot(brexit, aes(y = region, fill = opinion)) + 
+  geom_bar()
+```
+:::
+
+## Use facets
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="facet", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r facet, fig.show = "hide"}
+#| code-line-numbers: "3"
+
+ggplot(brexit, aes(y = opinion, fill = region)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1) 
+```
+:::
+
+## Avoid redundancy?
+
+```{r echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+ggplot(brexit, aes(y = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1)
+```
+
+## Redundancy can help tell a story
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="facet-fill", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r facet-fill, fig.show = "hide"}
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1)
+```
+:::
+
+## Be selective with redundancy
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="hide-legend", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r hide-legend, fig.show = "hide"}
+#| code-line-numbers: "4"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1) +
+  guides(fill = "none") 
+```
+:::
+
+## Use informative labels
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="informative-label", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r informative-label, fig.show = "hide"}
+#| code-line-numbers: "6"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?", 
+    x = NULL, y = NULL
+  )
+```
+:::
+
+## A bit more info
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="more-info", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r more-info, fig.show = "hide"}
+#| code-line-numbers: "7-8"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019", 
+    caption = "Source: https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/x0msmggx08/YouGov%20-%20Brexit%20and%202019%20election.pdf", 
+    x = NULL, y = NULL
+  )
+```
+:::
+
+## Let's do better
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="short-link", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r short-link, fig.show = "hide"}
+#| code-line-numbers: "8"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1) +
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg", 
+    x = NULL, y = NULL
+  )
+```
+:::
+
+## Fix up facet labels
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="label-wrap", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r label-wrap, fig.show = "hide"}
+#| code-line-numbers: "5"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region,
+    nrow = 1,
+    labeller = label_wrap_gen(width = 12) 
+  ) + 
+  guides(fill = "none") +
+  labs(
+    title = "Was Britain right/wrong to vote to leave EU?",
+    subtitle = "YouGov Survey Results, 2-3 September 2019",
+    caption = "Source: bit.ly/2lCJZVg",
+    x = NULL, y = NULL
+  )
+```
+:::
+
+# Select meaningful colors {background-color="#92A86A"}
+
+## Rainbow colors not always best
+
+```{r ref.label="label-wrap", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+## Manually choose colors when needed
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="red-green", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r red-green, fig.show = "hide"}
+#| code-line-numbers: "9-13"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(title = "Was Britain right/wrong to vote to leave EU?",
+       subtitle = "YouGov Survey Results, 2-3 September 2019",
+       caption = "Source: bit.ly/2lCJZVg",
+       x = NULL, y = NULL) +
+  scale_fill_manual(values = c( 
+    "Wrong" = "red", 
+    "Right" = "green", 
+    "Don't know" = "gray" 
+  )) 
+```
+:::
+
+## Choosing better colors
+
+[colorbrewer2.org](https://colorbrewer2.org/)
+
+```{r echo = FALSE, out.width = "60%"}
+knitr::include_graphics("images/05/color-brewer.png")
+```
+
+## Use better colors
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="color-brewer", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r color-brewer, fig.show = "hide"}
+#| code-line-numbers: "9-13"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(title = "Was Britain right/wrong to vote to leave EU?",
+       subtitle = "YouGov Survey Results, 2-3 September 2019",
+       caption = "Source: bit.ly/2lCJZVg",
+       x = NULL, y = NULL) +
+  scale_fill_manual(values = c(
+    "Wrong" = "#ef8a62", 
+    "Right" = "#67a9cf", 
+    "Don't know" = "gray" 
+  ))
+```
+:::
+
+## Select theme
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="theme", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r theme, fig.show = "hide"}
+#| code-line-numbers: "12"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(title = "Was Britain right/wrong to vote to leave EU?",
+       subtitle = "YouGov Survey Results, 2-3 September 2019",
+       caption = "Source: bit.ly/2lCJZVg",
+       x = NULL, y = NULL) +
+  scale_fill_manual(values = c("Wrong" = "#ef8a62",
+                               "Right" = "#67a9cf",
+                               "Don't know" = "gray")) +
+  theme_minimal() 
+```
+:::
+
+::: aside
+`ggthemes` described [here](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+:::
+
+## Customize theme
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="theme-custom", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r theme-custom, fig.show = "hide"}
+#| code-line-numbers: "12-14"
+
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(title = "Was Britain right/wrong to vote to leave EU?",
+       subtitle = "YouGov Survey Results, 2-3 September 2019",
+       caption = "Source: bit.ly/2lCJZVg",
+       x = NULL, y = NULL) +
+  scale_fill_manual(values = c("Wrong" = "#ef8a62",
+                               "Right" = "#67a9cf",
+                               "Don't know" = "gray")) +
+  theme_minimal(base_size = 16) + 
+  theme(plot.title.position = "plot", 
+        panel.grid.major.y = element_blank()) 
+```
+:::
+
+## Your Turn
+
+-   Read in the data ([Data](https://cogs137-fa24.github.io/cogs137-fa24/content/lectures/05-viz.html#the-data-code))
+-   Think of at least three different ways to tell slightly different stories with these data
+-   Try to implement at least one of these ideas!
+
+# Recap {background-color="#92A86A"}
+
+-   Can you determine what needs to be done to improve the effectiveness of your visualizations?
+-   Can you execute said improvements using `ggplot2`?
+-   Can you tell a story with data?

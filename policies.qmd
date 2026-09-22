@@ -1,0 +1,148 @@
+### Class
+
+Class will include short lectures, interactive activities, and time for group work. The goal of lecture is to introduce the topics and information needed for the course and get initial practice. The goal of your time outside of lecture is to further practice with topics that are introduced and deepen your understanding of material presented in class. Since so much of programming and statistical analysis is learned best by doing, we'll prioritize that throughout the course, both in and outside of the classroom.
+
+### Course components
+
+#### Lecture
+
+Lectures will be your introduction to course topics and material. Lectures will be interactive, and you will be given time to practice with the lecture concepts during class. Attendance is not required, but is encouraged if you're feeling well. To help incentivize coming to class, there will be a daily participation survey that will open at the end of lecture and close shortly after each Tues/Thurs lecture. Each time you fill out the lecture survey, you get a small % of credit toward your final project Completion of all surveys will provide 0.8% extra credit on your final grade.
+
+##### Readings
+
+Readings will be suggested for some class days and are best completed prior to the day's lecture. These are meant to provide background and additional context for the upcoming day's lecture topics. These can also be a good source after class when studying or reviewing topics discussed in class.
+
+##### Podcast
+
+In case you miss class or would like to review the material covered in class, you can view the podcasts [here](https://podcast.ucsd.edu).
+
+#### Labs
+
+Labs are meant to give you deeper understanding and hands-on experience with the topics introduced during lecture in a low-stakes environment. Lab sections will typically comprise of a short review and explanation of the lab and then time for you to complete the assigned weekly lab. Labs are submitted individually, but you are encouraged to work together during lab. You are free to ask and answer each others' questions and discuss your work. Instructional staff will be present during lab to help further your understanding.
+
+Labs are graded for concerted effort. This is because when we learn something new, mistakes are going to happen! In fact, we learn *a lot* from the mistakes we make during the learning process. If your submission reflects \~50 min of work/effort, you will receive full credit for the week's lab.
+
+Lab attendance is not required, but is definitely encouraged if you are feeling well as you'll learn a lot by engaging with others' ideas and getting questions answered in real-time.
+
+#### Homework
+
+After practice in lecture and labs, homework assignments are meant to demonstrate your solidified understanding of the course material. These are typically 2-4x longer and more involved than labs. Homework assignments are completed and submitted individually and are marked for correctness. You *are* allowed to work together on homework assignments, but academic integrity must be upheld.
+
+#### Projects
+
+There will be two case study mini-projects and a final project. Teams will be randomly assigned for the first case study, but you all will select your team for the second case study and final project (which will both be completed in the same team). By working with teammates throughout the course, you will also be able to use one another as a resource during labs and assignments.
+
+##### Case Studies
+
+We will use case studies throughout the course to guide our learning of both programming in R and using that to analyze data. Specific case studies and statistics topics will be discussed in class. In your teams and for each of the case studies, you will: 1) carry out the analysis presented in class as a group, 2) extend the analysis from class and 3) communicate your findings for both a technical and general audience.
+
+##### Final Project
+
+The final project will be completed in groups, where each group will carry out a data analysis on a topic and dataset of their choosing. Final Project groups will have to submit a proposal during week 7, a rough draft during week 9, will submit/receive peer feedback during week 10, and their final submissions Tues of finals week by 11:59 PM.
+
+Final project submissions will include a 1) detailed data science report, 2) short (3-5 min) presentation of the project and 3) a general audience communication.
+
+Project groups will have the opportunity to present their projects to the class for extra credit during week 10. Groups that do not present to the class will submit their presentation as a recording.
+
+### Grading
+
+Your final grade will be comprised of the following:
+
+| Assignment (#)               | \% of grade     |
+|------------------------------|-----------------|
+| Labs (7)                     | 21% (3pt each)  |
+| Homework (3)                 | 24% (8pt each)  |
+| Case Study Projects\* (2)    | 30% (15pt each) |
+| Final Project Proposal\* (1) | 3%              |
+| Peer Review\* (1)            | 3%              |
+| Final Report\* (1)           | 10%             |
+| General Communication\* (1)  | 3%              |
+| Final Presentation (1)       | 3%              |
+| Team Evaluation Surveys (3)  | 3% (1pt each)   |
+
+\* indicates group submission
+
+#### Final Grades
+
+To calculate final grades, I use the standard grading scale and do not round grades up (given the numerous extra credit opportunities offered):
+
+|         |     |
+|---------|-----|
+| 97-100% | A+  |
+| 93-96%  | A   |
+| 90-92%  | A-  |
+| 87-89%  | B+  |
+| 83-86%  | B   |
+| 80-82%  | B-  |
+| 77-79%  | C+  |
+| 73-76%  | C   |
+| 70-72%  | C-  |
+| 67-69%  | D+  |
+| 63-66%  | D   |
+| 60-62%  | D-  |
+| \<60%   | F   |
+
+### Late / missed work
+
+Late homework assignments and case study projects will be accepted up to 3 days (72 hours) after the assigned deadline. Late submissions will receive a 25% deduction.
+
+There are no late deadlines for labs, the exam, or the final project.
+
+Note: Prof Ellis is a reasonable person; reach out to her if you have an extenuating circumstance at any point in the quarter.
+
+### Regrade requests
+
+We will work hard to grade everyone fairly and return assignments quickly. And, we know you also work hard and want you to receive the grade you've earned. Occasionally, grading mistakes do happen, and it's important to us to correct them. If you think there is a mistake in your grade on an assignment, post *privately* on Campuswire to "Instructors" using the "regrades" tag within 72 hours. This post should include evidence of why you think your answer was correct and should point to the specific part of the assignment in question.
+
+### Diversity & Inclusion
+
+My goal is that every student, regardless of their background or perspective, will be well-served by this course. My philosophy is that the diversity of students in this class is a huge asset to our learning community; our differences provide opportunities for learning and understanding. I intend to present course materials that are conscious of and respectful to diversity (gender identity, sexuality, disability, age, socioeconomic status, ethnicity, race, nationality, religion, politics, and culture); however, if I ever fall short or if you ever have suggestions for improvement, please do share with me! This feedback is always welcomed, and I am always in the process of learning and improving to this end. If you would like to provide that feedback anonymously, please use the anonymous Google Form.\*
+
+#### What should you call me?
+
+Most students call me Professor/Prof Ellis, and that's great! This is how I typically sign emails to students. I'm also totally OK with you addressing me as Shannon or Dr. Ellis.
+
+#### What I should call you?
+
+I should call you by your preferred name, with the correct pronunciation. Please correct me (in the moment or online after the fact...however you're most comfortable) if I ever make a mistake.
+
+### Disability Access
+
+Students requesting accommodations due to a disability should provide a current Authorization for Accommodation (AFA) letter. These letters are issued by the Office for Students with Disabilities (OSD), which is located in University Center 202 behind Center Hall. If you are struggling to get necessary accommodations or want to further discuss your accommodations, please feel free to reach out to Professor Ellis directly.
+
+Contacting the OSD can help you further:\
+858.534.4382 (phone)\
+osd\@ucsd.edu (email)\
+http://disabilities.ucsd.edu
+
+### How to get help
+
+Class time, lab, and office hours are all great! Online communication works too, via either the class Q&A platform or email. If contacting by email, it's best to include COGS 137 in the subject line.
+
+But, if you prefer to be anonymous (i.e. If you've been offended by an example in class, really disliked a lesson, or wish there were something covered in class that wasn't but would rather not share this publicly), please fill out the [anonymous Google Form](https://goo.gl/forms/2nXnDNbgYuS1OsGF2)\*.
+
+\*This form can be taken down at any time if it's not being used for its intended purpose; however, you all will be notified should that happen.
+
+### Academic integrity
+
+Don't cheat.
+
+You are generally encouraged to work together and help one another in this course. However, you are personally responsible for the work you submit. A helpful heuristic can be to ask yourself "Can I explain each piece of code and each analysis carried out in what I'm submitting? Could I reproduce this code/analysis on my own?"; you should be able to answer "Yes" to both questions for everything you submit in this course. For labs and assignments, you are allowed and encouraged to work together, but it is your responsibility to ensure you understand everything you've submitted. (For the midterm, all work has to be completed individually and communication with other humans about the exam is not allowed; this will be discussed more explicitly beforehand.)
+
+**A note on sharing / reusing code:** The Internet is an excellent resource; there will be many times you find helpful information online. You *should* use available resources (e.g. ChatGPT, Copilot, StackOverflow, etc.), but you must explicitly cite any code you use directly or any code you use as inspiration. This can be done by including the URL/reference to the source directly in your code (as a code comment) or in accompanying text for a given assignment/exam/lab. You should never share code directly (e.g. copy + paste; share an send an answer to a classmate), but you can discuss code and work together on everything other than take-home exams.
+
+Please review UCSD's academic integrity policies [here](http://academicintegrity.ucsd.edu).
+
+Cheating and plagiarism have been and will be strongly penalized. If, for whatever reason, Canvas or DataHub is down or something else prohibits you from being able to turn in an assignment on time, immediately contact Professor Ellis by emailing (sellis\@ucsd.edu) your assignment as soon as possible to avoid it being graded as late.
+
+### Professionalism
+
+Please refrain from texting or using your computer for anything other than coursework during class. Not only is this distracting to you, but it can also be distracting to those around you. (Note that there is no consequence associated with this. I know it can be difficult, but I ask that you try your best!)
+
+### Classroom Observation Study
+
+This quarter, I am taking part in a research study (NSF IUSE 2236318) investigating how STEM instructors use data about their own teaching practices to reflect on and iterate upon their practices.
+
+As part of this study, two weeks of class will be video recorded. The first week of recordings will occur in week 2/3 of the quarter and the second week of recordings will occur in week 8/9.
+
+The recordings will be centered on my instruction and not on you. Given that the purpose of this study is to accurately capture my teaching, it is important that you continue to behave as you normally would without video recording. Only members of the study team will have access to the video recordings and the raw data files will be stored on a password-protected Google Drive. Upon completion of the study, the video recordings will be deleted.

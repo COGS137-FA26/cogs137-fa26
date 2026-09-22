@@ -1,0 +1,15 @@
+{
+  "hash": "06f5c2d66659c001f0d8897978dfb9a3",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab 06 - CS02 EDA\"\ndate: \"2024-11-14\"\noutput: \n  html: \n    highlight: pygments\n    css: lab.css\n    preview-links: auto\n---\n\n\n\n\n# Introduction\n\nThe main goals of this lab are for you to really deepen your knowledge surrounding the CS02 data by continuing EDA beyond what was presented and discussed in class.\n\n# Getting started\n\nTo get started, accept the lab06 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!\n\n# Packages\n\nBe sure to import the `tidyverse` prior to completing the lab. Additional packages are allowed, but not expected nor required.\n\n# Data\n\nIn this lab, you'll start from the data provided with your lab:\n\n``` r\npm_data <- read_csv(\"data/pm25_data.csv\")\n```\n\n# Exercises\n\n## Part 1: Deeper knowledge through EDA\n\n### Exercise 1\n\nConsider all we have discussed and learned through the EDA presented in class. Now, carry out additional EDA to learn something beyond what was previously displayed/discussed in class. This may be a single plot. It may be more than one plot. It could be a table....or multiple tables. But, work to fully understand the data to the best of your abilities.\n\n### Exercise 2\n\nDescribe what new information you learned from what you generated above.\n\n## Part 2: Possible extensions?\n\n### Exercise 3\n\nThink about the data you have access to, the background discussed in class, and the question each group has been asked to address. What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't \"good\" or you aren't sure if they are \"possible.\" This can be used as a jumping off point for when you start discussing analysis extensions with your group.\n\n# Submit\n\n::: callout-important\nYou'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.\n:::\n\n*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message \"Done with Lab 6! 💪\", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

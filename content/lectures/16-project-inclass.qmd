@@ -1,0 +1,54 @@
+---
+title: "16-project-inclass"
+author: "Professor Shannon Ellis"
+date: "2024-12-03"
+
+format:
+  html: 
+    output-file: 16-project-inclass.html
+  revealjs:
+    output-file: 16-project-inclass-slides.html
+    css: slides.css
+---
+
+# Final Project: In class {background-color="#92A86A"}
+
+## Q&A {.smaller}
+
+> Q: This slide is about slides, but are we allowed to some other form general communication?\
+> A: Yup! For your presentation, you'll probably use slides. For your general communication, all the options are available to you!
+
+> Q:For a general audience, that does not know much about coding or graphs, how would you approach breaking down a final project presentation to that audience?\
+> A: Minimize the number of plots you show. Ensure that each plot is as simple as it can be while still conveying the message. And, absolutely introduce any plot included. If unfamiliar with coding, I would leave any details about code out from the presentation entirely.
+
+## Course Announcements
+
+**Due Dates**:
+
+- 📄 **Final Project** due Tuesday
+  - Rmd/HTML in repo
+  - 3-5 min Presentation submitted on Canvas (1/group)
+  - General Communication submitted on Canvas (1/group)
+  - [final project team evaluation](https://docs.google.com/forms/d/e/1FAIpQLScOfGiWvHY4UVobL95Em1d2JIEZJf8UCejGtpxsxUjW-FSiyw/viewform?usp=sf_link) (individual submission; link on Canvas and website) <- also a place where you can praise teammates
+- 🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
+
+Notes:
+
+-   Final Project - peer review was sent to each group in original email assigning peer review
+- Grades posted: CS02 Team evaluation, peer evaluation, lab07
+
+## Plan for Thursday
+
+- Course Announcements
+- Group Presentations (for EC; do not have to submit on Canvas)
+  - team forcats
+  - Zoom Team
+  - Plan A
+  - Team 9
+  - team tune
+- Final Discussion & Wrap it up
+
+# Final Project Questions? {background-color="#92A86A"}
+
+# Project Time {background-color="#92A86A"}
+

@@ -1,0 +1,59 @@
+---
+title: "Lab 03 - CS01 Data Visualization"
+date: "2024-10-24"
+output: 
+  html: 
+    highlight: pygments
+    css: lab.css
+    preview-links: auto
+---
+
+```{r include=FALSE}
+library(tidyverse)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE     # for regression output
+  )
+```
+
+# Introduction
+
+The main goals of this lab are for you to 1) get more comfortable generating plots using `ggplot2` and 2) for you to learn more about the CS01 data.
+
+# Getting started
+
+To get started, accept the lab03 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+
+# Packages
+
+The only package required for completion of this lab is `tidyverse`, as `ggplot2` (which you'll be using a lot in this lab) is one of the packages in the `tidyverse`. Be sure to import the `tidyverse` prior to completing the lab.
+
+# Data
+
+In this lab, you'll start from the cleaned version of the three data files you would have had after the completion of lab02. This file can be read in as follows:
+
+``` r
+cs_data <- read_csv("data/cs01_combined.csv")
+```
+
+# Exercises
+
+## Part 1: Data Visualization
+
+Create at least three (3) visualizations using at least two (2) different `geom`s that help you learn more about these data beyond the code presented in class so far. (This is intentionally vague. We want you to look at the data and figure out what might be most helpful to visualize from the provided data. These could be different variables than what we looked at in class. Data could be faceted. Something totally different!)
+
+Beneath each plot, include a brief statement about why you chose to make the plot you generated and/or what you've learned from the visualization.
+
+These do *not* have to be fully polished visualizations, but it should be clear from the visualization and accompanying text what's to be learned from the visualization (or at least what you attempted to learn).
+
+## Part 2: Possible extensions?
+
+Think about the data you have access to, the background discussed in class, and the question each group is going to address. What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't "good" or you aren't sure if they are "possible." This can be used as a jumping off point for when you start discussing analysis extensions with your group.
+
+# Submit
+
+::: callout-important
+You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+:::
+
+*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 3! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

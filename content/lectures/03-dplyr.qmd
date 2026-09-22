@@ -1,0 +1,531 @@
+---
+title: "03-dplyr"
+author: "Professor Shannon Ellis"
+date: "2024-10-08"
+
+format:
+  html: 
+    output-file: 03-dplyr.html
+  revealjs:
+    output-file: 03-dplyr-slides.html
+---
+
+# Data Manipulation with `dplyr` {background-color="#92A86A"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+library(DT)
+
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300, echo=TRUE) 
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## \[ad\] EDGE
+
+Mentorship opportunity for women-identifying students:
+
+![](images/03/edge.png)
+
+## Q&A {.scrollable .smaller}
+
+> Q: what does \|\> mean? Do we need to know a lot of how to code those examples from class?\
+> A: Love that you're noting and questioning these things. We're going to discuss this today! You do not need to know the code examples...yet. We're going to discuss code starting today; this starts with what you'll need to be familiar with.
+
+> Q: How to really extend the case study in our own time, when many information/analysis are already given in the lecture?\
+> A: We'll discuss this more! But, specifically for this first Case Study. We're asking a very narrow question....but have a lot of variables. Is there some subgroup you could focus on? A different time window? A combination of compounds? Etc.
+
+> Q: How can we do more complex math in R?\
+> A: Depends on what kind of complex math you're aiming to do - a lot of complex math is built directly into R; other things would require additional packages.
+
+> Q: Where can I find the full study on the data we reviewed in class. Seems like something I'd like to read and perhaps play with the data myself.\
+> A: We're going to discuss the results today! But, the links are inlcuded in the notes (in what we didn't get to yet.)
+
+> Q: How did the police officers do to detect cognitive impariedness with marijuana consumption?\
+> A: Not great (not better than flipping a coin). We'll discuss this today!
+
+> Q: Why were the numeric types in the cat lovers data frame labeled as 'dbl' instead of numeric?\
+> A: There are multiple "levels" of object type in R (which I did not make clear in lecture b/c it's not important for this class). Double is a subset of numeric. If you ask for `type()` rather than `class()` you'll see this difference.
+
+> Q: In class, we used \|\> as a pipe operator. Is it fine if we use %\>% instead? Do you have a preference between the two? Thank you!\
+> A: We'll discuss this today - no preference!
+
+> Q: My github username is pretty weird. How are the professor and TA going to know that it is me if my username does not resemble my actual name?\
+> A: On your first lab, we ask you to put your name in the author field. We use that to match students to their GH usernames!
+
+## Course Announcements
+
+**Due Dates**:
+
+-   **Lab 01** due Thursday (10/10 11:59 PM; push to GH)
+-   **HW01** now available; due Monday (10/14; 11:59 PM)
+-   Lecture Participation survey "due" after class
+
+. . .
+
+Notes:
+
+-   No Lecture on Thursday this week
+-   Discuss: GH\<-\>RStudio issue (`OpenSSL version mismatch. Built against 30000020, you have 30300020`)
+-   Regular labs resume this week
+-   Mention: waitlist & dropping
+
+## Suggested Reading
+
+R4DS:
+
+-   Chapter 5: [Data Transformation](https://r4ds.hadley.nz/data-transform)
+-   Chapter 16: [Factors](https://r4ds.hadley.nz/factors)
+
+## Agenda
+
+-   `dplyr`
+    -   philosophy
+    -   pipes
+    -   common operations
+-   CS01 Wrangling
+
+## Philosophy
+
+> `dplyr` is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges
+
+::: aside
+Source: [dplyr.tidyverse.org](https://dplyr.tidyverse.org/)
+:::
+
+# Pipes {background-color="#92A86A"}
+
+## The pipe in baseR
+
+<p align="center">
+
+<img src="images/03/baseR_hex.jpeg" width="300" height="300" align="center"/>
+
+</p>
+
+-   `|>` should be read as "and then"
+-   for example "Wake up \|\> brush teeth" would be read as "wake up *and then* brush teeth"
+
+## Where does the name come from?
+
+The pipe operator was *first* implemented in the package **magrittr**.
+
+::: columns
+::: {.column width="50%"}
+![](images/03/magritte.jpg)
+:::
+
+::: {.column width="50%"}
+![](images/03/magrittr.jpg)
+:::
+:::
+
+You will see this frequently in code online. It's equivalent to `|>`.
+
+## How does a pipe work?
+
+-   You can think about the following sequence of actions - find key, unlock car, start car, drive to school, park.
+
+. . .
+
+-   Expressed as a set of nested functions in R pseudocode this would look like:
+
+```{r eval=FALSE}
+park(drive(start_car(find("keys")), to = "campus"))
+```
+
+. . .
+
+-   Writing it out using pipes give it a more natural (and easier to read) structure:
+
+```{r eval=FALSE}
+find("keys") |>
+  start_car() |>
+  drive(to = "campus") |>
+  park()
+```
+
+. . .
+
+(Reminder to comment on indentation/alignment)
+
+# Data {background-color="#92A86A"}
+
+To get started with lecture code: `library(tidyverse)`
+
+## Whole Blood (WB) Data from THC Study
+
+```{r load-data-real, message=FALSE}
+WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
+```
+
+::: callout-important
+We're using these data to demonstrate the basic principles of `dplyr` and `tidyr` *before* we get to how to specifically clean our CS01 data.
+:::
+
+. . .
+
+Read the data in so you can follow along now!
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+## Variables
+
+View the names of variables via:
+
+```{r}
+names(WB)
+```
+
+## Viewing your data
+
+-   In the Environment, click on the name of the data frame to view it in the data viewer (or use the `View` function)
+
+-   Use the `glimpse` function to take a peek
+
+```{r}
+glimpse(WB)
+```
+
+# `dplyr` {background-color="#92A86A"}
+
+## A Grammar of Data Manipulation {.smaller .scrollable}
+
+**dplyr** is based on the concepts of functions as verbs that manipulate data frames.
+
+Single data frame functions / verbs:
+
+-   `filter`: pick rows matching criteria
+-   `mutate`: add new variables
+-   `select`: pick columns by name
+-   `rename`: rename specific columns
+-   `summarize`: reduce variables to values
+-   `arrange`: reorder rows
+-   `distinct`: filter for unique rows
+-   `pull`: grab a column as a vector
+-   `sample_n` / `sample_frac`: randomly sample rows
+-   `slice`: pick rows using index(es)
+-   ... (many more)
+
+## **`dplyr`** rules for functions
+
+1.  First argument is *always* a data frame
+
+2.  Subsequent arguments say what to do with that data frame
+
+3.  Always return a data frame
+
+4.  Do not modify in place
+
+5.  Performance via lazy evaluation
+
+## Filter rows with `filter`
+
+-   Select a subset of rows in a data frame.
+-   Easily filter for many conditions at once.
+
+## `filter` (single condition)
+
+for only measurements from Occasional users
+
+```{r}
+#| code-line-numbers: "2"
+
+WB |>
+  filter(Group == "Occasional user")
+```
+
+## `filter` (mutiple conditions)
+
+for only measurements from Occasional users where THC \> 100
+
+```{r}
+#| code-line-numbers: "2"
+
+WB |>
+  filter(Group == "Occasional user", THC > 100)
+```
+
+## select\` a range of variables
+
+```{r}
+#| code-line-numbers: "2"
+
+WB |>
+  select(ID:`FLUID TYPE`)
+```
+
+-   `ID:FLUID TYPE`: take all columns from `ID` through `FLUID TYPE`
+-   `FLUID TYPE` has backticks due to space in column name
+
+## `select` to keep range + others
+
+```{r}
+#| code-line-numbers: "2"
+
+WB |>
+  select(ID:`FLUID TYPE`, THC, time.from.start)
+```
+
+## `select` to exclude variables
+
+```{r}
+#| code-line-numbers: "2"
+
+WB |>
+  select(-Timepoint)
+```
+
+## `select` can rename columns
+
+```{r}
+#| code-line-numbers: "2"
+
+WB |>
+  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)
+```
+
+## "Save" when you make dataset changes
+
+-   decide if you want to overwrite original or create new
+
+```{r}
+WB_sub <- WB |>
+  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)
+```
+
+## Check before you move on
+
+Always check your changes and confirm code did what you wanted it to do
+
+```{r}
+names(WB_sub)
+```
+
+## `rename` specific columns
+
+Useful for correcting typos, and renaming to make variable names shorter and/or more informative
+
+-   Original names:
+
+```{r}
+names(WB_sub)
+```
+
+. . .
+
+```{r}
+#| code-line-numbers: "2"
+
+WB_sub <- WB_sub |>
+  rename(fluid_type = `FLUID TYPE`)
+```
+
+## `mutate` to add new variables
+
+-   Note assigning back out to itself with new column
+
+```{r}
+#| code-line-numbers: "2"
+
+(WB_sub <- WB_sub |> 
+  mutate(baseline = start_time < 0))
+```
+
+## Your Turn
+
+How many baseline measurements had a THC value greater than zero?
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+## `group_by` + `summarize` to reduce variables to values
+
+The values are summarized in a data frame:
+
+```{r}
+#| code-line-numbers: "2-3"
+
+WB_sub |>
+  group_by(Treatment, Group) |>
+  summarize(count = n())
+```
+
+## `count` to group by then count
+
+Same as last example, but summarize, not limited to counting
+
+```{r}
+WB_sub |>
+  count(Treatment, Group)
+```
+
+## Your Turn
+
+You're starting to work on the case study and you get curious. How many non-baseline observations have a THC \> 50. Does this number differ by treatment or group?
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+## and `arrange` to order rows
+
+```{r}
+#| code-line-numbers: "4"
+
+WB_sub |>
+  arrange(THC)
+```
+
+. . .
+
+[<i class="fa fa-user" aria-hidden="true"></i>   If you wanted to arrange these in descending order what would you add to the code?]{style="background-color: #ADD8E6"}
+
+## `distinct` to filter for unique rows
+
+How many unique participants?
+
+```{r}
+#| code-line-numbers: "2"
+
+WB_sub |> 
+  distinct(ID) 
+```
+
+## `distinct` has a `.keep_all` parameter
+
+```{r}
+#| code-line-numbers: "2"
+
+WB_sub |> 
+  distinct(ID, .keep_all=TRUE) 
+```
+
+. . .
+
+[<i class="fa fa-user" aria-hidden="true"></i>   Which observation did `dplyr` decide to keep?]{style="background-color: #ADD8E6"}
+
+# Factors {background-color="#92A86A"}
+
+## Factors
+
+Factor objects are how R stores data for categorical variables (fixed numbers of discrete values).
+
+```{r}
+(x = factor(c("BS", "MS", "PhD", "MS")))
+```
+
+```{r}
+glimpse(x)
+```
+
+```{r}
+typeof(x)
+```
+
+. . .
+
+[<i class="fa fa-user" aria-hidden="true"></i>   In our data, which variables should be treated as factors?]{style="background-color: #ADD8E6"}
+
+## Why does it matter?
+
+```{r, echo=TRUE, eval=TRUE}
+WB_sub |> 
+  filter(start_time > 0, start_time < 60) |> 
+  ggplot(mapping = aes(x = Treatment, y=THC)) +
+    geom_boxplot()
+```
+
+Note: we'll discuss this specific code soon.
+
+## Use `forcats` to manipulate factors
+
+-   `fct_recode` - treat as factor; give new labels
+-   `fct_relevel` - change order of levels
+
+```{r}
+WB_sub <- WB_sub |>
+  mutate(Treatment = fct_recode(Treatment, 
+                                "5.9% THC (low dose)" = "5.90%",
+                                "13.4% THC (high dose)" = "13.40%"),
+         Treatment = fct_relevel(Treatment, "Placebo", "5.9% THC (low dose)"))
+```
+
+. . .
+
+(same plotting code as earlier)
+
+```{r, echo=TRUE, eval=TRUE}
+WB_sub |> 
+  filter(start_time > 0, start_time < 60) |> 
+  ggplot(mapping = aes(x = Treatment, y=THC)) +
+    geom_boxplot()
+```
+
+## `forcats` functionality <img src="images/01/hex-forcats.png" width="10%" align="left"/>
+
+-   R uses factors to handle categorical variables, variables that have a fixed and known set of possible values. Historically, factors were much easier to work with than character vectors, so many base R functions automatically convert character vectors to factors.
+
+-   factors are still useful when you have true categorical data, and when you want to override the ordering of character vectors to improve display. The goal of the `forcats` package is to provide a suite of useful tools that solve common problems with factors.
+
+::: aside
+Source: [forcats.tidyverse.org](http://forcats.tidyverse.org/)
+:::
+
+# CS01: Wrangling {background-color="#92A86A"}
+
+## Data Cleaning
+
+```{r}
+WB <- WB |> 
+  mutate(Treatment = fct_recode(Treatment, 
+                                "5.9% THC (low dose)" = "5.90%",
+                                "13.4% THC (high dose)" = "13.40%"),
+         Treatment = fct_relevel(Treatment, "Placebo", "5.9% THC (low dose)")) |> 
+  janitor::clean_names() |>
+  rename(thcoh = x11_oh_thc,
+         thccooh = thc_cooh,
+         thccooh_gluc = thc_cooh_gluc,
+         thcv = thc_v)
+```
+
+[<i class="fa fa-user" aria-hidden="true"></i>   What is this code accomplishing?]{style="background-color: #ADD8E6"}
+
+## Data Cleaning
+
+```{r}
+WB |> 
+  mutate(timepoint = case_when(time_from_start < 0 ~ "pre-smoking",
+                               time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
+                               time_from_start > 30 & time_from_start <= 70 ~ "31-70 min",
+                               time_from_start > 70 & time_from_start <= 100 ~ "71-100 min",
+                               time_from_start > 100 & time_from_start <= 180 ~ "101-180 min",
+                               time_from_start > 180 & time_from_start <= 210 ~ "181-210 min",
+                               time_from_start > 210 & time_from_start <= 240 ~ "211-240 min",
+                               time_from_start > 240 & time_from_start <= 270 ~ "241-270 min",
+                               time_from_start > 270 & time_from_start <= 300 ~ "271-300 min",
+                               time_from_start > 300 ~ "301+ min"))
+```
+
+[<i class="fa fa-user" aria-hidden="true"></i>   What is this code accomplishing?]{style="background-color: #ADD8E6"}
+
+. . .
+
+Note: This code could have been combined with the above...I just wanted to discuss it for simplicity in lecture separately.
+
+## CS01 Data Cleaning
+
+We've cleaned up the whole blood data. Your lab will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)
+
+# Recap {background-color="#92A86A"}
+
+-   Understand the basic tenants of `dplyr`
+-   Describe and utilize the pipe in workflows
+-   Describe and use common `verbs` (functions)
+-   Understand the documentation for `dplyr` functions
+-   Understand what factors are an that `forcats` is a package with functionality for working with them
+-   Describe the wrangling carried out on the CS01 WB dataset

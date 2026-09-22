@@ -1,0 +1,74 @@
+---
+title: "Lab 05 - CS01 Communication"
+date: "2024-11-07"
+output: 
+  html: 
+    highlight: pygments
+    css: lab.css
+    preview-links: auto
+---
+
+# Introduction
+
+The main goals of this lab are for you to 1) get more comfortable customizing HTML output from Rmd documents, 2) practice citing sources, and 3) implement effective written communication strategies as discussed in class.
+
+# Getting started
+
+To get started, accept the lab05 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+
+# Packages
+
+The only package required for completion of this lab is `tidyverse`.
+
+# Exercises
+
+## Part 1: Rmd control
+
+### Exercise 1
+
+Load in the tidyverse using `library(tidyverse)`. However, you may have noticed that when you do this and knit the resulting file, the output includes a verbose message. Edit your Rmd document (either for the document overall or for this specific code chunk) so that the lengthy message doesn't display.
+
+### Exercise 2
+
+Let's customize the output a bit more by adding some additional information to your YAML. Edit the YAML of your document to:
+ 
+1. use a different theme than the default
+2. use a different option for code highlighting
+3. include a floating table of contents, with a depth of 3
+4. enable code folding
+
+:::aside
+A reminder that there are additional readings provided along with most lectures, including [Ch3](https://bookdown.org/yihui/rmarkdown/html-document.html) and [Section 2.6](https://bookdown.org/yihui/rmarkdown/r-code.html) from **R Markdown: The Definitive Guide** for the effective communication notes
+:::
+
+
+## Part 2: Citations
+
+### Exercise 3
+
+Find at least one fact on the Internet related to our CS01 main question (ideally, a source/fact we didn't discuss in class already). Specify the fact here, including a citation to the original source.
+
+This can use [footnotes as discussed in class](https://cogs137-fa24.github.io/cogs137-fa24/content/lectures/07-written-communication.html#footnotes-in-.rmd) or some other approach to citation...so long as we have the information an its original source.
+
+### Exercise 4
+
+The following paragraph has been included in your lab...but it's missing citations. Bold the sentences that you feel need citation. (You don't have to add in the citations. Just determine that a citation is necessary.)
+
+> In America, almost two-thirds of US trauma center admissions are the result of motor vehicle accidents (MVAs). Among these accidents, 60% result from drivers who test positive for a drug, and the most commonly-detected substances are alcohol and cannabis. Despite being federally illegal, cannabis use in America has increased steadily over the last 20 years, much of which has been attributed to its use being decriminalized and/or legal at the state level. Given its rise in popularity and the rate at which it shows up in toxicology reports completed at the roadside after accidents, public health concerns arise as to its safety while driving. Some states have recently begun to set limits for marijuana usage. Here, using a double-blinded randomized control trial, we identify a plausible biomarker for detection of recent marijuana usage for potential use at the roadside to determine if an individual has driven under the influence of cannabis.
+
+
+### Exercise 5
+
+Determine two changes you would make to the above paragraph to improve its effectiveness (clarity, conciseness, etc.). Would you remove information? Add? Reorder? Change to include specifics? Etc. Feel free to state the changes, without actually making the edits.
+
+## Part 3: CS01
+
+Feel free to use remaining time incorporating these changes/improvements into your group's CS01 Report. 
+
+# Submit
+
+::: callout-important
+You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+:::
+
+*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

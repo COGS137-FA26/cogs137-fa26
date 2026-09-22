@@ -1,0 +1,616 @@
+---
+title: "01-intro-to-r"
+author: "Professor Shannon Ellis"
+date: "2024-10-01"
+
+format:
+  html: 
+    output-file: 01-intro-to-r.html
+  revealjs:
+    output-file: 01-intro-to-r-slides.html
+    slide-number: true
+    chalkboard: false
+    preview-links: auto
+    logo: images/cogs137-logo-hex.png
+    css: slides.css
+---
+
+# Introduction to R {background-color="#92A86A"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+library(DT)
+
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300, echo=TRUE) 
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+
+options(gargle_oauth_email = "sellis@ucsd.edu")
+```
+
+## \[ad\] Computing Paths
+
+![[https://computingpaths.ucsd.edu/]()](images/01/computing_paths.png)
+
+## Q&A {.scrollable .smaller}
+
+> Q: How much of my experience in Java, C++, and Python help me with R?\
+> A: Tons! It's always easier/faster to pick up a new programming language with familiarity in a prior language. Python would be the most similar to R from a design perspective, but there will still be R quirks. That said, if you've used \`pandas\` in python for data analysis, that will be very overlapping.
+
+> Q: Is attendance required to attend? I know the lectures are recorded, but I want to make sure I'm not missing out on anything if I were unable to attend for some reason.\
+> A: You can only get the lecture attendance extra credit by being in class on any given day, but that's just extra credit. Nothing else is required. That said, I will be forming groups within those who regularly come to class for CS01 and there will be time to work on stuff in class. So, helpful to come, but not required.
+
+> Q: Will assignments show up in DataHub?\
+> A: They won't, but we'll talk about how/where to access them today/on Tues.
+
+> Q: I’m wondering how library imports work like in Python or if that’s even a thing in R!\
+> A: It is a thing and we'll definitely get into it! There's a package for almost everything in R (just like in python)
+
+> Q: If you don't submit the survey on time, will you still be assigned to the group of people that aren't synchronously going to class?\
+> A: 1. If the survey is still open, you can submit. 2. Yes! I will be assigning group among people who regularly come to class. If you miss a day or two, that's ok!
+
+> Q: I'm not sure if I missed this in lecture but what is the difference between Rstudio and R, and when do we know which one to use.\
+> A: RStudio is the environment where we write R code. We'll be using RStudio exclusively...so RStudio will be your go to!
+
+> Q: Could the lecture survey be due at the end of the day instead?\
+> A: I'll think on this! It will always be open for at least an hour.
+
+## Course Announcements
+
+**Due Dates**:
+
+-   Student survey due Fri 10/4 (11:59 PM; #finaid)
+-   **Lab 01** now available (due *next* Thursday 10/10)
+    -   No in-class lab this Friday; *Monday's lab is happening*
+-   Lecture Participation survey "due" after class
+
+Notes:
+
+-   [Piazza](<https://piazza.com/class/m1jv2820hu54m>) now set up (& linked from Canvas menu)
+- **Waitlist (Non)Update**: Staff are working to keep enrollment at 100 people. If you get an email from Kasey Chiang (k4chiang\@ucsd.edu) to drop and then enroll. This is legitimate. Follow those instructions.
+- Researchers observing lecture 10/8 and 10/15
+
+## Agenda
+
+1.  Variables
+2.  Operators
+3.  Data in R
+4.  RMarkdown
+
+# Variables & Assignment {background-color="#92A86A"}
+
+## Variables & Assignment
+
+Variables are how we store information so that we can access it later.
+
+. . .
+
+Variables are created and stored using the assignment operator `<-`
+
+```{r}
+first_variable <- 3
+```
+
+The above stores the value 3 in the variable `first_variable`
+
+. . .
+
+Note: Other programming languages use `=` for assignment. R *also* uses that for assignment, but it is more typical to see `<-` in R code, so we'll stick with that.
+
+. . .
+
+This means that if we ever want to reference the information stored in that variable later, we can "call" (mean, type in our code) the variable's name:
+
+```{r}
+first_variable
+```
+
+## Variable Type
+
+-   Every variable you create in R will be of a specific type.
+
+. . .
+
+-   The type of the variable is determined dynamically on assignment.
+
+. . .
+
+-   Determining the type of a variable with `class()`:
+
+```{r}
+class(first_variable)
+```
+
+## Basic Variable Types
+
+| Variable Type | Explanation                       | Example                                     |
+|-------------------|-----------------------|------------------------------|
+| character     | stores a string                   | `"cogs137"`, `"hi!"`                        |
+| numeric       | stores whole numbers and decimals | `9`, `9.29`                                 |
+| integer       | specifies integer                 | `9L` (the `L` specifies this is an integer) |
+| logical       | Booleans                          | `TRUE`, `FALSE`                             |
+| list          | store multiple elements           | `list(7, "a", TRUE)`                        |
+
+Note: There are many more. We'll get to some but not all in this course.
+
+## logical & character
+
+**logical** - Boolean values `TRUE` and `FALSE`
+
+```{r}
+class(TRUE)
+```
+
+. . .
+
+**character** - character strings
+
+```{r}
+class("hello")
+class('students') # equivalent...but we'll use double quotes!
+```
+
+. . .
+
+## numeric: double & integer
+
+**double** - floating point numerical values (default numerical type)
+
+```{r}
+class(1.335)
+class(7)
+```
+
+. . .
+
+**integer** - integer numerical values (indicated with an `L`)
+
+```{r}
+class(7L)
+
+```
+
+. . .
+
+## lists
+
+So far, every variable has been an **atomic vector**, meaning it only stores a single piece of information.
+
+. . .
+
+**Lists** are 1d objects that can contain any combination of R objects
+
+::: columns
+::: {.column width="50%"}
+```{r}
+mylist <- list("A", 7L, TRUE, 18.4)
+mylist
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+str(mylist)
+```
+:::
+:::
+
+## Your Turn
+
+Define variables of each of the following types: character, numeric, integer, logical, list
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+## Functions
+
+-   `class()` (and `View()` & `median()`) were our first functions...but we'll show a few more.
+
+. . .
+
+-   Functions are (most often) verbs, followed by what they will be applied to in parentheses.
+
+. . .
+
+Functions are:
+
+-   available from base R
+-   available from packages you import
+-   defined by you
+
+. . .
+
+We'll start by getting comfortable with available functions, but in a few days, you'll learn how to write your own!
+
+## Helpful Functions
+
+::: columns
+::: {.column width="50%"}
+-   `class()` - determine high-level variable type
+
+```{r}
+class(mylist)
+```
+
+-   `length()`- determine how long an object is
+
+```{r}
+# contains 4 elements
+length(mylist)
+```
+:::
+
+::: {.column width="40%"}
+-   `str()` - display the structure of an R object
+
+```{r}
+str(mylist)
+```
+:::
+:::
+
+## Coercion
+
+R is a dynamically typed language -- it will happily convert between the various types without complaint.
+
+```{r}
+c(1, "Hello")
+c(FALSE, 3L)
+c(1.2, 3L)
+```
+
+## Missing Values
+
+R uses `NA` to represent missing values in its data structures.
+
+```{r}
+class(NA)
+```
+
+. . .
+
+### Other Special Values
+
+`NaN` \| Not a number
+
+`Inf` \| Positive infinity
+
+`-Inf` \| Negative infinity
+
+# Operators {background-color="#92A86A"}
+
+## Operators
+
+At its simplest, R is a calculator. To carry out mathematical operations, R uses **operators**.
+
+## Arithmetic Operators
+
+| Operator    | Description                   |
+|-------------|-------------------------------|
+| `+`         | addition                      |
+| `-`         | subtraction                   |
+| `*`         | multiplication                |
+| `/`         | division                      |
+| `^` or `**` | exponentiation                |
+| `x %% y`    | modulus (x mod y) `9%%2` is 1 |
+| `x %/% y`   | integer division `9%/%2` is 4 |
+
+## Arithmetic Operators: Examples
+
+```{r}
+7 + 6  
+2 - 3
+4 * 2
+9 / 2
+```
+
+## Reminder
+
+Output can be stored to a variable
+
+```{r}
+my_addition <- 7 + 6
+```
+
+. . .
+
+```{r}
+my_addition
+```
+
+## Comparison Operators
+
+These operators return a Boolean.
+
+| Operator | Description              |
+|----------|--------------------------|
+| `<`      | less than                |
+| `<=`     | less than or equal to    |
+| `>`      | greater than             |
+| `>=`     | greater than or equal to |
+| `==`     | exactly equal to         |
+| `!=`     | not equal to             |
+
+## Comparison Operators: Examples
+
+```{r}
+4 < 12
+4 >= 3
+6 == 6
+7 != 6
+```
+
+## Your Turn
+
+Use arithmetic and comparison operators to store the value 30 in the variable `var_30` and `TRUE` in the variable `true_var`.
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+# R Packages {background-color="#92A86A"}
+
+## Packages
+
+-   Packages are installed with the `install.packages` function and loaded with the `library` function, once per session:
+
+```{r eval=FALSE}
+install.packages("package_name")
+library(package_name)
+```
+
+. . .
+
+In this course, most packages we'll use have been installed for you already on datahub, so you will only have to load the package in (using `library`).
+
+# Data "sets"
+
+## Data "sets" in R {.scrollable .smaller}
+
+-   "set" is in quotation marks because it is not a formal data class
+
+-   A tidy data "set" can be one of the following types:
+
+    -   `tibble`
+    -   `data.frame`
+
+-   We'll often work with `tibble`s:
+
+    -   `readr` package (e.g. `read_csv` function) loads data as a `tibble` by default
+    -   `tibble`s are part of the tidyverse, so they work well with other packages we are using
+    -   they make minimal assumptions about your data, so are less likely to cause hard to track bugs in your code
+
+## Data frames
+
+-   A data frame is the most commonly used data structure in R, they are list of equal length vectors (usually atomic, but can be generic). Each vector is treated as a column and elements of the vectors as rows.
+
+-   A tibble is a type of data frame that ... makes your life (i.e. data analysis) easier.
+
+-   Most often a data frame will be constructed by reading in from a file, but we can create them from scratch.
+
+```{r}
+df <- tibble(x = 1:3, y = c("a", "b", "c"))
+class(df)
+glimpse(df)
+```
+
+## Data frames (cont.)
+
+```{r}
+attributes(df)
+```
+
+. . .
+
+Columns (variables) in data frames are accessed with `$`:
+
+```{r eval=FALSE}
+dataframe$var_name
+```
+
+. . .
+
+```{r}
+class(df$x)  # access variable type for column
+class(df$y)  
+```
+
+## Variable Types
+
+Data stored in columns can include different *kinds* of information...which would require a different *type* (`class`) of variable to be used in R.
+
+::: columns
+::: {.column width="50%"}
+![](images/01/continuous_discrete.png)
+:::
+
+::: {.column width="50%"}
+R Data Types:
+
+-   **Continuous**: numeric, integer
+-   **Discrete**: factors (we haven't talked about these yet, but will today!)
+:::
+:::
+
+::: aside
+Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations/) <a href="https://twitter.com/allison_horst" title="allison_horst"><i class="fa fa-twitter"></i></a>
+:::
+
+## Variable Types (cont.)
+
+Sometimes data are non-numeric and store words. Even when that is the case, the data can be conveying different information.
+
+::: columns
+::: {.column width="50%"}
+![](images/01/nominal_ordinal_binary.png)
+:::
+
+::: {.column width="50%"}
+R Data Types:
+
+-   **Nominal**: character
+-   **Ordinal**: factors
+-   **Binary**: logical OR numeric OR factors `r emo::ji("munch")`
+:::
+:::
+
+::: aside
+Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations/) <a href="https://twitter.com/allison_horst" title="allison_horst"><i class="fa fa-twitter"></i></a>
+:::
+
+## Example: Cat lovers
+
+A survey asked respondents their name and number of cats. The instructions said to enter the number of cats as a numerical value.
+
+. . .
+
+[`r emo::ji("police_car_light")` There is code ahead that we're not going to discuss in detail today, *but* we will in coming lectures.]{style="background-color: ##e94f58"}
+
+```{r load-data-real,include=FALSE}
+cat_lovers <- read_csv("data/cat-lovers.csv")
+```
+
+```{r load-data-fake, eval=FALSE}
+cat_lovers <- read_csv("https://raw.githubusercontent.com/COGS137/datasets/main/cat-lovers.csv")
+```
+
+## The Data
+
+```{r message=FALSE}
+cat_lovers |>
+  datatable()
+```
+
+## The Question
+
+[How many respondents have a below average number of cats?]{style="background-color: #ADD8E6"}
+
+. . .
+
+**Giving it a first shot...**
+
+```{r}
+cat_lovers |>
+  summarise(mean = mean(number_of_cats))
+```
+
+. . .
+
+[`r emo::ji("idea")` maybe there is missing data in the `number_of_cats` column!]{style="background-color: #ADD8E6"}
+
+**Oh why will you *still* not work??!!**
+
+```{r}
+cat_lovers |>
+  summarise(mean_cats = mean(number_of_cats, na.rm = TRUE))
+```
+
+. . .
+
+[`r emo::ji("idea")`What is the **type** of the `number_of_cats` variable?]{style="background-color: #ADD8E6"}
+
+## Take a breath and look at your data
+
+. . .
+
+```{r}
+glimpse(cat_lovers)
+```
+
+## Let's take another look
+
+```{r echo=FALSE}
+cat_lovers |>
+  datatable()
+```
+
+## Sometimes you need to babysit your respondents
+
+```{r}
+cat_lovers |>
+  mutate(number_of_cats = case_when(name == "Ginger Clark" ~ 2,
+                                    name == "Doug Bass"~ 3,
+                                    TRUE ~ as.numeric(number_of_cats))) 
+```
+
+## Always respect (& check!) data types
+
+```{r}
+cat_lovers |>
+  mutate(number_of_cats = case_when(name == "Ginger Clark" ~ 2,
+                                    name == "Doug Bass"~ 3,
+                                    TRUE ~ as.numeric(number_of_cats))) |>
+  summarise(mean_cats = mean(number_of_cats))
+```
+
+## Now that we know what we're doing...
+
+```{r}
+cat_lovers <- cat_lovers |>
+  mutate(number_of_cats = case_when(name == "Ginger Clark" ~ 2,
+                                    name == "Doug Bass"~ 3,
+                                    TRUE ~ as.numeric(number_of_cats)))
+```
+
+... store your data in a variable (here we're overwriting the old `cat_lovers` tibble).
+
+## Moral of the story
+
+-   If your data does not behave how you expect it to, type coercion upon reading in the data might be the reason.
+
+-   Go in and investigate your data, apply the fix, *save your data*, live happily ever after.
+
+# R Markdown {background-color="#92A86A"}
+
+## R Markdown: tour
+
+<center>\[DEMO\]</center>
+
+Before we move on...
+
+[<i class="fa fa-user" aria-hidden="true"></i>   What is the Bechdel test?]{style="background-color: #ADD8E6"}
+
+. . .
+
+The Bechdel test asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.
+
+. . .
+
+Concepts introduced:
+
+-   Knitting documents
+-   R Markdown and (some) R syntax
+
+## GitHub Setup
+
+See this week's lab!
+
+## Demo-ing the process
+
+1.  Navigate to the demo URL (on Canvas)
+2.  Accept the "assignment" (this is NOT graded)
+3.  Clone the repo
+4.  Edit the document
+5.  **Knit the document**
+6.  Push your changes
+
+Try to play around with this after finishing your lab!
+
+## Recap {.smaller .scrollable background-color="#92A86A"}
+
+-   Always best to think of data as part of a tibble
+    -   This plays nicely with the `tidyverse` as well
+    -   Rows are observations, columns are variables
+-   What are the common variable types in R
+    -   How do I create a variable of each type?
+    -   When would I use each one?
+-   Do I know how to determine the class/type of a variable?
+-   Can I explain dynamic typing?
+-   Can I operate on variables and values using...
+    -   arithmetic operators?
+    -   comparison operators?
+-   What are dataframes/tibbles? and why are they useful?
+-   What is the difference between installing and loading a package?
+-   What are the components of an R Markdown file?

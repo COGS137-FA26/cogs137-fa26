@@ -1,0 +1,225 @@
+---
+title: "10-cs02-eda"
+author: "Professor Shannon Ellis"
+date: "2024-11-07"
+
+format:
+  html: 
+    output-file: 10-cs02-eda.html
+  revealjs:
+    output-file: 10-cs02-eda-slides.html
+    css: slides.css
+---
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+
+knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE) 
+```
+
+# CS02: Predicting Air Pollution (EDA) {background-color="#92A86A"}
+
+## Q&A {.smaller}
+
+> Q: Is there a way to find group members online?\
+> A: Yes! On Piazza [here](https://piazza.com/class/m1jv2820hu54m/post/5)
+
+> Q: I am curious about within our CS02 project, are we focusing on PM2.5, I know that there are finer PM that is not frequently tracked, could we focus on one of those for our project and point to the essential data gaps (i.e. there are lots of data on PM 2.5 out there but not enough on other sizes of PM)?\
+> A: This is definitely a possible extension on the case study - certainly beyond expectations (as you would need additional data) but would be very cool.
+
+> Q: There wasn't a specific part of the lecture that I found very confusing. I am a little worried about the code needed to generate the statistics for the second case study, but think that I just need a bit more practice with that (which I am certain we will be getting prior to the due date).\
+> A: We are going to focus on this in class too!
+
+## Course Announcements
+
+-   `r emo::ji("science")` **Lab 05** due tonight
+-   🔘 [**CS01 Team Eval**](https://docs.google.com/forms/d/e/1FAIpQLSdmiYgXilgqMu5ZWBW8grpCLXeyhzrvwhsCbxYBp31qQMrRPg/viewform) survey due tonight
+-   📄 [**Final Project Proposal**](https://docs.google.com/forms/d/e/1FAIpQLSfXBztrZuK0CeB8p3YZWr6M37oe16DGazuow7_g9Ulr6AiyXg/viewform?usp=sf_link) due Tuesday
+-   `r emo::ji('clipboard')` Lecture Participation survey "due" after class
+
+Note: Get the data data in RStudio for today if you haven't already (and `install.packages` `"OCSdata"`, `"skimr"`, and `"GGally"`.
+
+```{r}
+# install.packages("OCSdata")
+# OCSdata::raw_data("ocs-bp-air-pollution", outpath = getwd())
+pm <- read_csv("OCS_data/data/raw/pm25_data.csv")
+```
+
+# Question {background-color="#92A86A"}
+
+> With what accuracy can we predict US annual average air pollution concentrations?
+
+# Wrangling {background-color="#92A86A"}
+
+## Viewing the data
+
+Take a look...
+
+. . .
+
+[`r emo::ji("question")` Given the dataset we're working with, what wrangling should we consider doing here?"]{style="background-color: #ADD8E6"}
+
+# EDA {background-color="#92A86A"}
+
+Getting to "know" the data
+
+## `skimr` {.smaller}
+
+`skimr` \| A helpful way to get an overall sense of a dataset
+
+```{r}
+# install.packages("skimr")
+skimr::skim(pm)
+```
+
+. . .
+
+[`r emo::ji("question")` What's something you've learned about the data from the <code>skimr</code> output?]{style="background-color: #ADD8E6"}
+
+. . .
+
+Things to note:
+
+::: incremental
+-   data are summarized by variable type
+-   `empty`/`n_missing` gives you a sense of how much data are missing for each variable
+-   `n_unique` for `state` indicates that we have data for 49 states
+-   many different distributions for continuous data, but many show bimodal distribution
+-   large range of possible values for many variables (i.e. population)
+:::
+
+. . . 
+
+-   Consider variable type - need more factors?
+-   Understand why ID is not uniformally distributed; figure out which are overrepresented; decide what to do
+-   log or other transformations necessary? decide during EDA
+
+## Why 49 "states"?
+
+```{r}
+pm |> 
+  distinct(state) 
+```
+
+-   DC is included
+-   Alaska and Hawaii are not
+
+## Number of monitors per city?
+
+```{r}
+pm |> filter(city == "San Diego")
+```
+
+. . .
+
+```{r}
+pm |> filter(city == "Baltimore")
+```
+
+. . .
+
+San Diego has 2, while Baltimore has 5, despite having very similar population densities (`popdens_county`)...and San Diego having a much larger population (`county_pop`) and land area (`county_area`).
+
+## Feature Correlation
+
+Why do we care if variables in our dataset are correlated?
+
+-   we don’t want to include redundant variables
+-   can add unnecessary noise to our algorithm causing a reduction in prediction accuracy
+-   can cause our algorithm to be slower
+-   can also make it difficult to interpret what variables are actually predictive
+
+. . .
+
+Taking a look at our numeric variables...
+
+```{r}
+PM_cor <- cor(pm |> dplyr::select_if(is.numeric))
+corrplot::corrplot(PM_cor, tl.cex = 0.5)
+```
+
+-   deep blue \| strongly, positively correlated
+-   deep red \| strongly, negatively correlated
+
+. . .
+
+If we don't care about direction, but only strength...*and* using [hierarchical clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering):
+
+```{r}
+corrplot::corrplot(abs(PM_cor), order = "hclust", tl.cex = 0.5, cl.lim = c(0, 1))
+
+```
+
+. . .
+
+Observations:
+
+-   development variables (`imp`), road density (`pri`), and the emission (`nei`) variables all seem to be correlated with their group
+-   none of the predictors are correlated with `value` (our outcome)
+
+## Development (`imp`)
+
+```{r}
+select(pm, contains("imp")) |>
+  GGally::ggpairs()
+```
+
+## Emmissoins (`nei`)
+
+```{r}
+select(pm, contains("nei")) |>
+  GGally::ggpairs()
+```
+
+. . .
+
+## Road Density (`pri`)
+
+```{r}
+select(pm, contains("pri")) |>
+  GGally::ggcorr(hjust = .85, size = 3,
+       layout.exp=2, label = TRUE)
+```
+
+Warning: colors are reversed from above. If included in final report, you'd want consistency.
+
+## Are the categories correlated with one another?
+
+```{r}
+pm |>
+select(log_nei_2008_pm25_sum_10000, popdens_county, 
+       log_pri_length_10000, imp_a10000, county_pop) |>
+  GGally::ggpairs()
+```
+
+. . .
+
+Reminder:
+
+-   **log_nei_2008_pm25_sum_10000** \| Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 10000 meters of distance around the monitor (Natural log)\
+-   **popdens_county** \| Population density (number of people per kilometer squared area of the county)
+-   **log_pri_length_10000** \| Count of primary road length in meters in a circle with a radius of 10000 meters around the monitor (Natural log) <br> -- Highways only\
+-   **imp_a10000** \| Impervious surface measure <br> -- Within a circle with a radius of 10000 meters around the monitor\
+-   **county_pop** \| Population of the county of the monitor
+
+## Log-transforming right-skewed data
+
+```{r}
+pm |>
+  mutate(log_popdens_county=log(popdens_county),
+         log_pop_county = log(county_pop)) |>
+  select(log_nei_2008_pm25_sum_10000, log_popdens_county, 
+       log_pri_length_10000, imp_a10000, log_pop_county) |>
+  GGally::ggpairs()
+```
+
+## Your Turn
+
+[`r emo::ji("muscle")` Try to learn at least three things about the data that we haven't yet discussed now on your own.]{style="background-color: #ADD8E6"}
+
+Add your EDA to a Padlet <https://padlet.com/shannon0ellis/cs02_eda>
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::

@@ -1,0 +1,16 @@
+institute: "UC San Diego <br> COGS 137 - Fall 2024"
+author: "Dr. Shannon Ellis"
+footer: "[🔗 https://cogs137-fa24.github.io/cogs137-fa24/](https://cogs137-fa24.github.io/cogs137-fa24/)"
+logo: "images/cogs137-logo-hex.png"
+format:
+  html: default
+  revealjs:
+    html-math-method: mathjax
+    theme: slides.css
+    slide-number: true
+    chalkboard: true
+    scrollable: true
+editor: visual
+execute:
+  freeze: auto
+  echo: true

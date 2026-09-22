@@ -1,0 +1,54 @@
+---
+title: "14-cs02-inclass"
+author: "Professor Shannon Ellis"
+date: "2024-11-21"
+
+format:
+  html: 
+    output-file: 14-cs02-inclass.html
+  revealjs:
+    output-file: 14-cs02-inclass-slides.html
+    css: slides.css
+---
+
+# CS01: In class {background-color="#92A86A"}
+
+## Q&A {.smaller}
+
+> Q: In the recipe we used the step_nzv() function, but I'm confused why we would want to get rid of the variables with non-zero variance? I thought that having variance in variables meant that the model would have more predictive power, and that having zero or near-zero variance meant less predictive power.\
+> A: I didn't do a great job describing this in class. You're right that we want predictors that have variance. Here specifically, variables (predictors) would be removed if 1) they have very few unique values relative to the number of samples (meaning they're sparse and not adding useful information) or 2) the ratio of the frequency of the most common value to the frequency of the second most common value is large (they're not adding a ton of novel information). Hope this helps explain. Happy to discuss further.
+
+> Q: How can we plot a 3D plots in R? Can we plot 3D density maps across a map of the united states?\
+> A: [`Plotly`](https://plotly.com/r/) is probably the best place to look to start.
+
+> Q: For our case study 2, since we're able to find the best predictor combinations with the oslrr package, what is the main purpose of our EDA? \
+> A: Think of the goal of EDA here to explain/describe/introduce the data in your dataset to the reader.
+
+## Course Announcements
+
+**Due Dates**:
+
+-   ⌨️ **Lab07** due tonight
+-   📚 **HW03** due Friday
+-   💻 **CS02** due Monday (11:59 PM)
+-   📄 **Final Project - rough draft** due Monday - "submit" by having an Rmd + HTML document in your final project GH repo
+-   🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
+
+
+Notes:
+
+- CS02 and final project repos were created for you this past Friday (Sat?)
+
+# CS02: Questions? {background-color="#92A86A"}
+
+> Q: What should EDA be in this case study? 
+
+# CS02 Time {background-color="#92A86A"}
+
+## Plan for today
+
+-   Discuss/have a plan
+-   Clear on tasks - division of labor; specific deadlines; assignments
+-   Make progress & discuss
+-   Help one another
+-   Recap at end & revisit plan, progress, and who's doing what/when

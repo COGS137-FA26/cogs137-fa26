@@ -1,0 +1,55 @@
+---
+title: "COGS 137: Practical Data Science in R"
+---
+
+### Course Info
+
+Practical Data Science in R focuses on teaching students how to think rigorously throughout the data science process. To this end, through interaction with unique data sets and interesting questions, this course helps students 1) gain fluency in the R programming language, 2) effectively explore & visualize data, 3) use statistical thinking to analyze data and rigorously evaluate their conclusions, and 4) effectively communicate their results. Course objectives are accomplished through hands-on practice, using real-world data to learn via case studies, and project-based learning.
+
+#### Days & Times
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+<font color="#92a76a"><i class="fas fa-university fa-lg"></i></font> **Lecture**: Tu/Th 2-3:20 (CSB 002)\
+<font color="#92a76a"><i class="fas fa-laptop fa-lg"></i></font> **Lab**: Mon 5-5:50 (DIB 121) or Fri 2-2:50 (RWAC 0103)
+
+##### Instructional Staff & Office Hours
+
+|            |                                                |                  |               |                                                               |
+|------------|--------------|------------|------------|-----------------------|
+| Instructor | [**Shannon Ellis**](http://www.shanellis.com/) | sellis\@ucsd.edu | Tu 11A-12P    | CSB 243                                                       |
+|            |                                                |                  | Wed 10-11A    | Zoom by [appt](https://calendar.app.google/ceYuZSqE3ShYhYDE7) |
+| TA         | Quirine (Q) van-Engen                          |                  | Th 8:30-9:30A | Zoom (see Canvas for link)                                    |
+| IA         | Eric Song                                      |                  | --            | --                                                            |
+
+### Course Objectives
+
+-   Program at the introductory level in the R statistical programming language
+
+-   Employ the tidyverse suite of packages to interact with, wrangle, visualize, and model data
+
+-   Explain & apply statistical and machine learning concepts for data analysis
+
+-   Communicate data science projects through effective visualization, oral presentation, and written reports
+
+### Texts
+
+Texts are freely available online:
+
+|                                                                         |                                          |                     |
+|-----------------------------------|--------------------|----------------|
+| [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel and Hardin              | OpenIntro, 2e, 2024 |
+| [R for Data Science](https://r4ds.hadley.nz/)                           | Wickham, Çetinkaya-Rundel, and Grolemund | O'Reilly, 2e, 2023  |
+| [Tidy Modeling With R](https://www.tmwr.org/)                           | Max Kuhn and Julia Silge                 | O'Reilly, 1e, 2022  |
+
+### Materials
+
+You should have access to a laptop and bring it to every class, fully charged (as possible).
+
+Note: If you do not have consistent access to the technology needed, please use [this form](https://eforms.ucsd.edu/view.php?id=490887) to request a loaner laptop. (For any issues that you may have, please email <a href="mailto:vcsa\@ucsd.edu" title="email">vcsa\@ucsd.edu</a>, and they will work to assist you.)
+
+### Acknowledgements
+
+I want to first recognize [Dr. Mine Çetinkaya-Rundeland](https://mine-cr.com/) for her unparalleled efforts in support of education and educators in data science, statistics, and R programming. This course website was adapted from her [course websites](https://mine-cr.com/teaching/). Some of our course materials are also from her [datascienceinabox](https://datasciencebox.org/) project. I am so *very* indebted to Mine! I also want to thank the [Open Case Studies](https://www.opencasestudies.org/) team for their tireless work in putting together interesting and topical case studies, a handful of which have been used throughout the course over the years. And, finally, thanks to [Allison Horst](https://www.allisonhorst.com/), whose [artwork](https://github.com/allisonhorst/stats-illustrations/) is inspiring, educational, and fun...and is used throughout this course. Further, thanks to the greater R (education) community who make planning and teaching R courses simply the best.

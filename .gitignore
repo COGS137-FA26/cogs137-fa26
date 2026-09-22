@@ -1,0 +1,39 @@
+.DS_Store
+Thumbs.db
+.Rhistory
+.Rprofile
+.Rproj.user
+*.Rproj
+
+# do not include large datasets/THC data
+content/lectures/data
+content/lectures/src
+content/exams/data
+docs/lectures/data
+docs/lectures/src
+docs/content/cs/data
+content/cs/data/
+content/lectures/13-cs01-analysis_cache
+docs/lectures/13-cs01-analysis_cache
+content/lectures/13-cs01-analysis_files
+OCS_data/
+docs/OCS_data
+
+# temporarily (while I edit course content)
+Makefile
+
+/.quarto/
+
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+
+_site/
+_coming_soon/
+
+gmailr.json
+
+
+# knitr caches (may contain course data)
+*_cache/

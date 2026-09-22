@@ -1,0 +1,87 @@
+---
+title: "CS02: Predicting Annual Air Pollution"
+date: "Due: Nov 25, 2024 (11:59 PM)"
+output: 
+  html: 
+    highlight: pygments
+    preview-links: auto
+    execute:
+      eval: false
+---
+
+This is where you get to put together all you've learned so far this quarter - including what you've leared from completing cs01 - into a full data science report! This report will include your analysis from top (the background and question) to bottom (your analysis, interpretation, and conclusions.)
+
+We'll be grading to see that you have: 1) all necessary code for each section of the project. 2) explanatory text that guides the reader from start to finish. 3) polished visualizations that allow the reader to both understand the data you're working with an your conclusions.
+
+This will be submitted and graded as a group. **One submission per group.**
+
+## Getting started
+
+Here are the steps for getting started:
+
+::: aside
+Avoid waiting until the end to knit for the first time. It will be better/easier/less of a headache if you knit periodically and know it's all working as intended.
+:::
+-   Figure out what group you want to work with for cs02 and the final project
+-   This will be completed in a cs02 group repository, which will be created for you and your group mates once groups are formed.
+-   Code + write away in the provided .Rmd document!
+-   Periodically knit and commit changes (for example, once per each new part)
+-   Push all your changes back to your GitHub repo
+-   This case study will be graded from the HTML file on your group's GitHub repo.
+
+::: aside
+A reminder that there is a [book dedicated to RMarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/html-output.html), with a whole section on controlling HTML output, in case you want to customize your output in some way.
+:::
+
+### Imports
+
+You are allowed to import whichever packages you like for this case study report.
+
+## Main Question
+
+All groups will be answering the following question in their case study:
+
+> With what accuracy can we predict US annual average air pollution concentrations?
+
+::: aside
+As noted in class, different groups may have different answers or different specific values, and that's ok. You have to explain your thinking and use your analysis to help guide your conclusions.
+:::
+
+## Case Study Report
+
+Your case study can be organized however you see best fit, but we'll be looking for the following *general* sections:
+
+-   Title
+-   Authors
+-   Background/Introduction
+-   Question(s)
+-   Data
+    -   Data Explanation
+    -   Data Import
+    -   Data Wrangling
+-   Analysis
+-   Results & Discussion (including limitations of your work)
+-   Conclusion
+
+::: aside
+Now, you may want to combine some of these sections (i.e. include your results and discussion among your analysis code). That's *totally* allowed, but we'll be looking to see that your report includes sufficient information to understand what you did, why you did it, and what your results are.
+:::
+
+### Extending the Analysis
+
+In addition to getting the code presented in class working, adding explanatory text to your report, and generating polished visualizations, you and your group must "extend the analysis" beyond what was presented in class in a meaningful way. Now "meaningful" is not a very-easily-measured term. A meaningful extension could be carrying out analysis to answer an additional question beyond what was presented in class, or asking the same main question among subgroups, or finding a related dataset and incorporating it into your case study. To determine whether your extension is "meaningful," you and your group should be able to answer "yes" to the question "Does our extension add something important to this report beyond what was presented in class?"
+
+::: aside
+This extension should be included/woven into your report, meaning it should only be "separated out" as its own section if it makes most sense for the story you're telling.
+:::
+
+## General Communication
+
+Each group will need to convey the most important finding(s) to a *general audience* through some form of communication.
+
+This is very open-ended in its format. It could be a short video, an infographic, an effective email, a graphic, Instagram slides, a short presentation, etc. It will be submitted by one group member on Canvas. (All group members will receive credit.)
+
+## Group Feedback
+
+There will be a form to submit upon submission of the case study to provide feedback about working with your group mates. This is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn't happen, I want to be sure I'm aware of the circumstances and follow up as necessary.
+

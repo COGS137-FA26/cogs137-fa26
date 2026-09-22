@@ -1,0 +1,73 @@
+---
+title: "17-presentations"
+author: "Professor Shannon Ellis"
+date: "2024-12-05"
+
+format:
+  html: 
+    output-file: 17-presentations.html
+  revealjs:
+    output-file: 17-presentations-slides.html
+    css: slides.css
+---
+
+# Student Presentations {background-color="#92A86A"}
+
+## Q&A {.smaller}
+
+> Q: If we're presenting in-class, does this count as our general communication? And does this mean that our html/rmd has to be finished-ish by that time\
+> A: It counts as your group's 3-5 min presentation. You still have to do a general communication. Your HTML does NOT need to be finished yet.
+
+> Q: Can this group project be apart of my personal portfolio? \
+> A: Absolutely! Both CS02 and final project can go into your portfolio!
+
+## Course Announcements {.smaller}
+
+**Due Dates**:
+
+-   📄 **Final Project** due Tuesday
+    -   Rmd/HTML in repo
+    -   3-5 min Presentation (for those who don't present today)
+    -   General Communication
+    -   [final project team evaluation](https://docs.google.com/forms/d/e/1FAIpQLScOfGiWvHY4UVobL95Em1d2JIEZJf8UCejGtpxsxUjW-FSiyw/viewform?usp=sf_link)
+-   🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
+- 🔘 [Post-course survey](https://docs.google.com/forms/d/e/1FAIpQLSfskqNG2mcineIBxEnU3YvA1enZz6MFR8reTT_LiCAxC8kOgQ/viewform) - "due" by Tues
+- 🔘 [SET Evaluations](https://set.ucsd.edu/) - complete by 8AM Sat
+
+
+## Student Presentations
+
+-   team forcats
+-   Zoom Team
+-   [The AntiDepressants](https://docs.google.com/presentation/d/1vbcJjRVg8cHp8O_uhlrggSm80k448ohtlKBv1nu0V3g/edit?usp=sharing)
+-   Team 9
+-   [team tune](https://docs.google.com/presentation/d/1ztYHwE8u5u39vdmwm7Y9VNhYwTmJnm9ugOJr8q2JQdw/edit#slide=id.g4dfce81f19_0_45)
+
+# Students' thoughts
+
+:::incremental
+- case study focus
+- group formation
+- no midterm?
+- organization
+- more of what? less of what?
+:::
+
+# Where We've Been {background-color="#92A86A"}
+
+- R & the tidyverse
+- data visualization
+- effective communication
+- two case studies
+- EDA
+- inference
+- machine learning
+
+# Thank you! {background-color="#92A86A"}
+
+- hard work and dedication to learning
+- willingness to learn something new/different
+- efforts on case studies and final project
+- to Q and Eric!
+
+# Have a wonderful break! {background-color="#92A86A"}

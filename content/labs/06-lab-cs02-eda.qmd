@@ -1,0 +1,63 @@
+---
+title: "Lab 06 - CS02 EDA"
+date: "2024-11-14"
+output: 
+  html: 
+    highlight: pygments
+    css: lab.css
+    preview-links: auto
+---
+
+```{r include=FALSE}
+library(tidyverse)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE     # for regression output
+  )
+```
+
+# Introduction
+
+The main goals of this lab are for you to really deepen your knowledge surrounding the CS02 data by continuing EDA beyond what was presented and discussed in class.
+
+# Getting started
+
+To get started, accept the lab06 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+
+# Packages
+
+Be sure to import the `tidyverse` prior to completing the lab. Additional packages are allowed, but not expected nor required.
+
+# Data
+
+In this lab, you'll start from the data provided with your lab:
+
+``` r
+pm_data <- read_csv("data/pm25_data.csv")
+```
+
+# Exercises
+
+## Part 1: Deeper knowledge through EDA
+
+### Exercise 1
+
+Consider all we have discussed and learned through the EDA presented in class. Now, carry out additional EDA to learn something beyond what was previously displayed/discussed in class. This may be a single plot. It may be more than one plot. It could be a table....or multiple tables. But, work to fully understand the data to the best of your abilities.
+
+### Exercise 2
+
+Describe what new information you learned from what you generated above.
+
+## Part 2: Possible extensions?
+
+### Exercise 3
+
+Think about the data you have access to, the background discussed in class, and the question each group has been asked to address. What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't "good" or you aren't sure if they are "possible." This can be used as a jumping off point for when you start discussing analysis extensions with your group.
+
+# Submit
+
+::: callout-important
+You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+:::
+
+*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 6! 💪", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

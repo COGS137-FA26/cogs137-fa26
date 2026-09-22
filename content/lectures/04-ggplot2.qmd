@@ -1,0 +1,552 @@
+---
+title: "04-ggplot2"
+author: "Professor Shannon Ellis"
+date: "2024-10-15"
+
+format:
+  html: 
+    output-file: 04-ggplot2.html
+  revealjs:
+    output-file: 04-ggplot2-slides.html
+---
+
+# Data Visualization with `ggplot2` {background-color="#92A86A"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(DT)
+library(emo)
+
+# Set dpi and height for images
+knitr::opts_chunk$set(fig.height = 2.65, dpi = 300, echo=TRUE) 
+htmltools::tagList(rmarkdown::html_dependency_font_awesome())
+```
+
+## Q&A {.smaller}
+
+> Q: I'm curious about the differences between base r pipe (|>) and the %>% operators! I've only learned about %>% and it'd be interesting looking at the differences between using either one. \
+> A: There's a [blog post](https://www.tidyverse.org/blog/2023/04/base-vs-magrittr-pipe/) for that!
+
+> Q: The most confusing part of this lecture was getting started with dplyr functions, but it will become easier with practice. \
+> A: Lots of people said something similar. And, this is definitely the right attitude! Lecture is for first exposure. Practice in lecture is to start underestanding. Labs are for guided practice where you have more time to practice. Case studies and homeworks are where we check our understanding! So, you're not supposed to "get it" all the first time you see it in lecture.
+
+## Course Announcements
+
+**Due Dates**:
+
+-   **Lab 02** due Thursday (11:59 PM)
+-   Lecture Participation survey "due" after class
+
+**Notes**:
+
+-   HW02 now available; Lab03 posted Th
+
+## Suggested Reading
+
+-   R4DS Chapter 9: [Data Visualization](https://r4ds.hadley.nz/layers)
+-   Data to Viz: <https://www.data-to-viz.com/>
+
+## ggplot2 $\in$ tidyverse
+
+::: columns
+::: {.column width="20%"}
+```{r echo=FALSE, out.width="80%"}
+knitr::include_graphics("images/04/ggplot2-part-of-tidyverse.png")
+```
+:::
+
+::: {.column width="80%"}
+-   **ggplot2** is tidyverse's data visualization package
+-   Structure of the code for plots can be summarized as
+
+```{r eval = FALSE}
+ggplot(data = [dataset], 
+       mapping = aes(x = [x-variable], 
+                     y = [y-variable])) +
+   geom_xxx() +
+   other options
+```
+:::
+:::
+
+## Data: CS01 WB
+
+```{r load-data-real, message=FALSE}
+WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
+```
+
+## The Data {.smaller}
+
+```{r message=FALSE}
+WB |>
+  datatable()
+```
+
+## The Cleaning
+
+Note: this is the code from the end of 03-dplyr notes, combined into a single chunk.
+
+```{r}
+WB <- WB |> 
+  mutate(Treatment = fct_recode(Treatment, 
+                                "5.9% THC (low dose)" = "5.90%",
+                                "13.4% THC (high dose)" = "13.40%"),
+         Treatment = fct_relevel(Treatment, "Placebo", "5.9% THC (low dose)")) |> 
+  janitor::clean_names() |>
+  rename(thcoh = x11_oh_thc,
+         thccooh = thc_cooh,
+         thccooh_gluc = thc_cooh_gluc,
+         thcv = thc_v) |>
+  mutate(timepoint = case_when(time_from_start < 0 ~ "pre-smoking",
+                               time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
+                               time_from_start > 30 & time_from_start <= 70 ~ "31-70 min",
+                               time_from_start > 70 & time_from_start <= 100 ~ "71-100 min",
+                               time_from_start > 100 & time_from_start <= 180 ~ "101-180 min",
+                               time_from_start > 180 & time_from_start <= 210 ~ "181-210 min",
+                               time_from_start > 210 & time_from_start <= 240 ~ "211-240 min",
+                               time_from_start > 240 & time_from_start <= 270 ~ "241-270 min",
+                               time_from_start > 270 & time_from_start <= 300 ~ "271-300 min",
+                               time_from_start > 300 ~ "301+ min"))
+
+```
+
+[<i class="fa fa-user" aria-hidden="true"></i>   Why are there two mutates? Could they have all been in a single mutate?]{style="background-color: #ADD8E6"}
+
+
+## A Plot
+
+```{r ref.label = "penguins", echo = FALSE, warning = FALSE, out.width = "50%"}
+```
+
+```{r penguins, fig.show = "hide", warning=FALSE}
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(., mapping = aes(x = thc, y = thccooh,
+                       color = treatment)) +
+    geom_point() +
+    labs(title = "THC and THC-COOH levels (0-30 min)",
+         subtitle = "THC levels remain low in placebo group; THC-COOH is variable",
+         x = "THC (ng/mL)", y = "THC-COOH (ng/mL)",
+         color = "Treatment Group") +
+    scale_color_viridis_d()
+
+```
+
+# Coding out loud {background-color="#92A86A"}
+
+##  {.smaller}
+
+> **Start with the `WB` data frame** (filtering to only include first timepoint)
+
+```{r penguins-0, warning = FALSE}
+#| output-location: column
+
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot() 
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, **map thc levels to the x-axis**
+
+```{r penguins-1}
+#| output-location: column
+#| code-line-numbers: "3"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(mapping = aes(x = thc))
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis **and map thccooh levels to the y-axis.**
+
+```{r penguins-2}
+#| output-location: column
+#| code-line-numbers: "4"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(mapping = aes(x = thc, 
+                       y = thccooh))
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. **Represent each observation with a point.**
+
+```{r penguins-3, warning = FALSE}
+#| output-location: column
+#| code-line-numbers: "4"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(mapping = aes(x = thc, 
+                       y = thccooh)) + 
+  geom_point() 
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point **and map treatment group to the color of each point.**
+
+```{r penguins-4, warning = FALSE}
+#| output-location: column
+#| code-line-numbers: "5"
+
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(mapping = aes(x = thc, 
+                       y = thccooh,
+                       color = treatment)) + 
+  geom_point() 
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. **Title and subtitle the plot.**
+
+```{r penguins-5, warning = FALSE}
+#| output-location: column
+#| code-line-numbers: "7-8"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(mapping = aes(x = thc, 
+                       y = thccooh,
+                       color = treatment)) + 
+  geom_point() +
+  labs(title = "THC and THC-COOH levels (0-30 min)",
+       subtitle = "THC levels remain low in placebo group; THC-COOH is variable") 
+```
+
+
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, **label the x and y axes**
+
+```{r penguins-7, warning = FALSE}
+#| output-location: column
+#| code-line-numbers: "9"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(mapping = aes(x = thc, 
+                       y = thccooh,
+                       color = treatment)) + 
+  geom_point() +
+  labs(title = "THC and THC-COOH levels (0-30 min)",
+       subtitle = "THC levels remain low in placebo group; THC-COOH is variable",
+       x = "THC (ng/mL)", y = "THC-COOH (ng/mL)") 
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, label the x and y axes, and **title the legend**.
+
+```{r penguins-8, warning = FALSE}
+#| output-location: column
+#| code-line-numbers: "9"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(., mapping = aes(x = thc, y = thccooh,
+                       color = treatment)) +
+    geom_point() +
+    labs(title = "THC and THC-COOH levels (0-30 min)",
+         subtitle = "THC levels remain low in placebo group; THC-COOH is variable",
+         x = "THC (ng/mL)", y = "THC-COOH (ng/mL)",
+         color = "Treatment Group") 
+```
+
+##  {.smaller}
+
+> Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, label the x and y axes, and title the legend. **Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.**
+
+```{r penguins-10, warning = FALSE}
+#| output-location: column
+#| code-line-numbers: "10"
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(., mapping = aes(x = thc, y = thccooh,
+                       color = treatment)) +
+    geom_point() +
+    labs(title = "THC and THC-COOH levels (0-30 min)",
+         subtitle = "THC levels remain low in placebo group; THC-COOH is variable",
+         x = "THC (ng/mL)", y = "THC-COOH (ng/mL)",
+         color = "Treatment Group") +
+    scale_color_viridis_d()
+```
+
+## Coding out loud {.smaller}
+
+::: panel-tabset
+### Code
+
+```{r penguins-10-nohighlight, fig.show = "hide", warning=FALSE}
+WB |> 
+  filter(timepoint=="0-30 min") |>
+  ggplot(., mapping = aes(x = thc, y = thccooh,
+                       color = treatment)) +
+    geom_point() +
+    labs(title = "THC and THC-COOH levels (0-30 min)",
+         subtitle = "THC levels remain low in placebo group; THC-COOH is variable",
+         x = "THC (ng/mL)", y = "THC-COOH (ng/mL)",
+         color = "Treatment Group") +
+    scale_color_viridis_d()
+```
+
+### Plot
+
+```{r ref.label="penguins-10-nohighlight", echo = FALSE, warning = FALSE, out.width = "90%", fig.width = 8}
+```
+
+### Narrative
+
+Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. 
+
+Represent each observation with a point and map treatment group to the color of each point. 
+
+Title and subtitle the plot, label the x and y axes, and title the legend. 
+
+Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.
+:::
+
+## Argument names
+
+::: callout-tip
+You can omit the names of first two arguments when building plots with `ggplot()`.
+:::
+
+::: columns
+::: {.column width="50%"}
+```{r named-args, eval = FALSE}
+#| code-line-numbers: "1-2"
+ggplot(data = WB, 
+       mapping = aes(x = thc, y = cbn)) +
+  geom_point()
+```
+:::
+
+::: {.column width="50%"}
+```{r not-named-args, eval = FALSE}
+#| code-line-numbers: "1-2"
+ggplot(WB, 
+       aes(x = thc, y = cbn)) +
+  geom_point()
+```
+:::
+:::
+
+## Your Turn
+
+Generate a basic plot in `ggplot2` using different filtering and/or variables than those in the last example (last example: `thc` & `thccoooh`, "0-30 min" timepoint).
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+# Aesthetics {background-color="#92A86A"}
+
+## Aesthetics options
+
+Commonly used characteristics of plotting characters that can be **mapped to a specific variable** in the data are
+
+-   `color`
+-   `shape`
+-   `size`
+-   `alpha` (transparency)
+
+## Color
+
+```{r color, warning = FALSE}
+#| code-line-numbers: "2"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color = treatment)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Shape
+
+Mapped to a different variable than `treatment`
+
+```{r shape-island, warning = FALSE}
+#| code-line-numbers: "3"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color = treatment,
+                                shape = group)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Shape
+
+Mapped to same variable as `color`
+
+```{r shape-species, warning = FALSE}
+#| code-line-numbers: "2-3"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color = treatment,
+                                shape = treatment)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Size
+
+```{r size, warning = FALSE}
+#| code-line-numbers: "4"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color = treatment,
+                                shape = treatment,
+                                size = time_from_start)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Alpha
+
+```{r alpha, warning = FALSE}
+#| code-line-numbers: "5"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color = treatment,
+                                shape = treatment,
+                                size = time_from_start,
+                                alpha = cbd)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+
+## Mapping vs. setting
+
+-   **Mapping:** Determine the size, alpha, etc. of points *based on the values of a variable in the data*
+    -   goes into `aes()`
+-   **Setting:** Determine the size, alpha, etc. of points **not** based on the values of a variable in the data
+    -   goes into `geom_*()` (this was `geom_point()` in the previous example, but we'll learn about other geoms soon!)
+
+## Mapping vs. Setting (example)
+
+::: columns
+::: {.column width="50%"}
+
+**Mapping**
+
+```{r warning = FALSE, out.width = "100%"}
+ggplot(data = WB, 
+       mapping = aes(x = thc, y = cbn,
+                     size = time_from_start,
+                     alpha = cbd)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+:::
+
+::: {.column width="50%"}
+**Setting**
+
+```{r warning = FALSE, out.width = "100%"}
+ggplot(data = WB, 
+       mapping = aes(x = thc, y = cbn)) + 
+  geom_point(size = 2, alpha = 0.5) +
+  scale_color_viridis_d()
+```
+:::
+:::
+
+## Your Turn
+
+Edit the basic plot you created earlier to change something about its aesthetics.
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+# Faceting {background-color="#92A86A"}
+
+## Faceting
+
+-   Smaller plots that display different subsets of the data
+-   Useful for exploring conditional relationships and large data
+
+## `facet_grid`
+
+2d grid; `rows ~ cols
+
+```{r ref.label = "facet", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+
+```{r facet, fig.show = "hide"}
+#| code-line-numbers: "3"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn)) + 
+  geom_point() +
+  facet_grid(treatment ~ group) 
+```
+
+## `facet_wrap`
+
+"1d ribbon wrapped according to number of rows and columns specified or available plotting area"
+
+```{r ref.label = "facet-wrap", echo = FALSE, warning = FALSE, out.width = "100%"}
+```
+
+```{r facet-wrap, fig.show = "hide"}
+#| code-line-numbers: "3"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn)) + 
+  geom_point() +
+  facet_wrap(~ timepoint) 
+```
+
+## Facet and color
+
+```{r facet-color-legend, warning = FALSE}
+#| code-line-numbers: "2,5"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color=treatment)) + 
+  geom_point() +
+  facet_grid(treatment ~ group) +
+  scale_color_viridis_d()
+```
+
+## Face and color, no legend
+
+```{r facet-color-no-legend, warning = FALSE}
+#| code-line-numbers: "6"
+ggplot(data = WB, mapping = aes(x = thc, y = cbn,
+                                color=treatment)) + 
+  geom_point() +
+  facet_grid(treatment ~ group) +
+  scale_color_viridis_d() +
+  guides(color="none") 
+```
+
+# `geom`s {background-color="#92A86A"}
+
+## Common `geom`s
+
+| `geom` [^1]      | Description [^2] |
+|------------------|------------------|
+| `geom_point`     | scatterplot      |
+| `geom_bar`       | barplot          |
+| `geom_line`      | line plot        |
+| `geom_density`   | densityplot      |
+| `geom_histogram` | histogram        |
+| `geom_boxplot`   | boxplot          |
+
+[^1]: `ggplot2` geoms listed [here](https://ggplot2.tidyverse.org/reference/)
+
+[^2]: When each visualization is appropriate [here](https://www.data-to-viz.com/)
+
+## Your Turn
+
+Generate a plot in `ggplot2` using a different `geom` than what you did previously. Customize as much as you can before time is "up."
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+# Recap {background-color="#92A86A"}
+
+-   Can I explain the overall structure of a call to generate a plot in `ggplot2`?
+-   Can I describe `ggplot2` code? Can I create plots using `ggplot2`? 
+-   Can I explain the difference between mapping and setting?
+-   Can I alter the aesthetics of a basic plot? (color, shape, size, transparency)
+-   Am I able to facet a plot to generate a grid of figures
+-   Can I describe what a `geom` is and do I know the basic plots available?

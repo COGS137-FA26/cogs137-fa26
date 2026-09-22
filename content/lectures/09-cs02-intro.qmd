@@ -1,0 +1,546 @@
+---
+title: "09-cs02-intro"
+author: "Professor Shannon Ellis"
+date: "2024-11-05"
+
+format:
+  html: 
+    output-file: 09-cs02-intro.html
+  revealjs:
+    output-file: 09-cs02-intro-slides.html
+    css: slides.css
+---
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(emo)
+
+knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE) 
+```
+
+## Q&A {.smaller}
+
+> Q: I'm not entirely sure how to balance conveying all the useful information from the study to general audiences without over or under-explaining details. I feel like I'm going to get this done via practice.\
+> A: This is absolutely why we do two case studies! We don't expect you to get it perfect this first go around...but we also grade with that in mind and give feedback! We do expect students to improve by CS02 and incorporate our feedback going forward.
+
+> Q: I think it's just confusing thinking about how to naturally intertwine the extension into meaningful analysis.\
+> A: This is the harder thing and is very group specific. We're happy to help as your group comes up with ideas.
+
+> Q: Not sure what to focus on for answering our main question\
+> A: General advice: Use EDA to eliminate as many compounds as possible - which ones are definitely NOT good biomarkers of recent use. Then, once you have fewer matrix-compound combos to look at, do calculations on those remaining.
+
+> Q: How you would present some of your research to the public, what would you personally prioritize.\
+> A: The most critical information while ALSO discussing the *necessary* nuance. For example, my fear with this work is that more people would be sent to jail/see consequences that should NOT. So, I wanted to always be sure to communicate findings *as well as* how people should NOT misinterpret/misuse these findings.
+
+## Course Announcements
+
+**Due Dates**:
+
+-   `r emo::ji("computer")` **CS01** due Wednesday
+-   `r emo::ji("science")` **Lab 05** due Thursday
+-   🔘 **CS01 Team Eval** survey due Thursday
+-   📄 **Final Project Proposal** due Monday
+-   `r emo::ji('clipboard')` Lecture Participation survey "due" after class
+
+
+Notes:
+
+- hw02 and lab04 feedback and scores posted
+- mid-course survey open until tonight
+
+## Mid-course survey (N=55; 57%)
+
+Generally, things are going well, pacing is ok, and people are getting their questions answered.
+
+Some great suggestions: 
+
+- Give us time in class to meet groups right after assignment
+- Keep instructions in same document for completion
+- More text in notes
+- More cs01 guidance/time
+- include some details about R in the wild
+
+# Planning Ahead {background-color="#92A86A"}
+
+## Group Formation (CS02 + Final Project)
+
+::: incremental
+-   CS02 and Final Project are completed in groups (4-5) that you choose
+    -   CS02 - we choose the topic
+    -   Final project - you choose the topic
+-   You specify that group by submitting your final project proposal (due Monday)
+-   I will create repos for CS02 and final project after proposals are submitted
+-   You will still submit feedback about your experience working with your group
+:::
+
+. . .
+
+The final project proposal [link](https://docs.google.com/forms/d/e/1FAIpQLSfXBztrZuK0CeB8p3YZWr6M37oe16DGazuow7_g9Ulr6AiyXg/viewform?usp=sf_link)
+
+## Final Project
+
+Carry out a data analysis on a topic and dataset of your choosing
+
+::: incremental
+-   not something that has already been done
+-   pick a topic you care about
+-   asking and answering a small-ish, specific question OR building a model to complete a useful task
+:::
+
+. . .
+
+**Components**
+
+-   Proposal \| week 7
+-   Rough Draft of report \| week 9
+-   Peer Feedback \| week 10
+-   Final Deliverable \| Tues of finals week
+    -   report (.Rmd -\> html)
+    -   3-5 min presentation\*
+    -   general audience communication
+
+. . .
+
+Notes:
+
+::: incremental
+-   Groups will have the option to record their presentation or present in class during week 10 (EC; all group members must present)
+-   CS02 is also due week 9; these will be happening concurrently; that's why you're in the same group
+:::
+
+## Topic Brainstorming
+
+Let's brainstorm some topics together...
+
+# CS02: Predicting Air Pollution (Data) {background-color="#92A86A"}
+
+## Agenda
+
+-   Background (pollutants, health impacts)
+-   Question
+-   Data Intro
+
+# Background {background-color="#92A86A"}
+
+## Why?
+
+[<i class="fa fa-user" aria-hidden="true"></i>   Why do we discuss background on case studies?]{style="background-color: #ADD8E6"}
+
+## OpenCaseStudies
+
+Wright, Carrie and Meng, Qier and Jager, Leah and Taub, Margaret and Hicks, Stephanie. (2020). [https://github.com//opencasestudies/ocs-bp-air-pollution](https://www.opencasestudies.org/ocs-bp-air-pollution/). Predicting Annual Air Pollution (Version v1.0.0).
+
+## Air Pollutants
+
+Some sources are natural while others are anthropogenic (human-derived):
+
+
+<p align="center">
+
+<img src="images/09/emissions.jpg" width="600"/>
+
+</p>
+
+
+[\[source\]](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.nps.gov%2Fsubjects%2Fair%2Fsources.htm&psig=AOvVaw2v7AVxSF8ZSAPEhNudVtbN&ust=1585770966217000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPDN66q_xegCFQAAAAAdAAAAABAD){target="_blank"}
+
+## Major types of air pollutants
+
+1)  **Gaseous** - Carbon Monoxide (CO), Ozone (O~3~), Nitrogen Oxides(NO, NO~2~), Sulfur Dioxide (SO~2~)
+2)  **Particulate** - small liquids and solids suspended in the air (includes lead- can include certain types of dust)
+3)  **Dust** - small solids (larger than particulates) that can be suspended in the air for some time but eventually settle
+4)  **Biological** - pollen, bacteria, viruses, mold spores
+
+See [here](http://www.redlogenv.com/worker-safety/part-1-dust-and-particulate-matter) for more detail on the types of pollutants in the air.
+
+## Particulate Pollution
+
+Air pollution particulates are generally described by their **size**:
+
+1)  **Large Coarse** Particulate Matter - has diameter of \>10 micrometers (10 µm)
+
+2)  **Coarse** Particulate Matter (called **PM~10-2.5~**) - has diameter of between 2.5 µm and 10 µm
+
+3)  **Fine** Particulate Matter (called **PM~2.5~**) - has diameter of \< 2.5 µm
+
+**PM~10~** includes any particulate matter \<10 µm (both coarse and fine particulate matter)
+
+. . .
+
+In relation to a piece of human hair:
+
+![](images/09/pm2.5_scale_graphic-color_2.jpg)
+
+[\[source\]](https://www.epa.gov/pm-pollution/particulate-matter-pm-basics){target="_blank"}
+
+. . . 
+
+[<i class="fa fa-brain" aria-hidden="true"></i>   Which do you think is most detrimental to our health? (and why?)]{style="background-color: #ADD8E6"}
+
+
+## Common Pollutants and their size
+
+<p align="center">
+
+<img src="images/09/particulate-size-chart.png" width="800"/>
+
+</p>
+
+[\[source\]](https://en.wikipedia.org/wiki/Particulates){target="_blank"}
+
+## Penetration into the human body
+
+![](images/09/sizes.jpg)
+
+[\[source\]](https://www.frontiersin.org/articles/10.3389/fpubh.2020.00014/full){target="_blank"}
+
+## Negative Health Impacts
+
+Exposure to air pollution is:
+
+-   associated with higher rates of [mortality](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5783186/){target="_blank"} in older adults
+-   known to be a risk factor for many diseases and conditions including (but not limited to):
+
+::: incremental
+1)  [Asthma](https://www.ncbi.nlm.nih.gov/pubmed/29243937){target="_blank"} - fine particle exposure (**PM~2.5~**) was found to be associated with higher rates of asthma in children
+2)  [Inflammation in type 1 diabetes](https://www.ncbi.nlm.nih.gov/pubmed/31419765){target="_blank"} - fine particle exposure (**PM~2.5~**) from traffic-related air pollution was associated with increased measures of inflammatory markers in youths with Type 1 diabetes
+3)  [Lung function and emphysema](https://www.ncbi.nlm.nih.gov/pubmed/31408135){target="_blank"} - higher concentrations of ozone (O~3~), nitrogen oxides (NO~x~), black carbon, and fine particle exposure **PM~2.5~** , at study baseline were significantly associated with greater increases in percent emphysema per 10 years
+4)  [Low birthweight](https://www.ncbi.nlm.nih.gov/pubmed/31386643){target="_blank"} - fine particle exposure(**PM~2.5~**) was associated with lower birth weight in full-term live births
+5)  [Viral Infection](https://www.tandfonline.com/doi/full/10.1080/08958370701665434){target="_blank"} - higher rates of infection and increased severity of infection are associated with higher exposures to pollution levels including fine particle exposure (**PM~2.5~**)
+:::
+
+See this [review article](https://www.frontiersin.org/articles/10.3389/fpubh.2020.00014/full){target="_blank"} for more information about sources of air pollution and the influence of air pollution on health.
+
+## Why to Care: The State of Global Air
+
+The [State of Global Air](https://www.stateofglobalair.org/){target="_blank"} is a report released every year to communicate the impact of air pollution on public health.
+
+. . .
+
+The [State of Global Air 2019 report](https://www.stateofglobalair.org/sites/default/files/soga_2019_report.pdf){target="_blank"} (which uses data from 2017) stated that:
+
+> Air pollution is the **fifth** leading risk factor for mortality worldwide. It is responsible for more deaths than many better-known risk factors such as malnutrition, alcohol use, and physical inactivity. Each year, **more** people die from air pollution–related disease than from road **traffic injuries** or **malaria**.
+
+<p align="center">
+
+<img src="https://www.healtheffects.org/sites/default/files/SoGA-Figures-01.jpg" width="800"/>
+
+</p>
+
+[\[source\]](https://www.stateofglobalair.org/sites/default/files/soga_2019_report.pdf){target="_blank"}
+
+. . .
+
+> In 2017, air pollution is estimated to have contributed to close to 5 million deaths globally — nearly **1 in every 10 deaths**.
+
+![](images/09/2017deaths.png)
+
+[\[source\]](https://www.stateofglobalair.org/sites/default/files/soga_2019_fact_sheet.pdf){target="_blank"}
+
+. . .
+
+The [State of Global Air 2018 report](https://www.stateofglobalair.org/sites/default/files/soga-2018-report.pdf){target="_blank"} (using data from 2016) separated different types of air pollution & found that **particulate pollution was particularly associated with mortality**.
+
+![](images/09/2017mortality.png)
+
+[\[source\]](https://www.stateofglobalair.org/sites/default/files/soga-2018-report.pdf){target="_blank"}
+
+. . .
+
+The 2019 report shows that the highest levels of fine particulate pollution occur in Africa and Asia and that:
+
+> More than **90%** of people worldwide live in areas **exceeding** the World Health Organization (WHO) **Guideline** for healthy air. More than half live in areas that do not even meet WHO's least-stringent air quality target.
+
+![](images/09/PMworld.png)
+
+[\[source\]](https://www.stateofglobalair.org/sites/default/files/soga_2019_fact_sheet.pdf){target="_blank"}
+
+## Overall Improvement
+
+Looking at the US specifically, air pollution levels are generally improving, with declining national air pollutant concentration averages as shown from the 2019 [*Our Nation's Air*](https://gispub.epa.gov/air/trendsreport/2019/#home){target="_blank"} report from the US Environmental Protection Agency (EPA):
+
+<p align="center">
+
+<img src="images/09/US.png" width="800"/>
+
+</p>
+
+[\[source\]](https://gispub.epa.gov/air/trendsreport/2019/documentation/AirTrends_Flyer.pdf){target="_blank"}
+
+## Still An Issue 
+
+-   air pollution **continues to contribute to health risk for Americans**, in particular in **regions with higher than national average rates** of pollution that, at times, exceed the WHO's recommended level.
+-   important to obtain high spatial granularity in estimates of air pollution in order to identify locations where populations are experiencing harmful levels of exposure.
+
+. . .
+
+You can see that current air quality conditions at this [website](https://aqicn.org/city/usa/){target="_blank"}, and you will notice variation across different cities.
+
+. . .
+
+-   reports particulate values using what is called the [Air Quality Index](https://www.airnow.gov/index.cfm?action=aqibasics.aqi){target="_blank"} (AQI).
+-   This [calculator](https://airnow.gov/index.cfm?action=airnow.calculator){target="_blank"} indicates that 138 AQI is equivalent to 50.5 ug/m^3^ and is considered unhealthy for sensitive individuals.
+-   Thus, some areas exceed the WHO annual exposure guideline (10 ug/m^3^), and this may adversely affect the health of people living in these locations.
+
+## Adverse health effects
+
+-   Adverse health effects have been associated with populations experiencing higher pollution exposure despite the levels being below suggested guidelines.
+-   it appears that the composition of the particulate matter and the influence of other demographic factors may make specific populations more at risk for adverse health effects due to air pollution. (For example, see this [article](https://www.nejm.org/doi/full/10.1056/NEJMoa1702747){target="_blank"} for more details.)
+
+## Sparse monitoring PH issue
+
+::: incremental
+-   Historically, epidemiological studies would assess the influence of air pollution on health outcomes by relying on a number of monitors located around the country.
+-   However, these monitors are relatively sparse in certain regions of the country and are not necessarily located near pollution sources.
+-   dramatic differences in pollution rates can be seen even within the same city. (In fact, the term micro-environments describes environments within cities or counties which may vary greatly from one block to another.)
+:::
+
+. . .
+
+<p align="center">
+
+<img src="images/09/map_of_monitors.jpg" width="800"/>
+
+</p>
+
+[\[source\]](https://ehjournal.biomedcentral.com/articles/10.1186/1476-069X-13-63){target="_blank"}
+
+. . .
+
+Lack of granularity in air pollution monitoring has hindered our ability to discern the full impact of air pollution on health and to identify at-risk locations.
+
+## Machine Learning offers a solution
+
+An [article](https://ehjournal.biomedcentral.com/articles/10.1186/1476-069X-13-63){target="_blank"} published in the *Environmental Health* journal dealt with this issue by using data, including population density and road density, among other features, to model or predict air pollution levels at a more localized scale using machine learning (ML) methods.
+
+<p align="center">
+
+<img src="images/09/thepaper.png" width="800"/>
+
+</p>
+
+[\[source\]](https://ehjournal.biomedcentral.com/articles/10.1186/1476-069X-13-63){target="_blank"}
+
+. . .
+
+The authors of this article state that:
+
+> "Exposure to atmospheric particulate matter (PM) remains an important public health concern, although it remains difficult to quantify accurately across large geographic areas with sufficiently high spatial resolution. Recent epidemiologic analyses have demonstrated the importance of spatially- and temporally-resolved exposure estimates, which show larger PM-mediated health effects as compared to nearest monitor or county-specific ambient concentrations."
+
+. . .
+
+The article above demonstrates that machine learning methods can be used to predict air pollution levels when traditional monitoring systems are not available in a particular area or when there is not enough spatial granularity with current monitoring systems.
+
+. . .
+
+So...we're going to do the same
+
+# Question {background-color="#92A86A"}
+
+> With what accuracy can we predict US annual average air pollution concentrations?
+
+This will specifically be at the granularity of zip code regional levels using predictors such as data about population density, urbanization, road density, as well as, satellite pollution data and chemical modeling data.
+
+# Data {background-color="#92A86A"}
+
+
+## Monitor Data
+
+::: incremental
+-   Monitor data in this case study come from a system of monitors in which roughly 90% are located within cities.
+-   There is an **equity issue** in terms of capturing the air pollution levels of more rural areas.
+-   To get a better sense of the pollution exposures for the individuals living in these areas, methods like machine learning can be useful to estimate air pollution levels in **areas with little to no monitoring**.
+-   Specifically, these methods can be used to estimate air pollution in these low monitoring areas so that we can make a map like this where we have annual estimates for all of the contiguous US:
+:::
+
+. . .
+
+<p align="center">
+
+<img src="https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/SAWOEGBXMVGQ7AS5PZ6UUOX6FY.png" width="800"/>
+
+</p>
+
+[\[source\]](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.washingtonpost.com%2Fbusiness%2F2019%2F10%2F23%2Fair-pollution-is-getting-worse-data-show-more-people-are-dying%2F&psig=AOvVaw3v-ZDTBPnLP2MYtKf3Undj&ust=1585784479068000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPCyn9fxxegCFQAAAAAdAAAAABAd){target="_blank"}
+
+This is what we aim to achieve in this case study.
+
+## Limitations
+
+::: incremental
+1.  The data do not include information about the composition of particulate matter. Different types of particulates may be more benign or deleterious for health outcomes.
+2.  Outdoor pollution levels are not necessarily an indication of individual exposures. People spend differing amounts of time indoors and outdoors and are exposed to different pollution levels indoors. Researchers are now developing personal monitoring systems to track air pollution levels on the personal level.
+3.  Our analysis will use annual mean estimates of pollution levels, but these can vary greatly by season, day and even hour. There are data sources that have finer levels of temporal data; however, we are interested in long term exposures, as these appear to be the most influential for health outcomes.
+4.  These data are US-focused.
+:::
+
+## Supervised ML
+
+Here, we'll need:
+
+1.  A **continuous** outcome variable that we want to predict
+2.  A set of feature(s) (or predictor variables) that we use to predict the outcome variable
+
+. . .
+
+To build (or train) our model, we use both the outcome and features.
+
+. . .
+
+The goal is to identify informative features that can explain a large amount of variation in our outcome variable.
+
+. . .
+
+Using this model, we can then predict the outcome from new observations with the same features where have not observed the outcome.
+
+(More details [here](https://towardsdatascience.com/supervised-vs-unsupervised-learning-14f68e32ea8d){target="_blank"})
+
+## Outcome
+
+The monitor data that we will be using comes from [**gravimetric monitors**](https://publiclab.org/wiki/filter-pm){target="_blank"} (see picture below) operated by the US [Environmental Protection Agency (EPA)](https://www.epa.gov/){target="_blank"}.
+
+![](images/09/monitor.png)
+
+\[image courtesy of [Kirsten Koehler](https://www.jhsph.edu/faculty/directory/profile/2928/kirsten-koehler)\]
+
+. . .
+
+These monitors use a filtration system to specifically capture fine particulate matter.
+
+![](images/09/filter.png)
+
+[\[source\]](https://publiclab.org/wiki/filter-pm){target="_blank"}
+
+. . .
+
+The weight of this particulate matter is manually measured daily or weekly.
+
+For the EPA standard operating procedure for PM gravimetric analysis in 2008, we refer the reader to [here](https://www3.epa.gov/ttnamti1/files/ambient/pm25/spec/RTIGravMassSOPFINAL.pdf){target="_blank"}.
+
+. . .
+
+In our data set, the `value` column indicates the PM~2.5~ monitor average for 2008 in mass of fine particles/volume of air for 876 gravimetric monitors.
+
+. . .
+
+The units are micrograms of fine particulate matter (PM) that is less than 2.5 micrometers in diameter per cubic meter of air - mass concentration (ug/m^3^).
+
+. . .
+
+Recall the WHO exposure guideline is \< 10 ug/m^3^ on average annually for PM~2.5~.
+
+## Data Import
+
+All of our data was previously collected by a [researcher](http://www.biostat.jhsph.edu/~rpeng/) at the [Johns Hopkins School of Public Health](https://www.jhsph.edu/) who studies air pollution and climate change. (Roger now works at UT Austin)
+
+. . .
+
+We have one CSV file that contains both our single **outcome variable** and all of our **features** (or predictor variables). You can download this file using the `OCSdata` package:
+
+```{r, eval=FALSE}
+# install.packages("OCSdata")
+OCSdata::raw_data("ocs-bp-air-pollution", outpath = getwd())
+```
+
+. . .
+
+```{r}
+pm <- read_csv("OCS_data/data/raw/pm25_data.csv")
+```
+
+. . . 
+
+## Get The Data
+
+Read the data in so you can follow along now!
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you've got the code running. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::
+
+## PM 2.5 Data
+
+-   876 monitors
+-   40 columns
+    -   `value` \| outcome variable
+
+```{r}
+pm |>
+  glimpse()
+```
+
+. . .
+
+There are 48 features with values for each of the 876 monitors (observations).
+
+The data comes from the US [Environmental Protection Agency (EPA)](https://www.epa.gov/){target="_blank"}, the [National Aeronautics and Space Administration (NASA)](https://www.nasa.gov/){target="_blank"}, the US [Census](https://www.census.gov/about/what/census-at-a-glance.html){target="_blank"}, and the [National Center for Health Statistics (NCHS)](https://www.cdc.gov/nchs/about/index.htm){target="_blank"}.
+
+## Features {.smaller}
+
+| Variable                        | Details                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|--------------------------------|----------------------------------------|
+| **id**                          | Monitor number <br> -- the county number is indicated before the decimal <br> -- the monitor number is indicated after the decimal <br> **Example**: 1073.0023 is Jefferson county (1073) and .0023 one of 8 monitors                                                                                                                                                                                                                                                                          |
+| **fips**                        | Federal information processing standard number for the county where the monitor is located <br> -- 5 digit id code for counties (zero is often the first value and sometimes is not shown) <br> -- the first 2 numbers indicate the state <br> -- the last three numbers indicate the county <br> **Example**: Alabama's state code is 01 because it is first alphabetically <br> (note: Alaska and Hawaii are not included because they are not part of the contiguous US)                    |
+| **Lat**                         | Latitude of the monitor in degrees                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **Lon**                         | Longitude of the monitor in degrees                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **state**                       | State where the monitor is located                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **county**                      | County where the monitor is located                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| **city**                        | City where the monitor is located                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **CMAQ**                        | Estimated values of air pollution from a computational model called [**Community Multiscale Air Quality (CMAQ)**](https://www.epa.gov/cmaq){target="_blank"} <br> -- A monitoring system that simulates the physics of the atmosphere using chemistry and weather data to predict the air pollution <br> -- ***Does not use any of the PM~2.5~ gravimetric monitoring data.*** (There is a version that does use the gravimetric monitoring data, but not this one!) <br> -- Data from the EPA |
+| **zcta**                        | [Zip Code Tabulation Area](https://en.wikipedia.org/wiki/ZIP_Code_Tabulation_Area){target="_blank"} where the monitor is located <br> -- Postal Zip codes are converted into "generalized areal representations" that are non-overlapping <br> -- Data from the 2010 Census                                                                                                                                                                                                                    |
+| **zcta_area**                   | Land area of the zip code area in meters squared <br> -- Data from the 2010 Census                                                                                                                                                                                                                                                                                                                                                                                                             |
+| **zcta_pop**                    | Population in the zip code area <br> -- Data from the 2010 Census                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **imp_a500**                    | Impervious surface measure <br> -- Within a circle with a radius of 500 meters around the monitor <br> -- Impervious surface are roads, concrete, parking lots, buildings <br> -- This is a measure of development                                                                                                                                                                                                                                                                             |
+| **imp_a1000**                   | Impervious surface measure <br> -- Within a circle with a radius of 1000 meters around the monitor                                                                                                                                                                                                                                                                                                                                                                                             |
+| **imp_a5000**                   | Impervious surface measure <br> -- Within a circle with a radius of 5000 meters around the monitor                                                                                                                                                                                                                                                                                                                                                                                             |
+| **imp_a10000**                  | Impervious surface measure <br> -- Within a circle with a radius of 10000 meters around the monitor                                                                                                                                                                                                                                                                                                                                                                                            |
+| **imp_a15000**                  | Impervious surface measure <br> -- Within a circle with a radius of 15000 meters around the monitor                                                                                                                                                                                                                                                                                                                                                                                            |
+| **county_area**                 | Land area of the county of the monitor in meters squared                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **county_pop**                  | Population of the county of the monitor                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| **Log_dist_to_prisec**          | Log (Natural log) distance to a primary or secondary road from the monitor <br> -- Highway or major road                                                                                                                                                                                                                                                                                                                                                                                       |
+| **log_pri_length_5000**         | Count of primary road length in meters in a circle with a radius of 5000 meters around the monitor (Natural log) <br> -- Highways only                                                                                                                                                                                                                                                                                                                                                         |
+| **log_pri_length_10000**        | Count of primary road length in meters in a circle with a radius of 10000 meters around the monitor (Natural log) <br> -- Highways only                                                                                                                                                                                                                                                                                                                                                        |
+| **log_pri_length_15000**        | Count of primary road length in meters in a circle with a radius of 15000 meters around the monitor (Natural log) <br> -- Highways only                                                                                                                                                                                                                                                                                                                                                        |
+| **log_pri_length_25000**        | Count of primary road length in meters in a circle with a radius of 25000 meters around the monitor (Natural log) <br> -- Highways only                                                                                                                                                                                                                                                                                                                                                        |
+| **log_prisec_length_500**       | Count of primary and secondary road length in meters in a circle with a radius of 500 meters around the monitor (Natural log) <br> -- Highway and secondary roads                                                                                                                                                                                                                                                                                                                              |
+| **log_prisec_length_1000**      | Count of primary and secondary road length in meters in a circle with a radius of 1000 meters around the monitor (Natural log) <br> -- Highway and secondary roads                                                                                                                                                                                                                                                                                                                             |
+| **log_prisec_length_5000**      | Count of primary and secondary road length in meters in a circle with a radius of 5000 meters around the monitor (Natural log) <br> -- Highway and secondary roads                                                                                                                                                                                                                                                                                                                             |
+| **log_prisec_length_10000**     | Count of primary and secondary road length in meters in a circle with a radius of 10000 meters around the monitor (Natural log) <br> -- Highway and secondary roads                                                                                                                                                                                                                                                                                                                            |
+| **log_prisec_length_15000**     | Count of primary and secondary road length in meters in a circle with a radius of 15000 meters around the monitor (Natural log) <br> -- Highway and secondary roads                                                                                                                                                                                                                                                                                                                            |
+| **log_prisec_length_25000**     | Count of primary and secondary road length in meters in a circle with a radius of 25000 meters around the monitor (Natural log) <br> -- Highway and secondary roads                                                                                                                                                                                                                                                                                                                            |
+| **log_nei_2008_pm25_sum_10000** | Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 10000 meters of distance around the monitor (Natural log)                                                                                                                                                                                                                                                                                                                     |
+| **log_nei_2008_pm25_sum_15000** | Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 15000 meters of distance around the monitor (Natural log)                                                                                                                                                                                                                                                                                                                     |
+| **log_nei_2008_pm25_sum_25000** | Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 25000 meters of distance around the monitor (Natural log)                                                                                                                                                                                                                                                                                                                     |
+| **log_nei_2008_pm10_sum_10000** | Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 10000 meters of distance around the monitor (Natural log)                                                                                                                                                                                                                                                                                                                     |
+| **log_nei_2008_pm10_sum_15000** | Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 15000 meters of distance around the monitor (Natural log)                                                                                                                                                                                                                                                                                                                     |
+| **log_nei_2008_pm10_sum_25000** | Tons of emissions from major sources data base (annual data) sum of all sources within a circle with a radius of 25000 meters of distance around the monitor (Natural log)                                                                                                                                                                                                                                                                                                                     |
+| **popdens_county**              | Population density (number of people per kilometer squared area of the county)                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **popdens_zcta**                | Population density (number of people per kilometer squared area of zcta)                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| **nohs**                        | Percentage of people in zcta area where the monitor is that **do not have a high school degree** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                                                                  |
+| **somehs**                      | Percentage of people in zcta area where the monitor whose highest formal educational attainment was **some high school education** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                                |
+| **hs**                          | Percentage of people in zcta area where the monitor whose highest formal educational attainment was completing a **high school degree** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                           |
+| **somecollege**                 | Percentage of people in zcta area where the monitor whose highest formal educational attainment was completing **some college education** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                         |
+| **associate**                   | Percentage of people in zcta area where the monitor whose highest formal educational attainment was completing an **associate degree** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                            |
+| **bachelor**                    | Percentage of people in zcta area where the monitor whose highest formal educational attainment was a **bachelor's degree** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                                       |
+| **grad**                        | Percentage of people in zcta area where the monitor whose highest formal educational attainment was a **graduate degree** <br> -- Data from the Census                                                                                                                                                                                                                                                                                                                                         |
+| **pov**                         | Percentage of people in zcta area where the monitor is that lived in [**poverty**](https://aspe.hhs.gov/2008-hhs-poverty-guidelines) in 2008 - or would it have been 2007 guidelines??https://aspe.hhs.gov/2007-hhs-poverty-guidelines <br> -- Data from the Census                                                                                                                                                                                                                            |
+| **hs_orless**                   | Percentage of people in zcta area where the monitor whose highest formal educational attainment was a **high school degree or less** (sum of nohs, somehs, and hs)                                                                                                                                                                                                                                                                                                                             |
+| **urc2013**                     | [2013 Urban-rural classification](https://www.cdc.gov/nchs/data/series/sr_02/sr02_166.pdf){target="_blank"} of the county where the monitor is located <br> -- 6 category variable - 1 is totally urban 6 is completely rural <br> -- Data from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm){target="_blank"}                                                                                                                                               |
+| **urc2006**                     | [2006 Urban-rural classification](https://www.cdc.gov/nchs/data/series/sr_02/sr02_154.pdf){target="_blank"} of the county where the monitor is located <br> -- 6 category variable - 1 is totally urban 6 is completely rural <br> -- Data from the [National Center for Health Statistics](https://www.cdc.gov/nchs/index.htm){target="_blank"}                                                                                                                                               |
+| **aod**                         | Aerosol Optical Depth measurement from a NASA satellite <br> -- based on the diffraction of a laser <br> -- used as a proxy of particulate pollution <br> -- unit-less - higher value indicates more pollution <br> -- Data from NASA                                                                                                                                                                                                                                                          |
+
+. . .
+
+Many of these features have to do with the circular area around the monitor called the "buffer". These are illustrated in the following figure:
+
+![](images/09/regression.png)
+
+[\[source\]](https://www.ncbi.nlm.nih.gov/pubmed/15292906){target="_blank"}
+
+## Your Turn
+
+Scroll through the data, consider 1) if these data are in tidy format and 2) which variables you think may be most helpful in building a model to predict annual air pollution. 
+
+::: aside
+Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+:::

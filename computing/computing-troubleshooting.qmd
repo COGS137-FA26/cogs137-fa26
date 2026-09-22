@@ -1,0 +1,9 @@
+---
+title: "Computing troubleshooting"
+---
+
+If you're having difficulty working in datahub, go to [status.ucsd.edu](https://status.ucsd.edu/). Known issues will be reported at the top of the page.
+
+-   If no issue relating to "datahub" or "DSMLP" is noted, this suggests the system is expected to be working. Check your internet connection. Then, if issue is not resolved, click "Control Panel" at top right and then "Stop my Server". After a minute, click "Start My Server" to start a fresh new connection. If your issue persists, post on the course Ed with details on what you've tried and the errors you see (including verbatim errors and/or screenshots whenever possible).
+
+-   If it shows an issue relating to "datahub" or "DSMLP", this means there is a known incident with the datahub. This typically resolves quickly. If there's a deadline coming up soon, post on the course Ed to let us know that there's an issue. We can look into how quickly it might get resolved and decide on what to do about the deadline accordingly. Note: We don't anticipate this to happen regularly, the systems are Operational a huge majority of the time!

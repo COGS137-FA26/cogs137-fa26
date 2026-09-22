@@ -1,0 +1,19 @@
+{
+  "hash": "b06da7536e2bd393e52b6dc20b85dd77",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab 07: Logistic Regression\"\nauthor: \"\"\nformat:\n  revealjs:\n    embed-resources: true\n    slide-number: true\n    chalkboard: false \n    preview-links: auto\n    logo: img/cogs137-logo-hex.png\n    footer: <https://cogs137.github.io/website/>\n    execute:\n      echo: true\n---\n\n\n# Lab 07: Logistic Regression {background-color=\"#0E3A53\"}\n\n\n::: {.cell}\n\n:::\n\n\n## Agenda\n\n1.  Lab 07: Modelling resumes\n2.  Getting started with lab\n\n## Data come from...\n\n\"Are Emily and Greg More Employable than Lakisha and Jamal? A Field Experiment on Labor Market Discrimination.\"\n\nBertrand, Marianne, and Sendhil Mullainathan. 2003. <https://doi.org/10.3386/w9873>.\n\n## Study\n\nGoal: understand the influence of race and gender on job application callback rates\n\n. . .\n\n#### Specs:\n\n-   Two cities: Boston and Chicago\n-   Time: several months in 2001 and 2002\n\n. . .\n\n#### Plan:\n\n1.  Researchers generated resumes, randomizing years of experience and education details\n2.  Then: randomly assigned a name to the resume that would communicate the applicant's gender and race\n\n-   they tested these names and removed those that did not suggest gender and race consistently\n-   i.e. Lakisha was a name that their survey indicated would be interpreted as a black woman, while Greg was a name that would generally be interpreted to be associated with a white male.\"\n\n## Backwards elimination (Logistic Regression)\n\n-   Start with **full** model (including all candidate explanatory variables and all candidate interactions)\n\n-   Remove one variable at a time, and select the model with the *lowest* AIC\n\n-   Continue until AIC does not decrease\n\n. . .\n\n-   You do NOT have to include every model in your lab...just the final one you settle on.\n\n## A note on this lab\n\n-   There are three parts. We'll be grading to see that you've done *some* EDA and have fit and interpreted at least two models (single and multiple predictors model)\n-   It's OK if you don't get to backwards elimination\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

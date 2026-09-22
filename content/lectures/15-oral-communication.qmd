@@ -1,0 +1,66 @@
+---
+title: "15-oral-communication"
+author: "Professor Shannon Ellis"
+date: "2024-11-26"
+
+format:
+  html: 
+    output-file: 15-oral-communication.html
+  revealjs:
+    output-file: 15-oral-communication-slides.html
+    css: slides.css
+---
+
+# Effective Oral Communication {background-color="#92A86A"}
+
+## Course Announcements
+
+- 🎥 [In-class presentation form](https://docs.google.com/forms/d/e/1FAIpQLSeAWBS4xwLJUGFQJWDEBV0ltfJlBWA-niB692CTZiEuKzdKPw/viewform?usp=sf_link) - complete by Monday
+- 🔘 [cs02 team eval survey](https://docs.google.com/forms/d/e/1FAIpQLSc210OYfhk23Ny7ozJ-5yG6OPMR9SV1snjUjURLrI03APsmOg/viewform?usp=sf_link) now due Monday
+- 👯 [Peer Evaluation Survey](https://docs.google.com/forms/d/e/1FAIpQLScz4WZC8R1HQLj6-zdUNE_HWEwrJa7siBeP4uE0RZVEY4Sykw/viewform?usp=sf_link) due Monday
+- 🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
+
+Notes:
+
+- Tues in class will be for working on your final project in groups
+- Remaining labs (Mon and Fri of week 10) will be for project progress
+
+## [Peer Evaluation Survey](https://docs.google.com/forms/d/e/1FAIpQLScz4WZC8R1HQLj6-zdUNE_HWEwrJa7siBeP4uE0RZVEY4Sykw/viewform?usp=sf_link)
+
+- each group received an email with their group to review (subject: `[COGS 137] peer review`)
+- one peer eval form submission per group
+
+. . . 
+
+- Graded on completion...but make it as helpful to the other group as possible
+- A more critical/negative review will NOT negatively affect the other team's grade...but it may help them improve!
+- The more free text you provide the more helpful it will be
+
+. . . 
+
+- If the file you got was empty/just the template, you'll have a very quick time evaluating
+
+## Final Project (Tues of finals week)
+
+- Rmd/HTML Report
+  - Audience: COGS 137 students
+    - unfamiliar topic; needs introduction
+    - should walk through analysis and explain/interpret results
+    - NO Extension necessary
+    
+. . . 
+
+- Presentation (3-5 min)
+  - Audience: COGS 137 students
+  - If you present in class (next Thurs), no recording needs to be submitted (option for EC)
+  - If you do not present in class, will submit video/link to video on Canvas 
+  
+. . . 
+
+- General Communication
+  - For a general audience; like cs01/cs02
+
+## Effective Oral Communication
+
+{{< pdf Presentation_slides_101_week9.pdf width=100% height=600 >}}
+
