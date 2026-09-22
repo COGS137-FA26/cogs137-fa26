@@ -95,7 +95,7 @@ Carry out a data analysis on a topic and dataset of your choosing
 -   Rough Draft of report \| week 9
 -   Peer Feedback \| week 10
 -   Final Deliverable \| Tues of finals week
-    -   report (.Rmd -\> html)
+    -   report (.qmd -\> html)
     -   3-5 min presentation\*
     -   general audience communication
 

@@ -49,7 +49,7 @@ To make this easier on yourself, you'll likely want to find a visualization wher
 
 Notes:
 
--   To insert an image in an RMarkdown document, you can use the syntax `![alt text](path/to/image.png)`.
+-   To insert an image in a Quarto document, you can use the syntax `![alt text](path/to/image.png)`.
 -   The R/`ggplot2` code to create your visualization *cannot* already exist on the internet. (For example, choosing to recreate a plot from the [R Graph Gallery](https://r-graph-gallery.com/density_mirror_ggplot2.html) would *not* be an option because all the code is already there and you wouldn't learn as much.)
 -   Additional sources of strong visualizations: [NYT Graphics](https://www.nytimes.com/spotlight/graphics) and their [yearly roundup](https://www.nytimes.com/interactive/2023/us/2023-year-in-graphics.html) incl. other sources; [The Economist](https://www.economist.com/graphic-detail)
 
@@ -79,4 +79,4 @@ Explain *why* you made the design and visualization choices you did for your imp
 
 ## Submission
 
-Be sure to **knit your file to HTML**, look at the output HTML file to make sure everything looks as you expected, and then commit and push your final changes to GitHub. We will be grading from the HTML file. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.
+Be sure to **render your file to HTML**, look at the output HTML file to make sure everything looks as you expected, and then commit and push your final changes to GitHub. We will be grading from the HTML file. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.

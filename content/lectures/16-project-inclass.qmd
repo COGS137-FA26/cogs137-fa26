@@ -26,7 +26,7 @@ format:
 **Due Dates**:
 
 - 📄 **Final Project** due Tuesday
-  - Rmd/HTML in repo
+  - qmd/HTML in repo
   - 3-5 min Presentation submitted on Canvas (1/group)
   - General Communication submitted on Canvas (1/group)
   - [final project team evaluation](https://docs.google.com/forms/d/e/1FAIpQLScOfGiWvHY4UVobL95Em1d2JIEZJf8UCejGtpxsxUjW-FSiyw/viewform?usp=sf_link) (individual submission; link on Canvas and website) <- also a place where you can praise teammates

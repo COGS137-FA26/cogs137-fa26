@@ -32,9 +32,9 @@ You can think of this as a mini case report in the fact that the process is the 
 
 You are strongly encouraged to think of your topic/question before looking for datasets. More interesting case studies start with the topic/question. Boring case studies look for the dataset first.
 
-### Deliverable: Report (.Rmd + HTML)
+### Deliverable: Report (.qmd + HTML)
 
-Your analysis will be submitted as an .Rmd document and rendered to HTML (both of which should be pushed to GitHub).
+Your analysis will be submitted as a .qmd document and rendered to HTML (both of which should be pushed to GitHub).
 
 This will likely *not* be quite as long as a case study in this course, but will likely have the same sections.
 

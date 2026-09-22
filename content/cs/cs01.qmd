@@ -20,19 +20,19 @@ This will be submitted and graded as a group. **One submission per group.**
 Here are the steps for getting started:
 
 :::aside
-Avoid waiting until the end to knit for the first time. It will be better/easier/less of a headache if you knit periodically and know it's all working as intended.
+Avoid waiting until the end to render for the first time. It will be better/easier/less of a headache if you render periodically and know it's all working as intended.
 :::
 
 -   This will be completed in the `cs01-<team name>` group repository that has been created for you and your group mates in the [course GitHub organization](https://github.com/COGS137-FA26).
 -   Three data files have been provided for you in the `data/` directory, one for each matrix (blood, oral fluid, breath).
--   Code + write away in the provided .Rmd document!
--   Periodically knit and commit changes (for example, once per each new part)
+-   Code + write away in the provided .qmd document!
+-   Periodically render and commit changes (for example, once per each new part)
 -   Push all your changes back to your GitHub repo
 -   This case study will be graded from the HTML file on your group's GitHub repo.
 
 
 :::aside
-  A reminder that there is a [book dedicated to RMarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/html-output.html), with a whole section on controlling HTML output, in case you want to customize your output in some way.
+  A reminder that the [Quarto documentation on HTML output](https://quarto.org/docs/output-formats/html-basics.html) covers controlling HTML output (table of contents, code folding, themes, etc.), in case you want to customize your output in some way.
 :::
 
 

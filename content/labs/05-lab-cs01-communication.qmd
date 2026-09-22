@@ -10,7 +10,7 @@ output:
 
 # Introduction
 
-The main goals of this lab are for you to 1) get more comfortable customizing HTML output from Rmd documents, 2) practice citing sources, and 3) implement effective written communication strategies as discussed in class.
+The main goals of this lab are for you to 1) get more comfortable customizing HTML output from Quarto documents, 2) practice citing sources, and 3) implement effective written communication strategies as discussed in class.
 
 # Getting started
 
@@ -22,23 +22,23 @@ The only package required for completion of this lab is `tidyverse`.
 
 # Exercises
 
-## Part 1: Rmd control
+## Part 1: Quarto control
 
 ### Exercise 1
 
-Load in the tidyverse using `library(tidyverse)`. However, you may have noticed that when you do this and knit the resulting file, the output includes a verbose message. Edit your Rmd document (either for the document overall or for this specific code chunk) so that the lengthy message doesn't display.
+Load in the tidyverse using `library(tidyverse)`. However, you may have noticed that when you do this and render the resulting file, the output includes a verbose message. Edit your .qmd document (either for the document overall or for this specific code chunk) so that the lengthy message doesn't display.
 
 ### Exercise 2
 
 Let's customize the output a bit more by adding some additional information to your YAML. Edit the YAML of your document to:
  
-1. use a different theme than the default
-2. use a different option for code highlighting
-3. include a floating table of contents, with a depth of 3
+1. use a different [theme](https://quarto.org/docs/output-formats/html-themes.html) than the default
+2. use a different option for code highlighting (`highlight-style`)
+3. include a table of contents, with a depth of 3
 4. enable code folding
 
 :::aside
-A reminder that there are additional readings provided along with most lectures, including [Ch3](https://bookdown.org/yihui/rmarkdown/html-document.html) and [Section 2.6](https://bookdown.org/yihui/rmarkdown/r-code.html) from **R Markdown: The Definitive Guide** for the effective communication notes
+A reminder that there are additional readings provided along with most lectures, including Quarto's [HTML Basics](https://quarto.org/docs/output-formats/html-basics.html) and [Execution Options](https://quarto.org/docs/computations/execution-options.html) pages for the effective communication notes
 :::
 
 
@@ -48,7 +48,7 @@ A reminder that there are additional readings provided along with most lectures,
 
 Find at least one fact on the Internet related to our CS01 main question (ideally, a source/fact we didn't discuss in class already). Specify the fact here, including a citation to the original source.
 
-This can use [footnotes as discussed in class](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/07-written-communication.html#footnotes-in-.rmd) or some other approach to citation...so long as we have the information an its original source.
+This can use [footnotes as discussed in class](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/07-written-communication.html#footnotes-in-.qmd) or some other approach to citation...so long as we have the information an its original source.
 
 ### Exercise 4
 
@@ -68,7 +68,7 @@ Feel free to use remaining time incorporating these changes/improvements into yo
 # Submit
 
 ::: callout-important
-You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.
 :::
 
-*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*
+*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

@@ -30,7 +30,7 @@ The only package required for completion of this lab is `tidyverse`, as `dplyr` 
 
 # Data
 
-The three data files you'll be using in this lab have been provided in the `data/` folder. You'll see the following three lines in the provided .Rmd template for this lab, which, when run, will read each of the files into R for you:
+The three data files you'll be using in this lab have been provided in the `data/` folder. You'll see the following three lines in the provided .qmd template for this lab, which, when run, will read each of the files into R for you:
 
 ``` r
 WB <- read_csv("data/WB")
@@ -79,7 +79,7 @@ In your own words (no code needed), describe the wrangling that was done overall
 # Submit
 
 ::: callout-important
-You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.
 :::
 
-*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 2! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*
+*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 2! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

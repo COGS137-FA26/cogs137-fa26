@@ -571,7 +571,7 @@ boxplot_treatment("BR")
 
 ::: incremental
 - Argument for combining treatment groups? 
-- We now have very similar `ggplot2` code across a few plots. This can be improved using`theme_set()`. You set theme parameters at top of Rmd...and then those will apply across all plots.
+- We now have very similar `ggplot2` code across a few plots. This can be improved using`theme_set()`. You set theme parameters at top of your qmd...and then those will apply across all plots.
 - These last two sets of plots have only focused on that first timepoint. You'll probably want to look beyond that. 
 :::
 
@@ -954,7 +954,7 @@ Things to keep in mind:
 ## What has to be done:
 
 ::: incremental
--   Question \| include in Rmd; add extension if applicable
+-   Question \| include in qmd; add extension if applicable
 -   Background \| summarize and add to what was discussed in classed
 -   Data
     -   Describe data & variables

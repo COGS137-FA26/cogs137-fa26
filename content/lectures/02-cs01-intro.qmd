@@ -99,7 +99,7 @@ Note:
 
 ## Deliverables
 
--   Full Rmd report (explanations, text and story matter!)
+-   Full qmd report (explanations, text and story matter!)
 -   General Audience communication
 
 ## CS01: Biomarkers of Recent Use

@@ -11,12 +11,12 @@ Here are the steps for getting started:
 -   Find your `hw01-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26)
 -   Clone this repo into RStudio on datahub
 -   Make any changes needed as outlined by the tasks you need to complete for the assignment
--   Periodically knit your file and take a look at the document generated
+-   Periodically render your file and take a look at the document generated
 -   Commit changes (for example, once per each new part)
 -   Push all your changes back to your GitHub repo
 
 You can of course push multiple to GitHub times throughout the assignment. Your final push at the deadline will be used for grading. (This means even if you made mistakes before that on GitHub, you wouldn't be penalized for them, so long as the final state of your work is correct).
 
 ::: callout-important
-You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML. Both your .Rmd and .html files should be on GitHub.
+You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML. Both your .qmd and .html files should be on GitHub.
 :::

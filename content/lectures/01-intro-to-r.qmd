@@ -76,7 +76,7 @@ Notes:
 1.  Variables
 2.  Operators
 3.  Data in R
-4.  RMarkdown
+4.  Quarto
 
 # Variables & Assignment {background-color="#92A86A"}
 
@@ -562,9 +562,9 @@ cat_lovers <- cat_lovers |>
 
 -   Go in and investigate your data, apply the fix, *save your data*, live happily ever after.
 
-# R Markdown {background-color="#92A86A"}
+# Quarto {background-color="#92A86A"}
 
-## R Markdown: tour
+## Quarto: tour
 
 <center>\[DEMO\]</center>
 
@@ -580,8 +580,8 @@ The Bechdel test asks whether a work of fiction features at least two women who 
 
 Concepts introduced:
 
--   Knitting documents
--   R Markdown and (some) R syntax
+-   Rendering documents
+-   Quarto and (some) R syntax
 
 ## GitHub Setup
 
@@ -589,11 +589,11 @@ See this week's lab!
 
 ## Demo-ing the process
 
-1.  Go to the [course GitHub organization](https://github.com/COGS137-FA26) and find your `demo-<your GitHub username>` repo (this is NOT graded)
+1.  Go to the [course GitHub organization](https://github.com/COGS137-FA26) and find your `demo01-<your GitHub username>` repo (this is NOT graded)
 2.  Copy the repo's SSH URL
 3.  Clone the repo
 4.  Edit the document
-5.  **Knit the document**
+5.  **Render the document**
 6.  Push your changes
 
 Try to play around with this after finishing your lab!
@@ -613,4 +613,4 @@ Try to play around with this after finishing your lab!
     -   comparison operators?
 -   What are dataframes/tibbles? and why are they useful?
 -   What is the difference between installing and loading a package?
--   What are the components of an R Markdown file?
+-   What are the components of a Quarto (.qmd) file?

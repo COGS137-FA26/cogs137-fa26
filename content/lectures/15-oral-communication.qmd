@@ -42,7 +42,7 @@ Notes:
 
 ## Final Project (Tues of finals week)
 
-- Rmd/HTML Report
+- qmd/HTML Report
   - Audience: COGS 137 students
     - unfamiliar topic; needs introduction
     - should walk through analysis and explain/interpret results

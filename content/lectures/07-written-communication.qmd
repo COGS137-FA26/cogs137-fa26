@@ -78,8 +78,8 @@ Note: We'll discuss oral communication closer to the end of the quarter, when yo
 
 ## Suggested Reading
 
--   Bookdown [Section 2.6 R Code Chunks & inline R code](https://bookdown.org/yihui/rmarkdown/r-code.html)
--   Bookdown [Chapter 3: Documents](https://bookdown.org/yihui/rmarkdown/html-document.html)
+-   Quarto: [Execution Options](https://quarto.org/docs/computations/execution-options.html) (code chunks & inline code)
+-   Quarto: [HTML Basics](https://quarto.org/docs/output-formats/html-basics.html) and [HTML Code Blocks](https://quarto.org/docs/output-formats/html-code.html)
 
 
 # Consider your audience {background-color="#92A86A"}
@@ -195,13 +195,13 @@ Source: [Storytelling wtih data](https://www.storytellingwithdata.com/book/downl
     -   what conclusions is being drawn
     -   and what numbers were used to draw that conclusion
 
-## Data Science Reports in .Rmd
+## Data Science Reports in .qmd
 
 :::incremental
 -   As **concise** as possible
 -   **Important information introduced** before referenced (datasets, jargon, etc.)
 -   **Necessary details** (for your audience); nothing more
-    -   Be sure that the knit output contains what you intended (plots displayed; headers etc.)
+    -   Be sure that the rendered output contains what you intended (plots displayed; headers etc.)
     -   ...and does NOT display stuff that doesn't need to be there (messages/warnings suppressed, brainstorming, etc.)
 -   Typical Sections: Introduction/Background, Setup, Data, Analysis, Conclusion, References
 :::
@@ -213,10 +213,10 @@ Source: [Storytelling wtih data](https://www.storytellingwithdata.com/book/downl
 ```         
 ---
 title: "Document Title"
-output:
-  html_document:
+format:
+  html:
     toc: true
-    toc_float: true
+    toc-depth: 3
 ---
 ```
 
@@ -227,10 +227,10 @@ output:
 ```         
 ---
 title: "Document Title"
-output:
-  html_document:
+format:
+  html:
     theme: united
-    highlight: tango
+    highlight-style: tango
 ---
 ```
 
@@ -241,11 +241,10 @@ output:
 ```         
 ---
 title: "Document Title"
-output:
-  html_document:
-    fig_width: 7
-    fig_height: 6
-    fig_caption: true
+format:
+  html:
+    fig-width: 7
+    fig-height: 6
 ---
 ```
 
@@ -256,33 +255,56 @@ output:
 ```         
 ---
 title: "Document Title"
-output:
-  html_document:
-    code_folding: hide
+format:
+  html:
+    code-fold: true
+---
+```
+
+. . .
+
+-   Self-contained HTML (so the file on GitHub displays correctly on its own)
+
+```         
+---
+title: "Document Title"
+format:
+  html:
+    embed-resources: true
 ---
 ```
 
 ## Controlling code chunk output {.smaller}
 
--   Specified in the curly braces, separated by commas
+-   Specified at the top of the chunk, one per line, with `#|`
 
-```{r, chunk-label, results='hide', fig.height=4}
+````
+```{r}
+#| label: chunk-label
+#| results: hide
+#| fig-height: 4
 
 ```
+````
 
 . . .
 
 -   `eval`: whether to execute the code chunk
 -   `echo`: whether to include the code in the output
--   `warning`, `message`, and `error`: whether to show warnings, messages, or errors in the knit document
--   `fig.width` and `fig.height`: control the width/height of plots
+-   `warning`, `message`, and `error`: whether to show warnings, messages, or errors in the rendered document
+-   `fig-width` and `fig-height`: control the width/height of plots
 
 . . .
 
--   Controlling for the whole document:
+-   Controlling for the whole document (in the YAML):
 
-``` {eval="FALSE"}
-knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
+```         
+---
+title: "Document Title"
+execute:
+  warning: false
+  message: false
+---
 ```
 
 ## Editing & Proofreading
@@ -344,7 +366,7 @@ knitr::opts_chunk$set(fig.width = 8, collapse = TRUE)
 
 **Reminder**: You do NOT get docked points for citing others' work. You can be at risk of AI Violation if you don't. **When in doubt, give credit.**
 
-## Footnotes in .Rmd
+## Footnotes in .qmd
 
 How to specify a footnote in text:
 
@@ -438,6 +460,6 @@ A reminder that when you're doing EDA, you're going to generate a lot of plots. 
 
 - Tailor communication for setting and audience
 - Written communication has benefit of time; limitation of additional explanation
-- Can you control your HTML output from .Rmd document?
+- Can you control your HTML output from a .qmd document?
 - Do you know when to cite a source? 
 - Can you implement design choices when generating visualizations for communication?

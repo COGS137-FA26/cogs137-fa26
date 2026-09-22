@@ -349,7 +349,7 @@ A: Nope. You could download and install all the packages we use and complete the
 
 -   Scriptability $\rightarrow$ R
 
--   Literate programming (code, narrative, output in one place) $\rightarrow$ R Markdown
+-   Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
 
 -   Version control $\rightarrow$ Git / GitHub
 
@@ -426,17 +426,17 @@ Put a <font color="#32cb31">green</font> sticky on the front of your computer wh
 
 -   Built-in functionality to keep all files for a single project organized
 
-## R Markdown
+## Quarto
 
--   Fully reproducible reports -- each time you knit, the document is executed from top to bottom
+-   Fully reproducible reports -- each time you render, the document is executed from top to bottom
 -   Simple markdown syntax for text
 -   Code goes in chunks, defined by three backticks, narrative goes outside of chunks
 
-## R Markdown tips
+## Quarto tips
 
--   Keep the [R Markdown cheat sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf) and Markdown Quick Reference (Help -\> Markdown Quick Reference) handy, we'll refer to it often as the course progresses
+-   Keep the [Quarto cheat sheet](https://rstudio.github.io/cheatsheets/quarto.pdf) and Markdown Quick Reference (Help -\> Markdown Quick Reference) handy, we'll refer to it often as the course progresses
 
--   The workspace of your R Markdown document is separate from the Console
+-   The workspace of your Quarto document is separate from the Console
 
 <br><br>
 
@@ -444,10 +444,10 @@ Put a <font color="#32cb31">green</font> sticky on the front of your computer wh
 <center>\[DEMO\]</center>
 :::
 
-## How will we use R Markdown?
+## How will we use Quarto?
 
--   Every lab / case study / project / homework / notes / etc. is an R Markdown document
--   You'll always have a template R Markdown document to start with
+-   Every lab / case study / project / homework / notes / etc. is a Quarto (.qmd) document
+-   You'll always have a template Quarto document to start with
 -   The amount of scaffolding in the template will decrease over the quarter
 
 ## Collaboration: Git & GitHub

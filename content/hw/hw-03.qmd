@@ -139,4 +139,4 @@ Based on the final model you found in the previous question, discuss what makes 
 
 ## Submission
 
-Be sure to **knit your file to HTML**, look at the output HTML file to make sure everything looks as you expected, and then commit and push your final changes to GitHub. We will be grading from the HTML file. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.
+Be sure to **render your file to HTML**, look at the output HTML file to make sure everything looks as you expected, and then commit and push your final changes to GitHub. We will be grading from the HTML file. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.

@@ -163,7 +163,7 @@ knitr::include_graphics("img/01-hello-r/repo_in_r.png")
 ```
 :::
 
-Hit **Create Project**. Open up `lab-01.Rmd` and continue through this lab. Your work/answers for this lab will be submitted in that document.
+Hit **Create Project**. Open up `lab01-hello-r.qmd` and continue through this lab. Your work/answers for this lab will be submitted in that document.
 
 # Warm up
 
@@ -196,27 +196,39 @@ library(tidyverse)
 library(datasauRus)
 ```
 
-You should be able to Knit your document and see the results.
+You should be able to Render your document and see the results.
 
-Note that the packages are also loaded with the same commands in your R Markdown document.
+Note that the packages are also loaded with the same commands in your Quarto document.
 
 ## YAML:
 
 ::: aside
-The top portion of your R Markdown file (between the three dashed lines) is called YAML. It stands for "Yet Another Markup Language". It is a human-friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+The top portion of your Quarto (.qmd) file (between the three dashed lines) is called YAML. It stands for "Yet Another Markup Language". It is a human-friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
 :::
 
-Open the R Markdown (Rmd) file in your project, change the author name to your name and **knit the document**. This will generate an HTML document.
+Open the Quarto (.qmd) file in your project, change the author name to your name and click the **Render** button at the top of the file. This will generate an HTML document.
 
-```{r yaml-raw-to-rendered, fig.fullwidth=TRUE, echo = FALSE}
-knitr::include_graphics("img/01-hello-r/yaml-raw-to-rendered.png")
+``` yaml
+---
+title: "Lab 01 - Tooling"
+author: "Your Name"
+date: today
+date-format: long
+format:
+  html:
+    embed-resources: true
+---
 ```
+
+::: aside
+`embed-resources: true` packs everything into a single HTML file, so it displays correctly on GitHub. Leave it in!
+:::
 
 ## Committing changes:
 
 Then Go to the Git pane in your RStudio on Datahub.
 
-If you have made changes to your Rmd file, you should see it listed here. Click on it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state that includes your changes. Be sure to also select your HTML document. Once you're happy with these changes, write "Update author name" in the **Commit message** box and hit **Commit**.
+If you have made changes to your .qmd file, you should see it listed here. Click on it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state that includes your changes. Be sure to also select your HTML document. Once you're happy with these changes, write "Update author name" in the **Commit message** box and hit **Commit**.
 
 ::: aside
 ```{r update-author-name-commit, fig.fullwidth=TRUE, echo = FALSE}
@@ -269,7 +281,7 @@ The original Datasaurus (`dino`) was created by Alberto Cairo in [this great blo
 
 Plot `y` vs. `x` for the `dino` dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset.
 
-Below is the code you will need to complete this exercise. Basically, the answer is already given, but you need to include relevant bits in your Rmd document and successfully knit it and view the results.
+Below is the code you will need to complete this exercise. Basically, the answer is already given, but you need to include relevant bits in your .qmd document and successfully render it and view the results.
 
 Start with the `datasaurus_dozen` and pipe it into the `filter` function to filter for observations where `dataset == "dino"`. Store the resulting filtered data frame as a new data frame called `dino_data`.
 
@@ -345,31 +357,36 @@ datasaurus_dozen |>
 
 You're done with the data analysis exercises, but we'd like you to do two more things:
 
-```{r fig-resize-global, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/01-hello-r/fig-resize-global.png")
-```
-
 ## Bonus Exercises
 
-Complete these as time permits to further your experience with, comfort in, and understanding of R Markdown documents.
+Complete these as time permits to further your experience with, comfort in, and understanding of Quarto documents.
 
 ### Resize your figures
 
-Click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu. In the pop up dialogue box go to the Figures tab and change the height and width of the figures, and hit OK when done. Then, knit your document and see how you like the new sizes. Change and knit again and again until you're happy with the figure sizes. Note that these values get saved in the YAML.
+In the YAML at the top of your document, add `fig-width` and `fig-height` under `html:` to set the size of all figures:
 
-```{r fig-resize-local, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/01-hello-r/fig-resize-local.png")
+``` yaml
+format:
+  html:
+    embed-resources: true
+    fig-width: 6
+    fig-height: 4
 ```
 
-You can also use different figure sizes for different figures. To do so click on the gear icon within the chunk where you want to make a change. Changing the figure sizes added new options to these chunks: `fig.width` and `fig.height`. You can change them by defining different values directly in your R Markdown document as well.
+Then, render your document and see how you like the new sizes. Change and render again and again until you're happy with the figure sizes.
 
-```{r theme-highlight, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/01-hello-r/theme-highlight.png")
+You can also use different figure sizes for different figures. To do so, add chunk options at the top of the chunk where you want to make a change, using `#|`:
+
+````
+```{r}
+#| fig-width: 8
+#| fig-height: 3
 ```
+````
 
 ### Change the look of your report
 
-Once again click on the gear icon in on top of the R Markdown document, and select "Output Options..." in the dropdown menu. In the General tab of the pop up dialogue box try out different Syntax highlighting and theme options. Hit OK and knit your document to see how it looks. Play around with these until you're happy with the look.
+Under `html:` in the YAML, try out different `theme` options (e.g. `theme: flatly`; see the [list of themes](https://quarto.org/docs/output-formats/html-themes.html)) and `highlight-style` options (e.g. `highlight-style: github`). Render your document to see how it looks. Play around with these until you're happy with the look.
 
 ::: {.callout-note icon="false"}
 Not sure how to use emojis on your computer? Maybe a classmate can help? Or you can ask your TA as well!
@@ -378,7 +395,7 @@ Not sure how to use emojis on your computer? Maybe a classmate can help? Or you 
 # Submit
 
 ::: callout-important
-You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.
 :::
 
-*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 1! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*
+*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 1! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

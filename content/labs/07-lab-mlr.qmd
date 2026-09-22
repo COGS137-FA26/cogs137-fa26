@@ -38,7 +38,7 @@ This lab is longer than what you'll be able to complete in an hour. We will be l
 
 # Getting started
 
-To get started, find your `lab07-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. Update the author name at the top of the .Rmd file in the YAML to be your name. And, then you're ready to go!
+To get started, find your `lab07-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. Update the author name at the top of the .qmd file in the YAML to be your name. And, then you're ready to go!
 
 # Packages
 
@@ -209,7 +209,7 @@ Would you be comfortable generalizing your conclusions to apply to professors ge
 # Submit
 
 ::: callout-important
-You'll always want to knit your RMarkdown document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the knit HTML.
+You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.
 :::
 
-*Yay, you're done! To finish up and submit, **first knit your file to HTML**. Be sure to select both your .Rmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 7! 💪", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*
+*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 7! 💪", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

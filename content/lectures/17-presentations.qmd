@@ -26,7 +26,7 @@ format:
 **Due Dates**:
 
 -   📄 **Final Project** due Tuesday
-    -   Rmd/HTML in repo
+    -   qmd/HTML in repo
     -   3-5 min Presentation (for those who don't present today)
     -   General Communication
     -   [final project team evaluation](https://docs.google.com/forms/d/e/1FAIpQLScOfGiWvHY4UVobL95Em1d2JIEZJf8UCejGtpxsxUjW-FSiyw/viewform?usp=sf_link)

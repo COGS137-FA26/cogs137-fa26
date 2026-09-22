@@ -31,7 +31,7 @@ format:
 -   ⌨️ **Lab07** due tonight
 -   📚 **HW03** due Friday
 -   💻 **CS02** due Monday (11:59 PM)
--   📄 **Final Project - rough draft** due Monday - "submit" by having an Rmd + HTML document in your final project GH repo
+-   📄 **Final Project - rough draft** due Monday - "submit" by having a qmd + HTML document in your final project GH repo
 -   🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
 
 
