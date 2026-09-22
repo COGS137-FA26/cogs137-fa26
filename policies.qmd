@@ -6,7 +6,7 @@ Class will include short lectures, interactive activities, and time for group wo
 
 #### Lecture
 
-Lectures will be your introduction to course topics and material. Lectures will be interactive, and you will be given time to practice with the lecture concepts during class. Attendance is not required, but is encouraged if you're feeling well. To help incentivize coming to class, there will be a daily participation survey that will open at the end of lecture and close shortly after each Tues/Thurs lecture. Each time you fill out the lecture survey, you get a small % of credit toward your final project Completion of all surveys will provide 0.8% extra credit on your final grade.
+Lectures will be your introduction to course topics and material. Lectures will be interactive, and you will be given time to practice with the lecture concepts during class. **Attendance is not required, but you should come to class**. To help incentivize this, there will be a daily participation survey that will open at the end of lecture and close shortly after each lecture. Each time you fill out the lecture survey, you get a small % of credit toward your final project Completion of all surveys will provide 1% extra credit on your final grade.
 
 ##### Readings
 
@@ -26,7 +26,7 @@ Lab attendance is not required, but is definitely encouraged if you are feeling 
 
 #### Homework
 
-After practice in lecture and labs, homework assignments are meant to demonstrate your solidified understanding of the course material. These are typically 2-4x longer and more involved than labs. Homework assignments are completed and submitted individually and are marked for correctness. You *are* allowed to work together on homework assignments, but academic integrity must be upheld.
+After practice in lecture and labs, homework assignments are meant to demonstrate your solidified understanding of the pre-case study course material. Homework assignments are completed and submitted individually and are marked for correctness. You *are* allowed to work together on homework assignments, but academic integrity must be upheld.
 
 #### Projects
 
@@ -38,29 +38,35 @@ We will use case studies throughout the course to guide our learning of both pro
 
 ##### Final Project
 
-The final project will be completed in groups, where each group will carry out a data analysis on a topic and dataset of their choosing. Final Project groups will have to submit a proposal during week 7, a rough draft during week 9, will submit/receive peer feedback during week 10, and their final submissions Tues of finals week by 11:59 PM.
+The final project will be completed in groups, where each group will carry out a data analysis on a topic and dataset of their choosing.
 
-Final project submissions will include a 1) detailed data science report, 2) short (3-5 min) presentation of the project and 3) a general audience communication.
+Final project submissions will include a 1) detailed data science report, 2) short (5 min) in-class presentation of the project with question answering and 3) a general audience communication.
 
-Project groups will have the opportunity to present their projects to the class for extra credit during week 10. Groups that do not present to the class will submit their presentation as a recording.
+Project groups will present their projects in class during week 10.
 
 ### Grading
 
 Your final grade will be comprised of the following:
 
-| Assignment (#)               | \% of grade     |
-|------------------------------|-----------------|
-| Labs (7)                     | 21% (3pt each)  |
-| Homework (3)                 | 24% (8pt each)  |
-| Case Study Projects\* (2)    | 30% (15pt each) |
-| Final Project Proposal\* (1) | 3%              |
-| Peer Review\* (1)            | 3%              |
-| Final Report\* (1)           | 10%             |
-| General Communication\* (1)  | 3%              |
-| Final Presentation (1)       | 3%              |
-| Team Evaluation Surveys (3)  | 3% (1pt each)   |
+| Assignment (#)                  | Component                   | \% of grade        |
+|---------------------------------|-----------------------------|--------------------|
+| **Labs (7)**                    |                             | **27% (3pt each)** |
+| **Homework (2)**                |                             | **10% (5pt each)** |
+| **Case Study (2; cs01 + cs02)** |                             | **28%**            |
+|                                 | Report\* (2)                | 20% (10pt each)    |
+|                                 | General Communication\* (2) | 6% (3pt each)      |
+|                                 | Team Evaluation Survey (2)  | 2% (1pt each)      |
+| **Final Project (1)**           |                             | **35%**            |
+|                                 | Project Proposal\* (1)      | 3%                 |
+|                                 | First Draft\* (1)           | 4%                 |
+|                                 | Peer Review\* (1)           | 4%                 |
+|                                 | Final Report\* (1)          | 10%                |
+|                                 | General Communication\* (1) | 3%                 |
+|                                 | Final Presentation (1)      | 10%                |
+|                                 | Team Evaluation Survey      | 1%                 |
 
-\* indicates group submission
+\* indicates group submission. Individual grades can be adjusted within a group. 
+
 
 #### Final Grades
 
@@ -86,17 +92,17 @@ To calculate final grades, I use the standard grading scale and do not round gra
 
 Late homework assignments and case study projects will be accepted up to 3 days (72 hours) after the assigned deadline. Late submissions will receive a 25% deduction.
 
-There are no late deadlines for labs, the exam, or the final project.
+There are no late deadlines for labs or the final project.
 
 Note: Prof Ellis is a reasonable person; reach out to her if you have an extenuating circumstance at any point in the quarter.
 
 ### Regrade requests
 
-We will work hard to grade everyone fairly and return assignments quickly. And, we know you also work hard and want you to receive the grade you've earned. Occasionally, grading mistakes do happen, and it's important to us to correct them. If you think there is a mistake in your grade on an assignment, post *privately* on Campuswire to "Instructors" using the "regrades" tag within 72 hours. This post should include evidence of why you think your answer was correct and should point to the specific part of the assignment in question.
+We will work hard to grade everyone fairly and return assignments quickly. And, we know you also work hard and want you to receive the grade you've earned. Occasionally, grading mistakes do happen, and it's important to us to correct them. If you think there is a mistake in your grade on an assignment, post *privately* on Piazza to "Instructors" using the "regrades" tag within 72 hours. This post should include evidence of why you think your answer was correct and should point to the specific part of the assignment in question.
 
 ### Diversity & Inclusion
 
-My goal is that every student, regardless of their background or perspective, will be well-served by this course. My philosophy is that the diversity of students in this class is a huge asset to our learning community; our differences provide opportunities for learning and understanding. I intend to present course materials that are conscious of and respectful to diversity (gender identity, sexuality, disability, age, socioeconomic status, ethnicity, race, nationality, religion, politics, and culture); however, if I ever fall short or if you ever have suggestions for improvement, please do share with me! This feedback is always welcomed, and I am always in the process of learning and improving to this end. If you would like to provide that feedback anonymously, please use the anonymous Google Form.\*
+My goal is that every student, regardless of their background or perspective, will be well-served by this course. My philosophy is that the diversity of students in this class is a huge asset to our learning community; our differences provide opportunities for learning and understanding. I intend to present course materials that are conscious of and respectful to diversity (gender identity, sexuality, disability, age, socioeconomic status, ethnicity, race, nationality, religion, politics, and culture); however, if I ever fall short or if you ever have suggestions for improvement, please do share with me! This feedback is always welcomed, and I am always in the process of learning and improving to this end. If you would like to provide that feedback anonymously, please use the [anonymous Google Form](https://docs.google.com/forms/d/e/1FAIpQLSd1YNH8CqBbVxr_M9v_c3X-XLqySLrBfYE7GwuAshFMCP_WvQ/viewform).\*
 
 #### What should you call me?
 
@@ -125,24 +131,56 @@ But, if you prefer to be anonymous (i.e. If you've been offended by an example i
 
 ### Academic integrity
 
-Don't cheat.
+Please don't cheat. Academic dishonesty undermines you actually learning the material and is unfair to students putting in the work. I take academic integrity seriously and have historically and will continue to report any suspected violations to the **UCSD Academic Integrity Office**. (I hate when I have to do this; please don't put either of us in that position.)
 
-You are generally encouraged to work together and help one another in this course. However, you are personally responsible for the work you submit. A helpful heuristic can be to ask yourself "Can I explain each piece of code and each analysis carried out in what I'm submitting? Could I reproduce this code/analysis on my own?"; you should be able to answer "Yes" to both questions for everything you submit in this course. For labs and assignments, you are allowed and encouraged to work together, but it is your responsibility to ensure you understand everything you've submitted. (For the midterm, all work has to be completed individually and communication with other humans about the exam is not allowed; this will be discussed more explicitly beforehand.)
+It is your responsibility to familiarize yourself with UCSD's academic integrity policies](http://academicintegrity.ucsd.edu/).
 
-**A note on sharing / reusing code:** The Internet is an excellent resource; there will be many times you find helpful information online. You *should* use available resources (e.g. ChatGPT, Copilot, StackOverflow, etc.), but you must explicitly cite any code you use directly or any code you use as inspiration. This can be done by including the URL/reference to the source directly in your code (as a code comment) or in accompanying text for a given assignment/exam/lab. You should never share code directly (e.g. copy + paste; share an send an answer to a classmate), but you can discuss code and work together on everything other than take-home exams.
+Examples of academic dishonesty include (but are not limited to):
 
-Please review UCSD's academic integrity policies [here](http://academicintegrity.ucsd.edu).
+- asking AI to complete your homeworks, labs, or projects
+- copying answers from another student (or allowing another student to copy yours)
+- using/sharing a "secret code" or timing of Google Form to receive credit when you are not in class/section (or sharing one with a classmate who is absent)
 
-Cheating and plagiarism have been and will be strongly penalized. If, for whatever reason, Canvas or DataHub is down or something else prohibits you from being able to turn in an assignment on time, immediately contact Professor Ellis by emailing (sellis\@ucsd.edu) your assignment as soon as possible to avoid it being graded as late.
+Don't cheat. Academic dishonesty undermines you actually learning the material and is unfair to students putting in the work. I take academic integrity seriously and have historically and will continue to report any suspected violations to the **UCSD Academic Integrity Office**. (I hate when I have to do this; please don't put either of us in that position.)
+
+It is your responsibility to familiarize yourself with [UCSD's academic integrity policies](http://academicintegrity.ucsd.edu/).
+
+Examples of academic dishonesty include (but are not limited to):
+
+- using AI to complete your quizzes or assignments
+- copying answers from another student (or allowing another student to copy yours)
+- using notes or the Internet (including AI tools) during exams
+- using/sharing a "secret code" or timing of Google Form to receive credit when you are not in class/section (or sharing one with a classmate who is absent)
+
+Use of Generative AI (GenAI) tools (e.g., TritonGPT, ChatGPT, Claude, Gemini) is permitted in this course; however, use should be thoughtful and intentional. If they are helping you learn, you're probably using them correctly. If they're helping you earn points without actually learning, you're using them incorrectly.
+
+Also, you are responsible for errors and falsehoods introduced by (any of) the tools you use. If a model hallucinates or gives you incorrect information and you submit it, you're responsible for that error.
+
+#### Help allowed
+
+GenAI usage is permitted on all course components; however, **it should never be asked to complete a lab, assignment, or project component for you outright. Instead you should be using it conversationally, with targeted specific tasks and/or questions.** Proper use to support learning and pitfalls to avoid will be discussed in class.
+
+**Labs & Assignments**: Labs and assignments will be submitted individually, although you may seek help from your fellow students during completion. However, you may not give answers to each other at any time and should not ask for answers from GenAI outright. You should understand, reproduce on your own, and be able to explain any work you submit. All assignments will require you to specify how outside resources were utilized in their completion.
+
+**Projects**: For case studies and your final project, you will work together but every person in the group is required to understand every aspect of the project. AI may be used as a collaborative tool just like an additional group member; we will discuss this in class. Use it for brainstorming, editing, debugging, formatting, background research, and/or clarifying thoughts. Individual understanding will be assessed during questions after the final presentation. Projects may include ideas and code from other sources—but these other sources must be documented with clear attribution and you may be asked to submit your case-study and/or project-related GenAI conversations.
+
+Additional guidelines will be provided throughout the quarter.
+
+Misuse of AI tools in this course is a form of academic dishonesty and will be handled according to UCSD's Academic Integrity policy.
+
+#### AI Professor Use Transparency
+
+To be clear, I think Generative AI tools are helpful! As such, I do use them in course development and like to be transparent about when I do (and do not!) use GenAI in course development. I aim to model responsible use and hope to further the conversation about how academics integrate AI into their instruction and work more broadly.
+
+**What I use AI For**: I use AI for administrative tasks (e.g., updating the dates, links, and room numbers on the course schedule from the previous quarter, removing redundancies, clarifying policies, etc.). I also have used it to identify potential gaps lecture material, assessments, and provided resources, thus enabling me to update the course more rapidly than I was able to previously.
+
+**What I DO NOT use AI For**: I do not use AI for designing course content from scratch, generating assessments, or evaluating your work. I consider AI a helpful assistant, akin to a knowledgeable colleague. I consider its recommendations and knowledge, but always review its output and think critically before incorporation.
+
+**Instructor vs. Student Use**: My goal as an instructor is to effectively synthesize and communicate information to you and accurately evaluate your understanding of the material after the fact. Your job is to learn, so it is your responsibility to do the cognitive work to make that happen. Spending time and struggling through is part of that process…and honestly, sometimes even the point. Using AI to earn points without learning is an AI violation and thwarts actual learning.
+
 
 ### Professionalism
 
 Please refrain from texting or using your computer for anything other than coursework during class. Not only is this distracting to you, but it can also be distracting to those around you. (Note that there is no consequence associated with this. I know it can be difficult, but I ask that you try your best!)
 
-### Classroom Observation Study
-
-This quarter, I am taking part in a research study (NSF IUSE 2236318) investigating how STEM instructors use data about their own teaching practices to reflect on and iterate upon their practices.
-
-As part of this study, two weeks of class will be video recorded. The first week of recordings will occur in week 2/3 of the quarter and the second week of recordings will occur in week 8/9.
-
-The recordings will be centered on my instruction and not on you. Given that the purpose of this study is to accurately capture my teaching, it is important that you continue to behave as you normally would without video recording. Only members of the study team will have access to the video recordings and the raw data files will be stored on a password-protected Google Drive. Upon completion of the study, the video recordings will be deleted.
+### 

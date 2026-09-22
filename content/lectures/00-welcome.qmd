@@ -18,8 +18,6 @@ format:
 
 Practical Data Science in R
 
-Please take one [green]{.sticky-green} sticky and one [pink]{.sticky-pink} sticky as they come around. If you're able, try and save these. We'll use them most classes. (But, I'll always have extra!)
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(googlesheets4)
@@ -59,15 +57,15 @@ While R has most/all of the functionality of **YFPL** (your favorite programming
 
 ## Who am I?
 
-Shannon Ellis: Associate Teaching Professor, Mom & wife, volleyball-obsessed, and baking & cooking lover
+Shannon Ellis: Associate Teaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover
 
-<i class="fa fa-envelope"></i>   [sellis\@ucsd.edu](mailto:sellis@ucsd.edu) <br> <i class="fa fa-home"></i>   [shannon-ellis.com](https://shannon-ellis.com/) <br> <i class="fa fa-university"></i>  CSB 002 <br> <i class="fa fa-calendar"></i>   Tu/Th 2-3:20PM (Lab: Fri 2-2:50 (RWAC 0103) or Mon 5-5:50 (DIB 121))
+<i class="fa fa-envelope"></i>   [sellis\@ucsd.edu](mailto:sellis@ucsd.edu) <br> <i class="fa fa-home"></i>   [shannon-ellis.com](https://shannon-ellis.com/) <br> <i class="fa fa-university"></i>  WLH 2205 <br> <i class="fa fa-calendar"></i>   MWF 10A (Lab: Th 5P WLH 2205)
 
 ## Course Staff
 
-| Quirine (Q) van-Engen (TA) | Eric Song     (IA) |
-|-----------------------------|----------|
-| ![](images/00/q.jpg)        | ![](images/00/eric.jpg)    |
+| Vinuthna Hasthi (TA) | 
+|----------------------------|
+| ![](images/00/)       | 
 
 ## What is this course? {.scrollable}
 
@@ -109,10 +107,6 @@ Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations
 -   Do a project for your portfolio
 -   w/ a focus on communication and group work
 
-. . .
-
-Note: This course has historically been back-loaded, as that's when group work has happened historically. I've tried to fix that this quarter by teaching from case studies from the beginning.
-
 ## The Nitty Gritty {.scrollable}
 
 ::: panel-tabset
@@ -124,34 +118,22 @@ Note: This course has historically been back-loaded, as that's when group work h
 -   Lectures & lots of learn-by-doing
 -   Bring your laptop to class every day
 
-### In-person
-
-**In-person, synchronous learning**
-
-1.  I will be teaching in person.
-2.  Lectures and lab will be podcast.
-3.  Attendance will be incentivized using a daily participation survey.
-4.  If you're not feeling well, please stay home. I will do the same.
-
 ### Waitlist
 
 **The (Dreaded) Waitlist**
 
--   Course enrollment is supposed to be 70 for this course
--   There are 100 people currently enrolled
--   I don't control the waitlist (cogsadvising\@ucsd.edu does)
--   I don't anticipate students being enrolled off of the waitlist (will be dependent on students dropping)
+I don't anticipate students being enrolled off of the waitlist (will be dependent on students dropping). (We do not use autograding or GenAI grading in this course. We aim for lots of feedback.)
 
 ### Lab & OH
 
 **Lab & Office Hours**
 
--   **Office hours** begin Friday** week 1
-    -   Prof: Tu: 11A-12P (drop-in); W 10-11A (10 min slots; appt.)
+-   **Office hours** begin  week 1
+    -   Prof: Mon: 11A-12P (drop-in; CSB 243); Tu 1-3P (10 min slots; appt. on Zoom)
 -   **Lab** begins week 1 (next **Thursday**, 10/1)
     -   it's *not* in a computer lab, so you'll need to bring your own
-    -   details about labs covered on Monday and in lab
-    -   labs are released on Thursday and due the following Friday
+    -   details about labs covered next week and in lab
+    -   labs are released each Friday and due the following Friday
 -   I will hang out after class today for questions/concerns from students
 
 ### Materials
@@ -164,16 +146,9 @@ Note: This course has historically been back-loaded, as that's when group work h
     -   GitHub : retrieving assignments, labs, homework, etc.
     -   datahub : completing assignments, labs, homework, etc.
     -   Canvas : grades, course-specific links
-    -   TBD : Q&A
+    -   Piazza : Q&A
 :::
 
-## Which Q&A Platform?
-
-**Q**: Which Q&A Platform should we use this quarter? Discuss with your neighbor!  
-</br>
-**A**: Piazza, ClassQuestion, Slack, Canvas? Something else?  
-
-Put a [green]{.sticky-green} sticky on the front of your computer when you're done discussing. Put a [pink]{.sticky-pink} if you have a question.
 
 ## Diversity & Inclusion:
 
@@ -191,42 +166,19 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 
 **But...** if I ever fall short or if you ever have suggestions for improvement, please do share with me! There is also an [anonymous Google Form](https://goo.gl/forms/2nXnDNbgYuS1OsGF2) if you're more comfortable there.
 
-## A new-ish course! {.scrollable}
-
--   Offered 3x previously...but changes significantly each time
--   If something doesn't make sense, tell me!
--   If you've got feedback/suggestions, I'm all ears!
-
-
 ## Changes since last iteration
 
-(based on feedback & recordings from last time):
-
-- MWF (50 min) lectures, with more time for EDA and modeling
-  - two days of CS02 EDA, two of regression, and a new "putting the model together" day
-- a new lecture on **AI-assisted analysis** (using AI well & checking its work)
-- Quarto (`.qmd`) for everything
-- GitHub: your repos are created for you (no more assignment links)
+-   Student feedback: more time for EDA and modeling
+-   a new lecture on **AI-assisted analysis** (using AI well & checking its work)
+-   Quarto (`.qmd`) for everything
+-   one fewer homeworks
 
 ## How to get help {.scrollable}
 
 -   Lab
 -   Office Hours
--   Q&A
+-   Piazza
 
-
-## Q&A 
-
-A few (Q&A) guidelines:
-
-```         
-1. No duplicates.
-2. Public posts are best.
-3. Posts should include your question, what you've tried so far, & resources used.
-4. Helping others is encouraged.
-5. No assignment code in public posts.
-6. We're not robots.
-```
 
 ## <img src="images/00/welcome_to_rstats_twitter.png" width="10%" align="left"/> The R Community
 
@@ -245,19 +197,23 @@ Don't cheat.
 Teamwork is allowed, but you should be able to answer "Yes" to each of the following:
 
 -   Can I explain each piece of code and each analysis carried out in what I'm submitting?
--   Could I reproduce this code/analysis on my own?
+-   Have I learned what I was supposed to learn? 
 
 . . .
 
-The Internet (including LLMS/ChatGPT) is a great resource. Cite your sources.
+GenAI is a great tool, but it can also thwart learning. We'll discuss strategies to utilize it to help support learning.
 
-## When To (Can I) Use ChatGPT/LLMs?
+## When To (Can I) Use GenAI?
 
 For anything in this course.
 
-## How To Use ChatGPT/LLMs
+## How To Use GenAI
 
-Probably never first or right away.
+When learning never first or right away.
+
+. . .
+
+Never to complete a lab/homework/case study right out.
 
 . . .
 
@@ -265,9 +221,14 @@ To learn: Think first. Try first. Then use external resources.
 
 . . .
 
-Always read/think about/understand the output.
+Always read/think about/question/understand the output.
 
-## ChatGPT: What to Avoid
+. . .
+
+Conversational use can be incredbily helpful for learning.
+
+
+## GenAI: What to Avoid
 
 ::: incremental
 -   Over-reliance (thwarts learning)
@@ -281,25 +242,33 @@ Always read/think about/understand the output.
 
 ::: incremental
 -   [Labs (7)]{.label-green}: Individual submission; graded on effort
--   [Homework (3)]{.label-green}: Individual submission; graded on correctness
+-   [Homework (2)]{.label-green}: Individual submission; graded on correctness
 -   [Case Studies (2)]{.label-green}: Team submission, technical analysis report + general communication
--   [Final Project (1)]{.label-green}: Team submission, due Fri of finals week (12/11) w/ checkpoints prior
+-   [Final Project (1)]{.label-green}: Team submission, due Fri of finals week w/ checkpoints prior
 :::
 
 ## Grading
 
 Your final grade will be comprised of the following:
 
-| Assignment (#)               | \% of grade     |
-|------------------------------|-----------------|
-| Labs (7)                     | 21% (3pt each)  |
-| Homework (3)                 | 24% (8pt each)  |
-| Case Study Projects\* (2)    | 30% (15pt each) |
-| Final Project Proposal\* (1) | 3%              |
-| Peer Review\* (1)            | 3%              |
-| Final Report\* (1)           | 11%             |
-| Final Presentation\* (1)     | 4%              |
-| Team Evaluation Surveys (3)  | 3% (1pt each)   |
+
+| Assignment (#)                  | Component                   | \% of grade        |
+|---------------------------------|-----------------------------|--------------------|
+| **Labs (7)**                    |                             | **27% (3pt each)** |
+| **Homework (2)**                |                             | **10% (5pt each)** |
+| **Case Study (2; cs01 + cs02)** |                             | **28%**            |
+|                                 | Report\* (2)                | 20% (10pt each)    |
+|                                 | General Communication\* (2) | 6% (3pt each)      |
+|                                 | Team Evaluation Survey (2)  | 2% (1pt each)      |
+| **Final Project (1)**           |                             | **35%**            |
+|                                 | Project Proposal\* (1)      | 3%                 |
+|                                 | First Draft\* (1)           | 4%                 |
+|                                 | Peer Review\* (1)           | 4%                 |
+|                                 | Final Report\* (1)          | 10%                |
+|                                 | General Communication\* (1) | 3%                 |
+|                                 | Final Presentation (1)      | 10%                |
+|                                 | Team Evaluation Survey      | 1%                 |
+
 
 : \* indicates group submission
 
@@ -318,11 +287,11 @@ Note: Prof Ellis is a reasonable person; reach out to her if you have an extenua
 ## Who's in this class?
 
 ```{r data, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
-roster <- read_sheet('1ALPAaDU6-GEoxwq3Q5WMGsqvbFoCw4jGDuz0C_VtqqM')
+roster <- read_sheet('1_jbBiofizJj6eZrflCbVRfujvbdbHbCbAWMABbJetK0')
 
-ggplot(roster, aes(x = College)) +
+ggplot(roster, aes(y = fct_rev(fct_infreq(College)))) +
   geom_bar() +
-  labs(title = "COGS 137") +
+  labs(title = "COGS 137: College", y=NULL) +
   theme_bw(base_size = 14) + 
   theme(plot.title.position = "plot")
 ```
@@ -333,11 +302,12 @@ Note: This code will not run for you because you don't have access to the roster
 
 ```{r major}
 roster |>
-  mutate(major = substr(Major, 1, 2)) |>
-  ggplot(aes(fct_infreq(major))) + 
+  mutate(major = `Student Primary Major Department Code`) |>
+  ggplot(aes(y = fct_rev(fct_infreq(major)))) + 
   geom_bar() +
-  labs(title = "COGS 137",
-       x = "Major") +
+  labs(title = "COGS 137: Major",
+       x = NULL, 
+       y  = NULL) +
   theme_bw(base_size = 12) + 
   theme(plot.title.position = "plot")
 ```
@@ -346,28 +316,44 @@ roster |>
 
 ```{r year}
 roster |>
-  ggplot(aes(fct_relevel(Level, "JR", "SR", "VI"))) +
+  ggplot(aes(y = fct_rev(fct_infreq(`Student Classification`)))) +
   geom_bar() +
-  labs(title = "COGS 137",
-       x = "Level") +
+  labs(title = "COGS 137: Year",
+       x = NULL, 
+       y  = NULL
+       ) +
   theme_bw(base_size = 14) + 
   theme(plot.title.position = "plot")
 ```
 
 ## I'd like to know more!
 
-(*required*)[Student Survey](https://docs.google.com/forms/d/e/1FAIpQLSfSLaJBNu-dm--yPhuzerS_DEHvsfhvkfqulrultVjRSlYcZA/viewform?usp=sf_link) - complete by Fri 10/2 at 11:59 PM.
+(*required*)[Student Survey]() - complete by Fri 10/2 at 11:59 PM.
 
 **This is required and completion will be used for CAA/#finaid.** **DO** complete this even if you're on the waitlist, please.
 
 . . .
 
-(*optional*) [Daily Post-Lecture Feedback](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link)
+(*optional for EC*) [Daily Post-Lecture Feedback](https://forms.gle/1xBzJHUYrFuWuR3T6) 
 
 -   opportunity to reflect on learning
 -   opportunity to ask questions (I will read & answer.)
--   opportunity for EC on final project
+-   opportunity for EC
 
 ::: aside
 Note: Links to both surveys are also on Canvas. I will *try* to remind you at the end of lecture, but I'll probably forget. Feel free to remind me/one another!
+:::
+
+## Slides to PDF
+
+1.  Toggle into Print View using the Esc key (or using the Navigation Menu)
+2.  Open the in-browser print dialog (CTRL/CMD+P).
+3.  Change the **Destination** setting to Save as PDF.
+4.  Change the **Layout** to Landscape.
+5.  Change the **Margins** to None.
+6.  Enable the **Background** graphics option.
+7.  Click Save 🎉
+
+::: aside
+Instructions from [quarto](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf) documentation
 :::

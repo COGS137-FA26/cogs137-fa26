@@ -12,17 +12,16 @@ Practical Data Science in R focuses on teaching students how to think rigorously
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-<font color="#92a76a"><i class="fas fa-university fa-lg"></i></font> **Lecture**: Tu/Th 2-3:20 (CSB 002)\
-<font color="#92a76a"><i class="fas fa-laptop fa-lg"></i></font> **Lab**: Mon 5-5:50 (DIB 121) or Fri 2-2:50 (RWAC 0103)
+<font color="#92a76a"><i class="fas fa-university fa-lg"></i></font> **Lecture**: WWF 10-10:50A (WLH 2205)\
+<font color="#92a76a"><i class="fas fa-laptop fa-lg"></i></font> **Lab**: Th 5-5:50 (WLH 2205)
 
 ##### Instructional Staff & Office Hours
 
-|            |                                                |                  |               |                                                               |
-|------------|--------------|------------|------------|-----------------------|
-| Instructor | [**Shannon Ellis**](http://www.shanellis.com/) | sellis\@ucsd.edu | Tu 11A-12P    | CSB 243                                                       |
-|            |                                                |                  | Wed 10-11A    | Zoom by [appt](https://calendar.app.google/ceYuZSqE3ShYhYDE7) |
-| TA         | Quirine (Q) van-Engen                          |                  | Th 8:30-9:30A | Zoom (see Canvas for link)                                    |
-| IA         | Eric Song                                      |                  | --            | --                                                            |
+|                |                                                |                  |             |                                   |
+|--------------|--------------|--------------|--------------|------------------|
+| **Instructor** | [**Shannon Ellis**](http://www.shanellis.com/) | sellis\@ucsd.edu | Mon 11A-12P | CSB 243                           |
+|                |                                                |                  | Tu 1-3P     | Zoom by appt (Canvas for sign-up) |
+| **TA**         | Vinuthna Hasthi                                |                  | TBD         | TBD                               |
 
 ### Course Objectives
 
@@ -39,7 +38,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 Texts are freely available online:
 
 |                                                                         |                                          |                     |
-|-----------------------------------|--------------------|----------------|
+|----------------------------------|--------------------|------------------|
 | [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel and Hardin              | OpenIntro, 2e, 2024 |
 | [R for Data Science](https://r4ds.hadley.nz/)                           | Wickham, Çetinkaya-Rundel, and Grolemund | O'Reilly, 2e, 2023  |
 | [Tidy Modeling With R](https://www.tmwr.org/)                           | Max Kuhn and Julia Silge                 | O'Reilly, 1e, 2022  |
@@ -48,7 +47,7 @@ Texts are freely available online:
 
 You should have access to a laptop and bring it to every class, fully charged (as possible).
 
-Note: If you do not have consistent access to the technology needed, please use [this form](https://eforms.ucsd.edu/view.php?id=490887) to request a loaner laptop. (For any issues that you may have, please email <a href="mailto:vcsa\@ucsd.edu" title="email">vcsa\@ucsd.edu</a>, and they will work to assist you.)
+Note: If you do not have consistent access to the technology needed, please reach out to Professor Ellis to discuss.
 
 ### Acknowledgements
 

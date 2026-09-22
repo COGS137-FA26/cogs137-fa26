@@ -1,0 +1,401 @@
+---
+title: "Lab 01 - Tooling"
+date: "2024-10-12"
+output: 
+  html: 
+    highlight: pygments
+    css: lab.css
+    preview-links: auto
+---
+
+```{r include=FALSE}
+library(tidyverse)
+library(datasauRus)
+options(
+  htmltools.dir.version = FALSE, # for blogdown
+  show.signif.stars = FALSE     # for regression output
+  )
+```
+
+# Introduction
+
+The main goal of this lab is to introduce you to R and RStudio, which we will be using throughout the course to learn and practice programming and analyze data.
+
+::: aside
+R is the name of the programming language itself and RStudio is a convenient interface.
+:::
+
+An additional goal is to introduce you to git and GitHub, which is the collaboration and version control system that we will be using throughout the course.
+
+::: aside
+git is a version control system (like "Track Changes" features from Microsoft Word on steroids) and GitHub is the home for your Git-based projects on the internet (like DropBox but much, much better).
+:::
+
+As the labs progress, you are encouraged to explore beyond what the labs say directly; a willingness to experiment will make you a much better programmer. Before we get to that stage, however, you need to build some basic fluency in R. Today we begin with the fundamental building blocks of R and RStudio: the interface, reading in data, and basic commands.
+
+You are encouraged to ask one another questions and work together, but each individual must turn in their own lab each week.
+
+# GitHub
+
+-   If you have a GitHub account, be sure you know your username and password (you'll need it later in this lab), and go ahead and move on to the next section.
+
+-   **If you do not yet have a GitHub account, create one at <https://github.com/>**. Tips for selecting a username [^1]:
+
+    -   Incorporate your actual name! People like to know who they're dealing with. Also makes your username easier for people to guess or remember.
+    -   Reuse your username from other contexts if you can, e.g., Twitter or Slack.
+    -   Pick a username you will be comfortable revealing to your future boss.
+    -   Shorter is better than longer.
+    -   Be as unique as possible in as few characters as possible. In some settings GitHub auto-completes or suggests usernames.
+    -   Make it timeless. Don't highlight your current university, employer, or place of residence.
+    -   Avoid words laden with special meaning in programming, like `NA`.
+
+[^1]: [Happy git with R](http://happygitwithr.com/github-acct.html#username-advice) by Jenny Bryan.
+
+## GitHub Housekeeping
+
+::: callout-note
+Your email address is the address tied to your GitHub account and your name should be first and last name.
+:::
+
+Before we can get started we need to take care of some required housekeeping (if you didn't complete it during class). Specifically, we need to configure your git so that RStudio can communicate with GitHub...and so you do not have to type in your username and password every time you want to communicate with GitHub from RStudio. A video here showing what these steps look like or feel free to follow the written instructions below:
+
+{{< video https://youtu.be/9AQterxWl2A/ >}}
+
+### Step 1: Email and Username
+
+The first step requires two pieces of information: your email address and your name.
+
+To do so, follow these steps:
+
+-   Go to the *Terminal* pane
+-   Type the following two lines of code, replacing the information in the quotation marks with your info:
+
+```{bash eval=FALSE}
+git config --global user.email "your email"
+git config --global user.name "your name"
+```
+
+For example, for me these are:
+
+```{bash eval=FALSE}
+git config --global user.email "sellis@ucsd.edu"
+git config --global user.name "ShanEllis"
+```
+
+To confirm that the changes have been implemented, run the following:
+
+```{bash eval=FALSE}
+git config --global user.email
+git config --global user.name
+```
+
+### Step 2: Generate ssh key
+
+In the terminal, you'll want to generate an `ssh` key by typing:
+
+```{bash eval=FALSE}
+ssh-keygen -t ed25519
+```
+
+After hitting enter/return to execute the above, you'll **press return/enter three times to bypass specifying a location and passphrase**.
+
+### Step 3: Copy your ssh key
+
+From the terminal type:
+
+```{bash eval=FALSE}
+cat ~/.ssh/id_ed25519.pub
+```
+
+You'll want to highlight and copy the full result of this command. It will start with `ssh-ed25519` and end with something including `dsmlp` toward the end.
+
+### Step 4: Let GitHub know your key
+
+-   In your browser, navigate to <https://github.com/settings/keys>
+-   Click "New SSH Key"
+-   Set title to DSMLP
+-   Paste what you copied in step 3 into the "Key" box
+-   Click "Add SSH Key"
+
+### Step 5: Finalize
+
+Return to the terminal in RStudio and run the following command:
+
+```{bash eval=FALSE}
+ssh git@github.com
+```
+
+You *may* see a message like \`The authenticity of host ... can't be established\`. You can type `yes` and hit return/enter after doing so if you do.
+
+You'll then see a message like `You've successfully authenticated, but GitHub does not provide shell access`. At this point, you're all set!
+
+This will be the only time you have to do this. From here on out, you'll be able to "communicate" with GitHub from RStudio without typing your username/password.
+
+## Cloning the lab
+
+Each of your assignments will begin with the following steps. You saw these once in class and, they're outlined in detail here again. Going forward each lab will start with a "Getting started" section but details will be a bit more sparse than this. You can always refer back to this lab for a detailed list of the steps involved for getting started with an assignment.
+
+In this course, there are no assignment links to click. Instead, a private repository is created for you in the course GitHub organization for each assignment. (See [Computing Access](../../computing/computing-access.qmd#github) for the full details.)
+
+::: callout-note
+Before you can see your repo, you need to have 1) submitted your GitHub username using the form on Canvas and 2) accepted the invitation to join the `COGS137-FA26` organization (check your email or go to <https://github.com/orgs/COGS137-FA26/invitation>). You only have to do these once.
+:::
+
+Go to [github.com/COGS137-FA26](https://github.com/COGS137-FA26) while signed in to GitHub and click on the repo named `lab01-<your GitHub username>`. This is *your copy* of the lab repo, and it contains a template you can build on to complete your lab. Click on the green `<> Code` button to clone the repo. **Be sure that SSH is selected and copy this URL**.
+
+::: callout-important
+Be sure that any time you are copying a link from GitHub under the <code>\<\>Code</code> button, you select and use the 'SSH' URL as this is what will allow you to not have to type your username and password.
+:::
+
+::: aside
+```{r clone-repo-url, fig.margin = TRUE, echo = FALSE, fig.width=3}
+knitr::include_graphics("img/01-hello-r/ssh_github.png")
+```
+:::
+
+Go to datahub and open RStudio. Go to **File \> New Project**... and select to create a **New Project from Version Control**. On the following menu, select **Git**.
+
+Copy and paste the URL of your assignment repo into the "Repository URL" dialog box:
+
+::: aside
+```{r clone-repo-link, fig.margin = TRUE, echo = FALSE, fig.width=3}
+knitr::include_graphics("img/01-hello-r/repo_in_r.png")
+```
+:::
+
+Hit **Create Project**. Open up `lab01-hello-r.qmd` and continue through this lab. Your work/answers for this lab will be submitted in that document.
+
+# Warm up
+
+Before we introduce the data, let's warm up a bit...
+
+## Packages
+
+In this lab we will work with two packages: `datasauRus` which contains the dataset, and `tidyverse` which is a collection of packages for doing data analysis in a "tidy" way.
+
+`tidyverse` has already been installed for you, so it only needs to be loaded using `library`. (see below)
+
+However, `datasauRus` has not yet been installed. Run the following in your console to install this package:
+
+```{r eval = FALSE}
+install.packages("datasauRus")
+```
+
+::: aside
+Note that often packages will already be installed for you on datahub in this course, but we want you to know how to install them if you need to install one at any point.
+:::
+
+::: callout-important
+**Note** that if you get an error saying that datasauRus is not available for this version of R, run `options(download.file.method="wget")` a single time in the console and then try to install again!
+:::
+
+Also, package installation happens a single time. But, any time you want to *use* a package (after it's been installed), it has to be loaded, as we do here:
+
+```{r eval = FALSE}
+library(tidyverse) 
+library(datasauRus)
+```
+
+You should be able to Render your document and see the results.
+
+Note that the packages are also loaded with the same commands in your Quarto document.
+
+## YAML:
+
+::: aside
+The top portion of your Quarto (.qmd) file (between the three dashed lines) is called YAML. It stands for "Yet Another Markup Language". It is a human-friendly data serialization standard for all programming languages. All you need to know is that this area is called the YAML (we will refer to it as such) and that it contains meta information about your document.
+:::
+
+Open the Quarto (.qmd) file in your project, change the author name to your name and click the **Render** button at the top of the file. This will generate an HTML document.
+
+``` yaml
+---
+title: "Lab 01 - Tooling"
+author: "Your Name"
+date: today
+date-format: long
+format:
+  html:
+    embed-resources: true
+---
+```
+
+::: aside
+`embed-resources: true` packs everything into a single HTML file, so it displays correctly on GitHub. Leave it in!
+:::
+
+## Committing changes:
+
+Then Go to the Git pane in your RStudio on Datahub.
+
+If you have made changes to your .qmd file, you should see it listed here. Click on it in this list and then click on **Diff**. This shows you the *diff*erence between the last committed state of the document and its current state that includes your changes. Be sure to also select your HTML document. Once you're happy with these changes, write "Update author name" in the **Commit message** box and hit **Commit**.
+
+::: aside
+```{r update-author-name-commit, fig.fullwidth=TRUE, echo = FALSE}
+knitr::include_graphics("img/01-hello-r/update-author-name-commit.png")
+```
+:::
+
+You don't have to commit after every change, this would get quite cumbersome. You should consider committing states that are *meaningful to you* for inspection, comparison, or restoration. In the first few assignments we will tell you exactly when to commit and in some cases, what commit message to use. As the quarter progresses, we will let you make these decisions.
+
+## Pushing changes:
+
+Now that you have made an update and committed this change, it's time to push these changes to the web! Or more specifically, to your repo on GitHub. Why? So that others can see your changes. And by others, we mean the course teaching team (your repos in this course are private to you and us, only).
+
+In order to push your changes to GitHub, click on **Push**. Go check your repo on GitHub - you'll see your updated documents there!
+
+::: {.callout-note icon="false"}
+## Thought exercise
+
+For which of the above steps (changing project name, making updates to the document, committing, and pushing changes) do you need to have an internet connection? Discuss with your classmates.
+:::
+
+# Exercises
+
+## Data
+
+The data frame we will be working with today is called `datasaurus_dozen`[^2] and it's in the `datasauRus` package. Actually, this single data frame contains 13 datasets, designed to show us why data visualization is important and how summary statistics alone can be misleading. The different datasets are marked by the `dataset` variable.
+
+[^2]: If it's confusing that the data frame is called `datasaurus_dozen` when it contains 13 datasets, you're not alone! Have you heard of a [baker's dozen](https://en.wikipedia.org/wiki/Dozen#Baker's_dozen)?
+
+To find out more about the dataset, type the following in your Console: `?datasaurus_dozen`. A question mark before the name of an object will always bring up its help file. This command must be ran in the Console.
+
+### Exercise 1
+
+Based on the help file, how many rows and how many columns does the `datasaurus_dozen` file have? What are the variables included in the data frame? Add your responses to your lab report. When you're done, commit your changes with the commit message "Added answer for Ex 1", and push.
+
+Let's take a look at what these datasets are. To do so we can make a *frequency table* of the dataset variable:
+
+```{r}
+datasaurus_dozen |>
+  count(dataset)
+```
+
+The original Datasaurus (`dino`) was created by Alberto Cairo in [this great blog post](http://www.thefunctionalart.com/2016/08/download-datasaurus-never-trust-summary.html). The other Dozen were generated using simulated annealing and the process is described in the paper *Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics* through Simulated Annealing by Justin Matejka and George Fitzmaurice.[^3] In the paper, the authors simulate a variety of datasets that the same summary statistics to the Datasaurus but have very different distributions.
+
+[^3]: Matejka, Justin, and George Fitzmaurice. "Same stats, different graphs: Generating datasets with varied appearance and identical statistics through simulated annealing." Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems. ACM, 2017.
+
+## Data visualization and summary
+
+### Exercise 2
+
+Plot `y` vs. `x` for the `dino` dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset.
+
+Below is the code you will need to complete this exercise. Basically, the answer is already given, but you need to include relevant bits in your .qmd document and successfully render it and view the results.
+
+Start with the `datasaurus_dozen` and pipe it into the `filter` function to filter for observations where `dataset == "dino"`. Store the resulting filtered data frame as a new data frame called `dino_data`.
+
+```{r}
+dino_data <- datasaurus_dozen |>
+  filter(dataset == "dino")
+```
+
+There is a lot going on here, so let's slow down and unpack it a bit.
+
+First, the pipe operator: `|>`, takes what comes before it and sends it as the first argument to what comes after it. So here, we're saying `filter` the `datasaurus_dozen` data frame for observations where `dataset == "dino"`.
+
+Second, the assignment operator: `<-`, assigns the name `dino_data` to the filtered data frame.
+
+Next, we need to visualize these data. We will use the `ggplot` function for this. Its first argument is the data you're visualizing. Next we define the `aes`thetic mappings. In other words, the columns of the data that get mapped to certain aesthetic features of the plot, e.g. the `x` axis will represent the variable called `x` and the `y` axis will represent the variable called `y`. Then, we add another layer to this plot where we define which `geom`etric shapes we want to use to represent each observation in the data. In this case we want these to be points,m hence `geom_point`.
+
+```{r fig.fullwidth=TRUE}
+ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+
+If this seems like a lot, it is. And you will learn about the philosophy of building data visualizations in layer in detail next week. For now, follow along with the code that is provided.
+
+For the second part of this exercises, we need to calculate a summary statistic: the correlation coefficient. Correlation coefficient, often referred to as $r$ in statistics, measures the linear association between two variables. You will see that some of the pairs of variables we plot do not have a linear relationship between them. This is exactly why we want to visualize first: visualize to assess the form of the relationship, and calculate $r$ only if relevant. In this case, calculating a correlation coefficient really doesn't make sense since the relationship between `x` and `y` is definitely not linear -- it's dinosaurial!
+
+But, for illustrative purposes, let's calculate correlation coefficient between `x` and `y`.
+
+::: aside
+Start with `dino_data` and calculate a summary statistic that we will call `r` as the `cor`relation between `x` and `y`.
+:::
+
+```{r}
+dino_data |>
+  summarize(r = cor(x, y))
+```
+
+*This is a good place to pause, commit changes with the commit message "Added answer for Ex 2", and push.*
+
+### Exercise 3
+
+Plot `y` vs. `x` for the `star` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+
+*This is another good place to pause, commit changes with the commit message "Added answer for Ex 3", and push.*
+
+### Exercise 4
+
+Plot `y` vs. `x` for the `circle` dataset. You can (and should) reuse code we introduced above, just replace the dataset name with the desired dataset. Then, calculate the correlation coefficient between `x` and `y` for this dataset. How does this value compare to the `r` of `dino`?
+
+*You should pause again, commit changes with the commit message "Added answer for Ex 4", and push.*
+
+::: aside
+Facet by the dataset variable, placing the plots in a 3 column grid, and don't add a legend.
+:::
+
+### Exercise 5
+
+Finally, let's plot all datasets at once. In order to do this we will make use of facetting.
+
+```{r all-viz, eval=FALSE, fig.fullwidth=TRUE}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset)) +
+  geom_point() +
+  facet_wrap(~ dataset, ncol = 3) +
+  theme(legend.position = "none")
+```
+
+And we can use the `group_by` function to generate all the summary correlation coefficients.
+
+```{r all-r, eval=FALSE}
+datasaurus_dozen |>
+  group_by(dataset) |>
+  summarize(r = cor(x, y))
+```
+
+You're done with the data analysis exercises, but we'd like you to do two more things:
+
+## Bonus Exercises
+
+Complete these as time permits to further your experience with, comfort in, and understanding of Quarto documents.
+
+### Resize your figures
+
+In the YAML at the top of your document, add `fig-width` and `fig-height` under `html:` to set the size of all figures:
+
+``` yaml
+format:
+  html:
+    embed-resources: true
+    fig-width: 6
+    fig-height: 4
+```
+
+Then, render your document and see how you like the new sizes. Change and render again and again until you're happy with the figure sizes.
+
+You can also use different figure sizes for different figures. To do so, add chunk options at the top of the chunk where you want to make a change, using `#|`:
+
+````
+```{r}
+#| fig-width: 8
+#| fig-height: 3
+```
+````
+
+### Change the look of your report
+
+Under `html:` in the YAML, try out different `theme` options (e.g. `theme: flatly`; see the [list of themes](https://quarto.org/docs/output-formats/html-themes.html)) and `highlight-style` options (e.g. `highlight-style: github`). Render your document to see how it looks. Play around with these until you're happy with the look.
+
+::: {.callout-note icon="false"}
+Not sure how to use emojis on your computer? Maybe a classmate can help? Or you can ask your TA as well!
+:::
+
+# Submit
+
+::: callout-important
+You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.
+:::
+
+*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 1! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

@@ -30,9 +30,13 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 **Due Dates**:
 
 -   🔘 **Student survey** (#finaid) due Fri 10/2 (11:59 PM)
+
 -   🔘 Lecture Participation survey "due" after class
 
 -   📝 Submit your **GitHub username** (form on Canvas) today, so your repos can be created
+
+Please take one [green]{.sticky-green} sticky and one [pink]{.sticky-pink} sticky as they come around. If you're able, try and save these. We'll use them most classes. (But, I'll always have extra!)
+
 
 ## Agenda
 
@@ -55,7 +59,7 @@ Website: <https://datahub.ucsd.edu/>
 
 When working on "stuff" for this course, select the COGS 137 environment.
 
-![datahub](images/00/datahub.png) \
+![datahub](images/00/datahub.png)\
 
 ## Datahub Usage
 
@@ -250,7 +254,7 @@ Your repos are created *for* you: no assignment links to click.
 
 ::: incremental
 1.  Create a GitHub account (if you don't have one)
-2.  Submit your GitHub username (form on Canvas) <- **do this today**
+2.  Submit your GitHub username (form on Canvas) \<- **do this today**
 3.  Accept the one-time invite to the `COGS137-FA26` organization (email, or [github.com/orgs/COGS137-FA26/invitation](https://github.com/orgs/COGS137-FA26/invitation))
 4.  Find your repos at [github.com/COGS137-FA26](https://github.com/COGS137-FA26): `labXX-<username>`, `hwXX-<username>`, `csXX-<team>`, `final-<team>`
 :::
@@ -326,17 +330,4 @@ Can you answer these questions?
 -   [GIT & GITHUB TUTORIAL](https://www.youtube.com/watch?v=xuB1Id2Wxak), from edureka!
     -   with [notes](https://docs.google.com/document/d/1GAdkvn7lWzeLekvC343WNZC2rZGhQOfPOU2dMha9aws/edit) from COGS 18/108 TA Holly(Yueying) Dong
 
-## Slides to PDF
-
-1.  Toggle into Print View using the Esc key (or using the Navigation Menu)
-2.  Open the in-browser print dialog (CTRL/CMD+P).
-3.  Change the **Destination** setting to Save as PDF.
-4.  Change the **Layout** to Landscape.
-5.  Change the **Margins** to None.
-6.  Enable the **Background** graphics option.
-7.  Click Save 🎉
-
-::: aside
-Instructions from [quarto](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf) documentation
-:::
 

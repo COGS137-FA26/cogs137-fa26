@@ -1,6 +1,34 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - schedule.qmd
+    - policies.qmd
+    - 404.qmd
+    - LICENSE.md
+    - computing/*.qmd
+    # Foundations
+    - content/lectures/00-welcome.qmd
+    # - content/lectures/01-tooling.qmd
+    # - content/lectures/02-intro-to-r.qmd
+    # - content/labs/01-lab-intro-r.qmd
+    # - content/hw/hw-01.qmd
+    # # CS01
+    # - content/cs/cs01.qmd
+    # - content/cs/cs-example.qmd
+    # - content/lectures/0[3-9]-*.qmd
+    # - content/lectures/10-*.qmd
+    # - content/labs/0[2-5]-*.qmd
+    # - content/hw/hw-02.qmd
+    # # CS02
+    # - content/cs/cs02.qmd
+    # - content/lectures/1[1-7]-*.qmd
+    # - content/labs/0[6-7]-*.qmd
+    # # Final project
+    # - content/cs/final.qmd
+    # - content/lectures/1[89]-*.qmd
+    # - content/lectures/20-*.qmd
     
 website:
   page-navigation: true
@@ -34,18 +62,15 @@ website:
         text: "Canvas"
         menu:
           - text: Homepage
-            url: https://canvas.ucsd.edu/courses/58555
+            url: https://canvas.ucsd.edu/courses/80042
           - text: Grades
-            url: https://canvas.ucsd.edu/courses/58555/gradebook
+            url: https://canvas.ucsd.edu/courses/80042/gradebook
       - icon: cloud
         href: https://datahub.ucsd.edu/hub/spawn
         text: "Datahub"
       - icon: question
-        href: https://piazza.com/class/m1jv2820hu54m
+        href: https://piazza.com/configure-classes/muczvyliqy23y
         text: "Piazza"
-      - icon: robot
-        href: https://chatgpt.com/
-        text: "ChatGPT"
       - icon: github
         href: https://github.com/COGS137-FA26
         text: "GitHub"
@@ -56,78 +81,84 @@ website:
             text: Schedule
           - href: policies.qmd
             text: Policies
-      - section: "Notes"
+      # Organized by course unit. Within each unit: project/assignment page,
+      # then notes, labs, and homework (in the order they happen).
+      - section: "Foundations"
         contents:
-          - text: "00-welcome"
+          - text: "Notes 00: Welcome"
             href: content/lectures/00-welcome.qmd
-          - text: "01-intro-to-r"
-            href: content/lectures/01-intro-to-r.qmd
-          - text: "02-cs01-intro"
-            href: content/lectures/02-cs01-intro.qmd
-          - text: "03-dplyr"
-            href: content/lectures/03-dplyr.qmd
-          - text: "04-ggplot2"
-            href: content/lectures/04-ggplot2.qmd     
-          - text: "05-viz"
-            href: content/lectures/05-viz.qmd   
-          - text: "06-cs01-eda"
-            href: content/lectures/06-cs01-eda.qmd
-          - text: "07-written-communication"
-            href: content/lectures/07-written-communication.qmd
-          - text: "08-cs01-inclass"
-            href: content/lectures/08-cs01-inclass.qmd
-          - text: "09-cs02-intro"
-            href: content/lectures/09-cs02-intro.qmd
-          - text: "10-cs02-eda"
-            href: content/lectures/10-cs02-eda.qmd
-          - text: "11-tidymodels"
-            href: content/lectures/11-tidymodels.qmd
-          - text: "12-regression"
-            href: content/lectures/12-regression.qmd
-          - text: "13-cs02-analysis"
-            href: content/lectures/13-cs02-analysis.qmd
-          - text: "14-cs02-inclass"
-            href: content/lectures/14-cs02-inclass.qmd
-          - text: "15-oral-communication"
-            href: content/lectures/15-oral-communication.qmd
-          - text: "16-project-inclass"
-            href: content/lectures/16-project-inclass.qmd
-          - text: "17-presentations"
-            href: content/lectures/17-presentations.qmd
-      - section: "Labs"
-        contents:
-          - text: "Lab01: Tooling and R"
-            href: content/labs/01-lab-intro-r.qmd
-          - text: "Lab02: CS01 Data Wrangling"
-            href: content/labs/02-lab-cs01-wrangle.qmd
-          - text: "Lab03: CS01 Data Visualization"
-            href: content/labs/03-lab-cs01-viz.qmd
-          - text: "Lab04: CS01 EDA"
-            href: content/labs/04-lab-cs01-eda.qmd
-          - text: "Lab05: CS01 Communication"
-            href: content/labs/05-lab-cs01-communication.qmd
-          - text: "Lab06: CS02 EDA"
-            href: content/labs/06-lab-cs02-eda.qmd
-          - text: "Lab07: MLR"
-            href: content/labs/07-lab-mlr.qmd
-      - section: "Case Studies"
-        contents:
-          - text: "CS: Example"
-            href: content/cs/cs-example.qmd
-          - text: "CS01: Biomarkers of Recent Use"
-            href: content/cs/cs01.qmd
-          - text: "CS02: Predicting Annual Air Pollution"
-            href: content/cs/cs02.qmd
-          - text: "Final Project"
-            href: content/cs/final.qmd
-      - section: "Homework"
-        contents:
-          - text: "HW01"
-            href: content/hw/hw-01.qmd
-          - text: "HW02"
-            href: content/hw/hw-02.qmd
-          - text: "HW03"
-            href: content/hw/hw-03.qmd
+      #     - text: "Notes 01: Tooling (Datahub, Quarto, Git/GitHub)"
+      #       href: content/lectures/01-tooling.qmd
+      #     - text: "Notes 02: Intro to R"
+      #       href: content/lectures/02-intro-to-r.qmd
+      #     - text: "Lab 01: Tooling and R"
+      #       href: content/labs/01-lab-intro-r.qmd
+      #     - text: "HW 01: R Basics"
+      #       href: content/hw/hw-01.qmd
+      - section: "CS01: Biomarkers of Recent Use"
+        # contents:
+        #   - text: "CS01 Instructions"
+        #     href: content/cs/cs01.qmd
+        #   - text: "Example Case Study"
+        #     href: content/cs/cs-example.qmd
+        #   - text: "Notes 03: CS01 Intro"
+        #     href: content/lectures/03-cs01-intro.qmd
+        #   - text: "Notes 04: Data Wrangling (dplyr)"
+        #     href: content/lectures/04-dplyr.qmd
+        #   - text: "Notes 05: ggplot2"
+        #     href: content/lectures/05-ggplot2.qmd
+        #   - text: "Notes 06: Effective Data Visualization"
+        #     href: content/lectures/06-viz.qmd
+        #   - text: "Notes 07: AI-Assisted Analysis"
+        #     href: content/lectures/07-ai-assisted-analysis.qmd
+        #   - text: "Notes 08: CS01 EDA"
+        #     href: content/lectures/08-cs01-eda.qmd
+        #   - text: "Notes 09: Written Communication"
+        #     href: content/lectures/09-written-communication.qmd
+        #   - text: "Notes 10: CS01 In-class Work"
+        #     href: content/lectures/10-cs01-inclass.qmd
+        #   - text: "Lab 02: CS01 Data Wrangling"
+        #     href: content/labs/02-lab-cs01-wrangle.qmd
+        #   - text: "Lab 03: CS01 Data Visualization"
+        #     href: content/labs/03-lab-cs01-viz.qmd
+        #   - text: "Lab 04: CS01 EDA"
+        #     href: content/labs/04-lab-cs01-eda.qmd
+        #   - text: "Lab 05: CS01 Communication"
+        #     href: content/labs/05-lab-cs01-communication.qmd
+        #   - text: "HW 02: Data Visualization"
+        #     href: content/hw/hw-02.qmd
+      - section: "CS02: Predicting Air Pollution"
+        # contents:
+        #   - text: "CS02 Instructions"
+        #     href: content/cs/cs02.qmd
+        #   - text: "Notes 11: CS02 Intro"
+        #     href: content/lectures/11-cs02-intro.qmd
+        #   - text: "Notes 12: CS02 EDA"
+        #     href: content/lectures/12-cs02-eda.qmd
+        #   - text: "Notes 13: Inference vs. Prediction"
+        #     href: content/lectures/13-inference-prediction.qmd
+        #   - text: "Notes 14: Regression"
+        #     href: content/lectures/14-regression.qmd
+        #   - text: "Notes 15: CS02 Analysis (ML)"
+        #     href: content/lectures/15-cs02-analysis.qmd
+        #   - text: "Notes 16: Putting the Model Together"
+        #     href: content/lectures/16-putting-it-together.qmd
+        #   - text: "Notes 17: CS02 In-class Work"
+        #     href: content/lectures/17-cs02-inclass.qmd
+        #   - text: "Lab 06: CS02 EDA"
+        #     href: content/labs/06-lab-cs02-eda.qmd
+        #   - text: "Lab 07: Multiple Linear Regression"
+        #     href: content/labs/07-lab-mlr.qmd
+      - section: "Final Project"
+        # contents:
+        #   - text: "Final Project Instructions"
+        #     href: content/cs/final.qmd
+        #   - text: "Notes 18: Oral Communication"
+        #     href: content/lectures/18-oral-communication.qmd
+        #   - text: "Notes 19: Project In-class Work"
+        #     href: content/lectures/19-project-inclass.qmd
+        #   - text: "Notes 20: Presentations"
+        #     href: content/lectures/20-presentations.qmd
       - section: "Computing"
         contents:
           - href: computing/computing-access.qmd
@@ -136,121 +167,7 @@ website:
             text: Troubleshooting
           - href: computing/computing-cheatsheets.qmd
             text: Cheatsheets
-            
-  
-    #   - section: "Lecture Notes"
-    #     contents:
-    #       - text: "04-ggplot2"
-    #         href: content/lectures/04-ggplot2.qmd
-    #       - text: "05-viz"
-    #         href: content/lectures/05-viz.qmd
-    #       - text: "06-analysis"
-    #         href: content/lectures/06-analysis.qmd
-    #       - text: "07-linear-models"
-    #         href: content/lectures/07-linear-models.html
-    #       - text: "08-effective-communication"
-    #         href: content/lectures/08-effective-communication.html
-    #       - text: "09-mlr"
-    #         href: content/lectures/09-mlr.html
-    #       - text: "10-projects"
-    #         href: content/lectures/10-projects.html
-    #       - text: "11-cs01-data"
-    #         href: content/lectures/11-cs01-data.html
-    #       - text: "12-cs01-eda"
-    #         href: content/lectures/12-cs01-eda.html
-    #       - text: "13-cs01-analysis"
-    #         href: content/lectures/13-cs01-analysis.html
-    #       - text: "14-tidymodels"
-    #         href: content/lectures/14-tidymodels.html
-    #       - text: "15-cs02-data"
-    #         href: content/lectures/15-cs02-data.html
-    #       - text: "16-cs02-eda"
-    #         href: content/lectures/16-cs02-eda.html
-    #       - text: "17-cs02-analysis"
-    #         href: content/lectures/17-cs02-analysis.html
-    #       - text: "18-brainstorming"
-    #         href: content/lectures/18-brainstorming.html
-    #       - text: "19-wrap-up"
-    #         href: content/lectures/19-wrap-up.html
-    #   - section: "Labs"
-    #     contents:
-
-          # - text: "Lab02: Wrangling"
-    #         href: content/labs/02-lab-wrangling.qmd
-    #       - text: "Lab03: Data Viz"
-    #         href: content/labs/03-lab-viz.qmd
-    #       - text: "Lab04: Modelling"
-    #         href: content/labs/04-lab-modelling.qmd
-    #       - text: "Lab05: MLR"
-    #         href: content/labs/05-lab-mlr.qmd
-    #       - text: "Lab06: CS01"
-    #         href: content/labs/06-lab-cs01.qmd
-    #   #     - text: "Lab07: Logistic Regression"
-    #   #       href: content/labs/07-lab-logistic-regression.qmd
-    #       - text: "Lab07: CS02"
-    #         href: content/labs/07-lab-cs02.qmd
-    #   - section: "Lab Slides"
-    #     contents:
-    #       - text: "Lab01"
-    #         href: content/labslides/01-lab-deck.html
-    #       - text: "Lab02"
-    #         href: content/labslides/02-lab-deck.html
-    #       - text: "Lab03"
-    #         href: content/labslides/03-lab-deck.html
-    #       - text: "Lab04"
-    #         href: content/labslides/04-lab-deck.html
-    #       - text: "Lab05"
-    #         href: content/labslides/05-lab-deck.html
-    #   #     - text: "Lab07"
-    #   #       href: content/labslides/07-lab-deck.html
-    #   - section: "Lab Answers"
-    #     contents:
-    #       - text: "Lab02: Wrangling (Ans)"
-    #         href: content/lab-ans/lab02-wrangling-ans.qmd
-    #       - text: "Lab03: Data Viz (Ans)"
-    #         href: content/lab-ans/lab03-viz-ans.qmd
-    #       - text: "Lab04: Modelling (Ans)"
-    #         href: content/lab-ans/lab04-modelling-ans.qmd
-    #       - text: "Lab05: MLR (Ans)"
-    #         href: content/lab-ans/lab05-mlr-ans.qmd
-    #   #     - text: "Lab07: Logistic Regression (Ans)"
-    #   #       href: content/lab-ans/lab07-logistic-regression-ans.qmd
-    #   - section: "Homework"
-    #     contents:
-    #       - text: "HW01"
-    #         href: content/hw/hw-01.qmd
-    #       - text: "HW02"
-    #         href: content/hw/hw-02.qmd
-    #       - text: "HW03"
-    #         href: content/hw/hw-03.qmd
-    #   - section: "Exam"
-    #     contents:
-    #       - text: "Practice Midterm (Fa21)"
-    #         href: content/exams/practice-exam-fa21.qmd
-    #       - text: "Practice Midterm (Ans-Fa21)"
-    #         href: content/exams/practice-exam-fa21-ans.qmd
-    #       - text: "Practice Midterm (Wi23)"
-    #         href: content/exams/practice-exam-wi23.qmd      
-    #       - text: "Practice Midterm (Ans-Wi23)"
-    #         href: content/exams/practice-exam-wi23-ans.qmd
-    #       - text: "Midterm"
-    #         href: content/exams/midterm-fa23.qmd
-    #       - text: "Midterm (Ans)"
-    #         href: content/exams/midterm-fa23-ans.qmd
-    #   - section: "Case Studies"
-    #     contents:
-    #       - text: "CS: Example"
-    #         href: content/cs/cs-example.qmd
-    #       - text: "CS01"
-    #         href: content/cs/cs01.qmd
-    #       - text: "CS02"
-    #         href: content/cs/cs02.qmd
-    #   - section: "Final"
-    #     contents:
-    #       - text: "Final Project"
-    #         href: content/final/final.qmd
-    
-
+          
 
 format:
   html:
