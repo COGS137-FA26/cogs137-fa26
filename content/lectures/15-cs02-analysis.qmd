@@ -81,11 +81,10 @@ Notes:
 ## The Data
 
 ```{r, message=FALSE}
-pm <- read_csv("OCS_data/data/raw/pm25_data.csv")
-
-# Converting to factors
-pm <- pm |>
-  mutate(across(c(id, fips, zcta), as.factor)) 
+# in your CS02 repo, the file is at "data/pm25_data.csv"
+pm <- read_csv("OCS_data/data/raw/pm25_data.csv") |>
+  # these are ID codes, not measurements
+  mutate(across(c(id, fips, zcta), as.factor))
 ```
 
 ## Data Splitting
@@ -246,22 +245,22 @@ simple_rec |>
 
 . . .
 
-Removing highly correlated variables:
+Removing variables with near-zero variance:
 
 ```{r}
 simple_rec |>
-  step_corr(all_predictors(), - CMAQ, - aod)
+  step_nzv(all_predictors(), - CMAQ, - aod)
 ```
 
 -   specifying to KEEP `CMAQ` and `aod`
 
 . . .
 
-Removing variables with non-zero variance:
+Removing highly correlated variables:
 
 ```{r}
 simple_rec |>
-  step_nzv(all_predictors(), - CMAQ, - aod)
+  step_corr(all_predictors(), - CMAQ, - aod)
 ```
 
 ## Putting our `recipe` together
@@ -270,13 +269,13 @@ simple_rec |>
 simple_rec <- simple_rec |> 
   update_role("fips", new_role = "county id") |>
   step_dummy(state, county, city, zcta, one_hot = TRUE) |>
-  step_corr(all_predictors(), - CMAQ, - aod)|>
-  step_nzv(all_predictors(), - CMAQ, - aod)
+  step_nzv(all_predictors(), - CMAQ, - aod) |>
+  step_corr(all_predictors(), - CMAQ, - aod)
   
 simple_rec
 ```
 
-Note: order of steps matters
+Note: order of steps matters. Removing (near-)constant columns *before* computing correlations avoids "the standard deviation is zero" warnings from `step_corr()`.
 
 ## Step 3: Running the pre-processing (`prep`) {.smaller}
 
@@ -320,7 +319,7 @@ glimpse(baked_train)
 ```
 
 -   `new_data = NULL` specifies that we're not (yet) looking at our testing data
--   We only have 36 variables (33 predictors + 2 id variables + outcome)
+-   We only have `r ncol(baked_train)` variables (`r ncol(baked_train) - 3` predictors + 2 id variables + outcome)
 -   categorical variables (`state`) are gone (one-hot encoding)
 -   `state_California` remains - only state with nonzero variance (largest \# of monitors)
 
@@ -374,9 +373,11 @@ pm <- pm |>
 set.seed(1234) # same seed as before
 pm_split <- rsample::initial_split(data = pm, prop = 2/3)
 pm_split
- train_pm <- rsample::training(pm_split)
- test_pm <- rsample::testing(pm_split)
+train_pm <- rsample::training(pm_split)
+test_pm <- rsample::testing(pm_split)
 ```
+
+-   This recode is a fixed rule that doesn't *learn* anything from the data, so it's OK to do before splitting (unlike, say, filling in missing values with the mean)
 
 . . .
 
@@ -388,10 +389,21 @@ novel_rec <- recipe(train_pm) |>
     update_role(value, new_role = "outcome") |>
     update_role(id, new_role = "id variable") |>
     update_role("fips", new_role = "county id") |>
-    step_dummy(state, county, city, zcta, one_hot = TRUE) |>
-    step_corr(all_numeric()) |>
-    step_nzv(all_numeric()) 
+    step_rm(county, zcta) |>
+    step_dummy(state, city) |>
+    step_nzv(all_predictors()) |>
+    step_corr(all_numeric_predictors()) |>
+    step_lincomb(all_numeric_predictors())
 ```
+
+. . .
+
+What changed?
+
+-   `step_rm(county, zcta)`: nearly every monitor has its own county/zip code, so these can't generalize to new monitors (and create new-level problems in the test set)
+-   `step_dummy()` without `one_hot`: for linear regression, one-hot encoding adds a redundant column (it's perfectly predictable from the others + the intercept)
+-   `all_predictors()`/`all_numeric_predictors()` (not `all_numeric()`): never let a filter step touch the outcome
+-   `step_lincomb()`: removes exact linear combinations (e.g., `hs_orless` = `nohs` + `somehs` + `hs`), which `lm()` would otherwise report as `NA`
 
 . . .
 
@@ -515,12 +527,9 @@ $$d(Y - \hat{Y})$$
 Let's pull out our predicted outcome values $\hat{Y} = f(X)$ from the models we fit (using different approaches).
 
 ```{r}
-wf_fit <- PM_wflow_fit |> 
-  extract_fit_parsnip()
-
-wf_fitted_values <- 
-  broom::augment(wf_fit[["fit"]], data = baked_train) |> 
-  select(value, .fitted:.std.resid)
+wf_fitted_values <- PM_wflow_fit |>
+  augment(new_data = train_pm) |>
+  select(value, .fitted = .pred)
 
 head(wf_fitted_values)
 ```
@@ -550,9 +559,10 @@ yardstick::metrics(wf_fitted_values,
                    truth = value, estimate = .fitted)
 ```
 
--   RMSE isn't too bad
--   $R^2$ suggests model is only explaining 39% of the variance in the data
--   The MAE value suggests that the average difference between the value predicted and the real value was 1.47 ug/m3. The range of the values was 3-22 in the training data, so this is a relatively small amount
+-   These are **training** metrics: the model is being graded on the same data it was fit to, so they're optimistic by design
+-   $R^2$ suggests the model explains about `r round(100 * yardstick::rsq_vec(wf_fitted_values$value, wf_fitted_values$.fitted))`% of the variance in the training data
+-   MAE: on average, predictions are off by about `r round(yardstick::mae_vec(wf_fitted_values$value, wf_fitted_values$.fitted), 2)` µg/m³ (values range from `r round(min(train_pm$value))` to `r round(max(train_pm$value))`)
+-   To know how the model does on data it *hasn't* seen, we need cross-validation (next!)
 
 ## Day 2 · Mon 11/16 {background-color="#92A86A"}
 
@@ -608,7 +618,7 @@ Visualizing this process:
 
 Where this workflow thing really shines...
 
-```{r, message=FALSE, wanring=FALSE}
+```{r, message=FALSE, warning=FALSE}
 resample_fit <- tune::fit_resamples(PM_wflow, vfold_pm)
 ```
 
@@ -626,7 +636,7 @@ tune::show_best(resample_fit, metric = "rmse")
 
 Fitting a different model...is based on a decision tree:
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt = "Diagram of a single decision tree: the data are split again and again on predictor values until each branch ends in a prediction."}
 knitr::include_graphics("https://miro.medium.com/max/1000/1*LMoJmXCsQlciGTEyoSN39g.jpeg")
 ```
 
@@ -645,7 +655,7 @@ But...in the case of [random forest](https://towardsdatascience.com/decision-tre
 
 ## Visualizing a RF
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, fig.alt = "Diagram of a random forest: many decision trees, each built on a random sample of the data, whose predictions are combined into one."}
 knitr::include_graphics("https://miro.medium.com/max/1400/0*f_qQPFpdofWGLQqc.png")
 ```
 
@@ -657,15 +667,15 @@ RF_rec <- recipe(train_pm) |>
     update_role(value, new_role = "outcome")|>
     update_role(id, new_role = "id variable") |>
     update_role("fips", new_role = "county id") |>
-    step_novel("state") |>
-    step_string2factor("state", "county", "city") |>
-    step_rm("county") |>
-    step_rm("zcta") |>
-    step_corr(all_numeric())|>
-    step_nzv(all_numeric())
+    step_rm(county, zcta) |>
+    step_novel(state) |>
+    step_string2factor(city) |>
+    step_nzv(all_predictors()) |>
+    step_corr(all_numeric_predictors())
 ```
 
 -   can use our categorical data as is (no dummy coding)
+-   `county` & `zcta` are still removed: nearly one level per monitor (and `randomForest` can't handle factors with more than 53 levels)
 -   `step_novel()`necessary here for the `state` variable to get all cross validation folds to work, (b/c there will be different levels included in each fold test and training sets. The new levels for some of the test sets would otherwise result in an error.; "step_novel creates a specification of a recipe step that will assign a previously unseen factor level to a new value."
 
 ## Model Specification
@@ -764,7 +774,9 @@ RF_tune_wflow
 Detect how many cores you have access to:
 
 ```{r}
-n_cores <- parallel::detectCores()
+# availableCores() respects limits on shared servers like DataHub
+# (parallel::detectCores() reports the whole machine)
+n_cores <- future::availableCores()
 n_cores
 ```
 
@@ -773,13 +785,19 @@ n_cores
 This code will take some time to run:
 
 ```{r, cache=TRUE, message=FALSE}
-# install.packages("doParallel")
-doParallel::registerDoParallel(cores = n_cores)
+# install.packages("future")
+# run the tuning in parallel
+future::plan("multisession", workers = n_cores)
 
 set.seed(123)
 tune_RF_results <- tune_grid(object = RF_tune_wflow, resamples = vfold_pm, grid = 20)
 tune_RF_results
+
+# back to running one thing at a time
+future::plan("sequential")
 ```
+
+Note: older guides use `doParallel::registerDoParallel()`; `tune` no longer supports that approach (as of v2.0).
 
 ## Check Metrics:
 
@@ -797,7 +815,7 @@ show_best(tune_RF_results, metric = "rmse", n = 1)
 ## Final Model Evaluation
 
 ```{r}
-tuned_RF_values <- select_best(tune_RF_results, "rmse")
+tuned_RF_values <- select_best(tune_RF_results, metric = "rmse")
 tuned_RF_values
 ```
 
@@ -810,14 +828,19 @@ The testing data!
 RF_tuned_wflow <- RF_tune_wflow |>
   tune::finalize_workflow(tuned_RF_values)
 
-# fit model with those parameters on train AND test
-overallfit <- RF_wflow |>
+# fit on ALL the training data, then evaluate ONCE on the test data
+overallfit <- RF_tuned_wflow |>
   tune::last_fit(pm_split)
 
 collect_metrics(overallfit)
 ```
 
-Results are similar to what we saw in training (RMSE: 1.65)
+```{r, echo = FALSE}
+cv_rmse <- show_best(tune_RF_results, metric = "rmse", n = 1)$mean
+test_rmse <- collect_metrics(overallfit) |> filter(.metric == "rmse") |> pull(.estimate)
+```
+
+Test RMSE (`r round(test_rmse, 2)`) is similar to the cross-validated RMSE of the tuned model (`r round(cv_rmse, 2)`): CV gave us an honest preview.
 
 . . .
 
@@ -933,17 +956,33 @@ monitors
 Wrangle counties:
 
 -   separate county and state into separate columns
--   make title case
--   combine with PM data
+-   build a matching key from **state + county** (county names repeat across states: 30+ states have a Washington County!)
+-   average the monitors within each county (160 counties have more than one)
 
 ```{r}
+# lower case, letters only, "saint" -> "st", so "St. Lucie" matches "st lucie"
+county_key <- function(state, county) {
+  county <- county |>
+    str_to_lower() |>
+    str_remove(":.*") |>            # maps splits some counties into parts
+    str_replace("^saint", "st") |>
+    str_remove_all("[^a-z]")
+  paste(str_to_lower(state), county, sep = ",")
+}
+
 counties <- counties |> 
   tidyr::separate(ID, into = c("state", "county"), sep = ",") |> 
-  dplyr::mutate(county = stringr::str_to_title(county))
+  mutate(key = county_key(state, county))
 
-map_data <- dplyr::inner_join(counties, pm, by = "county")
+county_truth <- pm |>
+  mutate(key = county_key(state, county)) |>
+  group_by(key) |>
+  summarize(value = mean(value))
 
+map_data <- inner_join(counties, county_truth, by = "key")
 ```
+
+[`r emo::ji("question")` What would go wrong if we joined on `county` alone?]{style="background-color: #ADD8E6"}
 
 ## Map: Truth
 
@@ -984,29 +1023,38 @@ truth
 ::: panel-tabset
 ### Data
 
+Every monitor gets a prediction from a model that **never saw it**:
+
 ```{r}
-# fit data
-RF_final_train_fit <- parsnip::fit(RF_tuned_wflow, data = train_pm)
-RF_final_test_fit <- parsnip::fit(RF_tuned_wflow, data = test_pm)
+# training monitors: out-of-fold predictions from cross-validation
+# (.row = row number in train_pm)
+set.seed(456)
+cv_preds <- fit_resamples(RF_tuned_wflow, vfold_pm,
+                          control = control_resamples(save_pred = TRUE)) |>
+  collect_predictions()
 
-# get predictions on training data
-values_pred_train <- predict(RF_final_train_fit, train_pm) |> 
-  bind_cols(train_pm |> select(value, fips, county, id)) 
+train_preds <- train_pm |>
+  mutate(.row = row_number()) |>
+  inner_join(select(cv_preds, .row, .pred), by = ".row")
 
-# get predictions on testing data
-values_pred_test <- predict(RF_final_test_fit, test_pm) |> 
-  bind_cols(test_pm |> select(value, fips, county, id)) 
-values_pred_test
+# test monitors: predictions from last_fit() (.row = row number in pm)
+test_preds <- pm |>
+  mutate(.row = row_number()) |>
+  inner_join(select(test_predictions, .row, .pred), by = ".row")
 
-# combine
-all_pred <- bind_rows(values_pred_test, values_pred_train)
-
+# combine and average within county
+county_pred <- bind_rows(train_preds, test_preds) |>
+  mutate(key = county_key(state, county)) |>
+  group_by(key) |>
+  summarize(.pred = mean(.pred))
 ```
+
+Note: *don't* predict the training data with a model fit to the training data (or the test data with a model fit to the test data). Those predictions look great...because the model has already seen the answers.
 
 ### Code
 
 ```{r pred, fig.show = "hide"}
-map_data <- inner_join(counties, all_pred, by = "county")
+map_data <- inner_join(counties, county_pred, by = "key")
 
 pred <- ggplot(data = world) +
   coord_sf(xlim = c(-125,-66),
@@ -1045,7 +1093,7 @@ pred
 library(patchwork)
 
 final_plot <- (truth/pred) + 
-  plot_annotation(title = "Machine Learning Methods Allow for Prediction of Air Pollution", subtitle = "A random forest model predicts true monitored levels of fine particulate matter (PM 2.5) air pollution based on\ndata about population density and other predictors reasonably well, thus suggesting that we can use similar methods to predict levels\nof pollution in places with poor monitoring",
+  plot_annotation(title = "Machine Learning Methods Allow for Prediction of Air Pollution", subtitle = paste0("A random forest model predicts annual fine particulate matter (PM 2.5) levels at monitors it was not trained on to within\nabout ", round(test_rmse, 1), " ug/m3 on average (test RMSE), using population density, emissions, and other predictors. Similar methods\ncould help estimate pollution in places with poor monitoring."),
                   theme = theme(plot.title = element_text(size =12, face = "bold"), 
                                 plot.subtitle = element_text(size = 8)))
 ```

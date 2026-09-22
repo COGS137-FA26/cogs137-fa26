@@ -77,7 +77,10 @@ library(olsrr) # will need to be installed
 ## Data
 
 ```{r}
-pm <- read_csv("OCS_data/data/raw/pm25_data.csv")
+# in your CS02 repo, the file is at "data/pm25_data.csv"
+pm <- read_csv("OCS_data/data/raw/pm25_data.csv") |>
+  # these are ID codes, not measurements
+  mutate(across(c(id, fips, zcta), as.factor))
 ```
 
 ## Starting Question
@@ -277,7 +280,7 @@ ggplot(data = pm, aes(x = value, fill = popdens)) +
 :::
 
 ::: {.column width="70%"}
-```{r pp-main-int-viz, echo=FALSE, message=FALSE, out.width="800%", fig.asp = 0.9}
+```{r pp-main-int-viz, echo=FALSE, message=FALSE, out.width="80%", fig.asp = 0.9}
 pm_main_fit <- lin_mod |>
   fit(value ~ CMAQ + popdens, data = pm)
 pm_main_fit_aug <- augment(pm_main_fit$fit)
@@ -368,8 +371,7 @@ p_main
 ```{r exp-coefs}
 pm_main_fit |>
   tidy() |> 
-  mutate(exp_estimate = exp(estimate)) |>
-  select(term, estimate, exp_estimate)
+  select(term, estimate)
 ```
 
 ::: incremental
@@ -478,12 +480,26 @@ It appears that adding the interaction actually increased adjusted $R^2$, so we 
 For this demo, we'll ignore interaction effects...and just model main effects:
 :::
 
+First, keep only columns that make sense as predictors:
+
 ```{r}
-pm_full <-  lin_mod |>
-  fit(value ~ ., data=pm) 
+pm_model <- pm |>
+  # ID codes & names with (nearly) one level per monitor
+  select(-id, -fips, -zcta, -county, -city) |>
+  # hs_orless = nohs + somehs + hs, so it adds no information
+  select(-hs_orless)
 ```
 
--   $R^2$ (full): `r glance(pm_full)$adj.r.squared`
+[`r emo::ji("question")` What would happen if we left `city` (`r n_distinct(pm$city)` different values) in the model?]{style="background-color: #ADD8E6"}
+
+. . .
+
+```{r}
+pm_full <-  lin_mod |>
+  fit(value ~ ., data = pm_model) 
+```
+
+-   Adjusted $R^2$ (full): `r round(glance(pm_full)$adj.r.squared, 4)`
 
 . . . 
 
@@ -491,15 +507,15 @@ pm_full <-  lin_mod |>
 
 ```{r}
 pm_noarea <-  lin_mod |>
-  fit(value ~ . -zcta_area, data=pm) 
+  fit(value ~ . -zcta_area, data = pm_model) 
 
 glance(pm_noarea)$adj.r.squared
 ```
 
 . . . 
 
--   $R^2$ (full): `r round(glance(pm_full)$adj.r.squared, 4)`
--   $R^2$ (no `zcta_area`): `r round(glance(pm_noarea)$adj.r.squared, 4)`
+-   Adjusted $R^2$ (full): `r round(glance(pm_full)$adj.r.squared, 4)`
+-   Adjusted $R^2$ (no `zcta_area`): `r round(glance(pm_noarea)$adj.r.squared, 4)`
 
 ...*Increased* improved variance explained, so remove variable
 
@@ -553,7 +569,7 @@ ols_step_all_possible(mod) |>
 This will take a while to run: 
 
 ```{r, cache=TRUE, message=FALSE}
-mod_full <- lm(value ~ ., data=pm)
+mod_full <- lm(value ~ ., data = pm_model)
 ols_step_backward_p(mod_full)
 ```
 

@@ -68,6 +68,7 @@ So today: no new functions. Just the **order** things happen in, and **why**.
 ## 1. Split
 
 ```{r}
+# in your CS02 repo, the file is at "data/pm25_data.csv"
 pm <- read_csv("OCS_data/data/raw/pm25_data.csv") |>
   mutate(across(c(id, fips, zcta), as.factor),
          city = case_when(city == "Not in a city" ~ "Not in a city",
@@ -91,9 +92,11 @@ lm_rec <- recipe(train_pm) |>
   update_role(value, new_role = "outcome") |>
   update_role(id, new_role = "id variable") |>
   update_role("fips", new_role = "county id") |>
-  step_dummy(state, county, city, zcta, one_hot = TRUE) |>
-  step_corr(all_numeric()) |>
-  step_nzv(all_numeric())
+  step_rm(county, zcta) |>
+  step_dummy(state, city) |>
+  step_nzv(all_predictors()) |>
+  step_corr(all_numeric_predictors()) |>
+  step_lincomb(all_numeric_predictors())
 ```
 
 . . .
@@ -124,12 +127,11 @@ rf_rec <- recipe(train_pm) |>
   update_role(value, new_role = "outcome") |>
   update_role(id, new_role = "id variable") |>
   update_role("fips", new_role = "county id") |>
-  step_novel("state") |>
-  step_string2factor("state", "county", "city") |>
-  step_rm("county") |>
-  step_rm("zcta") |>
-  step_corr(all_numeric()) |>
-  step_nzv(all_numeric())
+  step_rm(county, zcta) |>
+  step_novel(state) |>
+  step_string2factor(city) |>
+  step_nzv(all_predictors()) |>
+  step_corr(all_numeric_predictors())
 ```
 
 ## 4. Workflows
