@@ -54,7 +54,7 @@ knitr::opts_chunk$set(dpi=300, echo=TRUE, warning=FALSE, message=FALSE)
 -   **hw01** and **lab02** scores posted; Scores on Canvas; feedback as "issue" on GH
 -   **CS01 Groups** have been sent out
     -   email for contact 
-    -   GitHub repo \<- please accept and open; make sure you have access; (or try: https://github.com/GHUsername/cs01-fa24-team##/invitations)
+    -   GitHub repo: `cs01-<team name>` in the [course GitHub organization](https://github.com/COGS137-FA26) \<- please open it and make sure you have access
     -   group mate feedback is required (on submission)
     
 . . . 
@@ -81,16 +81,16 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 
 ## CS01 Instructions 
 
-Instructions are on [course website](https://cogs137-fa24.github.io/cogs137-fa24/content/cs/cs01.html).
+Instructions are on [course website](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html).
 
 Note: 
 
 - Deliverables: Full report (.html) + general communication
-- [Common Deductions](https://cogs137-fa24.github.io/cogs137-fa24/content/cs/cs01.html)
+- [Common Deductions](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html)
 
 ## Example Case Study
 
-See & Discuss: [https://cogs137-fa24.github.io/cogs137-fa24/content/cs/cs01.html](https://cogs137-fa24.github.io/cogs137-fa24/content/cs/cs01.html)
+See & Discuss: [https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html)
 
 ## Feedback & Scores
 

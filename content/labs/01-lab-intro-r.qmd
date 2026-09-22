@@ -94,7 +94,7 @@ git config --global user.name
 In the terminal, you'll want to generate an `ssh` key by typing:
 
 ```{bash eval=FALSE}
-ssh-keygen
+ssh-keygen -t ed25519
 ```
 
 After hitting enter/return to execute the above, you'll **press return/enter three times to bypass specifying a location and passphrase**.
@@ -104,10 +104,10 @@ After hitting enter/return to execute the above, you'll **press return/enter thr
 From the terminal type:
 
 ```{bash eval=FALSE}
-cat ~/.ssh/id_rsa.pub
+cat ~/.ssh/id_ed25519.pub
 ```
 
-You'll want to highlight and copy the full result of this command. It will start with `ssh-rsa` and end with something including `dsmlp` toward the end.
+You'll want to highlight and copy the full result of this command. It will start with `ssh-ed25519` and end with something including `dsmlp` toward the end.
 
 ### Step 4: Let GitHub know your key
 
@@ -135,15 +135,13 @@ This will be the only time you have to do this. From here on out, you'll be able
 
 Each of your assignments will begin with the following steps. You saw these once in class and, they're outlined in detail here again. Going forward each lab will start with a "Getting started" section but details will be a bit more sparse than this. You can always refer back to this lab for a detailed list of the steps involved for getting started with an assignment.
 
-Click on the assignment link for this week's lab on the Canvas homepage. You will have to **Accept** before proceeding. **Refresh the page** and follow the link to the repo created for you. This repo contains a template you can build on to complete your lab.
+In this course, there are no assignment links to click. Instead, a private repository is created for you in the course GitHub organization for each assignment. (See [Computing Access](../../computing/computing-access.qmd#github) for the full details.)
 
-::: aside
-```{r accept, fig.margin = TRUE, echo = FALSE, fig.width=3}
-knitr::include_graphics("img/01-hello-r/accept_assignment.png")
-```
+::: callout-note
+Before you can see your repo, you need to have 1) submitted your GitHub username using the form on Canvas and 2) accepted the invitation to join the `COGS137-FA26` organization (check your email or go to <https://github.com/orgs/COGS137-FA26/invitation>). You only have to do these once.
 :::
 
-On this page on GitHub, click the URL provided for you. This will bring you to *your copy* of the repo on GitHub. Click on the green `<> Code` button to clone the repo. **Be sure that SSH is selected and copy this URL**.
+Go to [github.com/COGS137-FA26](https://github.com/COGS137-FA26) while signed in to GitHub and click on the repo named `lab01-<your GitHub username>`. This is *your copy* of the lab repo, and it contains a template you can build on to complete your lab. Click on the green `<> Code` button to clone the repo. **Be sure that SSH is selected and copy this URL**.
 
 ::: callout-important
 Be sure that any time you are copying a link from GitHub under the <code>\<\>Code</code> button, you select and use the 'SSH' URL as this is what will allow you to not have to type your username and password.

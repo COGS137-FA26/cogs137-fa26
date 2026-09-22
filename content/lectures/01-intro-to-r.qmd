@@ -589,8 +589,8 @@ See this week's lab!
 
 ## Demo-ing the process
 
-1.  Navigate to the demo URL (on Canvas)
-2.  Accept the "assignment" (this is NOT graded)
+1.  Go to the [course GitHub organization](https://github.com/COGS137-FA26) and find your `demo-<your GitHub username>` repo (this is NOT graded)
+2.  Copy the repo's SSH URL
 3.  Clone the repo
 4.  Edit the document
 5.  **Knit the document**

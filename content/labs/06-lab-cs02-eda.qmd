@@ -22,7 +22,7 @@ The main goals of this lab are for you to really deepen your knowledge surroundi
 
 # Getting started
 
-To get started, accept the lab06 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+To get started, find your `lab06-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
 
 # Packages
 

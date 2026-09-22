@@ -22,7 +22,7 @@ The main goals of this lab are for you to really deepen your knowledge surroundi
 
 # Getting started
 
-To get started, accept the lab04 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+To get started, find your `lab04-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
 
 # Packages
 
@@ -42,7 +42,7 @@ cs_data <- read_csv("data/cs01_combined.csv")
 
 ### Exercise 1
 
-Take one of the more involved visualizations generated in class during CS01 EDA lectures (anything in the notes from "Compounds across time" ([this part](https://cogs137-fa24.github.io/cogs137-fa24/content/lectures/06-cs01-eda.html#compounds-across-time)) or later) and improve upon the visualization to either 1) improve the clarity of the visualization and/or tell the story being communicated more clearly. Your code will likely look very similar to what was presented in class (and that's OK), but should not be the exact same. And, note that you may need to do include some of the data wrangling from that set of notes to get the dataset into the necessary format for visualization (i.e. wide -\> long).
+Take one of the more involved visualizations generated in class during CS01 EDA lectures (anything in the notes from "Compounds across time" ([this part](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/06-cs01-eda.html#compounds-across-time)) or later) and improve upon the visualization to either 1) improve the clarity of the visualization and/or tell the story being communicated more clearly. Your code will likely look very similar to what was presented in class (and that's OK), but should not be the exact same. And, note that you may need to do include some of the data wrangling from that set of notes to get the dataset into the necessary format for visualization (i.e. wide -\> long).
 
 ### Exercise 2
 

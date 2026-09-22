@@ -13,7 +13,7 @@ output:
 
 For the final project, you and your group mates (groups of 4-5 people) will carry out a data analysis on a topic of your choosing.
 
-Each group will be provided with a private repo that all members as well as course instructional staff will have access to. Final projects will be "submitted" by pushing the project requirements to the group repo by the deadline.
+Each group will be provided with a private `final-<team name>` repo in the [course GitHub organization](https://github.com/COGS137-FA26) that all members as well as course instructional staff will have access to. Final projects will be "submitted" by pushing the project requirements to the group repo by the deadline.
 
 Presentations will be submitted on Canvas OR completed in class during week 10. Groups that opt to present in class will 1) need to have all group members present and 2) receive extra credit
 

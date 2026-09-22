@@ -8,7 +8,7 @@ This assignment is meant to get you comfortable with 1) the format of homework a
 
 Here are the steps for getting started:
 
--   Start by navigating to the hw01 GitHub URL (found on Canvas)
+-   Find your `hw01-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26)
 -   Clone this repo into RStudio on datahub
 -   Make any changes needed as outlined by the tasks you need to complete for the assignment
 -   Periodically knit your file and take a look at the document generated

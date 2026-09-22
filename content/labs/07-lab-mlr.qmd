@@ -38,7 +38,7 @@ This lab is longer than what you'll be able to complete in an hour. We will be l
 
 # Getting started
 
-To get started, accept the lab07 assignment (link on Canvas), clone the repo (using SSH) into RStudio on datahub. Update the author name at the top of the .Rmd file in the YAML to be your name. And, then you're ready to go!
+To get started, find your `lab07-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. Update the author name at the top of the .Rmd file in the YAML to be your name. And, then you're ready to go!
 
 # Packages
 

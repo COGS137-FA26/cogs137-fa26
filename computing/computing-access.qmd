@@ -7,3 +7,33 @@ To access RStudio for this class, go to the [datahub](https://datahub.ucsd.edu/h
 Students enrolled in this course will automatically have access to RStudio through UCSD's datahub. Use your UCSD login to access this course and select the COGS 137 environment.
 
 If you do not have access and have *just* enrolled in the course, please give it 24 hours after enrollment to have access. Once a student has Canvas access to the course, they will also have datahub access.
+
+## GitHub
+
+All labs, homework, case studies, and the final project are distributed and submitted through GitHub, in the course organization: [github.com/COGS137-FA26](https://github.com/COGS137-FA26).
+
+### One-time setup (Week 0/1)
+
+1.  **Create a GitHub account** at <https://github.com/> if you don't already have one.
+2.  **Submit your GitHub username** using the form on Canvas. We use this to create your repositories, so double-check the spelling.
+3.  **Accept the invitation to join the `COGS137-FA26` organization.** You'll get it by email (to the address tied to your GitHub account) within a day or so of submitting your username. You can also accept it directly at <https://github.com/orgs/COGS137-FA26/invitation>. You only have to do this once.
+4.  **Set up an SSH key on datahub** so RStudio can talk to GitHub. This is walked through step by step in [Lab 01](../content/labs/01-lab-intro-r.qmd).
+
+### For each assignment
+
+There are no assignment links to click. When an assignment is released, a private repository is created for you (or your group) in the course organization:
+
+| Assignment type | Repository name                        | Example                           |
+|-----------------|----------------------------------------|-----------------------------------|
+| Labs            | `labXX-<your GitHub username>`         | `lab01-ShanEllis`                 |
+| Homework        | `hwXX-<your GitHub username>`          | `hw01-ShanEllis`                  |
+| Case studies    | `csXX-<team name>`                     | `cs01-team01`                     |
+| Final project   | `final-<team name>`                    | `final-team01`                    |
+
+To find your repos, go to [github.com/COGS137-FA26](https://github.com/COGS137-FA26) while signed in. You'll only see the repositories you have access to. Then clone the repo into RStudio on datahub using its **SSH** URL, as in [Lab 01](../content/labs/01-lab-intro-r.qmd).
+
+::: callout-tip
+Don't see a repo you expect? First check that you've accepted the organization invitation (step 3 above) and that the username you submitted is correct. If both look right, post on the course Q&A platform with your GitHub username and the assignment name.
+:::
+
+Your work is submitted by committing and pushing to your repo by the deadline. Whatever is on GitHub at the deadline is what we grade.

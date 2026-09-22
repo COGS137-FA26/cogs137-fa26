@@ -23,7 +23,7 @@ Here are the steps for getting started:
 Avoid waiting until the end to knit for the first time. It will be better/easier/less of a headache if you knit periodically and know it's all working as intended.
 :::
 
--   This will be completed in cs01 group repository that has been created for you and your group mates.
+-   This will be completed in the `cs01-<team name>` group repository that has been created for you and your group mates in the [course GitHub organization](https://github.com/COGS137-FA26).
 -   Three data files have been provided for you in the `data/` directory, one for each matrix (blood, oral fluid, breath).
 -   Code + write away in the provided .Rmd document!
 -   Periodically knit and commit changes (for example, once per each new part)

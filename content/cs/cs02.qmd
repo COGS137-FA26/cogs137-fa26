@@ -23,7 +23,7 @@ Here are the steps for getting started:
 Avoid waiting until the end to knit for the first time. It will be better/easier/less of a headache if you knit periodically and know it's all working as intended.
 :::
 -   Figure out what group you want to work with for cs02 and the final project
--   This will be completed in a cs02 group repository, which will be created for you and your group mates once groups are formed.
+-   This will be completed in a `cs02-<team name>` group repository, which will be created for you and your group mates in the [course GitHub organization](https://github.com/COGS137-FA26) once groups are formed.
 -   Code + write away in the provided .Rmd document!
 -   Periodically knit and commit changes (for example, once per each new part)
 -   Push all your changes back to your GitHub repo

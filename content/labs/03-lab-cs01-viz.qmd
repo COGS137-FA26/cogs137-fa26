@@ -22,7 +22,7 @@ The main goals of this lab are for you to 1) get more comfortable generating plo
 
 # Getting started
 
-To get started, accept the lab03 assignment (link on Canvas/course website), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+To get started, find your `lab03-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
 
 # Packages
 

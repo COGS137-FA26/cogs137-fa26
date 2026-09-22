@@ -71,7 +71,7 @@ Shannon Ellis: Associate Teaching Professor, Mom & wife, volleyball-obsessed, an
 
 ## What is this course? {.scrollable}
 
-Everything you want to know about the course, and everything you will need for the course will be posted at: <https://cogs137-fa24.github.io/cogs137-fa24/>
+Everything you want to know about the course, and everything you will need for the course will be posted at: <https://cogs137-fa26.github.io/cogs137-fa26/>
 
 ::: incremental
 -   Is this an intro CS course? No.

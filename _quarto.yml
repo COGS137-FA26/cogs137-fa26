@@ -5,12 +5,12 @@ project:
 website:
   page-navigation: true
   title: "COGS 137"
-  description: "Homepage for COGS 137 - Practical Data Science in R, Fall 2024."
+  description: "Homepage for COGS 137 - Practical Data Science in R, Fall 2026."
   
   image: images/background.png
   favicon: images/favicon.ico
   
-  site-url: "https://cogs137-fa24.github.io/cogs137-fa24/"
+  site-url: "https://cogs137-fa26.github.io/cogs137-fa26/"
 
   open-graph: true
   
@@ -47,7 +47,7 @@ website:
         href: https://chatgpt.com/
         text: "ChatGPT"
       - icon: github
-        href: https://github.com/COGS137-FA24
+        href: https://github.com/COGS137-FA26
         text: "GitHub"
     contents:
       - section: "Schedule & Policies"

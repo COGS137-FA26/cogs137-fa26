@@ -711,7 +711,7 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 
 ## Your Turn
 
--   Read in the data ([Data](https://cogs137-fa24.github.io/cogs137-fa24/content/lectures/05-viz.html#the-data-code))
+-   Read in the data ([Data](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/05-viz.html#the-data-code))
 -   Think of at least three different ways to tell slightly different stories with these data
 -   Try to implement at least one of these ideas!
 

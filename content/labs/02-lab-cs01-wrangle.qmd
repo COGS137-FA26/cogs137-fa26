@@ -22,7 +22,7 @@ The main goals of this lab are for you to 1) get more familiar with the CS01 dat
 
 # Getting started
 
-To get started, accept the lab02 assignment (link on Canvas), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
+To get started, find your `lab02-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!
 
 # Packages
 
@@ -42,7 +42,7 @@ BR <- read_csv("data/Breath.csv")
 
 ### Exercise 1: **Whole Blood**
 
-Using the CS01 wrangling code from the `dplyr` lecture [here](https://cogs137-fa24.github.io/cogs137-fa24/content/lectures/03-dplyr.html#cs01-wrangling), wrangle the whole blood data as we did in class.
+Using the CS01 wrangling code from the `dplyr` lecture [here](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/03-dplyr.html#cs01-wrangling), wrangle the whole blood data as we did in class.
 
 ### Exercise 2: **Oral Fluid**
 

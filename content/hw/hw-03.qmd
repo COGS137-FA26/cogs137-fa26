@@ -26,7 +26,7 @@ Source: [UCI Machine Learning Repository - Bike Sharing Dataset](http://archive.
 
 Here are the steps for getting started:
 
--   Start with an assignment link that creates the GitHub repo with starter documents (link on Canvas).
+-   Find your `hw03-<your GitHub username>` repo, which contains the starter documents, in the [course GitHub organization](https://github.com/COGS137-FA26).
 -   Clone this repo into RStudio on datahub
 -   Make any changes needed as outlined by the tasks you need to complete for the assignment
 -   Periodically commit changes (for example, once per each new part)
