@@ -1,13 +1,13 @@
 ---
-title: "12-regression"
+title: "14-regression"
 author: "Professor Shannon Ellis"
-date: "2024-11-14"
+date: "2026-11-06"
 
 format:
   html: 
-    output-file: 12-regression.html
+    output-file: 14-regression.html
   revealjs:
-    output-file: 12-regression-slides.html
+    output-file: 14-regression-slides.html
     css: slides.css
 ---
 ```{r echo = FALSE, message=FALSE, warning=FALSE}
@@ -33,6 +33,13 @@ color_palette <- list(gray = "#999999",
 
 ## Course Announcements
 
+**Due Dates**:
+
+-   ⌨️ **Lab 05** due Fri 11/6 (11:59 PM)
+-   ⌨️ **Lab 06** due Fri 11/13 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
 **Due Dates**
 
 -   `r emo::ji("science")` **Lab 06** due Thursday
@@ -43,6 +50,7 @@ color_palette <- list(gray = "#999999",
 - lab05 scores posted; cs01 scores/feedback posted by EOD
 - lab07 now available | longer than typical labs
 - Reminder to add any CS02 EDA you want to share with your classmates to the [padlet from last class](https://padlet.com/shannon0ellis/cs02-eda-9fn2bbxjm3qfc3d3)
+-->
 
 ## Agenda
 
@@ -370,6 +378,10 @@ pm_main_fit |>
 -   PM2.5 values in high-density areas with a CMAQ of zero, would expect to have a PM2.5 value of 7.7.
 :::
 
+
+## Day 2 · Mon 11/9 {background-color="#92A86A"}
+
+Interaction effects, comparing models & model selection.
 
 ## Interaction: `CMAQ * popdens` {.smaller}
 

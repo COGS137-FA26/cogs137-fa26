@@ -1,13 +1,13 @@
 ---
-title: "04-ggplot2"
+title: "05-ggplot2"
 author: "Professor Shannon Ellis"
-date: "2024-10-15"
+date: "2026-10-09"
 
 format:
   html: 
-    output-file: 04-ggplot2.html
+    output-file: 05-ggplot2.html
   revealjs:
-    output-file: 04-ggplot2-slides.html
+    output-file: 05-ggplot2-slides.html
 ---
 
 # Data Visualization with `ggplot2` {background-color="#92A86A"}
@@ -34,12 +34,21 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 **Due Dates**:
 
+-   ⌨️ **Lab 01** due Fri 10/9 (11:59 PM)
+-   📚 **HW 01** due Sun 10/11 (11:59 PM)
+-   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 -   **Lab 02** due Thursday (11:59 PM)
 -   Lecture Participation survey "due" after class
 
 **Notes**:
 
 -   HW02 now available; Lab03 posted Th
+-->
 
 ## Suggested Reading
 
@@ -84,7 +93,7 @@ WB |>
 
 ## The Cleaning
 
-Note: this is the code from the end of 03-dplyr notes, combined into a single chunk.
+Note: this is the code from the end of 04-dplyr notes, combined into a single chunk.
 
 ```{r}
 WB <- WB |> 
@@ -364,6 +373,88 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
   scale_color_viridis_d()
 ```
 
+## Mapping vs. setting
+
+-   **Mapping:** Determine the size, alpha, etc. of points *based on the values of a variable in the data*
+    -   goes into `aes()`
+-   **Setting:** Determine the size, alpha, etc. of points **not** based on the values of a variable in the data
+    -   goes into `geom_*()` (this was `geom_point()` in the previous example, but we'll learn about other geoms soon!)
+
+## Mapping vs. Setting (example)
+
+::: columns
+::: {.column width="50%"}
+
+**Mapping**
+
+```{r warning = FALSE, out.width = "100%"}
+ggplot(data = WB, 
+       mapping = aes(x = thc, y = cbn,
+                     size = time_from_start,
+                     alpha = cbd)) + 
+  geom_point() +
+  scale_color_viridis_d()
+```
+:::
+
+::: {.column width="50%"}
+**Setting**
+
+```{r warning = FALSE, out.width = "100%"}
+ggplot(data = WB, 
+       mapping = aes(x = thc, y = cbn)) + 
+  geom_point(size = 2, alpha = 0.5) +
+  scale_color_viridis_d()
+```
+:::
+:::
+
+## Your Turn
+
+Edit the basic plot you created earlier to change something about its aesthetics.
+
+::: aside
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
+:::
+
+# `geom`s {background-color="#92A86A"}
+
+## Common `geom`s
+
+| `geom` [^1]      | Description [^2] |
+|------------------|------------------|
+| `geom_point`     | scatterplot      |
+| `geom_bar`       | barplot          |
+| `geom_line`      | line plot        |
+| `geom_density`   | densityplot      |
+| `geom_histogram` | histogram        |
+| `geom_boxplot`   | boxplot          |
+
+[^1]: `ggplot2` geoms listed [here](https://ggplot2.tidyverse.org/reference/)
+
+[^2]: When each visualization is appropriate [here](https://www.data-to-viz.com/)
+
+## Your Turn
+
+Generate a plot in `ggplot2` using a different `geom` than what you did previously. Customize as much as you can before time is "up."
+
+::: aside
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
+:::
+
+# Recap {background-color="#92A86A"}
+
+-   Can I explain the overall structure of a call to generate a plot in `ggplot2`?
+-   Can I describe `ggplot2` code? Can I create plots using `ggplot2`? 
+-   Can I explain the difference between mapping and setting?
+-   Can I alter the aesthetics of a basic plot? (color, shape, size, transparency)
+-   Am I able to facet a plot to generate a grid of figures
+-   Can I describe what a `geom` is and do I know the basic plots available?
+
+# Reference: more aesthetics & faceting {background-color="#92A86A"}
+
+These slides aren't covered in lecture. Use them as a reference; on Wed 10/14 you'll implement changes like these with AI **and check its work** against what's here.
+
 ## Shape
 
 Mapped to a different variable than `treatment`
@@ -415,51 +506,7 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
   scale_color_viridis_d()
 ```
 
-## Mapping vs. setting
-
--   **Mapping:** Determine the size, alpha, etc. of points *based on the values of a variable in the data*
-    -   goes into `aes()`
--   **Setting:** Determine the size, alpha, etc. of points **not** based on the values of a variable in the data
-    -   goes into `geom_*()` (this was `geom_point()` in the previous example, but we'll learn about other geoms soon!)
-
-## Mapping vs. Setting (example)
-
-::: columns
-::: {.column width="50%"}
-
-**Mapping**
-
-```{r warning = FALSE, out.width = "100%"}
-ggplot(data = WB, 
-       mapping = aes(x = thc, y = cbn,
-                     size = time_from_start,
-                     alpha = cbd)) + 
-  geom_point() +
-  scale_color_viridis_d()
-```
-:::
-
-::: {.column width="50%"}
-**Setting**
-
-```{r warning = FALSE, out.width = "100%"}
-ggplot(data = WB, 
-       mapping = aes(x = thc, y = cbn)) + 
-  geom_point(size = 2, alpha = 0.5) +
-  scale_color_viridis_d()
-```
-:::
-:::
-
-## Your Turn
-
-Edit the basic plot you created earlier to change something about its aesthetics.
-
-::: aside
-Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
-:::
-
-# Faceting {background-color="#92A86A"}
+## Faceting overview
 
 ## Faceting
 
@@ -517,36 +564,3 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
   guides(color="none") 
 ```
 
-# `geom`s {background-color="#92A86A"}
-
-## Common `geom`s
-
-| `geom` [^1]      | Description [^2] |
-|------------------|------------------|
-| `geom_point`     | scatterplot      |
-| `geom_bar`       | barplot          |
-| `geom_line`      | line plot        |
-| `geom_density`   | densityplot      |
-| `geom_histogram` | histogram        |
-| `geom_boxplot`   | boxplot          |
-
-[^1]: `ggplot2` geoms listed [here](https://ggplot2.tidyverse.org/reference/)
-
-[^2]: When each visualization is appropriate [here](https://www.data-to-viz.com/)
-
-## Your Turn
-
-Generate a plot in `ggplot2` using a different `geom` than what you did previously. Customize as much as you can before time is "up."
-
-::: aside
-Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
-:::
-
-# Recap {background-color="#92A86A"}
-
--   Can I explain the overall structure of a call to generate a plot in `ggplot2`?
--   Can I describe `ggplot2` code? Can I create plots using `ggplot2`? 
--   Can I explain the difference between mapping and setting?
--   Can I alter the aesthetics of a basic plot? (color, shape, size, transparency)
--   Am I able to facet a plot to generate a grid of figures
--   Can I describe what a `geom` is and do I know the basic plots available?

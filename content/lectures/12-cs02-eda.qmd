@@ -1,13 +1,13 @@
 ---
-title: "10-cs02-eda"
+title: "12-cs02-eda"
 author: "Professor Shannon Ellis"
-date: "2024-11-07"
+date: "2026-10-30"
 
 format:
   html: 
-    output-file: 10-cs02-eda.html
+    output-file: 12-cs02-eda.html
   revealjs:
-    output-file: 10-cs02-eda-slides.html
+    output-file: 12-cs02-eda-slides.html
     css: slides.css
 ---
 
@@ -33,6 +33,16 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 
 ## Course Announcements
 
+**Due Dates**:
+
+-   ⌨️ **Lab 04** due Fri 10/30 (11:59 PM)
+-   💻 **CS01** (report in repo + general communication on Canvas) & 🔘 CS01 team eval survey due Fri 10/30 (11:59 PM)
+-   🔘 **Mid-course survey** due Fri 10/30 (11:59 PM)
+-   📄 **Final Project Proposal** due Wed 11/4 (11:59 PM)
+-   ⌨️ **Lab 05** due Fri 11/6 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
 -   `r emo::ji("science")` **Lab 05** due tonight
 -   🔘 [**CS01 Team Eval**](https://docs.google.com/forms/d/e/1FAIpQLSdmiYgXilgqMu5ZWBW8grpCLXeyhzrvwhsCbxYBp31qQMrRPg/viewform) survey due tonight
 -   📄 [**Final Project Proposal**](https://docs.google.com/forms/d/e/1FAIpQLSfXBztrZuK0CeB8p3YZWr6M37oe16DGazuow7_g9Ulr6AiyXg/viewform?usp=sf_link) due Tuesday
@@ -41,6 +51,8 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 Note: Get the data data in RStudio for today if you haven't already (and `install.packages` `"OCSdata"`, `"skimr"`, and `"GGally"`.
 
 ```{r}
+-->
+
 # install.packages("OCSdata")
 # OCSdata::raw_data("ocs-bp-air-pollution", outpath = getwd())
 pm <- read_csv("OCS_data/data/raw/pm25_data.csv")
@@ -120,6 +132,10 @@ pm |> filter(city == "Baltimore")
 . . .
 
 San Diego has 2, while Baltimore has 5, despite having very similar population densities (`popdens_county`)...and San Diego having a much larger population (`county_pop`) and land area (`county_area`).
+
+## Day 2 · Mon 11/2 {background-color="#92A86A"}
+
+Picking up with relationships among features.
 
 ## Feature Correlation
 

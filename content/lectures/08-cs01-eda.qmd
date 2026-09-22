@@ -1,13 +1,13 @@
 ---
-title: "06-cs01-eda"
+title: "08-cs01-eda"
 author: "Professor Shannon Ellis"
-date: "20234-10-02"
+date: "2026-10-16"
 
 format:
   html: 
-    output-file: 06-cs01-eda.html
+    output-file: 08-cs01-eda.html
   revealjs:
-    output-file: 06-cs01-eda-slides.html
+    output-file: 08-cs01-eda-slides.html
     css: slides.css
 ---
 
@@ -45,6 +45,18 @@ knitr::opts_chunk$set(dpi=300, echo=TRUE, warning=FALSE, message=FALSE)
 
 **Due Dates**:
 
+-   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
+-   📚 **HW 02** due Sun 10/18 (11:59 PM)
+-   ⌨️ **Lab 03** due Fri 10/23 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+::: callout-important
+The CS01 data are data for you only. My collaborator is excited that y'all will be working on this...but these are still research data, so please do not share with others or post publicly.
+:::
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 - `r emo::ji("science")` **Lab 03** due Thursday (10/24; 11:59 PM)
 - `r emo::ji("computer")` **HW02** (Viz) due Mon (10/28; 11:59 PM)
 - `r emo::ji('clipboard')` Lecture Participation survey "due" after class
@@ -62,6 +74,7 @@ knitr::opts_chunk$set(dpi=300, echo=TRUE, warning=FALSE, message=FALSE)
 ::: callout-important
 The CS01 data are data for you only. My collaborator is excited that y'all will be working on this...but these are still research data, so please do not share with others or post publicly.
 :::
+-->
 
 ## Suggested Reading
 
@@ -346,6 +359,10 @@ We start to get a sense of the data with these quick and dirty plots, but we're 
 These data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects.
 
 
+## Day 2 · Mon 10/19 {background-color="#92A86A"}
+
+Functions & working across time windows.
+
 ## Brief Aside: User-Defined Functions
 
 > You should consider writing a function whenever you’ve copied and pasted a block of code more than twice -Hadley
@@ -576,6 +593,10 @@ boxplot_treatment("BR")
 :::
 
 :::
+
+## Day 3 · Wed 10/21 {background-color="#92A86A"}
+
+Sensitivity, specificity & choosing cutoffs: the core of the CS01 question.
 
 # Some Metrics {background-color="#92A86A"}
 

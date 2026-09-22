@@ -1,13 +1,13 @@
 ---
-title: "15-oral-communication"
+title: "18-oral-communication"
 author: "Professor Shannon Ellis"
-date: "2024-11-26"
+date: "2026-11-23"
 
 format:
   html: 
-    output-file: 15-oral-communication.html
+    output-file: 18-oral-communication.html
   revealjs:
-    output-file: 15-oral-communication-slides.html
+    output-file: 18-oral-communication-slides.html
     css: slides.css
 ---
 
@@ -15,6 +15,12 @@ format:
 
 ## Course Announcements
 
+**Due Dates**:
+
+-   👯 **Peer Evaluation** & 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
 - 🎥 [In-class presentation form](https://docs.google.com/forms/d/e/1FAIpQLSeAWBS4xwLJUGFQJWDEBV0ltfJlBWA-niB692CTZiEuKzdKPw/viewform?usp=sf_link) - complete by Monday
 - 🔘 [cs02 team eval survey](https://docs.google.com/forms/d/e/1FAIpQLSc210OYfhk23Ny7ozJ-5yG6OPMR9SV1snjUjURLrI03APsmOg/viewform?usp=sf_link) now due Monday
 - 👯 [Peer Evaluation Survey](https://docs.google.com/forms/d/e/1FAIpQLScz4WZC8R1HQLj6-zdUNE_HWEwrJa7siBeP4uE0RZVEY4Sykw/viewform?usp=sf_link) due Monday
@@ -24,6 +30,7 @@ Notes:
 
 - Tues in class will be for working on your final project in groups
 - Remaining labs (Mon and Fri of week 10) will be for project progress
+-->
 
 ## [Peer Evaluation Survey](https://docs.google.com/forms/d/e/1FAIpQLScz4WZC8R1HQLj6-zdUNE_HWEwrJa7siBeP4uE0RZVEY4Sykw/viewform?usp=sf_link)
 

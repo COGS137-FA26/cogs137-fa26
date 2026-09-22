@@ -1,13 +1,13 @@
 ---
-title: "14-cs02-inclass"
+title: "17-cs02-inclass"
 author: "Professor Shannon Ellis"
-date: "2024-11-21"
+date: "2026-11-20"
 
 format:
   html: 
-    output-file: 14-cs02-inclass.html
+    output-file: 17-cs02-inclass.html
   revealjs:
-    output-file: 14-cs02-inclass-slides.html
+    output-file: 17-cs02-inclass-slides.html
     css: slides.css
 ---
 
@@ -28,6 +28,14 @@ format:
 
 **Due Dates**:
 
+-   ⌨️ **Lab 07** due Fri 11/20 (11:59 PM)
+-   💻 **CS02** & 🔘 CS02 team eval survey due Sun 11/22 (11:59 PM)
+-   📄 **Final Project rough draft** (qmd + HTML in your final project repo) due Sun 11/22 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 -   ⌨️ **Lab07** due tonight
 -   📚 **HW03** due Friday
 -   💻 **CS02** due Monday (11:59 PM)
@@ -38,6 +46,7 @@ format:
 Notes:
 
 - CS02 and final project repos were created for you this past Friday (Sat?)
+-->
 
 # CS02: Questions? {background-color="#92A86A"}
 

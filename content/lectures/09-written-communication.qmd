@@ -1,215 +1,472 @@
 ---
-title: "11-tidymodels"
+title: "09-written-communication"
 author: "Professor Shannon Ellis"
-date: "2024-11-12"
+date: "2026-10-23"
 
 format:
   html: 
-    output-file: 11-tidymodels.html
+    output-file: 09-written-communication.html
   revealjs:
-    output-file: 11-tidymodels-slides.html
-    css: slides.css
+    output-file: 09-written-communication-slides.html
 ---
+
+# Effective Written Communication {background-color="#92A86A"}
+
+## Q&A {.smaller}
+
+> Q: I am confused on how to draw meaning from the combined data visualizations because I don't understand what difference between variables like thc and thcooh are (and the other compounds).\
+> A: This is something I want groups to discuss/look into! And, we'll discuss more of this today. But, also, check out [this piazza post](https://piazza.com/class/m1jv2820hu54m/post/60).
+
+> Q: Would sensitivity and specificity be related to type I and type II errors? \
+> A: Yes! Type I Error (measured as 1-Specificity) is known as the false positive rate. Type II Error (1- Sensitivity) is also known as the false negative rate. These concepts are directly related.
+
+
+
+## [ad] CSS Masters Program
+
+![](images/07/CSS.png)
+About the CSS MS Program: 
+
+UC San Diego's one-year M.S. in Computational Social Science combines coursework approaches and formal models across social science disciplines with modern computational data analysis techniques. With a hands-on curriculum involving a summer bootcamp, core foundational training, in-depth electives across fields, and a portfolio-building capstone project, this program provides substantive and wide-ranging practice applying skill sets to real-world problems preparing graduates for careers in industry, public policy, education, non-profits, or for further academic study in a Ph.D. program. 
+
+## [ad] COGS Transfers
+
+![](images/07/transfers.png)
+
+## Course Announcements
+
+**Due Dates**:
+
+-   ⌨️ **Lab 03** due Fri 10/23 (11:59 PM)
+-   ⌨️ **Lab 04** due Fri 10/30 (11:59 PM)
+-   💻 **CS01** (report in repo + general communication on Canvas) & 🔘 CS01 team eval survey due Fri 10/30 (11:59 PM)
+-   🔘 **Mid-course survey** due Fri 10/30 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
+- `r emo::ji("science")` **Lab 04** due Thursday (11:59 PM)
+- `r emo::ji("computer")` **CS01** due Monday (11:59 PM)
+- `r emo::ji('clipboard')` Lecture Participation survey "due" after class
+- `r emo::ji('computer')` [mid-course survey](https://docs.google.com/forms/d/e/1FAIpQLScYyxJ-UkBMbSabSYtvhmY9NuQwtt4XabIj-OkSHEgRpRrhEA/viewform?usp=sf_link) now available (due Fri at 11:59 PM)
+
+Notes: 
+
+- lab 03 scores and feedback posted; everyone received feedback; check GH issue
+- lab 05 is available and the focus this Fri/Mon lab...but not due until after CS01. Best to do it before CS01, as it will help CS01 completion
+- Thursday will be semi-guided class time for working on your case study. Communicate with your group to encourage attendance.
 
 ```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(emo)
+library(knitr)
+library(kableExtra)
+library(googlesheets4)
+-->
+
+# ggplot2 color palette with gray
+color_palette <- list(gray = "#999999", 
+                      salmon = "#E69F00", 
+                      lightblue = "#56B4E9", 
+                      green = "#009E73", 
+                      yellow = "#F0E442", 
+                      darkblue = "#0072B2", 
+                      red = "#D55E00", 
+                      purple = "#CC79A7")
 
 knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE) 
 ```
 
-# `tidymodels` {background-color="#92A86A"}
+## Agenda
+
+-   Communicating for your audience
+-   Written Communication
+-   Visual Communication
+
+Note: We'll discuss oral communication closer to the end of the quarter, when you'll have to present out loud.
 
 ## Suggested Reading
 
--   Tidy Modeling with R Chapter 7: [A Model Workflow](https://www.tmwr.org/workflows)
--   The package itself has some worked examples: https://www.tidymodels.org/start/models/
-
-## Course Announcements
-
--   📄 [**Final Project Proposal**](https://docs.google.com/forms/d/e/1FAIpQLSfXBztrZuK0CeB8p3YZWr6M37oe16DGazuow7_g9Ulr6AiyXg/viewform?usp=sf_link) due tonight
--   `r emo::ji("science")` **Lab 06** due Thursday
--   `r emo::ji('clipboard')` Lecture Participation survey "due" after class
-
-Note: hw03 now available; due date pushed back to Friday 11/22
-
-## Agenda
-
-- modelling (conceptually)
-- `tidymodels`
-  - inference
-  - machine learning
-- HW02 (revisited)
-
-# Modelling {background-color="#92A86A"}
+-   Quarto: [Execution Options](https://quarto.org/docs/computations/execution-options.html) (code chunks & inline code)
+-   Quarto: [HTML Basics](https://quarto.org/docs/output-formats/html-basics.html) and [HTML Code Blocks](https://quarto.org/docs/output-formats/html-code.html)
 
 
-## 🧠 Discussion
+# Consider your audience {background-color="#92A86A"}
 
-1. What is a model?
-1. How are models used in inference? In machine learning? 
+## What does this mean?
 
-## `tidymodels`: philosophy
-
-> "Other packages, such as caret and mlr, help to solve the R model API issue. These packages do a lot of other things too: pre-processing, model tuning, resampling, feature selection, ensembling, and so on. In the tidyverse, we strive to make our packages modular and parsnip is designed only to solve the interface issue. It is not designed to be a drop-in replacement for caret. The tidymodels package collection, which includes parsnip, has other packages for many of these tasks, and they are designed to work together. We are working towards higher-level APIs that can replicate and extend what the current model packages can do." - Max Kuhn (`tidymodels` developer)
+[`r emo::ji("question")` What does it mean to "consider your audience?"]{style="background-color: #ADD8E6"}
 
 . . .
 
-Benefits:
-
-1.  Standardized workflow/format/notation across different types of machine learning algorithms
-2.  Can easily modify pre-processing, algorithm choice, and hyper-parameter tuning making optimization easy
-
-## `tidymodels`: ecosystem
-
-The main packages (and their roles):
-
-<p align="center">
-
-<img src="images/14/simpletidymodels.png" width="800"/>
-
-</p>
-
-## Inference: intro
-
-In intro stats, you should have learned the central dogma of statistics: we sample from a population
-
-![](images/14/cdi1.png)
+Simply: **You do the work so they don't have to.**
 
 . . .
 
-The data from the sample are used to make an inference about the population:
+...also the aesthetic-usability effect exists.
 
-![](images/14/cdi2.png)
+## What's the right level?
 
+::: columns
+::: {.column width="50%"}
+**General Audience**\
+✔ background\
+🚫 limit technical details\
+🎉 emphasize take-home\
 
-## Inference: packages
-
-```{r out.width="98%", echo=FALSE}
-knitr::include_graphics("images/07/tidymodels.png")
-```
-
-## `tidymodels`
-
-Not part of `tidyverse`; load separately
-```{r}
-# should already be installed for you on datahub
-library(tidymodels)
-```
-
-## Step 1: Specify model
-
-```{r, eval=FALSE}
-linear_reg()
-```
-
-## Step 2: Set model fitting *engine*
-
-```{r, eval=FALSE}
-linear_reg() |>
-  set_engine("lm") # lm: linear model
-```
-
-## Step 3: Fit model & estimate parameters
-
-... using **formula syntax**
-
-```{r fit-model, eval=FALSE}
-linear_reg() |>
-  set_engine("lm") |>
-  fit(outcome ~ predictor, data = df)
-```
-
-## A closer look at model output
-
-$$\widehat{outcome}_{i} = \beta_0 + \beta_1 \times predictor_{i}$$
-. . . 
-
-
-
-[🧠   How do we read/interpret this model?]{style="background-color: #ADD8E6"}
-
-## Slope and intercept
-
-$$\widehat{outcome}_{i} = \beta_0 + \beta_1 \times predictor_{i}$$
-
-. . .
-
--   **Slope:** For each additional unit increase in the predictor, we could expect the outcome, on average, to be higher, by $\beta_1$.
-
-. . .
-
--   **Intercept:** When the predictor is zero, we would expect the outcome to be $\beta_0$ on average.
-
-
-## ML: intro
-
-For prediction, we have a similar sampling problem:
-
-![](images/14/cdp1.png)
-
-. . .
-
-But now we are trying to build a rule that can be used to predict a single observation's value of some characteristic using characteristics of the other observations.
-
-![](images/14/cdp2.png)
-
-## ML: the goal
-
-The goal is to:
-
-build a machine learning algorithm
-
-. . .
-
-that uses features as input
-
-. . .
-
-and predicts an outcome variable
-
-. . .
-
-in the situation where we do not know the outcome variable.
-
-. . . 
-
-[🧠   Summarize/Evaluate: How is this similar/different from inference?]{style="background-color: #ADD8E6"}
-
-
-## Classic ML
-
-Typically, you use data where you have both the input and output data to **train** a machine learning algorithm.
-
-. . .
-
-What you need:
-
-::: incremental
-1.  A data set to train from.
-2.  An algorithm or set of algorithms you can use to try values of $f$.
-3.  A distance metric $d$ for measuring how close $Y$ is to $\hat{Y}$.
-4.  A definition of what a "good" distance is.
+![](images/07/general.png)
 :::
 
-## `tidymodels` for ML
+::: {.column width="50%"}
+**Technical Audience**\
+⬇ limit background\
+💻 all-the-details\
+🎉 emphasize take-home\
 
-How these packages fit together for carrying out machine learning:
+![](images/07/technical.png)
+:::
+:::
 
-![](images/14/MachineLearning.png)
+## Considerations
 
-## `tidymodels`: steps
+-   **Platform**: written? oral?
 
-![](images/14/Updated_tidymodels_basics.png)
+. . .
 
-# Recap {background-color="#92A86A"}
+-   **Setting**: informal? formal?
 
-- Explain what models are used for
-- Describe a problem where inference would be beneficial
-- Describe a problem where machine learning would be beneficial
-- Describe the goals and overall approach to modelling in `tidymodels`
+. . .
+
+-   **Timing**: never go over your time limit!
+
+## Choose informative titles
+
+On **presentations**: Balance b/w short and informative (goal: concise)
+
+. . .
+
+::: {.fragment .semi-fade-out}
+Avoid: "Analyzing NHANES"
+:::
+
+Better: "Data from the NHANES study shows that diet is related to overall health"
+
+. . .
+
+On **visualizations**: emphasize the take-home! (what's learned or what action to take)
+
+. . .
+
+::: {.fragment .semi-fade-out}
+Avoid: "Boxplot of gender"
+:::
+
+Better: "Twice as many females as males included for analysis"
+
+. . .
+
+::: {.fragment .semi-fade-out}
+Avoid: "Tickets vs. Time"
+:::
+
+Better: "Staff unable to respond to incoming tickets; need to hire 2 FTEs"
 
 
-# HW02 (revisited) {background-color="#92A86A"}
+# Effective Written Communication {background-color="#92A86A"}
+
+## Benefits of written communciation
+
+Your audience has time to process...but the explanation has to be there!
+
+. . .
+
+Visually: more on a single visualization
+
+. . .
+
+Yes, often there are different visualizations for reports/papers than for presentations/lectures.
+
+## When you have time to digest (read)
+
+![](images/07/written.png)
+
+. . .
+
+[`r emo::ji("question")` What makes this an effective visualization for a written communication?"]{style="background-color: #ADD8E6"}
+
+Source: [Storytelling wtih data](https://www.storytellingwithdata.com/book/downloads) by cole nussbaumer knaflic
+
+## Written Explanations
+
+-   Visualizations should be explained/interpreted
+-   Analyses/Models should be explained
+    -   should be clear what question is being answered
+    -   what conclusions is being drawn
+    -   and what numbers were used to draw that conclusion
+
+## Data Science Reports in .qmd
+
+:::incremental
+-   As **concise** as possible
+-   **Important information introduced** before referenced (datasets, jargon, etc.)
+-   **Necessary details** (for your audience); nothing more
+    -   Be sure that the rendered output contains what you intended (plots displayed; headers etc.)
+    -   ...and does NOT display stuff that doesn't need to be there (messages/warnings suppressed, brainstorming, etc.)
+-   Typical Sections: Introduction/Background, Setup, Data, Analysis, Conclusion, References
+:::
+
+## Controlling HTML document settings
+
+-   Table of Contents
+
+```         
+---
+title: "Document Title"
+format:
+  html:
+    toc: true
+    toc-depth: 3
+---
+```
+
+. . .
+
+-   Theme
+
+```         
+---
+title: "Document Title"
+format:
+  html:
+    theme: united
+    highlight-style: tango
+---
+```
+
+. . .
+
+-   Figure Options
+
+```         
+---
+title: "Document Title"
+format:
+  html:
+    fig-width: 7
+    fig-height: 6
+---
+```
+
+. . .
+
+-   Code Folding
+
+```         
+---
+title: "Document Title"
+format:
+  html:
+    code-fold: true
+---
+```
+
+. . .
+
+-   Self-contained HTML (so the file on GitHub displays correctly on its own)
+
+```         
+---
+title: "Document Title"
+format:
+  html:
+    embed-resources: true
+---
+```
+
+## Controlling code chunk output {.smaller}
+
+-   Specified at the top of the chunk, one per line, with `#|`
+
+````
+```{r}
+#| label: chunk-label
+#| results: hide
+#| fig-height: 4
+
+```
+````
+
+. . .
+
+-   `eval`: whether to execute the code chunk
+-   `echo`: whether to include the code in the output
+-   `warning`, `message`, and `error`: whether to show warnings, messages, or errors in the rendered document
+-   `fig-width` and `fig-height`: control the width/height of plots
+
+. . .
+
+-   Controlling for the whole document (in the YAML):
+
+```         
+---
+title: "Document Title"
+execute:
+  warning: false
+  message: false
+---
+```
+
+## Editing & Proofreading
+
+-   Did you end up telling a story?
+    -   Things missing?
+    -   Things to delete?
+
+. . .
+
+-   Do not fall in love with your words/code/plots
+
+. . .
+
+-   Do spell check
+-   Do read it over before sending/presenting/submitting
+
+## Aside: Citing Sources {.smaller}
+
+**When are citations needed?**
+
+. . .
+
+::: {.fragment .semi-fade-out}
+> "We will be doing our analysis using two different data sets created by two different groups: Donohue and Mustard + Lott, or simply Lott"
+:::
+
+. . .
+
+::: {.fragment .semi-fade-out}
+> "What turned from the idea of carrying firearms to protect oneself from enemies such as the British monarchy and the unknown frontier of North America has now become a nationwide issue."
+:::
+
+. . .
+
+::: {.fragment .semi-fade-out}
+> "Right to Carry Laws refer to laws that specify how citizens are allowed to carry concealed handguns when they're away from home without a permit"
+:::
+
+. . .
+
+::: {.fragment .semi-fade-out}
+> "In this case study, we are examining the relationship between unemployment rate, poverty rate, police staffing, and violent crime rate."
+:::
+
+. . .
+
+::: {.fragment .semi-fade-out}
+> "In the United States, the second amendment permits the right to bear arms, and this law has not been changed since its creation in 1791."
+:::
+
+. . .
+
+::: {.fragment .semi-fade-out}
+> "The Right to Carry Laws (RTC) is defined as"a law that specifies if and how citizens are allowed to have a firearm on their person or nearby in public.""
+:::
+
+. . .
+
+**Reminder**: You do NOT get docked points for citing others' work. You can be at risk of AI Violation if you don't. **When in doubt, give credit.**
+
+## Footnotes in .qmd
+
+How to specify a footnote in text:
+
+``` {eval="FALSE"}
+Here is some body text.[^1]
+```
+
+How to include the footnote's reference:
+
+``` {eval="FALSE"}
+[^1]: This footnote will appear at the bottom of the page.
+```
+
+::: aside
+Note: .bib files can be included with BibTeX references using the `bibliography` parameter in your YAML
+:::
+
+# Effective Visual Communication {background-color="#92A86A"}
+
+## The *Glamour* of Graphics
+
+-   builds on top of the grammar (*components*) of a graphic
+-   considerations for the *design* of a graphic
+-   color, typography, layout
+-   going from 😬accurate to 😍effective
+
+::: aside
+These ideas and slides are all modified from Will Chase's rstudio::conf2020 [slides](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html)/talk
+:::
+
+. . . 
+
+The following example uses the `penguins` dataset from the `palmerpenguins` package (would have to be installed to run these.)
+
+```{r}
+library(palmerpenguins)
+```
+
+## An Example...
+
+:::panel-tabset
+
+### 😬 Accurate
+
+```{r}
+
+
+ggplot(penguins, aes(x = species, fill = species)) +
+  geom_bar() +
+  labs(title = "Count vs. Species") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+```
+
+
+### 😍 Effective
+
+```{r}
+ggplot(penguins, aes(y = fct_rev(fct_infreq(species)), fill = species)) +
+  geom_bar() +
+  geom_text(stat='count', aes(label=after_stat(count)), hjust = 1.5, color = "white", size = 7) +
+  scale_x_continuous(expand = c(0, 0)) +
+  scale_fill_manual(values = c("#454545", rep("#adadad", 2))) +
+  labs(title = "Adelie Penguins are the most common in Antarctica", 
+       subtitle = "Frequency of each penguin species studied near Palmer Station, Antarctica") +
+  theme_minimal(base_size = 14) +
+  theme(axis.text.x = element_blank(),
+        plot.title.position = "plot", 
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        axis.title = element_blank(),
+        legend.position = "none")
+```
+
+
+### Changes
+
+- Informative Titles
+- Left Align Titles
+- Borders & Backgrounds: 👎
+- Organize & Remove/Lighten as much as possible
+- Legends Suck
+- Avoid head-tilting
+
+
+::: callout-note
+A reminder that when you're doing EDA, you're going to generate a lot of plots. Don't spend your time making all of them beautiful. Save that for the "editing" portion of your case study. Once you know which are needed to tell your story, add them in.
+:::
+
+:::
+
+# HW02 (revisited) · replace with FA26 examples {background-color="#92A86A"}
 
 ## Part I: Imitation
 
@@ -548,3 +805,11 @@ WB |>
   theme_minimal()
 ```
 :::
+
+## Recap {background-color="#92A86A"}
+
+- Tailor communication for setting and audience
+- Written communication has benefit of time; limitation of additional explanation
+- Can you control your HTML output from a .qmd document?
+- Do you know when to cite a source? 
+- Can you implement design choices when generating visualizations for communication?

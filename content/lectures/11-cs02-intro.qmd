@@ -1,13 +1,13 @@
 ---
-title: "09-cs02-intro"
+title: "11-cs02-intro"
 author: "Professor Shannon Ellis"
-date: "2024-11-05"
+date: "2026-10-28"
 
 format:
   html: 
-    output-file: 09-cs02-intro.html
+    output-file: 11-cs02-intro.html
   revealjs:
-    output-file: 09-cs02-intro-slides.html
+    output-file: 11-cs02-intro-slides.html
     css: slides.css
 ---
 
@@ -36,6 +36,15 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 
 **Due Dates**:
 
+-   ⌨️ **Lab 04** due Fri 10/30 (11:59 PM)
+-   💻 **CS01** (report in repo + general communication on Canvas) & 🔘 CS01 team eval survey due Fri 10/30 (11:59 PM)
+-   🔘 **Mid-course survey** due Fri 10/30 (11:59 PM)
+-   📄 **Final Project Proposal** due Wed 11/4 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 -   `r emo::ji("computer")` **CS01** due Wednesday
 -   `r emo::ji("science")` **Lab 05** due Thursday
 -   🔘 **CS01 Team Eval** survey due Thursday
@@ -47,6 +56,7 @@ Notes:
 
 - hw02 and lab04 feedback and scores posted
 - mid-course survey open until tonight
+-->
 
 ## Mid-course survey (N=55; 57%)
 

@@ -1,13 +1,13 @@
 ---
-title: "13-cs02-analysis"
+title: "15-cs02-analysis"
 author: "Professor Shannon Ellis"
-date: "2024-11-19"
+date: "2026-11-13"
 
 format:
   html: 
-    output-file: 13-cs02-analysis.html
+    output-file: 15-cs02-analysis.html
   revealjs:
-    output-file: 13-cs02-analysis-slides.html
+    output-file: 15-cs02-analysis-slides.html
     css: slides.css
 ---
 
@@ -37,6 +37,13 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE)
 
 ## Course Announcements
 
+**Due Dates**:
+
+-   ⌨️ **Lab 06** due Fri 11/13 (11:59 PM)
+-   ⌨️ **Lab 07** due Fri 11/20 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
 - **Lab07** due Thursday
 - **HW03** due Friday
 - **CS02** due Monday
@@ -49,7 +56,7 @@ Notes:
   - Feedback as issue on repo
   - If your score on CS02 is higher than CS01 that score will automatically be used for both CS01 and CS02
 - Class Thursday will be time to work on CS02
-
+-->
 
 ## Progress Check-in
 
@@ -546,6 +553,10 @@ yardstick::metrics(wf_fitted_values,
 -   RMSE isn't too bad
 -   $R^2$ suggests model is only explaining 39% of the variance in the data
 -   The MAE value suggests that the average difference between the value predicted and the real value was 1.47 ug/m3. The range of the values was 3-22 in the training data, so this is a relatively small amount
+
+## Day 2 · Mon 11/16 {background-color="#92A86A"}
+
+Cross-validation, random forest & tuning.
 
 ## Cross-Validation
 
@@ -1052,7 +1063,7 @@ final_plot
 :::incremental
 - Can you copy + paste code directly from here to answer the question? Yes.
 - Do you have to present linear regression model *and* random forest? No
-- Should you present anything from the 12-regression notes? Probably not. (This is why HW03 and lab07 focus on regression)
+- Should you present anything from the 14-regression notes? Probably not. (This is why HW03 and lab07 focus on regression)
 - Could you try an additional model as your extension? Yes!
 - Does that model have to be "better"? No! But, consider the story!
 - Could you try to identify the simplest, accurate model as an extension? Yes.

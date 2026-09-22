@@ -1,0 +1,372 @@
+---
+title: "07-ai-assisted-analysis"
+author: "Professor Shannon Ellis"
+date: "2026-10-14"
+
+format:
+  html: 
+    output-file: 07-ai-assisted-analysis.html
+  revealjs:
+    output-file: 07-ai-assisted-analysis-slides.html
+    slide-number: true
+    chalkboard: false
+    preview-links: auto
+    logo: images/cogs137-logo-hex.png
+    css: slides.css
+---
+
+```{r packages, echo = FALSE, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(emo)
+
+knitr::opts_chunk$set(dpi = 300, echo = TRUE, warning = FALSE, message = FALSE)
+```
+
+# AI-Assisted Analysis {background-color="#92A86A"}
+
+## Course Announcements
+
+**Due Dates**:
+
+-   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
+-   📚 **HW 02** due Sun 10/18 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+## Agenda
+
+1.  Use AI to implement Monday's design choices...and check its work
+2.  When AI's analysis runs but is wrong
+3.  Prompting with the grammar (of graphics & data manipulation)
+4.  AI in COGS 137
+
+## Why a whole day on this?
+
+::: incremental
+-   AI is *very* good at syntax (which `theme()` argument? which `forcats` function?)
+-   AI is *not* responsible for your analysis. You are.
+-   Code that **runs** is not the same as code that **answers your question**
+-   The skill that matters: knowing what to ask for...and knowing how to check what you got
+:::
+
+. . .
+
+Reminder (course policy): think first, try first; always read & understand the output; cite your sources (including AI).
+
+# Part 1: Implement Monday's design choices {background-color="#92A86A"}
+
+## Where we left off
+
+```{r brexit-data, echo = FALSE}
+brexit <- tibble(
+  opinion = c(
+    rep("Right", 664), rep("Wrong", 787), rep("Don't know", 188)
+  ),
+  region = c(
+    rep("london", 63), rep("rest_of_south", 241), rep("midlands_wales", 145), rep("north", 176), rep("scot", 39),
+    rep("london", 110), rep("rest_of_south", 257), rep("midlands_wales", 152), rep("north", 176), rep("scot", 92),
+    rep("london", 24), rep("rest_of_south", 49), rep("midlands_wales", 57), rep("north", 48), rep("scot", 10)
+  )
+)
+```
+
+```{r brexit-basic, fig.asp = 0.5, out.width = "70%"}
+ggplot(brexit, aes(x = opinion)) +
+  geom_bar()
+```
+
+::: aside
+Same YouGov data as Monday's [notes](06-viz.qmd#the-data-code).
+:::
+
+## Monday's design decisions
+
+We decided an effective version of this plot should:
+
+::: incremental
+1.  Order categories meaningfully (not alphabetically)
+2.  Put long categories on the y-axis
+3.  Show the regions (facets), with clean labels
+4.  Use meaningful colors (and not rely on red/green)
+5.  Use informative labels, and drop redundant ones (legend!)
+:::
+
+## 🧠 Write the prompt
+
+[What would you ask an AI tool to get this plot? Write it down first. Then compare with a neighbor.]{style="background-color: #ADD8E6"}
+
+. . .
+
+A vague prompt:
+
+```
+make this brexit plot better
+```
+
+. . .
+
+A precise prompt:
+
+```
+I have a tibble `brexit` with two character columns: `opinion`
+("Right", "Wrong", "Don't know") and `region` (e.g. "rest_of_south").
+Using ggplot2, make a bar chart with opinion on the y-axis, one facet
+per region in a single row, facet labels cleaned up, fill mapped to
+opinion with colors Wrong = "#ef8a62", Right = "#67a9cf",
+Don't know = "gray", no legend, and a title + subtitle citing YouGov
+(2-3 Sept 2019). Explain what each line does.
+```
+
+## What AI gave back (a realistic example)
+
+::: panel-tabset
+### Plot
+
+```{r ref.label = "ai-brexit", echo = FALSE, fig.asp = 0.45, out.width = "95%"}
+```
+
+### Code
+
+```{r ai-brexit, fig.show = "hide"}
+ggplot(brexit, aes(y = fct_infreq(opinion), fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~ region, nrow = 1) +
+  scale_fill_manual(values = c("#ef8a62", "#67a9cf", "gray")) +
+  labs(title = "Most Britons regret voting to leave the EU",
+       x = "Count", y = "Opinion") +
+  theme_minimal()
+```
+:::
+
+. . .
+
+[🧠 It runs. Is it right? Check it against each of Monday's decisions.]{style="background-color: #ADD8E6"}
+
+## What's wrong?
+
+::: incremental
+-   **Colors are silently wrong.** Unnamed `values` are matched to the levels of `opinion` *alphabetically*: "Don't know" got orange, "Right" got blue, "Wrong" got gray.
+-   **Facet labels** are still `rest_of_south`, `midlands_wales`...
+-   **Redundant legend**: fill and y both show opinion.
+-   **The title overclaims.** Is "most" true? Check it:
+:::
+
+. . .
+
+```{r}
+brexit |>
+  count(opinion) |>
+  mutate(prop = n / sum(n))
+```
+
+. . .
+
+48% is not "most." The AI wrote a headline the data don't support.
+
+## Check it, then fix it
+
+```{r ai-brexit-fixed, fig.asp = 0.45, out.width = "95%"}
+ggplot(brexit, aes(y = opinion, fill = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +
+  guides(fill = "none") +
+  labs(title = "Was Britain right/wrong to vote to leave EU?",
+       subtitle = "YouGov Survey Results, 2-3 September 2019",
+       x = NULL, y = NULL) +
+  scale_fill_manual(values = c("Wrong" = "#ef8a62",
+                               "Right" = "#67a9cf",
+                               "Don't know" = "gray")) +
+  theme_minimal(base_size = 16) +
+  theme(plot.title.position = "plot",
+        panel.grid.major.y = element_blank())
+```
+
+::: aside
+Facet labels still need cleaning. How would you do it? (Hint: `mutate()` + `case_when()` or `fct_recode()` *before* plotting.)
+:::
+
+## A checklist for AI-generated code
+
+::: incremental
+1.  **Does it run?** (the lowest bar)
+2.  **Did it do what I asked?** Check each request, one by one.
+3.  **Did it do anything I *didn't* ask?** (dropped rows, changed order, new colors)
+4.  **Are the claims supported?** Titles, subtitles, and text are claims. Verify with a quick `count()` / `summarize()`.
+5.  **Can I explain every line?** If not, ask (and then check that too)
+:::
+
+# Part 2: When the analysis runs but is wrong {background-color="#92A86A"}
+
+## The question
+
+> Among participants who smoked the high-dose joint, do frequent users have higher blood THC than occasional users in the first 30 minutes after smoking?
+
+```{r cs01-data, echo = FALSE}
+WB <- read_csv("https://github.com/ShanEllis/datasets/raw/refs/heads/master/Blood.csv")
+
+WB <- WB |> 
+  mutate(Treatment = fct_recode(Treatment, 
+                                "5.9% THC (low dose)" = "5.90%",
+                                "13.4% THC (high dose)" = "13.40%"),
+         Treatment = fct_relevel(Treatment, "Placebo", "5.9% THC (low dose)")) |> 
+  janitor::clean_names() |>
+  rename(thcoh = x11_oh_thc,
+         thccooh = thc_cooh,
+         thccooh_gluc = thc_cooh_gluc,
+         thcv = thc_v) |>
+  mutate(timepoint = case_when(time_from_start < 0 ~ "pre-smoking",
+                               time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
+                               time_from_start > 30 & time_from_start <= 70 ~ "31-70 min",
+                               time_from_start > 70 & time_from_start <= 100 ~ "71-100 min",
+                               time_from_start > 100 & time_from_start <= 180 ~ "101-180 min",
+                               time_from_start > 180 & time_from_start <= 210 ~ "181-210 min",
+                               time_from_start > 210 & time_from_start <= 240 ~ "211-240 min",
+                               time_from_start > 240 & time_from_start <= 270 ~ "241-270 min",
+                               time_from_start > 270 & time_from_start <= 300 ~ "271-300 min",
+                               time_from_start > 300 ~ "301+ min"))
+```
+
+We'll use the (cleaned) whole blood data from CS01 (same cleaning as the `ggplot2` notes).
+
+## AI's answer
+
+::: panel-tabset
+### Plot
+
+```{r ref.label = "ai-thc", echo = FALSE, out.width = "70%"}
+```
+
+### Code
+
+```{r ai-thc, fig.show = "hide"}
+WB |>
+  filter(treatment == "13.4% THC (high dose)", time_from_start <= 30) |>
+  group_by(group) |>
+  summarize(mean_thc = mean(thc, na.rm = TRUE)) |>
+  ggplot(aes(x = group, y = mean_thc, fill = group)) +
+  geom_col() +
+  labs(title = "THC levels by user group",
+       y = "Mean THC (ng/mL)")
+```
+:::
+
+. . .
+
+[🧠 Think on your own, then chat: what would you check before believing this?]{style="background-color: #ADD8E6"}
+
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done discussing. Put a [pink]{.sticky-pink} if you have a question.
+
+## Issue 1: which samples got in?
+
+`time_from_start <= 30` also includes every sample taken *before* smoking (negative times):
+
+```{r}
+WB |>
+  filter(treatment == "13.4% THC (high dose)", time_from_start <= 30) |>
+  count(timepoint)
+```
+
+. . .
+
+Half of the rows the AI averaged are **pre-smoking** baselines. That roughly halves both group means.
+
+## Issue 2: what's the unit of analysis?
+
+How many rows does each participant contribute to AI's summary?
+
+```{r}
+WB |>
+  filter(treatment == "13.4% THC (high dose)", time_from_start <= 30) |>
+  count(id, name = "n_rows") |>
+  count(n_rows, name = "n_participants")
+```
+
+. . .
+
+Almost everyone appears **twice** (once before and once after smoking), so each "mean" blends two different states of the same person. Our question is about people *after* smoking.
+
+. . .
+
+After fixing the filter, re-run this check: it should be one row per participant.
+
+## Issue 3: what does the plot hide?
+
+::: incremental
+-   `na.rm = TRUE` *could* silently drop values. Here it dropped none, but you only know that because you checked (`sum(is.na(thc))`)
+-   A bar of means hides the spread...and the sample size
+-   Redundant fill + legend (sound familiar?)
+:::
+
+## A version we can defend
+
+```{r thc-better, out.width = "70%"}
+WB |>
+  filter(treatment == "13.4% THC (high dose)",
+         time_from_start > 0, time_from_start <= 30) |>
+  group_by(id, group) |>
+  summarize(thc = mean(thc, na.rm = TRUE), .groups = "drop") |>
+  ggplot(aes(x = group, y = thc)) +
+  geom_boxplot(outlier.shape = NA) +
+  geom_jitter(width = 0.1, alpha = 0.6) +
+  labs(title = "Blood THC, 0-30 min after smoking (high dose)",
+       subtitle = "One sample per participant, after smoking",
+       x = NULL, y = "THC (ng/mL)") +
+  theme_minimal(base_size = 14)
+```
+
+. . .
+
+Every fix here was a **decision about the question**. AI couldn't make it for us, because we never told it.
+
+# Part 3: Prompting with the grammar {background-color="#92A86A"}
+
+## Vocabulary is leverage
+
+The words you've learned are exactly the words that get better results:
+
+| Instead of...            | Try...                                                         |
+|--------------------------|----------------------------------------------------------------|
+| "make it look better"    | "map `opinion` to fill, remove the legend, use `theme_minimal()`" |
+| "split it up by region"  | "facet by `region` in one row"                                 |
+| "only the early ones"    | "filter to `time_from_start > 0 & time_from_start <= 30`"      |
+| "average it"             | "one mean per `id`, then compare groups"                       |
+
+## Prompting tips
+
+::: incremental
+-   Describe your data: paste `glimpse()` output (column names + types)
+-   State the **question**, not just the code you want
+-   Ask for code using functions we've learned in class (it will be easier to check!)
+-   Ask it to explain each line...then check the explanation
+-   Iterate: small, specific follow-ups beat one giant prompt
+:::
+
+# Part 4: AI in COGS 137 {background-color="#92A86A"}
+
+## Norms
+
+::: incremental
+-   You should be able to answer "yes": *Can I explain each piece of code and each analysis I'm submitting?*
+-   **Cite it** (course policy): note the tool and what you used it for, as a code comment or in your text
+-   In your case studies, every decision (which samples, which cutoff, which plot) is yours to explain & defend
+-   AI is a great first reviewer: "What might be wrong with this analysis?" (and then you decide)
+:::
+
+## Your Turn
+
+::: task
+1.  Pick a question about the CS01 whole blood data (from the CS01 intro)
+2.  Write a *precise* prompt and get an AI tool to write code for it
+3.  Run it. Then go through the checklist:
+    -   Did it do what I asked? Anything I didn't ask?
+    -   Are the claims supported? What's the unit of analysis?
+4.  Fix one thing, by hand
+:::
+
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
+
+# Recap {background-color="#92A86A"}
+
+-   Can you describe what to check before trusting AI-generated code or plots?
+-   Can you explain why code that runs can still be wrong?
+-   Can you write a precise prompt using grammar-of-graphics & `dplyr` vocabulary?
+-   Do you know how to cite AI assistance in this course?

@@ -1,13 +1,13 @@
 ---
-title: "17-presentations"
+title: "20-presentations"
 author: "Professor Shannon Ellis"
-date: "2024-12-05"
+date: "2026-11-30"
 
 format:
   html: 
-    output-file: 17-presentations.html
+    output-file: 20-presentations.html
   revealjs:
-    output-file: 17-presentations-slides.html
+    output-file: 20-presentations-slides.html
     css: slides.css
 ---
 
@@ -25,6 +25,13 @@ format:
 
 **Due Dates**:
 
+-   👯 **Peer Evaluation** & 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)
+-   ⌨️ **Lab 08** due Fri 12/4 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 -   📄 **Final Project** due Tuesday
     -   qmd/HTML in repo
     -   3-5 min Presentation (for those who don't present today)
@@ -33,7 +40,7 @@ format:
 -   🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
 - 🔘 [Post-course survey](https://docs.google.com/forms/d/e/1FAIpQLSfskqNG2mcineIBxEnU3YvA1enZz6MFR8reTT_LiCAxC8kOgQ/viewform) - "due" by Tues
 - 🔘 [SET Evaluations](https://set.ucsd.edu/) - complete by 8AM Sat
-
+-->
 
 ## Student Presentations
 

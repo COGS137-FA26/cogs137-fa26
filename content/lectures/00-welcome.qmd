@@ -36,7 +36,7 @@ options(gargle_oauth_email = "sellis@ucsd.edu")
 
 1.  Describe what this class is
 2.  Describe how the class will run
-3.  Go over the tooling for this course: R, RStudio, GitHub
+3.  Preview the tools we'll use (more on Monday!)
 
 ## What is R?
 
@@ -148,10 +148,10 @@ Note: This course has historically been back-loaded, as that's when group work h
 
 -   **Office hours** begin Friday** week 1
     -   Prof: Tu: 11A-12P (drop-in); W 10-11A (10 min slots; appt.)
--   **Lab** begins week 1 (next **Friday**)
+-   **Lab** begins week 1 (next **Thursday**, 10/1)
     -   it's *not* in a computer lab, so you'll need to bring your own
-    -   details about labs covered on Tues and in lab
-    -   labs will always be released by Th night and due the following Th
+    -   details about labs covered on Monday and in lab
+    -   labs are released on Thursday and due the following Friday
 -   I will hang out after class today for questions/concerns from students
 
 ### Materials
@@ -200,19 +200,13 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 
 ## Changes since last iteration
 
-(based on feedback):
+(based on feedback & recordings from last time):
 
-- no midterm
-- case studies from beginning
-  - more focus on case studies/expectations
-  - more examples of effective communication
-- lab focused changed
-  - more time for completing labs
-  - removed super-structured labs
-- improved final project
-  - peer feedback
-  - checkpoints on final project
-- more in-class stuff/time
+- MWF (50 min) lectures, with more time for EDA and modeling
+  - two days of CS02 EDA, two of regression, and a new "putting the model together" day
+- a new lecture on **AI-assisted analysis** (using AI well & checking its work)
+- Quarto (`.qmd`) for everything
+- GitHub: your repos are created for you (no more assignment links)
 
 ## How to get help {.scrollable}
 
@@ -289,7 +283,7 @@ Always read/think about/understand the output.
 -   [Labs (7)]{.label-green}: Individual submission; graded on effort
 -   [Homework (3)]{.label-green}: Individual submission; graded on correctness
 -   [Case Studies (2)]{.label-green}: Team submission, technical analysis report + general communication
--   [Final Project (1)]{.label-green}: Team submission, due Tues of finals week w/ checkpoints prior
+-   [Final Project (1)]{.label-green}: Team submission, due Fri of finals week (12/11) w/ checkpoints prior
 :::
 
 ## Grading
@@ -318,260 +312,6 @@ Your final grade will be comprised of the following:
 . . .
 
 Note: Prof Ellis is a reasonable person; reach out to her if you have an extenuating circumstance at any point in the quarter.
-
-# Tooling {background-color="#92A86A"}
-
-## Datahub
-
-Datahub is a platform hosted by UCSD that gives students access to computational resources.
-
-This means that while you'll be typing on your keyboard, you'll be *using* UCSD's computers in this class.
-
-Website: <https://datahub.ucsd.edu/>
-
-. . .
-
-**Launch Environment**
-
-When working on "stuff" for this course, select the COGS 137 environment.
-
-![datahub](images/00/datahub.png) \
-
-## Datahub Usage
-
-Q: Do I *have* to use datahub?
-
-A: Nope. You could download and install all the packages we use and complete the course locally! However, many packages have already been installed for you on datahub, so it will be a tiny bit more work up front...but you won't be dependent on the internet/datahub!
-
-## Toolkit
-
-![](images/00/toolkit.png)
-
--   Scriptability $\rightarrow$ R
-
--   Literate programming (code, narrative, output in one place) $\rightarrow$ Quarto
-
--   Version control $\rightarrow$ Git / GitHub
-
--   The Internet (Google/ChatGPT/etc.)
-
-## R and RStudio {.scrollable}
-
-::: panel-tabset
-### R/RStudio
-
-**R & RStudio**
-
--   R is a statistical programming language
--   RStudio is a convenient interface for R (an integreated development environment, IDE)
-
-### Tour
-
-::: {.hand-green style="text-align: center;"}
-<center>\[DEMO\]</center>
-:::
-
-Concepts introduced:
-
--   Console
--   Using R as a calculator
--   Environment
--   Loading and viewing a data frame
--   Accessing a variable in a data frame
--   R functions
-
-### Try
-
-**Your Turn**
-
-::: task
-1.  Login to datahub
-2.  Carry out a mathematical operation in the console
-3.  View the `airquality` dataframe
-4.  Access a column from the `airquality` dataframe
-5.  Calculate the median for one of the numeric columns
-:::
-
-Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
-
-### R packages
-
--   **Packages** are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data [^1]
--   As of Sept 2024, there are \~21,000 R packages available on **CRAN** (the Comprehensive R Archive Network)[^2]
--   We're going to work with a small (but important) subset of these!
-:::
-
-[^1]: Wickham and Bryan, [R Packages](https://r-pkgs.org/)
-
-[^2]: [CRAN contributed packages](https://cran.r-project.org/web/packages/)
-
-## What is the Tidyverse?
-
-::: columns
-::: {.column width="40%"}
-![](images/00/tidyverse.png)
-:::
-
-::: {.column width="60%"}
-<center><a href="https://www.tidyverse.org/">tidyverse.org</a></center>
-
--   The tidyverse is an opinionated collection of R packages designed for data science.
--   All packages share an underlying philosophy and a common syntax.
-:::
-:::
-
-## RStudio Projects[^3]
-
-[^3]: [RStudio Projects Documentation](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
-
--   Built-in functionality to keep all files for a single project organized
-
-## Quarto
-
--   Fully reproducible reports -- each time you render, the document is executed from top to bottom
--   Simple markdown syntax for text
--   Code goes in chunks, defined by three backticks, narrative goes outside of chunks
-
-## Quarto tips
-
--   Keep the [Quarto cheat sheet](https://rstudio.github.io/cheatsheets/quarto.pdf) and Markdown Quick Reference (Help -\> Markdown Quick Reference) handy, we'll refer to it often as the course progresses
-
--   The workspace of your Quarto document is separate from the Console
-
-<br><br>
-
-::: {.hand-green style="text-align: center;"}
-<center>\[DEMO\]</center>
-:::
-
-## How will we use Quarto?
-
--   Every lab / case study / project / homework / notes / etc. is a Quarto (.qmd) document
--   You'll always have a template Quarto document to start with
--   The amount of scaffolding in the template will decrease over the quarter
-
-## Collaboration: Git & GitHub
-
--   The statistical programming language we'll use is R
--   The software we use to interface with R is RStudio
--   But how do I get you the course materials that you can build on for your assignments?
-    -   I'm not going to email you documents, that would be a mess!
-
-## Version control
-
--   We introduced GitHub as a platform for collaboration
--   But it's much more than that...
--   It's actually designed for version control
-
-## Versioning
-
-![Lego versions](images/00/lego-steps.png)
-
-## Versioning
-
-with human readable messages
-
-![Lego versions with commit messages](images/00/lego-steps-commit-messages.png)
-
-## Why do we need version control?
-
-![PhD Comics](images/00/phd_comics_vc.gif)
-
-## Git and GitHub tips {.scrollable}
-
--   Git is a **version control** system -- like "Track Changes" feature Google Docs...but optimized for code. GitHub is the home for your Git-based projects on the internet -- like Drive with additional features for code.
-
-. . .
-
--   There are millions of git commands -- ok, that's an exaggeration, but there are a lot of them -- and very few people know them all. **99% of the time you will use git to add, commit, push, and pull**.
-
-. . .
-
--   We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line -- skip that and move on to the next resource unless you feel comfortable trying it out.
-
-::: aside
-Resource: [happygitwithr.com](http://happygitwithr.com/): book for working with git in R; Some content is beyond the scope of this course, but it's a good resource
-:::
-
-## Let's take a tour -- Git / GitHub
-
-**We'll cover this time permitting, you'll see it again in lab next week**
-
-Concepts introduced:
-
--   Connect an R project to Github repository
--   Working with a local and remote repository
--   Committing, Pushing and Pulling
-
-There is a bit more of GitHub that we'll use in this class, but for today this is enough.
-
-# Getting Help
-
--   Trying things out
--   Undersetanding Documentation
--   Using ChatGPT/LLMs
-
-## Documentation
-
-Consider `ggplot2` (a package we'll learn a lot)
-
-::: incremental
--   Official documentation (CRAN): [https://cran.r-project.org/web/packages/ggplot2/index.html]()
--   Code (Github): [https://github.com/tidyverse/ggplot2]()
--   Documentation: [https://ggplot2.tidyverse.org/reference/index.html]()
--   Specific Function: [https://ggplot2.tidyverse.org/reference/geom_point.html]()
-:::
-
-## ChatGPT: What it could look like
-
-Imagine: You've been asked to carry out a number of wrangling operations on a dataset and make a plot...
-
-::: {.hand-green style="text-align: center;"}
-<center>\[DEMO\]</center>
-:::
-
-## Additional help
-
--   classmates
--   course staff (OH, Q&A, class, lab)
-
-## Recap
-
-Can you answer these questions?
-
--   What is R vs RStudio?
--   What are RStudio Projects?
--   What is version control, and why do we care?
--   What is git vs GitHub (and do I need to care)?
-
-## Additional `git` Resources {.scrollable}
-
-#### Version Control (git and GitHub):
-
--   [Getting Started with git](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github)
--   [GitHub Guide](https://guides.github.com/activities/hello-world/)
--   [GitHub Desktop App Tutorial](https://github.com/jlord/git-it-electron)
--   [Git Command Line Resource](https://rogerdudler.github.io/git-guide/)
--   Using `git` from the command line
-    -   [Installing and using `git` (Part 1)](https://www.youtube.com/watch?v=ng4X6qF8XVY), by COGS 108 TA Ganesh (youtube, 22min tutorial)
-    -   [merge conflicts and branching (Part 2)](https://youtu.be/Nk1gtrbTZ2Y), by IA Shubham Kulkarni (youtube, 8min tutorial)
--   [Using `git` with GitHub Desktop](https://youtu.be/zQc5vQEBips), by COGS 108 TA Sidharth Suresh (youtube, 13min tutorial)
--   [GIT & GITHUB TUTORIAL](https://www.youtube.com/watch?v=xuB1Id2Wxak), from edureka!
-    -   with [notes](https://docs.google.com/document/d/1GAdkvn7lWzeLekvC343WNZC2rZGhQOfPOU2dMha9aws/edit) from COGS 18/108 TA Holly(Yueying) Dong
-
-## Slides to PDF
-
-1.  Toggle into Print View using the Esc key (or using the Navigation Menu)
-2.  Open the in-browser print dialog (CTRL/CMD+P).
-3.  Change the **Destination** setting to Save as PDF.
-4.  Change the **Layout** to Landscape.
-5.  Change the **Margins** to None.
-6.  Enable the **Background** graphics option.
-7.  Click Save 🎉
-
-::: aside
-Instructions from [quarto](https://quarto.org/docs/presentations/revealjs/presenting.html#print-to-pdf) documentation
-:::
 
 # Students {background-color="#92A86A"}
 
@@ -616,7 +356,7 @@ roster |>
 
 ## I'd like to know more!
 
-(*required*)[Student Survey](https://docs.google.com/forms/d/e/1FAIpQLSfSLaJBNu-dm--yPhuzerS_DEHvsfhvkfqulrultVjRSlYcZA/viewform?usp=sf_link) - complete by Fri 10/4 at 11:59 PM.
+(*required*)[Student Survey](https://docs.google.com/forms/d/e/1FAIpQLSfSLaJBNu-dm--yPhuzerS_DEHvsfhvkfqulrultVjRSlYcZA/viewform?usp=sf_link) - complete by Fri 10/2 at 11:59 PM.
 
 **This is required and completion will be used for CAA/#finaid.** **DO** complete this even if you're on the waitlist, please.
 

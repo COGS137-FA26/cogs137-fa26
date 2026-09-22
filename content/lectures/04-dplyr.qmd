@@ -1,13 +1,13 @@
 ---
-title: "03-dplyr"
+title: "04-dplyr"
 author: "Professor Shannon Ellis"
-date: "2024-10-08"
+date: "2026-10-05"
 
 format:
   html: 
-    output-file: 03-dplyr.html
+    output-file: 04-dplyr.html
   revealjs:
-    output-file: 03-dplyr-slides.html
+    output-file: 04-dplyr-slides.html
 ---
 
 # Data Manipulation with `dplyr` {background-color="#92A86A"}
@@ -58,6 +58,13 @@ Mentorship opportunity for women-identifying students:
 
 **Due Dates**:
 
+-   ⌨️ **Lab 01** due Fri 10/9 (11:59 PM)
+-   📚 **HW 01** due Sun 10/11 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 -   **Lab 01** due Thursday (10/10 11:59 PM; push to GH)
 -   **HW01** now available; due Monday (10/14; 11:59 PM)
 -   Lecture Participation survey "due" after class
@@ -70,6 +77,7 @@ Notes:
 -   Discuss: GH\<-\>RStudio issue (`OpenSSL version mismatch. Built against 30000020, you have 30300020`)
 -   Regular labs resume this week
 -   Mention: waitlist & dropping
+-->
 
 ## Suggested Reading
 
@@ -323,6 +331,10 @@ names(WB_sub)
 WB_sub <- WB_sub |>
   rename(fluid_type = `FLUID TYPE`)
 ```
+
+## Day 2 · Wed 10/7 {background-color="#92A86A"}
+
+Picking up with `mutate()`, `group_by()` + `summarize()`, factors, and CS01 wrangling.
 
 ## `mutate` to add new variables
 

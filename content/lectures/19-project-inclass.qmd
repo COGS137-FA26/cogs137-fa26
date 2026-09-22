@@ -1,13 +1,13 @@
 ---
-title: "16-project-inclass"
+title: "19-project-inclass"
 author: "Professor Shannon Ellis"
-date: "2024-12-03"
+date: "2026-11-25"
 
 format:
   html: 
-    output-file: 16-project-inclass.html
+    output-file: 19-project-inclass.html
   revealjs:
-    output-file: 16-project-inclass-slides.html
+    output-file: 19-project-inclass-slides.html
     css: slides.css
 ---
 
@@ -25,6 +25,12 @@ format:
 
 **Due Dates**:
 
+-   👯 **Peer Evaluation** & 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 - 📄 **Final Project** due Tuesday
   - qmd/HTML in repo
   - 3-5 min Presentation submitted on Canvas (1/group)
@@ -36,6 +42,7 @@ Notes:
 
 -   Final Project - peer review was sent to each group in original email assigning peer review
 - Grades posted: CS02 Team evaluation, peer evaluation, lab07
+-->
 
 ## Plan for Thursday
 

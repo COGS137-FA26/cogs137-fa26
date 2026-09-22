@@ -48,7 +48,7 @@ A reminder that there are additional readings provided along with most lectures,
 
 Find at least one fact on the Internet related to our CS01 main question (ideally, a source/fact we didn't discuss in class already). Specify the fact here, including a citation to the original source.
 
-This can use [footnotes as discussed in class](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/07-written-communication.html#footnotes-in-.qmd) or some other approach to citation...so long as we have the information an its original source.
+This can use [footnotes as discussed in class](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/09-written-communication.html#footnotes-in-.qmd) or some other approach to citation...so long as we have the information an its original source.
 
 ### Exercise 4
 

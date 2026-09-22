@@ -1,13 +1,13 @@
 ---
-title: "05-viz"
+title: "06-viz"
 author: "Professor Shannon Ellis"
-date: "2024-10-17"
+date: "2026-10-12"
 
 format:
   html: 
-    output-file: 05-viz.html
+    output-file: 06-viz.html
   revealjs:
-    output-file: 05-viz-slides.html
+    output-file: 06-viz-slides.html
 ---
 
 # Effective Data Visualization {background-color="#92A86A"}
@@ -29,6 +29,13 @@ Slides modified from [datascienceinabox.org](https://datasciencebox.org/)
 
 **Due Dates**:
 
+-   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
+-   📚 **HW 02** due Sun 10/18 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 - **Lab 02** due tonight (11:59 PM)
   - ~~`Group` re-coded as with WB/OF~~ <- removed from instructions
 - Lecture Participation survey "due" after class
@@ -38,6 +45,7 @@ Slides modified from [datascienceinabox.org](https://datasciencebox.org/)
 -   Lab03 now available
 -   Lab01 scores posted; Scores on Canvas; feedback as "issue" on GH
 -   Case Study Groups will be sent tomorrow; will discuss case study in class on Tues.
+-->
 
 ## Suggested Reading
 
@@ -711,9 +719,13 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 
 ## Your Turn
 
--   Read in the data ([Data](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/05-viz.html#the-data-code))
+-   Read in the data ([Data](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/06-viz.html#the-data-code))
 -   Think of at least three different ways to tell slightly different stories with these data
 -   Try to implement at least one of these ideas!
+
+::: callout-note
+On **Wednesday**, we'll use AI to implement design choices like these...and practice checking its work.
+:::
 
 # Recap {background-color="#92A86A"}
 

@@ -42,7 +42,7 @@ BR <- read_csv("data/Breath.csv")
 
 ### Exercise 1: **Whole Blood**
 
-Using the CS01 wrangling code from the `dplyr` lecture [here](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/03-dplyr.html#cs01-wrangling), wrangle the whole blood data as we did in class.
+Using the CS01 wrangling code from the `dplyr` lecture [here](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/04-dplyr.html#cs01-wrangling), wrangle the whole blood data as we did in class.
 
 ### Exercise 2: **Oral Fluid**
 

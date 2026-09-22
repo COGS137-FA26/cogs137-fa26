@@ -1,14 +1,14 @@
 ---
-title: "02-cs01-intro"
+title: "03-cs01-intro"
 author: "Professor Shannon Ellis"
-date: "2024-10-04"
+date: "2026-10-02"
 
 format:
   html: 
-    output-file: 02-cs01-intro.html
+    output-file: 03-cs01-intro.html
     embed-resources: true
   revealjs:
-    output-file: 02-cs01-intro-slides.html
+    output-file: 03-cs01-intro-slides.html
     slide-number: true
     chalkboard: false
     preview-links: auto
@@ -69,6 +69,13 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 
 **Due Dates**:
 
+-   🔘 **Student survey** (#finaid) due Fri 10/2 (11:59 PM)
+-   ⌨️ **Lab 01** due Fri 10/9 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
 -   Student survey due Fri 10/4 (11:59 PM; #finaid)
 -   **Lab 01** now available (due *next* Thursday 10/10)
     -   No in-class lab this Friday; *Monday's lab is happening*
@@ -79,6 +86,7 @@ Note:
 -   Run this in console once: `options(download.file.method="wget")`
 -   We're going to *start* CS01 in lecture/lab before you know your group mates.
 -   Reminder to Shannon: demo lab clone, push pull
+-->
 
 ## Agenda
 
