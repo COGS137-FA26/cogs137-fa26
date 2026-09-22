@@ -18,7 +18,7 @@ format:
 
 Practical Data Science in R
 
-Please take one <font color="#32cb31">green</font> sticky and one <font color="#ff65a3">pink</font> sticky as they come around. If you're able, try and save these. We'll use them most classes. (But, I'll always have extra!)
+Please take one [green]{.sticky-green} sticky and one [pink]{.sticky-pink} sticky as they come around. If you're able, try and save these. We'll use them most classes. (But, I'll always have extra!)
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -173,7 +173,7 @@ Note: This course has historically been back-loaded, as that's when group work h
 </br>
 **A**: Piazza, ClassQuestion, Slack, Canvas? Something else?  
 
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done discussing. Put a <font color="#ff65a3">pink</font> if you have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done discussing. Put a [pink]{.sticky-pink} if you have a question.
 
 ## Diversity & Inclusion:
 
@@ -286,10 +286,10 @@ Always read/think about/understand the output.
 ## Course components:
 
 ::: incremental
--   <font color="#ABC57D">Labs (7)</font>: Individual submission; graded on effort
--   <font color="#ABC57D">Homework (3)</font>: Individual submission; graded on correctness
--   <font color="#ABC57D">Case Studies (2)</font>: Team submission, technical analysis report + general communication
--   <font color="#ABC57D">Final Project (1) </font>: Team submission, due Tues of finals week w/ checkpoints prior
+-   [Labs (7)]{.label-green}: Individual submission; graded on effort
+-   [Homework (3)]{.label-green}: Individual submission; graded on correctness
+-   [Case Studies (2)]{.label-green}: Team submission, technical analysis report + general communication
+-   [Final Project (1)]{.label-green}: Team submission, due Tues of finals week w/ checkpoints prior
 :::
 
 ## Grading
@@ -392,7 +392,7 @@ Concepts introduced:
 5.  Calculate the median for one of the numeric columns
 :::
 
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
 
 ### R packages
 

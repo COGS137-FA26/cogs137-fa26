@@ -307,7 +307,7 @@ p_main /
 
 [`r emo::ji("question")` Which does your intuition/knowledge of the data suggest is more appropriate?]{style="background-color: #ADD8E6"}
 
-Put a <font color="#32cb31">green</font> sticky if you think main; <font color="#ff65a3">pink</font> if you think interaction.
+Put a [green]{.sticky-green} sticky if you think main; [pink]{.sticky-pink} if you think interaction.
 
 ## Fit model with main effects {.smaller}
 

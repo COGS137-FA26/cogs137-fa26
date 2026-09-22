@@ -24,7 +24,7 @@ website:
     style: "docked"
     search: true
     collapse-level: 1
-    background: "#92a76a"
+    background: "#44592a"   # dark brand green: 7.8:1 with white sidebar text (WCAG AA)
     pinned: true
     align: center
     logo: "images/cogs137-logo-hex.png"
@@ -257,9 +257,10 @@ format:
     theme:
       light: [cosmo, styles/cogs137.scss]
       dark: [cosmo, styles/cogs137.scss, styles/dark.scss]
-    linkcolor: "#92a76a"
     toc: true
     code-copy: true
+    highlight-style: a11y   # WCAG-contrast syntax colors (auto a11y-dark in dark mode)
+    include-before-body: _includes/skip-link.html
     code-overflow: wrap
 
 execute:

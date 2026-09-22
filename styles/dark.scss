@@ -4,6 +4,13 @@
 $body-bg: #181818;
 $body-color: #FFFFFF;
 
+// Links: 9.7:1 (link) and 12:1 (hover) on #181818
+$link-color: #b4c78f;
+$link-hover-color: #d3e0bb;
+$cogs137-focus: #d3e0bb;
+$cogs137-link: #b4c78f;
+$cogs137-link-hover: #d3e0bb;
+$cogs137-skip-bg: #181818;
 
 // Navigation element colors
 $footer-bg: #181818;
@@ -20,3 +27,7 @@ $input-bg: #242424;
 
 
 /*-- scss:rules --*/
+
+.label-green {
+  color: #b4c78f;
+}

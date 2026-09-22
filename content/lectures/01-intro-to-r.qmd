@@ -201,7 +201,7 @@ str(mylist)
 Define variables of each of the following types: character, numeric, integer, logical, list
 
 ::: aside
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
 :::
 
 ## Functions
@@ -347,7 +347,7 @@ These operators return a Boolean.
 Use arithmetic and comparison operators to store the value 30 in the variable `var_30` and `TRUE` in the variable `true_var`.
 
 ::: aside
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
 :::
 
 # R Packages {background-color="#92A86A"}

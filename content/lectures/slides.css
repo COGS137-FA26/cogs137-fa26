@@ -8,8 +8,9 @@
 $font-family-sans-serif: "Montserrat", sans-serif;
 $font-family-monospace: "Source Code Pro", monospace;
 $presentation-heading-color: #263459;
-$link-color: #92a76a;
-$code-color: #92a76a;
+// #516b2e = darker brand green, 6.0:1 on white (WCAG AA); #92a76a was 2.6:1
+$link-color: #516b2e;
+$code-color: #516b2e;
 $code-block-font-size: 0.7em;
 $presentation-h2-font-size: 1.4em !default;
 $presentation-h3-font-size: 1.1em !default;
@@ -67,7 +68,19 @@ details>summary {
 }
 
 .reveal h3 {
-  color: #92a76a;
+  color: #516b2e;
+}
+
+// links distinguishable by more than color (WCAG 1.4.1)
+.reveal .slides a {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.reveal a:focus-visible,
+.reveal button:focus-visible {
+  outline: 3px solid #263459;
+  outline-offset: 2px;
 }
 
 .reveal .hand {
@@ -78,7 +91,7 @@ details>summary {
 .reveal .hand-green {
   font-family: 'Gochi Hand', cursive;
   font-size: 1.2em;
-  color:#92a76a;
+  color: #516b2e;
 }
 
 .reveal .slide .task {
@@ -97,4 +110,21 @@ details>summary {
   width: 100px!important;
   max-width: unset !important;
   max-height: unset !important;
+}
+
+// Sticky-note cues: the color is kept as a chip behind dark text
+// (#1a1a1a on green 8.1:1, on pink 6.3:1); the word itself names the color.
+.reveal .sticky-green, .reveal .sticky-pink {
+  color: #1a1a1a;
+  font-weight: bold;
+  padding: 0 0.3em;
+  border-radius: 0.2em;
+}
+.reveal .sticky-green { background-color: #32cb31; }
+.reveal .sticky-pink  { background-color: #ff65a3; }
+
+// Emphasized labels in brand green (6.0:1 on white)
+.reveal .label-green {
+  color: #516b2e;
+  font-weight: bold;
 }

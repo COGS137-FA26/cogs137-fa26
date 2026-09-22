@@ -1,26 +1,134 @@
 /*-- scss:defaults --*/
 
-@import 'https://fonts.googleapis.com/css2?family=Montserrat&display=swap';
+// Atkinson Hyperlegible: typeface designed for low-vision readers
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-$font-family: "Atkinson Hyperlegible", sans-serif;
-$link-color: #92a76a;
-$hover-color: lighten($link-color, 20%);
+$font-family-sans-serif: "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif !default;
 
+// COGS 137 greens -- all text/background pairs below meet WCAG 2.1 AA (4.5:1)
+$cogs137-green:       #92a76a !default;  // brand accent: decorative use only (2.6:1 on white)
+$cogs137-green-text:  #516b2e !default;  // links on white: 6.0:1
+$cogs137-green-hover: #3f5423 !default;  // link hover on white: 8.4:1
+$cogs137-green-dark:  #44592a !default;  // sidebar background behind white text: 7.8:1
+$cogs137-focus:       #263459 !default;  // focus ring on light backgrounds
+$cogs137-link:        $cogs137-green-text !default;
+$cogs137-link-hover:  $cogs137-green-hover !default;
+$cogs137-skip-bg:     #FFFFFF !default;
 
-// Navigation element colors
-$sidebar-fg: #FFFFFF;
-$sidebar-hl: #92a76a;
+$link-color: $cogs137-green-text !default;
+$link-hover-color: $cogs137-green-hover !default;
+$primary: $cogs137-green-dark !default;
+
+// Navigation element colors (sidebar background is set in _quarto.yml)
+$sidebar-fg: #FFFFFF !default;
+$sidebar-hl: #FFFFFF !default;
 
 /*-- scss:rules --*/
 
-a {
-  color: $link-color;
-  text-decoration: none;
+// Links in page content are underlined so they are not distinguished by
+// color alone (WCAG 1.4.1). Navigation links (sidebar, TOC, navbar) are
+// identifiable by position, so they stay un-underlined.
+main a,
+.page-footer a {
+  color: $cogs137-link;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 
   &:hover {
-    color: $hover-color;
-    border-bottom: 1px solid $hover-color;
+    color: $cogs137-link-hover;
+    text-decoration-thickness: 2px;
   }
+}
+
+// Headings anchors, TOC, and buttons shouldn't get the underline
+main .anchorjs-link,
+main a.btn,
+main .nav-link,
+main .quarto-xref {
+  text-decoration: none;
+}
+
+// Visible keyboard focus everywhere (WCAG 2.4.7)
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid $cogs137-focus;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+// Sidebar: white text on dark green; active + hover marked by more than color
+#quarto-sidebar {
+  .sidebar-link,
+  .sidebar-item-text,
+  .sidebar-section-item,
+  .sidebar-tools-main a,
+  .sidebar-title a,
+  .quarto-navigation-tool {
+    color: #FFFFFF;
+  }
+
+  .sidebar-link:hover .menu-text,
+  .sidebar-item-text:hover {
+    text-decoration: underline;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline-color: #FFFFFF;
+  }
+}
+
+div.sidebar-item-container .active,
+div.sidebar-item-container .show > .nav-link,
+div.sidebar-item-container .sidebar-link > code {
+  font-weight: bold;
+}
+
+.sidebar a.active,
+.sidebar a.active .menu-text {
+  color: #FFFFFF;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+
+// Skip link (added in _quarto.yml): hidden until focused
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 10000;
+  padding: 0.5rem 1rem;
+  background: $cogs137-skip-bg;
+  color: $cogs137-focus;
+  font-weight: bold;
+  border: 2px solid $cogs137-focus;
+
+  &:focus {
+    top: 0.5rem;
+  }
+}
+
+// Sticky-note cues: the color is kept as a chip behind dark text
+// (#1a1a1a on green 8.1:1, on pink 6.3:1); the word itself names the color.
+.sticky-green, .sticky-pink {
+  color: #1a1a1a;
+  font-weight: bold;
+  padding: 0 0.3em;
+  border-radius: 0.2em;
+}
+.sticky-green { background-color: #32cb31; }
+.sticky-pink  { background-color: #ff65a3; }
+
+// Emphasized labels in brand green (6.0:1 on white)
+.label-green {
+  color: #516b2e;
+  font-weight: bold;
 }
 
 .project {
@@ -29,11 +137,13 @@ a {
   margin-bottom: 15px;
 }
 
-div.sidebar-item-container .active, div.sidebar-item-container .show>.nav-link, div.sidebar-item-container .sidebar-link>code {
-  font-weight: bold;
-}
-
-
-.sidebar a.active {
-  color: #FFFFFF;  /* Change to your desired color */
+// Respect reduced-motion preferences (WCAG 2.3.3)
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

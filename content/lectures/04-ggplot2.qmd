@@ -340,7 +340,7 @@ ggplot(WB,
 Generate a basic plot in `ggplot2` using different filtering and/or variables than those in the last example (last example: `thc` & `thccoooh`, "0-30 min" timepoint).
 
 ::: aside
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
 :::
 
 # Aesthetics {background-color="#92A86A"}
@@ -456,7 +456,7 @@ ggplot(data = WB,
 Edit the basic plot you created earlier to change something about its aesthetics.
 
 ::: aside
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
 :::
 
 # Faceting {background-color="#92A86A"}
@@ -539,7 +539,7 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
 Generate a plot in `ggplot2` using a different `geom` than what you did previously. Customize as much as you can before time is "up."
 
 ::: aside
-Put a <font color="#32cb31">green</font> sticky on the front of your computer when you're done. Put a <font color="#ff65a3">pink</font> if you want help/have a question.
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
 :::
 
 # Recap {background-color="#92A86A"}
