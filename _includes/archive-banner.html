@@ -1,0 +1,20 @@
+<!-- archive-banner: marks this as an old offering of the course -->
+<meta name="robots" content="noindex">
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  var main = document.getElementById("quarto-document-content");
+  if (!main || document.getElementById("archive-banner")) return;
+  var div = document.createElement("div");
+  div.id = "archive-banner";
+  div.className = "alert alert-warning";
+  div.setAttribute("role", "alert");
+  div.style.marginTop = "1rem";
+  div.innerHTML =
+    "<strong>&#9888;&#65039; Archived course website.</strong> " +
+    "This is the course website for COGS 137 from <strong>Fall 2026</strong>. " +
+    "While some material may look similar to your current course, be sure you're on " +
+    "<em>this quarter's</em> course website as many things have changed. " +
+    "<a style=\"color:inherit;font-weight:600;text-decoration:underline\" href=\"https://cogs137.github.io/\">Go to the current course website &rarr;</a>";
+  main.insertBefore(div, main.firstChild);
+});
+</script>

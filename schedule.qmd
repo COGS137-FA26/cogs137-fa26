@@ -26,7 +26,7 @@ d |>
   mutate(
     date = as.Date(date)
   ) |>
-  gt() |>
+  gt(id = "schedule") |>
   fmt_date(date, date_style = 31) |>
   sub_missing(columns = c(week, topic, prepare, materials, due), missing_text = "") |>
   cols_align(
@@ -69,5 +69,22 @@ d |>
         md()
     }) |>
   tab_options(table.font.size = 13) |>
-  opt_row_striping()
+  opt_row_striping() |>
+  # Freeze the header row while scrolling the page (desktop widths only;
+  # on narrow screens the table keeps its horizontal scroll instead)
+  opt_css(
+    css = "
+    @media (min-width: 992px) {
+      .cell-output-display:has(#schedule),
+      #schedule { overflow: visible !important; }
+      #schedule thead th.gt_col_heading {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        background-color: var(--bs-body-bg, #fff);
+        box-shadow: inset 0 -2px 0 #D3D3D3;
+      }
+    }
+    "
+  )
 ```

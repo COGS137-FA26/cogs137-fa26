@@ -30,6 +30,11 @@ Avoid waiting until the end to render for the first time. It will be better/easi
 -   Push all your changes back to your GitHub repo
 -   This case study will be graded from the HTML file on your group's GitHub repo.
 
+::: callout-note
+**Outside resources & AI use:** Your team's .qmd includes an *Outside Resources & AI Use* section. Keep it updated as you go, including which team member(s) used each resource (write "None" if your team didn't use any). This is required.
+:::
+
+
 
 :::aside
   A reminder that the [Quarto documentation on HTML output](https://quarto.org/docs/output-formats/html-basics.html) covers controlling HTML output (table of contents, code folding, themes, etc.), in case you want to customize your output in some way.

@@ -15,7 +15,7 @@ For the final project, you and your group mates (groups of 4-5 people) will carr
 
 Each group will be provided with a private `final-<team name>` repo in the [course GitHub organization](https://github.com/COGS137-FA26) that all members as well as course instructional staff will have access to. Final projects will be "submitted" by pushing the project requirements to the group repo by the deadline.
 
-Presentations will be submitted on Canvas OR completed in class during week 10. Groups that opt to present in class will 1) need to have all group members present and 2) receive extra credit
+Presentations will be completed in class during week 10. All group members must be present.
 
 Written, visual, and presented content will be graded on their technical merits as well as the effectiveness of their communication.
 
@@ -36,11 +36,16 @@ You are strongly encouraged to think of your topic/question before looking for d
 
 Your analysis will be submitted as a .qmd document and rendered to HTML (both of which should be pushed to GitHub).
 
+::: callout-note
+**Outside resources & AI use:** Your team's .qmd includes an *Outside Resources & AI Use* section. Keep it updated as you go, including which team member(s) used each resource (write "None" if your team didn't use any). This is required.
+:::
+
+
 This will likely *not* be quite as long as a case study in this course, but will likely have the same sections.
 
 ### Deliverable: Presentation
 
-Students must present their case study in a presentation that is **3-5min long**. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. This presentation will be either 1) presented in class during week 10 (all members present) or 2) pre-recorded and submitted on Canvas (**at least one group member must present the project**; in other words, not everyone has to "speak" but everyone in the group is responsible for the contents).
+Students must present their case study in a presentation that is **5 minutes long**. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. All presentations will take place in class during week 10, and every group member must be present. Not everyone has to speak, but everyone in the group is responsible for the contents, and individual understanding will be assessed during the questions after your presentation.
 
 ### Deliverable: General Communication
 

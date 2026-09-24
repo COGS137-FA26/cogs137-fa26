@@ -79,4 +79,8 @@ Explain *why* you made the design and visualization choices you did for your imp
 
 ## Submission
 
+::: callout-note
+**Outside resources & AI use:** Before submitting, fill in the *Outside Resources & AI Use* section at the end of your .qmd (write "None" if you didn't use any). This is required on every assignment.
+:::
+
 Be sure to **render your file to HTML**, look at the output HTML file to make sure everything looks as you expected, and then commit and push your final changes to GitHub. We will be grading from the HTML file. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.

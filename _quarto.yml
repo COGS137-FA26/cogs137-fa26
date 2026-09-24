@@ -69,7 +69,7 @@ website:
         href: https://datahub.ucsd.edu/hub/spawn
         text: "Datahub"
       - icon: question
-        href: https://piazza.com/configure-classes/muczvyliqy23y
+        href: https://piazza.com/class/muczvyliqy23y/
         text: "Piazza"
       - icon: github
         href: https://github.com/COGS137-FA26
@@ -178,6 +178,9 @@ format:
     code-copy: true
     highlight-style: a11y   # WCAG-contrast syntax colors (auto a11y-dark in dark mode)
     include-before-body: _includes/skip-link.html
+    # When FA26 is over, uncomment the next line and re-render to add the
+    # "archived" banner (links to cogs137.github.io) and hide the site from search engines.
+    # include-in-header: _includes/archive-banner.html
     code-overflow: wrap
 
 execute:

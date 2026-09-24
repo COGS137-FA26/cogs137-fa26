@@ -51,7 +51,7 @@ While R has most/all of the functionality of **YFPL** (your favorite programming
 ::: incremental
 -   Program at the introductory level in the R statistical programming language
 -   Employ the tidyverse suite of packages to interact with, wrangle, visualize, and model data
--   Explain & apply statistical concepts (estimation, linear regression, logistic regression, etc.) for data analysis
+-   Explain & apply statistical concepts for data analysis
 -   Communicate data science projects through effective visualization, oral presentation, and written reports
 :::
 
@@ -117,6 +117,8 @@ Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations
 -   Interactive
 -   Lectures & lots of learn-by-doing
 -   Bring your laptop to class every day
+-   Attendance *not* required, but we do a lot in class; you should come
+-   Lectures are podcast
 
 ### Waitlist
 
@@ -164,7 +166,7 @@ I don't anticipate students being enrolled off of the waitlist (will be dependen
 
 . . .
 
-**But...** if I ever fall short or if you ever have suggestions for improvement, please do share with me! There is also an [anonymous Google Form](https://goo.gl/forms/2nXnDNbgYuS1OsGF2) if you're more comfortable there.
+**But...** if I ever fall short or if you ever have suggestions for improvement, please do share with me! There is also an [anonymous Google Form](https://docs.google.com/forms/d/e/1FAIpQLSd1YNH8CqBbVxr_M9v_c3X-XLqySLrBfYE7GwuAshFMCP_WvQ/viewform) if you're more comfortable there.
 
 ## Changes since last iteration
 
@@ -225,7 +227,7 @@ Always read/think about/question/understand the output.
 
 . . .
 
-Conversational use can be incredbily helpful for learning.
+Conversational use can be incredibly helpful for learning.
 
 
 ## GenAI: What to Avoid
@@ -238,14 +240,32 @@ Conversational use can be incredbily helpful for learning.
 -   Using it right away for brainstorming ideas (limits ideas generated)
 :::
 
+## When Do I Use GenAI?
+- Administrative tasks (updating dates, checking for inconsistencies)
+- Suggesting/Identifying gaps in material
+- Updating content (with review)
+
+## When DON'T I Use GenAI? 
+- Building course material from scratch
+- Grading student work
+- Generating Assessments
+
 ## Course components:
 
 ::: incremental
 -   [Labs (7)]{.label-green}: Individual submission; graded on effort
 -   [Homework (2)]{.label-green}: Individual submission; graded on correctness
 -   [Case Studies (2)]{.label-green}: Team submission, technical analysis report + general communication
--   [Final Project (1)]{.label-green}: Team submission, due Fri of finals week w/ checkpoints prior
+-   [Final Project (1)]{.label-green}: Team submission, present during week 10; final deliverables due Fri of finals week (w/ additional checkpoints prior)
 :::
+
+## Course components:
+
+Notes:
+
+- Groups are assigned for CS01
+- Final presentations are in class; individual grades are determined by question answering
+- Outside resource usage (including GenAI) must be stated on all submitted work
 
 ## Grading
 
@@ -270,7 +290,7 @@ Your final grade will be comprised of the following:
 |                                 | Team Evaluation Survey      | 1%                 |
 
 
-: \* indicates group submission
+: \* indicates group submission, but individual grades can be adjusted
 
 ## Late/missed work policy
 
@@ -287,6 +307,7 @@ Note: Prof Ellis is a reasonable person; reach out to her if you have an extenua
 ## Who's in this class?
 
 ```{r data, message=FALSE, warning=FALSE, echo=TRUE, eval=TRUE}
+#| code-fold: true
 roster <- read_sheet('1_jbBiofizJj6eZrflCbVRfujvbdbHbCbAWMABbJetK0')
 
 ggplot(roster, aes(y = fct_rev(fct_infreq(College)))) +
@@ -301,6 +322,7 @@ Note: This code will not run for you because you don't have access to the roster
 ## Who's in this class?
 
 ```{r major}
+#| code-fold: true
 roster |>
   mutate(major = `Student Primary Major Department Code`) |>
   ggplot(aes(y = fct_rev(fct_infreq(major)))) + 
@@ -315,6 +337,7 @@ roster |>
 ## Who's in this class?
 
 ```{r year}
+#| code-fold: true
 roster |>
   ggplot(aes(y = fct_rev(fct_infreq(`Student Classification`)))) +
   geom_bar() +
@@ -328,7 +351,7 @@ roster |>
 
 ## I'd like to know more!
 
-(*required*)[Student Survey]() - complete by Fri 10/2 at 11:59 PM.
+(*required*)[Student Survey](Çetinkaya-Rundel) - complete by Sun 10/4 at 11:59 PM.
 
 **This is required and completion will be used for CAA/#finaid.** **DO** complete this even if you're on the waitlist, please.
 

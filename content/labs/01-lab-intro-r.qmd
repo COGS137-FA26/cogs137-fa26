@@ -398,4 +398,8 @@ Not sure how to use emojis on your computer? Maybe a classmate can help? Or you 
 You'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.
 :::
 
+::: callout-note
+**Outside resources & AI use:** Before submitting, fill in the *Outside Resources & AI Use* section at the end of your .qmd (write "None" if you didn't use any). This is required on every assignment.
+:::
+
 *Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 1! `r emo::ji("muscle")`", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

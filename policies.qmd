@@ -50,16 +50,16 @@ Your final grade will be comprised of the following:
 
 | Assignment (#)                  | Component                   | \% of grade        |
 |---------------------------------|-----------------------------|--------------------|
-| **Labs (7)**                    |                             | **27% (3pt each)** |
-| **Homework (2)**                |                             | **10% (5pt each)** |
+| **Labs (7)**                    |                             | **21% (3pt each)** |
+| **Homework (2)**                |                             | **12% (6pt each)** |
 | **Case Study (2; cs01 + cs02)** |                             | **28%**            |
 |                                 | Report\* (2)                | 20% (10pt each)    |
 |                                 | General Communication\* (2) | 6% (3pt each)      |
 |                                 | Team Evaluation Survey (2)  | 2% (1pt each)      |
-| **Final Project (1)**           |                             | **35%**            |
-|                                 | Project Proposal\* (1)      | 3%                 |
-|                                 | First Draft\* (1)           | 4%                 |
-|                                 | Peer Review\* (1)           | 4%                 |
+| **Final Project (1)**           |                             | **39%**            |
+|                                 | Project Proposal\* (1)      | 5%                 |
+|                                 | First Draft\* (1)           | 5%                 |
+|                                 | Peer Review\* (1)           | 5%                 |
 |                                 | Final Report\* (1)          | 10%                |
 |                                 | General Communication\* (1) | 3%                 |
 |                                 | Final Presentation (1)      | 10%                |
@@ -70,7 +70,7 @@ Your final grade will be comprised of the following:
 
 #### Final Grades
 
-To calculate final grades, I use the standard grading scale and do not round grades up (given the numerous extra credit opportunities offered):
+To calculate final grades, I use the standard grading scale and do not round grades up (given extra credit opportunities offered):
 
 |         |     |
 |---------|-----|
@@ -133,23 +133,12 @@ But, if you prefer to be anonymous (i.e. If you've been offended by an example i
 
 Please don't cheat. Academic dishonesty undermines you actually learning the material and is unfair to students putting in the work. I take academic integrity seriously and have historically and will continue to report any suspected violations to the **UCSD Academic Integrity Office**. (I hate when I have to do this; please don't put either of us in that position.)
 
-It is your responsibility to familiarize yourself with UCSD's academic integrity policies](http://academicintegrity.ucsd.edu/).
+It is your responsibility to familiarize yourself with [UCSD's academic integrity policies](http://academicintegrity.ucsd.edu/).
 
 Examples of academic dishonesty include (but are not limited to):
 
 - asking AI to complete your homeworks, labs, or projects
 - copying answers from another student (or allowing another student to copy yours)
-- using/sharing a "secret code" or timing of Google Form to receive credit when you are not in class/section (or sharing one with a classmate who is absent)
-
-Don't cheat. Academic dishonesty undermines you actually learning the material and is unfair to students putting in the work. I take academic integrity seriously and have historically and will continue to report any suspected violations to the **UCSD Academic Integrity Office**. (I hate when I have to do this; please don't put either of us in that position.)
-
-It is your responsibility to familiarize yourself with [UCSD's academic integrity policies](http://academicintegrity.ucsd.edu/).
-
-Examples of academic dishonesty include (but are not limited to):
-
-- using AI to complete your quizzes or assignments
-- copying answers from another student (or allowing another student to copy yours)
-- using notes or the Internet (including AI tools) during exams
 - using/sharing a "secret code" or timing of Google Form to receive credit when you are not in class/section (or sharing one with a classmate who is absent)
 
 Use of Generative AI (GenAI) tools (e.g., TritonGPT, ChatGPT, Claude, Gemini) is permitted in this course; however, use should be thoughtful and intentional. If they are helping you learn, you're probably using them correctly. If they're helping you earn points without actually learning, you're using them incorrectly.

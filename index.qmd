@@ -12,16 +12,16 @@ Practical Data Science in R focuses on teaching students how to think rigorously
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-<font color="#92a76a"><i class="fas fa-university fa-lg"></i></font> **Lecture**: WWF 10-10:50A (WLH 2205)\
+<font color="#92a76a"><i class="fas fa-university fa-lg"></i></font> **Lecture**: MWF 10-10:50A (WLH 2205)\
 <font color="#92a76a"><i class="fas fa-laptop fa-lg"></i></font> **Lab**: Th 5-5:50 (WLH 2205)
 
 ##### Instructional Staff & Office Hours
 
-|                |                                                |                  |             |                                   |
+|                |                                                 |                  |             |                                   |
 |--------------|--------------|--------------|--------------|------------------|
-| **Instructor** | [**Shannon Ellis**](http://www.shanellis.com/) | sellis\@ucsd.edu | Mon 11A-12P | CSB 243                           |
-|                |                                                |                  | Tu 1-3P     | Zoom by appt (Canvas for sign-up) |
-| **TA**         | Vinuthna Hasthi                                |                  | TBD         | TBD                               |
+| **Instructor** | [**Shannon Ellis**](https://shannon-ellis.com/) | sellis\@ucsd.edu | Mon 11A-12P | CSB 243                           |
+|                |                                                 |                  | Tu 1-3P     | Zoom by appt (Canvas for sign-up) |
+| **TA**         | Vinuthna Hasthi                                 |                  | TBD         | TBD                               |
 
 ### Course Objectives
 
@@ -51,4 +51,4 @@ Note: If you do not have consistent access to the technology needed, please reac
 
 ### Acknowledgements
 
-I want to first recognize [Dr. Mine Çetinkaya-Rundeland](https://mine-cr.com/) for her unparalleled efforts in support of education and educators in data science, statistics, and R programming. This course website was adapted from her [course websites](https://mine-cr.com/teaching/). Some of our course materials are also from her [datascienceinabox](https://datasciencebox.org/) project. I am so *very* indebted to Mine! I also want to thank the [Open Case Studies](https://www.opencasestudies.org/) team for their tireless work in putting together interesting and topical case studies, a handful of which have been used throughout the course over the years. And, finally, thanks to [Allison Horst](https://www.allisonhorst.com/), whose [artwork](https://github.com/allisonhorst/stats-illustrations/) is inspiring, educational, and fun...and is used throughout this course. Further, thanks to the greater R (education) community who make planning and teaching R courses simply the best.
+I want to first recognize [Dr. Mine Çetinkaya-Rundel](https://mine-cr.com/) for her unparalleled efforts in support of education and educators in data science, statistics, and R programming. This course website was adapted from her [course websites](https://mine-cr.com/teaching/). Some of our course materials are also from her [datascienceinabox](https://datasciencebox.org/) project. I am so *very* indebted to Mine! I also want to thank the [Open Case Studies](https://www.opencasestudies.org/) team for their tireless work in putting together interesting and topical case studies, a handful of which have been used throughout the course over the years. And, finally, thanks to [Allison Horst](https://www.allisonhorst.com/), whose [artwork](https://github.com/allisonhorst/stats-illustrations/) is inspiring, educational, and fun...and is used throughout this course. Further, thanks to the greater R (education) community who make planning and teaching R courses simply the best.
