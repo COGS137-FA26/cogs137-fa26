@@ -34,7 +34,7 @@ options(gargle_oauth_email = "sellis@ucsd.edu")
 
 1.  Describe what this class is
 2.  Describe how the class will run
-3.  Preview the tools we'll use (more on Monday!)
+3.  "See" who's in this class 
 
 ## What is R?
 
