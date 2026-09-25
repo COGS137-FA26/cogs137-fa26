@@ -456,7 +456,16 @@ Dr.&nbsp;Shannon Ellis
 <section id="who-am-i" class="slide level2">
 <h2>Who am I?</h2>
 <p>Shannon Ellis: Associate Teaching Professor, Mom x2 &amp; wife, volleyball-obsessed, and baking &amp; cooking lover</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+TODO: replace this placeholder with your photo, e.g.: <img data-src="images/00/Shannon.jpeg" width="250">
+<div style="width:250px; height:250px; border:2px dashed #92A86A; border-radius:8px; display:flex; align-items:center; justify-content:center; color:#92A86A; font-size:0.8em;">
+Photo of Shannon
+</div>
+</div><div class="column" style="width:65%;">
 <p><i class="fa fa-envelope"></i> &nbsp; <a href="mailto:sellis@ucsd.edu">sellis@ucsd.edu</a> <br> <i class="fa fa-home"></i> &nbsp; <a href="https://shannon-ellis.com/">shannon-ellis.com</a> <br> <i class="fa fa-university"></i> &nbsp;WLH 2205 <br> <i class="fa fa-calendar"></i> &nbsp; MWF 10A (Lab: Th 5P WLH 2205)</p>
+</div>
+</div>
 </section>
 <section id="course-staff" class="slide level2">
 <h2>Course Staff</h2>
@@ -468,7 +477,7 @@ Dr.&nbsp;Shannon Ellis
 </thead>
 <tbody>
 <tr class="odd">
-<td><img data-src="images/00/.png"></td>
+<td><img data-src="images/00/Vinuthna.jpeg" width="250"></td>
 </tr>
 </tbody>
 </table>
@@ -684,7 +693,12 @@ Dr.&nbsp;Shannon Ellis
 </section>
 <section id="course-components-1" class="slide level2">
 <h2>Course components:</h2>
-<p>Notes: - Groups are assigned for CS01 - Final presentations are in class; individual grades are determined by question answering - Outside resource usage (including GenAI) must be stated on all submitted work</p>
+<p>Notes:</p>
+<ul>
+<li>Groups are assigned for CS01</li>
+<li>Final presentations are in class; individual grades are determined by question answering</li>
+<li>Outside resource usage (including GenAI) must be stated on all submitted work</li>
+</ul>
 </section>
 <section id="grading" class="slide level2">
 <h2>Grading</h2>
@@ -795,6 +809,8 @@ Dr.&nbsp;Shannon Ellis
 <section id="whos-in-this-class" class="slide level2">
 <h2>Who’s in this class?</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>roster <span class="ot">&lt;-</span> <span class="fu">read_sheet</span>(<span class="st">'1_jbBiofizJj6eZrflCbVRfujvbdbHbCbAWMABbJetK0'</span>)</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a><span class="fu">ggplot</span>(roster, <span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(College)))) <span class="sc">+</span></span>
@@ -802,6 +818,7 @@ Dr.&nbsp;Shannon Ellis
 <span id="cb1-5"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"COGS 137: College"</span>, <span class="at">y=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb1-6"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
 <span id="cb1-7"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
 <img data-src="00-welcome_files/figure-html/data-1.png" width="2100" class="r-stretch"><p>Note: This code will not run for you because you don’t have access to the roster for this course.</p>
@@ -809,6 +826,8 @@ Dr.&nbsp;Shannon Ellis
 <section id="whos-in-this-class-1" class="slide level2">
 <h2>Who’s in this class?</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>roster <span class="sc">|&gt;</span></span>
 <span id="cb2-2"><a></a>  <span class="fu">mutate</span>(<span class="at">major =</span> <span class="st">`</span><span class="at">Student Primary Major Department Code</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
 <span id="cb2-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(major)))) <span class="sc">+</span> </span>
@@ -818,12 +837,15 @@ Dr.&nbsp;Shannon Ellis
 <span id="cb2-7"><a></a>       <span class="at">y  =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
 <span id="cb2-8"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span> </span>
 <span id="cb2-9"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
 <img data-src="00-welcome_files/figure-html/major-1.png" width="2100" class="r-stretch"></section>
 <section id="whos-in-this-class-2" class="slide level2">
 <h2>Who’s in this class?</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>roster <span class="sc">|&gt;</span></span>
 <span id="cb3-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> <span class="fu">fct_rev</span>(<span class="fu">fct_infreq</span>(<span class="st">`</span><span class="at">Student Classification</span><span class="st">`</span>)))) <span class="sc">+</span></span>
 <span id="cb3-3"><a></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -833,6 +855,7 @@ Dr.&nbsp;Shannon Ellis
 <span id="cb3-7"><a></a>       ) <span class="sc">+</span></span>
 <span id="cb3-8"><a></a>  <span class="fu">theme_bw</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span> </span>
 <span id="cb3-9"><a></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 
 </div>
 <img data-src="00-welcome_files/figure-html/year-1.png" width="2100" class="r-stretch"></section>

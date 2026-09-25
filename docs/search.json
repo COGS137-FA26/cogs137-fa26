@@ -66,7 +66,7 @@
     "href": "content/lectures/00-welcome.html#who-am-i",
     "title": "Welcome to COGS 137",
     "section": "Who am I?",
-    "text": "Who am I?\nShannon Ellis: Associate Teaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover\n   sellis@ucsd.edu     shannon-ellis.com    WLH 2205     MWF 10A (Lab: Th 5P WLH 2205)",
+    "text": "Who am I?\n\n\n\n\nShannon Ellis\nTeaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover\n\n   sellis@ucsd.edu     shannon-ellis.com    WLH 2205     MWF 10A (Lab: Th 5P WLH 2205)",
     "crumbs": [
       "Foundations",
       "Notes 00: Welcome"
@@ -77,7 +77,7 @@
     "href": "content/lectures/00-welcome.html#course-staff",
     "title": "Welcome to COGS 137",
     "section": "Course Staff",
-    "text": "Course Staff\n\n\n\nVinuthna Hasthi (TA)",
+    "text": "Course Staff\n\n\n\n\nVinuthna Hasthi\nTA\n\n   Lab: Th 5P WLH 2205",
     "crumbs": [
       "Foundations",
       "Notes 00: Welcome"
@@ -710,7 +710,7 @@
     "href": "content/lectures/00-welcome-slides.html#who-am-i",
     "title": "Welcome to COGS 137",
     "section": "Who am I?",
-    "text": "Who am I?\nShannon Ellis: Associate Teaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover\n   sellis@ucsd.edu     shannon-ellis.com    WLH 2205     MWF 10A (Lab: Th 5P WLH 2205)"
+    "text": "Who am I?\nShannon Ellis: Associate Teaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover\n\n\nTODO: replace this placeholder with your photo, e.g.: \n\nPhoto of Shannon\n\n\n   sellis@ucsd.edu     shannon-ellis.com    WLH 2205     MWF 10A (Lab: Th 5P WLH 2205)"
   },
   {
     "objectID": "content/lectures/00-welcome-slides.html#course-staff",
@@ -829,21 +829,21 @@
     "href": "content/lectures/00-welcome-slides.html#whos-in-this-class",
     "title": "Welcome to COGS 137",
     "section": "Who’s in this class?",
-    "text": "Who’s in this class?\n\nroster &lt;- read_sheet('1_jbBiofizJj6eZrflCbVRfujvbdbHbCbAWMABbJetK0')\n\nggplot(roster, aes(y = fct_rev(fct_infreq(College)))) +\n  geom_bar() +\n  labs(title = \"COGS 137: College\", y=NULL) +\n  theme_bw(base_size = 14) + \n  theme(plot.title.position = \"plot\")\n\n\nNote: This code will not run for you because you don’t have access to the roster for this course."
+    "text": "Who’s in this class?\n\n\nCode\nroster &lt;- read_sheet('1_jbBiofizJj6eZrflCbVRfujvbdbHbCbAWMABbJetK0')\n\nggplot(roster, aes(y = fct_rev(fct_infreq(College)))) +\n  geom_bar() +\n  labs(title = \"COGS 137: College\", y=NULL) +\n  theme_bw(base_size = 14) + \n  theme(plot.title.position = \"plot\")\n\n\n\nNote: This code will not run for you because you don’t have access to the roster for this course."
   },
   {
     "objectID": "content/lectures/00-welcome-slides.html#whos-in-this-class-1",
     "href": "content/lectures/00-welcome-slides.html#whos-in-this-class-1",
     "title": "Welcome to COGS 137",
     "section": "Who’s in this class?",
-    "text": "Who’s in this class?\n\nroster |&gt;\n  mutate(major = `Student Primary Major Department Code`) |&gt;\n  ggplot(aes(y = fct_rev(fct_infreq(major)))) + \n  geom_bar() +\n  labs(title = \"COGS 137: Major\",\n       x = NULL, \n       y  = NULL) +\n  theme_bw(base_size = 12) + \n  theme(plot.title.position = \"plot\")"
+    "text": "Who’s in this class?\n\n\nCode\nroster |&gt;\n  mutate(major = `Student Primary Major Department Code`) |&gt;\n  ggplot(aes(y = fct_rev(fct_infreq(major)))) + \n  geom_bar() +\n  labs(title = \"COGS 137: Major\",\n       x = NULL, \n       y  = NULL) +\n  theme_bw(base_size = 12) + \n  theme(plot.title.position = \"plot\")"
   },
   {
     "objectID": "content/lectures/00-welcome-slides.html#whos-in-this-class-2",
     "href": "content/lectures/00-welcome-slides.html#whos-in-this-class-2",
     "title": "Welcome to COGS 137",
     "section": "Who’s in this class?",
-    "text": "Who’s in this class?\n\nroster |&gt;\n  ggplot(aes(y = fct_rev(fct_infreq(`Student Classification`)))) +\n  geom_bar() +\n  labs(title = \"COGS 137: Year\",\n       x = NULL, \n       y  = NULL\n       ) +\n  theme_bw(base_size = 14) + \n  theme(plot.title.position = \"plot\")"
+    "text": "Who’s in this class?\n\n\nCode\nroster |&gt;\n  ggplot(aes(y = fct_rev(fct_infreq(`Student Classification`)))) +\n  geom_bar() +\n  labs(title = \"COGS 137: Year\",\n       x = NULL, \n       y  = NULL\n       ) +\n  theme_bw(base_size = 14) + \n  theme(plot.title.position = \"plot\")"
   },
   {
     "objectID": "content/lectures/00-welcome-slides.html#id-like-to-know-more",
@@ -911,6 +911,6 @@
     "href": "content/lectures/00-welcome-slides.html#course-components-1",
     "title": "Welcome to COGS 137",
     "section": "Course components:",
-    "text": "Course components:\nNotes: - Groups are assigned for CS01 - Final presentations are in class; individual grades are determined by question answering - Outside resource usage (including GenAI) must be stated on all submitted work"
+    "text": "Course components:\nNotes:\n\nGroups are assigned for CS01\nFinal presentations are in class; individual grades are determined by question answering\nOutside resource usage (including GenAI) must be stated on all submitted work"
   }
 ]

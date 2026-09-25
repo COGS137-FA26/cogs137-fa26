@@ -57,15 +57,40 @@ While R has most/all of the functionality of **YFPL** (your favorite programming
 
 ## Who am I?
 
-Shannon Ellis: Associate Teaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover
+::: {.columns style="align-items: center;"}
+::: {.column width="35%"}
+![](images/00/Shannon.jpeg){width="280" style="border-radius: 12px;" fig-alt="Photo of Shannon Ellis"}
+:::
 
+::: {.column width="65%" style="padding-left: 1.5em;"}
+**Shannon Ellis**
+
+Teaching Professor, Mom x2 & wife, volleyball-obsessed, and baking & cooking lover
+
+::: small
 <i class="fa fa-envelope"></i>   [sellis\@ucsd.edu](mailto:sellis@ucsd.edu) <br> <i class="fa fa-home"></i>   [shannon-ellis.com](https://shannon-ellis.com/) <br> <i class="fa fa-university"></i>  WLH 2205 <br> <i class="fa fa-calendar"></i>   MWF 10A (Lab: Th 5P WLH 2205)
+:::
+:::
+:::
 
 ## Course Staff
 
-| Vinuthna Hasthi (TA) | 
-|----------------------------|
-| ![](images/00/)       | 
+
+::: {.columns style="align-items: center;"}
+::: {.column width="35%"}
+![](images/00/Vinuthna.jpeg){width="250" style="border-radius: 12px;" fig-alt="Photo of Vinuthna Hasthi"}
+:::
+
+::: {.column width="65%" style="padding-left: 1.5em;"}
+**Vinuthna Hasthi**
+
+TA
+
+::: small
+<i class="fa fa-calendar"></i>   Lab: Th 5P WLH 2205
+:::
+:::
+:::
 
 ## What is this course? {.scrollable}
 
