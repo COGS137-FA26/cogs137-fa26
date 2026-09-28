@@ -25,18 +25,49 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Tooling: Datahub, Quarto, Git/GitHub {background-color="#92A86A"}
 
+## Q&A
+
+::: small
+> Q: Nothing so far, maybe how the assignments will look but I will figure that out when I see one!
+>
+> A: The labs will guide you through the content we discuss in class, so you'll get to practice on your own. The homeworks will extend beyond that, giving you less on *exactly* what to do so that you can really master the concept, after having seen it in lecture and practiced on the labs.
+
+> Q: Im curious exactly why r program is preferred for stats if you can do the same with python.
+>
+> A: This is a great question and the answer isn't super straightforward. It's somewhat historical. This is my *personal* retelling. Some may disagree with parts of it. Data science grew as a field out of both statistics and computer science (and other fields!). Those who came from CS tended to prefer "general" programming languages, like Python. Those who came from stats, preferred statistical programming languages, like R. *Now* I would argue that Python would *not* have become the *lingua franca* of data science (from the CS side) if Wes McKinney had not developed the pandas package (take COGS 108 if you want pandas experience!). Similarly, if Hadley Wickham hadn't developed the tidyverse in R, it would not be the second most popular language. Now, there are two different places where you can do all the data science things, and often it comes down to who you're working with, what their background is, and what your preference is. However, with GenAI (and its ability to "translate" between programming languages, we'll see what the future holds!
+
+> Q: I am curious what a case study looks like for data science! I have done many design case studies but how does that differ from this class?
+>
+> A: The term in a general sense is the same - a project deliverable that demonstrates your knowledge. But the core difference is that in design you're often asking (and answering) whether the thing built is right for its users and questioning/designing around these choices. Data science case studies, however, typically ask a question (on any topic!) and then use data to answer that question and quantify uncertainty in that answer.
+
+> Q: When citing outside resources we used to complete something for this class, is that a separate form or will we just cite on the bottom of the datahub worksheet like COGS 108?
+>
+> A: It will be the last section in the same document (same as in COGS 108) so you won't forget/have to submit a separate thing.
+:::
+
 ## Course Announcements
 
 **Due Dates**:
 
--   🔘 **Student survey** (#finaid) due Fri 10/2 (11:59 PM)
+- 🔘 **Student survey** (#finaid) due Fri 10/2 (11:59 PM)
 
--   🔘 Lecture Participation survey "due" after class
+- ⌨️ **Lab01** due Friday 10/2 (11:59 PM)
 
--   📝 Submit your **GitHub username** (form on Canvas) today, so your repos can be created
+::: small
+  - repos will be created in coming days for you to complete, but I need your GH usernames first
+:::
+
+- 🔘 **Lecture Participation survey** "due" after class
+
+- 📝 First round of **COGS 137 Org Invites** went out - accept these. If you didn't receive:
+
+::: small
+    -   complete the pre-course survey OR
+    -   Respond to the email for your GitHub username today (subject: "COGS 137 GH username? (please reply asap, ideally by EOD Monday)"), so your repos can be created OR
+    -   email me your GitHub username from your UCSD email
+:::
 
 Please take one [green]{.sticky-green} sticky and one [pink]{.sticky-pink} sticky as they come around. If you're able, try and save these. We'll use them most classes. (But, I'll always have extra!)
-
 
 ## Agenda
 
@@ -57,9 +88,9 @@ Website: <https://datahub.ucsd.edu/>
 
 **Launch Environment**
 
-When working on "stuff" for this course, select the COGS 137 environment.
+When working on "stuff" for this course, select the COGS 137 environment (if you see two, pick either one...just make sure it says COGS 137).
 
-![datahub](images/00/datahub.png)\
+![datahub - launch environment; click on blue "Launch Environment" after toggling COGS 137 ](images/00/datahub.png)
 
 ## Datahub Usage
 
@@ -121,7 +152,7 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 ### R packages
 
 -   **Packages** are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data [^1]
--   As of Sept 2024, there are \~21,000 R packages available on **CRAN** (the Comprehensive R Archive Network)[^2]
+-   As of Sept 2026, there are \~25,000 R packages available on **CRAN** (the Comprehensive R Archive Network)[^2]
 -   We're going to work with a small (but important) subset of these!
 :::
 
@@ -174,19 +205,13 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 -   You'll always have a template Quarto document to start with
 -   The amount of scaffolding in the template will decrease over the quarter
 
-## Quarto: tour
+. . .
 
+::: {.hand-green style="text-align: center;"}
 <center>\[DEMO\]</center>
+:::
 
-Before we move on...
-
-[<i class="fa fa-user" aria-hidden="true"></i>   What is the Bechdel test?]{style="background-color: #ADD8E6"}
-
-. . .
-
-The Bechdel test asks whether a work of fiction features at least two women who talk to each other about something other than a man, and there must be two women named characters.
-
-. . .
+<br><br>
 
 Concepts introduced:
 
@@ -250,11 +275,11 @@ There is a bit more of GitHub that we'll use in this class, but for today this i
 
 ## GitHub in COGS 137
 
-Your repos are created *for* you: no assignment links to click.
+Your repos will be created *for* you: no assignment links to click.
 
 ::: incremental
 1.  Create a GitHub account (if you don't have one)
-2.  Submit your GitHub username (form on Canvas) \<- **do this today**
+2.  Submit your GitHub username (pre-course survey) \<- **do this today**
 3.  Accept the one-time invite to the `COGS137-FA26` organization (email, or [github.com/orgs/COGS137-FA26/invitation](https://github.com/orgs/COGS137-FA26/invitation))
 4.  Find your repos at [github.com/COGS137-FA26](https://github.com/COGS137-FA26): `labXX-<username>`, `hwXX-<username>`, `csXX-<team>`, `final-<team>`
 :::
@@ -265,19 +290,21 @@ Full details on the [Computing Access](../../computing/computing-access.qmd#gith
 
 ## Demo-ing the process
 
-1.  Go to the [course GitHub organization](https://github.com/COGS137-FA26) and find your `demo01-<your GitHub username>` repo (this is NOT graded)
+::: aside
+You cannot yet do this. I want you to see it before you can try to follow along and do it. It will be re-demoed in lab *and* it will be on the podcast for future reference. 
+:::
+
+1.  Go to the [course GitHub organization](https://github.com/COGS137-FA26) and find your `lab01-<your GitHub username>` repo
 2.  Copy the repo's SSH URL
 3.  Clone the repo
 4.  Edit the document
 5.  **Render the document**
 6.  Push your changes
 
-Try to play around with this after finishing your lab!
-
 # Getting Help
 
 -   Trying things out
--   Undersetanding Documentation
+-   Understanding Documentation
 -   Using ChatGPT/LLMs
 
 ## Documentation
@@ -291,7 +318,7 @@ Consider `ggplot2` (a package we'll learn a lot)
 -   Specific Function: [https://ggplot2.tidyverse.org/reference/geom_point.html]()
 :::
 
-## ChatGPT: What it could look like
+## GenAI: What it could look like
 
 Imagine: You've been asked to carry out a number of wrangling operations on a dataset and make a plot...
 
@@ -329,5 +356,3 @@ Can you answer these questions?
 -   [Using `git` with GitHub Desktop](https://youtu.be/zQc5vQEBips), by COGS 108 TA Sidharth Suresh (youtube, 13min tutorial)
 -   [GIT & GITHUB TUTORIAL](https://www.youtube.com/watch?v=xuB1Id2Wxak), from edureka!
     -   with [notes](https://docs.google.com/document/d/1GAdkvn7lWzeLekvC343WNZC2rZGhQOfPOU2dMha9aws/edit) from COGS 18/108 TA Holly(Yueying) Dong
-
-

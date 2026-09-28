@@ -17,11 +17,11 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 ##### Instructional Staff & Office Hours
 
-|                |                                                 |                  |             |                                   |
+|                |                                                 |                  |             |                                              |
 |--------------|--------------|--------------|--------------|------------------|
-| **Instructor** | [**Shannon Ellis**](https://shannon-ellis.com/) | sellis\@ucsd.edu | Mon 11A-12P | CSB 243                           |
-|                |                                                 |                  | Tu 1-3P     | Zoom by appt (Canvas for sign-up) |
-| **TA**         | Vinuthna Hasthi                                 |                  | TBD         | TBD                               |
+| **Instructor** | [**Shannon Ellis**](https://shannon-ellis.com/) | sellis\@ucsd.edu | Mon 11A-12P | CSB 243                                      |
+|                |                                                 |                  | Tu 1-3P     | 10 min appt on Zoom (see Canvas for sign-up) |
+| **TA**         | Vinuthna Hasthi                                 |                  | Wed 3-4     | 10 min appt on Zoom (see Canvas for sign-up) |
 
 ### Course Objectives
 

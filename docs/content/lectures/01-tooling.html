@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2001-10-28">
+<meta name="author" content="Professor Shannon Ellis">
+<meta name="dcterms.date" content="2026-09-28">
 
-<title>COGS 137 - HW 02 - Data Visualization</title>
+<title>COGS 137 - 01-tooling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../content/hw/hw-03.html" rel="next">
-<link href="../../content/hw/hw-01.html" rel="prev">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/00-welcome.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -71,15 +72,45 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="../../site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../../site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<meta property="og:title" content="COGS 137 - HW 02 - Data Visualization">
-<meta property="og:description" content="Homepage for COGS 137 - Practical Data Science in R, Fall 2026.">
-<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/hw/images/background.png">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="COGS 137 - 01-tooling">
+<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
 <meta property="og:site_name" content="COGS 137">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked slimcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -88,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../../content/hw/hw-02.html">HW02</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../content/lectures/01-tooling.html">Notes 01: Tooling (Datahub, Quarto, Git/GitHub)</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,20 +141,19 @@ ul.task-list li input[type="checkbox"] {
       <a href="" title="Canvas" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Canvas"><i class="bi bi-person-fill"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/58555">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/80042">
             Homepage
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/58555/gradebook">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/80042/gradebook">
             Grades
             </a>
           </li>
       </ul>
     </div>
     <a href="https://datahub.ucsd.edu/hub/spawn" title="Datahub" class="quarto-navigation-tool px-1" aria-label="Datahub"><i class="bi bi-cloud"></i></a>
-    <a href="https://piazza.com/class/m1jv2820hu54m" title="Piazza" class="quarto-navigation-tool px-1" aria-label="Piazza"><i class="bi bi-question"></i></a>
-    <a href="https://chatgpt.com/" title="ChatGPT" class="quarto-navigation-tool px-1" aria-label="ChatGPT"><i class="bi bi-robot"></i></a>
+    <a href="https://piazza.com/class/muczvyliqy23y/" title="Piazza" class="quarto-navigation-tool px-1" aria-label="Piazza"><i class="bi bi-question"></i></a>
     <a href="https://github.com/COGS137-FA26" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
@@ -160,239 +190,44 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
- <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Foundations</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">00-welcome</span></a>
+ <span class="menu-text">Notes 00: Welcome</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/01-intro-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">01-intro-to-r</span></a>
+  <a href="../../content/lectures/01-tooling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Notes 01: Tooling (Datahub, Quarto, Git/GitHub)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/02-cs01-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02-cs01-intro</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/03-dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03-dplyr</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/04-ggplot2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">04-ggplot2</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/05-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">05-viz</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/06-cs01-eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">06-cs01-eda</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/07-written-communication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">07-written-communication</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/08-cs01-inclass.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">08-cs01-inclass</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/09-cs02-intro.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">09-cs02-intro</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/10-cs02-eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10-cs02-eda</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/11-tidymodels.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11-tidymodels</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/12-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12-regression</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/13-cs02-analysis.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13-cs02-analysis</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/14-cs02-inclass.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14-cs02-inclass</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/15-oral-communication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15-oral-communication</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/16-project-inclass.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16-project-inclass</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/17-presentations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17-presentations</span></a>
+  <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 01: Tooling and R</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
- <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab01: Tooling and R</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/02-lab-cs01-wrangle.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab02: CS01 Data Wrangling</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/03-lab-cs01-viz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab03: CS01 Data Visualization</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/04-lab-cs01-eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab04: CS01 EDA</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/05-lab-cs01-communication.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab05: CS01 Communication</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/06-lab-cs02-eda.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab06: CS02 EDA</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/labs/07-lab-mlr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab07: MLR</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">CS01: Biomarkers of Recent Use</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
- <span class="menu-text">Case Studies</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/cs/cs-example.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CS: Example</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/cs/cs01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CS01: Biomarkers of Recent Use</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/cs/cs02.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">CS02: Predicting Annual Air Pollution</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/cs/final.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Final Project</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">CS02: Predicting Air Pollution</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/hw/hw-01.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW01</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/hw/hw-02.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">HW02</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../content/hw/hw-03.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">HW03</span></a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Final Project</span></span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -433,45 +268,72 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a>
+  <li><a href="#tooling-datahub-quarto-gitgithub" id="toc-tooling-datahub-quarto-gitgithub" class="nav-link active" data-scroll-target="#tooling-datahub-quarto-gitgithub">Tooling: Datahub, Quarto, Git/GitHub</a>
   <ul class="collapse">
-  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">Imports</a></li>
-  <li><a href="#ground-rules" id="toc-ground-rules" class="nav-link" data-scroll-target="#ground-rules">Ground Rules</a></li>
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
+  <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link" data-scroll-target="#course-announcements">Course Announcements</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#datahub" id="toc-datahub" class="nav-link" data-scroll-target="#datahub">Datahub</a></li>
+  <li><a href="#datahub-usage" id="toc-datahub-usage" class="nav-link" data-scroll-target="#datahub-usage">Datahub Usage</a></li>
+  <li><a href="#toolkit" id="toc-toolkit" class="nav-link" data-scroll-target="#toolkit">Toolkit</a></li>
+  <li><a href="#r-and-rstudio" id="toc-r-and-rstudio" class="nav-link" data-scroll-target="#r-and-rstudio">R and RStudio</a></li>
+  <li><a href="#what-is-the-tidyverse" id="toc-what-is-the-tidyverse" class="nav-link" data-scroll-target="#what-is-the-tidyverse">What is the Tidyverse?</a></li>
+  <li><a href="#rstudio-projects3" id="toc-rstudio-projects3" class="nav-link" data-scroll-target="#rstudio-projects3">RStudio Projects</a></li>
+  <li><a href="#quarto" id="toc-quarto" class="nav-link" data-scroll-target="#quarto">Quarto</a></li>
+  <li><a href="#quarto-tips" id="toc-quarto-tips" class="nav-link" data-scroll-target="#quarto-tips">Quarto tips</a></li>
+  <li><a href="#how-will-we-use-quarto" id="toc-how-will-we-use-quarto" class="nav-link" data-scroll-target="#how-will-we-use-quarto">How will we use Quarto?</a></li>
+  <li><a href="#collaboration-git-github" id="toc-collaboration-git-github" class="nav-link" data-scroll-target="#collaboration-git-github">Collaboration: Git &amp; GitHub</a></li>
+  <li><a href="#version-control" id="toc-version-control" class="nav-link" data-scroll-target="#version-control">Version control</a></li>
+  <li><a href="#versioning" id="toc-versioning" class="nav-link" data-scroll-target="#versioning">Versioning</a></li>
+  <li><a href="#versioning-1" id="toc-versioning-1" class="nav-link" data-scroll-target="#versioning-1">Versioning</a></li>
+  <li><a href="#why-do-we-need-version-control" id="toc-why-do-we-need-version-control" class="nav-link" data-scroll-target="#why-do-we-need-version-control">Why do we need version control?</a></li>
+  <li><a href="#git-and-github-tips" id="toc-git-and-github-tips" class="nav-link" data-scroll-target="#git-and-github-tips">Git and GitHub tips</a></li>
+  <li><a href="#lets-take-a-tour-git-github" id="toc-lets-take-a-tour-git-github" class="nav-link" data-scroll-target="#lets-take-a-tour-git-github">Let’s take a tour – Git / GitHub</a></li>
+  <li><a href="#github-in-cogs-137" id="toc-github-in-cogs-137" class="nav-link" data-scroll-target="#github-in-cogs-137">GitHub in COGS 137</a></li>
+  <li><a href="#demo-ing-the-process" id="toc-demo-ing-the-process" class="nav-link" data-scroll-target="#demo-ing-the-process">Demo-ing the process</a></li>
   </ul></li>
-  <li><a href="#part-i-imitation-is-the-highest-form-of-flattery" id="toc-part-i-imitation-is-the-highest-form-of-flattery" class="nav-link" data-scroll-target="#part-i-imitation-is-the-highest-form-of-flattery">Part I: Imitation is the highest form of flattery</a>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a>
   <ul class="collapse">
-  <li><a href="#question-1" id="toc-question-1" class="nav-link" data-scroll-target="#question-1">Question 1</a></li>
-  <li><a href="#question-2" id="toc-question-2" class="nav-link" data-scroll-target="#question-2">Question 2</a></li>
-  <li><a href="#question-3" id="toc-question-3" class="nav-link" data-scroll-target="#question-3">Question 3</a></li>
+  <li><a href="#documentation" id="toc-documentation" class="nav-link" data-scroll-target="#documentation">Documentation</a></li>
+  <li><a href="#genai-what-it-could-look-like" id="toc-genai-what-it-could-look-like" class="nav-link" data-scroll-target="#genai-what-it-could-look-like">GenAI: What it could look like</a></li>
+  <li><a href="#additional-help" id="toc-additional-help" class="nav-link" data-scroll-target="#additional-help">Additional help</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  <li><a href="#additional-git-resources" id="toc-additional-git-resources" class="nav-link" data-scroll-target="#additional-git-resources">Additional <code>git</code> Resources</a></li>
   </ul></li>
-  <li><a href="#part-ii-take-a-sad-plot-and-make-it-better" id="toc-part-ii-take-a-sad-plot-and-make-it-better" class="nav-link" data-scroll-target="#part-ii-take-a-sad-plot-and-make-it-better">Part II: Take a sad plot and make it better</a>
-  <ul class="collapse">
-  <li><a href="#question-4" id="toc-question-4" class="nav-link" data-scroll-target="#question-4">Question 4</a></li>
-  <li><a href="#question-5" id="toc-question-5" class="nav-link" data-scroll-target="#question-5">Question 5</a></li>
-  <li><a href="#question-6" id="toc-question-6" class="nav-link" data-scroll-target="#question-6">Question 6</a></li>
-  </ul></li>
-  <li><a href="#submission" id="toc-submission" class="nav-link" data-scroll-target="#submission">Submission</a></li>
   </ul>
-</nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="01-tooling-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../../content/hw/hw-02.html">HW02</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Foundations</a></li><li class="breadcrumb-item"><a href="../../content/lectures/01-tooling.html">Notes 01: Tooling (Datahub, Quarto, Git/GitHub)</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">HW 02 - Data Visualization</h1>
+<h1 class="title">01-tooling</h1>
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Professor Shannon Ellis </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            UC San Diego <br> COGS 137 - Fall 2026
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 28, 2001</p>
+      <p class="date">September 28, 2026</p>
     </div>
   </div>
   
@@ -483,91 +345,397 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div style="float:right;position: relative; margin-left: 20px; max-width: 50%">
-<div class="cell" data-layout-align="right">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-right">
+
+</div>
+</div>
+<section id="tooling-datahub-quarto-gitgithub" class="level1 page-columns page-full" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Tooling: Datahub, Quarto, Git/GitHub</h1>
+<section id="qa" class="level2">
+<h2 class="anchored" data-anchor-id="qa">Q&amp;A</h2>
+<div class="small">
+<blockquote class="blockquote">
+<p>Q: Nothing so far, maybe how the assignments will look but I will figure that out when I see one!</p>
+<p>A: The labs will guide you through the content we discuss in class, so you’ll get to practice on your own. The homeworks will extend beyond that, giving you less on <em>exactly</em> what to do so that you can really master the concept, after having seen it in lecture and practiced on the labs.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Q: Im curious exactly why r program is preferred for stats if you can do the same with python.</p>
+<p>A: This is a great question and the answer isn’t super straightforward. It’s somewhat historical. This is my <em>personal</em> retelling. Some may disagree with parts of it. Data science grew as a field out of both statistics and computer science (and other fields!). Those who came from CS tended to prefer “general” programming languages, like Python. Those who came from stats, preferred statistical programming languages, like R. <em>Now</em> I would argue that Python would <em>not</em> have become the <em>lingua franca</em> of data science (from the CS side) if Wes McKinney had not developed the pandas package (take COGS 108 if you want pandas experience!). Similarly, if Hadley Wickham hadn’t developed the tidyverse in R, it would not be the second most popular language. Now, there are two different places where you can do all the data science things, and often it comes down to who you’re working with, what their background is, and what your preference is. However, with GenAI (and its ability to “translate” between programming languages, we’ll see what the future holds!</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Q: I am curious what a case study looks like for data science! I have done many design case studies but how does that differ from this class?</p>
+<p>A: The term in a general sense is the same - a project deliverable that demonstrates your knowledge. But the core difference is that in design you’re often asking (and answering) whether the thing built is right for its users and questioning/designing around these choices. Data science case studies, however, typically ask a question (on any topic!) and then use data to answer that question and quantify uncertainty in that answer.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>Q: When citing outside resources we used to complete something for this class, is that a separate form or will we just cite on the bottom of the datahub worksheet like COGS 108?</p>
+<p>A: It will be the last section in the same document (same as in COGS 108) so you won’t forget/have to submit a separate thing.</p>
+</blockquote>
+</div>
+</section>
+<section id="course-announcements" class="level2">
+<h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
+<p><strong>Due Dates</strong>:</p>
+<ul>
+<li><p>🔘 <strong>Student survey</strong> (#finaid) due Fri 10/2 (11:59 PM)</p></li>
+<li><p>⌨️ <strong>Lab01</strong> due Friday 10/2 (11:59 PM)</p></li>
+</ul>
+<div class="small">
+<ul>
+<li>repos will be created in coming days for you to complete, but I need your GH usernames first</li>
+</ul>
+</div>
+<ul>
+<li><p>🔘 <strong>Lecture Participation survey</strong> “due” after class</p></li>
+<li><p>📝 First round of <strong>COGS 137 Org Invites</strong> went out - accept these. If you didn’t receive:</p></li>
+</ul>
+<div class="small">
+<pre><code>-   complete the pre-course survey OR
+-   Respond to the email for your GitHub username today (subject: "COGS 137 GH username? (please reply asap, ideally by EOD Monday)"), so your repos can be created OR
+-   email me your GitHub username from your UCSD email</code></pre>
+</div>
+<p>Please take one <span class="sticky-green">green</span> sticky and one <span class="sticky-pink">pink</span> sticky as they come around. If you’re able, try and save these. We’ll use them most classes. (But, I’ll always have extra!)</p>
+</section>
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
+<ol type="1">
+<li>Datahub, R &amp; RStudio</li>
+<li>Quarto</li>
+<li>Git &amp; GitHub (and how you’ll get your assignments)</li>
+<li>Getting help</li>
+</ol>
+</section>
+<section id="datahub" class="level2">
+<h2 class="anchored" data-anchor-id="datahub">Datahub</h2>
+<p>Datahub is a platform hosted by UCSD that gives students access to computational resources.</p>
+<p>This means that while you’ll be typing on your keyboard, you’ll be <em>using</em> UCSD’s computers in this class.</p>
+<p>Website: <a href="https://datahub.ucsd.edu/" class="uri">https://datahub.ucsd.edu/</a></p>
+<p>. . .</p>
+<p><strong>Launch Environment</strong></p>
+<p>When working on “stuff” for this course, select the COGS 137 environment (if you see two, pick either one…just make sure it says COGS 137).</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="img/hw-01-ugly-chart.png" class="img-fluid quarto-figure quarto-figure-right figure-img" width="168"></p>
+<p><img src="images/00/datahub.png" class="img-fluid figure-img"></p>
+<figcaption>datahub - launch environment; click on blue “Launch Environment” after toggling COGS 137</figcaption>
 </figure>
 </div>
+</section>
+<section id="datahub-usage" class="level2">
+<h2 class="anchored" data-anchor-id="datahub-usage">Datahub Usage</h2>
+<p>Q: Do I <em>have</em> to use datahub?</p>
+<p>A: Nope. You could download and install all the packages we use and complete the course locally! However, many packages have already been installed for you on datahub, so it will be a tiny bit more work up front…but you won’t be dependent on the internet/datahub!</p>
+</section>
+<section id="toolkit" class="level2">
+<h2 class="anchored" data-anchor-id="toolkit">Toolkit</h2>
+<p><img src="images/00/toolkit.png" class="img-fluid"></p>
+<ul>
+<li><p>Scriptability <span class="math inline">\(\rightarrow\)</span> R</p></li>
+<li><p>Literate programming (code, narrative, output in one place) <span class="math inline">\(\rightarrow\)</span> Quarto</p></li>
+<li><p>Version control <span class="math inline">\(\rightarrow\)</span> Git / GitHub</p></li>
+<li><p>The Internet (Google/ChatGPT/etc.)</p></li>
+</ul>
+</section>
+<section id="r-and-rstudio" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="r-and-rstudio">R and RStudio</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">R/RStudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Tour</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Try</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">R packages</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>R &amp; RStudio</strong></p>
+<ul>
+<li>R is a statistical programming language</li>
+<li>RStudio is a convenient interface for R (an integreated development environment, IDE)</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="hand-green" style="text-align: center;">
+<center>
+[DEMO]
+</center>
+</div>
+<p>Concepts introduced:</p>
+<ul>
+<li>Console</li>
+<li>Using R as a calculator</li>
+<li>Environment</li>
+<li>Loading and viewing a data frame</li>
+<li>Accessing a variable in a data frame</li>
+<li>R functions</li>
+</ul>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Your Turn</strong></p>
+<div class="task">
+<ol type="1">
+<li>Login to datahub</li>
+<li>Carry out a mathematical operation in the console</li>
+<li>View the <code>airquality</code> dataframe</li>
+<li>Access a column from the <code>airquality</code> dataframe</li>
+<li>Calculate the median for one of the numeric columns</li>
+</ol>
+</div>
+<p>Put a <span class="sticky-green">green</span> sticky on the front of your computer when you’re done. Put a <span class="sticky-pink">pink</span> if you want help/have a question.</p>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<ul>
+<li><strong>Packages</strong> are the fundamental units of reproducible R code. They include reusable R functions, the documentation that describes how to use them, and sample data <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>As of Sept 2026, there are ~25,000 R packages available on <strong>CRAN</strong> (the Comprehensive R Archive Network)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li>We’re going to work with a small (but important) subset of these!</li>
+</ul>
 </div>
 </div>
 </div>
-<p>This assignment is meant to get you more comfortable with generating and customizing visualizations in R using <code>ggplot2</code>. Notably, this assignment is very open-ended; there are multiple distinct visualizations that could be totally “correct” for each question. You may make a different decision than your classmate and could both be correct.</p>
-<p>Also, please note that this assignment <em>will take you way longer than you think it will</em>. Definitely do not wait until the last minute to start.</p>
-<section id="getting-started" class="level2">
-<h2 class="anchored" data-anchor-id="getting-started">Getting started</h2>
-<p>Here are the steps for getting started:</p>
-<ul>
-<li>Find your <code>hw02-&lt;your GitHub username&gt;</code> repo, which contains the starter documents, in the <a href="https://github.com/COGS137-FA26">course GitHub organization</a>.</li>
-<li>Clone this repo into RStudio on datahub</li>
-<li>Make any changes needed as outlined by the tasks you need to complete for the assignment</li>
-<li>Periodically commit changes (for example, once per each new part)</li>
-<li>Push all your changes back to your GitHub repo</li>
-</ul>
-<p>Your final GitHub push prior to the deadline will be used for grading. (This means even if you made mistakes before that submission on GitHub, you won’t be penalized for them, so long as the final state of your work is correct).</p>
-<section id="imports" class="level3">
-<h3 class="anchored" data-anchor-id="imports">Imports</h3>
-<p>The following package must be imported prior to completing this homework: <code>tidyverse</code>.</p>
 </section>
-<section id="ground-rules" class="level3">
-<h3 class="anchored" data-anchor-id="ground-rules">Ground Rules</h3>
-<p>For this assignment, all visualizations must:</p>
+<section id="what-is-the-tidyverse" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-the-tidyverse">What is the Tidyverse?</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<p><img src="images/00/tidyverse.png" class="img-fluid"></p>
+</div><div class="column" style="width:60%;">
+<center>
+<a href="https://www.tidyverse.org/">tidyverse.org</a>
+</center>
 <ul>
-<li>be completed using <code>ggplot2</code></li>
-<li>have an <em>informative</em> title and labeled axes</li>
-<li>follow good visualization practices (discussed in class)</li>
+<li>The tidyverse is an opinionated collection of R packages designed for data science.</li>
+<li>All packages share an underlying philosophy and a common syntax.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="rstudio-projects3" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-projects3">RStudio Projects<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></h2>
+<ul>
+<li>Built-in functionality to keep all files for a single project organized</li>
 </ul>
 </section>
-</section>
-<section id="part-i-imitation-is-the-highest-form-of-flattery" class="level2">
-<h2 class="anchored" data-anchor-id="part-i-imitation-is-the-highest-form-of-flattery">Part I: Imitation is the highest form of flattery</h2>
-<p>In class we learned a handful of ways to customize visualizations. Now, it’s your turn to apply what you learned by recreating someone else’s visualization.</p>
-<section id="question-1" class="level3">
-<h3 class="anchored" data-anchor-id="question-1">Question 1</h3>
-<p>For this question, find a <strong>well-designed visualization</strong> somewhere on the Internet that you think <em>does a good job displaying important or interesting information</em> and recreate the visualization as close as you can using <code>ggplot2</code>.</p>
-<p>To make this easier on yourself, you’ll likely want to find a visualization where the data are readily available. (To get started, FiveThirtyEight makes a lot of the <a href="https://data.fivethirtyeight.com/">data</a> from their articles available <em>and</em> has many charts in their articles. You are not required to recreate a visualization from FiveThirtyEight; however, if you’re not sure where to start, you have this option.) Your answer should include an image of the original visualization, a reference to the original image (this could simply be a URL), and your code + recreation.</p>
-<p>Notes:</p>
+<section id="quarto" class="level2">
+<h2 class="anchored" data-anchor-id="quarto">Quarto</h2>
 <ul>
-<li>To insert an image in a Quarto document, you can use the syntax <code>![alt text](path/to/image.png)</code>.</li>
-<li>The R/<code>ggplot2</code> code to create your visualization <em>cannot</em> already exist on the internet. (For example, choosing to recreate a plot from the <a href="https://r-graph-gallery.com/density_mirror_ggplot2.html">R Graph Gallery</a> would <em>not</em> be an option because all the code is already there and you wouldn’t learn as much.)</li>
-<li>Additional sources of strong visualizations: <a href="https://www.nytimes.com/spotlight/graphics">NYT Graphics</a> and their <a href="https://www.nytimes.com/interactive/2023/us/2023-year-in-graphics.html">yearly roundup</a> incl.&nbsp;other sources; <a href="https://www.economist.com/graphic-detail">The Economist</a></li>
+<li>Fully reproducible reports – each time you render, the document is executed from top to bottom</li>
+<li>Simple markdown syntax for text</li>
+<li>Code goes in chunks, defined by three backticks, narrative goes outside of chunks</li>
 </ul>
 </section>
-<section id="question-2" class="level3">
-<h3 class="anchored" data-anchor-id="question-2">Question 2</h3>
-<p>Briefly explain what you learned about <code>ggplot2</code> in the process of re-creating this visualization.</p>
+<section id="quarto-tips" class="level2">
+<h2 class="anchored" data-anchor-id="quarto-tips">Quarto tips</h2>
+<ul>
+<li><p>Keep the <a href="https://rstudio.github.io/cheatsheets/quarto.pdf">Quarto cheat sheet</a> and Markdown Quick Reference (Help -&gt; Markdown Quick Reference) handy, we’ll refer to it often as the course progresses</p></li>
+<li><p>The workspace of your Quarto document is separate from the Console</p></li>
+</ul>
+<p><br><br></p>
+<div class="hand-green" style="text-align: center;">
+<center>
+[DEMO]
+</center>
+</div>
 </section>
-<section id="question-3" class="level3">
-<h3 class="anchored" data-anchor-id="question-3">Question 3</h3>
-<p>Explain how your visualization differs from the original (It’s OK if your plot is not a <em>perfect</em> recreation!)</p>
+<section id="how-will-we-use-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="how-will-we-use-quarto">How will we use Quarto?</h2>
+<ul>
+<li>Every lab / case study / project / homework / notes / etc. is a Quarto (.qmd) document</li>
+<li>You’ll always have a template Quarto document to start with</li>
+<li>The amount of scaffolding in the template will decrease over the quarter</li>
+</ul>
+<p>. . .</p>
+<div class="hand-green" style="text-align: center;">
+<center>
+[DEMO]
+</center>
+</div>
+<p><br><br></p>
+<p>Concepts introduced:</p>
+<ul>
+<li>Rendering documents</li>
+<li>Quarto and (some) R syntax</li>
+</ul>
+</section>
+<section id="collaboration-git-github" class="level2">
+<h2 class="anchored" data-anchor-id="collaboration-git-github">Collaboration: Git &amp; GitHub</h2>
+<ul>
+<li>The statistical programming language we’ll use is R</li>
+<li>The software we use to interface with R is RStudio</li>
+<li>But how do I get you the course materials that you can build on for your assignments?
+<ul>
+<li>I’m not going to email you documents, that would be a mess!</li>
+</ul></li>
+</ul>
+</section>
+<section id="version-control" class="level2">
+<h2 class="anchored" data-anchor-id="version-control">Version control</h2>
+<ul>
+<li>We introduced GitHub as a platform for collaboration</li>
+<li>But it’s much more than that…</li>
+<li>It’s actually designed for version control</li>
+</ul>
+</section>
+<section id="versioning" class="level2">
+<h2 class="anchored" data-anchor-id="versioning">Versioning</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/00/lego-steps.png" class="img-fluid figure-img"></p>
+<figcaption>Lego versions</figcaption>
+</figure>
+</div>
+</section>
+<section id="versioning-1" class="level2">
+<h2 class="anchored" data-anchor-id="versioning-1">Versioning</h2>
+<p>with human readable messages</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/00/lego-steps-commit-messages.png" class="img-fluid figure-img"></p>
+<figcaption>Lego versions with commit messages</figcaption>
+</figure>
+</div>
+</section>
+<section id="why-do-we-need-version-control" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-need-version-control">Why do we need version control?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/00/phd_comics_vc.gif" class="img-fluid figure-img"></p>
+<figcaption>PhD Comics</figcaption>
+</figure>
+</div>
+</section>
+<section id="git-and-github-tips" class="level2 scrollable page-columns page-full">
+<h2 class="scrollable anchored" data-anchor-id="git-and-github-tips">Git and GitHub tips</h2>
+<ul>
+<li>Git is a <strong>version control</strong> system – like “Track Changes” feature Google Docs…but optimized for code. GitHub is the home for your Git-based projects on the internet – like Drive with additional features for code.</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li>There are millions of git commands – ok, that’s an exaggeration, but there are a lot of them – and very few people know them all. <strong>99% of the time you will use git to add, commit, push, and pull</strong>.</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li>We will be doing Git things and interfacing with GitHub through RStudio, but if you google for help you might come across methods for doing these things in the command line – skip that and move on to the next resource unless you feel comfortable trying it out.</li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Resource: <a href="http://happygitwithr.com/">happygitwithr.com</a>: book for working with git in R; Some content is beyond the scope of this course, but it’s a good resource</p>
+</div></div></section>
+<section id="lets-take-a-tour-git-github" class="level2">
+<h2 class="anchored" data-anchor-id="lets-take-a-tour-git-github">Let’s take a tour – Git / GitHub</h2>
+<p><strong>You’ll set this up yourself in Lab 01 on Thursday</strong></p>
+<p>Concepts introduced:</p>
+<ul>
+<li>Connect an R project to Github repository</li>
+<li>Working with a local and remote repository</li>
+<li>Committing, Pushing and Pulling</li>
+</ul>
+<p>There is a bit more of GitHub that we’ll use in this class, but for today this is enough.</p>
+</section>
+<section id="github-in-cogs-137" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="github-in-cogs-137">GitHub in COGS 137</h2>
+<p>Your repos will be created <em>for</em> you: no assignment links to click.</p>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Create a GitHub account (if you don’t have one)</li>
+<li>Submit your GitHub username (pre-course survey) &lt;- <strong>do this today</strong></li>
+<li>Accept the one-time invite to the <code>COGS137-FA26</code> organization (email, or <a href="https://github.com/orgs/COGS137-FA26/invitation">github.com/orgs/COGS137-FA26/invitation</a>)</li>
+<li>Find your repos at <a href="https://github.com/COGS137-FA26">github.com/COGS137-FA26</a>: <code>labXX-&lt;username&gt;</code>, <code>hwXX-&lt;username&gt;</code>, <code>csXX-&lt;team&gt;</code>, <code>final-&lt;team&gt;</code></li>
+</ol>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Full details on the <a href="../../computing/computing-access.html#github">Computing Access</a> page. SSH setup happens in Lab 01 (Thursday).</p>
+</div></div></section>
+<section id="demo-ing-the-process" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="demo-ing-the-process">Demo-ing the process</h2>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>You cannot yet do this. I want you to see it before you can try to follow along and do it. It will be re-demoed in lab <em>and</em> it will be on the podcast for future reference.</p>
+</div></div><ol type="1">
+<li>Go to the <a href="https://github.com/COGS137-FA26">course GitHub organization</a> and find your <code>lab01-&lt;your GitHub username&gt;</code> repo</li>
+<li>Copy the repo’s SSH URL</li>
+<li>Clone the repo</li>
+<li>Edit the document</li>
+<li><strong>Render the document</strong></li>
+<li>Push your changes</li>
+</ol>
 </section>
 </section>
-<section id="part-ii-take-a-sad-plot-and-make-it-better" class="level2">
-<h2 class="anchored" data-anchor-id="part-ii-take-a-sad-plot-and-make-it-better">Part II: Take a sad plot and make it better</h2>
-<section id="question-4" class="level3">
-<h3 class="anchored" data-anchor-id="question-4">Question 4</h3>
-<p>This question was inspired by Alison Hill’s <a href="https://www.apreshill.com/talk/2018-ohsu-sad-plot-better/">talk</a>. The idea here is that there is <em>a lot</em> of data all around us and <em>a whole bunch</em> of visualizations. Some of them are really excellent, and some could be improved. Choose a <strong>less-than-ideal visualization</strong> you’ve created in the past OR a visualization you’ve found out in the world that could benefit from a redesign and/or significant visual improvement. Your answer should include an image of the original visualization, a reference to the original image (this could simply be a URL), and your code + improved version.</p>
-<p>Note: If you’re unsure where to look for visualizations that would benefit from improvement, check out <a href="https://flowingdata.com/category/visualization/ugly-visualization/">Flowing Data’s Ugly Charts</a> or <a href="https://www.reddit.com/r/dataisugly/">Reddit’s Data is ugly</a>. You may need to recreate/approximate the dataset (meaning store the values from the visualization in a tibble) needed to generate the visualization prior to improving the design. (It’s ok if the data are not <em>exact</em>, but you want them to be close, as we’re focusing on the visual aspects.)</p>
+<section id="getting-help" class="level1">
+<h1>Getting Help</h1>
+<ul>
+<li>Trying things out</li>
+<li>Understanding Documentation</li>
+<li>Using ChatGPT/LLMs</li>
+</ul>
+<section id="documentation" class="level2">
+<h2 class="anchored" data-anchor-id="documentation">Documentation</h2>
+<p>Consider <code>ggplot2</code> (a package we’ll learn a lot)</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Official documentation (CRAN): <a href="">https://cran.r-project.org/web/packages/ggplot2/index.html</a></li>
+<li>Code (Github): <a href="">https://github.com/tidyverse/ggplot2</a></li>
+<li>Documentation: <a href="">https://ggplot2.tidyverse.org/reference/index.html</a></li>
+<li>Specific Function: <a href="">https://ggplot2.tidyverse.org/reference/geom_point.html</a></li>
+</ul>
+</div>
 </section>
-<section id="question-5" class="level3">
-<h3 class="anchored" data-anchor-id="question-5">Question 5</h3>
-<p>Briefly explain what you learned about <code>ggplot2</code> in the process of re-creating this visualization.</p>
+<section id="genai-what-it-could-look-like" class="level2">
+<h2 class="anchored" data-anchor-id="genai-what-it-could-look-like">GenAI: What it could look like</h2>
+<p>Imagine: You’ve been asked to carry out a number of wrangling operations on a dataset and make a plot…</p>
+<div class="hand-green" style="text-align: center;">
+<center>
+[DEMO]
+</center>
+</div>
 </section>
-<section id="question-6" class="level3">
-<h3 class="anchored" data-anchor-id="question-6">Question 6</h3>
-<p>Explain <em>why</em> you made the design and visualization choices you did for your improved version.</p>
+<section id="additional-help" class="level2">
+<h2 class="anchored" data-anchor-id="additional-help">Additional help</h2>
+<ul>
+<li>classmates</li>
+<li>course staff (OH, Q&amp;A, class, lab)</li>
+</ul>
 </section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>Can you answer these questions?</p>
+<ul>
+<li>What is R vs RStudio?</li>
+<li>What are RStudio Projects?</li>
+<li>What is version control, and why do we care?</li>
+<li>What is git vs GitHub (and do I need to care)?</li>
+<li>What are the components of a Quarto (.qmd) file?</li>
+<li>Where will I find my repos for this course?</li>
+</ul>
 </section>
-<section id="submission" class="level2">
-<h2 class="anchored" data-anchor-id="submission">Submission</h2>
-<p>Be sure to <strong>render your file to HTML</strong>, look at the output HTML file to make sure everything looks as you expected, and then commit and push your final changes to GitHub. We will be grading from the HTML file. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.</p>
+<section id="additional-git-resources" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="additional-git-resources">Additional <code>git</code> Resources</h2>
+<section id="version-control-git-and-github" class="level4">
+<h4 class="anchored" data-anchor-id="version-control-git-and-github">Version Control (git and GitHub):</h4>
+<ul>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github">Getting Started with git</a></li>
+<li><a href="https://guides.github.com/activities/hello-world/">GitHub Guide</a></li>
+<li><a href="https://github.com/jlord/git-it-electron">GitHub Desktop App Tutorial</a></li>
+<li><a href="https://rogerdudler.github.io/git-guide/">Git Command Line Resource</a></li>
+<li>Using <code>git</code> from the command line
+<ul>
+<li><a href="https://www.youtube.com/watch?v=ng4X6qF8XVY">Installing and using <code>git</code> (Part 1)</a>, by COGS 108 TA Ganesh (youtube, 22min tutorial)</li>
+<li><a href="https://youtu.be/Nk1gtrbTZ2Y">merge conflicts and branching (Part 2)</a>, by IA Shubham Kulkarni (youtube, 8min tutorial)</li>
+</ul></li>
+<li><a href="https://youtu.be/zQc5vQEBips">Using <code>git</code> with GitHub Desktop</a>, by COGS 108 TA Sidharth Suresh (youtube, 13min tutorial)</li>
+<li><a href="https://www.youtube.com/watch?v=xuB1Id2Wxak">GIT &amp; GITHUB TUTORIAL</a>, from edureka!
+<ul>
+<li>with <a href="https://docs.google.com/document/d/1GAdkvn7lWzeLekvC343WNZC2rZGhQOfPOU2dMha9aws/edit">notes</a> from COGS 18/108 TA Holly(Yueying) Dong</li>
+</ul></li>
+</ul>
 
 
 </section>
+</section>
+</section>
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Wickham and Bryan, <a href="https://r-pkgs.org/">R Packages</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://cran.r-project.org/web/packages/">CRAN contributed packages</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects">RStudio Projects Documentation</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -1123,13 +1291,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../../content/hw/hw-01.html" class="pagination-link" aria-label="HW01">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">HW01</span>
+      <a href="../../content/lectures/00-welcome.html" class="pagination-link" aria-label="Notes 00: Welcome">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Notes 00: Welcome</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../content/hw/hw-03.html" class="pagination-link" aria-label="HW03">
-        <span class="nav-page-text">HW03</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -10,9 +10,9 @@ project:
     - computing/*.qmd
     # Foundations
     - content/lectures/00-welcome.qmd
-    # - content/lectures/01-tooling.qmd
+    - content/lectures/01-tooling.qmd
     # - content/lectures/02-intro-to-r.qmd
-    # - content/labs/01-lab-intro-r.qmd
+    - content/labs/01-lab-intro-r.qmd
     # - content/hw/hw-01.qmd
     # # CS01
     # - content/cs/cs01.qmd
@@ -87,12 +87,12 @@ website:
         contents:
           - text: "Notes 00: Welcome"
             href: content/lectures/00-welcome.qmd
-      #     - text: "Notes 01: Tooling (Datahub, Quarto, Git/GitHub)"
-      #       href: content/lectures/01-tooling.qmd
+          - text: "Notes 01: Tooling (Datahub, Quarto, Git/GitHub)"
+            href: content/lectures/01-tooling.qmd
       #     - text: "Notes 02: Intro to R"
       #       href: content/lectures/02-intro-to-r.qmd
-      #     - text: "Lab 01: Tooling and R"
-      #       href: content/labs/01-lab-intro-r.qmd
+          - text: "Lab 01: Tooling and R"
+            href: content/labs/01-lab-intro-r.qmd
       #     - text: "HW 01: R Basics"
       #       href: content/hw/hw-01.qmd
       - section: "CS01: Biomarkers of Recent Use"

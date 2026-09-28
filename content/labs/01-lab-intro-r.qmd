@@ -37,9 +37,11 @@ You are encouraged to ask one another questions and work together, but each indi
 
 # GitHub
 
--   If you have a GitHub account, be sure you know your username and password (you'll need it later in this lab), and go ahead and move on to the next section.
+-   **In order to access *your* lab01, you'll need to have reported your GitHub username to Professor Ellis on the pre-course survey**. If you've done that, a lab repo will be created for you within 24h on GitHub. The repo name will be *lab01-username*. For example, Professor Ellis would have access to *lab01-ShanEllis*. This will be the repo naming structure for all labs and assignments.
 
--   **If you do not yet have a GitHub account, create one at <https://github.com/>**. Tips for selecting a username [^1]:
+    -   **Be sure you know your username and password** (you'll need it later in this lab), and go ahead and move on to the next section.
+
+-   **If you do not yet have a GitHub account, create one at <https://github.com/> and then submit your pre-course survey, indicating your GitHub username**. Tips for selecting a username [^1]:
 
     -   Incorporate your actual name! People like to know who they're dealing with. Also makes your username easier for people to guess or remember.
     -   Reuse your username from other contexts if you can, e.g., Twitter or Slack.
@@ -57,9 +59,7 @@ You are encouraged to ask one another questions and work together, but each indi
 Your email address is the address tied to your GitHub account and your name should be first and last name.
 :::
 
-Before we can get started we need to take care of some required housekeeping (if you didn't complete it during class). Specifically, we need to configure your git so that RStudio can communicate with GitHub...and so you do not have to type in your username and password every time you want to communicate with GitHub from RStudio. A video here showing what these steps look like or feel free to follow the written instructions below:
-
-{{< video https://youtu.be/9AQterxWl2A/ >}}
+Before we can get started we need to take care of some required housekeeping (if you didn't complete it during class). Specifically, we need to configure your git so that RStudio can communicate with GitHub...and so you do not have to type in your username and password every time you want to communicate with GitHub from RStudio. Follow the instructions here:
 
 ### Step 1: Email and Username
 
@@ -138,7 +138,7 @@ Each of your assignments will begin with the following steps. You saw these once
 In this course, there are no assignment links to click. Instead, a private repository is created for you in the course GitHub organization for each assignment. (See [Computing Access](../../computing/computing-access.qmd#github) for the full details.)
 
 ::: callout-note
-Before you can see your repo, you need to have 1) submitted your GitHub username using the form on Canvas and 2) accepted the invitation to join the `COGS137-FA26` organization (check your email or go to <https://github.com/orgs/COGS137-FA26/invitation>). You only have to do these once.
+Before you can see your repo, you need to have 1) submitted your GitHub username on the pre-course survey 2) accepted the invitation to join the `COGS137-FA26` organization (check your email or go to <https://github.com/orgs/COGS137-FA26/invitation>). You only have to do these once.
 :::
 
 Go to [github.com/COGS137-FA26](https://github.com/COGS137-FA26) while signed in to GitHub and click on the repo named `lab01-<your GitHub username>`. This is *your copy* of the lab repo, and it contains a template you can build on to complete your lab. Click on the green `<> Code` button to clone the repo. **Be sure that SSH is selected and copy this URL**.
@@ -377,12 +377,10 @@ Then, render your document and see how you like the new sizes. Change and render
 
 You can also use different figure sizes for different figures. To do so, add chunk options at the top of the chunk where you want to make a change, using `#|`:
 
-````
-```{r}
+```{{r}}
 #| fig-width: 8
 #| fig-height: 3
 ```
-````
 
 ### Change the look of your report
 

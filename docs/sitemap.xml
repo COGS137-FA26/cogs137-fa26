@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/index.html</loc>
-    <lastmod>2026-09-24T21:40:36.499Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/01-lab-intro-r.html</loc>
+    <lastmod>2026-09-28T04:22:22.341Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/00-welcome.html</loc>
+    <lastmod>2026-09-25T16:17:29.081Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/00-welcome-slides.html</loc>
     <lastmod>2026-09-25T16:17:29.081Z</lastmod>
   </url>
   <url>
@@ -13,8 +17,16 @@
     <lastmod>2023-12-10T03:34:31.000Z</lastmod>
   </url>
   <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/LICENSE.html</loc>
+    <lastmod>2023-09-22T17:18:24.259Z</lastmod>
+  </url>
+  <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/policies.html</loc>
     <lastmod>2026-09-24T21:44:32.748Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/index.html</loc>
+    <lastmod>2026-09-27T20:21:31.488Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/schedule.html</loc>
@@ -29,7 +41,11 @@
     <lastmod>2024-09-25T19:51:29.309Z</lastmod>
   </url>
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/00-welcome-slides.html</loc>
-    <lastmod>2026-09-25T16:17:29.081Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/01-tooling-slides.html</loc>
+    <lastmod>2026-09-28T16:37:49.076Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/01-tooling.html</loc>
+    <lastmod>2026-09-28T16:37:49.076Z</lastmod>
   </url>
 </urlset>
