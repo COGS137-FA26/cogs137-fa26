@@ -13,16 +13,13 @@ format:
 
 # CS01: In class {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: In the recipe we used the step_nzv() function, but I'm confused why we would want to get rid of the variables with non-zero variance? I thought that having variance in variables meant that the model would have more predictive power, and that having zero or near-zero variance meant less predictive power.\
-> A: I didn't do a great job describing this in class. You're right that we want predictors that have variance. Here specifically, variables (predictors) would be removed if 1) they have very few unique values relative to the number of samples (meaning they're sparse and not adding useful information) or 2) the ratio of the frequency of the most common value to the frequency of the second most common value is large (they're not adding a ton of novel information). Hope this helps explain. Happy to discuss further.
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: How can we plot a 3D plots in R? Can we plot 3D density maps across a map of the united states?\
-> A: [`Plotly`](https://plotly.com/r/) is probably the best place to look to start.
-
-> Q: For our case study 2, since we're able to find the best predictor combinations with the oslrr package, what is the main purpose of our EDA? \
-> A: Think of the goal of EDA here to explain/describe/introduce the data in your dataset to the reader.
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

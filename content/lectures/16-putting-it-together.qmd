@@ -21,6 +21,14 @@ knitr::opts_chunk$set(dpi = 300, echo = TRUE, warning = FALSE, message = FALSE)
 
 # Putting the Model Together {background-color="#92A86A"}
 
+## Q&A {.scrollable .smaller}
+
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
+
 ## Course Announcements
 
 **Due Dates**:

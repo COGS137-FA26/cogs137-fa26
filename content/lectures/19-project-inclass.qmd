@@ -13,13 +13,13 @@ format:
 
 # Final Project: In class {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: This slide is about slides, but are we allowed to some other form general communication?\
-> A: Yup! For your presentation, you'll probably use slides. For your general communication, all the options are available to you!
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q:For a general audience, that does not know much about coding or graphs, how would you approach breaking down a final project presentation to that audience?\
-> A: Minimize the number of plots you show. Ensure that each plot is as simple as it can be while still conveying the message. And, absolutely introduce any plot included. If unfamiliar with coding, I would leave any details about code out from the presentation entirely.
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

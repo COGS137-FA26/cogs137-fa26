@@ -30,29 +30,11 @@ Mentorship opportunity for women-identifying students:
 
 ## Q&A {.scrollable .smaller}
 
-> Q: what does \|\> mean? Do we need to know a lot of how to code those examples from class?\
-> A: Love that you're noting and questioning these things. We're going to discuss this today! You do not need to know the code examples...yet. We're going to discuss code starting today; this starts with what you'll need to be familiar with.
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: How to really extend the case study in our own time, when many information/analysis are already given in the lecture?\
-> A: We'll discuss this more! But, specifically for this first Case Study. We're asking a very narrow question....but have a lot of variables. Is there some subgroup you could focus on? A different time window? A combination of compounds? Etc.
-
-> Q: How can we do more complex math in R?\
-> A: Depends on what kind of complex math you're aiming to do - a lot of complex math is built directly into R; other things would require additional packages.
-
-> Q: Where can I find the full study on the data we reviewed in class. Seems like something I'd like to read and perhaps play with the data myself.\
-> A: We're going to discuss the results today! But, the links are inlcuded in the notes (in what we didn't get to yet.)
-
-> Q: How did the police officers do to detect cognitive impariedness with marijuana consumption?\
-> A: Not great (not better than flipping a coin). We'll discuss this today!
-
-> Q: Why were the numeric types in the cat lovers data frame labeled as 'dbl' instead of numeric?\
-> A: There are multiple "levels" of object type in R (which I did not make clear in lecture b/c it's not important for this class). Double is a subset of numeric. If you ask for `type()` rather than `class()` you'll see this difference.
-
-> Q: In class, we used \|\> as a pipe operator. Is it fine if we use %\>% instead? Do you have a preference between the two? Thank you!\
-> A: We'll discuss this today - no preference!
-
-> Q: My github username is pretty weird. How are the professor and TA going to know that it is me if my username does not resemble my actual name?\
-> A: On your first lab, we ask you to put your name in the author field. We use that to match students to their GH usernames!
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

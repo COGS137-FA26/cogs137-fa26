@@ -24,25 +24,13 @@ knitr::opts_chunk$set(dpi=300, echo=TRUE, warning=FALSE, message=FALSE)
 
 # CS01: Biomarkers of Recent Use (EDA) {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: I'm slightly confused about the purpose of this line of code: facet_grid(treatment ~ group) when using facets\
-> A: `facet_grid` says to create a small multiple plot - meaning break down the overall plot into smaller subsets. Then `treatment ~ group` specifies *how* to do that breakdown. Have each row be a separate `treatment`. Have each column be a separate `group`. Then, in each sublot, plot only the data that pertains to taht treatment x group combination.
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: For things we want to alter that are not in ggplot, would we use a different package in combination with ggplot to alter things?\
-> A: Yup! There are TONS of extensions/add-ons that work well with `ggplot2`. Many are found in additional pacakges, so I'd start there. There is, additionally, plotting in R that happens outside of or is incompatible with `ggplot2`. There are times where you would want to go that route, but we won't need to in this course.
-
-> Q: I am a little confused on how to select the best practices. Are there multiple right answers at times?\
-> A: There are multiple "right" answers. Learn the basics about visual design and then decide in your case which of those rules to follow. It will often be all of them, but if a rule makes reading your particular visualization more difficult to follow, then break the rule in that case. The goal is clear communication and readability.
-
-> Q: My lingering question is if there is support for violin plots. \
-> A: Yes! There is a geom for that: `geom_violin`
-
-> Q: What I should be looking for/investigating from the case study data\
-> A: Ultimately, you and your group want to answer the question posed. We'll discuss more about this today!
-
-> Q: I've also used forestplot. Is this something that ggplot can also accomplish? \
-> A: Yup! There are standalone packages (not ggplot2-compatible) for this, but it's also possible [in `ggplot2    ](https://www.khstats.com/blog/forest-plots/).
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

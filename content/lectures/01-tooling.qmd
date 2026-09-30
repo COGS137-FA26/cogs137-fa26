@@ -25,24 +25,22 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 # Tooling: Datahub, Quarto, Git/GitHub {background-color="#92A86A"}
 
-## Q&A
+## Q&A {.scrollable .smaller}
 
-::: small
-> Q: Nothing so far, maybe how the assignments will look but I will figure that out when I see one!
->
-> A: The labs will guide you through the content we discuss in class, so you'll get to practice on your own. The homeworks will extend beyond that, giving you less on *exactly* what to do so that you can really master the concept, after having seen it in lecture and practiced on the labs.
+::: {.callout-note collapse="true" title="Q: Nothing so far, maybe how the assignments will look but I will figure that out when I see one!"}
+The labs will guide you through the content we discuss in class, so you'll get to practice on your own. The homeworks will extend beyond that, giving you less on *exactly* what to do so that you can really master the concept, after having seen it in lecture and practiced on the labs.
+:::
 
-> Q: Im curious exactly why r program is preferred for stats if you can do the same with python.
->
-> A: This is a great question and the answer isn't super straightforward. It's somewhat historical. This is my *personal* retelling. Some may disagree with parts of it. Data science grew as a field out of both statistics and computer science (and other fields!). Those who came from CS tended to prefer "general" programming languages, like Python. Those who came from stats, preferred statistical programming languages, like R. *Now* I would argue that Python would *not* have become the *lingua franca* of data science (from the CS side) if Wes McKinney had not developed the pandas package (take COGS 108 if you want pandas experience!). Similarly, if Hadley Wickham hadn't developed the tidyverse in R, it would not be the second most popular language. Now, there are two different places where you can do all the data science things, and often it comes down to who you're working with, what their background is, and what your preference is. However, with GenAI (and its ability to "translate" between programming languages, we'll see what the future holds!
+::: {.callout-note collapse="true" title="Q: Im curious exactly why r program is preferred for stats if you can do the same with python."}
+This is a great question and the answer isn't super straightforward. It's somewhat historical. This is my *personal* retelling. Some may disagree with parts of it. Data science grew as a field out of both statistics and computer science (and other fields!). Those who came from CS tended to prefer "general" programming languages, like Python. Those who came from stats, preferred statistical programming languages, like R. *Now* I would argue that Python would *not* have become the *lingua franca* of data science (from the CS side) if Wes McKinney had not developed the pandas package (take COGS 108 if you want pandas experience!). Similarly, if Hadley Wickham hadn't developed the tidyverse in R, it would not be the second most popular language. Now, there are two different places where you can do all the data science things, and often it comes down to who you're working with, what their background is, and what your preference is. However, with GenAI (and its ability to "translate" between programming languages, we'll see what the future holds!
+:::
 
-> Q: I am curious what a case study looks like for data science! I have done many design case studies but how does that differ from this class?
->
-> A: The term in a general sense is the same - a project deliverable that demonstrates your knowledge. But the core difference is that in design you're often asking (and answering) whether the thing built is right for its users and questioning/designing around these choices. Data science case studies, however, typically ask a question (on any topic!) and then use data to answer that question and quantify uncertainty in that answer.
+::: {.callout-note collapse="true" title="Q: I am curious what a case study looks like for data science! I have done many design case studies but how does that differ from this class?"}
+The term in a general sense is the same - a project deliverable that demonstrates your knowledge. But the core difference is that in design you're often asking (and answering) whether the thing built is right for its users and questioning/designing around these choices. Data science case studies, however, typically ask a question (on any topic!) and then use data to answer that question and quantify uncertainty in that answer.
+:::
 
-> Q: When citing outside resources we used to complete something for this class, is that a separate form or will we just cite on the bottom of the datahub worksheet like COGS 108?
->
-> A: It will be the last section in the same document (same as in COGS 108) so you won't forget/have to submit a separate thing.
+::: {.callout-note collapse="true" title="Q: When citing outside resources we used to complete something for this class, is that a separate form or will we just cite on the bottom of the datahub worksheet like COGS 108?"}
+It will be the last section in the same document (same as in COGS 108) so you won't forget/have to submit a separate thing.
 :::
 
 ## Course Announcements

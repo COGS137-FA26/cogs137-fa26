@@ -23,13 +23,13 @@ color_palette <- list(gray = "#999999",
                       purple = "#CC79A7")
 ```
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: kind of zoned out. When is it appropriate to use inference or machine learning? \
-> A: We use inference when we want to quantify the relationship between features and outcome to understand relationships. We use machine learning when we want to make predictions on outcomes from features. 
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: I am confused why in EDA, we have been finding the correlation between variables that seem to be measuring the same thing (such as graphs for log distance to primary or primary and secondary road). Why are these helpful to us?\
-> A: We are ultimately trying to build a model to predict PM2.5 values...but we have a lot of features from which to choose, many which measure very siimilar things. We're using EDA to get a sense of what data we have and the relationships between variables, before ultimately deciding what to include in our ML model.
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

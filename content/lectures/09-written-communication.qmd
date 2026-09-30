@@ -12,15 +12,13 @@ format:
 
 # Effective Written Communication {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: I am confused on how to draw meaning from the combined data visualizations because I don't understand what difference between variables like thc and thcooh are (and the other compounds).\
-> A: This is something I want groups to discuss/look into! And, we'll discuss more of this today. But, also, check out [this piazza post](https://piazza.com/class/m1jv2820hu54m/post/60).
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: Would sensitivity and specificity be related to type I and type II errors? \
-> A: Yes! Type I Error (measured as 1-Specificity) is known as the false positive rate. Type II Error (1- Sensitivity) is also known as the false negative rate. These concepts are directly related.
-
-
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## [ad] CSS Masters Program
 

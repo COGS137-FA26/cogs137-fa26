@@ -20,16 +20,13 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 
 # CS02: Predicting Air Pollution (EDA) {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: Is there a way to find group members online?\
-> A: Yes! On Piazza [here](https://piazza.com/class/m1jv2820hu54m/post/5)
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: I am curious about within our CS02 project, are we focusing on PM2.5, I know that there are finer PM that is not frequently tracked, could we focus on one of those for our project and point to the essential data gaps (i.e. there are lots of data on PM 2.5 out there but not enough on other sizes of PM)?\
-> A: This is definitely a possible extension on the case study - certainly beyond expectations (as you would need additional data) but would be very cool.
-
-> Q: There wasn't a specific part of the lecture that I found very confusing. I am a little worried about the code needed to generate the statistics for the second case study, but think that I just need a bit more practice with that (which I am certain we will be getting prior to the due date).\
-> A: We are going to focus on this in class too!
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

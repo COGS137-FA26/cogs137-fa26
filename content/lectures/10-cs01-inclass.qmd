@@ -13,19 +13,13 @@ format:
 
 # CS01: In class {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: I think I still have some trouble with the specificity and sensitivity graphs as it seems like the detection_limit is throwing me off with the y axis of each graph. What would each scale (or 100) mean in each graph?\
-> A: A 100 on each plot would mean that we're doing perfect job detecting people who smoked (sensitivity) and those who didn't smoke (specificity). Accuracy would be overall how many did we get right (true positives + true negatives). Sensitivity and specificity allow us to focus in on where we didn't get it right a bit better - are we not detecting people who did use or are we saying people who didn't use did?
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: I am a bit confused about the chunk of codes that were presented in cs01-eda that are a little bit dense and hard to understand. I would like to break it down and understand it better so that I can apply it to my project if possible.\
-> A: Happy to do this in office hours and encouraging you to sit with your group and discuss too!
-
-> Q: Is there a good way to look at all cut-offs for specificity and sensitivity (maybe a 3d plot?)\
-> A: You could run the provided code but specify a wider range of cutoffs. Similar plots can be used...but the lines would just be on top of one another. That said, if you want a single plot to look at Sensitivy and Specificity together, check out ROC curves! Here's a [link](https://rviews.rstudio.com/2019/03/01/some-r-packages-for-roc-curves/) to a number of ways to plot them in R.
-
-> Q: Could you go over how to combine two plots again (ie. sensitivity and specificity).\
-> A: Feel free to ask this today! But here, it uses `patchwork` package. `+` sign puts them side by side. `p1 + p2`, for example.
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

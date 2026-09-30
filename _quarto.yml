@@ -11,7 +11,7 @@ project:
     # Foundations
     - content/lectures/00-welcome.qmd
     - content/lectures/01-tooling.qmd
-    # - content/lectures/02-intro-to-r.qmd
+    - content/lectures/02-intro-to-r.qmd
     - content/labs/01-lab-intro-r.qmd
     # - content/hw/hw-01.qmd
     # # CS01
@@ -81,84 +81,84 @@ website:
             text: Schedule
           - href: policies.qmd
             text: Policies
-      # Organized by course unit. Within each unit: project/assignment page,
-      # then notes, labs, and homework (in the order they happen).
-      - section: "Foundations"
+      # Organized by type (like FA24): notes, labs, case studies, homework.
+      # Uncomment items as they're released.
+      - section: "Notes"
         contents:
           - text: "Notes 00: Welcome"
             href: content/lectures/00-welcome.qmd
           - text: "Notes 01: Tooling (Datahub, Quarto, Git/GitHub)"
             href: content/lectures/01-tooling.qmd
-      #     - text: "Notes 02: Intro to R"
-      #       href: content/lectures/02-intro-to-r.qmd
+          - text: "Notes 02: Intro to R"
+            href: content/lectures/02-intro-to-r.qmd
+      #     - text: "Notes 03: CS01 Intro"
+      #       href: content/lectures/03-cs01-intro.qmd
+      #     - text: "Notes 04: Data Wrangling (dplyr)"
+      #       href: content/lectures/04-dplyr.qmd
+      #     - text: "Notes 05: ggplot2"
+      #       href: content/lectures/05-ggplot2.qmd
+      #     - text: "Notes 06: Effective Data Visualization"
+      #       href: content/lectures/06-viz.qmd
+      #     - text: "Notes 07: AI-Assisted Analysis"
+      #       href: content/lectures/07-ai-assisted-analysis.qmd
+      #     - text: "Notes 08: CS01 EDA"
+      #       href: content/lectures/08-cs01-eda.qmd
+      #     - text: "Notes 09: Written Communication"
+      #       href: content/lectures/09-written-communication.qmd
+      #     - text: "Notes 10: CS01 In-class Work"
+      #       href: content/lectures/10-cs01-inclass.qmd
+      #     - text: "Notes 11: CS02 Intro"
+      #       href: content/lectures/11-cs02-intro.qmd
+      #     - text: "Notes 12: CS02 EDA"
+      #       href: content/lectures/12-cs02-eda.qmd
+      #     - text: "Notes 13: Inference vs. Prediction"
+      #       href: content/lectures/13-inference-prediction.qmd
+      #     - text: "Notes 14: Regression"
+      #       href: content/lectures/14-regression.qmd
+      #     - text: "Notes 15: CS02 Analysis (ML)"
+      #       href: content/lectures/15-cs02-analysis.qmd
+      #     - text: "Notes 16: Putting the Model Together"
+      #       href: content/lectures/16-putting-it-together.qmd
+      #     - text: "Notes 17: CS02 In-class Work"
+      #       href: content/lectures/17-cs02-inclass.qmd
+      #     - text: "Notes 18: Oral Communication"
+      #       href: content/lectures/18-oral-communication.qmd
+      #     - text: "Notes 19: Project In-class Work"
+      #       href: content/lectures/19-project-inclass.qmd
+      #     - text: "Notes 20: Presentations"
+      #       href: content/lectures/20-presentations.qmd
+      - section: "Labs"
+        contents:
           - text: "Lab 01: Tooling and R"
             href: content/labs/01-lab-intro-r.qmd
-      #     - text: "HW 01: R Basics"
-      #       href: content/hw/hw-01.qmd
-      - section: "CS01: Biomarkers of Recent Use"
+      #     - text: "Lab 02: CS01 Data Wrangling"
+      #       href: content/labs/02-lab-cs01-wrangle.qmd
+      #     - text: "Lab 03: CS01 Data Visualization"
+      #       href: content/labs/03-lab-cs01-viz.qmd
+      #     - text: "Lab 04: CS01 EDA"
+      #       href: content/labs/04-lab-cs01-eda.qmd
+      #     - text: "Lab 05: CS01 Communication"
+      #       href: content/labs/05-lab-cs01-communication.qmd
+      #     - text: "Lab 06: CS02 EDA"
+      #       href: content/labs/06-lab-cs02-eda.qmd
+      #     - text: "Lab 07: Multiple Linear Regression"
+      #       href: content/labs/07-lab-mlr.qmd
+      - section: "Case Studies"
         # contents:
-        #   - text: "CS01 Instructions"
-        #     href: content/cs/cs01.qmd
         #   - text: "Example Case Study"
         #     href: content/cs/cs-example.qmd
-        #   - text: "Notes 03: CS01 Intro"
-        #     href: content/lectures/03-cs01-intro.qmd
-        #   - text: "Notes 04: Data Wrangling (dplyr)"
-        #     href: content/lectures/04-dplyr.qmd
-        #   - text: "Notes 05: ggplot2"
-        #     href: content/lectures/05-ggplot2.qmd
-        #   - text: "Notes 06: Effective Data Visualization"
-        #     href: content/lectures/06-viz.qmd
-        #   - text: "Notes 07: AI-Assisted Analysis"
-        #     href: content/lectures/07-ai-assisted-analysis.qmd
-        #   - text: "Notes 08: CS01 EDA"
-        #     href: content/lectures/08-cs01-eda.qmd
-        #   - text: "Notes 09: Written Communication"
-        #     href: content/lectures/09-written-communication.qmd
-        #   - text: "Notes 10: CS01 In-class Work"
-        #     href: content/lectures/10-cs01-inclass.qmd
-        #   - text: "Lab 02: CS01 Data Wrangling"
-        #     href: content/labs/02-lab-cs01-wrangle.qmd
-        #   - text: "Lab 03: CS01 Data Visualization"
-        #     href: content/labs/03-lab-cs01-viz.qmd
-        #   - text: "Lab 04: CS01 EDA"
-        #     href: content/labs/04-lab-cs01-eda.qmd
-        #   - text: "Lab 05: CS01 Communication"
-        #     href: content/labs/05-lab-cs01-communication.qmd
+        #   - text: "CS01: Biomarkers of Recent Use"
+        #     href: content/cs/cs01.qmd
+        #   - text: "CS02: Predicting Air Pollution"
+        #     href: content/cs/cs02.qmd
+        #   - text: "Final Project"
+        #     href: content/cs/final.qmd
+      - section: "Homework"
+        # contents:
+        #   - text: "HW 01: R Basics"
+        #     href: content/hw/hw-01.qmd
         #   - text: "HW 02: Data Visualization"
         #     href: content/hw/hw-02.qmd
-      - section: "CS02: Predicting Air Pollution"
-        # contents:
-        #   - text: "CS02 Instructions"
-        #     href: content/cs/cs02.qmd
-        #   - text: "Notes 11: CS02 Intro"
-        #     href: content/lectures/11-cs02-intro.qmd
-        #   - text: "Notes 12: CS02 EDA"
-        #     href: content/lectures/12-cs02-eda.qmd
-        #   - text: "Notes 13: Inference vs. Prediction"
-        #     href: content/lectures/13-inference-prediction.qmd
-        #   - text: "Notes 14: Regression"
-        #     href: content/lectures/14-regression.qmd
-        #   - text: "Notes 15: CS02 Analysis (ML)"
-        #     href: content/lectures/15-cs02-analysis.qmd
-        #   - text: "Notes 16: Putting the Model Together"
-        #     href: content/lectures/16-putting-it-together.qmd
-        #   - text: "Notes 17: CS02 In-class Work"
-        #     href: content/lectures/17-cs02-inclass.qmd
-        #   - text: "Lab 06: CS02 EDA"
-        #     href: content/labs/06-lab-cs02-eda.qmd
-        #   - text: "Lab 07: Multiple Linear Regression"
-        #     href: content/labs/07-lab-mlr.qmd
-      - section: "Final Project"
-        # contents:
-        #   - text: "Final Project Instructions"
-        #     href: content/cs/final.qmd
-        #   - text: "Notes 18: Oral Communication"
-        #     href: content/lectures/18-oral-communication.qmd
-        #   - text: "Notes 19: Project In-class Work"
-        #     href: content/lectures/19-project-inclass.qmd
-        #   - text: "Notes 20: Presentations"
-        #     href: content/lectures/20-presentations.qmd
       - section: "Computing"
         contents:
           - href: computing/computing-access.qmd

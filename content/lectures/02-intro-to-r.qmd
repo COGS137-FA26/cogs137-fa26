@@ -19,64 +19,39 @@ format:
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(emo)
 library(DT)
 
 # Set dpi and height for images
 knitr::opts_chunk$set(fig.height = 2.65, dpi = 300, echo=TRUE) 
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
-
-options(gargle_oauth_email = "sellis@ucsd.edu")
 ```
-
-## \[ad\] Computing Paths
-
-![[https://computingpaths.ucsd.edu/]()](images/01/computing_paths.png)
 
 ## Q&A {.scrollable .smaller}
 
-> Q: How much of my experience in Java, C++, and Python help me with R?\
-> A: Tons! It's always easier/faster to pick up a new programming language with familiarity in a prior language. Python would be the most similar to R from a design perspective, but there will still be R quirks. That said, if you've used \`pandas\` in python for data analysis, that will be very overlapping.
+::: {.callout-note collapse="true" title="Q: What are some other important functions in R that we should keep in mind?"}
+We'll get to these today and Monday! The most important will be the verbs in the tidyverse - on Monday!
+:::
 
-> Q: Is attendance required to attend? I know the lectures are recorded, but I want to make sure I'm not missing out on anything if I were unable to attend for some reason.\
-> A: You can only get the lecture attendance extra credit by being in class on any given day, but that's just extra credit. Nothing else is required. That said, I will be forming groups within those who regularly come to class for CS01 and there will be time to work on stuff in class. So, helpful to come, but not required.
+::: {.callout-note collapse="true" title="Q: Does Quarto take in / print code? Or is it primarily used just for text-based content?"}
+It will display code as well as execute it on render. It's for text and code.
+:::
 
-> Q: Will assignments show up in DataHub?\
-> A: They won't, but we'll talk about how/where to access them today/on Tues.
+::: {.callout-note collapse="true" title="Q: I'm curious about how we'll be able to manipulate datasets using R, or if this is something we will end up doing. I wonder how using R will compare to using excel."}
+In lots of ways, Excel can do many of the things you can do with data in R; however, R has the advantage of being reproducible. This means you write the code once, but can execute it as many times as you want. This is unlike Excel, where each time you want to do something, you have to point/click to make it happen. And, there's not a record of what's been done, so being able to reproduce what someone else has done is nontrivial.
+:::
 
-> Q: I’m wondering how library imports work like in Python or if that’s even a thing in R!\
-> A: It is a thing and we'll definitely get into it! There's a package for almost everything in R (just like in python)
-
-> Q: If you don't submit the survey on time, will you still be assigned to the group of people that aren't synchronously going to class?\
-> A: 1. If the survey is still open, you can submit. 2. Yes! I will be assigning group among people who regularly come to class. If you miss a day or two, that's ok!
-
-> Q: I'm not sure if I missed this in lecture but what is the difference between Rstudio and R, and when do we know which one to use.\
-> A: RStudio is the environment where we write R code. We'll be using RStudio exclusively...so RStudio will be your go to!
-
-> Q: Could the lecture survey be due at the end of the day instead?\
-> A: I'll think on this! It will always be open for at least an hour.
+::: {.callout-note collapse="true" title="Q: I think I was confused as to the use of Quarto when we were running code on the console of Rstudio but I understood how Quarto is used as a source to save code, but im curious as to why the console was not made to save it."}
+Technically you can save your console, but for our purposes we're not going to because it's not particularly readable. Think of the console as a place to try things out, but anything you really want to save/keep/organize should go in a (quarto) document
+:::
 
 ## Course Announcements
 
 **Due Dates**:
 
 -   🔘 **Student survey** (#finaid) due Fri 10/2 (11:59 PM)
+-   ⌨**Lab 01** is due Friday - repos are available for those whose GitHub names I have
+    - if no lab01 available on GH, please either complete pre-course survey or email me (sellis\@ucsd.edu) your GitHub username
+    - first lab is tomorrow (Th 5P)!
 -   🔘 Lecture Participation survey "due" after class
-
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
--   Student survey due Fri 10/4 (11:59 PM; #finaid)
--   **Lab 01** now available (due *next* Thursday 10/10)
-    -   No in-class lab this Friday; *Monday's lab is happening*
--   Lecture Participation survey "due" after class
-
-Notes:
-
--   [Piazza](<https://piazza.com/class/m1jv2820hu54m>) now set up (& linked from Canvas menu)
-- **Waitlist (Non)Update**: Staff are working to keep enrollment at 100 people. If you get an email from Kasey Chiang (k4chiang\@ucsd.edu) to drop and then enroll. This is legitimate. Follow those instructions.
-- Researchers observing lecture 10/8 and 10/15
--->
 
 ## Agenda
 
@@ -118,7 +93,7 @@ first_variable
 
 . . .
 
--   The type of the variable is determined dynamically on assignment.
+-   R is **dynamically typed**: you don't declare a type ahead of time. R sets the type when you assign a value (and the type can change if you reassign the variable).
 
 . . .
 
@@ -131,7 +106,7 @@ class(first_variable)
 ## Basic Variable Types
 
 | Variable Type | Explanation                       | Example                                     |
-|-------------------|-----------------------|------------------------------|
+|----------------|------------------------|--------------------------------|
 | character     | stores a string                   | `"cogs137"`, `"hi!"`                        |
 | numeric       | stores whole numbers and decimals | `9`, `9.29`                                 |
 | integer       | specifies integer                 | `9L` (the `L` specifies this is an integer) |
@@ -179,13 +154,29 @@ class(7L)
 
 . . .
 
-## lists
+## vectors
 
-So far, every variable has been an **atomic vector**, meaning it only stores a single piece of information.
+The most basic data structure in R is the **vector**: an ordered collection of values that are all the *same type*.
+
+```{r}
+c(1, 2, 3)                      # combine values with c()
+1:5                             # shortcut for a sequence of integers
+my_letters <- c("a", "b", "c")
+length(my_letters)
+class(my_letters)
+```
 
 . . .
 
-**Lists** are 1d objects that can contain any combination of R objects
+A single value like `3` is just a vector of length 1.
+
+## lists
+
+So far, every variable has been an **atomic vector**: it can hold many values, but they must all be the *same type*.
+
+. . .
+
+**Lists** are 1d objects that can contain any combination of R objects -- including values of different types
 
 ::: columns
 ::: {.column width="50%"}
@@ -226,10 +217,6 @@ Functions are:
 -   available from packages you import
 -   defined by you
 
-. . .
-
-We'll start by getting comfortable with available functions, but in a few days, you'll learn how to write your own!
-
 ## Helpful Functions
 
 ::: columns
@@ -259,7 +246,26 @@ str(mylist)
 
 ## Coercion
 
-R is a dynamically typed language -- it will happily convert between the various types without complaint.
+A vector can only hold one type. If you combine different types, R **coerces** (converts) them to a common type -- without any warning.
+
+(This is separate from dynamic typing, which is about how a *variable* gets its type.)
+
+. . .
+
+🤔 **Predict:** What will each of these return?
+
+```{r}
+#| eval: false
+c(1, "Hello")
+c(FALSE, 3L)
+c(1.2, 3L)
+```
+
+::: aside
+Put a [green]{.sticky-green} sticky on the front of your computer when you have your predictions.
+:::
+
+## Coercion: Answers
 
 ```{r}
 c(1, "Hello")
@@ -267,7 +273,13 @@ c(FALSE, 3L)
 c(1.2, 3L)
 ```
 
-## Missing Values
+. . .
+
+R converts to the most flexible type needed:
+
+**logical** → **integer** → **double** → **character**
+
+## Missing Values {.smaller}
 
 R uses `NA` to represent missing values in its data structures.
 
@@ -277,13 +289,39 @@ class(NA)
 
 . . .
 
-### Other Special Values
+`NA` is "contagious": most calculations involving `NA` return `NA`...
+
+```{r}
+mean(c(1, 2, NA))
+```
+
+. . .
+
+...unless you tell R to remove missing values first:
+
+```{r}
+mean(c(1, 2, NA), na.rm = TRUE)
+```
+
+## Other Special Values {.smaller}
 
 `NaN` \| Not a number
 
+```{r}
+0 / 0
+```
+
 `Inf` \| Positive infinity
 
+```{r}
+1 / 0
+```
+
 `-Inf` \| Negative infinity
+
+```{r}
+-1 / 0
+```
 
 # Operators {background-color="#92A86A"}
 
@@ -348,9 +386,25 @@ These operators return a Boolean.
 7 != 6
 ```
 
+## Logical Operators
+
+Combine (or negate) `TRUE`/`FALSE` values. You'll use these constantly to filter data.
+
+-   `&` **and**: `TRUE` only if *both* sides are `TRUE`
+-   `|` **or**: `TRUE` if *either* side is `TRUE`
+-   `!` **not**: flips `TRUE` ↔ `FALSE`
+
+```{r}
+(4 < 12) & (6 == 6)
+(4 > 12) | (6 == 6)
+!(6 == 6)
+```
+
 ## Your Turn
 
-Use arithmetic and comparison operators to store the value 30 in the variable `var_30` and `TRUE` in the variable `true_var`.
+1.  Store your age (in years) in the variable `my_age`.
+2.  Use arithmetic to calculate (roughly) how many days old you are. Store it in `days_old`.
+3.  Use comparison and logical operators to check whether `days_old` is between 7,000 and 10,000.
 
 ::: aside
 Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
@@ -358,20 +412,33 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 
 # R Packages {background-color="#92A86A"}
 
-## Packages
+## Packages {.smaller}
 
--   Packages are installed with the `install.packages` function and loaded with the `library` function, once per session:
+-   **Install** a package *once per computer* with `install.packages()`
+-   **Load** it *in every session* (and at the top of every Quarto document that uses it) with `library()`
 
 ```{r eval=FALSE}
-install.packages("package_name")
-library(package_name)
+install.packages("package_name")   # once
+library(package_name)              # every time
 ```
 
 . . .
 
-In this course, most packages we'll use have been installed for you already on datahub, so you will only have to load the package in (using `library`).
+Think of it like an app: you install it once, but you open it every time you want to use it.
 
-# Data "sets"
+. . .
+
+In this course, *most* packages we'll use have been installed for you already on datahub, so you will only have to load the package in (using `library`).
+
+. . .
+
+::: {.callout-tip title="Question"}
+Should `install.packages()` go in your **Quarto document** or in the **console**? Why?
+
+*Hint:* Think back to our discussion on the first day about what the console is for vs. what a Quarto document is for...and what happens every time you render.
+:::
+
+# Data "sets" {background-color="#92A86A"}
 
 ## Data "sets" in R {.scrollable .smaller}
 
@@ -390,12 +457,13 @@ In this course, most packages we'll use have been installed for you already on d
 
 ## Data frames
 
+:::smaller
 -   A data frame is the most commonly used data structure in R, they are list of equal length vectors (usually atomic, but can be generic). Each vector is treated as a column and elements of the vectors as rows.
 
 -   A tibble is a type of data frame that ... makes your life (i.e. data analysis) easier.
 
 -   Most often a data frame will be constructed by reading in from a file, but we can create them from scratch.
-
+:::
 ```{r}
 df <- tibble(x = 1:3, y = c("a", "b", "c"))
 class(df)
@@ -403,12 +471,6 @@ glimpse(df)
 ```
 
 ## Data frames (cont.)
-
-```{r}
-attributes(df)
-```
-
-. . .
 
 Columns (variables) in data frames are accessed with `$`:
 
@@ -435,13 +497,15 @@ Data stored in columns can include different *kinds* of information...which woul
 ::: {.column width="50%"}
 R Data Types:
 
--   **Continuous**: numeric, integer
--   **Discrete**: factors (we haven't talked about these yet, but will today!)
+-   **Continuous**: numeric
+-   **Discrete**: integer or numeric (e.g., counts like number of cats)
+
+Categorical data (next slide) are often stored as **factors** -- we'll cover these in a coming lecture.
 :::
 :::
 
 ::: aside
-Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations/) <a href="https://twitter.com/allison_horst" title="allison_horst"><i class="fa fa-twitter"></i></a>
+Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations/)
 :::
 
 ## Variable Types (cont.)
@@ -458,12 +522,12 @@ R Data Types:
 
 -   **Nominal**: character
 -   **Ordinal**: factors
--   **Binary**: logical OR numeric OR factors `r emo::ji("munch")`
+-   **Binary**: logical OR numeric OR factors
 :::
 :::
 
 ::: aside
-Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations/) <a href="https://twitter.com/allison_horst" title="allison_horst"><i class="fa fa-twitter"></i></a>
+Artwork by [\@allison_horst](https://github.com/allisonhorst/stats-illustrations/)
 :::
 
 ## Example: Cat lovers
@@ -472,7 +536,7 @@ A survey asked respondents their name and number of cats. The instructions said 
 
 . . .
 
-[`r emo::ji("police_car_light")` There is code ahead that we're not going to discuss in detail today, *but* we will in coming lectures.]{style="background-color: ##e94f58"}
+[🚨 There is code ahead that we're not going to discuss in detail today, *but* we will in coming lectures.]{style="background-color: #e94f58"}
 
 ```{r load-data-real,include=FALSE}
 cat_lovers <- read_csv("data/cat-lovers.csv")
@@ -504,7 +568,7 @@ cat_lovers |>
 
 . . .
 
-[`r emo::ji("idea")` maybe there is missing data in the `number_of_cats` column!]{style="background-color: #ADD8E6"}
+[💡 maybe there is missing data in the `number_of_cats` column!]{style="background-color: #ADD8E6"}
 
 **Oh why will you *still* not work??!!**
 
@@ -515,7 +579,7 @@ cat_lovers |>
 
 . . .
 
-[`r emo::ji("idea")`What is the **type** of the `number_of_cats` variable?]{style="background-color: #ADD8E6"}
+[💡 What is the **type** of the `number_of_cats` variable?]{style="background-color: #ADD8E6"}
 
 ## Take a breath and look at your data
 
@@ -532,35 +596,55 @@ cat_lovers |>
   datatable()
 ```
 
-## Sometimes you need to babysit your respondents
+## Sometimes you need to babysit your respondents {.smaller}
 
 ```{r}
 cat_lovers |>
   mutate(number_of_cats = case_when(name == "Ginger Clark" ~ 2,
-                                    name == "Doug Bass"~ 3,
-                                    TRUE ~ as.numeric(number_of_cats))) 
+                                    name == "Doug Bass" ~ 3,
+                                    .default = as.numeric(number_of_cats)))
 ```
+
+. . .
+
+⚠️ Notice the warning: `as.numeric()` couldn't convert some values (the text answers) to numbers, so it made them `NA`. That's R telling you your data had text in it! Here, `case_when()` replaces those rows, so it's safe.
 
 ## Always respect (& check!) data types
 
 ```{r}
+#| warning: false
 cat_lovers |>
   mutate(number_of_cats = case_when(name == "Ginger Clark" ~ 2,
-                                    name == "Doug Bass"~ 3,
-                                    TRUE ~ as.numeric(number_of_cats))) |>
+                                    name == "Doug Bass" ~ 3,
+                                    .default = as.numeric(number_of_cats))) |>
   summarise(mean_cats = mean(number_of_cats))
 ```
 
 ## Now that we know what we're doing...
 
 ```{r}
+#| warning: false
 cat_lovers <- cat_lovers |>
   mutate(number_of_cats = case_when(name == "Ginger Clark" ~ 2,
-                                    name == "Doug Bass"~ 3,
-                                    TRUE ~ as.numeric(number_of_cats)))
+                                    name == "Doug Bass" ~ 3,
+                                    .default = as.numeric(number_of_cats)))
 ```
 
 ... store your data in a variable (here we're overwriting the old `cat_lovers` tibble).
+
+## Answering the question
+
+[How many respondents have a below average number of cats?]{style="background-color: #ADD8E6"}
+
+```{r}
+cat_lovers |>
+  filter(number_of_cats < mean(number_of_cats)) |>
+  nrow()
+```
+
+. . .
+
+`filter()` keeps only the rows that meet a condition (here, a comparison operator!). More on this in a coming lecture.
 
 ## Moral of the story
 
@@ -576,10 +660,13 @@ cat_lovers <- cat_lovers |>
 -   What are the common variable types in R
     -   How do I create a variable of each type?
     -   When would I use each one?
+-   What is a vector, and why must its values all be the same type?
 -   Do I know how to determine the class/type of a variable?
--   Can I explain dynamic typing?
+-   Can I explain dynamic typing? How is it different from coercion?
 -   Can I operate on variables and values using...
     -   arithmetic operators?
     -   comparison operators?
+    -   logical operators?
+-   What does `NA` do in a calculation, and how do I handle it?
 -   What are dataframes/tibbles? and why are they useful?
 -   What is the difference between installing and loading a package?

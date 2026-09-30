@@ -18,19 +18,13 @@ library(emo)
 knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE) 
 ```
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: I'm not entirely sure how to balance conveying all the useful information from the study to general audiences without over or under-explaining details. I feel like I'm going to get this done via practice.\
-> A: This is absolutely why we do two case studies! We don't expect you to get it perfect this first go around...but we also grade with that in mind and give feedback! We do expect students to improve by CS02 and incorporate our feedback going forward.
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: I think it's just confusing thinking about how to naturally intertwine the extension into meaningful analysis.\
-> A: This is the harder thing and is very group specific. We're happy to help as your group comes up with ideas.
-
-> Q: Not sure what to focus on for answering our main question\
-> A: General advice: Use EDA to eliminate as many compounds as possible - which ones are definitely NOT good biomarkers of recent use. Then, once you have fewer matrix-compound combos to look at, do calculations on those remaining.
-
-> Q: How you would present some of your research to the public, what would you personally prioritize.\
-> A: The most critical information while ALSO discussing the *necessary* nuance. For example, my fear with this work is that more people would be sent to jail/see consequences that should NOT. So, I wanted to always be sure to communicate findings *as well as* how people should NOT misinterpret/misuse these findings.
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

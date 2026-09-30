@@ -21,19 +21,13 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE)
 
 # CS02: Predicting Air Pollution (Analysis) {background-color="#92A86A"}
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: "First, in our CS02, is our prediction US annual average air pollution concentrations based on ""value""? Is this going to be our outcome, as it was in class? \
-> A: `value` will be our outcome. In this set of notes, we'll discuss how to directly answer our question using machine learning. 
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: How do we decide whether to use main effects of interaction effects? Do we have to try both and compare r square values?\
-> A: Well, we only include an interaction term if it actually makes sense for what we're modelling, if the interaction term's inclusion makes logical sense - meaning it could impact the relationship between the other predictor and outcome. Without that, it doesn't make sense to include an interaction term, as the simplest model (no interaction) is preferred overall. 
-
-> Q: San you redefine the differences between main vs. interaction effects? what are the pros and cons of each?\
-> A: In a main effects model, we're assuming the relationship between the predictor and outcome **does not vary** (is not impacted) by the second predictor (different y-intercepts; same slope/rate of change). In an interaction effects model we're assuming the second predictor *does* impact the primary predictor and outcomes relationship. (different y-intercepts; different slopes). Con of interaction is that it adds an additional term into the model and is more difficult to interpret. So, you only want to go for an interaction effects model *if it truly does a better job capturing the underlying relationships in the data*.
-
-> Q: I wonder if we will go over logistic regressions, or k-clusters, or any other form of ML algorithms .\
-> A: We're not going to do logistic regression this quarter, but will introduce ML algorithms in this set of notes!
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 

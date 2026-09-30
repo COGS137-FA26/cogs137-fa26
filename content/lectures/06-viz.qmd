@@ -14,16 +14,13 @@ format:
 
 Slides modified from [datascienceinabox.org](https://datasciencebox.org/)
 
-## Q&A {.smaller}
+## Q&A {.scrollable .smaller}
 
-> Q: Does ggplot2 allow access to the same color schemes that we use in Python? I'm familiar with using Matplot.lib, but it seems slightly different for ggplot2.\
-> A: You can directly control color in R. We'll discuss that, but you can also use a ton of available color palletes. See [here](https://r-charts.com/color-palettes/).You'll find what you largely have in [matplotlib](https://matplotlib.org/stable/users/explain/colors/colormaps.html) but also additional palettes. 
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-> Q: What are some common aesthetics options for graphs?\
-> A: Discussing this today!
-
-> Q: Why in the world anyone would think that %>% is an acceptable operator \
-> A: Hadley Wickham (the developer) has made SO many incredible updates to the consistency and syntax in R. This was just NOT one of them.
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
 
 ## Course Announcements
 
