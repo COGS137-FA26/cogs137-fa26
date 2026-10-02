@@ -8,7 +8,6 @@ format:
     output-file: 20-presentations.html
   revealjs:
     output-file: 20-presentations-slides.html
-    css: slides.css
 ---
 
 # Student Presentations {background-color="#92A86A"}

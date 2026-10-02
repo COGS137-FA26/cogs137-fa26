@@ -8,7 +8,6 @@ format:
     output-file: 16-putting-it-together.html
   revealjs:
     output-file: 16-putting-it-together-slides.html
-    css: slides.css
 ---
 
 ```{r packages, echo = FALSE, warning = FALSE, message = FALSE}

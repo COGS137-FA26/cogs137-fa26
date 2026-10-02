@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Professor Shannon Ellis">
+<meta name="dcterms.date" content="2026-10-16">
+
+<title>COGS 137 - 08-cs01-eda</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<meta property="og:title" content="COGS 137 - 08-cs01-eda">
+<meta property="og:description" content="Homepage for COGS 137 - Practical Data Science in R, Fall 2026.">
+<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
+<meta property="og:site_name" content="COGS 137">
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">08-cs01-eda</li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/cogs137-logo-hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Canvas" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Canvas"><i class="bi bi-person-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/80042">
+            Homepage
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/80042/gradebook">
+            Grades
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://datahub.ucsd.edu/hub/spawn" title="Datahub" class="quarto-navigation-tool px-1" aria-label="Datahub"><i class="bi bi-cloud"></i></a>
+    <a href="https://piazza.com/class/muczvyliqy23y/" title="Piazza" class="quarto-navigation-tool px-1" aria-label="Piazza"><i class="bi bi-question"></i></a>
+    <a href="https://github.com/COGS137-FA26" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Schedule &amp; Policies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Policies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00: Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/01-tooling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01: Tooling (Datahub, Quarto, Git/GitHub)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/02-intro-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02: Intro to R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/03-cs01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03: CS01 Intro</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 01: Tooling and R</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Case Studies</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Homework</span></span>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cs01-biomarkers-of-recent-use-eda" id="toc-cs01-biomarkers-of-recent-use-eda" class="nav-link active" data-scroll-target="#cs01-biomarkers-of-recent-use-eda">CS01: Biomarkers of Recent Use (EDA)</a>
+  <ul class="collapse">
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
+  <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link" data-scroll-target="#course-announcements">Course Announcements</a></li>
+  <li><a href="#suggested-reading" id="toc-suggested-reading" class="nav-link" data-scroll-target="#suggested-reading">Suggested Reading</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  </ul></li>
+  <li><a href="#cs01" id="toc-cs01" class="nav-link" data-scroll-target="#cs01">CS01</a>
+  <ul class="collapse">
+  <li><a href="#cs01-instructions" id="toc-cs01-instructions" class="nav-link" data-scroll-target="#cs01-instructions">CS01 Instructions</a></li>
+  <li><a href="#example-case-study" id="toc-example-case-study" class="nav-link" data-scroll-target="#example-case-study">Example Case Study</a></li>
+  <li><a href="#feedback-scores" id="toc-feedback-scores" class="nav-link" data-scroll-target="#feedback-scores">Feedback &amp; Scores</a></li>
+  <li><a href="#an-example-rubric" id="toc-an-example-rubric" class="nav-link" data-scroll-target="#an-example-rubric">An (Example) Rubric</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
+  </ul></li>
+  <li><a href="#data-wrangling-tidyr" id="toc-data-wrangling-tidyr" class="nav-link" data-scroll-target="#data-wrangling-tidyr">Data Wrangling: <code>tidyr</code></a>
+  <ul class="collapse">
+  <li><a href="#reminder-tidy-data" id="toc-reminder-tidy-data" class="nav-link" data-scroll-target="#reminder-tidy-data">Reminder: Tidy Data</a></li>
+  <li><a href="#pivoting" id="toc-pivoting" class="nav-link" data-scroll-target="#pivoting">Pivoting</a>
+  <ul class="collapse">
+  <li><a href="#long-vs.-wide" id="toc-long-vs.-wide" class="nav-link" data-scroll-target="#long-vs.-wide">long vs.&nbsp;wide</a></li>
+  </ul></li>
+  <li><a href="#pivots" id="toc-pivots" class="nav-link" data-scroll-target="#pivots">pivots</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a></li>
+  <li><a href="#binding-dataframes" id="toc-binding-dataframes" class="nav-link" data-scroll-target="#binding-dataframes">Binding dataframes</a></li>
+  </ul></li>
+  <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a>
+  <ul class="collapse">
+  <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a></li>
+  </ul></li>
+  <li><a href="#data-files" id="toc-data-files" class="nav-link" data-scroll-target="#data-files">Data &amp; Files</a></li>
+  <li><a href="#question" id="toc-question" class="nav-link" data-scroll-target="#question">Question</a>
+  <ul class="collapse">
+  <li><a href="#our-datasets" id="toc-our-datasets" class="nav-link" data-scroll-target="#our-datasets">Our Datasets</a></li>
+  <li><a href="#the-data" id="toc-the-data" class="nav-link" data-scroll-target="#the-data">The Data</a></li>
+  <li><a href="#time-windows-compounds" id="toc-time-windows-compounds" class="nav-link" data-scroll-target="#time-windows-compounds">Time windows &amp; compounds</a></li>
+  </ul></li>
+  <li><a href="#cs01-eda" id="toc-cs01-eda" class="nav-link" data-scroll-target="#cs01-eda">CS01: EDA</a>
+  <ul class="collapse">
+  <li><a href="#single-variable-basic-plots" id="toc-single-variable-basic-plots" class="nav-link" data-scroll-target="#single-variable-basic-plots">Single Variable (basic) plots</a></li>
+  <li><a href="#thc-frequency" id="toc-thc-frequency" class="nav-link" data-scroll-target="#thc-frequency">THC &amp; Frequency</a></li>
+  <li><a href="#thc-treatment-group" id="toc-thc-treatment-group" class="nav-link" data-scroll-target="#thc-treatment-group">THC &amp; Treatment Group</a></li>
+  <li><a href="#focus-on-a-specific-timepoint" id="toc-focus-on-a-specific-timepoint" class="nav-link" data-scroll-target="#focus-on-a-specific-timepoint">Focus on a specific timepoint…</a></li>
+  <li><a href="#at-this-point" id="toc-at-this-point" class="nav-link" data-scroll-target="#at-this-point">At this point…</a></li>
+  <li><a href="#day-2-mon-1019" id="toc-day-2-mon-1019" class="nav-link" data-scroll-target="#day-2-mon-1019">Day 2 · Mon 10/19</a></li>
+  <li><a href="#brief-aside-user-defined-functions" id="toc-brief-aside-user-defined-functions" class="nav-link" data-scroll-target="#brief-aside-user-defined-functions">Brief Aside: User-Defined Functions</a></li>
+  <li><a href="#compounds-across-time" id="toc-compounds-across-time" class="nav-link" data-scroll-target="#compounds-across-time">Compounds across time</a></li>
+  <li><a href="#dropping-duplicates-wn-time-window" id="toc-dropping-duplicates-wn-time-window" class="nav-link" data-scroll-target="#dropping-duplicates-wn-time-window">Dropping Duplicates (w/n time window)</a></li>
+  <li><a href="#group-differences-frequency-of-use" id="toc-group-differences-frequency-of-use" class="nav-link" data-scroll-target="#group-differences-frequency-of-use">Group Differences: Frequency of Use</a></li>
+  <li><a href="#group-differences-treatment" id="toc-group-differences-treatment" class="nav-link" data-scroll-target="#group-differences-treatment">Group Differences: Treatment</a></li>
+  <li><a href="#day-3-wed-1021" id="toc-day-3-wed-1021" class="nav-link" data-scroll-target="#day-3-wed-1021">Day 3 · Wed 10/21</a></li>
+  </ul></li>
+  <li><a href="#some-metrics" id="toc-some-metrics" class="nav-link" data-scroll-target="#some-metrics">Some Metrics</a>
+  <ul class="collapse">
+  <li><a href="#sensitivity-specificity" id="toc-sensitivity-specificity" class="nav-link" data-scroll-target="#sensitivity-specificity">Sensitivity &amp; Specificity</a></li>
+  <li><a href="#what-is-a-tp-here-tn-fp-fn" id="toc-what-is-a-tp-here-tn-fp-fn" class="nav-link" data-scroll-target="#what-is-a-tp-here-tn-fp-fn">What is a TP here? TN? FP? FN?</a></li>
+  <li><a href="#the-code-to-come" id="toc-the-code-to-come" class="nav-link" data-scroll-target="#the-code-to-come">The Code to come</a></li>
+  <li><a href="#calculating-sensitivity-and-specificity" id="toc-calculating-sensitivity-and-specificity" class="nav-link" data-scroll-target="#calculating-sensitivity-and-specificity">Calculating Sensitivity and Specificity</a></li>
+  <li><a href="#plot-results" id="toc-plot-results" class="nav-link" data-scroll-target="#plot-results">Plot Results</a></li>
+  <li><a href="#possible-extensions" id="toc-possible-extensions" class="nav-link" data-scroll-target="#possible-extensions">Possible Extensions</a></li>
+  <li><a href="#cs01-what-to-do-now" id="toc-cs01-what-to-do-now" class="nav-link" data-scroll-target="#cs01-what-to-do-now">cs01: what to do now?</a></li>
+  <li><a href="#what-has-to-be-done" id="toc-what-has-to-be-done" class="nav-link" data-scroll-target="#what-has-to-be-done">What has to be done:</a></li>
+  <li><a href="#collaborating-on-github" id="toc-collaborating-on-github" class="nav-link" data-scroll-target="#collaborating-on-github">Collaborating on GitHub</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08-cs01-eda-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Skip to main content</a>
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">08-cs01-eda</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Professor Shannon Ellis </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            UC San Diego <br> COGS 137 - Fall 2026
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 16, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="cs01-biomarkers-of-recent-use-eda" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">CS01: Biomarkers of Recent Use (EDA)</h1>
+<section id="qa" class="level2 scrollable smaller">
+<h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+<div class="callout callout-style-default callout-note callout-titled" title="Q: ">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A:</p>
+</div>
+</div>
+</div>
+</section>
+<section id="course-announcements" class="level2">
+<h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
+<p><strong>Due Dates</strong>:</p>
+<ul>
+<li>⌨️ <strong>Lab 02</strong> due Fri 10/16 (11:59 PM)</li>
+<li>📚 <strong>HW 02</strong> due Sun 10/18 (11:59 PM)</li>
+<li>⌨️ <strong>Lab 03</strong> due Fri 10/23 (11:59 PM)</li>
+<li>🔘 Lecture Participation survey “due” after class</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The CS01 data are data for you only. My collaborator is excited that y’all will be working on this…but these are still research data, so please do not share with others or post publicly.</p>
+</div>
+</div>
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
+- 🔬 **Lab 03** due Thursday (10/24; 11:59 PM)
+- 💻 **HW02** (Viz) due Mon (10/28; 11:59 PM)
+- 📋 Lecture Participation survey "due" after class
+
+**Notes**:
+
+-   **hw01** and **lab02** scores posted; Scores on Canvas; feedback as "issue" on GH
+-   **CS01 Groups** have been sent out
+    -   email for contact 
+    -   GitHub repo: `cs01-<team name>` in the [course GitHub organization](https://github.com/COGS137-FA26) \<- please open it and make sure you have access
+    -   group mate feedback is required (on submission)
+    
+. . . 
+
+::: callout-important
+The CS01 data are data for you only. My collaborator is excited that y'all will be working on this...but these are still research data, so please do not share with others or post publicly.
+:::
+-->
+</section>
+<section id="suggested-reading" class="level2">
+<h2 class="anchored" data-anchor-id="suggested-reading">Suggested Reading</h2>
+<ul>
+<li>📕 R4DS Chapter 10: <a href="https://r4ds.hadley.nz/eda">EDA</a></li>
+<li>📕 R4DS Chapter 25: <a href="https://r4ds.hadley.nz/functions">Functions</a></li>
+</ul>
+</section>
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
+<ul>
+<li>CS01
+<ul>
+<li>Instructions</li>
+<li>Previous Projects</li>
+<li>CS01 EDA</li>
+</ul></li>
+<li><code>tidyr</code></li>
+<li>Exploratory Data Analysis (EDA)</li>
+</ul>
+</section>
+</section>
+<section id="cs01" class="level1 page-columns page-full" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">CS01</h1>
+<section id="cs01-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="cs01-instructions">CS01 Instructions</h2>
+<p>Instructions are on <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html">course website</a>.</p>
+<p>Note:</p>
+<ul>
+<li>Deliverables: Full report (.html) + general communication</li>
+<li><a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html">Common Deductions</a></li>
+</ul>
+</section>
+<section id="example-case-study" class="level2">
+<h2 class="anchored" data-anchor-id="example-case-study">Example Case Study</h2>
+<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html</a></p>
+</section>
+<section id="feedback-scores" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="feedback-scores">Feedback &amp; Scores</h2>
+<p>Feedback to other students <a href="https://docs.google.com/spreadsheets/d/1GZINOZImtmkRDLGrWrBYVFxPxpK2GewC40_XMelLh1E/edit?usp=sharing">here</a></p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>You cannot see the projects, but can read all of the comments and see the associated score. Also, note that the same row is not the same group.</p>
+</div></div><p>. . .</p>
+<p>Common comments:</p>
+<ul>
+<li>context/explanation/guidance/lacking</li>
+<li>missing citations</li>
+<li>failure to introduce/describe the data</li>
+<li>making statements without evidence</li>
+<li>need to edit for cohesiveness, story, clarity</li>
+</ul>
+</section>
+<section id="an-example-rubric" class="level2">
+<h2 class="anchored" data-anchor-id="an-example-rubric">An (Example) Rubric</h2>
+<p>This is <em>NOT</em> the rubric for your case study, but it will be similar:</p>
+<p><img src="images/06/rubric.png" class="img-fluid"></p>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">Notes</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Lots of code/plots will be provided here</li>
+<li>You are free to include any of it in your own case study (no attribution needed)</li>
+<li>You probably should NOT include all of them in your final report</li>
+<li>For any of the “basic” plots you include in your report, you’ll want to clean them up/improve their design.</li>
+<li>Your final report should be polished from start to finish</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="data-wrangling-tidyr" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Data Wrangling: <code>tidyr</code></h1>
+<ul>
+<li>pivots (<code>tidyr</code>)</li>
+<li>joins (<code>dplyr</code>)</li>
+</ul>
+<section id="reminder-tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="reminder-tidy-data">Reminder: Tidy Data</h2>
+<p><img src="images/06/tidydata_1.jpg" class="img-fluid"></p>
+<p>. . .</p>
+<p><img src="images/06/tidydata_2.jpg" class="img-fluid"></p>
+<p>. . .</p>
+<p><img src="images/06/tidydata_3.jpg" class="img-fluid"></p>
+</section>
+<section id="pivoting" class="level2">
+<h2 class="anchored" data-anchor-id="pivoting">Pivoting</h2>
+<p>Storing the same data in a different format</p>
+<p>. . .</p>
+<section id="long-vs.-wide" class="level3">
+<h3 class="anchored" data-anchor-id="long-vs.-wide">long vs.&nbsp;wide</h3>
+<ul>
+<li><strong>wide</strong> data contains values that do not repeat in the first column. (analysis; storage)</li>
+<li><strong>long</strong> format contains values that do repeat in the first column. (plotting)</li>
+</ul>
+</section>
+</section>
+<section id="pivots" class="level2">
+<h2 class="anchored" data-anchor-id="pivots">pivots</h2>
+<ul>
+<li><code>pivot_longer</code> | take wide data and make it long</li>
+<li><code>pivot_wider</code> | take long data and make it wide</li>
+</ul>
+</section>
+<section id="joins" class="level2">
+<h2 class="anchored" data-anchor-id="joins">Joins</h2>
+<p>Combining data across different datasets, using common information (often: IDs)</p>
+<p>. . .</p>
+<p><strong>Mutating Joins</strong></p>
+<p>add new variables to a data frame from matching observations in another</p>
+<p>. . .</p>
+<ul>
+<li><strong><code>left_join</code></strong>: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information</li>
+<li><strong><code>right_join</code></strong>: keeps all observations in second df</li>
+<li><strong><code>full_join</code></strong>: keeps all observations in either df</li>
+</ul>
+<p>. . .</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/06/join-outer.png" class="img-fluid figure-img"></p>
+<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
+</figure>
+</div>
+<p>. . .</p>
+<p><strong><code>inner_join</code></strong>: takes only rows in <em>both</em> dfs</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/06/join-inner.png" class="img-fluid figure-img"></p>
+<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="binding-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="binding-dataframes">Binding dataframes</h2>
+<ul>
+<li><code>bind_rows()</code> - stack different dataframes on top of one another, combining information where column names are the same &lt;- <em>what I used to combine the three datasets after wrangling</em></li>
+<li><code>bind_cols()</code> - stack dataframes next to one another; will assume rows match up &lt;- use with caution</li>
+</ul>
+</section>
+</section>
+<section id="exploratory-data-analysis-eda" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Exploratory Data Analysis (EDA)</h1>
+<section id="eda" class="level2">
+<h2 class="anchored" data-anchor-id="eda">EDA</h2>
+<p>The process of really getting to “know” your data:</p>
+<ul>
+<li>calculating descriptive statistics (min, mean, median, max, etc.)</li>
+<li>univariate plots (histograms, densityplots, barplots) - distributions of single variables</li>
+<li>bivariate plots (scatterplots, boxplots) - relationships between variables</li>
+</ul>
+<p>. . .</p>
+<p>Notes:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>Not every plot you generate in this process has to end up in your final report, but each plot should help you learn</li>
+<li>Every plot should NOT be <em>beautiful</em>. Save that time for the ones you ultimately use to communicate your findings</li>
+<li>There is NOT a formula for carrying out EDA. You stop once you understand your data fully.</li>
+<li>Lab03 is to get you started. Three plots is probably not enough for you to be fully comfortable with these data.</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="data-files" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Data &amp; Files</h1>
+</section>
+<section id="question" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Question</h1>
+<p>Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?</p>
+<section id="our-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="our-datasets">Our Datasets</h2>
+<p>Three matrices:</p>
+<ul>
+<li>Blood (WB): 8 compounds; 190 participants</li>
+<li>Oral Fluid (OF): 7 compounds; 192 participants</li>
+<li>Breath (BR): 1 compound; 191 participants</li>
+</ul>
+<p>. . .</p>
+<p>Variables:</p>
+<ul>
+<li><code>ID</code> | participants identifier</li>
+<li><code>Treatment</code> | placebo, 5.90%, 13.40%</li>
+<li><code>Group</code> | Occasional user, Frequent user</li>
+<li><code>Timepoint</code> | indicator of which point in the timeline participant’s collection occurred</li>
+<li><code>time.from.start</code> | number of minutes from consumption</li>
+<li>&amp; measurements for individual compounds</li>
+</ul>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<p>Reading in the csv provided in lab03/cs01:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cs01_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cs01_combined.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="time-windows-compounds" class="level2 scrollable">
+<h2 class="scrollable anchored" data-anchor-id="time-windows-compounds">Time windows &amp; compounds</h2>
+<p>Defined once in <code>src/cs01_functions.R</code> (and used by <code>clean_cs01()</code>, which made the time windows in this file):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==== Time windows ============================================================</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows (minutes from start of smoking) differ by matrix, following the paper.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `cut()` intervals are right-closed: (0, 30] is "0-30 min"; anything &lt;= 0 is</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-smoking; the last window is open-ended.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>cs01_windows <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">WB =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">100</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="dv">300</span>, <span class="cn">Inf</span>),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-70 min"</span>, <span class="st">"71-100 min"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"101-180 min"</span>, <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"241-270 min"</span>, <span class="st">"271-300 min"</span>, <span class="st">"301+ min"</span>)),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">OF =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="cn">Inf</span>),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-90 min"</span>, <span class="st">"91-180 min"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>, <span class="st">"241-270 min"</span>, <span class="st">"271+ min"</span>)),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">BR =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="cn">Inf</span>),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-40 min"</span>, <span class="st">"41-90 min"</span>, <span class="st">"91-180 min"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>, <span class="st">"241-270 min"</span>, <span class="st">"271+ min"</span>))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># The first window after smoking, for each matrix</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>cs01_early_windows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0-30 min"</span>, <span class="st">"0-40 min"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Compounds measured (not every matrix has every compound)</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>cs01_compounds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cbn"</span>, <span class="st">"cbd"</span>, <span class="st">"thc"</span>, <span class="st">"thcoh"</span>, <span class="st">"thccooh"</span>, <span class="st">"thccooh_gluc"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"cbg"</span>, <span class="st">"thcv"</span>, <span class="st">"thca_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="cs01-eda" class="level1 page-columns page-full" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">CS01: EDA</h1>
+<section id="single-variable-basic-plots" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="single-variable-basic-plots">Single Variable (basic) plots</h2>
+<p>For a single compound…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cs01_data, <span class="fu">aes</span>(<span class="at">x=</span>thc)) <span class="sc">+</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<p>But, we have three different matrices…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cs01_data, <span class="fu">aes</span>(<span class="at">x=</span>thc)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>But what if we consider our experiment/the structure of our data? We have three different matrices…and a whole bunch of compounds. With wide data, it’s not easy to plot these distributions, so you may want to pivot those data….</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wide -&gt; long: one row per measurement of one compound</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cs01_to_long <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_longer</span>(<span class="fu">any_of</span>(cs01_compounds),</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">names_to =</span> <span class="st">"compound"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="ot">&lt;-</span> <span class="fu">cs01_to_long</span>(cs01_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>We select the compound columns <em>by name</em> (<code>cs01_compounds</code>), not by position (e.g.&nbsp;<code>7:15</code>), so this keeps working if the columns move.</p>
+</div></div><p>. . .</p>
+<p>Distributions across all compounds:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cs01_long, <span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>compound)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>…but this still doesn’t get at the differences between matrices <em>and</em> compound.</p>
+<p>. . .</p>
+<p>Plotting some of these data…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">group_compound=</span><span class="fu">paste0</span>(fluid_type, <span class="st">": "</span>, compound)) <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>value)) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>group_compound, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="thc-frequency" class="level2">
+<h2 class="anchored" data-anchor-id="thc-frequency">THC &amp; Frequency</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="thc-treatment-group" class="level2">
+<h2 class="anchored" data-anchor-id="thc-treatment-group">THC &amp; Treatment Group</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>treatment, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="focus-on-a-specific-timepoint" class="level2">
+<h2 class="anchored" data-anchor-id="focus-on-a-specific-timepoint">Focus on a specific timepoint…</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>, timepoint <span class="sc">%in%</span> cs01_early_windows) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>treatment, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="at-this-point" class="level2">
+<h2 class="anchored" data-anchor-id="at-this-point">At this point…</h2>
+<p>We start to get a sense of the data with these quick and dirty plots, but we’re really only scratching the surface of what’s going on in these data.</p>
+<p>. . .</p>
+<p>These data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects.</p>
+</section>
+<section id="day-2-mon-1019" class="level2" data-background-color="#92A86A">
+<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-2-mon-1019">Day 2 · Mon 10/19</h2>
+<p>Functions &amp; working across time windows.</p>
+</section>
+<section id="brief-aside-user-defined-functions" class="level2">
+<h2 class="anchored" data-anchor-id="brief-aside-user-defined-functions">Brief Aside: User-Defined Functions</h2>
+<blockquote class="blockquote">
+<p>You should consider writing a function whenever you’ve copied and pasted a block of code more than twice -Hadley</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>function_name <span class="ot">&lt;-</span> <span class="cf">function</span>(input){</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># operations using input</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<p>For example…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>double_value <span class="ot">&lt;-</span> <span class="cf">function</span>(val){</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  val <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<p>To use/execute:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">double_value</span>(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<p>Additional resource: <a href="https://r4ds.hadley.nz/functions">https://r4ds.hadley.nz/functions</a></p>
+</section>
+<section id="compounds-across-time" class="level2">
+<h2 class="anchored" data-anchor-id="compounds-across-time">Compounds across time</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Function</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Plots (WB)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">OF</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">BR</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Thoughts</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Shared colors &amp; theme (used by every CS01 plot):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==== Plotting ================================================================</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>cs01_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Frequent user"</span> <span class="ot">=</span> <span class="st">"#19831C"</span>, <span class="st">"Occasional user"</span> <span class="ot">=</span> <span class="st">"#A27FC9"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>theme_cs01 <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">12</span>) {</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> base_size) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.title =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">panel.grid =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">strip.background =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Our first user-defined function takes the data and the matrix as arguments:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Every measurement over time for one matrix, one panel per compound</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plot_scatter_time <span class="ot">&lt;-</span> <span class="cf">function</span>(df_long, matrix) {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  df_long <span class="sc">|&gt;</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fluid_type <span class="sc">==</span> matrix, <span class="sc">!</span><span class="fu">is.na</span>(time_from_start), <span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">|&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> time_from_start, <span class="at">y =</span> value, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>compound, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values =</span> cs01_colors) <span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> matrix, <span class="at">x =</span> <span class="st">"Time From Start (min)"</span>, <span class="at">y =</span> <span class="st">"Measurement"</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_cs01</span>()</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_scatter_time</span>(cs01_long, <span class="st">"WB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/compounds-wb-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_scatter_time</span>(cs01_long, <span class="st">"OF"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/compounds-of-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_scatter_time</span>(cs01_long, <span class="st">"BR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/compounds-br-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<div class="incremental">
+<ul class="incremental">
+<li>We do NOT have clear delineations in time</li>
+<li>This means there <em>could</em> be multiple measurements from a single individual within a specified timepoint (i.e.&nbsp;“0-30 min”)</li>
+<li>We wouldn’t want to include duplicate measures from the same individual within timepoint</li>
+<li>We wouldn’t have known this without looking at our data…why EDA is necessary</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dropping-duplicates-wn-time-window" class="level2">
+<h2 class="anchored" data-anchor-id="dropping-duplicates-wn-time-window">Dropping Duplicates (w/n time window)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep one measurement per person per matrix per time window (the first one)</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>drop_dups <span class="ot">&lt;-</span> <span class="cf">function</span>(df) {</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(timepoint)) <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">distinct</span>(fluid_type, timepoint, id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>cs01_nodups <span class="ot">&lt;-</span> <span class="fu">drop_dups</span>(cs01_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>. . .</p>
+<p>Now to pivot_longer that…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cs01_nodups_long <span class="ot">&lt;-</span> <span class="fu">cs01_to_long</span>(cs01_nodups)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While I drop duplicates <em>after</em> making the plots above, you and your group will want to think about when it should be done for telling the clearest story. The order we do things in EDA is not typically the order in which we communicate information.</p>
+</div>
+</div>
+</section>
+<section id="group-differences-frequency-of-use" class="level2">
+<h2 class="anchored" data-anchor-id="group-differences-frequency-of-use">Group Differences: Frequency of Use</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Function</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">WB</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">OF</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">BR</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">Thoughts</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>One function for both “frequency of use” and “treatment” comparisons: <code>x</code> says what to compare.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplots at the first post-smoking window for one matrix.</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   x: the variable to compare (e.g., group or treatment), unquoted</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>plot_boxplots <span class="ot">&lt;-</span> <span class="cf">function</span>(df_long, matrix, x) {</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  df_long <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fluid_type <span class="sc">==</span> matrix,</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>           timepoint <span class="sc">%in%</span> cs01_early_windows,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>           <span class="sc">!</span><span class="fu">is.na</span>(value)) <span class="sc">|&gt;</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> {{ x }}, <span class="at">y =</span> value, <span class="at">fill =</span> group)) <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">outlier.shape =</span> <span class="cn">NA</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">position =</span> <span class="fu">position_jitterdodge</span>(<span class="at">jitter.width =</span> <span class="fl">0.2</span>, <span class="at">jitter.height =</span> <span class="dv">0</span>),</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="fl">0.8</span>, <span class="at">color =</span> <span class="st">"gray40"</span>) <span class="sc">+</span></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>compound, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">str_wrap</span>(x, <span class="at">width =</span> <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="cn">NA</span>), <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>))) <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> cs01_colors) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> matrix, <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="st">"Measurement (ng/mL)"</span>) <span class="sc">+</span></span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_cs01</span>()</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"WB"</span>, <span class="at">x =</span> group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"OF"</span>, <span class="at">x =</span> group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"BR"</span>, <span class="at">x =</span> group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<div class="incremental">
+<ul class="incremental">
+<li>Certain compounds show different values between frequent and infrequent users. Worth considering what that means for our ultimate goal</li>
+<li>Breath at this first timepoint likely not very helpful…what about other timepoints?</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="group-differences-treatment" class="level2">
+<h2 class="anchored" data-anchor-id="group-differences-treatment">Group Differences: Treatment</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Function</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">WB</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">OF</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">BR</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">Thoughts</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Same function as before…just a different <code>x</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"WB"</span>, <span class="at">x =</span> treatment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"WB"</span>, <span class="at">x =</span> treatment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/all-the-plots-treatment-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"OF"</span>, <span class="at">x =</span> treatment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_boxplots</span>(cs01_nodups_long, <span class="st">"BR"</span>, <span class="at">x =</span> treatment)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
+<div class="incremental">
+<ul class="incremental">
+<li>Argument for combining treatment groups?</li>
+<li>Shared <code>ggplot2</code> settings live in <code>theme_cs01()</code> and <code>cs01_colors</code>, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that’s a function waiting to happen.</li>
+<li>These last two sets of plots have only focused on that first timepoint. You’ll probably want to look beyond that.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="day-3-wed-1021" class="level2" data-background-color="#92A86A">
+<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-3-wed-1021">Day 3 · Wed 10/21</h2>
+<p>Sensitivity, specificity &amp; choosing cutoffs: the core of the CS01 question.</p>
+</section>
+</section>
+<section id="some-metrics" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Some Metrics</h1>
+<section id="sensitivity-specificity" class="level2">
+<h2 class="anchored" data-anchor-id="sensitivity-specificity">Sensitivity &amp; Specificity</h2>
+<p><strong>Sensitivity</strong> | the ability of a test to correctly identify patients with a disease/trait/condition. <span class="math display">\[TP/(TP + FN)\]</span></p>
+<p>. . .</p>
+<p><strong>Specificity</strong> | the ability of a test to correctly identify people without the disease/trait/condition. <span class="math display">\[TN/(TN + FP)\]</span></p>
+<p>. . .</p>
+<p><span style="background-color: #ADD8E6">❓ For this analysis, do you care more about sensitivity? about specificity? equally about both?</span></p>
+</section>
+<section id="what-is-a-tp-here-tn-fp-fn" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-a-tp-here-tn-fp-fn">What is a TP here? TN? FP? FN?</h2>
+<p><strong>Post-smoking</strong> (cutoff &gt; 0)</p>
+<div class="incremental">
+<ul class="incremental">
+<li>TP = THC group, value &gt;= cutoff</li>
+<li>FN = THC group, value &lt; cutoff</li>
+<li>FP = Placebo group, value &gt;= cutoff</li>
+<li>TN = Placebo group, value &lt; cutoff</li>
+</ul>
+</div>
+<p>. . .</p>
+<p><strong>Pre-smoking</strong></p>
+<p>Cannot be a TP or FN before consuming…</p>
+<ul>
+<li>TP = 0</li>
+<li>FN = 0</li>
+<li>FP = value &gt;= cutoff</li>
+<li>TN = value &lt; cutoff</li>
+</ul>
+</section>
+<section id="the-code-to-come" class="level2">
+<h2 class="anchored" data-anchor-id="the-code-to-come">The Code to come</h2>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is beyond code I would expect you all to be able to write yourself. It’s here so that 1) you can make these calculations and interpret the results, 2) because we have a wide range of background and experience. I want <em>everyone</em> to get as much as they can out of this course, and 3) I do want you all to talk to one another. That’s one reason you all are in groups for case studies.</p>
+</div>
+</div>
+</section>
+<section id="calculating-sensitivity-and-specificity" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-sensitivity-and-specificity">Calculating Sensitivity and Specificity</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">The idea</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Run</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false">THC @ 5 ng/mL</a></li></ul>
+<div class="tab-content">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>For every matrix × compound × time window × cutoff, count TPs, FNs, FPs, and TNs.</p>
+<div class="incremental">
+<ol class="incremental" type="1">
+<li>Start with the long, de-duplicated data (one row per person × window × compound)</li>
+<li>Copy each row once per cutoff (<code>cross_join()</code>)</li>
+<li>Label each row: <em>used</em> (THC group, after smoking)? <em>detected</em> (value ≥ cutoff)?</li>
+<li><code>group_by()</code> + <code>summarize()</code> to count…exactly what you learned in the <code>dplyr</code> notes</li>
+</ol>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==== Sensitivity &amp; specificity ===============================================</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># For every matrix x compound x time window x cutoff:</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   "used"     = received THC AND sample taken after smoking</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   "detected" = value at or above the cutoff</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Pre-smoking samples count as true negatives/false positives only.</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>sens_spec <span class="ot">&lt;-</span> <span class="cf">function</span>(df_long, <span class="at">cutoffs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>)) {</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  df_long <span class="sc">|&gt;</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(value), <span class="sc">!</span><span class="fu">is.na</span>(timepoint)) <span class="sc">|&gt;</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cross_join</span>(<span class="fu">tibble</span>(<span class="at">cutoff =</span> cutoffs)) <span class="sc">|&gt;</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">used =</span> treatment <span class="sc">!=</span> <span class="st">"Placebo"</span> <span class="sc">&amp;</span> timepoint <span class="sc">!=</span> <span class="st">"pre-smoking"</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">detected =</span> value <span class="sc">&gt;=</span> cutoff) <span class="sc">|&gt;</span></span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(fluid_type, compound, timepoint, cutoff) <span class="sc">|&gt;</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(<span class="at">TP =</span> <span class="fu">sum</span>(used <span class="sc">&amp;</span> detected),</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">FN =</span> <span class="fu">sum</span>(used <span class="sc">&amp;</span> <span class="sc">!</span>detected),</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">FP =</span> <span class="fu">sum</span>(<span class="sc">!</span>used <span class="sc">&amp;</span> detected),</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a>              <span class="at">TN =</span> <span class="fu">sum</span>(<span class="sc">!</span>used <span class="sc">&amp;</span> <span class="sc">!</span>detected),</span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a>              <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">N =</span> TP <span class="sc">+</span> FN <span class="sc">+</span> FP <span class="sc">+</span> TN,</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>           <span class="at">sensitivity =</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FN),</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>           <span class="at">specificity =</span> TN <span class="sc">/</span> (TN <span class="sc">+</span> FP),</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>           <span class="at">ppv         =</span> TP <span class="sc">/</span> (TP <span class="sc">+</span> FP),</span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">npv         =</span> TN <span class="sc">/</span> (TN <span class="sc">+</span> FN),</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">efficiency  =</span> (TP <span class="sc">+</span> TN) <span class="sc">/</span> N)</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Reminder: Currently, states have laws on the books from zero tolerance (detection of any level) to 5ng/mL THC</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>cs01_ss <span class="ot">&lt;-</span> <span class="fu">sens_spec</span>(cs01_nodups_long, <span class="at">cutoffs =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>))</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>cs01_ss</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 720 × 14
+   fluid_type compound timepoint   cutoff    TP    FN    FP    TN     N
+   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1 BR         thc      0-40 min       0.5   124     1    16    47   188
+ 2 BR         thc      0-40 min       1     124     1    16    47   188
+ 3 BR         thc      0-40 min       2     124     1    16    47   188
+ 4 BR         thc      0-40 min       5     124     1    16    47   188
+ 5 BR         thc      0-40 min      10     124     1    16    47   188
+ 6 BR         thc      181-210 min    0.5     7    51     1    31    90
+ 7 BR         thc      181-210 min    1       7    51     1    31    90
+ 8 BR         thc      181-210 min    2       7    51     1    31    90
+ 9 BR         thc      181-210 min    5       7    51     1    31    90
+10 BR         thc      181-210 min   10       7    51     1    31    90
+# ℹ 710 more rows
+# ℹ 5 more variables: sensitivity &lt;dbl&gt;, specificity &lt;dbl&gt;, ppv &lt;dbl&gt;,
+#   npv &lt;dbl&gt;, efficiency &lt;dbl&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>cs01_ss <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>, cutoff <span class="sc">==</span> <span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(fluid_type, timepoint, TP, FN, FP, TN, sensitivity, specificity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 8
+   fluid_type timepoint      TP    FN    FP    TN sensitivity specificity
+   &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+ 1 BR         0-40 min      124     1    16    47      0.992        0.746
+ 2 BR         181-210 min     7    51     1    31      0.121        0.969
+ 3 BR         211-240 min    12    53     1    33      0.185        0.971
+ 4 BR         241-270 min     4    53     0    26      0.0702       1    
+ 5 BR         271+ min       10    53     2    24      0.159        0.923
+ 6 BR         41-90 min      18    30     1    40      0.375        0.976
+ 7 BR         91-180 min     24    64     0    30      0.273        1    
+ 8 BR         pre-smoking     0     0     6   185    NaN            0.969
+ 9 OF         0-30 min      128     1     3    60      0.992        0.952
+10 OF         181-210 min    36    29     0    37      0.554        1    
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-results" class="level2">
+<h2 class="anchored" data-anchor-id="plot-results">Plot Results</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">WB</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-3" role="tab" aria-controls="tabset-5-3" aria-selected="false">OF</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-4" role="tab" aria-controls="tabset-5-4" aria-selected="false">BR</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-5" role="tab" aria-controls="tabset-5-5" aria-selected="false">Thoughts</a></li></ul>
+<div class="tab-content">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>Note: requires <code>library(patchwork)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sensitivity (left) &amp; specificity (right) across time windows, one line per cutoff</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>plot_cutoffs <span class="ot">&lt;-</span> <span class="cf">function</span>(ss, fluid, cpd, <span class="at">title =</span> fluid) {</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> ss <span class="sc">|&gt;</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(fluid_type <span class="sc">==</span> fluid, compound <span class="sc">==</span> cpd) <span class="sc">|&gt;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">timepoint =</span> <span class="fu">factor</span>(timepoint, <span class="at">levels =</span> cs01_windows[[fluid]]<span class="sc">$</span>labels),</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">cutoff =</span> <span class="fu">factor</span>(cutoff))</span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  base <span class="ot">&lt;-</span> <span class="cf">function</span>(y, ylab) {</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(df <span class="sc">|&gt;</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>({{ y }})),</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>           <span class="fu">aes</span>(<span class="at">x =</span> timepoint, <span class="at">y =</span> {{ y }} <span class="sc">*</span> <span class="dv">100</span>, <span class="at">color =</span> cutoff, <span class="at">group =</span> cutoff)) <span class="sc">+</span></span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>) <span class="sc">+</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>      <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)) <span class="sc">+</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_x_discrete</span>(<span class="at">drop =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>      <span class="co"># colorblind-friendly sequential palette (darker = higher cutoff)</span></span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>      <span class="fu">scale_color_viridis_d</span>(<span class="at">name =</span> <span class="st">"Cutoff (ng/mL)"</span>, <span class="at">end =</span> <span class="fl">0.85</span>, <span class="at">direction =</span> <span class="sc">-</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>      <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Time Window"</span>, <span class="at">y =</span> ylab) <span class="sc">+</span></span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme_cs01</span>() <span class="sc">+</span></span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>      <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb37-21"><a href="#cb37-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>  (<span class="fu">base</span>(sensitivity, <span class="st">"Sensitivity (%)"</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title =</span> <span class="fu">paste0</span>(title, <span class="st">": "</span>, <span class="fu">toupper</span>(cpd)))) <span class="sc">+</span></span>
+<span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">base</span>(specificity, <span class="st">"Specificity (%)"</span>) <span class="sc">+</span></span>
+<span id="cb37-24"><a href="#cb37-24" aria-hidden="true" tabindex="-1"></a>    patchwork<span class="sc">::</span><span class="fu">plot_layout</span>(<span class="at">guides =</span> <span class="st">"collect"</span>) <span class="sc">&amp;</span></span>
+<span id="cb37-25"><a href="#cb37-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>, <span class="at">legend.title =</span> <span class="fu">element_text</span>())</span>
+<span id="cb37-26"><a href="#cb37-26" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cutoffs</span>(cs01_ss, <span class="st">"WB"</span>, <span class="st">"thc"</span>, <span class="at">title =</span> <span class="st">"Blood"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-3-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cutoffs</span>(cs01_ss, <span class="st">"OF"</span>, <span class="st">"thc"</span>, <span class="at">title =</span> <span class="st">"Oral Fluid"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-4-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_cutoffs</span>(cs01_ss, <span class="st">"BR"</span>, <span class="st">"thc"</span>, <span class="at">title =</span> <span class="st">"Breath"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-5-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-5-tab">
+<ul>
+<li>This is only THC</li>
+<li>For five semi-random cutoffs</li>
+<li>There are other compounds and other cutoffs to consider</li>
+<li>Breath THC is measured in pg/pad (not ng/mL), so these cutoffs don’t separate anything for breath (the lines overlap). What cutoffs would make sense there?</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="possible-extensions" class="level2">
+<h2 class="anchored" data-anchor-id="possible-extensions">Possible Extensions</h2>
+<p>Our current question asks for a <em>single</em> compound…and you’ll need to decide that.</p>
+<p>. . .</p>
+<p>…but you could imagine a world where more than one compound or more than one matrix could be measured at the roadside.</p>
+<p>. . .</p>
+<p>So:</p>
+<div class="incremental">
+<ul class="incremental">
+<li>combination of the oral fluid and blood that would better predict recent use? (For example if an officer stopped a driver and got a high oral fluid, but could not get a blood sample for a couple of hours and got a relatively low result would this predict recent use better than blood (or OF) alone?</li>
+<li>Is there a ratio of OF/blood that predicts recent use?</li>
+<li>Machine learning model to determine optimal combination of measurements/cutoffs to detect recent use?</li>
+</ul>
+</div>
+<p>. . .</p>
+<p>Things to keep in mind:</p>
+<ul>
+<li>some matrices are easier to get at the roadside</li>
+<li>time from use matters (trying to detect <em>recent</em> use)</li>
+<li>we may not care equally about sensitivity and specificity</li>
+</ul>
+</section>
+<section id="cs01-what-to-do-now" class="level2">
+<h2 class="anchored" data-anchor-id="cs01-what-to-do-now">cs01: what to do now?</h2>
+<ol type="1">
+<li>Communicate with your group!</li>
+<li>Discuss possible extensions</li>
+<li>Make a plan; figure out who’s doing what; set deadlines</li>
+<li>Implement the plan!</li>
+</ol>
+</section>
+<section id="what-has-to-be-done" class="level2">
+<h2 class="anchored" data-anchor-id="what-has-to-be-done">What has to be done:</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Question | include in qmd; add extension if applicable</li>
+<li>Background | summarize and add to what was discussed in classed</li>
+<li>Data
+<ul class="incremental">
+<li>Describe data &amp; variables</li>
+<li>Data wrangling | likely copy + paste from notes/lab; add explanation as you go</li>
+</ul></li>
+<li>Analysis
+<ul class="incremental">
+<li>EDA | likely borrowing parts from notes and modifying/adding more in to tell your story; be sure to include interpretations of output &amp; guide the reader</li>
+<li>Drawing conclusions to answer the question</li>
+<li>Extension | must be completed</li>
+</ul></li>
+<li>Discussion &amp; Conclusion | summarize; discuss limitations</li>
+<li>Proofread | ensure it makes sense from top to bottom</li>
+<li>General Audience communication (submit on Canvas; 1 submission per group)</li>
+</ul>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Avoid the temptation to assign “Analysis” to one group member. You’ll all likely have to contribute here.</p>
+</div>
+</div>
+</section>
+<section id="collaborating-on-github" class="level2">
+<h2 class="anchored" data-anchor-id="collaborating-on-github">Collaborating on GitHub</h2>
+<ul>
+<li>Be sure to pull changes every time you sit down to work</li>
+<li>Avoid working on the same part of the same file as another teammate OR work in separate files and combine at the end</li>
+<li>push your changes once you’re ready to add them to the group</li>
+</ul>
+</section>
+<section id="recap" class="level2 smaller" data-background-color="#92A86A">
+<h2 class="smaller anchored" data-background-color="#92A86A" data-anchor-id="recap">Recap</h2>
+<ul>
+<li>Can you explain/describe the plots generated in the context of these data?</li>
+<li>Can you generate EDA plots of your own for these data</li>
+<li>Can you understand/work through the more complicated code provided (even if you couldn’t have come up with it on your own)</li>
+<li>Can you describe sensitivity? Specificity?</li>
+<li>Can you explain how TP, TN, FP, and FN were calculated/defined <em>in this experiment</em>?</li>
+<li>Can you describe the code used to carry out the calculations?</li>
+<li>Can you interpret the results from these data?</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/cogs137-fa26\.github\.io\/cogs137-fa26\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE.html">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with 🤍, inspiration from Mine Çetinkaya-Rundel, and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -8,7 +8,6 @@ format:
     output-file: 14-regression.html
   revealjs:
     output-file: 14-regression-slides.html
-    css: slides.css
 ---
 ```{r echo = FALSE, message=FALSE, warning=FALSE}
 library(patchwork)

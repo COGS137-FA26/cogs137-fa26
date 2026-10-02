@@ -17,7 +17,7 @@ project:
     # # CS01
     # - content/cs/cs01.qmd
     # - content/cs/cs-example.qmd
-    # - content/lectures/0[3-9]-*.qmd
+    - content/lectures/0[3-9]-*.qmd
     # - content/lectures/10-*.qmd
     # - content/labs/0[2-5]-*.qmd
     # - content/hw/hw-02.qmd
@@ -85,14 +85,14 @@ website:
       # Uncomment items as they're released.
       - section: "Notes"
         contents:
-          - text: "Notes 00: Welcome"
+          - text: "00: Welcome"
             href: content/lectures/00-welcome.qmd
-          - text: "Notes 01: Tooling (Datahub, Quarto, Git/GitHub)"
+          - text: "01: Tooling (Datahub, Quarto, Git/GitHub)"
             href: content/lectures/01-tooling.qmd
-          - text: "Notes 02: Intro to R"
+          - text: "02: Intro to R"
             href: content/lectures/02-intro-to-r.qmd
-      #     - text: "Notes 03: CS01 Intro"
-      #       href: content/lectures/03-cs01-intro.qmd
+          - text: "03: CS01 Intro"
+            href: content/lectures/03-cs01-intro.qmd
       #     - text: "Notes 04: Data Wrangling (dplyr)"
       #       href: content/lectures/04-dplyr.qmd
       #     - text: "Notes 05: ggplot2"

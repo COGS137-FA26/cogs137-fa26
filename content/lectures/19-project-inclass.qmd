@@ -8,7 +8,6 @@ format:
     output-file: 19-project-inclass.html
   revealjs:
     output-file: 19-project-inclass-slides.html
-    css: slides.css
 ---
 
 # Final Project: In class {background-color="#92A86A"}

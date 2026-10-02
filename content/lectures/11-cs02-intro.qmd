@@ -8,7 +8,6 @@ format:
     output-file: 11-cs02-intro.html
   revealjs:
     output-file: 11-cs02-intro-slides.html
-    css: slides.css
 ---
 
 ```{r packages, echo = FALSE, message=FALSE, warning=FALSE}

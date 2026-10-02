@@ -8,7 +8,6 @@ format:
     output-file: 13-inference-prediction.html
   revealjs:
     output-file: 13-inference-prediction-slides.html
-    css: slides.css
 ---
 
 ```{r packages, echo = FALSE, message=FALSE, warning=FALSE}

@@ -8,7 +8,6 @@ format:
     output-file: 18-oral-communication.html
   revealjs:
     output-file: 18-oral-communication-slides.html
-    css: slides.css
 ---
 
 # Effective Oral Communication {background-color="#92A86A"}

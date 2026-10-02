@@ -12,7 +12,6 @@ format:
     chalkboard: false
     preview-links: auto
     logo: images/cogs137-logo-hex.png
-    css: slides.css
 ---
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -310,10 +309,10 @@ You cannot yet do this. I want you to see it before you can try to follow along 
 Consider `ggplot2` (a package we'll learn a lot)
 
 ::: incremental
--   Official documentation (CRAN): [https://cran.r-project.org/web/packages/ggplot2/index.html]()
--   Code (Github): [https://github.com/tidyverse/ggplot2]()
--   Documentation: [https://ggplot2.tidyverse.org/reference/index.html]()
--   Specific Function: [https://ggplot2.tidyverse.org/reference/geom_point.html]()
+-   Official documentation (CRAN): https://cran.r-project.org/web/packages/ggplot2/index.html
+-   Code (Github): https://github.com/tidyverse/ggplot2
+-   Documentation: https://ggplot2.tidyverse.org/reference/index.html
+-   Specific Function: https://ggplot2.tidyverse.org/reference/geom_point.html
 :::
 
 ## GenAI: What it could look like

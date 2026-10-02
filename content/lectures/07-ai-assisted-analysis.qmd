@@ -12,7 +12,6 @@ format:
     chalkboard: false
     preview-links: auto
     logo: images/cogs137-logo-hex.png
-    css: slides.css
 ---
 
 ```{r packages, echo = FALSE, message = FALSE, warning = FALSE}

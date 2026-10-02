@@ -8,7 +8,6 @@ format:
     output-file: 10-cs01-inclass.html
   revealjs:
     output-file: 10-cs01-inclass-slides.html
-    css: slides.css
 ---
 
 # CS01: In class {background-color="#92A86A"}

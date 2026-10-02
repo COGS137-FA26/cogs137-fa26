@@ -8,7 +8,6 @@ format:
     output-file: 08-cs01-eda.html
   revealjs:
     output-file: 08-cs01-eda-slides.html
-    css: slides.css
 ---
 
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
