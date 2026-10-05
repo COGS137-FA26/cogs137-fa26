@@ -19,7 +19,6 @@ Here are the steps for getting started:
 **Outside resources & AI use:** Before submitting, fill in the *Outside Resources & AI Use* section at the end of your .qmd (write "None" if you didn't use any). This is required on every assignment.
 :::
 
-
 You can of course push multiple to GitHub times throughout the assignment. Your final push at the deadline will be used for grading. (This means even if you made mistakes before that on GitHub, you wouldn't be penalized for them, so long as the final state of your work is correct).
 
 ::: callout-important

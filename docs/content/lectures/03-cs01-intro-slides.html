@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Professor Shannon Ellis">
-  <meta name="dcterms.date" content="2026-10-02">
+  <meta name="dcterms.date" content="2026-10-05">
   <title>COGS 137 - 03-cs01-intro</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -410,15 +410,15 @@ Professor Shannon Ellis
     </div>
 </div>
 
-  <p class="date">2026-10-02</p>
+  <p class="date">2026-10-05</p>
 </section>
 <section>
 <section id="cs01-biomarkers-of-recent-use" class="title-slide slide level1 center" data-background-color="#92A86A">
 <h1>CS01: Biomarkers of Recent Use</h1>
 
 </section>
-<section id="qa" class="slide level2 scrollable smaller">
-<h2>Q&amp;A</h2>
+<section id="qa-102" class="slide level2 scrollable smaller">
+<h2>Q&amp;A (10/2)</h2>
 <!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 <div title="Q: I'm a little curious how often we'll be using integer variable types, and what we'll be using them for. At the moment I don't see a clear benefit.">
 <div class="callout callout-note callout-titled callout-style-default">
@@ -454,13 +454,46 @@ Professor Shannon Ellis
 </div>
 </div>
 </section>
+<section id="qa-105" class="slide level2 scrollable smaller">
+<h2>Q&amp;A (10/5)</h2>
+<div title="Q: I am curious about what would happen with a vector that uses a boolean with a character string.">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: I am curious about what would happen with a vector that uses a boolean with a character string.</strong></p>
+</div>
+<div class="callout-content">
+<p>A: It would coerce to a string! <code>c(FALSE, "shan")</code></p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q: It seems like you can't get any errors in R, is there a way to get an error.">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: It seems like you can’t get any errors in R, is there a way to get an error.</strong></p>
+</div>
+<div class="callout-content">
+<p>A: Yes! Lots of errors - we’ll see some in class. But, one note is that they are red….but so are warnings and other output….so just b/c you see red doesn’t mean that there is an error. But, if you’re thinking about dividing by zero giving Inf, you’re right that that would produce an error in other programming languages. (<code>(FALSE, "shan")</code> would return an error…b/c it’s missing the <code>c</code> before the open parentheses if you want ot see one)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section id="course-announcements" class="slide level2">
 <h2>Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>🔘 <strong>Student survey</strong> (#finaid) due today 10/2 (11:59 PM)</li>
-<li>⌨️ <strong>Lab 01</strong> due today 10/2 (11:59 PM)</li>
 <li>🔘 Lecture Participation survey “due” after class</li>
+<li><strong>Lab01</strong> due Friday (we’ll cover material on Wed, so I wouldn’t start this yet)</li>
+<li><strong>HW01</strong> due Sunday (can get started; we’ll finish content in next set of lecture notes)</li>
 </ul>
 </section>
 <section id="agenda" class="slide level2">
@@ -489,7 +522,7 @@ Professor Shannon Ellis
 </ul></li>
 </ul>
 <div class="fragment">
-<p>Note: we’re discussing this <em>before</em> you know who your CS01 group mates are. This is because everything here is what everyone will need to know.</p>
+<p>Note: we’re discussing this <em>before</em> you know who your CS01 group mates are. This is because everything here is what everyone will need to know. Also, everyone will individually be exploring the data in lab on Thursday…and I want <em>everyone</em> to have the background and work individually to understand the data.</p>
 </div>
 </section>
 <section id="deliverables" class="slide level2">

@@ -1,7 +1,7 @@
 ---
 title: "03-cs01-intro"
 author: "Professor Shannon Ellis"
-date: "2026-10-02"
+date: "2026-10-05"
 
 format:
   html: 
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 
 # CS01: Biomarkers of Recent Use {background-color="#92A86A"}
 
-## Q&A {.scrollable .smaller}
+## Q&A (10/2) {.scrollable .smaller}
 
 <!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
@@ -42,14 +42,26 @@ for (i in 1:5) {
 ```
 :::
 
+## Q&A (10/5) {.scrollable .smaller}
+
+
+::: {.callout-note collapse="true" title="Q: I am curious about what would happen with a vector that uses a boolean with a character string."}
+A:  It would coerce to a string! `c(FALSE, "shan")`
+:::
+
+::: {.callout-note collapse="true" title="Q: It seems like you can't get any errors in R, is there a way to get an error."}
+A:   Yes! Lots of errors - we'll see some in class. But, one note is that they are red....but so are warnings and other output....so just b/c you see red doesn't mean that there is an error. But, if you're thinking about dividing by zero giving Inf, you're right that that would produce an error in other programming languages. (`(FALSE, "shan")` would return an error...b/c it's missing the `c` before the open parentheses if you want ot see one)
+:::
+
 
 ## Course Announcements
 
 **Due Dates**:
 
--   🔘 **Student survey** (#finaid) due today 10/2 (11:59 PM)
--   ⌨️ **Lab 01** due today 10/2 (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
+-  **Lab01** due Friday (we'll cover material on Wed, so I wouldn't start this yet)
+-  **HW01** due Sunday (can get started; we'll finish content in next set of lecture notes)
+
 
 
 ## Agenda
@@ -71,7 +83,7 @@ for (i in 1:5) {
     
 . . .
 
-Note: we're discussing this *before* you know who your CS01 group mates are. This is because everything here is what everyone will need to know. 
+Note: we're discussing this *before* you know who your CS01 group mates are. This is because everything here is what everyone will need to know. Also, everyone will individually be exploring the data in lab on Thursday...and I want *everyone* to have the background and work individually to understand the data.
 
 ## Deliverables
 

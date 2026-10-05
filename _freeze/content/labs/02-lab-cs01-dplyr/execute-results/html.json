@@ -1,0 +1,15 @@
+{
+  "hash": "c44eb37968b4613d02d6e5ad9ee484a8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Lab 02 - CS01 - `dplyr` practice\"\nformat: html\n---\n\n\n\n\n# Introduction\n\nThe main goals of this lab are for you to 1) get more familiar with the CS01 data and 2) gain familiarity with `dplyr`.\n\n# Getting started\n\nTo get started, find your `lab02-<your GitHub username>` repo in the [course GitHub organization](https://github.com/COGS137-FA26), clone the repo (using SSH) into RStudio on datahub. And, then you're ready to go!\n\n# Packages\n\nThis lab uses two packages: `tidyverse` (which includes `dplyr`, the package you'll be using most in this lab) and (you may want to use) `janitor` (for `clean_names()`). Both are loaded for you in the `load-packages` chunk of the provided .qmd template.\n\n# Data\n\nThe three data files you'll be using in this lab have been provided in the `data/` folder. You'll see the following three lines in the provided .qmd template for this lab, which, when run, will read each of the files into R for you:\n\n``` r\nWB <- read_csv(\"data/Blood.csv\")\nOF <- read_csv(\"data/OF.csv\")\nBR <- read_csv(\"data/Breath.csv\")\n```\n\n# Exercises\n\nFor each dataset, we want you to start to gain familiarity with the data in there, without having yet been provided much guidance in class. The goal here is to try out as many different `dplyr` functions as possible...while learning things about the data. For each dataset, use *at least* three different `dplyr` functions and state three things you learned about the data while practicing with `dplyr`.\n\n### Exercise 1: **Whole Blood**\n\nCarry out the above on Whole Blood.\n\n\n### Exercise 2: **Oral Fluid**\n\nCarry out the above on Oral Fluid.\n\n### Exercise 3: **Breath**\n\nCarry out the above on Breath.\n\n\n### Exercise 4: **Summarize**\n\nIn your own words (no code needed), describe the wrangling that was done overall, focusing on why it was done or what it achieved, rather than on specific lines of code.\n\n# Submit\n\n::: callout-important\nYou'll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.\n:::\n\n::: callout-note\n**Outside resources & AI use:** Before submitting, fill in the *Outside Resources & AI Use* section at the end of your .qmd (write \"None\" if you didn't use any). This is required on every assignment.\n:::\n\n*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message \"Done with Lab 2! 💪\", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

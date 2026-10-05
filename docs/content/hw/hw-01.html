@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>COGS 137</title>
+<title>COGS 137 - HW 01 - R Basics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,26 +23,26 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./content/lectures/00-welcome.html" rel="next">
-<link href="./schedule.html" rel="prev">
-<link href="./images/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../computing/computing-access.html" rel="next">
+<link href="../../content/labs/02-lab-cs01-dplyr.html" rel="prev">
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,9 +72,9 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<meta property="og:title" content="COGS 137">
+<meta property="og:title" content="COGS 137 - HW 01 - R Basics">
 <meta property="og:description" content="Homepage for COGS 137 - Practical Data Science in R, Fall 2026.">
-<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/images/background.png">
+<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/hw/images/background.png">
 <meta property="og:site_name" content="COGS 137">
 </head>
 
@@ -87,7 +87,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./schedule.html">Schedule &amp; Policies</a></li><li class="breadcrumb-item"><a href="./policies.html">Policies</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../../content/hw/hw-01.html">HW 01: R Basics</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -101,8 +101,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/cogs137-logo-hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/cogs137-logo-hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main tools-wide">
     <div class="dropdown">
@@ -135,22 +135,22 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
  <span class="menu-text">Schedule &amp; Policies</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./policies.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../policies.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Policies</span></a>
   </div>
 </li>
@@ -167,25 +167,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">00: Welcome</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/lectures/01-tooling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/lectures/01-tooling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01: Tooling (Datahub, Quarto, Git/GitHub)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/lectures/02-intro-to-r.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/lectures/02-intro-to-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02: Intro to R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/lectures/03-cs01-intro.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/lectures/03-cs01-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">03: CS01 Intro</span></a>
   </div>
 </li>
@@ -202,13 +202,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 01: Tooling and R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/labs/02-lab-cs01-dplyr.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/labs/02-lab-cs01-dplyr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 02: CS01 Data Wrangling</span></a>
   </div>
 </li>
@@ -220,16 +220,16 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
  <span class="menu-text">Homework</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./content/hw/hw-01.html" class="sidebar-item-text sidebar-link">
+  <a href="../../content/hw/hw-01.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">HW 01: R Basics</span></a>
   </div>
 </li>
@@ -246,19 +246,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing/computing-access.html" class="sidebar-item-text sidebar-link">
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Access</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing/computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../computing/computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Troubleshooting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Cheatsheets</span></a>
   </div>
 </li>
@@ -274,17 +274,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#class" id="toc-class" class="nav-link active" data-scroll-target="#class">Class</a></li>
-  <li><a href="#course-components" id="toc-course-components" class="nav-link" data-scroll-target="#course-components">Course components</a></li>
-  <li><a href="#grading" id="toc-grading" class="nav-link" data-scroll-target="#grading">Grading</a></li>
-  <li><a href="#late-missed-work" id="toc-late-missed-work" class="nav-link" data-scroll-target="#late-missed-work">Late / missed work</a></li>
-  <li><a href="#regrade-requests" id="toc-regrade-requests" class="nav-link" data-scroll-target="#regrade-requests">Regrade requests</a></li>
-  <li><a href="#diversity-inclusion" id="toc-diversity-inclusion" class="nav-link" data-scroll-target="#diversity-inclusion">Diversity &amp; Inclusion</a></li>
-  <li><a href="#disability-access" id="toc-disability-access" class="nav-link" data-scroll-target="#disability-access">Disability Access</a></li>
-  <li><a href="#how-to-get-help" id="toc-how-to-get-help" class="nav-link" data-scroll-target="#how-to-get-help">How to get help</a></li>
-  <li><a href="#academic-integrity" id="toc-academic-integrity" class="nav-link" data-scroll-target="#academic-integrity">Academic integrity</a></li>
-  <li><a href="#professionalism" id="toc-professionalism" class="nav-link" data-scroll-target="#professionalism">Professionalism</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link active" data-scroll-target="#getting-started">Getting started</a></li>
   </ul>
 </nav>
     </div>
@@ -292,273 +282,64 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/hw/hw-01.html">Homework</a></li><li class="breadcrumb-item"><a href="../../content/hw/hw-01.html">HW 01: R Basics</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">HW 01 - R Basics</h1>
+</div>
 
 
 
-<section id="class" class="level3">
-<h3 class="anchored" data-anchor-id="class">Class</h3>
-<p>Class will include short lectures, interactive activities, and time for group work. The goal of lecture is to introduce the topics and information needed for the course and get initial practice. The goal of your time outside of lecture is to further practice with topics that are introduced and deepen your understanding of material presented in class. Since so much of programming and statistical analysis is learned best by doing, we’ll prioritize that throughout the course, both in and outside of the classroom.</p>
-</section>
-<section id="course-components" class="level3">
-<h3 class="anchored" data-anchor-id="course-components">Course components</h3>
-<section id="lecture" class="level4">
-<h4 class="anchored" data-anchor-id="lecture">Lecture</h4>
-<p>Lectures will be your introduction to course topics and material. Lectures will be interactive, and you will be given time to practice with the lecture concepts during class. <strong>Attendance is not required, but you should come to class</strong>. To help incentivize this, there will be a daily participation survey that will open at the end of lecture and close shortly after each lecture. Each time you fill out the lecture survey, you get a small % of credit toward your final project Completion of all surveys will provide 1% extra credit on your final grade.</p>
-<section id="readings" class="level5">
-<h5 class="anchored" data-anchor-id="readings">Readings</h5>
-<p>Readings will be suggested for some class days and are best completed prior to the day’s lecture. These are meant to provide background and additional context for the upcoming day’s lecture topics. These can also be a good source after class when studying or reviewing topics discussed in class.</p>
-</section>
-<section id="podcast" class="level5">
-<h5 class="anchored" data-anchor-id="podcast">Podcast</h5>
-<p>In case you miss class or would like to review the material covered in class, you can view the podcasts <a href="https://podcast.ucsd.edu">here</a>.</p>
-</section>
-</section>
-<section id="labs" class="level4">
-<h4 class="anchored" data-anchor-id="labs">Labs</h4>
-<p>Labs are meant to give you deeper understanding and hands-on experience with the topics introduced during lecture in a low-stakes environment. Lab sections will typically comprise of a short review and explanation of the lab and then time for you to complete the assigned weekly lab. Labs are submitted individually, but you are encouraged to work together during lab. You are free to ask and answer each others’ questions and discuss your work. Instructional staff will be present during lab to help further your understanding.</p>
-<p>Labs are graded for concerted effort. This is because when we learn something new, mistakes are going to happen! In fact, we learn <em>a lot</em> from the mistakes we make during the learning process. If your submission reflects ~50 min of work/effort, you will receive full credit for the week’s lab.</p>
-<p>Lab attendance is not required, but is definitely encouraged if you are feeling well as you’ll learn a lot by engaging with others’ ideas and getting questions answered in real-time.</p>
-</section>
-<section id="homework" class="level4">
-<h4 class="anchored" data-anchor-id="homework">Homework</h4>
-<p>After practice in lecture and labs, homework assignments are meant to demonstrate your solidified understanding of the pre-case study course material. Homework assignments are completed and submitted individually and are marked for correctness. You <em>are</em> allowed to work together on homework assignments, but academic integrity must be upheld.</p>
-</section>
-<section id="projects" class="level4">
-<h4 class="anchored" data-anchor-id="projects">Projects</h4>
-<p>There will be two case study mini-projects and a final project. Teams will be randomly assigned for the first case study, but you all will select your team for the second case study and final project (which will both be completed in the same team). By working with teammates throughout the course, you will also be able to use one another as a resource during labs and assignments.</p>
-<section id="case-studies" class="level5">
-<h5 class="anchored" data-anchor-id="case-studies">Case Studies</h5>
-<p>We will use case studies throughout the course to guide our learning of both programming in R and using that to analyze data. Specific case studies and statistics topics will be discussed in class. In your teams and for each of the case studies, you will: 1) carry out the analysis presented in class as a group, 2) extend the analysis from class and 3) communicate your findings for both a technical and general audience.</p>
-</section>
-<section id="final-project" class="level5">
-<h5 class="anchored" data-anchor-id="final-project">Final Project</h5>
-<p>The final project will be completed in groups, where each group will carry out a data analysis on a topic and dataset of their choosing.</p>
-<p>Final project submissions will include a 1) detailed data science report, 2) short (5 min) in-class presentation of the project with question answering and 3) a general audience communication.</p>
-<p>Project groups will present their projects in class during week 10.</p>
-</section>
-</section>
-</section>
-<section id="grading" class="level3">
-<h3 class="anchored" data-anchor-id="grading">Grading</h3>
-<p>Your final grade will be comprised of the following:</p>
-<table class="table">
-<colgroup>
-<col style="width: 40%">
-<col style="width: 35%">
-<col style="width: 24%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Assignment (#)</th>
-<th>Component</th>
-<th>% of grade</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Labs (7)</strong></td>
-<td></td>
-<td><strong>21% (3pt each)</strong></td>
-</tr>
-<tr class="even">
-<td><strong>Homework (2)</strong></td>
-<td></td>
-<td><strong>12% (6pt each)</strong></td>
-</tr>
-<tr class="odd">
-<td><strong>Case Study (2; cs01 + cs02)</strong></td>
-<td></td>
-<td><strong>28%</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Report* (2)</td>
-<td>20% (10pt each)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>General Communication* (2)</td>
-<td>6% (3pt each)</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Team Evaluation Survey (2)</td>
-<td>2% (1pt each)</td>
-</tr>
-<tr class="odd">
-<td><strong>Final Project (1)</strong></td>
-<td></td>
-<td><strong>39%</strong></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Project Proposal* (1)</td>
-<td>5%</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>First Draft* (1)</td>
-<td>5%</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Peer Review* (1)</td>
-<td>5%</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Final Report* (1)</td>
-<td>10%</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>General Communication* (1)</td>
-<td>3%</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Final Presentation (1)</td>
-<td>10%</td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Team Evaluation Survey</td>
-<td>1%</td>
-</tr>
-</tbody>
-</table>
-<p>* indicates group submission. Individual grades can be adjusted within a group.</p>
-<section id="final-grades" class="level4">
-<h4 class="anchored" data-anchor-id="final-grades">Final Grades</h4>
-<p>To calculate final grades, I use the standard grading scale and do not round grades up (given extra credit opportunities offered):</p>
-<table class="table">
-<tbody>
-<tr class="odd">
-<td>97-100%</td>
-<td>A+</td>
-</tr>
-<tr class="even">
-<td>93-96%</td>
-<td>A</td>
-</tr>
-<tr class="odd">
-<td>90-92%</td>
-<td>A-</td>
-</tr>
-<tr class="even">
-<td>87-89%</td>
-<td>B+</td>
-</tr>
-<tr class="odd">
-<td>83-86%</td>
-<td>B</td>
-</tr>
-<tr class="even">
-<td>80-82%</td>
-<td>B-</td>
-</tr>
-<tr class="odd">
-<td>77-79%</td>
-<td>C+</td>
-</tr>
-<tr class="even">
-<td>73-76%</td>
-<td>C</td>
-</tr>
-<tr class="odd">
-<td>70-72%</td>
-<td>C-</td>
-</tr>
-<tr class="even">
-<td>67-69%</td>
-<td>D+</td>
-</tr>
-<tr class="odd">
-<td>63-66%</td>
-<td>D</td>
-</tr>
-<tr class="even">
-<td>60-62%</td>
-<td>D-</td>
-</tr>
-<tr class="odd">
-<td>&lt;60%</td>
-<td>F</td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="late-missed-work" class="level3">
-<h3 class="anchored" data-anchor-id="late-missed-work">Late / missed work</h3>
-<p>Late homework assignments and case study projects will be accepted up to 3 days (72 hours) after the assigned deadline. Late submissions will receive a 25% deduction.</p>
-<p>There are no late deadlines for labs or the final project.</p>
-<p>Note: Prof Ellis is a reasonable person; reach out to her if you have an extenuating circumstance at any point in the quarter.</p>
-</section>
-<section id="regrade-requests" class="level3">
-<h3 class="anchored" data-anchor-id="regrade-requests">Regrade requests</h3>
-<p>We will work hard to grade everyone fairly and return assignments quickly. And, we know you also work hard and want you to receive the grade you’ve earned. Occasionally, grading mistakes do happen, and it’s important to us to correct them. If you think there is a mistake in your grade on an assignment, post <em>privately</em> on Piazza to “Instructors” using the “regrades” tag within 72 hours. This post should include evidence of why you think your answer was correct and should point to the specific part of the assignment in question.</p>
-</section>
-<section id="diversity-inclusion" class="level3">
-<h3 class="anchored" data-anchor-id="diversity-inclusion">Diversity &amp; Inclusion</h3>
-<p>My goal is that every student, regardless of their background or perspective, will be well-served by this course. My philosophy is that the diversity of students in this class is a huge asset to our learning community; our differences provide opportunities for learning and understanding. I intend to present course materials that are conscious of and respectful to diversity (gender identity, sexuality, disability, age, socioeconomic status, ethnicity, race, nationality, religion, politics, and culture); however, if I ever fall short or if you ever have suggestions for improvement, please do share with me! This feedback is always welcomed, and I am always in the process of learning and improving to this end. If you would like to provide that feedback anonymously, please use the <a href="https://docs.google.com/forms/d/e/1FAIpQLSd1YNH8CqBbVxr_M9v_c3X-XLqySLrBfYE7GwuAshFMCP_WvQ/viewform">anonymous Google Form</a>.*</p>
-<section id="what-should-you-call-me" class="level4">
-<h4 class="anchored" data-anchor-id="what-should-you-call-me">What should you call me?</h4>
-<p>Most students call me Professor/Prof Ellis, and that’s great! This is how I typically sign emails to students. I’m also totally OK with you addressing me as Shannon or Dr.&nbsp;Ellis.</p>
-</section>
-<section id="what-i-should-call-you" class="level4">
-<h4 class="anchored" data-anchor-id="what-i-should-call-you">What I should call you?</h4>
-<p>I should call you by your preferred name, with the correct pronunciation. Please correct me (in the moment or online after the fact…however you’re most comfortable) if I ever make a mistake.</p>
-</section>
-</section>
-<section id="disability-access" class="level3">
-<h3 class="anchored" data-anchor-id="disability-access">Disability Access</h3>
-<p>Students requesting accommodations due to a disability should provide a current Authorization for Accommodation (AFA) letter. These letters are issued by the Office for Students with Disabilities (OSD), which is located in University Center 202 behind Center Hall. If you are struggling to get necessary accommodations or want to further discuss your accommodations, please feel free to reach out to Professor Ellis directly.</p>
-<p>Contacting the OSD can help you further:<br>
-858.534.4382 (phone)<br>
-osd@ucsd.edu (email)<br>
-http://disabilities.ucsd.edu</p>
-</section>
-<section id="how-to-get-help" class="level3">
-<h3 class="anchored" data-anchor-id="how-to-get-help">How to get help</h3>
-<p>Class time, lab, and office hours are all great! Online communication works too, via either the class Q&amp;A platform or email. If contacting by email, it’s best to include COGS 137 in the subject line.</p>
-<p>But, if you prefer to be anonymous (i.e.&nbsp;If you’ve been offended by an example in class, really disliked a lesson, or wish there were something covered in class that wasn’t but would rather not share this publicly), please fill out the <a href="https://goo.gl/forms/2nXnDNbgYuS1OsGF2">anonymous Google Form</a>*.</p>
-<p>*This form can be taken down at any time if it’s not being used for its intended purpose; however, you all will be notified should that happen.</p>
-</section>
-<section id="academic-integrity" class="level3">
-<h3 class="anchored" data-anchor-id="academic-integrity">Academic integrity</h3>
-<p>Please don’t cheat. Academic dishonesty undermines you actually learning the material and is unfair to students putting in the work. I take academic integrity seriously and have historically and will continue to report any suspected violations to the <strong>UCSD Academic Integrity Office</strong>. (I hate when I have to do this; please don’t put either of us in that position.)</p>
-<p>It is your responsibility to familiarize yourself with <a href="http://academicintegrity.ucsd.edu/">UCSD’s academic integrity policies</a>.</p>
-<p>Examples of academic dishonesty include (but are not limited to):</p>
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This assignment is meant to get you comfortable with 1) the format of homework assignments in this course and 2) writing R code in RStudio. The specific questions on this assignment will be simpler and should take you less time than those on future assignments. This assignment focuses on variables, operators, datasets, and <code>dplyr</code> basics.</p>
+<section id="getting-started" class="level1">
+<h1>Getting started</h1>
+<p>Here are the steps for getting started:</p>
 <ul>
-<li>asking AI to complete your homeworks, labs, or projects</li>
-<li>copying answers from another student (or allowing another student to copy yours)</li>
-<li>using/sharing a “secret code” or timing of Google Form to receive credit when you are not in class/section (or sharing one with a classmate who is absent)</li>
+<li>Find your <code>hw01-&lt;your GitHub username&gt;</code> repo in the <a href="https://github.com/COGS137-FA26">course GitHub organization</a></li>
+<li>Clone this repo into RStudio on datahub</li>
+<li>Make any changes needed as outlined by the tasks you need to complete for the assignment</li>
+<li>Periodically render your file and take a look at the document generated</li>
+<li>Commit changes (for example, once per each new part)</li>
+<li>Push all your changes back to your GitHub repo</li>
 </ul>
-<p>Use of Generative AI (GenAI) tools (e.g., TritonGPT, ChatGPT, Claude, Gemini) is permitted in this course; however, use should be thoughtful and intentional. If they are helping you learn, you’re probably using them correctly. If they’re helping you earn points without actually learning, you’re using them incorrectly.</p>
-<p>Also, you are responsible for errors and falsehoods introduced by (any of) the tools you use. If a model hallucinates or gives you incorrect information and you submit it, you’re responsible for that error.</p>
-<section id="help-allowed" class="level4">
-<h4 class="anchored" data-anchor-id="help-allowed">Help allowed</h4>
-<p>GenAI usage is permitted on all course components; however, <strong>it should never be asked to complete a lab, assignment, or project component for you outright. Instead you should be using it conversationally, with targeted specific tasks and/or questions.</strong> Proper use to support learning and pitfalls to avoid will be discussed in class.</p>
-<p><strong>Labs &amp; Assignments</strong>: Labs and assignments will be submitted individually, although you may seek help from your fellow students during completion. However, you may not give answers to each other at any time and should not ask for answers from GenAI outright. You should understand, reproduce on your own, and be able to explain any work you submit. All assignments will require you to specify how outside resources were utilized in their completion.</p>
-<p><strong>Projects</strong>: For case studies and your final project, you will work together but every person in the group is required to understand every aspect of the project. AI may be used as a collaborative tool just like an additional group member; we will discuss this in class. Use it for brainstorming, editing, debugging, formatting, background research, and/or clarifying thoughts. Individual understanding will be assessed during questions after the final presentation. Projects may include ideas and code from other sources—but these other sources must be documented with clear attribution and you may be asked to submit your case-study and/or project-related GenAI conversations.</p>
-<p>Additional guidelines will be provided throughout the quarter.</p>
-<p>Misuse of AI tools in this course is a form of academic dishonesty and will be handled according to UCSD’s Academic Integrity policy.</p>
-</section>
-<section id="ai-professor-use-transparency" class="level4">
-<h4 class="anchored" data-anchor-id="ai-professor-use-transparency">AI Professor Use Transparency</h4>
-<p>To be clear, I think Generative AI tools are helpful! As such, I do use them in course development and like to be transparent about when I do (and do not!) use GenAI in course development. I aim to model responsible use and hope to further the conversation about how academics integrate AI into their instruction and work more broadly.</p>
-<p><strong>What I use AI For</strong>: I use AI for administrative tasks (e.g., updating the dates, links, and room numbers on the course schedule from the previous quarter, removing redundancies, clarifying policies, etc.). I also have used it to identify potential gaps lecture material, assessments, and provided resources, thus enabling me to update the course more rapidly than I was able to previously.</p>
-<p><strong>What I DO NOT use AI For</strong>: I do not use AI for designing course content from scratch, generating assessments, or evaluating your work. I consider AI a helpful assistant, akin to a knowledgeable colleague. I consider its recommendations and knowledge, but always review its output and think critically before incorporation.</p>
-<p><strong>Instructor vs.&nbsp;Student Use</strong>: My goal as an instructor is to effectively synthesize and communicate information to you and accurately evaluate your understanding of the material after the fact. Your job is to learn, so it is your responsibility to do the cognitive work to make that happen. Spending time and struggling through is part of that process…and honestly, sometimes even the point. Using AI to earn points without learning is an AI violation and thwarts actual learning.</p>
-</section>
-</section>
-<section id="professionalism" class="level3">
-<h3 class="anchored" data-anchor-id="professionalism">Professionalism</h3>
-<p>Please refrain from texting or using your computer for anything other than coursework during class. Not only is this distracting to you, but it can also be distracting to those around you. (Note that there is no consequence associated with this. I know it can be difficult, but I ask that you try your best!)</p>
-</section>
-<section id="section" class="level3">
-<h3 class="anchored" data-anchor-id="section"></h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Outside resources &amp; AI use:</strong> Before submitting, fill in the <em>Outside Resources &amp; AI Use</em> section at the end of your .qmd (write “None” if you didn’t use any). This is required on every assignment.</p>
+</div>
+</div>
+<p>You can of course push multiple to GitHub times throughout the assignment. Your final push at the deadline will be used for grading. (This means even if you made mistakes before that on GitHub, you wouldn’t be penalized for them, so long as the final state of your work is correct).</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You’ll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML. Both your .qmd and .html files should be on GitHub.</p>
+</div>
+</div>
 
 
 </section>
@@ -1119,13 +900,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./schedule.html" class="pagination-link" aria-label="Schedule">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Schedule</span>
+      <a href="../../content/labs/02-lab-cs01-dplyr.html" class="pagination-link" aria-label="Lab 02: CS01 Data Wrangling">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 02: CS01 Data Wrangling</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./content/lectures/00-welcome.html" class="pagination-link" aria-label="00: Welcome">
-        <span class="nav-page-text">00: Welcome</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../computing/computing-access.html" class="pagination-link" aria-label="Access">
+        <span class="nav-page-text">Access</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1135,7 +916,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="./LICENSE.html">
+    <a class="nav-link" href="../../LICENSE.html">
 <p>License</p>
 </a>
   </li>  

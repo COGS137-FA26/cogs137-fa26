@@ -13,13 +13,13 @@ project:
     - content/lectures/01-tooling.qmd
     - content/lectures/02-intro-to-r.qmd
     - content/labs/01-lab-intro-r.qmd
-    # - content/hw/hw-01.qmd
+    - content/hw/hw-01.qmd
     # # CS01
     # - content/cs/cs01.qmd
     # - content/cs/cs-example.qmd
     - content/lectures/0[3-9]-*.qmd
     # - content/lectures/10-*.qmd
-    # - content/labs/0[2-5]-*.qmd
+    - content/labs/0[2-5]-*.qmd
     # - content/hw/hw-02.qmd
     # # CS02
     # - content/cs/cs02.qmd
@@ -131,8 +131,8 @@ website:
         contents:
           - text: "Lab 01: Tooling and R"
             href: content/labs/01-lab-intro-r.qmd
-      #     - text: "Lab 02: CS01 Data Wrangling"
-      #       href: content/labs/02-lab-cs01-wrangle.qmd
+          - text: "Lab 02: CS01 Data Wrangling"
+            href: content/labs/02-lab-cs01-dplyr.qmd
       #     - text: "Lab 03: CS01 Data Visualization"
       #       href: content/labs/03-lab-cs01-viz.qmd
       #     - text: "Lab 04: CS01 EDA"
@@ -154,9 +154,9 @@ website:
         #   - text: "Final Project"
         #     href: content/cs/final.qmd
       - section: "Homework"
-        # contents:
-        #   - text: "HW 01: R Basics"
-        #     href: content/hw/hw-01.qmd
+        contents:
+          - text: "HW 01: R Basics"
+            href: content/hw/hw-01.qmd
         #   - text: "HW 02: Data Visualization"
         #     href: content/hw/hw-02.qmd
       - section: "Computing"
