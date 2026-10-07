@@ -1131,7 +1131,7 @@
     "text": "Skip to main content",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1142,7 +1142,7 @@
     "text": "Q&A\n\n\n\n\n\n\nQ: How much statistics must we recall?\n\n\n\n\n\nA: I’m assuming people are familiar with what would be taught in an intro stats course (variable types, populations vs. samples, randomization, correlation, causation, descriptive statistics including Z-scores, general visualizations, distributions, probability, linear regression, t-tests, hypothesis testing, confidence intervals, etc.)\n\n\n\n\n\n\n\n\n\nQ: It takes effort to review the given data visualizations and connect it to the study!\n\n\n\n\n\nA: Yes! This is a skill. And, we’re going to practice this! It’s ok if you’re not great at it (yet!)…or if it takes a while!\n\n\n\n\n\n\n\n\n\nQ: I am curious about the mechanism that was used to get the subjects of the experiment.\n\n\n\n\n\nA: Good question…and I can’t recall the details and don’t see it in our papers. It should be in there, but it’s not.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1153,7 +1153,7 @@
     "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNote: we’ll use data from lab02 in today’s class, so it’s a good idea to clone it now and work within that project.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1164,7 +1164,7 @@
     "text": "Suggested Reading\nR4DS:\n\nChapter 3: Data Transformation\nChapter 16: Factors",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1175,7 +1175,7 @@
     "text": "Agenda\n\ndplyr\n\nphilosophy\npipes\ncommon operations\n\nCS01 Wrangling",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1186,7 +1186,7 @@
     "text": "Philosophy\n\ndplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges\n\n\n\nSource: dplyr.tidyverse.org",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1197,7 +1197,7 @@
     "text": "The pipe in baseR\n\n\n\n\n|&gt; should be read as “and then”\nfor example “Wake up |&gt; brush teeth” would be read as “wake up and then brush teeth”",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1208,7 +1208,7 @@
     "text": "Where does the name come from?\nThe pipe operator was first implemented in the package magrittr.\n\n\n\n\n\n\n\nYou will see this frequently in code online. It’s nearly equivalent to |&gt; (small differences, e.g., the placeholder is . for %&gt;% and _ for |&gt;).",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1219,7 +1219,7 @@
     "text": "How does a pipe work?\n\nYou can think about the following sequence of actions - find key, unlock car, start car, drive to school, park.\n\n. . .\n\nExpressed as a set of nested functions in R pseudocode this would look like:\n\n\npark(drive(start_car(find(\"keys\")), to = \"campus\"))\n\n. . .\n\nWriting it out using pipes give it a more natural (and easier to read) structure:\n\n\nfind(\"keys\") |&gt;\n  start_car() |&gt;\n  drive(to = \"campus\") |&gt;\n  park()\n\n. . .\n(Reminder to comment on indentation/alignment)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1230,7 +1230,7 @@
     "text": "Whole Blood (WB) Data from THC Study\nOpen your lab02 project on DataHub (the data are in its data/ folder), then:\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\n\n\n\n\n\n\nImportant\n\n\n\nWe’re using these data to demonstrate the basic principles of dplyr and tidyr before we get to how to specifically clean our CS01 data.\n\n\n. . .\nRead the data in so you can follow along now!\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1241,7 +1241,7 @@
     "text": "Variables\nView the names of variables via:\n\nnames(WB)\n\n [1] \"ID\"              \"Treatment\"       \"Group\"           \"FLUID TYPE\"     \n [5] \"Timepoint\"       \"CBN\"             \"CBD\"             \"THC\"            \n [9] \"11-OH-THC\"       \"THC-COOH\"        \"THC-COOH-Gluc\"   \"CBG\"            \n[13] \"THC-V\"           \"time.from.start\"",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1252,7 +1252,7 @@
     "text": "Viewing your data\n\nIn the Environment, click on the name of the data frame to view it in the data viewer (or use the View function)\nUse the glimpse function to take a peek\n\n\nglimpse(WB)\n\nRows: 1,525\nColumns: 14\n$ ID              &lt;chr&gt; \"11255\", \"11255\", \"11255\", \"11255\", \"11255\", \"11255\", …\n$ Treatment       &lt;chr&gt; \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", …\n$ Group           &lt;chr&gt; \"Occasional user\", \"Occasional user\", \"Occasional user…\n$ `FLUID TYPE`    &lt;chr&gt; \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", …\n$ Timepoint       &lt;chr&gt; \"T1\", \"T2A\", \"T2B\", \"T3A\", \"T3B\", \"T4A\", \"T4B\", \"T5A\",…\n$ CBN             &lt;dbl&gt; 0.0, 2.8, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.6,…\n$ CBD             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ THC             &lt;dbl&gt; 0.5, 32.4, 5.1, 3.2, 1.8, 1.2, 0.9, 0.8, 0.6, 0.0, 46.…\n$ `11-OH-THC`     &lt;dbl&gt; 0.0, 5.4, 2.4, 1.8, 1.4, 0.0, 0.0, 0.0, 0.0, 0.0, 7.7,…\n$ `THC-COOH`      &lt;dbl&gt; 5.7, 13.5, 11.7, 9.7, 8.7, 6.7, 6.8, 6.8, 6.3, 1.9, 13…\n$ `THC-COOH-Gluc` &lt;dbl&gt; 4.9, 4.4, 6.2, 8.4, 8.9, 8.2, 7.5, 7.1, 6.1, 2.1, 2.7,…\n$ CBG             &lt;dbl&gt; 0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0,…\n$ `THC-V`         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20, 73…",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1263,7 +1263,7 @@
     "text": "A Grammar of Data Manipulation\ndplyr is based on the concepts of functions as verbs that manipulate data frames.\nSingle data frame functions / verbs:\n\nfilter: pick rows matching criteria\nmutate: add new variables\nselect: pick columns by name\nrename: rename specific columns\nsummarize: reduce variables to values\narrange: reorder rows\ndistinct: filter for unique rows\npull: grab a column as a vector\nslice_sample: randomly sample rows (n = rows or prop = proportion)\nslice: pick rows using index(es)\n… (many more)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1274,7 +1274,7 @@
     "text": "dplyr rules for functions\n\nFirst argument is always a data frame\nSubsequent arguments say what to do with that data frame\nAlways return a data frame\nDo not modify in place (save the result with &lt;- if you want to keep it)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1285,7 +1285,7 @@
     "text": "Filter rows with filter\n\nSelect a subset of rows in a data frame.\nEasily filter for many conditions at once.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1296,7 +1296,7 @@
     "text": "filter (single condition)\nfor only measurements from Occasional users\n\nWB |&gt;\n  filter(Group == \"Occasional user\")\n\n# A tibble: 750 × 14\n   ID    Treatment Group    `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n 1 11255 5.90%     Occasio… WB           T1          0       0   0.5         0  \n 2 11255 5.90%     Occasio… WB           T2A         2.8     0  32.4         5.4\n 3 11255 5.90%     Occasio… WB           T2B         0.6     0   5.1         2.4\n 4 11255 5.90%     Occasio… WB           T3A         0       0   3.2         1.8\n 5 11255 5.90%     Occasio… WB           T3B         0       0   1.8         1.4\n 6 11255 5.90%     Occasio… WB           T4A         0       0   1.2         0  \n 7 11255 5.90%     Occasio… WB           T4B         0       0   0.9         0  \n 8 11255 5.90%     Occasio… WB           T5A         0       0   0.8         0  \n 9 11255 5.90%     Occasio… WB           T5B         0       0   0.6         0  \n10 T0316 13.40%    Occasio… WB           T1          0       0   0           0  \n# ℹ 740 more rows\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1307,7 +1307,7 @@
     "text": "filter (multiple conditions)\nfor only measurements from Occasional users where THC &gt; 100\n\nWB |&gt;\n  filter(Group == \"Occasional user\", THC &gt; 100)\n\n# A tibble: 2 × 14\n  ID    Treatment Group     `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 11467 5.90%     Occasion… WB           T2A        14.5     0  156.        15.5\n2 28344 5.90%     Occasion… WB           T2A        11       0  126.        12.2\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1318,7 +1318,7 @@
     "text": "select a range of variables\n\nWB |&gt;\n  select(ID:`FLUID TYPE`)\n\n# A tibble: 1,525 × 4\n   ID    Treatment Group           `FLUID TYPE`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;       \n 1 11255 5.90%     Occasional user WB          \n 2 11255 5.90%     Occasional user WB          \n 3 11255 5.90%     Occasional user WB          \n 4 11255 5.90%     Occasional user WB          \n 5 11255 5.90%     Occasional user WB          \n 6 11255 5.90%     Occasional user WB          \n 7 11255 5.90%     Occasional user WB          \n 8 11255 5.90%     Occasional user WB          \n 9 11255 5.90%     Occasional user WB          \n10 T0686 5.90%     Frequent user   WB          \n# ℹ 1,515 more rows\n\n\n\nID:FLUID TYPE: take all columns from ID through FLUID TYPE\nFLUID TYPE has backticks due to space in column name",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1329,7 +1329,7 @@
     "text": "select to keep range + others\n\nWB |&gt;\n  select(ID:`FLUID TYPE`, THC, time.from.start)\n\n# A tibble: 1,525 × 6\n   ID    Treatment Group           `FLUID TYPE`   THC time.from.start\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;           &lt;dbl&gt;\n 1 11255 5.90%     Occasional user WB             0.5             -27\n 2 11255 5.90%     Occasional user WB            32.4              15\n 3 11255 5.90%     Occasional user WB             5.1              69\n 4 11255 5.90%     Occasional user WB             3.2             111\n 5 11255 5.90%     Occasional user WB             1.8             156\n 6 11255 5.90%     Occasional user WB             1.2             236\n 7 11255 5.90%     Occasional user WB             0.9             283\n 8 11255 5.90%     Occasional user WB             0.8             315\n 9 11255 5.90%     Occasional user WB             0.6             360\n10 T0686 5.90%     Frequent user   WB             0               -10\n# ℹ 1,515 more rows",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1340,7 +1340,7 @@
     "text": "select to exclude variables\n\nWB |&gt;\n  select(-Timepoint)\n\n# A tibble: 1,525 × 13\n   ID    Treatment Group   `FLUID TYPE`   CBN   CBD   THC `11-OH-THC` `THC-COOH`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;\n 1 11255 5.90%     Occasi… WB             0       0   0.5         0          5.7\n 2 11255 5.90%     Occasi… WB             2.8     0  32.4         5.4       13.5\n 3 11255 5.90%     Occasi… WB             0.6     0   5.1         2.4       11.7\n 4 11255 5.90%     Occasi… WB             0       0   3.2         1.8        9.7\n 5 11255 5.90%     Occasi… WB             0       0   1.8         1.4        8.7\n 6 11255 5.90%     Occasi… WB             0       0   1.2         0          6.7\n 7 11255 5.90%     Occasi… WB             0       0   0.9         0          6.8\n 8 11255 5.90%     Occasi… WB             0       0   0.8         0          6.8\n 9 11255 5.90%     Occasi… WB             0       0   0.6         0          6.3\n10 T0686 5.90%     Freque… WB             0       0   0           0          1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;, `THC-V` &lt;dbl&gt;,\n#   time.from.start &lt;dbl&gt;",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1351,7 +1351,7 @@
     "text": "select can rename columns\n\nWB |&gt;\n  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)\n\n# A tibble: 1,525 × 6\n   ID    Treatment Group           `FLUID TYPE`   THC start_time\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n 1 11255 5.90%     Occasional user WB             0.5        -27\n 2 11255 5.90%     Occasional user WB            32.4         15\n 3 11255 5.90%     Occasional user WB             5.1         69\n 4 11255 5.90%     Occasional user WB             3.2        111\n 5 11255 5.90%     Occasional user WB             1.8        156\n 6 11255 5.90%     Occasional user WB             1.2        236\n 7 11255 5.90%     Occasional user WB             0.9        283\n 8 11255 5.90%     Occasional user WB             0.8        315\n 9 11255 5.90%     Occasional user WB             0.6        360\n10 T0686 5.90%     Frequent user   WB             0          -10\n# ℹ 1,515 more rows",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1362,7 +1362,7 @@
     "text": "“Save” when you make dataset changes\n\ndecide if you want to overwrite original or create new\n\n\nWB_sub &lt;- WB |&gt;\n  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1373,7 +1373,7 @@
     "text": "Check before you move on\nAlways check your changes and confirm code did what you wanted it to do\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\"",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1384,7 +1384,7 @@
     "text": "rename specific columns\nUseful for correcting typos, and renaming to make variable names shorter and/or more informative\n\nOriginal names:\n\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\"\n\n\n. . .\n\nWB_sub &lt;- WB_sub |&gt;\n  rename(fluid_type = `FLUID TYPE`)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1395,7 +1395,7 @@
     "text": "mutate to add new variables\n\nNote assigning back out to itself with new column\n\n\n(WB_sub &lt;- WB_sub |&gt; \n  mutate(baseline = start_time &lt;= 0))\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 11255 5.90%     Occasional user WB          32.4         15 FALSE   \n 3 11255 5.90%     Occasional user WB           5.1         69 FALSE   \n 4 11255 5.90%     Occasional user WB           3.2        111 FALSE   \n 5 11255 5.90%     Occasional user WB           1.8        156 FALSE   \n 6 11255 5.90%     Occasional user WB           1.2        236 FALSE   \n 7 11255 5.90%     Occasional user WB           0.9        283 FALSE   \n 8 11255 5.90%     Occasional user WB           0.8        315 FALSE   \n 9 11255 5.90%     Occasional user WB           0.6        360 FALSE   \n10 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n# ℹ 1,515 more rows",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1406,7 +1406,7 @@
     "text": "Your Turn\nHow many baseline measurements had a THC value greater than zero?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1417,7 +1417,7 @@
     "text": "group_by + summarize to reduce variables to values\nThe values are summarized in a data frame:\n\nWB_sub |&gt;\n  group_by(Treatment, Group) |&gt;\n  summarize(count = n(), .groups = \"drop\")\n\n# A tibble: 6 × 3\n  Treatment Group           count\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260\n\n\n\n.groups = \"drop\" removes the grouping afterwards (otherwise the result stays grouped by Treatment, and you’ll see a message saying so)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1428,7 +1428,7 @@
     "text": "count to group by then count\ncount() is a shortcut for group_by() + summarize(n = n()); use summarize() when you need more than counts\n\nWB_sub |&gt;\n  count(Treatment, Group)\n\n# A tibble: 6 × 3\n  Treatment Group               n\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1439,7 +1439,7 @@
     "text": "Your Turn\nYou’re starting to work on the case study and you get curious. How many non-baseline observations have a THC &gt; 50. Does this number differ by treatment or group?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1450,7 +1450,7 @@
     "text": "and arrange to order rows\n\nWB_sub |&gt;\n  arrange(THC)\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 T0686 5.90%     Frequent user   WB             0        -10 TRUE    \n 2 11258 13.40%    Frequent user   WB             0        -25 TRUE    \n 3 11258 13.40%    Frequent user   WB             0        375 FALSE   \n 4 T0316 13.40%    Occasional user WB             0        -78 TRUE    \n 5 11234 Placebo   Frequent user   WB             0        -64 TRUE    \n 6 11234 Placebo   Frequent user   WB             0         12 FALSE   \n 7 11234 Placebo   Frequent user   WB             0         85 FALSE   \n 8 11234 Placebo   Frequent user   WB             0        126 FALSE   \n 9 11234 Placebo   Frequent user   WB             0        210 FALSE   \n10 11234 Placebo   Frequent user   WB             0        249 FALSE   \n# ℹ 1,515 more rows\n\n\n. . .\n   If you wanted to arrange these in descending order what would you add to the code?",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1461,7 +1461,7 @@
     "text": "distinct to filter for unique rows\nHow many unique participants?\n\nWB_sub |&gt; \n  distinct(ID) \n\n# A tibble: 190 × 1\n   ID   \n   &lt;chr&gt;\n 1 11255\n 2 T0686\n 3 11258\n 4 11264\n 5 11263\n 6 T0316\n 7 11270\n 8 11234\n 9 11323\n10 10972\n# ℹ 180 more rows",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1472,7 +1472,7 @@
     "text": "distinct has a .keep_all parameter\n\nWB_sub |&gt; \n  distinct(ID, .keep_all=TRUE) \n\n# A tibble: 190 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n 3 11258 13.40%    Frequent user   WB           0          -25 TRUE    \n 4 11264 13.40%    Frequent user   WB           2.4        -30 TRUE    \n 5 11263 5.90%     Frequent user   WB           3.2        -26 TRUE    \n 6 T0316 13.40%    Occasional user WB           0          -78 TRUE    \n 7 11270 Placebo   Frequent user   WB           4.6        -70 TRUE    \n 8 11234 Placebo   Frequent user   WB           0          -64 TRUE    \n 9 11323 Placebo   Occasional user WB           0.8        -71 TRUE    \n10 10972 13.40%    Frequent user   WB           3.9        -72 TRUE    \n# ℹ 180 more rows\n\n\n. . .\n   Which observation did dplyr decide to keep?",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1483,7 +1483,7 @@
     "text": "Factors\nFactor objects are how R stores data for categorical variables (fixed numbers of discrete values).\n\nx &lt;- factor(c(\"BS\", \"MS\", \"PhD\", \"MS\"))\nx\n\n[1] BS  MS  PhD MS \nLevels: BS MS PhD\n\n\n\nglimpse(x)\n\n Factor w/ 3 levels \"BS\",\"MS\",\"PhD\": 1 2 3 2\n\n\n\ntypeof(x)\n\n[1] \"integer\"\n\n\n. . .\n   In our data, which variables should be treated as factors?",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1494,7 +1494,7 @@
     "text": "Why does it matter?\n\nWB_sub |&gt; \n  filter(start_time &gt; 0, start_time &lt; 60) |&gt; \n  ggplot(mapping = aes(x = Treatment, y=THC)) +\n    geom_boxplot()\n\n\n\n\n\n\n\n\nNote: we’ll discuss this specific code soon.",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1505,7 +1505,7 @@
     "text": "Use forcats to manipulate factors\n\nfct_recode - treat as factor; give new labels\nfct_relevel - change order of levels\n\n\nWB_sub &lt;- WB_sub |&gt;\n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"))\n\n. . .\n(same plotting code as earlier)\n\nWB_sub |&gt; \n  filter(start_time &gt; 0, start_time &lt; 60) |&gt; \n  ggplot(mapping = aes(x = Treatment, y=THC)) +\n    geom_boxplot()",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1516,7 +1516,7 @@
     "text": "forcats functionality \n\nR uses factors to handle categorical variables, variables that have a fixed and known set of possible values. Historically, factors were much easier to work with than character vectors, so many base R functions automatically convert character vectors to factors.\nfactors are still useful when you have true categorical data, and when you want to override the ordering of character vectors to improve display. The goal of the forcats package is to provide a suite of useful tools that solve common problems with factors.\n\n\n\nSource: forcats.tidyverse.org",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1527,7 +1527,7 @@
     "text": "Data Cleaning\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v)\n\n   What is this code accomplishing?",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1538,7 +1538,7 @@
     "text": "Data Cleaning\n\n# not saved: we're just looking (clean_cs01() does this for real)\nWB |&gt; \n  mutate(timepoint = case_when(time_from_start &lt;= 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\n# A tibble: 1,525 × 14\n   id    treatment    group fluid_type timepoint   cbn   cbd   thc thcoh thccooh\n   &lt;chr&gt; &lt;fct&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 11255 5.9% THC (l… Occa… WB         pre-smok…   0       0   0.5   0       5.7\n 2 11255 5.9% THC (l… Occa… WB         0-30 min    2.8     0  32.4   5.4    13.5\n 3 11255 5.9% THC (l… Occa… WB         31-70 min   0.6     0   5.1   2.4    11.7\n 4 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   3.2   1.8     9.7\n 5 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   1.8   1.4     8.7\n 6 11255 5.9% THC (l… Occa… WB         211-240 …   0       0   1.2   0       6.7\n 7 11255 5.9% THC (l… Occa… WB         271-300 …   0       0   0.9   0       6.8\n 8 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.8   0       6.8\n 9 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.6   0       6.3\n10 T0686 5.9% THC (l… Freq… WB         pre-smok…   0       0   0     0       1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: thccooh_gluc &lt;dbl&gt;, cbg &lt;dbl&gt;, thcv &lt;dbl&gt;,\n#   time_from_start &lt;dbl&gt;\n\n\n   What is this code accomplishing?\n. . .\nNote: This code could have been combined with the above…I just wanted to discuss it for simplicity in lecture separately.\n\n\nGoing forward, this cleaning will eventually live in one function, clean_cs01() (in src/cs01_functions.R), which does the same thing with cut().",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -1549,7 +1549,7 @@
     "text": "CS01 Data Cleaning\nWe’ve cleaned up the whole blood data. Your lab next week will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)",
     "crumbs": [
       "Notes",
-      "Notes 04: Data Wrangling (dplyr)"
+      "04: Data Wrangling (dplyr)"
     ]
   },
   {
@@ -3177,7 +3177,7 @@
     "href": "schedule.html",
     "title": "COGS 137 Course Schedule",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n📝 notes  🖥️ slides \n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n\n\n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n\n\n\n\n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\nData Visualization: ggplot2\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02 \n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nEffective Data Visualization (design)\n📕 R4DS Chapter 11: Data Communication \n\n\n\n\n\n\n\n\nWed, Oct 14\nAI-Assisted Analysis\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n\n\n⌨️ lab 03 br&gt;\n\n\n\n\nSun, Oct 18\n\n\n\n\n\n\n📚 hw 02\n\n\n4\nMon, Oct 19\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nEffective (Written) Communication\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ [ab 04\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nWed, Oct 28\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02: EDA (day 1)\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA (day 2)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
+    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\nData Visualization: ggplot2\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02 \n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nEffective Data Visualization (design)\n📕 R4DS Chapter 11: Data Communication \n\n\n\n\n\n\n\n\nWed, Oct 14\nAI-Assisted Analysis\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n\n\n⌨️ lab 03 br&gt;\n\n\n\n\nSun, Oct 18\n\n\n\n\n\n\n📚 hw 02\n\n\n4\nMon, Oct 19\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nEffective (Written) Communication\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ [ab 04\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nWed, Oct 28\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02: EDA (day 1)\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA (day 2)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
     "crumbs": [
       "Schedule & Policies",
       "Schedule"
