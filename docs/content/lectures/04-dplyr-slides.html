@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Professor Shannon Ellis">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-07">
   <title>COGS 137 - 04-dplyr</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -414,7 +414,7 @@ Professor Shannon Ellis
     </div>
 </div>
 
-  <p class="date">2026-10-05</p>
+  <p class="date">2026-10-07</p>
 </section>
 <section>
 <section id="data-manipulation-with-dplyr" class="title-slide slide level1 center" data-background-color="#92A86A">
@@ -425,25 +425,49 @@ Professor Shannon Ellis
 </div>
 </div>
 </section>
-<section id="ad-edge" class="slide level2">
-<h2>[ad] EDGE</h2>
-<p>Mentorship opportunity for women-identifying students:</p>
-
-<img data-src="images/03/edge.png" class="r-stretch"></section>
 <section id="qa" class="slide level2 scrollable smaller">
 <h2>Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div title="Q: ">
+<div title="Q: How much statistics must we recall? ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Q:</strong></p>
+<p><strong>Q: How much statistics must we recall?</strong></p>
 </div>
 <div class="callout-content">
-<p>A:</p>
+<p>A: I’m assuming people are familiar with what would be taught in an intro stats course (variable types, populations vs.&nbsp;samples, randomization, correlation, causation, descriptive statistics including Z-scores, general visualizations, distributions, probability, linear regression, t-tests, hypothesis testing, confidence intervals, etc.)</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q: It takes effort to review the given data visualizations and connect it to the study!">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: It takes effort to review the given data visualizations and connect it to the study!</strong></p>
+</div>
+<div class="callout-content">
+<p>A: Yes! This <em>is</em> a skill. And, we’re going to practice this! It’s ok if you’re not great at it (yet!)…or if it takes a while!</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q: I am curious about the mechanism that was used to get the subjects of the experiment.">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: I am curious about the mechanism that was used to get the subjects of the experiment.</strong></p>
+</div>
+<div class="callout-content">
+<p>A: Good question…and I can’t recall the details and don’t see it in our papers. It should be in there, but it’s not.</p>
 </div>
 </div>
 </div>
@@ -453,32 +477,17 @@ Professor Shannon Ellis
 <h2>Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 01</strong> due Fri 10/9 (11:59 PM)</li>
+<li>⌨️ <strong>Lab 02</strong> due Fri 10/9 (11:59 PM)</li>
 <li>📚 <strong>HW 01</strong> due Sun 10/11 (11:59 PM)</li>
 <li>🔘 Lecture Participation survey “due” after class</li>
 </ul>
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
--   **Lab 01** due Thursday (10/10 11:59 PM; push to GH)
--   **HW01** now available; due Monday (10/14; 11:59 PM)
--   Lecture Participation survey "due" after class
-
-. . .
-
-Notes:
-
--   No Lecture on Thursday this week
--   Discuss: GH\<-\>RStudio issue (`OpenSSL version mismatch. Built against 30000020, you have 30300020`)
--   Regular labs resume this week
--   Mention: waitlist & dropping
--->
+<p>Note: we’ll use data from lab02 in today’s class, so it’s a good idea to clone it now and work within that project.</p>
 </section>
 <section id="suggested-reading" class="slide level2">
 <h2>Suggested Reading</h2>
 <p>R4DS:</p>
 <ul>
-<li>Chapter 5: <a href="https://r4ds.hadley.nz/data-transform">Data Transformation</a></li>
+<li>Chapter 3: <a href="https://r4ds.hadley.nz/data-transform">Data Transformation</a></li>
 <li>Chapter 16: <a href="https://r4ds.hadley.nz/factors">Factors</a></li>
 </ul>
 </section>
@@ -528,7 +537,7 @@ Notes:
 <p><img data-src="images/03/magrittr.jpg"></p>
 </div>
 </div>
-<p>You will see this frequently in code online. It’s equivalent to <code>|&gt;</code>.</p>
+<p>You will see this frequently in code online. It’s <em>nearly</em> equivalent to <code>|&gt;</code> (small differences, e.g., the placeholder is <code>.</code> for <code>%&gt;%</code> and <code>_</code> for <code>|&gt;</code>).</p>
 </section>
 <section id="how-does-a-pipe-work" class="slide level2">
 <h2>How does a pipe work?</h2>
@@ -565,6 +574,7 @@ Notes:
 </section>
 <section id="whole-blood-wb-data-from-thc-study" class="slide level2">
 <h2>Whole Blood (WB) Data from THC Study</h2>
+<p>Open your <strong>lab02</strong> project on DataHub (the data are in its <code>data/</code> folder), then:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>WB <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Blood.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -647,7 +657,7 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <li><code>arrange</code>: reorder rows</li>
 <li><code>distinct</code>: filter for unique rows</li>
 <li><code>pull</code>: grab a column as a vector</li>
-<li><code>sample_n</code> / <code>sample_frac</code>: randomly sample rows</li>
+<li><code>slice_sample</code>: randomly sample rows (<code>n =</code> rows or <code>prop =</code> proportion)</li>
 <li><code>slice</code>: pick rows using index(es)</li>
 <li>… (many more)</li>
 </ul>
@@ -658,8 +668,7 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <li><p>First argument is <em>always</em> a data frame</p></li>
 <li><p>Subsequent arguments say what to do with that data frame</p></li>
 <li><p>Always return a data frame</p></li>
-<li><p>Do not modify in place</p></li>
-<li><p>Performance via lazy evaluation</p></li>
+<li><p>Do not modify in place (save the result with <code>&lt;-</code> if you want to keep it)</p></li>
 </ol>
 </section>
 <section id="filter-rows-with-filter" class="slide level2">
@@ -695,8 +704,8 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </div>
 </div>
 </section>
-<section id="filter-mutiple-conditions" class="slide level2">
-<h2><code>filter</code> (mutiple conditions)</h2>
+<section id="filter-multiple-conditions" class="slide level2">
+<h2><code>filter</code> (multiple conditions)</h2>
 <p>for only measurements from Occasional users where THC &gt; 100</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>WB <span class="sc">|&gt;</span></span>
@@ -713,7 +722,7 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </div>
 </section>
 <section id="select-a-range-of-variables" class="slide level2">
-<h2>select` a range of variables</h2>
+<h2><code>select</code> a range of variables</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>WB <span class="sc">|&gt;</span></span>
 <span id="cb12-2"><a></a>  <span class="fu">select</span>(ID<span class="sc">:</span><span class="st">`</span><span class="at">FLUID TYPE</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -851,10 +860,6 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </div>
 </div>
 </section>
-<section id="day-2-wed-107" class="slide level2" data-background-color="#92A86A">
-<h2>Day 2 · Wed 10/7</h2>
-<p>Picking up with <code>mutate()</code>, <code>group_by()</code> + <code>summarize()</code>, factors, and CS01 wrangling.</p>
-</section>
 <section id="mutate-to-add-new-variables" class="slide level2">
 <h2><code>mutate</code> to add new variables</h2>
 <ul>
@@ -862,7 +867,7 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>(WB_sub <span class="ot">&lt;-</span> WB_sub <span class="sc">|&gt;</span> </span>
-<span id="cb26-2"><a></a>  <span class="fu">mutate</span>(<span class="at">baseline =</span> start_time <span class="sc">&lt;</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-2"><a></a>  <span class="fu">mutate</span>(<span class="at">baseline =</span> start_time <span class="sc">&lt;=</span> <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,525 × 7
    ID    Treatment Group           fluid_type   THC start_time baseline
@@ -894,14 +899,9 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>WB_sub <span class="sc">|&gt;</span></span>
 <span id="cb28-2"><a></a>  <span class="fu">group_by</span>(Treatment, Group) <span class="sc">|&gt;</span></span>
-<span id="cb28-3"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Treatment'. You can override using the
-`.groups` argument.</code></pre>
-</div>
+<span id="cb28-3"><a></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
-# Groups:   Treatment [3]
   Treatment Group           count
   &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;
 1 13.40%    Frequent user     258
@@ -912,13 +912,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 6 Placebo   Occasional user   260</code></pre>
 </div>
 </div>
+<ul>
+<li><code>.groups = "drop"</code> removes the grouping afterwards (otherwise the result stays grouped by <code>Treatment</code>, and you’ll see a message saying so)</li>
+</ul>
 </section>
 <section id="count-to-group-by-then-count" class="slide level2">
 <h2><code>count</code> to group by then count</h2>
-<p>Same as last example, but summarize, not limited to counting</p>
+<p><code>count()</code> is a shortcut for <code>group_by()</code> + <code>summarize(n = n())</code>; use <code>summarize()</code> when you need more than counts</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>WB_sub <span class="sc">|&gt;</span></span>
-<span id="cb31-2"><a></a>  <span class="fu">count</span>(Treatment, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>WB_sub <span class="sc">|&gt;</span></span>
+<span id="cb30-2"><a></a>  <span class="fu">count</span>(Treatment, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 3
   Treatment Group               n
@@ -942,8 +945,8 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <section id="and-arrange-to-order-rows" class="slide level2">
 <h2>and <code>arrange</code> to order rows</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>WB_sub <span class="sc">|&gt;</span></span>
-<span id="cb33-2"><a></a>  <span class="fu">arrange</span>(THC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>WB_sub <span class="sc">|&gt;</span></span>
+<span id="cb32-2"><a></a>  <span class="fu">arrange</span>(THC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,525 × 7
    ID    Treatment Group           fluid_type   THC start_time baseline
@@ -969,8 +972,8 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <h2><code>distinct</code> to filter for unique rows</h2>
 <p>How many unique participants?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
-<span id="cb35-2"><a></a>  <span class="fu">distinct</span>(ID) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a></a>  <span class="fu">distinct</span>(ID) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 190 × 1
    ID   
@@ -992,8 +995,8 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <section id="distinct-has-a-.keep_all-parameter" class="slide level2">
 <h2><code>distinct</code> has a <code>.keep_all</code> parameter</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
-<span id="cb37-2"><a></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all=</span><span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a></a>  <span class="fu">distinct</span>(ID, <span class="at">.keep_all=</span><span class="cn">TRUE</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 190 × 7
    ID    Treatment Group           fluid_type   THC start_time baseline
@@ -1024,20 +1027,21 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <h2>Factors</h2>
 <p>Factor objects are how R stores data for categorical variables (fixed numbers of discrete values).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>(<span class="at">x =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"BS"</span>, <span class="st">"MS"</span>, <span class="st">"PhD"</span>, <span class="st">"MS"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>x <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"BS"</span>, <span class="st">"MS"</span>, <span class="st">"PhD"</span>, <span class="st">"MS"</span>))</span>
+<span id="cb38-2"><a></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] BS  MS  PhD MS 
 Levels: BS MS PhD</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a><span class="fu">glimpse</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a><span class="fu">glimpse</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Factor w/ 3 levels "BS","MS","PhD": 1 2 3 2</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "integer"</code></pre>
 </div>
@@ -1049,10 +1053,10 @@ Levels: BS MS PhD</code></pre>
 <section id="why-does-it-matter" class="slide level2">
 <h2>Why does it matter?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
-<span id="cb45-2"><a></a>  <span class="fu">filter</span>(start_time <span class="sc">&gt;</span> <span class="dv">0</span>, start_time <span class="sc">&lt;</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y=</span>THC)) <span class="sc">+</span></span>
-<span id="cb45-4"><a></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a></a>  <span class="fu">filter</span>(start_time <span class="sc">&gt;</span> <span class="dv">0</span>, start_time <span class="sc">&lt;</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y=</span>THC)) <span class="sc">+</span></span>
+<span id="cb44-4"><a></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="04-dplyr_files/figure-html/unnamed-chunk-25-1.png" width="2100" class="r-stretch"><p>Note: we’ll discuss this specific code soon.</p>
@@ -1064,19 +1068,19 @@ Levels: BS MS PhD</code></pre>
 <li><code>fct_relevel</code> - change order of levels</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>WB_sub <span class="ot">&lt;-</span> WB_sub <span class="sc">|&gt;</span></span>
-<span id="cb46-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="fu">fct_recode</span>(Treatment, </span>
-<span id="cb46-3"><a></a>                                <span class="st">"5.9% THC (low dose)"</span> <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
-<span id="cb46-4"><a></a>                                <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
-<span id="cb46-5"><a></a>         <span class="at">Treatment =</span> <span class="fu">fct_relevel</span>(Treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>WB_sub <span class="ot">&lt;-</span> WB_sub <span class="sc">|&gt;</span></span>
+<span id="cb45-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="fu">fct_recode</span>(Treatment, </span>
+<span id="cb45-3"><a></a>                                <span class="st">"5.9% THC (low dose)"</span> <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
+<span id="cb45-4"><a></a>                                <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
+<span id="cb45-5"><a></a>         <span class="at">Treatment =</span> <span class="fu">fct_relevel</span>(Treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>(same plotting code as earlier)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
-<span id="cb47-2"><a></a>  <span class="fu">filter</span>(start_time <span class="sc">&gt;</span> <span class="dv">0</span>, start_time <span class="sc">&lt;</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb47-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y=</span>THC)) <span class="sc">+</span></span>
-<span id="cb47-4"><a></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>WB_sub <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a></a>  <span class="fu">filter</span>(start_time <span class="sc">&gt;</span> <span class="dv">0</span>, start_time <span class="sc">&lt;</span> <span class="dv">60</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Treatment, <span class="at">y=</span>THC)) <span class="sc">+</span></span>
+<span id="cb46-4"><a></a>    <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1105,33 +1109,34 @@ Levels: BS MS PhD</code></pre>
 <section id="data-cleaning" class="slide level2">
 <h2>Data Cleaning</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>WB <span class="ot">&lt;-</span> WB <span class="sc">|&gt;</span> </span>
-<span id="cb48-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="fu">fct_recode</span>(Treatment, </span>
-<span id="cb48-3"><a></a>                                <span class="st">"5.9% THC (low dose)"</span> <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
-<span id="cb48-4"><a></a>                                <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
-<span id="cb48-5"><a></a>         <span class="at">Treatment =</span> <span class="fu">fct_relevel</span>(Treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb48-6"><a></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb48-7"><a></a>  <span class="fu">rename</span>(<span class="at">thcoh =</span> x11_oh_thc,</span>
-<span id="cb48-8"><a></a>         <span class="at">thccooh =</span> thc_cooh,</span>
-<span id="cb48-9"><a></a>         <span class="at">thccooh_gluc =</span> thc_cooh_gluc,</span>
-<span id="cb48-10"><a></a>         <span class="at">thcv =</span> thc_v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>WB <span class="ot">&lt;-</span> WB <span class="sc">|&gt;</span> </span>
+<span id="cb47-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Treatment =</span> <span class="fu">fct_recode</span>(Treatment, </span>
+<span id="cb47-3"><a></a>                                <span class="st">"5.9% THC (low dose)"</span> <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
+<span id="cb47-4"><a></a>                                <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
+<span id="cb47-5"><a></a>         <span class="at">Treatment =</span> <span class="fu">fct_relevel</span>(Treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb47-6"><a></a>  janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb47-7"><a></a>  <span class="fu">rename</span>(<span class="at">thcoh =</span> x11_oh_thc,</span>
+<span id="cb47-8"><a></a>         <span class="at">thccooh =</span> thc_cooh,</span>
+<span id="cb47-9"><a></a>         <span class="at">thccooh_gluc =</span> thc_cooh_gluc,</span>
+<span id="cb47-10"><a></a>         <span class="at">thcv =</span> thc_v)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="background-color: #ADD8E6"><i class="fa fa-user" aria-hidden="true"></i> &nbsp; What is this code accomplishing?</span></p>
 </section>
 <section id="data-cleaning-1" class="slide level2">
 <h2>Data Cleaning</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb49-2"><a></a>  <span class="fu">mutate</span>(<span class="at">timepoint =</span> <span class="fu">case_when</span>(time_from_start <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"pre-smoking"</span>,</span>
-<span id="cb49-3"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"0-30 min"</span>,</span>
-<span id="cb49-4"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"31-70 min"</span>,</span>
-<span id="cb49-5"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">"71-100 min"</span>,</span>
-<span id="cb49-6"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">180</span> <span class="sc">~</span> <span class="st">"101-180 min"</span>,</span>
-<span id="cb49-7"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">180</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">210</span> <span class="sc">~</span> <span class="st">"181-210 min"</span>,</span>
-<span id="cb49-8"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">210</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">240</span> <span class="sc">~</span> <span class="st">"211-240 min"</span>,</span>
-<span id="cb49-9"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">240</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">270</span> <span class="sc">~</span> <span class="st">"241-270 min"</span>,</span>
-<span id="cb49-10"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">270</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">300</span> <span class="sc">~</span> <span class="st">"271-300 min"</span>,</span>
-<span id="cb49-11"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">300</span> <span class="sc">~</span> <span class="st">"301+ min"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a><span class="co"># not saved: we're just looking (clean_cs01() does this for real)</span></span>
+<span id="cb48-2"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb48-3"><a></a>  <span class="fu">mutate</span>(<span class="at">timepoint =</span> <span class="fu">case_when</span>(time_from_start <span class="sc">&lt;=</span> <span class="dv">0</span> <span class="sc">~</span> <span class="st">"pre-smoking"</span>,</span>
+<span id="cb48-4"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">30</span> <span class="sc">~</span> <span class="st">"0-30 min"</span>,</span>
+<span id="cb48-5"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">30</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">70</span> <span class="sc">~</span> <span class="st">"31-70 min"</span>,</span>
+<span id="cb48-6"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">70</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">100</span> <span class="sc">~</span> <span class="st">"71-100 min"</span>,</span>
+<span id="cb48-7"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">100</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">180</span> <span class="sc">~</span> <span class="st">"101-180 min"</span>,</span>
+<span id="cb48-8"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">180</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">210</span> <span class="sc">~</span> <span class="st">"181-210 min"</span>,</span>
+<span id="cb48-9"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">210</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">240</span> <span class="sc">~</span> <span class="st">"211-240 min"</span>,</span>
+<span id="cb48-10"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">240</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">270</span> <span class="sc">~</span> <span class="st">"241-270 min"</span>,</span>
+<span id="cb48-11"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">270</span> <span class="sc">&amp;</span> time_from_start <span class="sc">&lt;=</span> <span class="dv">300</span> <span class="sc">~</span> <span class="st">"271-300 min"</span>,</span>
+<span id="cb48-12"><a></a>                               time_from_start <span class="sc">&gt;</span> <span class="dv">300</span> <span class="sc">~</span> <span class="st">"301+ min"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,525 × 14
    id    treatment    group fluid_type timepoint   cbn   cbd   thc thcoh thccooh
@@ -1157,20 +1162,20 @@ Levels: BS MS PhD</code></pre>
 
 </div>
 <aside><div>
-<p>Going forward, this cleaning lives in one function, <code>clean_cs01()</code> (in <code>src/cs01_functions.R</code>), which does the same thing with <code>cut()</code>.</p>
+<p>Going forward, this cleaning will eventually live in one function, <code>clean_cs01()</code> (in <code>src/cs01_functions.R</code>), which does the same thing with <code>cut()</code>.</p>
 </div></aside></section>
 <section id="cs01-data-cleaning" class="slide level2">
 <h2>CS01 Data Cleaning</h2>
-<p>We’ve cleaned up the whole blood data. Your lab will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)</p>
+<p>We’ve cleaned up the whole blood data. Your lab <em>next week</em> will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)</p>
 </section></section>
 <section id="recap" class="title-slide slide level1 center" data-background-color="#92A86A">
 <h1>Recap</h1>
 <ul>
-<li>Understand the basic tenants of <code>dplyr</code></li>
+<li>Understand the basic tenets of <code>dplyr</code></li>
 <li>Describe and utilize the pipe in workflows</li>
 <li>Describe and use common <code>verbs</code> (functions)</li>
 <li>Understand the documentation for <code>dplyr</code> functions</li>
-<li>Understand what factors are an that <code>forcats</code> is a package with functionality for working with them</li>
+<li>Understand what factors are and that <code>forcats</code> is a package with functionality for working with them</li>
 <li>Describe the wrangling carried out on the CS01 WB dataset</li>
 </ul>
 

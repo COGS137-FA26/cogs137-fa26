@@ -34,9 +34,9 @@ A:
 
 **Due Dates**:
 
--   ⌨️ **Lab 01** due Fri 10/9 (11:59 PM)
+-   ⌨️ **Lab 02** due today, Fri 10/9 (11:59 PM)
 -   📚 **HW 01** due Sun 10/11 (11:59 PM)
--   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
+-   ⌨️ **Lab 03** due Fri 10/16 (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
 
 <!-- FA24 announcements, kept for reference:

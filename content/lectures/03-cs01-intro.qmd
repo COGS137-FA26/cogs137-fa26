@@ -59,7 +59,7 @@ A:   Yes! Lots of errors - we'll see some in class. But, one note is that they a
 **Due Dates**:
 
 -   🔘 Lecture Participation survey "due" after class
--  **Lab01** due Friday (we'll cover material on Wed, so I wouldn't start this yet)
+-  **Lab02** due Friday (we'll cover material on Wed, so I wouldn't start this yet)
 -  **HW01** due Sunday (can get started; we'll finish content in next set of lecture notes)
 
 

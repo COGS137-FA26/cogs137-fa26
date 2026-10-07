@@ -1128,315 +1128,450 @@
     "href": "content/lectures/04-dplyr.html",
     "title": "04-dplyr",
     "section": "",
-    "text": "Skip to main content"
-  },
-  {
-    "objectID": "content/lectures/04-dplyr.html#ad-edge",
-    "href": "content/lectures/04-dplyr.html#ad-edge",
-    "title": "04-dplyr",
-    "section": "[ad] EDGE",
-    "text": "[ad] EDGE\nMentorship opportunity for women-identifying students:"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#qa",
     "href": "content/lectures/04-dplyr.html#qa",
     "title": "04-dplyr",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\nQ: How much statistics must we recall?\n\n\n\n\n\nA: I’m assuming people are familiar with what would be taught in an intro stats course (variable types, populations vs. samples, randomization, correlation, causation, descriptive statistics including Z-scores, general visualizations, distributions, probability, linear regression, t-tests, hypothesis testing, confidence intervals, etc.)\n\n\n\n\n\n\n\n\n\nQ: It takes effort to review the given data visualizations and connect it to the study!\n\n\n\n\n\nA: Yes! This is a skill. And, we’re going to practice this! It’s ok if you’re not great at it (yet!)…or if it takes a while!\n\n\n\n\n\n\n\n\n\nQ: I am curious about the mechanism that was used to get the subjects of the experiment.\n\n\n\n\n\nA: Good question…and I can’t recall the details and don’t see it in our papers. It should be in there, but it’s not.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#course-announcements",
     "href": "content/lectures/04-dplyr.html#course-announcements",
     "title": "04-dplyr",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 01 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNote: we’ll use data from lab02 in today’s class, so it’s a good idea to clone it now and work within that project.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#suggested-reading",
     "href": "content/lectures/04-dplyr.html#suggested-reading",
     "title": "04-dplyr",
     "section": "Suggested Reading",
-    "text": "Suggested Reading\nR4DS:\n\nChapter 5: Data Transformation\nChapter 16: Factors"
+    "text": "Suggested Reading\nR4DS:\n\nChapter 3: Data Transformation\nChapter 16: Factors",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#agenda",
     "href": "content/lectures/04-dplyr.html#agenda",
     "title": "04-dplyr",
     "section": "Agenda",
-    "text": "Agenda\n\ndplyr\n\nphilosophy\npipes\ncommon operations\n\nCS01 Wrangling"
+    "text": "Agenda\n\ndplyr\n\nphilosophy\npipes\ncommon operations\n\nCS01 Wrangling",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#philosophy",
     "href": "content/lectures/04-dplyr.html#philosophy",
     "title": "04-dplyr",
     "section": "Philosophy",
-    "text": "Philosophy\n\ndplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges\n\n\n\nSource: dplyr.tidyverse.org"
+    "text": "Philosophy\n\ndplyr is a grammar of data manipulation, providing a consistent set of verbs that help you solve the most common data manipulation challenges\n\n\n\nSource: dplyr.tidyverse.org",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#the-pipe-in-baser",
     "href": "content/lectures/04-dplyr.html#the-pipe-in-baser",
     "title": "04-dplyr",
     "section": "The pipe in baseR",
-    "text": "The pipe in baseR\n\n\n\n\n|&gt; should be read as “and then”\nfor example “Wake up |&gt; brush teeth” would be read as “wake up and then brush teeth”"
+    "text": "The pipe in baseR\n\n\n\n\n|&gt; should be read as “and then”\nfor example “Wake up |&gt; brush teeth” would be read as “wake up and then brush teeth”",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#where-does-the-name-come-from",
     "href": "content/lectures/04-dplyr.html#where-does-the-name-come-from",
     "title": "04-dplyr",
     "section": "Where does the name come from?",
-    "text": "Where does the name come from?\nThe pipe operator was first implemented in the package magrittr.\n\n\n\n\n\n\n\nYou will see this frequently in code online. It’s equivalent to |&gt;."
+    "text": "Where does the name come from?\nThe pipe operator was first implemented in the package magrittr.\n\n\n\n\n\n\n\nYou will see this frequently in code online. It’s nearly equivalent to |&gt; (small differences, e.g., the placeholder is . for %&gt;% and _ for |&gt;).",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#how-does-a-pipe-work",
     "href": "content/lectures/04-dplyr.html#how-does-a-pipe-work",
     "title": "04-dplyr",
     "section": "How does a pipe work?",
-    "text": "How does a pipe work?\n\nYou can think about the following sequence of actions - find key, unlock car, start car, drive to school, park.\n\n. . .\n\nExpressed as a set of nested functions in R pseudocode this would look like:\n\n\npark(drive(start_car(find(\"keys\")), to = \"campus\"))\n\n. . .\n\nWriting it out using pipes give it a more natural (and easier to read) structure:\n\n\nfind(\"keys\") |&gt;\n  start_car() |&gt;\n  drive(to = \"campus\") |&gt;\n  park()\n\n. . .\n(Reminder to comment on indentation/alignment)"
+    "text": "How does a pipe work?\n\nYou can think about the following sequence of actions - find key, unlock car, start car, drive to school, park.\n\n. . .\n\nExpressed as a set of nested functions in R pseudocode this would look like:\n\n\npark(drive(start_car(find(\"keys\")), to = \"campus\"))\n\n. . .\n\nWriting it out using pipes give it a more natural (and easier to read) structure:\n\n\nfind(\"keys\") |&gt;\n  start_car() |&gt;\n  drive(to = \"campus\") |&gt;\n  park()\n\n. . .\n(Reminder to comment on indentation/alignment)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#whole-blood-wb-data-from-thc-study",
     "href": "content/lectures/04-dplyr.html#whole-blood-wb-data-from-thc-study",
     "title": "04-dplyr",
     "section": "Whole Blood (WB) Data from THC Study",
-    "text": "Whole Blood (WB) Data from THC Study\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\n\n\n\n\n\n\nImportant\n\n\n\nWe’re using these data to demonstrate the basic principles of dplyr and tidyr before we get to how to specifically clean our CS01 data.\n\n\n. . .\nRead the data in so you can follow along now!\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
+    "text": "Whole Blood (WB) Data from THC Study\nOpen your lab02 project on DataHub (the data are in its data/ folder), then:\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\n\n\n\n\n\n\nImportant\n\n\n\nWe’re using these data to demonstrate the basic principles of dplyr and tidyr before we get to how to specifically clean our CS01 data.\n\n\n. . .\nRead the data in so you can follow along now!\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#variables",
     "href": "content/lectures/04-dplyr.html#variables",
     "title": "04-dplyr",
     "section": "Variables",
-    "text": "Variables\nView the names of variables via:\n\nnames(WB)\n\n [1] \"ID\"              \"Treatment\"       \"Group\"           \"FLUID TYPE\"     \n [5] \"Timepoint\"       \"CBN\"             \"CBD\"             \"THC\"            \n [9] \"11-OH-THC\"       \"THC-COOH\"        \"THC-COOH-Gluc\"   \"CBG\"            \n[13] \"THC-V\"           \"time.from.start\""
+    "text": "Variables\nView the names of variables via:\n\nnames(WB)\n\n [1] \"ID\"              \"Treatment\"       \"Group\"           \"FLUID TYPE\"     \n [5] \"Timepoint\"       \"CBN\"             \"CBD\"             \"THC\"            \n [9] \"11-OH-THC\"       \"THC-COOH\"        \"THC-COOH-Gluc\"   \"CBG\"            \n[13] \"THC-V\"           \"time.from.start\"",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#viewing-your-data",
     "href": "content/lectures/04-dplyr.html#viewing-your-data",
     "title": "04-dplyr",
     "section": "Viewing your data",
-    "text": "Viewing your data\n\nIn the Environment, click on the name of the data frame to view it in the data viewer (or use the View function)\nUse the glimpse function to take a peek\n\n\nglimpse(WB)\n\nRows: 1,525\nColumns: 14\n$ ID              &lt;chr&gt; \"11255\", \"11255\", \"11255\", \"11255\", \"11255\", \"11255\", …\n$ Treatment       &lt;chr&gt; \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", …\n$ Group           &lt;chr&gt; \"Occasional user\", \"Occasional user\", \"Occasional user…\n$ `FLUID TYPE`    &lt;chr&gt; \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", …\n$ Timepoint       &lt;chr&gt; \"T1\", \"T2A\", \"T2B\", \"T3A\", \"T3B\", \"T4A\", \"T4B\", \"T5A\",…\n$ CBN             &lt;dbl&gt; 0.0, 2.8, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.6,…\n$ CBD             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ THC             &lt;dbl&gt; 0.5, 32.4, 5.1, 3.2, 1.8, 1.2, 0.9, 0.8, 0.6, 0.0, 46.…\n$ `11-OH-THC`     &lt;dbl&gt; 0.0, 5.4, 2.4, 1.8, 1.4, 0.0, 0.0, 0.0, 0.0, 0.0, 7.7,…\n$ `THC-COOH`      &lt;dbl&gt; 5.7, 13.5, 11.7, 9.7, 8.7, 6.7, 6.8, 6.8, 6.3, 1.9, 13…\n$ `THC-COOH-Gluc` &lt;dbl&gt; 4.9, 4.4, 6.2, 8.4, 8.9, 8.2, 7.5, 7.1, 6.1, 2.1, 2.7,…\n$ CBG             &lt;dbl&gt; 0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0,…\n$ `THC-V`         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20, 73…"
+    "text": "Viewing your data\n\nIn the Environment, click on the name of the data frame to view it in the data viewer (or use the View function)\nUse the glimpse function to take a peek\n\n\nglimpse(WB)\n\nRows: 1,525\nColumns: 14\n$ ID              &lt;chr&gt; \"11255\", \"11255\", \"11255\", \"11255\", \"11255\", \"11255\", …\n$ Treatment       &lt;chr&gt; \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", \"5.90%\", …\n$ Group           &lt;chr&gt; \"Occasional user\", \"Occasional user\", \"Occasional user…\n$ `FLUID TYPE`    &lt;chr&gt; \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", \"WB\", …\n$ Timepoint       &lt;chr&gt; \"T1\", \"T2A\", \"T2B\", \"T3A\", \"T3B\", \"T4A\", \"T4B\", \"T5A\",…\n$ CBN             &lt;dbl&gt; 0.0, 2.8, 0.6, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.6,…\n$ CBD             &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ THC             &lt;dbl&gt; 0.5, 32.4, 5.1, 3.2, 1.8, 1.2, 0.9, 0.8, 0.6, 0.0, 46.…\n$ `11-OH-THC`     &lt;dbl&gt; 0.0, 5.4, 2.4, 1.8, 1.4, 0.0, 0.0, 0.0, 0.0, 0.0, 7.7,…\n$ `THC-COOH`      &lt;dbl&gt; 5.7, 13.5, 11.7, 9.7, 8.7, 6.7, 6.8, 6.8, 6.3, 1.9, 13…\n$ `THC-COOH-Gluc` &lt;dbl&gt; 4.9, 4.4, 6.2, 8.4, 8.9, 8.2, 7.5, 7.1, 6.1, 2.1, 2.7,…\n$ CBG             &lt;dbl&gt; 0.0, 1.2, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0,…\n$ `THC-V`         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …\n$ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20, 73…",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#a-grammar-of-data-manipulation",
     "href": "content/lectures/04-dplyr.html#a-grammar-of-data-manipulation",
     "title": "04-dplyr",
     "section": "A Grammar of Data Manipulation",
-    "text": "A Grammar of Data Manipulation\ndplyr is based on the concepts of functions as verbs that manipulate data frames.\nSingle data frame functions / verbs:\n\nfilter: pick rows matching criteria\nmutate: add new variables\nselect: pick columns by name\nrename: rename specific columns\nsummarize: reduce variables to values\narrange: reorder rows\ndistinct: filter for unique rows\npull: grab a column as a vector\nsample_n / sample_frac: randomly sample rows\nslice: pick rows using index(es)\n… (many more)"
+    "text": "A Grammar of Data Manipulation\ndplyr is based on the concepts of functions as verbs that manipulate data frames.\nSingle data frame functions / verbs:\n\nfilter: pick rows matching criteria\nmutate: add new variables\nselect: pick columns by name\nrename: rename specific columns\nsummarize: reduce variables to values\narrange: reorder rows\ndistinct: filter for unique rows\npull: grab a column as a vector\nslice_sample: randomly sample rows (n = rows or prop = proportion)\nslice: pick rows using index(es)\n… (many more)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#dplyr-rules-for-functions",
     "href": "content/lectures/04-dplyr.html#dplyr-rules-for-functions",
     "title": "04-dplyr",
     "section": "dplyr rules for functions",
-    "text": "dplyr rules for functions\n\nFirst argument is always a data frame\nSubsequent arguments say what to do with that data frame\nAlways return a data frame\nDo not modify in place\nPerformance via lazy evaluation"
+    "text": "dplyr rules for functions\n\nFirst argument is always a data frame\nSubsequent arguments say what to do with that data frame\nAlways return a data frame\nDo not modify in place (save the result with &lt;- if you want to keep it)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#filter-rows-with-filter",
     "href": "content/lectures/04-dplyr.html#filter-rows-with-filter",
     "title": "04-dplyr",
     "section": "Filter rows with filter",
-    "text": "Filter rows with filter\n\nSelect a subset of rows in a data frame.\nEasily filter for many conditions at once."
+    "text": "Filter rows with filter\n\nSelect a subset of rows in a data frame.\nEasily filter for many conditions at once.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#filter-single-condition",
     "href": "content/lectures/04-dplyr.html#filter-single-condition",
     "title": "04-dplyr",
     "section": "filter (single condition)",
-    "text": "filter (single condition)\nfor only measurements from Occasional users\n\nWB |&gt;\n  filter(Group == \"Occasional user\")\n\n# A tibble: 750 × 14\n   ID    Treatment Group    `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n 1 11255 5.90%     Occasio… WB           T1          0       0   0.5         0  \n 2 11255 5.90%     Occasio… WB           T2A         2.8     0  32.4         5.4\n 3 11255 5.90%     Occasio… WB           T2B         0.6     0   5.1         2.4\n 4 11255 5.90%     Occasio… WB           T3A         0       0   3.2         1.8\n 5 11255 5.90%     Occasio… WB           T3B         0       0   1.8         1.4\n 6 11255 5.90%     Occasio… WB           T4A         0       0   1.2         0  \n 7 11255 5.90%     Occasio… WB           T4B         0       0   0.9         0  \n 8 11255 5.90%     Occasio… WB           T5A         0       0   0.8         0  \n 9 11255 5.90%     Occasio… WB           T5B         0       0   0.6         0  \n10 T0316 13.40%    Occasio… WB           T1          0       0   0           0  \n# ℹ 740 more rows\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;"
+    "text": "filter (single condition)\nfor only measurements from Occasional users\n\nWB |&gt;\n  filter(Group == \"Occasional user\")\n\n# A tibble: 750 × 14\n   ID    Treatment Group    `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n 1 11255 5.90%     Occasio… WB           T1          0       0   0.5         0  \n 2 11255 5.90%     Occasio… WB           T2A         2.8     0  32.4         5.4\n 3 11255 5.90%     Occasio… WB           T2B         0.6     0   5.1         2.4\n 4 11255 5.90%     Occasio… WB           T3A         0       0   3.2         1.8\n 5 11255 5.90%     Occasio… WB           T3B         0       0   1.8         1.4\n 6 11255 5.90%     Occasio… WB           T4A         0       0   1.2         0  \n 7 11255 5.90%     Occasio… WB           T4B         0       0   0.9         0  \n 8 11255 5.90%     Occasio… WB           T5A         0       0   0.8         0  \n 9 11255 5.90%     Occasio… WB           T5B         0       0   0.6         0  \n10 T0316 13.40%    Occasio… WB           T1          0       0   0           0  \n# ℹ 740 more rows\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
-    "objectID": "content/lectures/04-dplyr.html#filter-mutiple-conditions",
-    "href": "content/lectures/04-dplyr.html#filter-mutiple-conditions",
+    "objectID": "content/lectures/04-dplyr.html#filter-multiple-conditions",
+    "href": "content/lectures/04-dplyr.html#filter-multiple-conditions",
     "title": "04-dplyr",
-    "section": "filter (mutiple conditions)",
-    "text": "filter (mutiple conditions)\nfor only measurements from Occasional users where THC &gt; 100\n\nWB |&gt;\n  filter(Group == \"Occasional user\", THC &gt; 100)\n\n# A tibble: 2 × 14\n  ID    Treatment Group     `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 11467 5.90%     Occasion… WB           T2A        14.5     0  156.        15.5\n2 28344 5.90%     Occasion… WB           T2A        11       0  126.        12.2\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;"
+    "section": "filter (multiple conditions)",
+    "text": "filter (multiple conditions)\nfor only measurements from Occasional users where THC &gt; 100\n\nWB |&gt;\n  filter(Group == \"Occasional user\", THC &gt; 100)\n\n# A tibble: 2 × 14\n  ID    Treatment Group     `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 11467 5.90%     Occasion… WB           T2A        14.5     0  156.        15.5\n2 28344 5.90%     Occasion… WB           T2A        11       0  126.        12.2\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#select-a-range-of-variables",
     "href": "content/lectures/04-dplyr.html#select-a-range-of-variables",
     "title": "04-dplyr",
-    "section": "select` a range of variables",
-    "text": "select` a range of variables\n\nWB |&gt;\n  select(ID:`FLUID TYPE`)\n\n# A tibble: 1,525 × 4\n   ID    Treatment Group           `FLUID TYPE`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;       \n 1 11255 5.90%     Occasional user WB          \n 2 11255 5.90%     Occasional user WB          \n 3 11255 5.90%     Occasional user WB          \n 4 11255 5.90%     Occasional user WB          \n 5 11255 5.90%     Occasional user WB          \n 6 11255 5.90%     Occasional user WB          \n 7 11255 5.90%     Occasional user WB          \n 8 11255 5.90%     Occasional user WB          \n 9 11255 5.90%     Occasional user WB          \n10 T0686 5.90%     Frequent user   WB          \n# ℹ 1,515 more rows\n\n\n\nID:FLUID TYPE: take all columns from ID through FLUID TYPE\nFLUID TYPE has backticks due to space in column name"
+    "section": "select a range of variables",
+    "text": "select a range of variables\n\nWB |&gt;\n  select(ID:`FLUID TYPE`)\n\n# A tibble: 1,525 × 4\n   ID    Treatment Group           `FLUID TYPE`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;       \n 1 11255 5.90%     Occasional user WB          \n 2 11255 5.90%     Occasional user WB          \n 3 11255 5.90%     Occasional user WB          \n 4 11255 5.90%     Occasional user WB          \n 5 11255 5.90%     Occasional user WB          \n 6 11255 5.90%     Occasional user WB          \n 7 11255 5.90%     Occasional user WB          \n 8 11255 5.90%     Occasional user WB          \n 9 11255 5.90%     Occasional user WB          \n10 T0686 5.90%     Frequent user   WB          \n# ℹ 1,515 more rows\n\n\n\nID:FLUID TYPE: take all columns from ID through FLUID TYPE\nFLUID TYPE has backticks due to space in column name",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#select-to-keep-range-others",
     "href": "content/lectures/04-dplyr.html#select-to-keep-range-others",
     "title": "04-dplyr",
     "section": "select to keep range + others",
-    "text": "select to keep range + others\n\nWB |&gt;\n  select(ID:`FLUID TYPE`, THC, time.from.start)\n\n# A tibble: 1,525 × 6\n   ID    Treatment Group           `FLUID TYPE`   THC time.from.start\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;           &lt;dbl&gt;\n 1 11255 5.90%     Occasional user WB             0.5             -27\n 2 11255 5.90%     Occasional user WB            32.4              15\n 3 11255 5.90%     Occasional user WB             5.1              69\n 4 11255 5.90%     Occasional user WB             3.2             111\n 5 11255 5.90%     Occasional user WB             1.8             156\n 6 11255 5.90%     Occasional user WB             1.2             236\n 7 11255 5.90%     Occasional user WB             0.9             283\n 8 11255 5.90%     Occasional user WB             0.8             315\n 9 11255 5.90%     Occasional user WB             0.6             360\n10 T0686 5.90%     Frequent user   WB             0               -10\n# ℹ 1,515 more rows"
+    "text": "select to keep range + others\n\nWB |&gt;\n  select(ID:`FLUID TYPE`, THC, time.from.start)\n\n# A tibble: 1,525 × 6\n   ID    Treatment Group           `FLUID TYPE`   THC time.from.start\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;           &lt;dbl&gt;\n 1 11255 5.90%     Occasional user WB             0.5             -27\n 2 11255 5.90%     Occasional user WB            32.4              15\n 3 11255 5.90%     Occasional user WB             5.1              69\n 4 11255 5.90%     Occasional user WB             3.2             111\n 5 11255 5.90%     Occasional user WB             1.8             156\n 6 11255 5.90%     Occasional user WB             1.2             236\n 7 11255 5.90%     Occasional user WB             0.9             283\n 8 11255 5.90%     Occasional user WB             0.8             315\n 9 11255 5.90%     Occasional user WB             0.6             360\n10 T0686 5.90%     Frequent user   WB             0               -10\n# ℹ 1,515 more rows",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#select-to-exclude-variables",
     "href": "content/lectures/04-dplyr.html#select-to-exclude-variables",
     "title": "04-dplyr",
     "section": "select to exclude variables",
-    "text": "select to exclude variables\n\nWB |&gt;\n  select(-Timepoint)\n\n# A tibble: 1,525 × 13\n   ID    Treatment Group   `FLUID TYPE`   CBN   CBD   THC `11-OH-THC` `THC-COOH`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;\n 1 11255 5.90%     Occasi… WB             0       0   0.5         0          5.7\n 2 11255 5.90%     Occasi… WB             2.8     0  32.4         5.4       13.5\n 3 11255 5.90%     Occasi… WB             0.6     0   5.1         2.4       11.7\n 4 11255 5.90%     Occasi… WB             0       0   3.2         1.8        9.7\n 5 11255 5.90%     Occasi… WB             0       0   1.8         1.4        8.7\n 6 11255 5.90%     Occasi… WB             0       0   1.2         0          6.7\n 7 11255 5.90%     Occasi… WB             0       0   0.9         0          6.8\n 8 11255 5.90%     Occasi… WB             0       0   0.8         0          6.8\n 9 11255 5.90%     Occasi… WB             0       0   0.6         0          6.3\n10 T0686 5.90%     Freque… WB             0       0   0           0          1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;, `THC-V` &lt;dbl&gt;,\n#   time.from.start &lt;dbl&gt;"
+    "text": "select to exclude variables\n\nWB |&gt;\n  select(-Timepoint)\n\n# A tibble: 1,525 × 13\n   ID    Treatment Group   `FLUID TYPE`   CBN   CBD   THC `11-OH-THC` `THC-COOH`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;\n 1 11255 5.90%     Occasi… WB             0       0   0.5         0          5.7\n 2 11255 5.90%     Occasi… WB             2.8     0  32.4         5.4       13.5\n 3 11255 5.90%     Occasi… WB             0.6     0   5.1         2.4       11.7\n 4 11255 5.90%     Occasi… WB             0       0   3.2         1.8        9.7\n 5 11255 5.90%     Occasi… WB             0       0   1.8         1.4        8.7\n 6 11255 5.90%     Occasi… WB             0       0   1.2         0          6.7\n 7 11255 5.90%     Occasi… WB             0       0   0.9         0          6.8\n 8 11255 5.90%     Occasi… WB             0       0   0.8         0          6.8\n 9 11255 5.90%     Occasi… WB             0       0   0.6         0          6.3\n10 T0686 5.90%     Freque… WB             0       0   0           0          1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;, `THC-V` &lt;dbl&gt;,\n#   time.from.start &lt;dbl&gt;",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#select-can-rename-columns",
     "href": "content/lectures/04-dplyr.html#select-can-rename-columns",
     "title": "04-dplyr",
     "section": "select can rename columns",
-    "text": "select can rename columns\n\nWB |&gt;\n  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)\n\n# A tibble: 1,525 × 6\n   ID    Treatment Group           `FLUID TYPE`   THC start_time\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n 1 11255 5.90%     Occasional user WB             0.5        -27\n 2 11255 5.90%     Occasional user WB            32.4         15\n 3 11255 5.90%     Occasional user WB             5.1         69\n 4 11255 5.90%     Occasional user WB             3.2        111\n 5 11255 5.90%     Occasional user WB             1.8        156\n 6 11255 5.90%     Occasional user WB             1.2        236\n 7 11255 5.90%     Occasional user WB             0.9        283\n 8 11255 5.90%     Occasional user WB             0.8        315\n 9 11255 5.90%     Occasional user WB             0.6        360\n10 T0686 5.90%     Frequent user   WB             0          -10\n# ℹ 1,515 more rows"
+    "text": "select can rename columns\n\nWB |&gt;\n  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)\n\n# A tibble: 1,525 × 6\n   ID    Treatment Group           `FLUID TYPE`   THC start_time\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;        &lt;dbl&gt;      &lt;dbl&gt;\n 1 11255 5.90%     Occasional user WB             0.5        -27\n 2 11255 5.90%     Occasional user WB            32.4         15\n 3 11255 5.90%     Occasional user WB             5.1         69\n 4 11255 5.90%     Occasional user WB             3.2        111\n 5 11255 5.90%     Occasional user WB             1.8        156\n 6 11255 5.90%     Occasional user WB             1.2        236\n 7 11255 5.90%     Occasional user WB             0.9        283\n 8 11255 5.90%     Occasional user WB             0.8        315\n 9 11255 5.90%     Occasional user WB             0.6        360\n10 T0686 5.90%     Frequent user   WB             0          -10\n# ℹ 1,515 more rows",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#save-when-you-make-dataset-changes",
     "href": "content/lectures/04-dplyr.html#save-when-you-make-dataset-changes",
     "title": "04-dplyr",
     "section": "“Save” when you make dataset changes",
-    "text": "“Save” when you make dataset changes\n\ndecide if you want to overwrite original or create new\n\n\nWB_sub &lt;- WB |&gt;\n  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)"
+    "text": "“Save” when you make dataset changes\n\ndecide if you want to overwrite original or create new\n\n\nWB_sub &lt;- WB |&gt;\n  select(ID:`FLUID TYPE`, THC, start_time = time.from.start)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#check-before-you-move-on",
     "href": "content/lectures/04-dplyr.html#check-before-you-move-on",
     "title": "04-dplyr",
     "section": "Check before you move on",
-    "text": "Check before you move on\nAlways check your changes and confirm code did what you wanted it to do\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\""
+    "text": "Check before you move on\nAlways check your changes and confirm code did what you wanted it to do\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\"",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#rename-specific-columns",
     "href": "content/lectures/04-dplyr.html#rename-specific-columns",
     "title": "04-dplyr",
     "section": "rename specific columns",
-    "text": "rename specific columns\nUseful for correcting typos, and renaming to make variable names shorter and/or more informative\n\nOriginal names:\n\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\"\n\n\n. . .\n\nWB_sub &lt;- WB_sub |&gt;\n  rename(fluid_type = `FLUID TYPE`)"
-  },
-  {
-    "objectID": "content/lectures/04-dplyr.html#day-2-wed-107",
-    "href": "content/lectures/04-dplyr.html#day-2-wed-107",
-    "title": "04-dplyr",
-    "section": "Day 2 · Wed 10/7",
-    "text": "Day 2 · Wed 10/7\nPicking up with mutate(), group_by() + summarize(), factors, and CS01 wrangling."
+    "text": "rename specific columns\nUseful for correcting typos, and renaming to make variable names shorter and/or more informative\n\nOriginal names:\n\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\"\n\n\n. . .\n\nWB_sub &lt;- WB_sub |&gt;\n  rename(fluid_type = `FLUID TYPE`)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#mutate-to-add-new-variables",
     "href": "content/lectures/04-dplyr.html#mutate-to-add-new-variables",
     "title": "04-dplyr",
     "section": "mutate to add new variables",
-    "text": "mutate to add new variables\n\nNote assigning back out to itself with new column\n\n\n(WB_sub &lt;- WB_sub |&gt; \n  mutate(baseline = start_time &lt; 0))\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 11255 5.90%     Occasional user WB          32.4         15 FALSE   \n 3 11255 5.90%     Occasional user WB           5.1         69 FALSE   \n 4 11255 5.90%     Occasional user WB           3.2        111 FALSE   \n 5 11255 5.90%     Occasional user WB           1.8        156 FALSE   \n 6 11255 5.90%     Occasional user WB           1.2        236 FALSE   \n 7 11255 5.90%     Occasional user WB           0.9        283 FALSE   \n 8 11255 5.90%     Occasional user WB           0.8        315 FALSE   \n 9 11255 5.90%     Occasional user WB           0.6        360 FALSE   \n10 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n# ℹ 1,515 more rows"
+    "text": "mutate to add new variables\n\nNote assigning back out to itself with new column\n\n\n(WB_sub &lt;- WB_sub |&gt; \n  mutate(baseline = start_time &lt;= 0))\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 11255 5.90%     Occasional user WB          32.4         15 FALSE   \n 3 11255 5.90%     Occasional user WB           5.1         69 FALSE   \n 4 11255 5.90%     Occasional user WB           3.2        111 FALSE   \n 5 11255 5.90%     Occasional user WB           1.8        156 FALSE   \n 6 11255 5.90%     Occasional user WB           1.2        236 FALSE   \n 7 11255 5.90%     Occasional user WB           0.9        283 FALSE   \n 8 11255 5.90%     Occasional user WB           0.8        315 FALSE   \n 9 11255 5.90%     Occasional user WB           0.6        360 FALSE   \n10 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n# ℹ 1,515 more rows",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#your-turn",
     "href": "content/lectures/04-dplyr.html#your-turn",
     "title": "04-dplyr",
     "section": "Your Turn",
-    "text": "Your Turn\nHow many baseline measurements had a THC value greater than zero?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
+    "text": "Your Turn\nHow many baseline measurements had a THC value greater than zero?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#group_by-summarize-to-reduce-variables-to-values",
     "href": "content/lectures/04-dplyr.html#group_by-summarize-to-reduce-variables-to-values",
     "title": "04-dplyr",
     "section": "group_by + summarize to reduce variables to values",
-    "text": "group_by + summarize to reduce variables to values\nThe values are summarized in a data frame:\n\nWB_sub |&gt;\n  group_by(Treatment, Group) |&gt;\n  summarize(count = n())\n\n`summarise()` has grouped output by 'Treatment'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 6 × 3\n# Groups:   Treatment [3]\n  Treatment Group           count\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260"
+    "text": "group_by + summarize to reduce variables to values\nThe values are summarized in a data frame:\n\nWB_sub |&gt;\n  group_by(Treatment, Group) |&gt;\n  summarize(count = n(), .groups = \"drop\")\n\n# A tibble: 6 × 3\n  Treatment Group           count\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260\n\n\n\n.groups = \"drop\" removes the grouping afterwards (otherwise the result stays grouped by Treatment, and you’ll see a message saying so)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#count-to-group-by-then-count",
     "href": "content/lectures/04-dplyr.html#count-to-group-by-then-count",
     "title": "04-dplyr",
     "section": "count to group by then count",
-    "text": "count to group by then count\nSame as last example, but summarize, not limited to counting\n\nWB_sub |&gt;\n  count(Treatment, Group)\n\n# A tibble: 6 × 3\n  Treatment Group               n\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260"
+    "text": "count to group by then count\ncount() is a shortcut for group_by() + summarize(n = n()); use summarize() when you need more than counts\n\nWB_sub |&gt;\n  count(Treatment, Group)\n\n# A tibble: 6 × 3\n  Treatment Group               n\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#your-turn-1",
     "href": "content/lectures/04-dplyr.html#your-turn-1",
     "title": "04-dplyr",
     "section": "Your Turn",
-    "text": "Your Turn\nYou’re starting to work on the case study and you get curious. How many non-baseline observations have a THC &gt; 50. Does this number differ by treatment or group?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
+    "text": "Your Turn\nYou’re starting to work on the case study and you get curious. How many non-baseline observations have a THC &gt; 50. Does this number differ by treatment or group?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#and-arrange-to-order-rows",
     "href": "content/lectures/04-dplyr.html#and-arrange-to-order-rows",
     "title": "04-dplyr",
     "section": "and arrange to order rows",
-    "text": "and arrange to order rows\n\nWB_sub |&gt;\n  arrange(THC)\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 T0686 5.90%     Frequent user   WB             0        -10 TRUE    \n 2 11258 13.40%    Frequent user   WB             0        -25 TRUE    \n 3 11258 13.40%    Frequent user   WB             0        375 FALSE   \n 4 T0316 13.40%    Occasional user WB             0        -78 TRUE    \n 5 11234 Placebo   Frequent user   WB             0        -64 TRUE    \n 6 11234 Placebo   Frequent user   WB             0         12 FALSE   \n 7 11234 Placebo   Frequent user   WB             0         85 FALSE   \n 8 11234 Placebo   Frequent user   WB             0        126 FALSE   \n 9 11234 Placebo   Frequent user   WB             0        210 FALSE   \n10 11234 Placebo   Frequent user   WB             0        249 FALSE   \n# ℹ 1,515 more rows\n\n\n. . .\n   If you wanted to arrange these in descending order what would you add to the code?"
+    "text": "and arrange to order rows\n\nWB_sub |&gt;\n  arrange(THC)\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 T0686 5.90%     Frequent user   WB             0        -10 TRUE    \n 2 11258 13.40%    Frequent user   WB             0        -25 TRUE    \n 3 11258 13.40%    Frequent user   WB             0        375 FALSE   \n 4 T0316 13.40%    Occasional user WB             0        -78 TRUE    \n 5 11234 Placebo   Frequent user   WB             0        -64 TRUE    \n 6 11234 Placebo   Frequent user   WB             0         12 FALSE   \n 7 11234 Placebo   Frequent user   WB             0         85 FALSE   \n 8 11234 Placebo   Frequent user   WB             0        126 FALSE   \n 9 11234 Placebo   Frequent user   WB             0        210 FALSE   \n10 11234 Placebo   Frequent user   WB             0        249 FALSE   \n# ℹ 1,515 more rows\n\n\n. . .\n   If you wanted to arrange these in descending order what would you add to the code?",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#distinct-to-filter-for-unique-rows",
     "href": "content/lectures/04-dplyr.html#distinct-to-filter-for-unique-rows",
     "title": "04-dplyr",
     "section": "distinct to filter for unique rows",
-    "text": "distinct to filter for unique rows\nHow many unique participants?\n\nWB_sub |&gt; \n  distinct(ID) \n\n# A tibble: 190 × 1\n   ID   \n   &lt;chr&gt;\n 1 11255\n 2 T0686\n 3 11258\n 4 11264\n 5 11263\n 6 T0316\n 7 11270\n 8 11234\n 9 11323\n10 10972\n# ℹ 180 more rows"
+    "text": "distinct to filter for unique rows\nHow many unique participants?\n\nWB_sub |&gt; \n  distinct(ID) \n\n# A tibble: 190 × 1\n   ID   \n   &lt;chr&gt;\n 1 11255\n 2 T0686\n 3 11258\n 4 11264\n 5 11263\n 6 T0316\n 7 11270\n 8 11234\n 9 11323\n10 10972\n# ℹ 180 more rows",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#distinct-has-a-.keep_all-parameter",
     "href": "content/lectures/04-dplyr.html#distinct-has-a-.keep_all-parameter",
     "title": "04-dplyr",
     "section": "distinct has a .keep_all parameter",
-    "text": "distinct has a .keep_all parameter\n\nWB_sub |&gt; \n  distinct(ID, .keep_all=TRUE) \n\n# A tibble: 190 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n 3 11258 13.40%    Frequent user   WB           0          -25 TRUE    \n 4 11264 13.40%    Frequent user   WB           2.4        -30 TRUE    \n 5 11263 5.90%     Frequent user   WB           3.2        -26 TRUE    \n 6 T0316 13.40%    Occasional user WB           0          -78 TRUE    \n 7 11270 Placebo   Frequent user   WB           4.6        -70 TRUE    \n 8 11234 Placebo   Frequent user   WB           0          -64 TRUE    \n 9 11323 Placebo   Occasional user WB           0.8        -71 TRUE    \n10 10972 13.40%    Frequent user   WB           3.9        -72 TRUE    \n# ℹ 180 more rows\n\n\n. . .\n   Which observation did dplyr decide to keep?"
+    "text": "distinct has a .keep_all parameter\n\nWB_sub |&gt; \n  distinct(ID, .keep_all=TRUE) \n\n# A tibble: 190 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n 3 11258 13.40%    Frequent user   WB           0          -25 TRUE    \n 4 11264 13.40%    Frequent user   WB           2.4        -30 TRUE    \n 5 11263 5.90%     Frequent user   WB           3.2        -26 TRUE    \n 6 T0316 13.40%    Occasional user WB           0          -78 TRUE    \n 7 11270 Placebo   Frequent user   WB           4.6        -70 TRUE    \n 8 11234 Placebo   Frequent user   WB           0          -64 TRUE    \n 9 11323 Placebo   Occasional user WB           0.8        -71 TRUE    \n10 10972 13.40%    Frequent user   WB           3.9        -72 TRUE    \n# ℹ 180 more rows\n\n\n. . .\n   Which observation did dplyr decide to keep?",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#factors-1",
     "href": "content/lectures/04-dplyr.html#factors-1",
     "title": "04-dplyr",
     "section": "Factors",
-    "text": "Factors\nFactor objects are how R stores data for categorical variables (fixed numbers of discrete values).\n\n(x = factor(c(\"BS\", \"MS\", \"PhD\", \"MS\")))\n\n[1] BS  MS  PhD MS \nLevels: BS MS PhD\n\n\n\nglimpse(x)\n\n Factor w/ 3 levels \"BS\",\"MS\",\"PhD\": 1 2 3 2\n\n\n\ntypeof(x)\n\n[1] \"integer\"\n\n\n. . .\n   In our data, which variables should be treated as factors?"
+    "text": "Factors\nFactor objects are how R stores data for categorical variables (fixed numbers of discrete values).\n\nx &lt;- factor(c(\"BS\", \"MS\", \"PhD\", \"MS\"))\nx\n\n[1] BS  MS  PhD MS \nLevels: BS MS PhD\n\n\n\nglimpse(x)\n\n Factor w/ 3 levels \"BS\",\"MS\",\"PhD\": 1 2 3 2\n\n\n\ntypeof(x)\n\n[1] \"integer\"\n\n\n. . .\n   In our data, which variables should be treated as factors?",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#why-does-it-matter",
     "href": "content/lectures/04-dplyr.html#why-does-it-matter",
     "title": "04-dplyr",
     "section": "Why does it matter?",
-    "text": "Why does it matter?\n\nWB_sub |&gt; \n  filter(start_time &gt; 0, start_time &lt; 60) |&gt; \n  ggplot(mapping = aes(x = Treatment, y=THC)) +\n    geom_boxplot()\n\n\n\n\n\n\n\n\nNote: we’ll discuss this specific code soon."
+    "text": "Why does it matter?\n\nWB_sub |&gt; \n  filter(start_time &gt; 0, start_time &lt; 60) |&gt; \n  ggplot(mapping = aes(x = Treatment, y=THC)) +\n    geom_boxplot()\n\n\n\n\n\n\n\n\nNote: we’ll discuss this specific code soon.",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#use-forcats-to-manipulate-factors",
     "href": "content/lectures/04-dplyr.html#use-forcats-to-manipulate-factors",
     "title": "04-dplyr",
     "section": "Use forcats to manipulate factors",
-    "text": "Use forcats to manipulate factors\n\nfct_recode - treat as factor; give new labels\nfct_relevel - change order of levels\n\n\nWB_sub &lt;- WB_sub |&gt;\n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"))\n\n. . .\n(same plotting code as earlier)\n\nWB_sub |&gt; \n  filter(start_time &gt; 0, start_time &lt; 60) |&gt; \n  ggplot(mapping = aes(x = Treatment, y=THC)) +\n    geom_boxplot()"
+    "text": "Use forcats to manipulate factors\n\nfct_recode - treat as factor; give new labels\nfct_relevel - change order of levels\n\n\nWB_sub &lt;- WB_sub |&gt;\n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"))\n\n. . .\n(same plotting code as earlier)\n\nWB_sub |&gt; \n  filter(start_time &gt; 0, start_time &lt; 60) |&gt; \n  ggplot(mapping = aes(x = Treatment, y=THC)) +\n    geom_boxplot()",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#forcats-functionality",
     "href": "content/lectures/04-dplyr.html#forcats-functionality",
     "title": "04-dplyr",
     "section": "forcats functionality ",
-    "text": "forcats functionality \n\nR uses factors to handle categorical variables, variables that have a fixed and known set of possible values. Historically, factors were much easier to work with than character vectors, so many base R functions automatically convert character vectors to factors.\nfactors are still useful when you have true categorical data, and when you want to override the ordering of character vectors to improve display. The goal of the forcats package is to provide a suite of useful tools that solve common problems with factors.\n\n\n\nSource: forcats.tidyverse.org"
+    "text": "forcats functionality \n\nR uses factors to handle categorical variables, variables that have a fixed and known set of possible values. Historically, factors were much easier to work with than character vectors, so many base R functions automatically convert character vectors to factors.\nfactors are still useful when you have true categorical data, and when you want to override the ordering of character vectors to improve display. The goal of the forcats package is to provide a suite of useful tools that solve common problems with factors.\n\n\n\nSource: forcats.tidyverse.org",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#data-cleaning",
     "href": "content/lectures/04-dplyr.html#data-cleaning",
     "title": "04-dplyr",
     "section": "Data Cleaning",
-    "text": "Data Cleaning\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v)\n\n   What is this code accomplishing?"
+    "text": "Data Cleaning\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v)\n\n   What is this code accomplishing?",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#data-cleaning-1",
     "href": "content/lectures/04-dplyr.html#data-cleaning-1",
     "title": "04-dplyr",
     "section": "Data Cleaning",
-    "text": "Data Cleaning\n\nWB |&gt; \n  mutate(timepoint = case_when(time_from_start &lt;= 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\n# A tibble: 1,525 × 14\n   id    treatment    group fluid_type timepoint   cbn   cbd   thc thcoh thccooh\n   &lt;chr&gt; &lt;fct&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 11255 5.9% THC (l… Occa… WB         pre-smok…   0       0   0.5   0       5.7\n 2 11255 5.9% THC (l… Occa… WB         0-30 min    2.8     0  32.4   5.4    13.5\n 3 11255 5.9% THC (l… Occa… WB         31-70 min   0.6     0   5.1   2.4    11.7\n 4 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   3.2   1.8     9.7\n 5 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   1.8   1.4     8.7\n 6 11255 5.9% THC (l… Occa… WB         211-240 …   0       0   1.2   0       6.7\n 7 11255 5.9% THC (l… Occa… WB         271-300 …   0       0   0.9   0       6.8\n 8 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.8   0       6.8\n 9 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.6   0       6.3\n10 T0686 5.9% THC (l… Freq… WB         pre-smok…   0       0   0     0       1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: thccooh_gluc &lt;dbl&gt;, cbg &lt;dbl&gt;, thcv &lt;dbl&gt;,\n#   time_from_start &lt;dbl&gt;\n\n\n   What is this code accomplishing?\n. . .\nNote: This code could have been combined with the above…I just wanted to discuss it for simplicity in lecture separately.\n\n\nGoing forward, this cleaning lives in one function, clean_cs01() (in src/cs01_functions.R), which does the same thing with cut()."
+    "text": "Data Cleaning\n\n# not saved: we're just looking (clean_cs01() does this for real)\nWB |&gt; \n  mutate(timepoint = case_when(time_from_start &lt;= 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\n# A tibble: 1,525 × 14\n   id    treatment    group fluid_type timepoint   cbn   cbd   thc thcoh thccooh\n   &lt;chr&gt; &lt;fct&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 11255 5.9% THC (l… Occa… WB         pre-smok…   0       0   0.5   0       5.7\n 2 11255 5.9% THC (l… Occa… WB         0-30 min    2.8     0  32.4   5.4    13.5\n 3 11255 5.9% THC (l… Occa… WB         31-70 min   0.6     0   5.1   2.4    11.7\n 4 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   3.2   1.8     9.7\n 5 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   1.8   1.4     8.7\n 6 11255 5.9% THC (l… Occa… WB         211-240 …   0       0   1.2   0       6.7\n 7 11255 5.9% THC (l… Occa… WB         271-300 …   0       0   0.9   0       6.8\n 8 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.8   0       6.8\n 9 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.6   0       6.3\n10 T0686 5.9% THC (l… Freq… WB         pre-smok…   0       0   0     0       1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: thccooh_gluc &lt;dbl&gt;, cbg &lt;dbl&gt;, thcv &lt;dbl&gt;,\n#   time_from_start &lt;dbl&gt;\n\n\n   What is this code accomplishing?\n. . .\nNote: This code could have been combined with the above…I just wanted to discuss it for simplicity in lecture separately.\n\n\nGoing forward, this cleaning will eventually live in one function, clean_cs01() (in src/cs01_functions.R), which does the same thing with cut().",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr.html#cs01-data-cleaning",
     "href": "content/lectures/04-dplyr.html#cs01-data-cleaning",
     "title": "04-dplyr",
     "section": "CS01 Data Cleaning",
-    "text": "CS01 Data Cleaning\nWe’ve cleaned up the whole blood data. Your lab will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)"
-  },
-  {
-    "objectID": "content/lectures/04-dplyr-slides.html#ad-edge",
-    "href": "content/lectures/04-dplyr-slides.html#ad-edge",
-    "title": "04-dplyr",
-    "section": "[ad] EDGE",
-    "text": "[ad] EDGE\nMentorship opportunity for women-identifying students:"
+    "text": "CS01 Data Cleaning\nWe’ve cleaned up the whole blood data. Your lab next week will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)",
+    "crumbs": [
+      "Notes",
+      "Notes 04: Data Wrangling (dplyr)"
+    ]
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#qa",
     "href": "content/lectures/04-dplyr-slides.html#qa",
     "title": "04-dplyr",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: How much statistics must we recall?\n\n\nA: I’m assuming people are familiar with what would be taught in an intro stats course (variable types, populations vs. samples, randomization, correlation, causation, descriptive statistics including Z-scores, general visualizations, distributions, probability, linear regression, t-tests, hypothesis testing, confidence intervals, etc.)\n\n\n\n\n\n\n\n\n\n\n\nQ: It takes effort to review the given data visualizations and connect it to the study!\n\n\nA: Yes! This is a skill. And, we’re going to practice this! It’s ok if you’re not great at it (yet!)…or if it takes a while!\n\n\n\n\n\n\n\n\n\n\n\nQ: I am curious about the mechanism that was used to get the subjects of the experiment.\n\n\nA: Good question…and I can’t recall the details and don’t see it in our papers. It should be in there, but it’s not."
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#course-announcements",
     "href": "content/lectures/04-dplyr-slides.html#course-announcements",
     "title": "04-dplyr",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 01 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNote: we’ll use data from lab02 in today’s class, so it’s a good idea to clone it now and work within that project."
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#suggested-reading",
     "href": "content/lectures/04-dplyr-slides.html#suggested-reading",
     "title": "04-dplyr",
     "section": "Suggested Reading",
-    "text": "Suggested Reading\nR4DS:\n\nChapter 5: Data Transformation\nChapter 16: Factors"
+    "text": "Suggested Reading\nR4DS:\n\nChapter 3: Data Transformation\nChapter 16: Factors"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#agenda",
@@ -1464,7 +1599,7 @@
     "href": "content/lectures/04-dplyr-slides.html#where-does-the-name-come-from",
     "title": "04-dplyr",
     "section": "Where does the name come from?",
-    "text": "Where does the name come from?\nThe pipe operator was first implemented in the package magrittr.\n\n\n\n\n\n\n\nYou will see this frequently in code online. It’s equivalent to |&gt;."
+    "text": "Where does the name come from?\nThe pipe operator was first implemented in the package magrittr.\n\n\n\n\n\n\n\nYou will see this frequently in code online. It’s nearly equivalent to |&gt; (small differences, e.g., the placeholder is . for %&gt;% and _ for |&gt;)."
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#how-does-a-pipe-work",
@@ -1478,7 +1613,7 @@
     "href": "content/lectures/04-dplyr-slides.html#whole-blood-wb-data-from-thc-study",
     "title": "04-dplyr",
     "section": "Whole Blood (WB) Data from THC Study",
-    "text": "Whole Blood (WB) Data from THC Study\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\n\n\n\n\n\n\nImportant\n\n\nWe’re using these data to demonstrate the basic principles of dplyr and tidyr before we get to how to specifically clean our CS01 data.\n\n\n\n\nRead the data in so you can follow along now!\n\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
+    "text": "Whole Blood (WB) Data from THC Study\nOpen your lab02 project on DataHub (the data are in its data/ folder), then:\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\n\n\n\n\n\n\nImportant\n\n\nWe’re using these data to demonstrate the basic principles of dplyr and tidyr before we get to how to specifically clean our CS01 data.\n\n\n\n\nRead the data in so you can follow along now!\n\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#variables",
@@ -1499,14 +1634,14 @@
     "href": "content/lectures/04-dplyr-slides.html#a-grammar-of-data-manipulation",
     "title": "04-dplyr",
     "section": "A Grammar of Data Manipulation",
-    "text": "A Grammar of Data Manipulation\ndplyr is based on the concepts of functions as verbs that manipulate data frames.\nSingle data frame functions / verbs:\n\nfilter: pick rows matching criteria\nmutate: add new variables\nselect: pick columns by name\nrename: rename specific columns\nsummarize: reduce variables to values\narrange: reorder rows\ndistinct: filter for unique rows\npull: grab a column as a vector\nsample_n / sample_frac: randomly sample rows\nslice: pick rows using index(es)\n… (many more)"
+    "text": "A Grammar of Data Manipulation\ndplyr is based on the concepts of functions as verbs that manipulate data frames.\nSingle data frame functions / verbs:\n\nfilter: pick rows matching criteria\nmutate: add new variables\nselect: pick columns by name\nrename: rename specific columns\nsummarize: reduce variables to values\narrange: reorder rows\ndistinct: filter for unique rows\npull: grab a column as a vector\nslice_sample: randomly sample rows (n = rows or prop = proportion)\nslice: pick rows using index(es)\n… (many more)"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#dplyr-rules-for-functions",
     "href": "content/lectures/04-dplyr-slides.html#dplyr-rules-for-functions",
     "title": "04-dplyr",
     "section": "dplyr rules for functions",
-    "text": "dplyr rules for functions\n\nFirst argument is always a data frame\nSubsequent arguments say what to do with that data frame\nAlways return a data frame\nDo not modify in place\nPerformance via lazy evaluation"
+    "text": "dplyr rules for functions\n\nFirst argument is always a data frame\nSubsequent arguments say what to do with that data frame\nAlways return a data frame\nDo not modify in place (save the result with &lt;- if you want to keep it)"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#filter-rows-with-filter",
@@ -1523,18 +1658,18 @@
     "text": "filter (single condition)\nfor only measurements from Occasional users\n\nWB |&gt;\n  filter(Group == \"Occasional user\")\n\n# A tibble: 750 × 14\n   ID    Treatment Group    `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n 1 11255 5.90%     Occasio… WB           T1          0       0   0.5         0  \n 2 11255 5.90%     Occasio… WB           T2A         2.8     0  32.4         5.4\n 3 11255 5.90%     Occasio… WB           T2B         0.6     0   5.1         2.4\n 4 11255 5.90%     Occasio… WB           T3A         0       0   3.2         1.8\n 5 11255 5.90%     Occasio… WB           T3B         0       0   1.8         1.4\n 6 11255 5.90%     Occasio… WB           T4A         0       0   1.2         0  \n 7 11255 5.90%     Occasio… WB           T4B         0       0   0.9         0  \n 8 11255 5.90%     Occasio… WB           T5A         0       0   0.8         0  \n 9 11255 5.90%     Occasio… WB           T5B         0       0   0.6         0  \n10 T0316 13.40%    Occasio… WB           T1          0       0   0           0  \n# ℹ 740 more rows\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;"
   },
   {
-    "objectID": "content/lectures/04-dplyr-slides.html#filter-mutiple-conditions",
-    "href": "content/lectures/04-dplyr-slides.html#filter-mutiple-conditions",
+    "objectID": "content/lectures/04-dplyr-slides.html#filter-multiple-conditions",
+    "href": "content/lectures/04-dplyr-slides.html#filter-multiple-conditions",
     "title": "04-dplyr",
-    "section": "filter (mutiple conditions)",
-    "text": "filter (mutiple conditions)\nfor only measurements from Occasional users where THC &gt; 100\n\nWB |&gt;\n  filter(Group == \"Occasional user\", THC &gt; 100)\n\n# A tibble: 2 × 14\n  ID    Treatment Group     `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 11467 5.90%     Occasion… WB           T2A        14.5     0  156.        15.5\n2 28344 5.90%     Occasion… WB           T2A        11       0  126.        12.2\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;"
+    "section": "filter (multiple conditions)",
+    "text": "filter (multiple conditions)\nfor only measurements from Occasional users where THC &gt; 100\n\nWB |&gt;\n  filter(Group == \"Occasional user\", THC &gt; 100)\n\n# A tibble: 2 × 14\n  ID    Treatment Group     `FLUID TYPE` Timepoint   CBN   CBD   THC `11-OH-THC`\n  &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;        &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;\n1 11467 5.90%     Occasion… WB           T2A        14.5     0  156.        15.5\n2 28344 5.90%     Occasion… WB           T2A        11       0  126.        12.2\n# ℹ 5 more variables: `THC-COOH` &lt;dbl&gt;, `THC-COOH-Gluc` &lt;dbl&gt;, CBG &lt;dbl&gt;,\n#   `THC-V` &lt;dbl&gt;, time.from.start &lt;dbl&gt;"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#select-a-range-of-variables",
     "href": "content/lectures/04-dplyr-slides.html#select-a-range-of-variables",
     "title": "04-dplyr",
-    "section": "select` a range of variables",
-    "text": "select` a range of variables\n\nWB |&gt;\n  select(ID:`FLUID TYPE`)\n\n# A tibble: 1,525 × 4\n   ID    Treatment Group           `FLUID TYPE`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;       \n 1 11255 5.90%     Occasional user WB          \n 2 11255 5.90%     Occasional user WB          \n 3 11255 5.90%     Occasional user WB          \n 4 11255 5.90%     Occasional user WB          \n 5 11255 5.90%     Occasional user WB          \n 6 11255 5.90%     Occasional user WB          \n 7 11255 5.90%     Occasional user WB          \n 8 11255 5.90%     Occasional user WB          \n 9 11255 5.90%     Occasional user WB          \n10 T0686 5.90%     Frequent user   WB          \n# ℹ 1,515 more rows\n\n\n\nID:FLUID TYPE: take all columns from ID through FLUID TYPE\nFLUID TYPE has backticks due to space in column name"
+    "section": "select a range of variables",
+    "text": "select a range of variables\n\nWB |&gt;\n  select(ID:`FLUID TYPE`)\n\n# A tibble: 1,525 × 4\n   ID    Treatment Group           `FLUID TYPE`\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;       \n 1 11255 5.90%     Occasional user WB          \n 2 11255 5.90%     Occasional user WB          \n 3 11255 5.90%     Occasional user WB          \n 4 11255 5.90%     Occasional user WB          \n 5 11255 5.90%     Occasional user WB          \n 6 11255 5.90%     Occasional user WB          \n 7 11255 5.90%     Occasional user WB          \n 8 11255 5.90%     Occasional user WB          \n 9 11255 5.90%     Occasional user WB          \n10 T0686 5.90%     Frequent user   WB          \n# ℹ 1,515 more rows\n\n\n\nID:FLUID TYPE: take all columns from ID through FLUID TYPE\nFLUID TYPE has backticks due to space in column name"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#select-to-keep-range-others",
@@ -1579,18 +1714,11 @@
     "text": "rename specific columns\nUseful for correcting typos, and renaming to make variable names shorter and/or more informative\n\nOriginal names:\n\n\nnames(WB_sub)\n\n[1] \"ID\"         \"Treatment\"  \"Group\"      \"FLUID TYPE\" \"THC\"       \n[6] \"start_time\"\n\n\n\n\nWB_sub &lt;- WB_sub |&gt;\n  rename(fluid_type = `FLUID TYPE`)"
   },
   {
-    "objectID": "content/lectures/04-dplyr-slides.html#day-2-wed-107",
-    "href": "content/lectures/04-dplyr-slides.html#day-2-wed-107",
-    "title": "04-dplyr",
-    "section": "Day 2 · Wed 10/7",
-    "text": "Day 2 · Wed 10/7\nPicking up with mutate(), group_by() + summarize(), factors, and CS01 wrangling."
-  },
-  {
     "objectID": "content/lectures/04-dplyr-slides.html#mutate-to-add-new-variables",
     "href": "content/lectures/04-dplyr-slides.html#mutate-to-add-new-variables",
     "title": "04-dplyr",
     "section": "mutate to add new variables",
-    "text": "mutate to add new variables\n\nNote assigning back out to itself with new column\n\n\n(WB_sub &lt;- WB_sub |&gt; \n  mutate(baseline = start_time &lt; 0))\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 11255 5.90%     Occasional user WB          32.4         15 FALSE   \n 3 11255 5.90%     Occasional user WB           5.1         69 FALSE   \n 4 11255 5.90%     Occasional user WB           3.2        111 FALSE   \n 5 11255 5.90%     Occasional user WB           1.8        156 FALSE   \n 6 11255 5.90%     Occasional user WB           1.2        236 FALSE   \n 7 11255 5.90%     Occasional user WB           0.9        283 FALSE   \n 8 11255 5.90%     Occasional user WB           0.8        315 FALSE   \n 9 11255 5.90%     Occasional user WB           0.6        360 FALSE   \n10 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n# ℹ 1,515 more rows"
+    "text": "mutate to add new variables\n\nNote assigning back out to itself with new column\n\n\n(WB_sub &lt;- WB_sub |&gt; \n  mutate(baseline = start_time &lt;= 0))\n\n# A tibble: 1,525 × 7\n   ID    Treatment Group           fluid_type   THC start_time baseline\n   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;      &lt;dbl&gt; &lt;lgl&gt;   \n 1 11255 5.90%     Occasional user WB           0.5        -27 TRUE    \n 2 11255 5.90%     Occasional user WB          32.4         15 FALSE   \n 3 11255 5.90%     Occasional user WB           5.1         69 FALSE   \n 4 11255 5.90%     Occasional user WB           3.2        111 FALSE   \n 5 11255 5.90%     Occasional user WB           1.8        156 FALSE   \n 6 11255 5.90%     Occasional user WB           1.2        236 FALSE   \n 7 11255 5.90%     Occasional user WB           0.9        283 FALSE   \n 8 11255 5.90%     Occasional user WB           0.8        315 FALSE   \n 9 11255 5.90%     Occasional user WB           0.6        360 FALSE   \n10 T0686 5.90%     Frequent user   WB           0          -10 TRUE    \n# ℹ 1,515 more rows"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#your-turn",
@@ -1604,14 +1732,14 @@
     "href": "content/lectures/04-dplyr-slides.html#group_by-summarize-to-reduce-variables-to-values",
     "title": "04-dplyr",
     "section": "group_by + summarize to reduce variables to values",
-    "text": "group_by + summarize to reduce variables to values\nThe values are summarized in a data frame:\n\nWB_sub |&gt;\n  group_by(Treatment, Group) |&gt;\n  summarize(count = n())\n\n`summarise()` has grouped output by 'Treatment'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 6 × 3\n# Groups:   Treatment [3]\n  Treatment Group           count\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260"
+    "text": "group_by + summarize to reduce variables to values\nThe values are summarized in a data frame:\n\nWB_sub |&gt;\n  group_by(Treatment, Group) |&gt;\n  summarize(count = n(), .groups = \"drop\")\n\n# A tibble: 6 × 3\n  Treatment Group           count\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260\n\n\n\n.groups = \"drop\" removes the grouping afterwards (otherwise the result stays grouped by Treatment, and you’ll see a message saying so)"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#count-to-group-by-then-count",
     "href": "content/lectures/04-dplyr-slides.html#count-to-group-by-then-count",
     "title": "04-dplyr",
     "section": "count to group by then count",
-    "text": "count to group by then count\nSame as last example, but summarize, not limited to counting\n\nWB_sub |&gt;\n  count(Treatment, Group)\n\n# A tibble: 6 × 3\n  Treatment Group               n\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260"
+    "text": "count to group by then count\ncount() is a shortcut for group_by() + summarize(n = n()); use summarize() when you need more than counts\n\nWB_sub |&gt;\n  count(Treatment, Group)\n\n# A tibble: 6 × 3\n  Treatment Group               n\n  &lt;chr&gt;     &lt;chr&gt;           &lt;int&gt;\n1 13.40%    Frequent user     258\n2 13.40%    Occasional user   243\n3 5.90%     Frequent user     266\n4 5.90%     Occasional user   247\n5 Placebo   Frequent user     251\n6 Placebo   Occasional user   260"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#your-turn-1",
@@ -1646,7 +1774,7 @@
     "href": "content/lectures/04-dplyr-slides.html#factors-1",
     "title": "04-dplyr",
     "section": "Factors",
-    "text": "Factors\nFactor objects are how R stores data for categorical variables (fixed numbers of discrete values).\n\n(x = factor(c(\"BS\", \"MS\", \"PhD\", \"MS\")))\n\n[1] BS  MS  PhD MS \nLevels: BS MS PhD\n\n\n\nglimpse(x)\n\n Factor w/ 3 levels \"BS\",\"MS\",\"PhD\": 1 2 3 2\n\n\n\ntypeof(x)\n\n[1] \"integer\"\n\n\n\n   In our data, which variables should be treated as factors?"
+    "text": "Factors\nFactor objects are how R stores data for categorical variables (fixed numbers of discrete values).\n\nx &lt;- factor(c(\"BS\", \"MS\", \"PhD\", \"MS\"))\nx\n\n[1] BS  MS  PhD MS \nLevels: BS MS PhD\n\n\n\nglimpse(x)\n\n Factor w/ 3 levels \"BS\",\"MS\",\"PhD\": 1 2 3 2\n\n\n\ntypeof(x)\n\n[1] \"integer\"\n\n\n\n   In our data, which variables should be treated as factors?"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#why-does-it-matter",
@@ -1681,14 +1809,14 @@
     "href": "content/lectures/04-dplyr-slides.html#data-cleaning-1",
     "title": "04-dplyr",
     "section": "Data Cleaning",
-    "text": "Data Cleaning\n\nWB |&gt; \n  mutate(timepoint = case_when(time_from_start &lt;= 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\n# A tibble: 1,525 × 14\n   id    treatment    group fluid_type timepoint   cbn   cbd   thc thcoh thccooh\n   &lt;chr&gt; &lt;fct&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 11255 5.9% THC (l… Occa… WB         pre-smok…   0       0   0.5   0       5.7\n 2 11255 5.9% THC (l… Occa… WB         0-30 min    2.8     0  32.4   5.4    13.5\n 3 11255 5.9% THC (l… Occa… WB         31-70 min   0.6     0   5.1   2.4    11.7\n 4 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   3.2   1.8     9.7\n 5 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   1.8   1.4     8.7\n 6 11255 5.9% THC (l… Occa… WB         211-240 …   0       0   1.2   0       6.7\n 7 11255 5.9% THC (l… Occa… WB         271-300 …   0       0   0.9   0       6.8\n 8 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.8   0       6.8\n 9 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.6   0       6.3\n10 T0686 5.9% THC (l… Freq… WB         pre-smok…   0       0   0     0       1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: thccooh_gluc &lt;dbl&gt;, cbg &lt;dbl&gt;, thcv &lt;dbl&gt;,\n#   time_from_start &lt;dbl&gt;\n\n\n   What is this code accomplishing?\n\nNote: This code could have been combined with the above…I just wanted to discuss it for simplicity in lecture separately.\n\n\n\nGoing forward, this cleaning lives in one function, clean_cs01() (in src/cs01_functions.R), which does the same thing with cut()."
+    "text": "Data Cleaning\n\n# not saved: we're just looking (clean_cs01() does this for real)\nWB |&gt; \n  mutate(timepoint = case_when(time_from_start &lt;= 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\n# A tibble: 1,525 × 14\n   id    treatment    group fluid_type timepoint   cbn   cbd   thc thcoh thccooh\n   &lt;chr&gt; &lt;fct&gt;        &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;\n 1 11255 5.9% THC (l… Occa… WB         pre-smok…   0       0   0.5   0       5.7\n 2 11255 5.9% THC (l… Occa… WB         0-30 min    2.8     0  32.4   5.4    13.5\n 3 11255 5.9% THC (l… Occa… WB         31-70 min   0.6     0   5.1   2.4    11.7\n 4 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   3.2   1.8     9.7\n 5 11255 5.9% THC (l… Occa… WB         101-180 …   0       0   1.8   1.4     8.7\n 6 11255 5.9% THC (l… Occa… WB         211-240 …   0       0   1.2   0       6.7\n 7 11255 5.9% THC (l… Occa… WB         271-300 …   0       0   0.9   0       6.8\n 8 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.8   0       6.8\n 9 11255 5.9% THC (l… Occa… WB         301+ min    0       0   0.6   0       6.3\n10 T0686 5.9% THC (l… Freq… WB         pre-smok…   0       0   0     0       1.9\n# ℹ 1,515 more rows\n# ℹ 4 more variables: thccooh_gluc &lt;dbl&gt;, cbg &lt;dbl&gt;, thcv &lt;dbl&gt;,\n#   time_from_start &lt;dbl&gt;\n\n\n   What is this code accomplishing?\n\nNote: This code could have been combined with the above…I just wanted to discuss it for simplicity in lecture separately.\n\n\n\nGoing forward, this cleaning will eventually live in one function, clean_cs01() (in src/cs01_functions.R), which does the same thing with cut()."
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#cs01-data-cleaning",
     "href": "content/lectures/04-dplyr-slides.html#cs01-data-cleaning",
     "title": "04-dplyr",
     "section": "CS01 Data Cleaning",
-    "text": "CS01 Data Cleaning\nWe’ve cleaned up the whole blood data. Your lab will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)"
+    "text": "CS01 Data Cleaning\nWe’ve cleaned up the whole blood data. Your lab next week will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)"
   },
   {
     "objectID": "content/hw/hw-01.html",
@@ -3718,7 +3846,7 @@
     "href": "content/lectures/03-cs01-intro-slides.html#course-announcements",
     "title": "03-cs01-intro",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n🔘 Lecture Participation survey “due” after class\nLab01 due Friday (we’ll cover material on Wed, so I wouldn’t start this yet)\nHW01 due Sunday (can get started; we’ll finish content in next set of lecture notes)"
+    "text": "Course Announcements\nDue Dates:\n\n🔘 Lecture Participation survey “due” after class\nLab02 due Friday (we’ll cover material on Wed, so I wouldn’t start this yet)\nHW01 due Sunday (can get started; we’ll finish content in next set of lecture notes)"
   },
   {
     "objectID": "content/lectures/03-cs01-intro-slides.html#agenda",
@@ -4010,7 +4138,7 @@
     "href": "content/lectures/03-cs01-intro.html#course-announcements",
     "title": "03-cs01-intro",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n🔘 Lecture Participation survey “due” after class\nLab01 due Friday (we’ll cover material on Wed, so I wouldn’t start this yet)\nHW01 due Sunday (can get started; we’ll finish content in next set of lecture notes)",
+    "text": "Course Announcements\nDue Dates:\n\n🔘 Lecture Participation survey “due” after class\nLab02 due Friday (we’ll cover material on Wed, so I wouldn’t start this yet)\nHW01 due Sunday (can get started; we’ll finish content in next set of lecture notes)",
     "crumbs": [
       "Notes",
       "03: CS01 Intro"
@@ -4424,7 +4552,7 @@
     "href": "content/lectures/05-ggplot2-slides.html#course-announcements",
     "title": "05-ggplot2",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 01 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n⌨️ Lab 02 due Fri 10/16 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due today, Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n⌨️ Lab 03 due Fri 10/16 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
   },
   {
     "objectID": "content/lectures/05-ggplot2-slides.html#suggested-reading",
@@ -4690,7 +4818,7 @@
     "href": "content/lectures/05-ggplot2.html#course-announcements",
     "title": "05-ggplot2",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 01 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n⌨️ Lab 02 due Fri 10/16 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due today, Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n⌨️ Lab 03 due Fri 10/16 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
   },
   {
     "objectID": "content/lectures/05-ggplot2.html#suggested-reading",

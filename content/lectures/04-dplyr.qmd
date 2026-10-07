@@ -1,7 +1,7 @@
 ---
 title: "04-dplyr"
 author: "Professor Shannon Ellis"
-date: "2026-10-05"
+date: "2026-10-07"
 
 format:
   html: 
@@ -15,57 +15,43 @@ format:
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(emo)
-library(DT)
 
 # Set dpi and height for images
 knitr::opts_chunk$set(fig.height = 2.65, dpi = 300, echo=TRUE) 
 htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
-## \[ad\] EDGE
-
-Mentorship opportunity for women-identifying students:
-
-![](images/03/edge.png)
-
 ## Q&A {.scrollable .smaller}
 
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-::: {.callout-note collapse="true" title="Q: "}
-A: 
+::: {.callout-note collapse="true" title="Q: How much statistics must we recall? "}
+A: I'm assuming people are familiar with what would be taught in an intro stats course (variable types, populations vs. samples, randomization, correlation, causation, descriptive statistics including Z-scores, general visualizations, distributions, probability, linear regression, t-tests, hypothesis testing, confidence intervals, etc.)
+:::
+
+::: {.callout-note collapse="true" title="Q: It takes effort to review the given data visualizations and connect it to the study!"}
+A: Yes! This *is* a skill. And, we're going to practice this! It's ok if you're not great at it (yet!)...or if it takes a while!
+:::
+
+::: {.callout-note collapse="true" title="Q: I am curious about the mechanism that was used to get the subjects of the experiment."}
+A: Good question...and I can't recall the details and don't see it in our papers. It should be in there, but it's not.
 :::
 
 ## Course Announcements
 
 **Due Dates**:
 
--   ⌨️ **Lab 01** due Fri 10/9 (11:59 PM)
+-   ⌨️ **Lab 02** due Fri 10/9 (11:59 PM)
 -   📚 **HW 01** due Sun 10/11 (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
 
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
+Note: we'll use data from lab02 in today's class, so it's a good idea to clone it now and work within that project.
 
--   **Lab 01** due Thursday (10/10 11:59 PM; push to GH)
--   **HW01** now available; due Monday (10/14; 11:59 PM)
--   Lecture Participation survey "due" after class
-
-. . .
-
-Notes:
-
--   No Lecture on Thursday this week
--   Discuss: GH\<-\>RStudio issue (`OpenSSL version mismatch. Built against 30000020, you have 30300020`)
--   Regular labs resume this week
--   Mention: waitlist & dropping
--->
 
 ## Suggested Reading
 
 R4DS:
 
--   Chapter 5: [Data Transformation](https://r4ds.hadley.nz/data-transform)
+-   Chapter 3: [Data Transformation](https://r4ds.hadley.nz/data-transform)
 -   Chapter 16: [Factors](https://r4ds.hadley.nz/factors)
 
 ## Agenda
@@ -111,7 +97,7 @@ The pipe operator was *first* implemented in the package **magrittr**.
 :::
 :::
 
-You will see this frequently in code online. It's equivalent to `|>`.
+You will see this frequently in code online. It's *nearly* equivalent to `|>` (small differences, e.g., the placeholder is `.` for `%>%` and `_` for `|>`).
 
 ## How does a pipe work?
 
@@ -145,6 +131,8 @@ find("keys") |>
 To get started with lecture code: `library(tidyverse)`
 
 ## Whole Blood (WB) Data from THC Study
+
+Open your **lab02** project on DataHub (the data are in its `data/` folder), then:
 
 ```{r load-data-real, message=FALSE}
 WB <- read_csv("data/Blood.csv")
@@ -196,7 +184,7 @@ Single data frame functions / verbs:
 -   `arrange`: reorder rows
 -   `distinct`: filter for unique rows
 -   `pull`: grab a column as a vector
--   `sample_n` / `sample_frac`: randomly sample rows
+-   `slice_sample`: randomly sample rows (`n =` rows or `prop =` proportion)
 -   `slice`: pick rows using index(es)
 -   ... (many more)
 
@@ -208,9 +196,7 @@ Single data frame functions / verbs:
 
 3.  Always return a data frame
 
-4.  Do not modify in place
-
-5.  Performance via lazy evaluation
+4.  Do not modify in place (save the result with `<-` if you want to keep it)
 
 ## Filter rows with `filter`
 
@@ -228,7 +214,7 @@ WB |>
   filter(Group == "Occasional user")
 ```
 
-## `filter` (mutiple conditions)
+## `filter` (multiple conditions)
 
 for only measurements from Occasional users where THC \> 100
 
@@ -239,7 +225,7 @@ WB |>
   filter(Group == "Occasional user", THC > 100)
 ```
 
-## select\` a range of variables
+## `select` a range of variables
 
 ```{r}
 #| code-line-numbers: "2"
@@ -314,9 +300,6 @@ WB_sub <- WB_sub |>
   rename(fluid_type = `FLUID TYPE`)
 ```
 
-## Day 2 · Wed 10/7 {background-color="#92A86A"}
-
-Picking up with `mutate()`, `group_by()` + `summarize()`, factors, and CS01 wrangling.
 
 ## `mutate` to add new variables
 
@@ -326,7 +309,7 @@ Picking up with `mutate()`, `group_by()` + `summarize()`, factors, and CS01 wran
 #| code-line-numbers: "2"
 
 (WB_sub <- WB_sub |> 
-  mutate(baseline = start_time < 0))
+  mutate(baseline = start_time <= 0))
 ```
 
 ## Your Turn
@@ -346,12 +329,14 @@ The values are summarized in a data frame:
 
 WB_sub |>
   group_by(Treatment, Group) |>
-  summarize(count = n())
+  summarize(count = n(), .groups = "drop")
 ```
+
+-   `.groups = "drop"` removes the grouping afterwards (otherwise the result stays grouped by `Treatment`, and you'll see a message saying so)
 
 ## `count` to group by then count
 
-Same as last example, but summarize, not limited to counting
+`count()` is a shortcut for `group_by()` + `summarize(n = n())`; use `summarize()` when you need more than counts
 
 ```{r}
 WB_sub |>
@@ -369,7 +354,7 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 ## and `arrange` to order rows
 
 ```{r}
-#| code-line-numbers: "4"
+#| code-line-numbers: "2"
 
 WB_sub |>
   arrange(THC)
@@ -410,7 +395,8 @@ WB_sub |>
 Factor objects are how R stores data for categorical variables (fixed numbers of discrete values).
 
 ```{r}
-(x = factor(c("BS", "MS", "PhD", "MS")))
+x <- factor(c("BS", "MS", "PhD", "MS"))
+x
 ```
 
 ```{r}
@@ -492,6 +478,7 @@ WB <- WB |>
 ## Data Cleaning
 
 ```{r}
+# not saved: we're just looking (clean_cs01() does this for real)
 WB |> 
   mutate(timepoint = case_when(time_from_start <= 0 ~ "pre-smoking",
                                time_from_start > 0 & time_from_start <= 30 ~ "0-30 min",
@@ -512,18 +499,18 @@ WB |>
 Note: This code could have been combined with the above...I just wanted to discuss it for simplicity in lecture separately.
 
 ::: aside
-Going forward, this cleaning lives in one function, `clean_cs01()` (in `src/cs01_functions.R`), which does the same thing with `cut()`.
+Going forward, this cleaning will eventually live in one function, `clean_cs01()` (in `src/cs01_functions.R`), which does the same thing with `cut()`.
 :::
 
 ## CS01 Data Cleaning
 
-We've cleaned up the whole blood data. Your lab will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)
+We've cleaned up the whole blood data. Your lab *next week* will guide you to clean up the oral fluid and breath data. (It will be similar, but not the same as this.)
 
 # Recap {background-color="#92A86A"}
 
--   Understand the basic tenants of `dplyr`
+-   Understand the basic tenets of `dplyr`
 -   Describe and utilize the pipe in workflows
 -   Describe and use common `verbs` (functions)
 -   Understand the documentation for `dplyr` functions
--   Understand what factors are an that `forcats` is a package with functionality for working with them
+-   Understand what factors are and that `forcats` is a package with functionality for working with them
 -   Describe the wrangling carried out on the CS01 WB dataset
