@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-10-24">
 
 <title>COGS 137 - Lab 03 - CS01 Data Visualization</title>
 <style>
@@ -64,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/hw/hw-01.html" rel="next">
+<link href="../../content/labs/02-lab-cs01-dplyr.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 03 - CS01 Data Visualization</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/labs/01-lab-intro-r.html">Labs</a></li><li class="breadcrumb-item"><a href="../../content/labs/03-lab-cs01-viz.html">Lab 03: CS01 Data Visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -232,13 +233,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
@@ -248,7 +249,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/labs/02-lab-cs01-dplyr.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lab 02: CS01 Data Wrangling</span></a>
+ <span class="menu-text">Lab 02: CS01 &amp; `dplyr`</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/03-lab-cs01-viz.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 03: CS01 Data Visualization</span></a>
   </div>
 </li>
       </ul>
@@ -330,7 +337,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/labs/01-lab-intro-r.html">Labs</a></li><li class="breadcrumb-item"><a href="../../content/labs/03-lab-cs01-viz.html">Lab 03: CS01 Data Visualization</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Lab 03 - CS01 Data Visualization</h1>
 </div>
@@ -340,12 +347,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">October 24, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -369,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>In this lab, you’ll start from the cleaned version of the three data files you would have had after the completion of lab02. This file can be read in as follows:</p>
+<p>In this lab, you’ll start from a cleaned version of the three data files where all three files have been combined into a single CSV. In your case study, you’ll start from the raw files. But, for this lab, the cleaned/combined file can be read in as follows:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cs_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cs01_combined.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="exercises" class="level1">
@@ -382,7 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="part-2-possible-extensions" class="level2">
 <h2 class="anchored" data-anchor-id="part-2-possible-extensions">Part 2: Possible extensions?</h2>
-<p>Think about the data you have access to, the background discussed in class, and the question each group is going to address. What <em>possible</em> extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren’t “good” or you aren’t sure if they are “possible.” This can be used as a jumping off point for when you start discussing analysis extensions with your group.</p>
+<p>Think about the data you have access to, the background discussed in class, and the question each group is going to address (*Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?*). What <em>possible</em> extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren’t “good” or you aren’t sure if they are “possible.” This can be used as a jumping off point for when you start discussing analysis extensions with your group.</p>
 </section>
 </section>
 <section id="submit" class="level1">
@@ -972,6 +973,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/labs/02-lab-cs01-dplyr.html" class="pagination-link" aria-label="Lab 02: CS01 &amp; `dplyr`">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 02: CS01 &amp; <code>dplyr</code></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/hw/hw-01.html" class="pagination-link" aria-label="HW 01: R Basics">
+        <span class="nav-page-text">HW 01: R Basics</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -1,6 +1,5 @@
 ---
 title: "Lab 03 - CS01 Data Visualization"
-date: "2024-10-24"
 output: 
   html: 
     highlight: pygments
@@ -30,7 +29,7 @@ The only package required for completion of this lab is `tidyverse`, as `ggplot2
 
 # Data
 
-In this lab, you'll start from the cleaned version of the three data files you would have had after the completion of lab02. This file can be read in as follows:
+In this lab, you'll start from a cleaned version of the three data files where all three files have been combined into a single CSV. In your case study, you'll start from the raw files. But, for this lab, the cleaned/combined file can be read in as follows:
 
 ``` r
 cs_data <- read_csv("data/cs01_combined.csv")
@@ -48,7 +47,7 @@ These do *not* have to be fully polished visualizations, but it should be clear 
 
 ## Part 2: Possible extensions?
 
-Think about the data you have access to, the background discussed in class, and the question each group is going to address. What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't "good" or you aren't sure if they are "possible." This can be used as a jumping off point for when you start discussing analysis extensions with your group.
+Think about the data you have access to, the background discussed in class, and the question each group is going to address (\*Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?\*). What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't "good" or you aren't sure if they are "possible." This can be used as a jumping off point for when you start discussing analysis extensions with your group.
 
 # Submit
 

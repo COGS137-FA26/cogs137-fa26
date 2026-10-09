@@ -28,25 +28,11 @@
     "text": "Part 3: CS01\nFeel free to use remaining time incorporating these changes/improvements into your group’s CS01 Report."
   },
   {
-    "objectID": "content/labs/03-lab-cs01-viz.html",
-    "href": "content/labs/03-lab-cs01-viz.html",
-    "title": "Lab 03 - CS01 Data Visualization",
+    "objectID": "content/labs/03-lab-cs01-wrangle.html",
+    "href": "content/labs/03-lab-cs01-wrangle.html",
+    "title": "Lab 03 - CS01 Data Wrangling",
     "section": "",
-    "text": "Skip to main content"
-  },
-  {
-    "objectID": "content/labs/03-lab-cs01-viz.html#part-1-data-visualization",
-    "href": "content/labs/03-lab-cs01-viz.html#part-1-data-visualization",
-    "title": "Lab 03 - CS01 Data Visualization",
-    "section": "Part 1: Data Visualization",
-    "text": "Part 1: Data Visualization\nCreate at least three (3) visualizations using at least two (2) different geoms that help you learn more about these data beyond the code presented in class so far. (This is intentionally vague. We want you to look at the data and figure out what might be most helpful to visualize from the provided data. These could be different variables than what we looked at in class. Data could be faceted. Something totally different!)\nBeneath each plot, include a brief statement about why you chose to make the plot you generated and/or what you’ve learned from the visualization.\nThese do not have to be fully polished visualizations, but it should be clear from the visualization and accompanying text what’s to be learned from the visualization (or at least what you attempted to learn)."
-  },
-  {
-    "objectID": "content/labs/03-lab-cs01-viz.html#part-2-possible-extensions",
-    "href": "content/labs/03-lab-cs01-viz.html#part-2-possible-extensions",
-    "title": "Lab 03 - CS01 Data Visualization",
-    "section": "Part 2: Possible extensions?",
-    "text": "Part 2: Possible extensions?\nThink about the data you have access to, the background discussed in class, and the question each group is going to address. What possible extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren’t “good” or you aren’t sure if they are “possible.” This can be used as a jumping off point for when you start discussing analysis extensions with your group."
+    "text": "Skip to main content\n\n\n\n\n\nIntroduction\nThe main goals of this lab are for you to 1) get more familiar with the CS01 data and 2) for you to have one clean dataset by the end of lab - combining the blood, oral fluid, and breath datasets.\n\n\nGetting started\nTo get started, find your lab03-&lt;your GitHub username&gt; repo in the course GitHub organization, clone the repo (using SSH) into RStudio on datahub. And, then you’re ready to go!\n\n\nPackages\nThis lab uses two packages: tidyverse (which includes dplyr, the package you’ll be using most in this lab) and janitor (for clean_names()). Both are loaded for you in the load-packages chunk of the provided .qmd template.\n\n\nData\nThe three data files you’ll be using in this lab have been provided in the data/ folder. You’ll see the following three lines in the provided .qmd template for this lab, which, when run, will read each of the files into R for you:\nWB &lt;- read_csv(\"data/Blood.csv\")\nOF &lt;- read_csv(\"data/OF.csv\")\nBR &lt;- read_csv(\"data/Breath.csv\")\n\n\nExercises\n\nExercise 1: Whole Blood\nExplore\n\n\nExercise 2: Oral Fluid\nIn a similar manner to how the whole blood data were wrangled and cleaned, carry out wrangling on the oral fluid dataset, accomplishing the following:\n\nTreatment re-coded and re-leveled as was done with WB\nGroup re-coded to match the levels in WB: \"Experienced user\" → \"Frequent user\" and \"Not experienced user\" → \"Occasional user\"\ncolumn names cleaned using clean_names() as with WB\nThe following columns renamed: thcoh = x11_oh_thc; thcv = thc_v; fluid_type=fluid\nA timepoint column (using case_when() as in lecture) with the following time windows (note these are different than WB): \"pre-smoking\",\"0-30 min\",\"31-90 min\",\"91-180 min\", \"181-210 min\", \"211-240 min\",\"241-270 min\", \"271+ min\"\n\n\n\nExercise 3: Breath\nIn a similar manner to both previous datasets, carry out wrangling on the breath dataset, accomplishing the following:\n\nTreatment re-coded and re-leveled as was done with WB/OF\nGroup re-coded to match the levels in WB: \"Experienced user\" → \"Frequent user\" and \"Not experienced user\" → \"Occasional user\"\ncolumn names cleaned using clean_names() as with WB/OF\nThe following columns renamed: thc = thc_pg_pad; fluid_type=fluid\nA timepoint column (using case_when() as in lecture) with the following time windows (note these are different than WB/OF): \"pre-smoking\",\"0-40 min\",\"41-90 min\", \"91-180 min\", \"181-210 min\", \"211-240 min\", \"241-270 min\", \"271+ min\"\n\n\n\nExercise 4: Combine (time-permitting)\nCombine all three datasets into a single dataframe. Note that there is a function in dplyr called bind_rows() for accomplishing such a task.\nYou’ll likely have to look up the documentation for bind_rows(), as it has not been directly covered in class yet.\n\n\n\n\n\n\nNote\n\n\n\nGoing forward (in lecture and in CS01), all of this cleaning lives in a single function, clean_cs01() (in src/cs01_functions.R), which does the same thing for each dataset. Doing it by hand here is how you’ll understand what that function is doing.\n\n\n\n\nExercise 5: Summarize\nIn your own words (no code needed), describe the wrangling that was done overall, focusing on why it was done or what it achieved, rather than on specific lines of code.\n\n\n\nSubmit\n\n\n\n\n\n\nImportant\n\n\n\nYou’ll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.\n\n\n\n\n\n\n\n\nNote\n\n\n\nOutside resources & AI use: Before submitting, fill in the Outside Resources & AI Use section at the end of your .qmd (write “None” if you didn’t use any). This is required on every assignment.\n\n\nYay, you’re done! To finish up and submit, first render your file to HTML. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message “Done with Lab 2! 💪”, and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo."
   },
   {
     "objectID": "content/labs/02-lab-cs01-dplyr.html",
@@ -56,7 +42,7 @@
     "text": "Skip to main content\n\n\n\n\n\nIntroduction\nThe main goals of this lab are for you to 1) get more familiar with the CS01 data and 2) gain familiarity with dplyr.\n\n\nGetting started\nTo get started, find your lab02-&lt;your GitHub username&gt; repo in the course GitHub organization, clone the repo (using SSH) into RStudio on datahub. And, then you’re ready to go!\n\n\nPackages\nThis lab uses two packages: tidyverse (which includes dplyr, the package you’ll be using most in this lab) and (you may want to use) janitor (for clean_names()). Both are loaded for you in the load-packages chunk of the provided .qmd template.\n\n\nData\nThe three data files you’ll be using in this lab have been provided in the data/ folder. You’ll see the following three lines in the provided .qmd template for this lab, which, when run, will read each of the files into R for you:\nWB &lt;- read_csv(\"data/Blood.csv\")\nOF &lt;- read_csv(\"data/OF.csv\")\nBR &lt;- read_csv(\"data/Breath.csv\")\n\n\nExercises\nFor each dataset, we want you to start to gain familiarity with the data in there, without having yet been provided much guidance in class. The goal here is to try out as many different dplyr functions as possible…while learning things about the data. For each dataset, use at least three different dplyr functions and state three things you learned about the data while practicing with dplyr.\n\nExercise 1: Whole Blood\nCarry out the above on Whole Blood.\n\n\nExercise 2: Oral Fluid\nCarry out the above on Oral Fluid.\n\n\nExercise 3: Breath\nCarry out the above on Breath.\n\n\nExercise 4: Summarize\nIn your own words (no code needed), describe the wrangling that was done overall, focusing on why it was done or what it achieved, rather than on specific lines of code.\n\n\n\nSubmit\n\n\n\n\n\n\nImportant\n\n\n\nYou’ll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.\n\n\n\n\n\n\n\n\nNote\n\n\n\nOutside resources & AI use: Before submitting, fill in the Outside Resources & AI Use section at the end of your .qmd (write “None” if you didn’t use any). This is required on every assignment.\n\n\nYay, you’re done! To finish up and submit, first render your file to HTML. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message “Done with Lab 2! 💪”, and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.",
     "crumbs": [
       "Labs",
-      "Lab 02: CS01 Data Wrangling"
+      "Lab 02: CS01 & `dplyr`"
     ]
   },
   {
@@ -1161,7 +1147,7 @@
     "href": "content/lectures/04-dplyr.html#course-announcements",
     "title": "04-dplyr",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nlab01 scores/feedback were posted\nwe’ll (again) use data from lab02 in today’s class, so it’s a good idea to clone it now (if you haven’t already) and work within that project.",
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nlab01 scores/feedback were posted\nwe’ll (again) use data from lab02 in today’s class, so it’s a good idea to clone it now (if you haven’t already) and work within that project.\ncs01 groups will be assigned Monday (and we’ll talk more about the first case study then)",
     "crumbs": [
       "Notes",
       "04: Data Wrangling (dplyr)"
@@ -1582,7 +1568,7 @@
     "href": "content/lectures/04-dplyr-slides.html#course-announcements",
     "title": "04-dplyr",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nlab01 scores/feedback were posted\nwe’ll (again) use data from lab02 in today’s class, so it’s a good idea to clone it now (if you haven’t already) and work within that project."
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/9 (11:59 PM)\n📚 HW 01 due Sun 10/11 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nlab01 scores/feedback were posted\nwe’ll (again) use data from lab02 in today’s class, so it’s a good idea to clone it now (if you haven’t already) and work within that project.\ncs01 groups will be assigned Monday (and we’ll talk more about the first case study then)"
   },
   {
     "objectID": "content/lectures/04-dplyr-slides.html#suggested-reading",
@@ -5805,11 +5791,37 @@
     "text": "Recap\n\nTailor communication for setting and audience\nWritten communication has benefit of time; limitation of additional explanation\nCan you control your HTML output from a .qmd document?\nDo you know when to cite a source?\nCan you implement design choices when generating visualizations for communication?"
   },
   {
-    "objectID": "content/labs/02-lab-cs01-wrangle.html",
-    "href": "content/labs/02-lab-cs01-wrangle.html",
-    "title": "Lab 02 - CS01 Data Wrangling",
+    "objectID": "content/labs/03-lab-cs01-viz.html",
+    "href": "content/labs/03-lab-cs01-viz.html",
+    "title": "Lab 03 - CS01 Data Visualization",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\n\nIntroduction\nThe main goals of this lab are for you to 1) get more familiar with the CS01 data and 2) for you to have one clean dataset by the end of lab - combining the blood, oral fluid, and breath datasets.\n\n\nGetting started\nTo get started, find your lab02-&lt;your GitHub username&gt; repo in the course GitHub organization, clone the repo (using SSH) into RStudio on datahub. And, then you’re ready to go!\n\n\nPackages\nThis lab uses two packages: tidyverse (which includes dplyr, the package you’ll be using most in this lab) and janitor (for clean_names()). Both are loaded for you in the load-packages chunk of the provided .qmd template.\n\n\nData\nThe three data files you’ll be using in this lab have been provided in the data/ folder. You’ll see the following three lines in the provided .qmd template for this lab, which, when run, will read each of the files into R for you:\nWB &lt;- read_csv(\"data/Blood.csv\")\nOF &lt;- read_csv(\"data/OF.csv\")\nBR &lt;- read_csv(\"data/Breath.csv\")\n\n\nExercises\n\nExercise 1: Whole Blood\nExplore\n\n\nExercise 2: Oral Fluid\nIn a similar manner to how the whole blood data were wrangled and cleaned, carry out wrangling on the oral fluid dataset, accomplishing the following:\n\nTreatment re-coded and re-leveled as was done with WB\nGroup re-coded to match the levels in WB: \"Experienced user\" → \"Frequent user\" and \"Not experienced user\" → \"Occasional user\"\ncolumn names cleaned using clean_names() as with WB\nThe following columns renamed: thcoh = x11_oh_thc; thcv = thc_v; fluid_type=fluid\nA timepoint column (using case_when() as in lecture) with the following time windows (note these are different than WB): \"pre-smoking\",\"0-30 min\",\"31-90 min\",\"91-180 min\", \"181-210 min\", \"211-240 min\",\"241-270 min\", \"271+ min\"\n\n\n\nExercise 3: Breath\nIn a similar manner to both previous datasets, carry out wrangling on the breath dataset, accomplishing the following:\n\nTreatment re-coded and re-leveled as was done with WB/OF\nGroup re-coded to match the levels in WB: \"Experienced user\" → \"Frequent user\" and \"Not experienced user\" → \"Occasional user\"\ncolumn names cleaned using clean_names() as with WB/OF\nThe following columns renamed: thc = thc_pg_pad; fluid_type=fluid\nA timepoint column (using case_when() as in lecture) with the following time windows (note these are different than WB/OF): \"pre-smoking\",\"0-40 min\",\"41-90 min\", \"91-180 min\", \"181-210 min\", \"211-240 min\", \"241-270 min\", \"271+ min\"\n\n\n\nExercise 4: Combine (time-permitting)\nCombine all three datasets into a single dataframe. Note that there is a function in dplyr called bind_rows() for accomplishing such a task.\nYou’ll likely have to look up the documentation for bind_rows(), as it has not been directly covered in class yet.\n\n\n\n\n\n\nNote\n\n\n\nGoing forward (in lecture and in CS01), all of this cleaning lives in a single function, clean_cs01() (in src/cs01_functions.R), which does the same thing for each dataset. Doing it by hand here is how you’ll understand what that function is doing.\n\n\n\n\nExercise 5: Summarize\nIn your own words (no code needed), describe the wrangling that was done overall, focusing on why it was done or what it achieved, rather than on specific lines of code.\n\n\n\nSubmit\n\n\n\n\n\n\nImportant\n\n\n\nYou’ll always want to render your Quarto document to HTML and review that HTML document to ensure it includes all the information you want and looks as you intended, as we grade from the rendered HTML.\n\n\n\n\n\n\n\n\nNote\n\n\n\nOutside resources & AI use: Before submitting, fill in the Outside Resources & AI Use section at the end of your .qmd (write “None” if you didn’t use any). This is required on every assignment.\n\n\nYay, you’re done! To finish up and submit, first render your file to HTML. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message “Done with Lab 2! 💪”, and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo."
+    "text": "Skip to main content",
+    "crumbs": [
+      "Labs",
+      "Lab 03: CS01 Data Visualization "
+    ]
+  },
+  {
+    "objectID": "content/labs/03-lab-cs01-viz.html#part-1-data-visualization",
+    "href": "content/labs/03-lab-cs01-viz.html#part-1-data-visualization",
+    "title": "Lab 03 - CS01 Data Visualization",
+    "section": "Part 1: Data Visualization",
+    "text": "Part 1: Data Visualization\nCreate at least three (3) visualizations using at least two (2) different geoms that help you learn more about these data beyond the code presented in class so far. (This is intentionally vague. We want you to look at the data and figure out what might be most helpful to visualize from the provided data. These could be different variables than what we looked at in class. Data could be faceted. Something totally different!)\nBeneath each plot, include a brief statement about why you chose to make the plot you generated and/or what you’ve learned from the visualization.\nThese do not have to be fully polished visualizations, but it should be clear from the visualization and accompanying text what’s to be learned from the visualization (or at least what you attempted to learn).",
+    "crumbs": [
+      "Labs",
+      "Lab 03: CS01 Data Visualization "
+    ]
+  },
+  {
+    "objectID": "content/labs/03-lab-cs01-viz.html#part-2-possible-extensions",
+    "href": "content/labs/03-lab-cs01-viz.html#part-2-possible-extensions",
+    "title": "Lab 03 - CS01 Data Visualization",
+    "section": "Part 2: Possible extensions?",
+    "text": "Part 2: Possible extensions?\nThink about the data you have access to, the background discussed in class, and the question each group is going to address (*Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?*). What possible extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren’t “good” or you aren’t sure if they are “possible.” This can be used as a jumping off point for when you start discussing analysis extensions with your group.",
+    "crumbs": [
+      "Labs",
+      "Lab 03: CS01 Data Visualization "
+    ]
   },
   {
     "objectID": "content/labs/04-lab-cs01-eda.html",

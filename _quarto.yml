@@ -131,11 +131,11 @@ website:
         contents:
           - text: "Lab 01: Tooling and R"
             href: content/labs/01-lab-intro-r.qmd
-          - text: "Lab 02: CS01 Data Wrangling"
+          - text: "Lab 02: CS01 & `dplyr`"
             href: content/labs/02-lab-cs01-dplyr.qmd
-      #     - text: "Lab 03: CS01 Data Visualization"
-      #       href: content/labs/03-lab-cs01-viz.qmd
-      #     - text: "Lab 04: CS01 EDA"
+          - text: "Lab 03: CS01 Data Visualization "
+            href: content/labs/03-lab-cs01-viz.qmd
+      #     - text: "Lab 04: CS01 Data Visualization"
       #       href: content/labs/04-lab-cs01-eda.qmd
       #     - text: "Lab 05: CS01 Communication"
       #       href: content/labs/05-lab-cs01-communication.qmd

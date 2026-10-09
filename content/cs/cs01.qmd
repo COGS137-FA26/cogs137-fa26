@@ -19,7 +19,7 @@ This will be submitted and graded as a group. **One submission per group.**
 
 Here are the steps for getting started:
 
-:::aside
+::: aside
 Avoid waiting until the end to render for the first time. It will be better/easier/less of a headache if you render periodically and know it's all working as intended.
 :::
 
@@ -34,13 +34,9 @@ Avoid waiting until the end to render for the first time. It will be better/easi
 **Outside resources & AI use:** Your team's .qmd includes an *Outside Resources & AI Use* section. Keep it updated as you go, including which team member(s) used each resource (write "None" if your team didn't use any). This is required.
 :::
 
-
-
-:::aside
-  A reminder that the [Quarto documentation on HTML output](https://quarto.org/docs/output-formats/html-basics.html) covers controlling HTML output (table of contents, code folding, themes, etc.), in case you want to customize your output in some way.
+::: aside
+A reminder that the [Quarto documentation on HTML output](https://quarto.org/docs/output-formats/html-basics.html) covers controlling HTML output (table of contents, code folding, themes, etc.), in case you want to customize your output in some way.
 :::
-
-
 
 ### Imports
 
@@ -52,7 +48,7 @@ All groups will be answering the following question in their case study:
 
 > Which compound, in which matrix, and at what cutoff is the best biomarker of recent use?
 
-:::aside
+::: aside
 As noted in class, different groups may have different answers, and that's ok. You have to explain your thinking and use your analysis to help guide your conclusions.
 :::
 
@@ -72,7 +68,7 @@ Your case study can be organized however you see best fit, but we'll be looking 
 -   Results & Discussion (including limitations of your work)
 -   Conclusion
 
-:::aside
+::: aside
 Now, you may want to combine some of these sections (i.e. include your results and discussion among your analysis code). That's *totally* allowed, but we'll be looking to see that your report includes sufficient information to understand what you did, why you did it, and what your results are.
 :::
 
@@ -80,7 +76,7 @@ Now, you may want to combine some of these sections (i.e. include your results a
 
 In addition to getting the code presented in class working, adding explanatory text to your report, and generating polished visualizations, you and your group must "extend the analysis" beyond what was presented in class in a meaningful way. Now "meaningful" is not a very-easily-measured term. A meaningful extension could be carrying out analysis to answer an additional question beyond what was presented in class, or asking the same main question among subgroups, or finding a related dataset and incorporating it into your case study. To determine whether your extension is "meaningful," you and your group should be able to answer "yes" to the question "Does our extension add something important to this report beyond what was presented in class?"
 
-:::aside
+::: aside
 This extension should be included/woven into your report, meaning it should only be "separated out" as its own section if it makes most sense for the story you're telling.
 :::
 
