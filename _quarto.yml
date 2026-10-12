@@ -20,7 +20,7 @@ project:
     - content/lectures/0[3-9]-*.qmd
     # - content/lectures/10-*.qmd
     - content/labs/0[2-5]-*.qmd
-    # - content/hw/hw-02.qmd
+    - content/hw/hw-02.qmd
     # # CS02
     # - content/cs/cs02.qmd
     # - content/lectures/1[1-7]-*.qmd
@@ -81,7 +81,6 @@ website:
             text: Schedule
           - href: policies.qmd
             text: Policies
-      # Organized by type (like FA24): notes, labs, case studies, homework.
       # Uncomment items as they're released.
       - section: "Notes"
         contents:
@@ -95,8 +94,8 @@ website:
             href: content/lectures/03-cs01-intro.qmd
           - text: "04: Data Wrangling (dplyr)"
             href: content/lectures/04-dplyr.qmd
-      #     - text: "05: ggplot2"
-      #       href: content/lectures/05-ggplot2.qmd
+          - text: "05: ggplot2"
+            href: content/lectures/05-ggplot2.qmd
       #     - text: "06: Effective Data Visualization"
       #       href: content/lectures/06-viz.qmd
       #     - text: "07: AI-Assisted Analysis"
@@ -157,8 +156,8 @@ website:
         contents:
           - text: "HW 01: R Basics"
             href: content/hw/hw-01.qmd
-        #   - text: "HW 02: Data Visualization"
-        #     href: content/hw/hw-02.qmd
+          - text: "HW 02: Data Visualization"
+            href: content/hw/hw-02.qmd
       - section: "Computing"
         contents:
           - href: computing/computing-access.qmd

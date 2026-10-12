@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Shannon Ellis">
-<meta name="dcterms.date" content="2026-10-09">
+<meta name="dcterms.date" content="2026-10-12">
 
 <title>COGS 137 - 05-ggplot2</title>
 <style>
@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/04-dplyr.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -152,7 +154,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">05-ggplot2</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/05-ggplot2.html">05: ggplot2</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -223,13 +225,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
@@ -258,6 +260,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/04-dplyr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">04: Data Wrangling (dplyr)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/05-ggplot2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">05: ggplot2</span></a>
   </div>
 </li>
       </ul>
@@ -308,6 +316,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../content/hw/hw-01.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">HW 01: R Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/hw/hw-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 02: Data Visualization</span></a>
   </div>
 </li>
       </ul>
@@ -411,7 +425,7 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/05-ggplot2.html">05: ggplot2</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">05-ggplot2</h1>
 </div>
@@ -437,7 +451,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 9, 2026</p>
+      <p class="date">October 12, 2026</p>
     </div>
   </div>
   
@@ -458,20 +472,61 @@ window.Quarto = {
 </div>
 <section id="qa" class="level2 scrollable smaller">
 <h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div class="callout callout-style-default callout-note callout-titled" title="Q: ">
+<div class="callout callout-style-default callout-note callout-titled" title="Q: Why use factors? And are factors basically ordered dictionaries? what is the benefit">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Q:
+Q: Why use factors? And are factors basically ordered dictionaries? what is the benefit
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A:</p>
+<p>A: I can see the thought of dictionaries, but they don’t have key value pairs. They have values where there is a meaningful order. I introduced it as helpful for plotting (which is true) but it’s also helpful in modeling, when you have reference group to compare against - having this as the first level is then meaningful. We’ll see this in a few weeks!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: When should you factor variables? ">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: When should you factor variables?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: You should factor when there is a natural/meaningful order to the values in the categorical variable. For occasional/frequent, the order matters there for which you think of as “first” - I think occassional would want to be plotted before frequent, so ordering the variable as such makes sense.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: I want to pull a percentage of a group. Ie. the top 25% of THC values. not sure how to do this...">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: I want to pull a percentage of a group. Ie. the top 25% of THC values. not sure how to do this…
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: To calculate a quantile:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">q75 =</span> <span class="fu">quantile</span>(score, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Multiple quantiles:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">across</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>      score,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>      <span class="sc">~</span> <span class="fu">quantile</span>(.x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  )<span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -480,21 +535,18 @@ Q:
 <h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 02</strong> due today, Fri 10/9 (11:59 PM)</li>
-<li>📚 <strong>HW 01</strong> due Sun 10/11 (11:59 PM)</li>
-<li>⌨️ <strong>Lab 03</strong> due Fri 10/16 (11:59 PM)</li>
-<li>🔘 Lecture Participation survey “due” after class</li>
+<li>Lab03 due Fri</li>
+<li>HW02 due Sun
+<ul>
+<li>now available</li>
+<li>all text responses must come from and be written by you</li>
+</ul></li>
+<li>Lecture Participation survey “due” after class</li>
 </ul>
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
--   **Lab 02** due Thursday (11:59 PM)
--   Lecture Participation survey "due" after class
-
-**Notes**:
-
--   HW02 now available; Lab03 posted Th
--->
+<p>Notes:</p>
+<ul>
+<li>CS01 groups to be created soon</li>
+</ul>
 </section>
 <section id="suggested-reading" class="level2">
 <h2 class="anchored" data-anchor-id="suggested-reading">Suggested Reading</h2>
@@ -522,11 +574,11 @@ Q:
 <li>Structure of the code for plots can be summarized as</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], </span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -534,13 +586,13 @@ Q:
 <section id="data-cs01-wb" class="level2">
 <h2 class="anchored" data-anchor-id="data-cs01-wb">Data: CS01 WB</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>WB <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Blood.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>WB <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Blood.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-data" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="the-data">The Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(WB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(WB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,525
 Columns: 14
@@ -563,38 +615,63 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </section>
 <section id="the-cleaning" class="level2">
 <h2 class="anchored" data-anchor-id="the-cleaning">The Cleaning</h2>
-<p>We’ve packaged the cleaning from the <code>dplyr</code> notes into one function, <code>clean_cs01()</code>, saved in <code>src/cs01_functions.R</code>:</p>
+<p>We’ve packaged the cleaning from the <code>dplyr</code> notes into one function, <code>clean_cs01()</code>, saved in <code>src/cs01_functions.R</code> (along with additional fucntions that will be helpful for cs01):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==== Cleaning ================================================================</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean one raw CS01 file (Blood.csv, OF.csv, or Breath.csv).</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   fluid: "WB", "OF", or "BR" (determines the time windows)</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>clean_cs01 <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">fluid =</span> <span class="fu">c</span>(<span class="st">"WB"</span>, <span class="st">"OF"</span>, <span class="st">"BR"</span>)) {</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  fluid <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(fluid)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  win <span class="ot">&lt;-</span> cs01_windows[[fluid]]</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="fu">any_of</span>(<span class="fu">c</span>(<span class="at">fluid_type   =</span> <span class="st">"fluid"</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thcoh        =</span> <span class="st">"x11_oh_thc"</span>,</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thccooh      =</span> <span class="st">"thc_cooh"</span>,</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thccooh_gluc =</span> <span class="st">"thc_cooh_gluc"</span>,</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thcv         =</span> <span class="st">"thc_v"</span>,</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thc          =</span> <span class="st">"thc_pg_pad"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">treatment =</span> <span class="fu">fct_recode</span>(treatment,</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"5.9% THC (low dose)"</span>   <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>),</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> <span class="fu">case_match</span>(group,</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Experienced user"</span>     <span class="sc">~</span> <span class="st">"Frequent user"</span>,</span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Not experienced user"</span> <span class="sc">~</span> <span class="st">"Occasional user"</span>,</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>                         <span class="at">.default =</span> group),</span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">timepoint =</span> <span class="fu">cut</span>(time_from_start, <span class="at">breaks =</span> win<span class="sc">$</span>breaks, <span class="at">labels =</span> win<span class="sc">$</span>labels)</span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==== Time windows ============================================================</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows (minutes from start of smoking) differ by matrix, following the paper.</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># `cut()` intervals are right-closed: (0, 30] is "0-30 min"; anything &lt;= 0 is</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-smoking; the last window is open-ended.</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>cs01_windows <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">WB =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">100</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="dv">300</span>, <span class="cn">Inf</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-70 min"</span>, <span class="st">"71-100 min"</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"101-180 min"</span>, <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"241-270 min"</span>, <span class="st">"271-300 min"</span>, <span class="st">"301+ min"</span>)),</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">OF =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="cn">Inf</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-90 min"</span>, <span class="st">"91-180 min"</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>, <span class="st">"241-270 min"</span>, <span class="st">"271+ min"</span>)),</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">BR =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="cn">Inf</span>),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-40 min"</span>, <span class="st">"41-90 min"</span>, <span class="st">"91-180 min"</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>, <span class="st">"241-270 min"</span>, <span class="st">"271+ min"</span>))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co"># The first window after smoking, for each matrix</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>cs01_early_windows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0-30 min"</span>, <span class="st">"0-40 min"</span>)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Compounds measured (not every matrix has every compound)</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>cs01_compounds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cbn"</span>, <span class="st">"cbd"</span>, <span class="st">"thc"</span>, <span class="st">"thcoh"</span>, <span class="st">"thccooh"</span>, <span class="st">"thccooh_gluc"</span>,</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"cbg"</span>, <span class="st">"thcv"</span>, <span class="st">"thca_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>WB <span class="ot">&lt;-</span> WB <span class="sc">|&gt;</span> <span class="fu">clean_cs01</span>(<span class="st">"WB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ==== Cleaning ================================================================</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean one raw CS01 file (Blood.csv, OF.csv, or Breath.csv).</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   fluid: "WB", "OF", or "BR" (determines the time windows)</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>clean_cs01 <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">fluid =</span> <span class="fu">c</span>(<span class="st">"WB"</span>, <span class="st">"OF"</span>, <span class="st">"BR"</span>)) {</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  fluid <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(fluid)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  win <span class="ot">&lt;-</span> cs01_windows[[fluid]]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="fu">any_of</span>(<span class="fu">c</span>(<span class="at">fluid_type   =</span> <span class="st">"fluid"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thcoh        =</span> <span class="st">"x11_oh_thc"</span>,</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thccooh      =</span> <span class="st">"thc_cooh"</span>,</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thccooh_gluc =</span> <span class="st">"thc_cooh_gluc"</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thcv         =</span> <span class="st">"thc_v"</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                    <span class="at">thc          =</span> <span class="st">"thc_pg_pad"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">treatment =</span> <span class="fu">fct_recode</span>(treatment,</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"5.9% THC (low dose)"</span>   <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                             <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">group =</span> <span class="fu">case_match</span>(group,</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Experienced user"</span>     <span class="sc">~</span> <span class="st">"Frequent user"</span>,</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                         <span class="st">"Not experienced user"</span> <span class="sc">~</span> <span class="st">"Occasional user"</span>,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>                         <span class="at">.default =</span> group),</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">timepoint =</span> <span class="fu">cut</span>(time_from_start, <span class="at">breaks =</span> win<span class="sc">$</span>breaks, <span class="at">labels =</span> win<span class="sc">$</span>labels)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>WB <span class="ot">&lt;-</span> WB <span class="sc">|&gt;</span> <span class="fu">clean_cs01</span>(<span class="st">"WB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="background-color: #ADD8E6"><i class="fa fa-user" aria-hidden="true"></i> Compare to the <code>case_when()</code> in the <code>dplyr</code> notes: what does <code>cut()</code> do here?</span></p>
 </section>
@@ -610,16 +687,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -631,9 +708,9 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p><strong>Start with the <code>WB</code> data frame</strong> (filtering to only include first timepoint)</p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -649,9 +726,9 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, <strong>map thc levels to the x-axis</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -667,10 +744,10 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis <strong>and map thccooh levels to the y-axis.</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb10-4"><a href="#cb10-4"></a>                       <span class="at">y =</span> thccooh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb13-4"><a href="#cb13-4"></a>                       <span class="at">y =</span> thccooh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -686,11 +763,11 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. <strong>Represent each observation with a point.</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb11-4"><a href="#cb11-4"></a>                       <span class="at">y =</span> thccooh)) <span class="sc">+</span> </span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb14-4"><a href="#cb14-4"></a>                       <span class="at">y =</span> thccooh)) <span class="sc">+</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -706,12 +783,12 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point <strong>and map treatment group to the color of each point.</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb12-4"><a href="#cb12-4"></a>                       <span class="at">y =</span> thccooh,</span>
-<span id="cb12-5"><a href="#cb12-5"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb15-4"><a href="#cb15-4"></a>                       <span class="at">y =</span> thccooh,</span>
+<span id="cb15-5"><a href="#cb15-5"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb15-6"><a href="#cb15-6"></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -727,14 +804,14 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. <strong>Title and subtitle the plot.</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb13-4"><a href="#cb13-4"></a>                       <span class="at">y =</span> thccooh,</span>
-<span id="cb13-5"><a href="#cb13-5"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb13-8"><a href="#cb13-8"></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb16-4"><a href="#cb16-4"></a>                       <span class="at">y =</span> thccooh,</span>
+<span id="cb16-5"><a href="#cb16-5"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8"></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -750,15 +827,15 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, <strong>label the x and y axes</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb14-4"><a href="#cb14-4"></a>                       <span class="at">y =</span> thccooh,</span>
-<span id="cb14-5"><a href="#cb14-5"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb14-8"><a href="#cb14-8"></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb14-9"><a href="#cb14-9"></a>       <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb17-4"><a href="#cb17-4"></a>                       <span class="at">y =</span> thccooh,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb17-6"><a href="#cb17-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8"></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9"></a>       <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -774,15 +851,15 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, label the x and y axes, and <strong>title the legend</strong>.</p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb15-4"><a href="#cb15-4"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb15-8"><a href="#cb15-8"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb15-9"><a href="#cb15-9"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb18-4"><a href="#cb18-4"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -798,16 +875,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>Start with the <code>WB</code> data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, label the x and y axes, and title the legend. <strong>Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.</strong></p>
 </blockquote>
 <div class="cell" data-output-location="column">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb16-4"><a href="#cb16-4"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb16-5"><a href="#cb16-5"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb16-8"><a href="#cb16-8"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -824,16 +901,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
@@ -874,15 +951,15 @@ Tip
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
-<span id="cb18-2"><a href="#cb18-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
+<span id="cb21-2"><a href="#cb21-2"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
+<span id="cb21-3"><a href="#cb21-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(WB, </span>
-<span id="cb19-2"><a href="#cb19-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(WB, </span>
+<span id="cb22-2"><a href="#cb22-2"></a>       <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -910,10 +987,10 @@ Tip
 <section id="color" class="level2">
 <h2 class="anchored" data-anchor-id="color">Color</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb20-2"><a href="#cb20-2"></a>                                <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb23-2"><a href="#cb23-2"></a>                                <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -942,12 +1019,12 @@ Tip
 <div class="column" style="width:50%;">
 <p><strong>Mapping</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> time_from_start,</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>                     <span class="at">size =</span> time_from_start,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -959,10 +1036,10 @@ Tip
 </div><div class="column" style="width:50%;">
 <p><strong>Setting</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1042,16 +1119,16 @@ Tip
 </section>
 <section id="reference-more-aesthetics-faceting" class="level1" data-background-color="#92A86A">
 <h1 data-background-color="#92A86A">Reference: more aesthetics &amp; faceting</h1>
-<p>These slides aren’t covered in lecture. Use them as a reference; on Wed 10/14 you’ll implement changes like these with AI <strong>and check its work</strong> against what’s here.</p>
+<p>These slides aren’t covered in lecture. Use them as a reference. [Time permitting we’ll - in a later lecture - use these with GenAI]</p>
 <section id="shape" class="level2">
 <h2 class="anchored" data-anchor-id="shape">Shape</h2>
 <p>Mapped to a different variable than <code>treatment</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb23-2"><a href="#cb23-2"></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb23-3"><a href="#cb23-3"></a>                                <span class="at">shape =</span> group)) <span class="sc">+</span> </span>
-<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb26-2"><a href="#cb26-2"></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb26-3"><a href="#cb26-3"></a>                                <span class="at">shape =</span> group)) <span class="sc">+</span> </span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1065,11 +1142,11 @@ Tip
 <h2 class="anchored" data-anchor-id="shape-1">Shape</h2>
 <p>Mapped to same variable as <code>color</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb24-2"><a href="#cb24-2"></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb24-3"><a href="#cb24-3"></a>                                <span class="at">shape =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb27-2"><a href="#cb27-2"></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb27-3"><a href="#cb27-3"></a>                                <span class="at">shape =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1082,12 +1159,12 @@ Tip
 <section id="size" class="level2">
 <h2 class="anchored" data-anchor-id="size">Size</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb25-2"><a href="#cb25-2"></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb25-3"><a href="#cb25-3"></a>                                <span class="at">shape =</span> treatment,</span>
-<span id="cb25-4"><a href="#cb25-4"></a>                                <span class="at">size =</span> time_from_start)) <span class="sc">+</span> </span>
-<span id="cb25-5"><a href="#cb25-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb28-2"><a href="#cb28-2"></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb28-3"><a href="#cb28-3"></a>                                <span class="at">shape =</span> treatment,</span>
+<span id="cb28-4"><a href="#cb28-4"></a>                                <span class="at">size =</span> time_from_start)) <span class="sc">+</span> </span>
+<span id="cb28-5"><a href="#cb28-5"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1100,13 +1177,13 @@ Tip
 <section id="alpha" class="level2">
 <h2 class="anchored" data-anchor-id="alpha">Alpha</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb26-2"><a href="#cb26-2"></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb26-3"><a href="#cb26-3"></a>                                <span class="at">shape =</span> treatment,</span>
-<span id="cb26-4"><a href="#cb26-4"></a>                                <span class="at">size =</span> time_from_start,</span>
-<span id="cb26-5"><a href="#cb26-5"></a>                                <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
-<span id="cb26-6"><a href="#cb26-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb26-7"><a href="#cb26-7"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb29-2"><a href="#cb29-2"></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb29-3"><a href="#cb29-3"></a>                                <span class="at">shape =</span> treatment,</span>
+<span id="cb29-4"><a href="#cb29-4"></a>                                <span class="at">size =</span> time_from_start,</span>
+<span id="cb29-5"><a href="#cb29-5"></a>                                <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
+<span id="cb29-6"><a href="#cb29-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb29-7"><a href="#cb29-7"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1139,9 +1216,9 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="facet_wrap" class="level2">
@@ -1157,19 +1234,19 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-3"><a href="#cb28-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> timepoint) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> timepoint) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="facet-and-color" class="level2">
 <h2 class="anchored" data-anchor-id="facet-and-color">Facet and color</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb29-2"><a href="#cb29-2"></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
-<span id="cb29-3"><a href="#cb29-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb29-4"><a href="#cb29-4"></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
-<span id="cb29-5"><a href="#cb29-5"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb32-2"><a href="#cb32-2"></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a href="#cb32-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a href="#cb32-4"></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="#cb32-5"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1182,12 +1259,12 @@ Tip
 <section id="face-and-color-no-legend" class="level2">
 <h2 class="anchored" data-anchor-id="face-and-color-no-legend">Face and color, no legend</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb30-2"><a href="#cb30-2"></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
-<span id="cb30-3"><a href="#cb30-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4"></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
-<span id="cb30-5"><a href="#cb30-5"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb30-6"><a href="#cb30-6"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb33-2"><a href="#cb33-2"></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5"></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb33-6"><a href="#cb33-6"></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1762,6 +1839,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/lectures/04-dplyr.html" class="pagination-link" aria-label="04: Data Wrangling (dplyr)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">04: Data Wrangling (dplyr)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

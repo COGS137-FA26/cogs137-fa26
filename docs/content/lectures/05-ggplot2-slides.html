@@ -12,7 +12,7 @@
   <meta name="generator" content="quarto-1.4.554">
 
   <meta name="author" content="Professor Shannon Ellis">
-  <meta name="dcterms.date" content="2026-10-09">
+  <meta name="dcterms.date" content="2026-10-12">
   <title>COGS 137 - 05-ggplot2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -414,7 +414,7 @@ Professor Shannon Ellis
     </div>
 </div>
 
-  <p class="date">2026-10-09</p>
+  <p class="date">2026-10-12</p>
 </section>
 <section>
 <section id="data-visualization-with-ggplot2" class="title-slide slide level1 center" data-background-color="#92A86A">
@@ -427,18 +427,57 @@ Professor Shannon Ellis
 </section>
 <section id="qa" class="slide level2 scrollable smaller">
 <h2>Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div title="Q: ">
+<div title="Q: Why use factors? And are factors basically ordered dictionaries? what is the benefit">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Q:</strong></p>
+<p><strong>Q: Why use factors? And are factors basically ordered dictionaries? what is the benefit</strong></p>
 </div>
 <div class="callout-content">
-<p>A:</p>
+<p>A: I can see the thought of dictionaries, but they don’t have key value pairs. They have values where there is a meaningful order. I introduced it as helpful for plotting (which is true) but it’s also helpful in modeling, when you have reference group to compare against - having this as the first level is then meaningful. We’ll see this in a few weeks!</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q: When should you factor variables? ">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: When should you factor variables?</strong></p>
+</div>
+<div class="callout-content">
+<p>A: You should factor when there is a natural/meaningful order to the values in the categorical variable. For occasional/frequent, the order matters there for which you think of as “first” - I think occassional would want to be plotted before frequent, so ordering the variable as such makes sense.</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q: I want to pull a percentage of a group. Ie. the top 25% of THC values. not sure how to do this...">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: I want to pull a percentage of a group. Ie. the top 25% of THC values. not sure how to do this…</strong></p>
+</div>
+<div class="callout-content">
+<p>A: To calculate a quantile:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">summarise</span>(<span class="at">q75 =</span> <span class="fu">quantile</span>(score, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Multiple quantiles:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>df <span class="sc">%&gt;%</span></span>
+<span id="cb2-2"><a></a>  <span class="fu">summarise</span>(</span>
+<span id="cb2-3"><a></a>    <span class="fu">across</span>(</span>
+<span id="cb2-4"><a></a>      score,</span>
+<span id="cb2-5"><a></a>      <span class="sc">~</span> <span class="fu">quantile</span>(.x, <span class="at">probs =</span> <span class="fu">c</span>(<span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-6"><a></a>    )</span>
+<span id="cb2-7"><a></a>  )<span class="st">`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -448,21 +487,18 @@ Professor Shannon Ellis
 <h2>Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 02</strong> due today, Fri 10/9 (11:59 PM)</li>
-<li>📚 <strong>HW 01</strong> due Sun 10/11 (11:59 PM)</li>
-<li>⌨️ <strong>Lab 03</strong> due Fri 10/16 (11:59 PM)</li>
-<li>🔘 Lecture Participation survey “due” after class</li>
+<li>Lab03 due Fri</li>
+<li>HW02 due Sun
+<ul>
+<li>now available</li>
+<li>all text responses must come from and be written by you</li>
+</ul></li>
+<li>Lecture Participation survey “due” after class</li>
 </ul>
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
--   **Lab 02** due Thursday (11:59 PM)
--   Lecture Participation survey "due" after class
-
-**Notes**:
-
--   HW02 now available; Lab03 posted Th
--->
+<p>Notes:</p>
+<ul>
+<li>CS01 groups to be created soon</li>
+</ul>
 </section>
 <section id="suggested-reading" class="slide level2">
 <h2>Suggested Reading</h2>
@@ -490,11 +526,11 @@ Professor Shannon Ellis
 <li>Structure of the code for plots can be summarized as</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
-<span id="cb1-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], </span>
-<span id="cb1-3"><a></a>                     <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
-<span id="cb1-4"><a></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
-<span id="cb1-5"><a></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> [dataset], </span>
+<span id="cb3-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> [x<span class="sc">-</span>variable], </span>
+<span id="cb3-3"><a></a>                     <span class="at">y =</span> [y<span class="sc">-</span>variable])) <span class="sc">+</span></span>
+<span id="cb3-4"><a></a>   <span class="fu">geom_xxx</span>() <span class="sc">+</span></span>
+<span id="cb3-5"><a></a>   other options</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -502,13 +538,13 @@ Professor Shannon Ellis
 <section id="data-cs01-wb" class="slide level2">
 <h2>Data: CS01 WB</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>WB <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Blood.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>WB <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/Blood.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="the-data" class="slide level2 smaller">
 <h2>The Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(WB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">glimpse</span>(WB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,525
 Columns: 14
@@ -531,38 +567,63 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </section>
 <section id="the-cleaning" class="slide level2">
 <h2>The Cleaning</h2>
-<p>We’ve packaged the cleaning from the <code>dplyr</code> notes into one function, <code>clean_cs01()</code>, saved in <code>src/cs01_functions.R</code>:</p>
+<p>We’ve packaged the cleaning from the <code>dplyr</code> notes into one function, <code>clean_cs01()</code>, saved in <code>src/cs01_functions.R</code> (along with additional fucntions that will be helpful for cs01):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># ==== Cleaning ================================================================</span></span>
-<span id="cb5-2"><a></a><span class="co"># Clean one raw CS01 file (Blood.csv, OF.csv, or Breath.csv).</span></span>
-<span id="cb5-3"><a></a><span class="co">#   fluid: "WB", "OF", or "BR" (determines the time windows)</span></span>
-<span id="cb5-4"><a></a>clean_cs01 <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">fluid =</span> <span class="fu">c</span>(<span class="st">"WB"</span>, <span class="st">"OF"</span>, <span class="st">"BR"</span>)) {</span>
-<span id="cb5-5"><a></a>  fluid <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(fluid)</span>
-<span id="cb5-6"><a></a>  win <span class="ot">&lt;-</span> cs01_windows[[fluid]]</span>
-<span id="cb5-7"><a></a></span>
-<span id="cb5-8"><a></a>  df <span class="sc">|&gt;</span></span>
-<span id="cb5-9"><a></a>    janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
-<span id="cb5-10"><a></a>    <span class="fu">rename</span>(<span class="fu">any_of</span>(<span class="fu">c</span>(<span class="at">fluid_type   =</span> <span class="st">"fluid"</span>,</span>
-<span id="cb5-11"><a></a>                    <span class="at">thcoh        =</span> <span class="st">"x11_oh_thc"</span>,</span>
-<span id="cb5-12"><a></a>                    <span class="at">thccooh      =</span> <span class="st">"thc_cooh"</span>,</span>
-<span id="cb5-13"><a></a>                    <span class="at">thccooh_gluc =</span> <span class="st">"thc_cooh_gluc"</span>,</span>
-<span id="cb5-14"><a></a>                    <span class="at">thcv         =</span> <span class="st">"thc_v"</span>,</span>
-<span id="cb5-15"><a></a>                    <span class="at">thc          =</span> <span class="st">"thc_pg_pad"</span>))) <span class="sc">|&gt;</span></span>
-<span id="cb5-16"><a></a>    <span class="fu">mutate</span>(</span>
-<span id="cb5-17"><a></a>      <span class="at">treatment =</span> <span class="fu">fct_recode</span>(treatment,</span>
-<span id="cb5-18"><a></a>                             <span class="st">"5.9% THC (low dose)"</span>   <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
-<span id="cb5-19"><a></a>                             <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
-<span id="cb5-20"><a></a>      <span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>),</span>
-<span id="cb5-21"><a></a>      <span class="at">group =</span> <span class="fu">case_match</span>(group,</span>
-<span id="cb5-22"><a></a>                         <span class="st">"Experienced user"</span>     <span class="sc">~</span> <span class="st">"Frequent user"</span>,</span>
-<span id="cb5-23"><a></a>                         <span class="st">"Not experienced user"</span> <span class="sc">~</span> <span class="st">"Occasional user"</span>,</span>
-<span id="cb5-24"><a></a>                         <span class="at">.default =</span> group),</span>
-<span id="cb5-25"><a></a>      <span class="at">timepoint =</span> <span class="fu">cut</span>(time_from_start, <span class="at">breaks =</span> win<span class="sc">$</span>breaks, <span class="at">labels =</span> win<span class="sc">$</span>labels)</span>
-<span id="cb5-26"><a></a>    )</span>
-<span id="cb5-27"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># ==== Time windows ============================================================</span></span>
+<span id="cb7-2"><a></a><span class="co"># Windows (minutes from start of smoking) differ by matrix, following the paper.</span></span>
+<span id="cb7-3"><a></a><span class="co"># `cut()` intervals are right-closed: (0, 30] is "0-30 min"; anything &lt;= 0 is</span></span>
+<span id="cb7-4"><a></a><span class="co"># pre-smoking; the last window is open-ended.</span></span>
+<span id="cb7-5"><a></a>cs01_windows <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb7-6"><a></a>  <span class="at">WB =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">70</span>, <span class="dv">100</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="dv">300</span>, <span class="cn">Inf</span>),</span>
+<span id="cb7-7"><a></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-70 min"</span>, <span class="st">"71-100 min"</span>,</span>
+<span id="cb7-8"><a></a>                       <span class="st">"101-180 min"</span>, <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>,</span>
+<span id="cb7-9"><a></a>                       <span class="st">"241-270 min"</span>, <span class="st">"271-300 min"</span>, <span class="st">"301+ min"</span>)),</span>
+<span id="cb7-10"><a></a>  <span class="at">OF =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">30</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="cn">Inf</span>),</span>
+<span id="cb7-11"><a></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-90 min"</span>, <span class="st">"91-180 min"</span>,</span>
+<span id="cb7-12"><a></a>                       <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>, <span class="st">"241-270 min"</span>, <span class="st">"271+ min"</span>)),</span>
+<span id="cb7-13"><a></a>  <span class="at">BR =</span> <span class="fu">list</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="cn">Inf</span>, <span class="dv">0</span>, <span class="dv">40</span>, <span class="dv">90</span>, <span class="dv">180</span>, <span class="dv">210</span>, <span class="dv">240</span>, <span class="dv">270</span>, <span class="cn">Inf</span>),</span>
+<span id="cb7-14"><a></a>            <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-40 min"</span>, <span class="st">"41-90 min"</span>, <span class="st">"91-180 min"</span>,</span>
+<span id="cb7-15"><a></a>                       <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>, <span class="st">"241-270 min"</span>, <span class="st">"271+ min"</span>))</span>
+<span id="cb7-16"><a></a>)</span>
+<span id="cb7-17"><a></a></span>
+<span id="cb7-18"><a></a><span class="co"># The first window after smoking, for each matrix</span></span>
+<span id="cb7-19"><a></a>cs01_early_windows <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"0-30 min"</span>, <span class="st">"0-40 min"</span>)</span>
+<span id="cb7-20"><a></a></span>
+<span id="cb7-21"><a></a><span class="co"># Compounds measured (not every matrix has every compound)</span></span>
+<span id="cb7-22"><a></a>cs01_compounds <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cbn"</span>, <span class="st">"cbd"</span>, <span class="st">"thc"</span>, <span class="st">"thcoh"</span>, <span class="st">"thccooh"</span>, <span class="st">"thccooh_gluc"</span>,</span>
+<span id="cb7-23"><a></a>                    <span class="st">"cbg"</span>, <span class="st">"thcv"</span>, <span class="st">"thca_a"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>WB <span class="ot">&lt;-</span> WB <span class="sc">|&gt;</span> <span class="fu">clean_cs01</span>(<span class="st">"WB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># ==== Cleaning ================================================================</span></span>
+<span id="cb8-2"><a></a><span class="co"># Clean one raw CS01 file (Blood.csv, OF.csv, or Breath.csv).</span></span>
+<span id="cb8-3"><a></a><span class="co">#   fluid: "WB", "OF", or "BR" (determines the time windows)</span></span>
+<span id="cb8-4"><a></a>clean_cs01 <span class="ot">&lt;-</span> <span class="cf">function</span>(df, <span class="at">fluid =</span> <span class="fu">c</span>(<span class="st">"WB"</span>, <span class="st">"OF"</span>, <span class="st">"BR"</span>)) {</span>
+<span id="cb8-5"><a></a>  fluid <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(fluid)</span>
+<span id="cb8-6"><a></a>  win <span class="ot">&lt;-</span> cs01_windows[[fluid]]</span>
+<span id="cb8-7"><a></a></span>
+<span id="cb8-8"><a></a>  df <span class="sc">|&gt;</span></span>
+<span id="cb8-9"><a></a>    janitor<span class="sc">::</span><span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb8-10"><a></a>    <span class="fu">rename</span>(<span class="fu">any_of</span>(<span class="fu">c</span>(<span class="at">fluid_type   =</span> <span class="st">"fluid"</span>,</span>
+<span id="cb8-11"><a></a>                    <span class="at">thcoh        =</span> <span class="st">"x11_oh_thc"</span>,</span>
+<span id="cb8-12"><a></a>                    <span class="at">thccooh      =</span> <span class="st">"thc_cooh"</span>,</span>
+<span id="cb8-13"><a></a>                    <span class="at">thccooh_gluc =</span> <span class="st">"thc_cooh_gluc"</span>,</span>
+<span id="cb8-14"><a></a>                    <span class="at">thcv         =</span> <span class="st">"thc_v"</span>,</span>
+<span id="cb8-15"><a></a>                    <span class="at">thc          =</span> <span class="st">"thc_pg_pad"</span>))) <span class="sc">|&gt;</span></span>
+<span id="cb8-16"><a></a>    <span class="fu">mutate</span>(</span>
+<span id="cb8-17"><a></a>      <span class="at">treatment =</span> <span class="fu">fct_recode</span>(treatment,</span>
+<span id="cb8-18"><a></a>                             <span class="st">"5.9% THC (low dose)"</span>   <span class="ot">=</span> <span class="st">"5.90%"</span>,</span>
+<span id="cb8-19"><a></a>                             <span class="st">"13.4% THC (high dose)"</span> <span class="ot">=</span> <span class="st">"13.40%"</span>),</span>
+<span id="cb8-20"><a></a>      <span class="at">treatment =</span> <span class="fu">fct_relevel</span>(treatment, <span class="st">"Placebo"</span>, <span class="st">"5.9% THC (low dose)"</span>),</span>
+<span id="cb8-21"><a></a>      <span class="at">group =</span> <span class="fu">case_match</span>(group,</span>
+<span id="cb8-22"><a></a>                         <span class="st">"Experienced user"</span>     <span class="sc">~</span> <span class="st">"Frequent user"</span>,</span>
+<span id="cb8-23"><a></a>                         <span class="st">"Not experienced user"</span> <span class="sc">~</span> <span class="st">"Occasional user"</span>,</span>
+<span id="cb8-24"><a></a>                         <span class="at">.default =</span> group),</span>
+<span id="cb8-25"><a></a>      <span class="at">timepoint =</span> <span class="fu">cut</span>(time_from_start, <span class="at">breaks =</span> win<span class="sc">$</span>breaks, <span class="at">labels =</span> win<span class="sc">$</span>labels)</span>
+<span id="cb8-26"><a></a>    )</span>
+<span id="cb8-27"><a></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>WB <span class="ot">&lt;-</span> WB <span class="sc">|&gt;</span> <span class="fu">clean_cs01</span>(<span class="st">"WB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="background-color: #ADD8E6"><i class="fa fa-user" aria-hidden="true"></i> Compare to the <code>case_when()</code> in the <code>dplyr</code> notes: what does <code>cut()</code> do here?</span></p>
 </section>
@@ -570,16 +631,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <h2>A Plot</h2>
 
 <img data-src="05-ggplot2_files/figure-html/unnamed-chunk-7-1.png" style="width:50.0%" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb7-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb7-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb7-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb7-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb7-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb7-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb7-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
-<span id="cb7-10"><a></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb10-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb10-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb10-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb10-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb10-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -594,9 +655,9 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb8-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb8-3"><a></a>  <span class="fu">ggplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a></a>  <span class="fu">ggplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -615,9 +676,9 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb9" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb9-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -636,10 +697,10 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb10" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb10-4"><a></a>                       <span class="at">y =</span> thccooh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb13-4"><a></a>                       <span class="at">y =</span> thccooh))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -658,11 +719,11 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb11" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb11-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb11-4"><a></a>                       <span class="at">y =</span> thccooh)) <span class="sc">+</span> </span>
-<span id="cb11-5"><a></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb14-4"><a></a>                       <span class="at">y =</span> thccooh)) <span class="sc">+</span> </span>
+<span id="cb14-5"><a></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -681,12 +742,12 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb12" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb12-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb12-4"><a></a>                       <span class="at">y =</span> thccooh,</span>
-<span id="cb12-5"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb12-6"><a></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb15-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb15-4"><a></a>                       <span class="at">y =</span> thccooh,</span>
+<span id="cb15-5"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb15-6"><a></a>  <span class="fu">geom_point</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -705,14 +766,14 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="7-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb13-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb13-4"><a></a>                       <span class="at">y =</span> thccooh,</span>
-<span id="cb13-5"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb13-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb13-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb13-8"><a></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="7-8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb16-4"><a></a>                       <span class="at">y =</span> thccooh,</span>
+<span id="cb16-5"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb16-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb16-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb16-8"><a></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -731,15 +792,15 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb14" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb14-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
-<span id="cb14-4"><a></a>                       <span class="at">y =</span> thccooh,</span>
-<span id="cb14-5"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb14-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb14-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb14-8"><a></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb14-9"><a></a>       <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb17-3"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, </span>
+<span id="cb17-4"><a></a>                       <span class="at">y =</span> thccooh,</span>
+<span id="cb17-5"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb17-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb17-8"><a></a>       <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb17-9"><a></a>       <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -758,15 +819,15 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb15" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb15-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb15-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb15-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb15-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb15-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb15-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb15-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb15-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb18-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb18-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb18-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb18-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb18-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -785,16 +846,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </blockquote>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb16" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb16-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb16-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb16-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb16-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb16-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb16-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb16-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb16-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
-<span id="cb16-10"><a></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb19-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb19-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb19-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb19-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb19-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb19-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div>
@@ -813,16 +874,16 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <div class="tab-content">
 <div id="tabset-1-1">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>WB <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb17-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
-<span id="cb17-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
-<span id="cb17-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb17-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
-<span id="cb17-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
-<span id="cb17-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
-<span id="cb17-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
-<span id="cb17-10"><a></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>WB <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a></a>  <span class="fu">filter</span>(timepoint<span class="sc">==</span><span class="st">"0-30 min"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a></a>  <span class="fu">ggplot</span>(., <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> thccooh,</span>
+<span id="cb20-4"><a></a>                       <span class="at">color =</span> treatment)) <span class="sc">+</span></span>
+<span id="cb20-5"><a></a>    <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb20-6"><a></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"THC and THC-COOH levels (0-30 min)"</span>,</span>
+<span id="cb20-7"><a></a>         <span class="at">subtitle =</span> <span class="st">"THC levels remain low in placebo group; THC-COOH is variable"</span>,</span>
+<span id="cb20-8"><a></a>         <span class="at">x =</span> <span class="st">"THC (ng/mL)"</span>, <span class="at">y =</span> <span class="st">"THC-COOH (ng/mL)"</span>,</span>
+<span id="cb20-9"><a></a>         <span class="at">color =</span> <span class="st">"Treatment Group"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a></a>    <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2">
@@ -863,15 +924,15 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
-<span id="cb18-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
-<span id="cb18-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
+<span id="cb21-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(WB, </span>
-<span id="cb19-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
-<span id="cb19-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22" data-code-line-numbers="1-2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(WB, </span>
+<span id="cb22-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -901,10 +962,10 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <section id="color" class="slide level2">
 <h2>Color</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb20-2"><a></a>                                <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb20-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb20-4"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb23-2"><a></a>                                <span class="at">color =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb23-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb23-4"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="05-ggplot2_files/figure-html/color-1.png" width="2100" class="r-stretch"></section>
@@ -927,12 +988,12 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <div class="column" style="width:50%;">
 <p><strong>Mapping</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
-<span id="cb21-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb21-3"><a></a>                     <span class="at">size =</span> time_from_start,</span>
-<span id="cb21-4"><a></a>                     <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
-<span id="cb21-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb21-6"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
+<span id="cb24-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb24-3"><a></a>                     <span class="at">size =</span> time_from_start,</span>
+<span id="cb24-4"><a></a>                     <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
+<span id="cb24-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -944,10 +1005,10 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 </div><div class="column" style="width:50%;">
 <p><strong>Setting</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
-<span id="cb22-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
-<span id="cb22-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb22-4"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, </span>
+<span id="cb25-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
+<span id="cb25-3"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb25-4"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>
@@ -1030,17 +1091,17 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <section>
 <section id="reference-more-aesthetics-faceting" class="title-slide slide level1 center" data-background-color="#92A86A">
 <h1>Reference: more aesthetics &amp; faceting</h1>
-<p>These slides aren’t covered in lecture. Use them as a reference; on Wed 10/14 you’ll implement changes like these with AI <strong>and check its work</strong> against what’s here.</p>
+<p>These slides aren’t covered in lecture. Use them as a reference. [Time permitting we’ll - in a later lecture - use these with GenAI]</p>
 </section>
 <section id="shape" class="slide level2">
 <h2>Shape</h2>
 <p>Mapped to a different variable than <code>treatment</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb23-2"><a></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb23-3"><a></a>                                <span class="at">shape =</span> group)) <span class="sc">+</span> </span>
-<span id="cb23-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb23-5"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb26-2"><a></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb26-3"><a></a>                                <span class="at">shape =</span> group)) <span class="sc">+</span> </span>
+<span id="cb26-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb26-5"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="05-ggplot2_files/figure-html/shape-island-1.png" width="2100" class="r-stretch"></section>
@@ -1048,36 +1109,36 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <h2>Shape</h2>
 <p>Mapped to same variable as <code>color</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb24-2"><a></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb24-3"><a></a>                                <span class="at">shape =</span> treatment)) <span class="sc">+</span> </span>
-<span id="cb24-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb24-5"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="2-3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb27-2"><a></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb27-3"><a></a>                                <span class="at">shape =</span> treatment)) <span class="sc">+</span> </span>
+<span id="cb27-4"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="05-ggplot2_files/figure-html/shape-species-1.png" width="2100" class="r-stretch"></section>
 <section id="size" class="slide level2">
 <h2>Size</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb25-2"><a></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb25-3"><a></a>                                <span class="at">shape =</span> treatment,</span>
-<span id="cb25-4"><a></a>                                <span class="at">size =</span> time_from_start)) <span class="sc">+</span> </span>
-<span id="cb25-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb25-6"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb28-2"><a></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb28-3"><a></a>                                <span class="at">shape =</span> treatment,</span>
+<span id="cb28-4"><a></a>                                <span class="at">size =</span> time_from_start)) <span class="sc">+</span> </span>
+<span id="cb28-5"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb28-6"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="05-ggplot2_files/figure-html/size-1.png" width="2100" class="r-stretch"></section>
 <section id="alpha" class="slide level2">
 <h2>Alpha</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb26-2"><a></a>                                <span class="at">color =</span> treatment,</span>
-<span id="cb26-3"><a></a>                                <span class="at">shape =</span> treatment,</span>
-<span id="cb26-4"><a></a>                                <span class="at">size =</span> time_from_start,</span>
-<span id="cb26-5"><a></a>                                <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
-<span id="cb26-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb26-7"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb29-2"><a></a>                                <span class="at">color =</span> treatment,</span>
+<span id="cb29-3"><a></a>                                <span class="at">shape =</span> treatment,</span>
+<span id="cb29-4"><a></a>                                <span class="at">size =</span> time_from_start,</span>
+<span id="cb29-5"><a></a>                                <span class="at">alpha =</span> cbd)) <span class="sc">+</span> </span>
+<span id="cb29-6"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb29-7"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="05-ggplot2_files/figure-html/alpha-1.png" width="2100" class="r-stretch"></section>
@@ -1096,9 +1157,9 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>2d grid; `rows ~ cols</p>
 
 <img data-src="05-ggplot2_files/figure-html/unnamed-chunk-11-1.png" style="width:100.0%" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb27" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
-<span id="cb27-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb27-3"><a></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb30-3"><a></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="facet_wrap" class="slide level2">
@@ -1106,31 +1167,31 @@ $ time.from.start &lt;dbl&gt; -27, 15, 69, 111, 156, 236, 283, 315, 360, -10, 20
 <p>“1d ribbon wrapped according to number of rows and columns specified or available plotting area”</p>
 
 <img data-src="05-ggplot2_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%" class="r-stretch"><div class="cell">
-<div class="sourceCode cell-code" id="cb28" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
-<span id="cb28-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb28-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> timepoint) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31" data-code-line-numbers="3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb31-3"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> timepoint) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="facet-and-color" class="slide level2">
 <h2>Facet and color</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29" data-code-line-numbers="2,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb29-2"><a></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
-<span id="cb29-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb29-4"><a></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
-<span id="cb29-5"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32" data-code-line-numbers="2,5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb32-2"><a></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb32-4"><a></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
+<span id="cb32-5"><a></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="05-ggplot2_files/figure-html/facet-color-legend-1.png" width="2100" class="r-stretch"></section>
 <section id="face-and-color-no-legend" class="slide level2">
 <h2>Face and color, no legend</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
-<span id="cb30-2"><a></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
-<span id="cb30-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb30-4"><a></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
-<span id="cb30-5"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
-<span id="cb30-6"><a></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> WB, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> thc, <span class="at">y =</span> cbn,</span>
+<span id="cb33-2"><a></a>                                <span class="at">color=</span>treatment)) <span class="sc">+</span> </span>
+<span id="cb33-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb33-4"><a></a>  <span class="fu">facet_grid</span>(treatment <span class="sc">~</span> group) <span class="sc">+</span></span>
+<span id="cb33-5"><a></a>  <span class="fu">scale_color_viridis_d</span>() <span class="sc">+</span></span>
+<span id="cb33-6"><a></a>  <span class="fu">guides</span>(<span class="at">color=</span><span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure>

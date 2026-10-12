@@ -1,7 +1,7 @@
 ---
 title: "05-ggplot2"
 author: "Professor Shannon Ellis"
-date: "2026-10-09"
+date: "2026-10-12"
 
 format:
   html: 
@@ -24,31 +24,45 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 
 ## Q&A {.scrollable .smaller}
 
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+::: {.callout-note collapse="true" title="Q: Why use factors? And are factors basically ordered dictionaries? what is the benefit"}
+A: I can see the thought of dictionaries, but they don't have key value pairs. They have values where there is a meaningful order. I introduced it as helpful for plotting (which is true) but it's also helpful in modeling, when you have reference group to compare against - having this as the first level is then meaningful. We'll see this in a few weeks!
+:::
 
-::: {.callout-note collapse="true" title="Q: "}
-A: 
+::: {.callout-note collapse="true" title="Q: When should you factor variables? "}
+A: You should factor when there is a natural/meaningful order to the values in the categorical variable. For occasional/frequent, the order matters there for which you think of as "first" - I think occassional would want to be plotted before frequent, so ordering the variable as such makes sense.
+:::
+
+::: {.callout-note collapse="true" title="Q: I want to pull a percentage of a group. Ie. the top 25% of THC values. not sure how to do this..."}
+A: To calculate a quantile:
+```r
+df %>%
+  summarise(q75 = quantile(score, 0.75, na.rm = TRUE))
+```
+Multiple quantiles:
+```r
+df %>%
+  summarise(
+    across(
+      score,
+      ~ quantile(.x, probs = c(0.25, 0.5, 0.75), na.rm = TRUE)
+    )
+  )`
+```
 :::
 
 ## Course Announcements
 
 **Due Dates**:
 
--   ⌨️ **Lab 02** due today, Fri 10/9 (11:59 PM)
--   📚 **HW 01** due Sun 10/11 (11:59 PM)
--   ⌨️ **Lab 03** due Fri 10/16 (11:59 PM)
--   🔘 Lecture Participation survey "due" after class
+- Lab03 due Fri
+- HW02 due Sun
+  - now available
+  - all text responses must come from and be written by you
+- Lecture Participation survey "due" after class
 
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
+Notes: 
 
--   **Lab 02** due Thursday (11:59 PM)
--   Lecture Participation survey "due" after class
-
-**Notes**:
-
--   HW02 now available; Lab03 posted Th
--->
+- CS01 groups to be created soon
 
 ## Suggested Reading
 
@@ -92,14 +106,14 @@ glimpse(WB)
 
 ## The Cleaning
 
-We've packaged the cleaning from the `dplyr` notes into one function, `clean_cs01()`, saved in `src/cs01_functions.R`:
+We've packaged the cleaning from the `dplyr` notes into one function, `clean_cs01()`, saved in `src/cs01_functions.R` (along with additional fucntions that will be helpful for cs01):
 
 ```{r}
 #| echo: false
 knitr::read_chunk("src/cs01_functions.R")
 ```
 
-```{r cs01_windows, echo=FALSE}
+```{r cs01_windows}
 ```
 
 ```{r cs01_clean}
@@ -109,7 +123,7 @@ knitr::read_chunk("src/cs01_functions.R")
 WB <- WB |> clean_cs01("WB")
 ```
 
-[<i class="fa fa-user" aria-hidden="true"></i>   Compare to the `case_when()` in the `dplyr` notes: what does `cut()` do here?]{style="background-color: #ADD8E6"}
+[<i class="fa fa-user" aria-hidden="true"></i> Compare to the `case_when()` in the `dplyr` notes: what does `cut()` do here?]{style="background-color: #ADD8E6"}
 
 ## A Plot
 
@@ -216,8 +230,6 @@ WB |>
        subtitle = "THC levels remain low in placebo group; THC-COOH is variable") 
 ```
 
-
-
 ##  {.smaller}
 
 > Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. Represent each observation with a point and map treatment group to the color of each point. Title and subtitle the plot, **label the x and y axes**
@@ -298,11 +310,11 @@ WB |>
 
 ### Narrative
 
-Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis. 
+Start with the `WB` data frame, map thc levels to the x-axis and map thccooh levels to the y-axis.
 
-Represent each observation with a point and map treatment group to the color of each point. 
+Represent each observation with a point and map treatment group to the color of each point.
 
-Title and subtitle the plot, label the x and y axes, and title the legend. 
+Title and subtitle the plot, label the x and y axes, and title the legend.
 
 Finally, use a discrete color scale that is designed to be perceived by viewers with common forms of color blindness.
 :::
@@ -373,7 +385,6 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
 
 ::: columns
 ::: {.column width="50%"}
-
 **Mapping**
 
 ```{r warning = FALSE, out.width = "100%"}
@@ -434,7 +445,7 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 # Recap {background-color="#92A86A"}
 
 -   Can I explain the overall structure of a call to generate a plot in `ggplot2`?
--   Can I describe `ggplot2` code? Can I create plots using `ggplot2`? 
+-   Can I describe `ggplot2` code? Can I create plots using `ggplot2`?
 -   Can I explain the difference between mapping and setting?
 -   Can I alter the aesthetics of a basic plot? (color, shape, size, transparency)
 -   Am I able to facet a plot to generate a grid of figures
@@ -442,7 +453,7 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 
 # Reference: more aesthetics & faceting {background-color="#92A86A"}
 
-These slides aren't covered in lecture. Use them as a reference; on Wed 10/14 you'll implement changes like these with AI **and check its work** against what's here.
+These slides aren't covered in lecture. Use them as a reference. [Time permitting we'll - in a later lecture - use these with GenAI]
 
 ## Shape
 
@@ -504,7 +515,7 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
 
 ## `facet_grid`
 
-2d grid; `rows ~ cols
+2d grid; \`rows \~ cols
 
 ```{r ref.label = "facet", echo = FALSE, warning = FALSE, out.width = "100%"}
 ```
@@ -552,4 +563,3 @@ ggplot(data = WB, mapping = aes(x = thc, y = cbn,
   scale_color_viridis_d() +
   guides(color="none") 
 ```
-
