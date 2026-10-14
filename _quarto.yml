@@ -97,7 +97,7 @@ website:
           - text: "05: ggplot2"
             href: content/lectures/05-ggplot2.qmd
           - text: "06: Effective Data Visualization"
-            href: content/lectures/06-viz.qmd
+            href: content/lectures/06-viz-cs01.qmd
       #     - text: "07: AI-Assisted Analysis"
       #       href: content/lectures/07-ai-assisted-analysis.qmd
       #     - text: "08: CS01 EDA"
