@@ -189,7 +189,7 @@ WB |>
 
 ```{r penguins-3, warning = FALSE}
 #| output-location: column
-#| code-line-numbers: "4"
+#| code-line-numbers: "5"
 WB |> 
   filter(timepoint=="0-30 min") |>
   ggplot(mapping = aes(x = thc, 

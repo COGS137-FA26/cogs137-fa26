@@ -2872,7 +2872,7 @@
     "href": "schedule.html",
     "title": "COGS 137 Course Schedule",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n\n\n⌨️ lab 03\n\n\n\n\nSun, Oct 18\n\n\n\n\n\n\n📚 hw 02\n\n\n4\nMon, Oct 19\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nEffective (Written) Communication\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nWed, Oct 28\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02: EDA (day 1)\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA (day 2)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
+    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n🎥 The Glamour of Graphics: [video]; [slides]\n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n\n\n⌨️ lab 03\n\n\n\n\nSun, Oct 18\n\n\n\n\n\n\n📚 hw 02\n\n\n4\nMon, Oct 19\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nEffective (Written) Communication\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nWed, Oct 28\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02: EDA (day 1)\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA (day 2)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
     "crumbs": [
       "Schedule & Policies",
       "Schedule"
@@ -4950,14 +4950,14 @@
     "href": "content/lectures/06-viz-slides.html#qa",
     "title": "06-viz",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: Why was there a problem with the police not knowing whether the participants ingested a placebo, lower percentage, or higher percentage of THC?\n\n\nA: I was not as clear as I should have been in this! The police knew that some participants received a placebo and some did not (that’s fine!), but they also knew how long it had been since they had smoked the joint. So, they would have expected (given knowing this information) that at each subsequent field sobriety test that they should maybe expect fewer and fewer participants to be impaired. Given unlimited resources, a more ideal design would have been to bring officers in randomly, without them knowing how far along the study was, so they didn’t have any expectation/knowledge about how recently someone could have smoked (which is the case at the roadside…they don’t know)\n\n\n\n\n\n\n\n\n\n\n\nQ: confused about the cutoffs - what do they mean\n\n\nA: The cutoffs are if we used that cutoff to determine someone had recently used then how many people would be “over the limit.”"
   },
   {
     "objectID": "content/lectures/06-viz-slides.html#course-announcements",
     "href": "content/lectures/06-viz-slides.html#course-announcements",
     "title": "06-viz",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/16 (11:59 PM)\n📚 HW 02 due Sun 10/18 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 03 due Fri 10/16 (11:59 PM)\n📚 HW 02 due Sun 10/18 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
   },
   {
     "objectID": "content/lectures/06-viz-slides.html#suggested-reading",
@@ -5093,6 +5093,13 @@
     "text": "Use facets\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = region)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1)"
   },
   {
+    "objectID": "content/lectures/06-viz-slides.html#keep-scales-consistent",
+    "href": "content/lectures/06-viz-slides.html#keep-scales-consistent",
+    "title": "06-viz",
+    "section": "Keep scales consistent",
+    "text": "Keep scales consistent\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, scales = \"free_x\")\n\n\n\n\n\nscales = \"free_x\" gives each panel its own x-axis: Scotland’s “Wrong” bar (92 people) now looks as long as Rest of South’s (257)\nThe default (fixed scales) keeps panels comparable; only free scales on purpose, and say so"
+  },
+  {
     "objectID": "content/lectures/06-viz-slides.html#avoid-redundancy",
     "href": "content/lectures/06-viz-slides.html#avoid-redundancy",
     "title": "06-viz",
@@ -5153,7 +5160,7 @@
     "href": "content/lectures/06-viz-slides.html#manually-choose-colors-when-needed",
     "title": "06-viz",
     "section": "Manually choose colors when needed",
-    "text": "Manually choose colors when needed\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c( \n    \"Wrong\" = \"red\", \n    \"Right\" = \"green\", \n    \"Don't know\" = \"gray\" \n  ))"
+    "text": "Manually choose colors when needed\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c( \n    \"Wrong\" = \"red\", \n    \"Right\" = \"green\", \n    \"Don't know\" = \"gray\" \n  )) \n\n\n\n\n\nBut: red-green is the most common form of color vision deficiency (roughly 1 in 12 men), so these two bars can look nearly identical to many viewers."
   },
   {
     "objectID": "content/lectures/06-viz-slides.html#choosing-better-colors",
@@ -5174,7 +5181,7 @@
     "href": "content/lectures/06-viz-slides.html#select-theme",
     "title": "06-viz",
     "section": "Select theme",
-    "text": "Select theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal() \n\n\n\n\n\n\nggthemes described here"
+    "text": "Select theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal() \n\n\n\n\n\n\nBuilt-in themes described here; the ggthemes package has more"
   },
   {
     "objectID": "content/lectures/06-viz-slides.html#customize-theme",
@@ -5184,263 +5191,436 @@
     "text": "Customize theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal(base_size = 16) + \n  theme(plot.title.position = \"plot\", \n        panel.grid.major.y = element_blank())"
   },
   {
+    "objectID": "content/lectures/06-viz-slides.html#principles-recap",
+    "href": "content/lectures/06-viz-slides.html#principles-recap",
+    "title": "06-viz",
+    "section": "Principles recap",
+    "text": "Principles recap\nWhat we covered (cite these by name in your homework and case studies):\n\nKeep it simple: skip 3D and pies when a bar chart does the job\nUse color to draw attention to what matters\nTell a story: annotate the takeaway\nOrder matters: avoid alphabetical; order by frequency or inherent order\nPut long categories on the y-axis\nKeep scales consistent across panels\nPick a purpose: decide which comparison the plot should make easy (e.g., facets vs. stacked bars)\nSelect meaningful colors: colorblind-friendly, consistent meaning\nUse meaningful and nonredundant labels: titles, subtitles, sources"
+  },
+  {
     "objectID": "content/lectures/06-viz-slides.html#your-turn",
     "href": "content/lectures/06-viz-slides.html#your-turn",
     "title": "06-viz",
     "section": "Your Turn",
-    "text": "Your Turn\n\nRead in the data (Data)\nThink of at least three different ways to tell slightly different stories with these data\nTry to implement at least one of these ideas!\n\n\n\n\n\n\n\nNote\n\n\nOn Wednesday, we’ll use AI to implement design choices like these…and practice checking its work."
+    "text": "Your Turn\n\nCopy the code that creates the data (Data)\nThink of at least three different ways to tell slightly different stories with these data\nTry to implement at least one of these ideas!"
   },
   {
     "objectID": "content/lectures/06-viz.html",
     "href": "content/lectures/06-viz.html",
     "title": "06-viz",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#qa",
     "href": "content/lectures/06-viz.html#qa",
     "title": "06-viz",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\nQ: Why was there a problem with the police not knowing whether the participants ingested a placebo, lower percentage, or higher percentage of THC?\n\n\n\n\n\nA: I was not as clear as I should have been in this! The police knew that some participants received a placebo and some did not (that’s fine!), but they also knew how long it had been since they had smoked the joint. So, they would have expected (given knowing this information) that at each subsequent field sobriety test that they should maybe expect fewer and fewer participants to be impaired. Given unlimited resources, a more ideal design would have been to bring officers in randomly, without them knowing how far along the study was, so they didn’t have any expectation/knowledge about how recently someone could have smoked (which is the case at the roadside…they don’t know)\n\n\n\n\n\n\n\n\n\nQ: confused about the cutoffs - what do they mean\n\n\n\n\n\nA: The cutoffs are if we used that cutoff to determine someone had recently used then how many people would be “over the limit.”",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#course-announcements",
     "href": "content/lectures/06-viz.html#course-announcements",
     "title": "06-viz",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/16 (11:59 PM)\n📚 HW 02 due Sun 10/18 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 03 due Fri 10/16 (11:59 PM)\n📚 HW 02 due Sun 10/18 (11:59 PM)\n🔘 Lecture Participation survey “due” after class",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#suggested-reading",
     "href": "content/lectures/06-viz.html#suggested-reading",
     "title": "06-viz",
     "section": "Suggested Reading",
-    "text": "Suggested Reading\n\nR4DS Chapter 11: Data Communication\nThe Glamour of Graphics: [video] [slides] [Prof’s slides inspired by Will’s talk]"
+    "text": "Suggested Reading\n\nR4DS Chapter 11: Data Communication\nThe Glamour of Graphics: [video] [Prof’s slides inspired by Will’s talk]",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#keep-it-simple",
     "href": "content/lectures/06-viz.html#keep-it-simple",
     "title": "06-viz",
     "section": "Keep it simple",
-    "text": "Keep it simple"
+    "text": "Keep it simple",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#use-color-to-draw-attention",
     "href": "content/lectures/06-viz.html#use-color-to-draw-attention",
     "title": "06-viz",
     "section": "Use color to draw attention",
-    "text": "Use color to draw attention"
+    "text": "Use color to draw attention",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#tell-a-story",
     "href": "content/lectures/06-viz.html#tell-a-story",
     "title": "06-viz",
     "section": "Tell a story",
-    "text": "Tell a story\n\n\n\n\n\n\n\n\n\n\n\nCredit: Angela Zoss and Eric Monson, Duke DVS"
+    "text": "Tell a story\n\n\n\n\n\n\n\n\n\n\n\nCredit: Angela Zoss and Eric Monson, Duke DVS",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#principles-for-effective-visualizations-1",
     "href": "content/lectures/06-viz.html#principles-for-effective-visualizations-1",
     "title": "06-viz",
     "section": "Principles for effective visualizations",
-    "text": "Principles for effective visualizations\n\nOrder matters\nPut long categories on the y-axis\nKeep scales consistent\nSelect meaningful colors\nUse meaningful and nonredundant labels"
+    "text": "Principles for effective visualizations\n\nOrder matters\nPut long categories on the y-axis\nKeep scales consistent\nSelect meaningful colors\nUse meaningful and nonredundant labels",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#data",
     "href": "content/lectures/06-viz.html#data",
     "title": "06-viz",
     "section": "Data",
-    "text": "Data\nIn September 2019, YouGov survey asked 1,639 GB adults the following question:\n\n\n\nIn hindsight, do you think Britain was right/wrong to vote to leave EU?\n\nRight to leave\n\nWrong to leave\n\nDon’t know\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource: YouGov Survey Results, retrieved Oct 7, 2019"
+    "text": "Data\nIn September 2019, YouGov survey asked 1,639 GB adults the following question:\n\n\n\nIn hindsight, do you think Britain was right/wrong to vote to leave EU?\n\nRight to leave\n\nWrong to leave\n\nDon’t know\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSource: YouGov Survey Results, retrieved Oct 7, 2019",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#the-data-code",
     "href": "content/lectures/06-viz.html#the-data-code",
     "title": "06-viz",
     "section": "The Data: Code",
-    "text": "The Data: Code\n\nbrexit &lt;- tibble(\n  opinion = c(\n    rep(\"Right\", 664), rep(\"Wrong\", 787), rep(\"Don't know\", 188)\n  ),\n  region = c(\n    rep(\"london\", 63), rep(\"rest_of_south\", 241), rep(\"midlands_wales\", 145), rep(\"north\", 176), rep(\"scot\", 39),\n    rep(\"london\", 110), rep(\"rest_of_south\", 257), rep(\"midlands_wales\", 152), rep(\"north\", 176), rep(\"scot\", 92),\n    rep(\"london\", 24), rep(\"rest_of_south\", 49), rep(\"midlands_wales\", 57), rep(\"north\", 48), rep(\"scot\", 10)\n  )\n)"
+    "text": "The Data: Code\n\nbrexit &lt;- tibble(\n  opinion = c(\n    rep(\"Right\", 664), rep(\"Wrong\", 787), rep(\"Don't know\", 188)\n  ),\n  region = c(\n    rep(\"london\", 63), rep(\"rest_of_south\", 241), rep(\"midlands_wales\", 145), rep(\"north\", 176), rep(\"scot\", 39),\n    rep(\"london\", 110), rep(\"rest_of_south\", 257), rep(\"midlands_wales\", 152), rep(\"north\", 176), rep(\"scot\", 92),\n    rep(\"london\", 24), rep(\"rest_of_south\", 49), rep(\"midlands_wales\", 57), rep(\"north\", 48), rep(\"scot\", 10)\n  )\n)",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#order-matters",
     "href": "content/lectures/06-viz.html#order-matters",
     "title": "06-viz",
     "section": "Order matters",
-    "text": "Order matters\nAlphabetical is rarely ideal\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(x = opinion)) +\n  geom_bar()"
+    "text": "Order matters\nAlphabetical is rarely ideal\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(x = opinion)) +\n  geom_bar()",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#order-by-frequency",
     "href": "content/lectures/06-viz.html#order-by-frequency",
     "title": "06-viz",
     "section": "Order by frequency",
-    "text": "Order by frequency\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\nfct_infreq: Reorder factors’ levels by frequency\n\nggplot(brexit, aes(x = fct_infreq(opinion))) + \n  geom_bar()"
+    "text": "Order by frequency\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\nfct_infreq: Reorder factors’ levels by frequency\n\nggplot(brexit, aes(x = fct_infreq(opinion))) + \n  geom_bar()",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#clean-up-labels",
     "href": "content/lectures/06-viz.html#clean-up-labels",
     "title": "06-viz",
     "section": "Clean up labels",
-    "text": "Clean up labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(x = opinion)) +\n  geom_bar() +\n  labs( \n    x = \"Opinion\", \n    y = \"Count\" \n  )"
+    "text": "Clean up labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(x = opinion)) +\n  geom_bar() +\n  labs( \n    x = \"Opinion\", \n    y = \"Count\" \n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#avoiding-alphabetical-order",
     "href": "content/lectures/06-viz.html#avoiding-alphabetical-order",
     "title": "06-viz",
     "section": "Avoiding Alphabetical Order",
-    "text": "Avoiding Alphabetical Order\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(x = region)) +\n  geom_bar()"
+    "text": "Avoiding Alphabetical Order\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(x = region)) +\n  geom_bar()",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#use-inherent-level-order",
     "href": "content/lectures/06-viz.html#use-inherent-level-order",
     "title": "06-viz",
     "section": "Use inherent level order",
-    "text": "Use inherent level order\n\nRelevelPlot\n\n\nfct_relevel: Reorder factor levels using a custom order\n\nbrexit &lt;- brexit |&gt;\n  mutate(\n    region = fct_relevel( \n      region,\n      \"london\", \"rest_of_south\", \"midlands_wales\", \"north\", \"scot\"\n    )\n  )"
+    "text": "Use inherent level order\n\nRelevelPlot\n\n\nfct_relevel: Reorder factor levels using a custom order\n\nbrexit &lt;- brexit |&gt;\n  mutate(\n    region = fct_relevel( \n      region,\n      \"london\", \"rest_of_south\", \"midlands_wales\", \"north\", \"scot\"\n    )\n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#clean-up-labels-1",
     "href": "content/lectures/06-viz.html#clean-up-labels-1",
     "title": "06-viz",
     "section": "Clean up labels",
-    "text": "Clean up labels\n\nRecodePlot\n\n\nfct_recode: Change factor levels by hand\n\nbrexit &lt;- brexit |&gt;\n  mutate(\n    region = fct_recode( \n      region,\n      London = \"london\",\n      `Rest of South` = \"rest_of_south\",\n      `Midlands / Wales` = \"midlands_wales\",\n      North = \"north\",\n      Scotland = \"scot\"\n    )\n  )"
+    "text": "Clean up labels\n\nRecodePlot\n\n\nfct_recode: Change factor levels by hand\n\nbrexit &lt;- brexit |&gt;\n  mutate(\n    region = fct_recode( \n      region,\n      London = \"london\",\n      `Rest of South` = \"rest_of_south\",\n      `Midlands / Wales` = \"midlands_wales\",\n      North = \"north\",\n      Scotland = \"scot\"\n    )\n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#put-long-categories-on-the-y-axis",
     "href": "content/lectures/06-viz.html#put-long-categories-on-the-y-axis",
     "title": "06-viz",
     "section": "Put long categories on the y-axis",
-    "text": "Put long categories on the y-axis\nLong categories can be hard to read"
+    "text": "Put long categories on the y-axis\nLong categories can be hard to read",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#move-them-to-the-y-axis",
     "href": "content/lectures/06-viz.html#move-them-to-the-y-axis",
     "title": "06-viz",
     "section": "Move them to the y-axis",
-    "text": "Move them to the y-axis\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = region)) + \n  geom_bar()"
+    "text": "Move them to the y-axis\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = region)) + \n  geom_bar()",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#and-reverse-the-order-of-levels",
     "href": "content/lectures/06-viz.html#and-reverse-the-order-of-levels",
     "title": "06-viz",
     "section": "And reverse the order of levels",
-    "text": "And reverse the order of levels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\nfct_rev: Reverse order of factor levels\n\nggplot(brexit, aes(y = fct_rev(region))) + \n  geom_bar()"
+    "text": "And reverse the order of levels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\nfct_rev: Reverse order of factor levels\n\nggplot(brexit, aes(y = fct_rev(region))) + \n  geom_bar()",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#clean-up-labels-2",
     "href": "content/lectures/06-viz.html#clean-up-labels-2",
     "title": "06-viz",
     "section": "Clean up labels",
-    "text": "Clean up labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = fct_rev(region))) +\n  geom_bar() +\n  labs( \n    x = \"Count\", \n    y = \"Region\" \n  )"
+    "text": "Clean up labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = fct_rev(region))) +\n  geom_bar() +\n  labs( \n    x = \"Count\", \n    y = \"Region\" \n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#segmented-bar-plots-can-be-hard-to-read",
     "href": "content/lectures/06-viz.html#segmented-bar-plots-can-be-hard-to-read",
     "title": "06-viz",
     "section": "Segmented bar plots can be hard to read",
-    "text": "Segmented bar plots can be hard to read\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = region, fill = opinion)) + \n  geom_bar()"
+    "text": "Segmented bar plots can be hard to read\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = region, fill = opinion)) + \n  geom_bar()",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#use-facets",
     "href": "content/lectures/06-viz.html#use-facets",
     "title": "06-viz",
     "section": "Use facets",
-    "text": "Use facets\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = region)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1)"
+    "text": "Use facets\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = region)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1)",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
+  },
+  {
+    "objectID": "content/lectures/06-viz.html#keep-scales-consistent",
+    "href": "content/lectures/06-viz.html#keep-scales-consistent",
+    "title": "06-viz",
+    "section": "Keep scales consistent",
+    "text": "Keep scales consistent\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, scales = \"free_x\")\n\n\n\n\n\nscales = \"free_x\" gives each panel its own x-axis: Scotland’s “Wrong” bar (92 people) now looks as long as Rest of South’s (257)\nThe default (fixed scales) keeps panels comparable; only free scales on purpose, and say so",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#avoid-redundancy",
     "href": "content/lectures/06-viz.html#avoid-redundancy",
     "title": "06-viz",
     "section": "Avoid redundancy?",
-    "text": "Avoid redundancy?"
+    "text": "Avoid redundancy?",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#redundancy-can-help-tell-a-story",
     "href": "content/lectures/06-viz.html#redundancy-can-help-tell-a-story",
     "title": "06-viz",
     "section": "Redundancy can help tell a story",
-    "text": "Redundancy can help tell a story\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1)"
+    "text": "Redundancy can help tell a story\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1)",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#be-selective-with-redundancy",
     "href": "content/lectures/06-viz.html#be-selective-with-redundancy",
     "title": "06-viz",
     "section": "Be selective with redundancy",
-    "text": "Be selective with redundancy\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\")"
+    "text": "Be selective with redundancy\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\")",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#use-informative-labels",
     "href": "content/lectures/06-viz.html#use-informative-labels",
     "title": "06-viz",
     "section": "Use informative labels",
-    "text": "Use informative labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\", \n    x = NULL, y = NULL\n  )"
+    "text": "Use informative labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\", \n    x = NULL, y = NULL\n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#a-bit-more-info",
     "href": "content/lectures/06-viz.html#a-bit-more-info",
     "title": "06-viz",
     "section": "A bit more info",
-    "text": "A bit more info\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\", \n    caption = \"Source: https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/x0msmggx08/YouGov%20-%20Brexit%20and%202019%20election.pdf\", \n    x = NULL, y = NULL\n  )"
+    "text": "A bit more info\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\", \n    caption = \"Source: https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/x0msmggx08/YouGov%20-%20Brexit%20and%202019%20election.pdf\", \n    x = NULL, y = NULL\n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#lets-do-better",
     "href": "content/lectures/06-viz.html#lets-do-better",
     "title": "06-viz",
     "section": "Let’s do better",
-    "text": "Let’s do better\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\", \n    x = NULL, y = NULL\n  )"
+    "text": "Let’s do better\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1) +\n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\", \n    x = NULL, y = NULL\n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#fix-up-facet-labels",
     "href": "content/lectures/06-viz.html#fix-up-facet-labels",
     "title": "06-viz",
     "section": "Fix up facet labels",
-    "text": "Fix up facet labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region,\n    nrow = 1,\n    labeller = label_wrap_gen(width = 12) \n  ) + \n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = NULL, y = NULL\n  )"
+    "text": "Fix up facet labels\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region,\n    nrow = 1,\n    labeller = label_wrap_gen(width = 12) \n  ) + \n  guides(fill = \"none\") +\n  labs(\n    title = \"Was Britain right/wrong to vote to leave EU?\",\n    subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n    caption = \"Source: bit.ly/2lCJZVg\",\n    x = NULL, y = NULL\n  )",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#rainbow-colors-not-always-best",
     "href": "content/lectures/06-viz.html#rainbow-colors-not-always-best",
     "title": "06-viz",
     "section": "Rainbow colors not always best",
-    "text": "Rainbow colors not always best"
+    "text": "Rainbow colors not always best",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#manually-choose-colors-when-needed",
     "href": "content/lectures/06-viz.html#manually-choose-colors-when-needed",
     "title": "06-viz",
     "section": "Manually choose colors when needed",
-    "text": "Manually choose colors when needed\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c( \n    \"Wrong\" = \"red\", \n    \"Right\" = \"green\", \n    \"Don't know\" = \"gray\" \n  ))"
+    "text": "Manually choose colors when needed\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c( \n    \"Wrong\" = \"red\", \n    \"Right\" = \"green\", \n    \"Don't know\" = \"gray\" \n  )) \n\n\n\n\n. . .\nBut: red-green is the most common form of color vision deficiency (roughly 1 in 12 men), so these two bars can look nearly identical to many viewers.",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#choosing-better-colors",
     "href": "content/lectures/06-viz.html#choosing-better-colors",
     "title": "06-viz",
     "section": "Choosing better colors",
-    "text": "Choosing better colors\ncolorbrewer2.org"
+    "text": "Choosing better colors\ncolorbrewer2.org",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#use-better-colors",
     "href": "content/lectures/06-viz.html#use-better-colors",
     "title": "06-viz",
     "section": "Use better colors",
-    "text": "Use better colors\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\", \n    \"Right\" = \"#67a9cf\", \n    \"Don't know\" = \"gray\" \n  ))"
+    "text": "Use better colors\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\n    \"Wrong\" = \"#ef8a62\", \n    \"Right\" = \"#67a9cf\", \n    \"Don't know\" = \"gray\" \n  ))",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#select-theme",
     "href": "content/lectures/06-viz.html#select-theme",
     "title": "06-viz",
     "section": "Select theme",
-    "text": "Select theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal() \n\n\n\n\n\n\nggthemes described here"
+    "text": "Select theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal() \n\n\n\n\n\n\nBuilt-in themes described here; the ggthemes package has more",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#customize-theme",
     "href": "content/lectures/06-viz.html#customize-theme",
     "title": "06-viz",
     "section": "Customize theme",
-    "text": "Customize theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal(base_size = 16) + \n  theme(plot.title.position = \"plot\", \n        panel.grid.major.y = element_blank())"
+    "text": "Customize theme\n\nPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nggplot(brexit, aes(y = opinion, fill = opinion)) +\n  geom_bar() +\n  facet_wrap(~region, nrow = 1, labeller = label_wrap_gen(width = 12)) +\n  guides(fill = \"none\") +\n  labs(title = \"Was Britain right/wrong to vote to leave EU?\",\n       subtitle = \"YouGov Survey Results, 2-3 September 2019\",\n       caption = \"Source: bit.ly/2lCJZVg\",\n       x = NULL, y = NULL) +\n  scale_fill_manual(values = c(\"Wrong\" = \"#ef8a62\",\n                               \"Right\" = \"#67a9cf\",\n                               \"Don't know\" = \"gray\")) +\n  theme_minimal(base_size = 16) + \n  theme(plot.title.position = \"plot\", \n        panel.grid.major.y = element_blank())",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
+  },
+  {
+    "objectID": "content/lectures/06-viz.html#principles-recap",
+    "href": "content/lectures/06-viz.html#principles-recap",
+    "title": "06-viz",
+    "section": "Principles recap",
+    "text": "Principles recap\nWhat we covered (cite these by name in your homework and case studies):\n\nKeep it simple: skip 3D and pies when a bar chart does the job\nUse color to draw attention to what matters\nTell a story: annotate the takeaway\nOrder matters: avoid alphabetical; order by frequency or inherent order\nPut long categories on the y-axis\nKeep scales consistent across panels\nPick a purpose: decide which comparison the plot should make easy (e.g., facets vs. stacked bars)\nSelect meaningful colors: colorblind-friendly, consistent meaning\nUse meaningful and nonredundant labels: titles, subtitles, sources",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/06-viz.html#your-turn",
     "href": "content/lectures/06-viz.html#your-turn",
     "title": "06-viz",
     "section": "Your Turn",
-    "text": "Your Turn\n\nRead in the data (Data)\nThink of at least three different ways to tell slightly different stories with these data\nTry to implement at least one of these ideas!\n\n\n\n\n\n\n\nNote\n\n\n\nOn Wednesday, we’ll use AI to implement design choices like these…and practice checking its work."
+    "text": "Your Turn\n\nCopy the code that creates the data (Data)\nThink of at least three different ways to tell slightly different stories with these data\nTry to implement at least one of these ideas!",
+    "crumbs": [
+      "Notes",
+      "06: Effective Data Visualization"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda-slides.html#qa",

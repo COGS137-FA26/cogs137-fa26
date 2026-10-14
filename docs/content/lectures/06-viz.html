@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Shannon Ellis">
-<meta name="dcterms.date" content="2026-10-12">
+<meta name="dcterms.date" content="2026-10-14">
 
 <title>COGS 137 - 06-viz</title>
 <style>
@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/05-ggplot2.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -121,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">06-viz</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/06-viz.html">06: Effective Data Visualization</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -192,13 +194,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
@@ -233,6 +235,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/05-ggplot2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05: ggplot2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/06-viz.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">06: Effective Data Visualization</span></a>
   </div>
 </li>
       </ul>
@@ -361,6 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#segmented-bar-plots-can-be-hard-to-read" id="toc-segmented-bar-plots-can-be-hard-to-read" class="nav-link" data-scroll-target="#segmented-bar-plots-can-be-hard-to-read">Segmented bar plots can be hard to read</a></li>
   <li><a href="#use-facets" id="toc-use-facets" class="nav-link" data-scroll-target="#use-facets">Use facets</a></li>
+  <li><a href="#keep-scales-consistent" id="toc-keep-scales-consistent" class="nav-link" data-scroll-target="#keep-scales-consistent">Keep scales consistent</a></li>
   <li><a href="#avoid-redundancy" id="toc-avoid-redundancy" class="nav-link" data-scroll-target="#avoid-redundancy">Avoid redundancy?</a></li>
   <li><a href="#redundancy-can-help-tell-a-story" id="toc-redundancy-can-help-tell-a-story" class="nav-link" data-scroll-target="#redundancy-can-help-tell-a-story">Redundancy can help tell a story</a></li>
   <li><a href="#be-selective-with-redundancy" id="toc-be-selective-with-redundancy" class="nav-link" data-scroll-target="#be-selective-with-redundancy">Be selective with redundancy</a></li>
@@ -377,6 +386,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#use-better-colors" id="toc-use-better-colors" class="nav-link" data-scroll-target="#use-better-colors">Use better colors</a></li>
   <li><a href="#select-theme" id="toc-select-theme" class="nav-link" data-scroll-target="#select-theme">Select theme</a></li>
   <li><a href="#customize-theme" id="toc-customize-theme" class="nav-link" data-scroll-target="#customize-theme">Customize theme</a></li>
+  <li><a href="#principles-recap" id="toc-principles-recap" class="nav-link" data-scroll-target="#principles-recap">Principles recap</a></li>
   <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn</a></li>
   </ul></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
@@ -387,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/06-viz.html">06: Effective Data Visualization</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">06-viz</h1>
 </div>
@@ -413,7 +423,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 12, 2026</p>
+      <p class="date">October 14, 2026</p>
     </div>
   </div>
   
@@ -430,20 +440,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Slides modified from <a href="https://datasciencebox.org/">datascienceinabox.org</a></p>
 <section id="qa" class="level2 scrollable smaller">
 <h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div class="callout callout-style-default callout-note callout-titled" title="Q: ">
+<div class="callout callout-style-default callout-note callout-titled" title="Q: Why was there a problem with the police not knowing whether the participants ingested a placebo, lower percentage, or higher percentage of THC?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Q:
+Q: Why was there a problem with the police not knowing whether the participants ingested a placebo, lower percentage, or higher percentage of THC?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A:</p>
+<p>A: I was not as clear as I should have been in this! The police knew that some participants received a placebo and some did not (that’s fine!), but they <em>also</em> knew how long it had been since they had smoked the joint. So, they would have expected (given knowing this information) that at each subsequent field sobriety test that they should maybe expect fewer and fewer participants to be impaired. Given unlimited resources, a more ideal design would have been to bring officers in randomly, without them knowing how far along the study was, so they didn’t have any expectation/knowledge about how recently someone could have smoked (which is the case at the roadside…they don’t know)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: confused about the cutoffs - what do they mean">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: confused about the cutoffs - what do they mean
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: The cutoffs are <em>if</em> we used that cutoff to determine someone had recently used then how many people would be “over the limit.”</p>
 </div>
 </div>
 </div>
@@ -452,29 +477,16 @@ Q:
 <h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 02</strong> due Fri 10/16 (11:59 PM)</li>
+<li>⌨️ <strong>Lab 03</strong> due Fri 10/16 (11:59 PM)</li>
 <li>📚 <strong>HW 02</strong> due Sun 10/18 (11:59 PM)</li>
 <li>🔘 Lecture Participation survey “due” after class</li>
 </ul>
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
-- **Lab 02** due tonight (11:59 PM)
-  - ~~`Group` re-coded as with WB/OF~~ <- removed from instructions
-- Lecture Participation survey "due" after class
-
-**Notes**:
-
--   Lab03 now available
--   Lab01 scores posted; Scores on Canvas; feedback as "issue" on GH
--   Case Study Groups will be sent tomorrow; will discuss case study in class on Tues.
--->
 </section>
 <section id="suggested-reading" class="level2">
 <h2 class="anchored" data-anchor-id="suggested-reading">Suggested Reading</h2>
 <ul>
 <li>R4DS Chapter 11: <a href="https://r4ds.hadley.nz/communication">Data Communication</a></li>
-<li>The Glamour of Graphics: [<a href="https://www.rstudio.com/resources/rstudioconf-2020/the-glamour-of-graphics/">video</a>] [<a href="https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html">slides</a>] [<a href="https://docs.google.com/presentation/d/1wT9M4J2O72s_pbcoqmaNLgBQJIUi2SzmvSmULmOWbSM/edit?usp=sharing">Prof’s slides inspired by Will’s talk</a>]</li>
+<li>The Glamour of Graphics: [<a href="https://posit.co/resources/videos/the-glamour-of-graphics">video</a>] [<a href="https://docs.google.com/presentation/d/1wT9M4J2O72s_pbcoqmaNLgBQJIUi2SzmvSmULmOWbSM/edit?usp=sharing">Prof’s slides inspired by Will’s talk</a>]</li>
 </ul>
 </section>
 <section id="keep-it-simple" class="level2">
@@ -485,7 +497,7 @@ Q:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="images/05/pie-3d.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="images/05/pie-3d.jpg" class="img-fluid figure-img" style="width:100.0%" alt="A 3D pie chart of five cost categories; the tilted perspective makes the slices hard to compare."></p>
 </figure>
 </div>
 </div>
@@ -495,7 +507,7 @@ Q:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-viz_files/figure-html/pie-to-bar-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="06-viz_files/figure-html/pie-to-bar-1.png" class="img-fluid figure-img" style="width:100.0%" alt="The same five cost categories as a horizontal bar chart sorted by size: Labor is largest, then Machinery, Buildings and administration, Workpiece materials, and Cutting tools."></p>
 </figure>
 </div>
 </div>
@@ -535,7 +547,7 @@ Q:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="images/05/time-series-story.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="images/05/time-series-story.png" class="img-fluid figure-img" style="width:100.0%" alt="Two versions of Duke hires by month, 2010 to 2015. Left: one line per year in six colors with a legend, hard to read. Right: all years in a single color with July highlighted and the note: Hires always peak in July, which is the start of Duke's fiscal year."></p>
 </figure>
 </div>
 </div>
@@ -683,7 +695,6 @@ Q:
 </div>
 </div>
 </div>
-<hr>
 </section>
 <section id="avoiding-alphabetical-order" class="level2">
 <h2 class="anchored" data-anchor-id="avoiding-alphabetical-order">Avoiding Alphabetical Order</h2>
@@ -740,7 +751,6 @@ Q:
 </div>
 </div>
 </div>
-<hr>
 </section>
 <section id="clean-up-labels-1" class="level2">
 <h2 class="anchored" data-anchor-id="clean-up-labels-1">Clean up labels</h2>
@@ -924,8 +934,12 @@ Q:
 </div>
 </div>
 </section>
-<section id="avoid-redundancy" class="level2">
-<h2 class="anchored" data-anchor-id="avoid-redundancy">Avoid redundancy?</h2>
+<section id="keep-scales-consistent" class="level2">
+<h2 class="anchored" data-anchor-id="keep-scales-consistent">Keep scales consistent</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -935,13 +949,23 @@ Q:
 </div>
 </div>
 </div>
+</div>
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">scales =</span> <span class="st">"free_x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><code>scales = "free_x"</code> gives each panel its own x-axis: Scotland’s “Wrong” bar (92 people) now looks as long as Rest of South’s (257)</li>
+<li>The default (fixed scales) keeps panels comparable; only free scales on purpose, and say so</li>
+</ul>
 </section>
-<section id="redundancy-can-help-tell-a-story" class="level2">
-<h2 class="anchored" data-anchor-id="redundancy-can-help-tell-a-story">Redundancy can help tell a story</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<section id="avoid-redundancy" class="level2">
+<h2 class="anchored" data-anchor-id="avoid-redundancy">Avoid redundancy?</h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -951,19 +975,9 @@ Q:
 </div>
 </div>
 </div>
-</div>
-<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
 </section>
-<section id="be-selective-with-redundancy" class="level2">
-<h2 class="anchored" data-anchor-id="be-selective-with-redundancy">Be selective with redundancy</h2>
+<section id="redundancy-can-help-tell-a-story" class="level2">
+<h2 class="anchored" data-anchor-id="redundancy-can-help-tell-a-story">Redundancy can help tell a story</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -980,17 +994,16 @@ Q:
 </div>
 <div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="use-informative-labels" class="level2">
-<h2 class="anchored" data-anchor-id="use-informative-labels">Use informative labels</h2>
+<section id="be-selective-with-redundancy" class="level2">
+<h2 class="anchored" data-anchor-id="be-selective-with-redundancy">Be selective with redundancy</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-14-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-1" role="tab" aria-controls="tabset-14-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-14-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-14-2" role="tab" aria-controls="tabset-14-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -1010,18 +1023,14 @@ Q:
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
 <span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">labs</span>(</span>
-<span id="cb15-6"><a href="#cb15-6"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>, </span>
-<span id="cb15-7"><a href="#cb15-7"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
-<span id="cb15-8"><a href="#cb15-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="a-bit-more-info" class="level2">
-<h2 class="anchored" data-anchor-id="a-bit-more-info">A bit more info</h2>
+<section id="use-informative-labels" class="level2">
+<h2 class="anchored" data-anchor-id="use-informative-labels">Use informative labels</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-15-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-1" role="tab" aria-controls="tabset-15-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-15-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-15-2" role="tab" aria-controls="tabset-15-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -1043,18 +1052,16 @@ Q:
 <span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
 <span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
 <span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">labs</span>(</span>
-<span id="cb16-6"><a href="#cb16-6"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7"></a>    <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>, </span>
-<span id="cb16-8"><a href="#cb16-8"></a>    <span class="at">caption =</span> <span class="st">"Source: https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/x0msmggx08/YouGov%20-%20Brexit%20and%202019%20election.pdf"</span>, </span>
-<span id="cb16-9"><a href="#cb16-9"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
-<span id="cb16-10"><a href="#cb16-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-6"><a href="#cb16-6"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>, </span>
+<span id="cb16-7"><a href="#cb16-7"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="lets-do-better" class="level2">
-<h2 class="anchored" data-anchor-id="lets-do-better">Let’s do better</h2>
+<section id="a-bit-more-info" class="level2">
+<h2 class="anchored" data-anchor-id="a-bit-more-info">A bit more info</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-16-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-1" role="tab" aria-controls="tabset-16-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-16-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-16-2" role="tab" aria-controls="tabset-16-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -1077,8 +1084,8 @@ Q:
 <span id="cb17-4"><a href="#cb17-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
 <span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">labs</span>(</span>
 <span id="cb17-6"><a href="#cb17-6"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
-<span id="cb17-7"><a href="#cb17-7"></a>    <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
-<span id="cb17-8"><a href="#cb17-8"></a>    <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>, </span>
+<span id="cb17-7"><a href="#cb17-7"></a>    <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>, </span>
+<span id="cb17-8"><a href="#cb17-8"></a>    <span class="at">caption =</span> <span class="st">"Source: https://d25d2506sfb94s.cloudfront.net/cumulus_uploads/document/x0msmggx08/YouGov%20-%20Brexit%20and%202019%20election.pdf"</span>, </span>
 <span id="cb17-9"><a href="#cb17-9"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
 <span id="cb17-10"><a href="#cb17-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1086,8 +1093,8 @@ Q:
 </div>
 </div>
 </section>
-<section id="fix-up-facet-labels" class="level2">
-<h2 class="anchored" data-anchor-id="fix-up-facet-labels">Fix up facet labels</h2>
+<section id="lets-do-better" class="level2">
+<h2 class="anchored" data-anchor-id="lets-do-better">Let’s do better</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-17-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-17-1" role="tab" aria-controls="tabset-17-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-17-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-17-2" role="tab" aria-controls="tabset-17-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -1106,17 +1113,50 @@ Q:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region,</span>
-<span id="cb18-4"><a href="#cb18-4"></a>    <span class="at">nrow =</span> <span class="dv">1</span>,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>    <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width =</span> <span class="dv">12</span>) </span>
-<span id="cb18-6"><a href="#cb18-6"></a>  ) <span class="sc">+</span> </span>
-<span id="cb18-7"><a href="#cb18-7"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a>  <span class="fu">labs</span>(</span>
-<span id="cb18-9"><a href="#cb18-9"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
-<span id="cb18-10"><a href="#cb18-10"></a>    <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
-<span id="cb18-11"><a href="#cb18-11"></a>    <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>,</span>
-<span id="cb18-12"><a href="#cb18-12"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-3"><a href="#cb18-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-6"><a href="#cb18-6"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
+<span id="cb18-7"><a href="#cb18-7"></a>    <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>    <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>, </span>
+<span id="cb18-9"><a href="#cb18-9"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb18-10"><a href="#cb18-10"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="fix-up-facet-labels" class="level2">
+<h2 class="anchored" data-anchor-id="fix-up-facet-labels">Fix up facet labels</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-18-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-1" role="tab" aria-controls="tabset-18-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-18-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-2" role="tab" aria-controls="tabset-18-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-18-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-18-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06-viz_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-18-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-18-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region,</span>
+<span id="cb19-4"><a href="#cb19-4"></a>    <span class="at">nrow =</span> <span class="dv">1</span>,</span>
+<span id="cb19-5"><a href="#cb19-5"></a>    <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width =</span> <span class="dv">12</span>) </span>
+<span id="cb19-6"><a href="#cb19-6"></a>  ) <span class="sc">+</span> </span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-9"><a href="#cb19-9"></a>    <span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10"></a>    <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11"></a>    <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>,</span>
+<span id="cb19-12"><a href="#cb19-12"></a>    <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span></span>
+<span id="cb19-13"><a href="#cb19-13"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1131,7 +1171,7 @@ Q:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-viz_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p><img src="06-viz_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 </div>
@@ -1140,55 +1180,6 @@ Q:
 <section id="manually-choose-colors-when-needed" class="level2">
 <h2 class="anchored" data-anchor-id="manually-choose-colors-when-needed">Manually choose colors when needed</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-18-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-1" role="tab" aria-controls="tabset-18-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-18-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-18-2" role="tab" aria-controls="tabset-18-2" aria-selected="false">Code</a></li></ul>
-<div class="tab-content">
-<div id="tabset-18-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-18-1-tab">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="06-viz_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-18-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-18-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
-<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
-<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width =</span> <span class="dv">12</span>)) <span class="sc">+</span></span>
-<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb19-5"><a href="#cb19-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
-<span id="cb19-6"><a href="#cb19-6"></a>       <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
-<span id="cb19-7"><a href="#cb19-7"></a>       <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>,</span>
-<span id="cb19-8"><a href="#cb19-8"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb19-9"><a href="#cb19-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>( </span>
-<span id="cb19-10"><a href="#cb19-10"></a>    <span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"red"</span>, </span>
-<span id="cb19-11"><a href="#cb19-11"></a>    <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"green"</span>, </span>
-<span id="cb19-12"><a href="#cb19-12"></a>    <span class="st">"Don't know"</span> <span class="ot">=</span> <span class="st">"gray"</span> </span>
-<span id="cb19-13"><a href="#cb19-13"></a>  )) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="choosing-better-colors" class="level2">
-<h2 class="anchored" data-anchor-id="choosing-better-colors">Choosing better colors</h2>
-<p><a href="https://colorbrewer2.org/">colorbrewer2.org</a></p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="images/05/color-brewer.png" class="img-fluid figure-img" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="use-better-colors" class="level2">
-<h2 class="anchored" data-anchor-id="use-better-colors">Use better colors</h2>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-19-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-19-1" role="tab" aria-controls="tabset-19-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-19-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-19-2" role="tab" aria-controls="tabset-19-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
 <div id="tabset-19-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-19-1-tab">
@@ -1196,7 +1187,7 @@ Q:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="06-viz_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p><img src="06-viz_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
 </figure>
 </div>
 </div>
@@ -1212,18 +1203,33 @@ Q:
 <span id="cb20-6"><a href="#cb20-6"></a>       <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
 <span id="cb20-7"><a href="#cb20-7"></a>       <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>,</span>
 <span id="cb20-8"><a href="#cb20-8"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb20-9"><a href="#cb20-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
-<span id="cb20-10"><a href="#cb20-10"></a>    <span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"#ef8a62"</span>, </span>
-<span id="cb20-11"><a href="#cb20-11"></a>    <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"#67a9cf"</span>, </span>
+<span id="cb20-9"><a href="#cb20-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>( </span>
+<span id="cb20-10"><a href="#cb20-10"></a>    <span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"red"</span>, </span>
+<span id="cb20-11"><a href="#cb20-11"></a>    <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"green"</span>, </span>
 <span id="cb20-12"><a href="#cb20-12"></a>    <span class="st">"Don't know"</span> <span class="ot">=</span> <span class="st">"gray"</span> </span>
-<span id="cb20-13"><a href="#cb20-13"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-13"><a href="#cb20-13"></a>  )) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+</div>
+<p>. . .</p>
+<p>But: red-green is the most common form of color vision deficiency (roughly 1 in 12 men), so these two bars can look nearly identical to many viewers.</p>
+</section>
+<section id="choosing-better-colors" class="level2">
+<h2 class="anchored" data-anchor-id="choosing-better-colors">Choosing better colors</h2>
+<p><a href="https://colorbrewer2.org/">colorbrewer2.org</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/05/color-brewer.png" class="img-fluid figure-img" style="width:60.0%" alt="Screenshot of the ColorBrewer website, which suggests sequential, diverging, and qualitative color palettes, including colorblind-safe options."></p>
+</figure>
 </div>
 </div>
 </div>
 </section>
-<section id="select-theme" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="select-theme">Select theme</h2>
+<section id="use-better-colors" class="level2">
+<h2 class="anchored" data-anchor-id="use-better-colors">Use better colors</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-20-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-20-1" role="tab" aria-controls="tabset-20-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-20-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-20-2" role="tab" aria-controls="tabset-20-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -1248,20 +1254,18 @@ Q:
 <span id="cb21-6"><a href="#cb21-6"></a>       <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
 <span id="cb21-7"><a href="#cb21-7"></a>       <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>,</span>
 <span id="cb21-8"><a href="#cb21-8"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
-<span id="cb21-9"><a href="#cb21-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"#ef8a62"</span>,</span>
-<span id="cb21-10"><a href="#cb21-10"></a>                               <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"#67a9cf"</span>,</span>
-<span id="cb21-11"><a href="#cb21-11"></a>                               <span class="st">"Don't know"</span> <span class="ot">=</span> <span class="st">"gray"</span>)) <span class="sc">+</span></span>
-<span id="cb21-12"><a href="#cb21-12"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-9"><a href="#cb21-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(</span>
+<span id="cb21-10"><a href="#cb21-10"></a>    <span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"#ef8a62"</span>, </span>
+<span id="cb21-11"><a href="#cb21-11"></a>    <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"#67a9cf"</span>, </span>
+<span id="cb21-12"><a href="#cb21-12"></a>    <span class="st">"Don't know"</span> <span class="ot">=</span> <span class="st">"gray"</span> </span>
+<span id="cb21-13"><a href="#cb21-13"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p><code>ggthemes</code> described <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">here</a></p>
-</div></div></section>
-<section id="customize-theme" class="level2">
-<h2 class="anchored" data-anchor-id="customize-theme">Customize theme</h2>
+</section>
+<section id="select-theme" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="select-theme">Select theme</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-21-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-21-1" role="tab" aria-controls="tabset-21-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-21-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-21-2" role="tab" aria-controls="tabset-21-2" aria-selected="false">Code</a></li></ul>
 <div class="tab-content">
@@ -1289,34 +1293,74 @@ Q:
 <span id="cb22-9"><a href="#cb22-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"#ef8a62"</span>,</span>
 <span id="cb22-10"><a href="#cb22-10"></a>                               <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"#67a9cf"</span>,</span>
 <span id="cb22-11"><a href="#cb22-11"></a>                               <span class="st">"Don't know"</span> <span class="ot">=</span> <span class="st">"gray"</span>)) <span class="sc">+</span></span>
-<span id="cb22-12"><a href="#cb22-12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
-<span id="cb22-13"><a href="#cb22-13"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>, </span>
-<span id="cb22-14"><a href="#cb22-14"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-12"><a href="#cb22-12"></a>  <span class="fu">theme_minimal</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Built-in themes described <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">here</a>; the <a href="https://jrnold.github.io/ggthemes/"><code>ggthemes</code></a> package has more</p>
+</div></div></section>
+<section id="customize-theme" class="level2">
+<h2 class="anchored" data-anchor-id="customize-theme">Customize theme</h2>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-22-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-22-1" role="tab" aria-controls="tabset-22-1" aria-selected="true">Plot</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-22-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-22-2" role="tab" aria-controls="tabset-22-2" aria-selected="false">Code</a></li></ul>
+<div class="tab-content">
+<div id="tabset-22-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-22-1-tab">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="06-viz_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-22-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-22-2-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(brexit, <span class="fu">aes</span>(<span class="at">y =</span> opinion, <span class="at">fill =</span> opinion)) <span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>region, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">labeller =</span> <span class="fu">label_wrap_gen</span>(<span class="at">width =</span> <span class="dv">12</span>)) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Was Britain right/wrong to vote to leave EU?"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6"></a>       <span class="at">subtitle =</span> <span class="st">"YouGov Survey Results, 2-3 September 2019"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7"></a>       <span class="at">caption =</span> <span class="st">"Source: bit.ly/2lCJZVg"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8"></a>       <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Wrong"</span> <span class="ot">=</span> <span class="st">"#ef8a62"</span>,</span>
+<span id="cb23-10"><a href="#cb23-10"></a>                               <span class="st">"Right"</span> <span class="ot">=</span> <span class="st">"#67a9cf"</span>,</span>
+<span id="cb23-11"><a href="#cb23-11"></a>                               <span class="st">"Don't know"</span> <span class="ot">=</span> <span class="st">"gray"</span>)) <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span> </span>
+<span id="cb23-13"><a href="#cb23-13"></a>  <span class="fu">theme</span>(<span class="at">plot.title.position =</span> <span class="st">"plot"</span>, </span>
+<span id="cb23-14"><a href="#cb23-14"></a>        <span class="at">panel.grid.major.y =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </section>
+<section id="principles-recap" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="principles-recap">Principles recap</h2>
+<p>What we covered (cite these by name in your homework and case studies):</p>
+<ul>
+<li><strong>Keep it simple</strong>: skip 3D and pies when a bar chart does the job</li>
+<li><strong>Use color to draw attention</strong> to what matters</li>
+<li><strong>Tell a story</strong>: annotate the takeaway</li>
+<li><strong>Order matters</strong>: avoid alphabetical; order by frequency or inherent order</li>
+<li><strong>Put long categories on the y-axis</strong></li>
+<li><strong>Keep scales consistent</strong> across panels</li>
+<li><strong>Pick a purpose</strong>: decide which comparison the plot should make easy (e.g., facets vs.&nbsp;stacked bars)</li>
+<li><strong>Select meaningful colors</strong>: colorblind-friendly, consistent meaning</li>
+<li><strong>Use meaningful and nonredundant labels</strong>: titles, subtitles, sources</li>
+</ul>
+</section>
 <section id="your-turn" class="level2">
 <h2 class="anchored" data-anchor-id="your-turn">Your Turn</h2>
 <ul>
-<li>Read in the data (<a href="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/06-viz.html#the-data-code">Data</a>)</li>
+<li>Copy the code that creates the data (<a href="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/06-viz.html#the-data-code">Data</a>)</li>
 <li>Think of at least three different ways to tell slightly different stories with these data</li>
 <li>Try to implement at least one of these ideas!</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>On <strong>Wednesday</strong>, we’ll use AI to implement design choices like these…and practice checking its work.</p>
-</div>
-</div>
 </section>
 </section>
 <section id="recap" class="level1" data-background-color="#92A86A">
@@ -1884,6 +1928,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/lectures/05-ggplot2.html" class="pagination-link" aria-label="05: ggplot2">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">05: ggplot2</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -1,7 +1,7 @@
 ---
 title: "06-viz"
 author: "Professor Shannon Ellis"
-date: "2026-10-12"
+date: "2026-10-14"
 
 format:
   html: 
@@ -16,42 +16,29 @@ Slides modified from [datascienceinabox.org](https://datasciencebox.org/)
 
 ## Q&A {.scrollable .smaller}
 
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+::: {.callout-note collapse="true" title="Q: Why was there a problem with the police not knowing whether the participants ingested a placebo, lower percentage, or higher percentage of THC?"}
+A: I was not as clear as I should have been in this! The police knew that some participants received a placebo and some did not (that's fine!), but they *also* knew how long it had been since they had smoked the joint. So, they would have expected (given knowing this information) that at each subsequent field sobriety test that they should maybe expect fewer and fewer participants to be impaired. Given unlimited resources, a more ideal design would have been to bring officers in randomly, without them knowing how far along the study was, so they didn't have any expectation/knowledge about how recently someone could have smoked (which is the case at the roadside...they don't know)
+:::
 
-::: {.callout-note collapse="true" title="Q: "}
-A: 
+::: {.callout-note collapse="true" title="Q: confused about the cutoffs - what do they mean"}
+A: The cutoffs are *if* we used that cutoff to determine someone had recently used then how many people would be "over the limit." 
 :::
 
 ## Course Announcements
 
 **Due Dates**:
 
--   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
+-   ⌨️ **Lab 03** due Fri 10/16 (11:59 PM)
 -   📚 **HW 02** due Sun 10/18 (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
-
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
-- **Lab 02** due tonight (11:59 PM)
-  - ~~`Group` re-coded as with WB/OF~~ <- removed from instructions
-- Lecture Participation survey "due" after class
-
-**Notes**:
-
--   Lab03 now available
--   Lab01 scores posted; Scores on Canvas; feedback as "issue" on GH
--   Case Study Groups will be sent tomorrow; will discuss case study in class on Tues.
--->
 
 ## Suggested Reading
 
 -   R4DS Chapter 11: [Data Communication](https://r4ds.hadley.nz/communication)
--   The Glamour of Graphics: \[[video](https://www.rstudio.com/resources/rstudioconf-2020/the-glamour-of-graphics/)\] \[[slides](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html)\] \[[Prof's slides inspired by Will's talk](https://docs.google.com/presentation/d/1wT9M4J2O72s_pbcoqmaNLgBQJIUi2SzmvSmULmOWbSM/edit?usp=sharing)\]
+-   The Glamour of Graphics: \[[video](https://posit.co/resources/videos/the-glamour-of-graphics)\]  \[[Prof's slides inspired by Will's talk](https://docs.google.com/presentation/d/1wT9M4J2O72s_pbcoqmaNLgBQJIUi2SzmvSmULmOWbSM/edit?usp=sharing)\]
 
 ```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
-library(scales)
 
 knitr::opts_chunk$set(fig.height = 3.5, dpi = 300, echo=TRUE) 
 ```
@@ -60,26 +47,26 @@ knitr::opts_chunk$set(fig.height = 3.5, dpi = 300, echo=TRUE)
 
 ::: columns
 ::: {.column width="50%"}
-```{r pie-3d, echo = FALSE, out.width="100%"}
+```{r pie-3d, echo = FALSE, out.width="100%", fig.alt="A 3D pie chart of five cost categories; the tilted perspective makes the slices hard to compare."}
 knitr::include_graphics("images/05/pie-3d.jpg")
 ```
 :::
 
 ::: {.column width="50%"}
-```{r pie-to-bar, echo = FALSE, out.width="100%"}
+```{r pie-to-bar, echo = FALSE, out.width="100%", fig.alt="The same five cost categories as a horizontal bar chart sorted by size: Labor is largest, then Machinery, Buildings and administration, Workpiece materials, and Cutting tools."}
 d <- tribble(
   ~category, ~value,
   "Cutting tools", 0.03,
   "Buildings and administration", 0.22,
   "Labor", 0.31,
   "Machinery", 0.27,
-  "Workplace materials", 0.17
+  "Workpiece materials", 0.17
 )
-ggplot(d, aes(x = fct_reorder(category, value), y = value)) +
+ggplot(d, aes(x = value, y = fct_reorder(category, value))) +
   geom_col() +
+  scale_x_continuous(labels = scales::label_percent()) +
   theme_minimal() +
-  coord_flip() +
-  labs(x = "", y = "")
+  labs(x = NULL, y = NULL)
 ```
 :::
 :::
@@ -101,12 +88,14 @@ d |>
 
 ::: {.column width="50%"}
 ```{r echo = FALSE, out.width="100%"}
-ggplot(d, aes(x = fct_reorder(category, value), y = value, fill = category)) +
+# highlight the largest category (Labor) by name, not by position
+ggplot(d, aes(x = value, y = fct_reorder(category, value),
+              fill = category == "Labor")) +
   geom_col() +
+  scale_x_continuous(labels = scales::label_percent()) +
+  scale_fill_manual(values = c("TRUE" = "red", "FALSE" = "gray")) +
   theme_minimal() +
-  coord_flip() +
-  labs(x = "", y = "") +
-  scale_fill_manual(values = c("red", rep("gray", 4))) +
+  labs(x = NULL, y = NULL) +
   theme(legend.position = "none")
 ```
 :::
@@ -114,7 +103,7 @@ ggplot(d, aes(x = fct_reorder(category, value), y = value, fill = category)) +
 
 ## Tell a story
 
-```{r echo = FALSE, out.width = "100%"}
+```{r echo = FALSE, out.width = "100%", fig.alt="Two versions of Duke hires by month, 2010 to 2015. Left: one line per year in six colors with a legend, hard to read. Right: all years in a single color with July highlighted and the note: Hires always peak in July, which is the start of Duke's fiscal year."}
 knitr::include_graphics("images/05/time-series-story.png")
 ```
 
@@ -245,8 +234,6 @@ ggplot(brexit, aes(x = opinion)) +
 ```
 :::
 
-------------------------------------------------------------------------
-
 ## Avoiding Alphabetical Order
 
 ::: panel-tabset
@@ -289,8 +276,6 @@ ggplot(brexit, aes(x = region)) +
   geom_bar()
 ```
 :::
-
-------------------------------------------------------------------------
 
 ## Clean up labels
 
@@ -428,6 +413,28 @@ ggplot(brexit, aes(y = opinion, fill = region)) +
   facet_wrap(~region, nrow = 1) 
 ```
 :::
+
+## Keep scales consistent
+
+::: panel-tabset
+### Plot
+
+```{r ref.label="free-scales", echo = FALSE, fig.asp = 0.45, out.width = "90%"}
+```
+
+### Code
+
+```{r free-scales, fig.show = "hide"}
+#| code-line-numbers: "3"
+
+ggplot(brexit, aes(y = opinion)) +
+  geom_bar() +
+  facet_wrap(~region, nrow = 1, scales = "free_x")
+```
+:::
+
+-   `scales = "free_x"` gives each panel its own x-axis: Scotland's "Wrong" bar (92 people) now looks as long as Rest of South's (257)
+-   The default (fixed scales) keeps panels comparable; only free scales on purpose, and say so
 
 ## Avoid redundancy?
 
@@ -615,11 +622,15 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 ```
 :::
 
+. . .
+
+But: red-green is the most common form of color vision deficiency (roughly 1 in 12 men), so these two bars can look nearly identical to many viewers.
+
 ## Choosing better colors
 
 [colorbrewer2.org](https://colorbrewer2.org/)
 
-```{r echo = FALSE, out.width = "60%"}
+```{r echo = FALSE, out.width = "60%", fig.alt="Screenshot of the ColorBrewer website, which suggests sequential, diverging, and qualitative color palettes, including colorblind-safe options."}
 knitr::include_graphics("images/05/color-brewer.png")
 ```
 
@@ -681,7 +692,7 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 :::
 
 ::: aside
-`ggthemes` described [here](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+Built-in themes described [here](https://ggplot2.tidyverse.org/reference/ggtheme.html); the [`ggthemes`](https://jrnold.github.io/ggthemes/) package has more
 :::
 
 ## Customize theme
@@ -714,15 +725,26 @@ ggplot(brexit, aes(y = opinion, fill = opinion)) +
 ```
 :::
 
+## Principles recap {.smaller}
+
+What we covered (cite these by name in your homework and case studies):
+
+-   **Keep it simple**: skip 3D and pies when a bar chart does the job
+-   **Use color to draw attention** to what matters
+-   **Tell a story**: annotate the takeaway
+-   **Order matters**: avoid alphabetical; order by frequency or inherent order
+-   **Put long categories on the y-axis**
+-   **Keep scales consistent** across panels
+-   **Pick a purpose**: decide which comparison the plot should make easy (e.g., facets vs. stacked bars)
+-   **Select meaningful colors**: colorblind-friendly, consistent meaning
+-   **Use meaningful and nonredundant labels**: titles, subtitles, sources
+
 ## Your Turn
 
--   Read in the data ([Data](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/06-viz.html#the-data-code))
+-   Copy the code that creates the data ([Data](https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/06-viz.html#the-data-code))
 -   Think of at least three different ways to tell slightly different stories with these data
 -   Try to implement at least one of these ideas!
 
-::: callout-note
-On **Wednesday**, we'll use AI to implement design choices like these...and practice checking its work.
-:::
 
 # Recap {background-color="#92A86A"}
 
