@@ -685,7 +685,7 @@ ggplot(wb_early, aes(x = thc, y = treatment, fill = treatment)) +
                                "13.4% THC (high dose)" = "#3182bd")) +
   guides(fill = "none") +
   labs(
-    title = "Blood THC was no higher after the high dose",
+    title = "Blood THC was no higher in the high dose group",
     subtitle = "Whole blood samples, 0-30 minutes after smoking began",
     x = "THC (ng/mL, pseudo-log scale)",
     y = NULL,
