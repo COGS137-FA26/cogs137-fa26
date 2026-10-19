@@ -18,7 +18,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ##### Instructional Staff & Office Hours
 
 |                |                                                 |                  |             |                                              |
-|--------------|--------------|--------------|--------------|------------------|
+|----------------|-------------------------------------------------|------------------|-------------|----------------------------------------------|
 | **Instructor** | [**Shannon Ellis**](https://shannon-ellis.com/) | sellis\@ucsd.edu | Mon 11A-12P | CSB 243                                      |
 |                |                                                 |                  | Tu 1-3P     | 10 min appt on Zoom (see Canvas for sign-up) |
 | **TA**         | Vinuthna Hasthi                                 |                  | Wed 3-4     | 10 min appt on Zoom (see Canvas for sign-up) |
@@ -38,7 +38,7 @@ htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 Texts are freely available online:
 
 |                                                                         |                                          |                     |
-|----------------------------------|--------------------|------------------|
+|-------------------------------------------------------------------------|------------------------------------------|---------------------|
 | [Introduction to Modern Statistics](https://openintro-ims.netlify.app/) | Çetinkaya-Rundel and Hardin              | OpenIntro, 2e, 2024 |
 | [R for Data Science](https://r4ds.hadley.nz/)                           | Wickham, Çetinkaya-Rundel, and Grolemund | O'Reilly, 2e, 2023  |
 | [Tidy Modeling With R](https://www.tmwr.org/)                           | Max Kuhn and Julia Silge                 | O'Reilly, 1e, 2022  |

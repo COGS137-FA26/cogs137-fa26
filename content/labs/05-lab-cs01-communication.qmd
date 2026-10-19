@@ -1,6 +1,5 @@
 ---
 title: "Lab 05 - CS01 Communication"
-date: "2024-11-07"
 output: 
   html: 
     highlight: pygments

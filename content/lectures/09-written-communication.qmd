@@ -14,22 +14,9 @@ format:
 
 ## Q&A {.scrollable .smaller}
 
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-
 ::: {.callout-note collapse="true" title="Q: "}
-A: 
+A:
 :::
-
-## [ad] CSS Masters Program
-
-![](images/07/CSS.png)
-About the CSS MS Program: 
-
-UC San Diego's one-year M.S. in Computational Social Science combines coursework approaches and formal models across social science disciplines with modern computational data analysis techniques. With a hands-on curriculum involving a summer bootcamp, core foundational training, in-depth electives across fields, and a portfolio-building capstone project, this program provides substantive and wide-ranging practice applying skill sets to real-world problems preparing graduates for careers in industry, public policy, education, non-profits, or for further academic study in a Ph.D. program. 
-
-## [ad] COGS Transfers
-
-![](images/07/transfers.png)
 
 ## Course Announcements
 
@@ -41,6 +28,7 @@ UC San Diego's one-year M.S. in Computational Social Science combines coursework
 -   🔘 **Mid-course survey** due Fri 10/30 (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
 
+```{=html}
 <!-- FA24 announcements, kept for reference:
 **Due Dates**:
 
@@ -55,7 +43,7 @@ Notes:
 - lab 05 is available and the focus this Fri/Mon lab...but not due until after CS01. Best to do it before CS01, as it will help CS01 completion
 - Thursday will be semi-guided class time for working on your case study. Communicate with your group to encourage attendance.
 -->
-
+```
 ```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(emo)
@@ -89,6 +77,70 @@ Note: We'll discuss oral communication closer to the end of the quarter, when yo
 -   Quarto: [Execution Options](https://quarto.org/docs/computations/execution-options.html) (code chunks & inline code)
 -   Quarto: [HTML Basics](https://quarto.org/docs/output-formats/html-basics.html) and [HTML Code Blocks](https://quarto.org/docs/output-formats/html-code.html)
 
+
+# Data Wrangling: `tidyr` {background-color="#92A86A"}
+
+-   pivots (`tidyr`)
+-   joins (`dplyr`)
+
+## Reminder: Tidy Data
+
+![](images/06/tidydata_1.jpg)
+
+. . .
+
+![](images/06/tidydata_2.jpg)
+
+. . .
+
+![](images/06/tidydata_3.jpg)
+
+## Pivoting
+
+Storing the same data in a different format
+
+. . .
+
+### long vs. wide
+
+-   **wide** data contains values that do not repeat in the first column. (analysis; storage)
+-   **long** format contains values that do repeat in the first column. (plotting)
+
+## pivots
+
+-   `pivot_longer` \| take wide data and make it long
+-   `pivot_wider` \| take long data and make it wide
+
+## Joins
+
+Combining data across different datasets, using common information (often: IDs)
+
+. . .
+
+**Mutating Joins**
+
+add new variables to a data frame from matching observations in another
+
+. . .
+
+-   **`left_join`**: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information
+-   **`right_join`**: keeps all observations in second df
+-   **`full_join`**: keeps all observations in either df
+
+. . .
+
+![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-outer.png)
+
+. . .
+
+**`inner_join`**: takes only rows in *both* dfs
+
+![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-inner.png)
+
+## Binding dataframes
+
+-   `bind_rows()` - stack different dataframes on top of one another, combining information where column names are the same \<- *what I used to combine the three datasets after wrangling*
+-   `bind_cols()` - stack dataframes next to one another; will assume rows match up \<- use with caution
 
 # Consider your audience {background-color="#92A86A"}
 
@@ -170,7 +222,6 @@ Avoid: "Tickets vs. Time"
 
 Better: "Staff unable to respond to incoming tickets; need to hire 2 FTEs"
 
-
 # Effective Written Communication {background-color="#92A86A"}
 
 ## Benefits of written communciation
@@ -205,7 +256,7 @@ Source: [Storytelling wtih data](https://www.storytellingwithdata.com/book/downl
 
 ## Data Science Reports in .qmd
 
-:::incremental
+::: incremental
 -   As **concise** as possible
 -   **Important information introduced** before referenced (datasets, jargon, etc.)
 -   **Necessary details** (for your audience); nothing more
@@ -286,14 +337,12 @@ format:
 
 -   Specified at the top of the chunk, one per line, with `#|`
 
-````
-```{r}
+```{{r}}
 #| label: chunk-label
 #| results: hide
 #| fig-height: 4
 
 ```
-````
 
 . . .
 
@@ -405,7 +454,7 @@ Note: .bib files can be included with BibTeX references using the `bibliography`
 These ideas and slides are all modified from Will Chase's rstudio::conf2020 [slides](https://www.williamrchase.com/slides/assets/player/KeynoteDHTMLPlayer.html)/talk
 :::
 
-. . . 
+. . .
 
 The following example uses the `penguins` dataset from the `palmerpenguins` package (would have to be installed to run these.)
 
@@ -415,8 +464,7 @@ library(palmerpenguins)
 
 ## An Example...
 
-:::panel-tabset
-
+::: panel-tabset
 ### 😬 Accurate
 
 ```{r}
@@ -427,7 +475,6 @@ ggplot(penguins, aes(x = species, fill = species)) +
   labs(title = "Count vs. Species") +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 ```
-
 
 ### 😍 Effective
 
@@ -447,21 +494,18 @@ ggplot(penguins, aes(y = fct_rev(fct_infreq(species)), fill = species)) +
         legend.position = "none")
 ```
 
-
 ### Changes
 
-- Informative Titles
-- Left Align Titles
-- Borders & Backgrounds: 👎
-- Organize & Remove/Lighten as much as possible
-- Legends Suck
-- Avoid head-tilting
-
+-   Informative Titles
+-   Left Align Titles
+-   Borders & Backgrounds: 👎
+-   Organize & Remove/Lighten as much as possible
+-   Legends Suck
+-   Avoid head-tilting
 
 ::: callout-note
 A reminder that when you're doing EDA, you're going to generate a lot of plots. Don't spend your time making all of them beautiful. Save that for the "editing" portion of your case study. Once you know which are needed to tell your story, add them in.
 :::
-
 :::
 
 # HW02 (revisited) · replace with FA26 examples {background-color="#92A86A"}
@@ -570,7 +614,6 @@ ggplot(fight_songs_data, aes(x = sec_duration, y = bpm)) +
         panel.grid.minor = element_blank()
     )
 ```
-
 :::
 
 ## Hate Crimes (Adam)
@@ -580,7 +623,7 @@ ggplot(fight_songs_data, aes(x = sec_duration, y = bpm)) +
 
 ![alt text](https://fivethirtyeight.com/wp-content/uploads/2017/01/majumder-hate-crimes-corrected.png)
 
-### Plot 
+### Plot
 
 ```{r ref.label="Adam", echo = FALSE, out.width="100%"}
 ```
@@ -645,7 +688,6 @@ ggplot(map_data, aes(x = long, y = lat, group = group, fill = hate_crimes_per_10
 ```
 :::
 
-
 ## Congress Age
 
 ::: panel-tabset
@@ -653,12 +695,12 @@ ggplot(map_data, aes(x = long, y = lat, group = group, fill = hate_crimes_per_10
 
 ![Median Age of Congress](images/11/congress.png)
 
-### Plot 
+### Plot
 
 ```{r ref.label="Congress", echo = FALSE, out.width="100%"}
 ```
 
-### Code 
+### Code
 
 ```{r Congress, fig.show = "hide"}
 congress_data = read_csv("data/data_aging_congress.csv")
@@ -708,8 +750,8 @@ ggplot(congress_median_age, aes(x = year, y = median_age, color = chamber)) +
 
 ## Part II: Sad Plot
 
-
 ## Votes
+
 ::: panel-tabset
 ### Original
 
@@ -806,8 +848,8 @@ WB |>
 
 ## Recap {background-color="#92A86A"}
 
-- Tailor communication for setting and audience
-- Written communication has benefit of time; limitation of additional explanation
-- Can you control your HTML output from a .qmd document?
-- Do you know when to cite a source? 
-- Can you implement design choices when generating visualizations for communication?
+-   Tailor communication for setting and audience
+-   Written communication has benefit of time; limitation of additional explanation
+-   Can you control your HTML output from a .qmd document?
+-   Do you know when to cite a source?
+-   Can you implement design choices when generating visualizations for communication?

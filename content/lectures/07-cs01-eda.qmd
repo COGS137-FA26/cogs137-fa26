@@ -1,7 +1,7 @@
 ---
 title: "08-cs01-eda"
 author: "Professor Shannon Ellis"
-date: "2026-10-16"
+date: "2026-10-18"
 
 format:
   html: 
@@ -25,75 +25,57 @@ knitr::opts_chunk$set(dpi=300, echo=TRUE, warning=FALSE, message=FALSE)
 
 ## Q&A {.scrollable .smaller}
 
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+::: {.callout-note collapse="true" title="Q: How exactly do color choice and visualization are restricted to certain geom plots?"}
+A: I'm not sure I totally understand the question. But, you can control color on all geoms. The specific parameter may differ, but all color can be controlled.
+:::
 
-::: {.callout-note collapse="true" title="Q: "}
-A: 
+::: {.callout-note collapse="true" title="Q: Is there a guide to different data visualizations and what is best where?"}
+A: Yup! https://www.data-to-viz.com/
+:::
+
+::: {.callout-note collapse="true" title="Q: I'm curious about how group assignments are divided into groups."}
+A: I break it into those who typically attend class, those who occassionally attend class, and those who don't attend class and then randomly assign within those groups. This will be announced this week.
 :::
 
 ## Course Announcements
 
 **Due Dates**:
 
--   ⌨️ **Lab 02** due Fri 10/16 (11:59 PM)
--   📚 **HW 02** due Sun 10/18 (11:59 PM)
--   ⌨️ **Lab 03** due Fri 10/23 (11:59 PM)
+-   **Lab 04** due Fri (11:59 PM)
+-   **HW 02** due Sun (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
 
-::: callout-important
-The CS01 data are data for you only. My collaborator is excited that y'all will be working on this...but these are still research data, so please do not share with others or post publicly.
-:::
 
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
-- `r emo::ji("science")` **Lab 03** due Thursday (10/24; 11:59 PM)
-- `r emo::ji("computer")` **HW02** (Viz) due Mon (10/28; 11:59 PM)
-- `r emo::ji('clipboard')` Lecture Participation survey "due" after class
-
-**Notes**:
-
--   **hw01** and **lab02** scores posted; Scores on Canvas; feedback as "issue" on GH
--   **CS01 Groups** have been sent out
-    -   email for contact 
-    -   GitHub repo: `cs01-<team name>` in the [course GitHub organization](https://github.com/COGS137-FA26) \<- please open it and make sure you have access
-    -   group mate feedback is required (on submission)
-    
-. . . 
-
-::: callout-important
-The CS01 data are data for you only. My collaborator is excited that y'all will be working on this...but these are still research data, so please do not share with others or post publicly.
-:::
--->
+Note: cs01 groups will (for real this time) be sent out tomorrow
 
 ## Suggested Reading
 
-- 📕 R4DS Chapter 10: [EDA](https://r4ds.hadley.nz/eda)
-- 📕 R4DS Chapter 25: [Functions](https://r4ds.hadley.nz/functions)
+-   📕 R4DS Chapter 10: [EDA](https://r4ds.hadley.nz/eda)
+-   📕 R4DS Chapter 25: [Functions](https://r4ds.hadley.nz/functions)
 
 ## Agenda
-- CS01
-  - Instructions 
-  - Previous Projects
-  - CS01 EDA
-- `tidyr`
-- Exploratory Data Analysis (EDA)
+
+-   CS01
+    -   Instructions
+    -   Previous Projects
+    -   CS01 EDA
+-   `tidyr`
+-   Exploratory Data Analysis (EDA)
 
 # CS01 {background-color="#92A86A"}
 
-
-## CS01 Instructions 
+## CS01 Instructions
 
 Instructions are on [course website](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html).
 
-Note: 
+Note:
 
-- Deliverables: Full report (.html) + general communication
-- [Common Deductions](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html)
+-   Deliverables: Full report (.html) + general communication
+-   [Common Deductions](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html)
 
 ## Example Case Study
 
-See & Discuss: [https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html](https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html)
+See & Discuss: <https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html>
 
 ## Feedback & Scores
 
@@ -103,7 +85,7 @@ Feedback to other students [here](https://docs.google.com/spreadsheets/d/1GZINOZ
 You cannot see the projects, but can read all of the comments and see the associated score. Also, note that the same row is not the same group.
 :::
 
-. . . 
+. . .
 
 Common comments:
 
@@ -119,7 +101,6 @@ This is *NOT* the rubric for your case study, but it will be similar:
 
 ![](images/06/rubric.png)
 
-
 ## Notes
 
 ::: incremental
@@ -130,96 +111,27 @@ This is *NOT* the rubric for your case study, but it will be similar:
 -   Your final report should be polished from start to finish
 :::
 
-# Data Wrangling: `tidyr` {background-color="#92A86A"}
-
-- pivots (`tidyr`)
-- joins (`dplyr`)
-
-## Reminder: Tidy Data
-
-![](images/06/tidydata_1.jpg)
-
-. . . 
-
-![](images/06/tidydata_2.jpg)
-
-. . . 
-
-![](images/06/tidydata_3.jpg)
-
-
-
-## Pivoting
-
-Storing the same data in a different format
-
-. . . 
-
-### long vs. wide
-
--   **wide** data contains values that do not repeat in the first column. (analysis; storage)
--   **long** format contains values that do repeat in the first column. (plotting)
-
-
-## pivots
-
-- `pivot_longer` | take wide data and make it long
-- `pivot_wider` | take long data and make it wide
-
-
-## Joins
-
-Combining data across different datasets, using common information (often: IDs)
-
-. . . 
-
-**Mutating Joins**
-
-add new variables to a data frame from matching observations in another
-
-. . . 
-
-- **`left_join`**: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information
-- **`right_join`**: keeps all observations in second df 
-- **`full_join`**: keeps all observations in either df
-
-. . . 
-
-![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-outer.png)
-
-. . . 
-
-**`inner_join`**: takes only rows in *both* dfs
-
-![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-inner.png)
-
-## Binding dataframes
-
-- `bind_rows()` - stack different dataframes on top of one another, combining information where column names are the same <- *what I used to combine the three datasets after wrangling*
-- `bind_cols()` - stack dataframes next to one another; will assume rows match up <- use with caution
-
 
 # Exploratory Data Analysis (EDA) {background-color="#92A86A"}
 
 ## EDA
 
-The process of really getting to "know" your data: 
+The process of really getting to "know" your data:
 
-- calculating descriptive statistics (min, mean, median, max, etc.)
-- univariate plots (histograms, densityplots, barplots) - distributions of single variables 
-- bivariate plots (scatterplots, boxplots) - relationships between variables
+-   calculating descriptive statistics (min, mean, median, max, etc.)
+-   univariate plots (histograms, densityplots, barplots) - distributions of single variables
+-   bivariate plots (scatterplots, boxplots) - relationships between variables
 
-. . . 
+. . .
 
-Notes: 
+Notes:
 
-:::incremental
-- Not every plot you generate in this process has to end up in your final report, but each plot should help you learn
-- Every plot should NOT be *beautiful*. Save that time for the ones you ultimately use to communicate your findings
-- There is NOT a formula for carrying out EDA. You stop once you understand your data fully.
-- Lab03 is to get you started. Three plots is probably not enough for you to be fully comfortable with these data.
+::: incremental
+-   Not every plot you generate in this process has to end up in your final report, but each plot should help you learn
+-   Every plot should NOT be *beautiful*. Save that time for the ones you ultimately use to communicate your findings
+-   There is NOT a formula for carrying out EDA. You stop once you understand your data fully.
+-   Lab03 is to get you started. Three plots is probably not enough for you to be fully comfortable with these data.
 :::
-
 
 # Data & Files {background-color="#92A86A"}
 
@@ -235,7 +147,7 @@ Three matrices:
 -   Oral Fluid (OF): 7 compounds; 192 participants
 -   Breath (BR): 1 compound; 191 participants
 
-. . . 
+. . .
 
 Variables:
 
@@ -255,7 +167,6 @@ cs01_data <- read_csv("data/cs01_combined.csv") |>
   mutate(treatment = fct_relevel(treatment, "Placebo", "5.9% THC (low dose)"))
 ```
 
-
 ## Time windows & compounds {.scrollable}
 
 Defined once in `src/cs01_functions.R` (and used by `clean_cs01()`, which made the time windows in this file):
@@ -267,14 +178,14 @@ Defined once in `src/cs01_functions.R` (and used by `clean_cs01()`, which made t
 
 ## Single Variable (basic) plots
 
-
 For a single compound...
 
 ```{r}
 ggplot(cs01_data, aes(x=thc)) + 
   geom_histogram()
 ```
-. . . 
+
+. . .
 
 But, we have three different matrices...
 
@@ -297,7 +208,7 @@ cs01_long <- cs01_to_long(cs01_data)
 We select the compound columns *by name* (`cs01_compounds`), not by position (e.g. `7:15`), so this keeps working if the columns move.
 :::
 
-. . . 
+. . .
 
 Distributions across all compounds:
 
@@ -309,7 +220,7 @@ ggplot(cs01_long, aes(x=value)) +
 
 ...but this still doesn't get at the differences between matrices *and* compound.
 
-. . . 
+. . .
 
 Plotting some of these data...
 
@@ -322,7 +233,6 @@ ggplot(aes(x=value)) +
 ```
 
 ## THC & Frequency
-
 
 ```{r}
 cs01_long |> 
@@ -360,8 +270,7 @@ We start to get a sense of the data with these quick and dirty plots, but we're 
 
 These data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects.
 
-
-## Day 2 · Mon 10/19 {background-color="#92A86A"}
+## Day 2 · Wed 10/21 {background-color="#92A86A"}
 
 Functions & working across time windows.
 
@@ -375,7 +284,7 @@ function_name <- function(input){
 }
 ```
 
-. . . 
+. . .
 
 For example...
 
@@ -385,7 +294,7 @@ double_value <- function(val){
 }
 ```
 
-. . . 
+. . .
 
 To use/execute:
 
@@ -393,8 +302,7 @@ To use/execute:
 double_value(3)
 ```
 
-
-Additional resource: [https://r4ds.hadley.nz/functions](https://r4ds.hadley.nz/functions)
+Additional resource: <https://r4ds.hadley.nz/functions>
 
 ## Compounds across time
 
@@ -410,7 +318,6 @@ Our first user-defined function takes the data and the matrix as arguments:
 
 ```{r cs01_plot_time}
 ```
-
 
 ### Plots (WB)
 
@@ -432,15 +339,13 @@ plot_scatter_time(cs01_long, "BR")
 
 ### Thoughts
 
-:::incremental
-- We do NOT have clear delineations in time
-- This means there *could* be multiple measurements from a single individual within a specified timepoint (i.e. "0-30 min")
-- We wouldn't want to include duplicate measures from the same individual within timepoint
-- We wouldn't have known this without looking at our data...why EDA is necessary
+::: incremental
+-   We do NOT have clear delineations in time
+-   This means there *could* be multiple measurements from a single individual within a specified timepoint (i.e. "0-30 min")
+-   We wouldn't want to include duplicate measures from the same individual within timepoint
+-   We wouldn't have known this without looking at our data...why EDA is necessary
 :::
-
 :::
-
 
 ## Dropping Duplicates (w/n time window)
 
@@ -451,7 +356,7 @@ plot_scatter_time(cs01_long, "BR")
 cs01_nodups <- drop_dups(cs01_data)
 ```
 
-. . . 
+. . .
 
 Now to pivot_longer that...
 
@@ -462,7 +367,6 @@ cs01_nodups_long <- cs01_to_long(cs01_nodups)
 ::: callout-note
 While I drop duplicates *after* making the plots above, you and your group will want to think about when it should be done for telling the clearest story. The order we do things in EDA is not typically the order in which we communicate information.
 :::
-
 
 ## Group Differences: Frequency of Use
 
@@ -495,10 +399,9 @@ plot_boxplots(cs01_nodups_long, "BR", x = group)
 ### Thoughts
 
 ::: incremental
-- Certain compounds show different values between frequent and infrequent users. Worth considering what that means for our ultimate goal
-- Breath at this first timepoint likely not very helpful...what about other timepoints?
+-   Certain compounds show different values between frequent and infrequent users. Worth considering what that means for our ultimate goal
+-   Breath at this first timepoint likely not very helpful...what about other timepoints?
 :::
-
 :::
 
 ## Group Differences: Treatment
@@ -533,14 +436,13 @@ plot_boxplots(cs01_nodups_long, "BR", x = treatment)
 ### Thoughts
 
 ::: incremental
-- Argument for combining treatment groups? 
-- Shared `ggplot2` settings live in `theme_cs01()` and `cs01_colors`, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that's a function waiting to happen.
-- These last two sets of plots have only focused on that first timepoint. You'll probably want to look beyond that. 
+-   Argument for combining treatment groups?
+-   Shared `ggplot2` settings live in `theme_cs01()` and `cs01_colors`, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that's a function waiting to happen.
+-   These last two sets of plots have only focused on that first timepoint. You'll probably want to look beyond that.
+:::
 :::
 
-:::
-
-## Day 3 · Wed 10/21 {background-color="#92A86A"}
+## Day 3 · Fri 10/23 {background-color="#92A86A"}
 
 Sensitivity, specificity & choosing cutoffs: the core of the CS01 question.
 
@@ -583,9 +485,8 @@ Cannot be a TP or FN before consuming...
 ## The Code to come
 
 ::: callout-warning
-This is beyond code I would expect you all to be able to write yourself. It's here so that 1) you can make these calculations and interpret the results,  2) because we have a wide range of background and experience. I want *everyone* to get as much as they can out of this course,  and 3) I do want you all to talk to one another. That's one reason you all are in groups for case studies.
+This is beyond code I would expect you all to be able to write yourself. It's here so that 1) you can make these calculations and interpret the results, 2) because we have a wide range of background and experience. I want *everyone* to get as much as they can out of this course, and 3) I do want you all to talk to one another. That's one reason you all are in groups for case studies.
 :::
-
 
 ## Calculating Sensitivity and Specificity
 
@@ -615,7 +516,7 @@ cs01_ss <- sens_spec(cs01_nodups_long, cutoffs = c(0.5, 1, 2, 5, 10))
 cs01_ss
 ```
 
-### THC @ 5 ng/mL
+### THC \@ 5 ng/mL
 
 ```{r}
 cs01_ss |>
@@ -654,10 +555,10 @@ plot_cutoffs(cs01_ss, "BR", "thc", title = "Breath")
 
 ### Thoughts
 
-- This is only THC
-- For five semi-random cutoffs
-- There are other compounds and other cutoffs to consider
-- Breath THC is measured in pg/pad (not ng/mL), so these cutoffs don't separate anything for breath (the lines overlap). What cutoffs would make sense there?
+-   This is only THC
+-   For five semi-random cutoffs
+-   There are other compounds and other cutoffs to consider
+-   Breath THC is measured in pg/pad (not ng/mL), so these cutoffs don't separate anything for breath (the lines overlap). What cutoffs would make sense there?
 :::
 
 ## Possible Extensions
@@ -714,13 +615,11 @@ Things to keep in mind:
 Avoid the temptation to assign "Analysis" to one group member. You'll all likely have to contribute here.
 :::
 
-
 ## Collaborating on GitHub
 
 -   Be sure to pull changes every time you sit down to work
 -   Avoid working on the same part of the same file as another teammate OR work in separate files and combine at the end
 -   push your changes once you're ready to add them to the group
-
 
 ## Recap {.smaller background-color="#92A86A"}
 

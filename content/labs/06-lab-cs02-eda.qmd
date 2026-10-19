@@ -1,6 +1,5 @@
 ---
 title: "Lab 06 - CS02 EDA"
-date: "2024-11-14"
 output: 
   html: 
     highlight: pygments

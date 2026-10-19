@@ -15,8 +15,8 @@ project:
     - content/labs/01-lab-intro-r.qmd
     - content/hw/hw-01.qmd
     # # CS01
-    # - content/cs/cs01.qmd
-    # - content/cs/cs-example.qmd
+    - content/cs/cs01.qmd
+    - content/cs/cs-example.qmd
     - content/lectures/0[3-9]-*.qmd
     # - content/lectures/10-*.qmd
     - content/labs/0[2-5]-*.qmd
@@ -100,8 +100,8 @@ website:
             href: content/lectures/06-viz-cs01.qmd
       #     - text: "07: AI-Assisted Analysis"
       #       href: content/lectures/07-ai-assisted-analysis.qmd
-      #     - text: "08: CS01 EDA"
-      #       href: content/lectures/08-cs01-eda.qmd
+          - text: "07: CS01 EDA"
+            href: content/lectures/07-cs01-eda.qmd
       #     - text: "09: Written Communication"
       #       href: content/lectures/09-written-communication.qmd
       #     - text: "10: CS01 In-class Work"
@@ -134,8 +134,8 @@ website:
             href: content/labs/02-lab-cs01-dplyr.qmd
           - text: "Lab 03: CS01 Data Visualization "
             href: content/labs/03-lab-cs01-viz.qmd
-      #     - text: "Lab 04: CS01 Data Visualization"
-      #       href: content/labs/04-lab-cs01-eda.qmd
+          - text: "Lab 04: CS01 EDA"
+            href: content/labs/04-lab-cs01-eda.qmd
       #     - text: "Lab 05: CS01 Communication"
       #       href: content/labs/05-lab-cs01-communication.qmd
       #     - text: "Lab 06: CS02 EDA"
@@ -143,11 +143,11 @@ website:
       #     - text: "Lab 07: Multiple Linear Regression"
       #       href: content/labs/07-lab-mlr.qmd
       - section: "Case Studies"
-        # contents:
-        #   - text: "Example Case Study"
-        #     href: content/cs/cs-example.qmd
-        #   - text: "CS01: Biomarkers of Recent Use"
-        #     href: content/cs/cs01.qmd
+        contents:
+          - text: "Example Case Study"
+            href: content/cs/cs-example.qmd
+          - text: "CS01: Biomarkers of Recent Use"
+            href: content/cs/cs01.qmd
         #   - text: "CS02: Predicting Air Pollution"
         #     href: content/cs/cs02.qmd
         #   - text: "Final Project"

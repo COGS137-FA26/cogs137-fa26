@@ -59,21 +59,33 @@
     "href": "content/labs/04-lab-cs01-eda.html",
     "title": "Lab 04 - CS01 EDA",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Labs",
+      "Lab 04: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/labs/04-lab-cs01-eda.html#part-1-building-beyond-class",
     "href": "content/labs/04-lab-cs01-eda.html#part-1-building-beyond-class",
     "title": "Lab 04 - CS01 EDA",
     "section": "Part 1: Building beyond class",
-    "text": "Part 1: Building beyond class\n\nExercise 1\nTake one of the more involved visualizations generated in class during CS01 EDA lectures (anything in the notes from “Compounds across time” (this part) or later) and improve upon the visualization to either 1) improve the clarity of the visualization and/or tell the story being communicated more clearly. Your code will likely look very similar to what was presented in class (and that’s OK), but should not be the exact same. And, note that you may need to do include some of the data wrangling from that set of notes to get the dataset into the necessary format for visualization (i.e. wide -&gt; long).\n\n\nExercise 2\nDescribe what changes you made above and why you chose to make those changes."
+    "text": "Part 1: Building beyond class\n\nExercise 1\nTake one of the more involved visualizations generated in class during CS01 EDA lectures (anything in the notes from “Compounds across time” (this part) or later) and improve upon the visualization to 1) improve the clarity of the visualization and/or 2) tell the story being communicated more clearly. Your code will likely look very similar to what was presented in class (and that’s OK), but should not be the exact same. And, note that you may need to include some of the data wrangling from that set of notes to get the dataset into the necessary format for visualization (i.e. wide -&gt; long).\n\n\nExercise 2\nDescribe what changes you made above and why you chose to make those changes.",
+    "crumbs": [
+      "Labs",
+      "Lab 04: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/labs/04-lab-cs01-eda.html#part-2-learning-something-new",
     "href": "content/labs/04-lab-cs01-eda.html#part-2-learning-something-new",
     "title": "Lab 04 - CS01 EDA",
     "section": "Part 2: Learning something new",
-    "text": "Part 2: Learning something new\n\nExercise 3\nConsider all we have discussed and plotted through the EDA presented in class and what you did in lab03. Now that you have a better understanding of the data and experiment, carry out some EDA to learn something beyond what was previously displayed/discussed in class and beyond what you did in lab03.\n\n\nExercise 4\nDescribe what new information you learned from what you generated above."
+    "text": "Part 2: Learning something new\n\nExercise 3\nConsider all we have discussed and plotted through the EDA presented in class and what you did in lab03. Now that you have a better understanding of the data and experiment, carry out some EDA to learn something beyond what was previously displayed/discussed in class and beyond what you did in lab03.\n\n\nExercise 4\nDescribe what new information you learned from what you generated above.",
+    "crumbs": [
+      "Labs",
+      "Lab 04: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/labs/03-lab-cs01-viz.html",
@@ -120,21 +132,7 @@
     "href": "content/lectures/09-written-communication.html#qa",
     "title": "09-written-communication",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#ad-css-masters-program",
-    "href": "content/lectures/09-written-communication.html#ad-css-masters-program",
-    "title": "09-written-communication",
-    "section": "[ad] CSS Masters Program",
-    "text": "[ad] CSS Masters Program\n About the CSS MS Program:\nUC San Diego’s one-year M.S. in Computational Social Science combines coursework approaches and formal models across social science disciplines with modern computational data analysis techniques. With a hands-on curriculum involving a summer bootcamp, core foundational training, in-depth electives across fields, and a portfolio-building capstone project, this program provides substantive and wide-ranging practice applying skill sets to real-world problems preparing graduates for careers in industry, public policy, education, non-profits, or for further academic study in a Ph.D. program."
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#ad-cogs-transfers",
-    "href": "content/lectures/09-written-communication.html#ad-cogs-transfers",
-    "title": "09-written-communication",
-    "section": "[ad] COGS Transfers",
-    "text": "[ad] COGS Transfers"
+    "text": "Q&A\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
   },
   {
     "objectID": "content/lectures/09-written-communication.html#course-announcements",
@@ -156,6 +154,41 @@
     "title": "09-written-communication",
     "section": "Suggested Reading",
     "text": "Suggested Reading\n\nQuarto: Execution Options (code chunks & inline code)\nQuarto: HTML Basics and HTML Code Blocks"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#reminder-tidy-data",
+    "href": "content/lectures/09-written-communication.html#reminder-tidy-data",
+    "title": "09-written-communication",
+    "section": "Reminder: Tidy Data",
+    "text": "Reminder: Tidy Data\n\n. . .\n\n. . ."
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#pivoting",
+    "href": "content/lectures/09-written-communication.html#pivoting",
+    "title": "09-written-communication",
+    "section": "Pivoting",
+    "text": "Pivoting\nStoring the same data in a different format\n. . .\n\nlong vs. wide\n\nwide data contains values that do not repeat in the first column. (analysis; storage)\nlong format contains values that do repeat in the first column. (plotting)"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#pivots",
+    "href": "content/lectures/09-written-communication.html#pivots",
+    "title": "09-written-communication",
+    "section": "pivots",
+    "text": "pivots\n\npivot_longer | take wide data and make it long\npivot_wider | take long data and make it wide"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#joins",
+    "href": "content/lectures/09-written-communication.html#joins",
+    "title": "09-written-communication",
+    "section": "Joins",
+    "text": "Joins\nCombining data across different datasets, using common information (often: IDs)\n. . .\nMutating Joins\nadd new variables to a data frame from matching observations in another\n. . .\n\nleft_join: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information\nright_join: keeps all observations in second df\nfull_join: keeps all observations in either df\n\n. . .\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html\n\n\n. . .\ninner_join: takes only rows in both dfs\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#binding-dataframes",
+    "href": "content/lectures/09-written-communication.html#binding-dataframes",
+    "title": "09-written-communication",
+    "section": "Binding dataframes",
+    "text": "Binding dataframes\n\nbind_rows() - stack different dataframes on top of one another, combining information where column names are the same &lt;- what I used to combine the three datasets after wrangling\nbind_cols() - stack dataframes next to one another; will assume rows match up &lt;- use with caution"
   },
   {
     "objectID": "content/lectures/09-written-communication.html#what-does-this-mean",
@@ -225,7 +258,7 @@
     "href": "content/lectures/09-written-communication.html#controlling-code-chunk-output",
     "title": "09-written-communication",
     "section": "Controlling code chunk output",
-    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n::: {.cell}\n\n:::\n. . .\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\n\n. . .\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
+    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n```{r}\n#| label: chunk-label\n#| results: hide\n#| fig-height: 4\n\n```\n. . .\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\n\n. . .\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
   },
   {
     "objectID": "content/lectures/09-written-communication.html#editing-proofreading",
@@ -323,21 +356,7 @@
     "href": "content/lectures/09-written-communication-slides.html#qa",
     "title": "09-written-communication",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#ad-css-masters-program",
-    "href": "content/lectures/09-written-communication-slides.html#ad-css-masters-program",
-    "title": "09-written-communication",
-    "section": "[ad] CSS Masters Program",
-    "text": "[ad] CSS Masters Program\n About the CSS MS Program:\nUC San Diego’s one-year M.S. in Computational Social Science combines coursework approaches and formal models across social science disciplines with modern computational data analysis techniques. With a hands-on curriculum involving a summer bootcamp, core foundational training, in-depth electives across fields, and a portfolio-building capstone project, this program provides substantive and wide-ranging practice applying skill sets to real-world problems preparing graduates for careers in industry, public policy, education, non-profits, or for further academic study in a Ph.D. program."
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#ad-cogs-transfers",
-    "href": "content/lectures/09-written-communication-slides.html#ad-cogs-transfers",
-    "title": "09-written-communication",
-    "section": "[ad] COGS Transfers",
-    "text": "[ad] COGS Transfers"
+    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\nA:"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#course-announcements",
@@ -359,6 +378,41 @@
     "title": "09-written-communication",
     "section": "Suggested Reading",
     "text": "Suggested Reading\n\nQuarto: Execution Options (code chunks & inline code)\nQuarto: HTML Basics and HTML Code Blocks"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#reminder-tidy-data",
+    "href": "content/lectures/09-written-communication-slides.html#reminder-tidy-data",
+    "title": "09-written-communication",
+    "section": "Reminder: Tidy Data",
+    "text": "Reminder: Tidy Data"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#pivoting",
+    "href": "content/lectures/09-written-communication-slides.html#pivoting",
+    "title": "09-written-communication",
+    "section": "Pivoting",
+    "text": "Pivoting\nStoring the same data in a different format\n\nlong vs. wide\n\nwide data contains values that do not repeat in the first column. (analysis; storage)\nlong format contains values that do repeat in the first column. (plotting)"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#pivots",
+    "href": "content/lectures/09-written-communication-slides.html#pivots",
+    "title": "09-written-communication",
+    "section": "pivots",
+    "text": "pivots\n\npivot_longer | take wide data and make it long\npivot_wider | take long data and make it wide"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#joins",
+    "href": "content/lectures/09-written-communication-slides.html#joins",
+    "title": "09-written-communication",
+    "section": "Joins",
+    "text": "Joins\nCombining data across different datasets, using common information (often: IDs)\n\nMutating Joins\nadd new variables to a data frame from matching observations in another\n\n\n\nleft_join: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information\nright_join: keeps all observations in second df\nfull_join: keeps all observations in either df\n\n\n\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html\n\n\n\n\ninner_join: takes only rows in both dfs\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#binding-dataframes",
+    "href": "content/lectures/09-written-communication-slides.html#binding-dataframes",
+    "title": "09-written-communication",
+    "section": "Binding dataframes",
+    "text": "Binding dataframes\n\nbind_rows() - stack different dataframes on top of one another, combining information where column names are the same &lt;- what I used to combine the three datasets after wrangling\nbind_cols() - stack dataframes next to one another; will assume rows match up &lt;- use with caution"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#what-does-this-mean",
@@ -428,7 +482,7 @@
     "href": "content/lectures/09-written-communication-slides.html#controlling-code-chunk-output",
     "title": "09-written-communication",
     "section": "Controlling code chunk output",
-    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n::: {.cell}\n\n:::\n\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\n\n\n\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
+    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n```{r}\n#| label: chunk-label\n#| results: hide\n#| fig-height: 4\n\n```\n\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\n\n\n\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#editing-proofreading",
@@ -2224,6 +2278,94 @@
     "text": "Recap\n\nCould you summarize/explain background presented?\nCould you summarize the experiment that was done?\nCould you describe the datasets? (variables, observations, values, etc.)\n\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
   },
   {
+    "objectID": "content/cs/cs01.html",
+    "href": "content/cs/cs01.html",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "",
+    "text": "Skip to main content\nThis is where you get to put together all you’ve learned so far this quarter into a full data science report! This report will include your analysis from top (the background and question) to bottom (your analysis, interpretation, and conclusions.)\nWe’ll be grading to see that you have: 1) all necessary code for each section of the project. 2) explanatory text that guides the reader from start to finish. 3) polished visualizations that allow the reader to both understand the data you’re working with an your conclusions.\nThis will be submitted and graded as a group. One submission per group.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#getting-started",
+    "href": "content/cs/cs01.html#getting-started",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "Getting started",
+    "text": "Getting started\nHere are the steps for getting started:\n\n\nAvoid waiting until the end to render for the first time. It will be better/easier/less of a headache if you render periodically and know it’s all working as intended.\n\nThis will be completed in the cs01-&lt;team name&gt; group repository that has been created for you and your group mates in the course GitHub organization.\nThree data files have been provided for you in the data/ directory, one for each matrix (blood, oral fluid, breath).\nCode + write away in the provided .qmd document!\nPeriodically render and commit changes (for example, once per each new part)\nPush all your changes back to your GitHub repo\nThis case study will be graded from the HTML file on your group’s GitHub repo.\n\n\n\n\n\n\n\nNote\n\n\n\nOutside resources & AI use: Your team’s .qmd includes an Outside Resources & AI Use section. Keep it updated as you go, including which team member(s) used each resource (write “None” if your team didn’t use any). This is required.\n\n\n\n\nA reminder that the Quarto documentation on HTML output covers controlling HTML output (table of contents, code folding, themes, etc.), in case you want to customize your output in some way.\n\nImports\nYou are allowed to import whichever packages you like for this case study report.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#main-question",
+    "href": "content/cs/cs01.html#main-question",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "Main Question",
+    "text": "Main Question\nAll groups will be answering the following question in their case study:\n\nWhich compound, in which matrix, and at what cutoff is the best biomarker of recent use?\n\n\n\nAs noted in class, different groups may have different answers, and that’s ok. You have to explain your thinking and use your analysis to help guide your conclusions.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#case-study-report",
+    "href": "content/cs/cs01.html#case-study-report",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "Case Study Report",
+    "text": "Case Study Report\nYour case study can be organized however you see best fit, but we’ll be looking for the following general sections:\n\nTitle\nAuthors\nBackground/Introduction\nQuestion(s)\nData\n\nData Explanation\nData Import\nData Wrangling\n\nAnalysis\nResults & Discussion (including limitations of your work)\nConclusion\n\n\n\nNow, you may want to combine some of these sections (i.e. include your results and discussion among your analysis code). That’s totally allowed, but we’ll be looking to see that your report includes sufficient information to understand what you did, why you did it, and what your results are.\n\nExtending the Analysis\nIn addition to getting the code presented in class working, adding explanatory text to your report, and generating polished visualizations, you and your group must “extend the analysis” beyond what was presented in class in a meaningful way. Now “meaningful” is not a very-easily-measured term. A meaningful extension could be carrying out analysis to answer an additional question beyond what was presented in class, or asking the same main question among subgroups, or finding a related dataset and incorporating it into your case study. To determine whether your extension is “meaningful,” you and your group should be able to answer “yes” to the question “Does our extension add something important to this report beyond what was presented in class?”\n\n\nThis extension should be included/woven into your report, meaning it should only be “separated out” as its own section if it makes most sense for the story you’re telling.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#general-communication",
+    "href": "content/cs/cs01.html#general-communication",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "General Communication",
+    "text": "General Communication\nEach group will need to convey the most important finding(s) to a general audience through some form of communication.\nThis is very open-ended in its format. It could be a short video, an infographic, an effective email, a graphic, Instagram slides, a short presentation, etc. It will be submitted by one group member on Canvas. (All group members will receive credit.)\nThe specific audience you want to target can be specified (i.e. police officers, undergraduate students, parents, etc.); however, the assumption is that these are NOT data scientists.\nYour communication SHOULD include your take-home message…and that may be all it includes! Basically, we want you to distill down your case study to its most important message and then convey that to the general public in an effective manner.\nIt should NOT contain specifics of your analysis or anywhere near all the information included in your report.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#group-feedback",
+    "href": "content/cs/cs01.html#group-feedback",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "Group Feedback",
+    "text": "Group Feedback\nThere will be a form to submit upon submission of the case study to provide feedback about working with your group mates. This is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn’t happen, I want to be sure I’m aware of the circumstances and follow up as necessary.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#strong-case-studies",
+    "href": "content/cs/cs01.html#strong-case-studies",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "Strong Case Studies…",
+    "text": "Strong Case Studies…\n\ncan be read from start to finish and make sense (i.e. if you displayed only text and outputs from code, the story would make sense)\nhave text to guide the viewer throughout, including interpretations of all viz/calculations, that explain to the reader what the results have to do with the question(s) at hand\nhave clean, easy-to-read code\nhave clear, well-designed visualizations, with consistent colors/style throughout report.",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs01.html#common-deductions",
+    "href": "content/cs/cs01.html#common-deductions",
+    "title": "CS01: Biomarkers of Recent Use",
+    "section": "Common Deductions",
+    "text": "Common Deductions\nIn past iterations of the course, students have commonly lost points on CS01 for the following reasons:\n\nBackground & Question | 1) background section is lacking necessary information for the reader; often, the information missing pertains to the groups extension question; 2) report doesn’t state question(s) being answered clearly\nData | Failing to introduce the dataset(s) and the information contained in each\nVisualization | 1) including all the visualizations a group could think of without deciding which best tell the story 2) including multiple visualizations that all display the same information in slightly different ways\nAnalysis | 1) lacking explanation to guide the viewer. All plots and calculations should be explained/interpreted, explaining what we learn from the plot more than just what is included on the plot or what analysis was carried out. We care about the why a lot. 2) making decisions without explanation (i.e. choosing a seemingly-random cutoff without explanation as to why). 3) Referencing things before they’re explained (i.e. referencing T2A without having text explaining what that is)\nResults, Discussion & Conclusion | numbers/results presented without sufficient guidance as to what the results mean in the context of your question",
+    "crumbs": [
+      "Case Studies",
+      "CS01: Biomarkers of Recent Use"
+    ]
+  },
+  {
     "objectID": "content/labs/01-lab-intro-r.html",
     "href": "content/labs/01-lab-intro-r.html",
     "title": "Lab 01 - Tooling",
@@ -2872,7 +3014,7 @@
     "href": "schedule.html",
     "title": "COGS 137 Course Schedule",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n🎥 The Glamour of Graphics: [video]; [slides]\n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n\n\n⌨️ lab 03\n\n\n4\nMon, Oct 19\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nEffective (Written) Communication\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n\n\nSun, Oct 25\n\n\n\n\n\n\n📚 hw 02\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nWed, Oct 28\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02: EDA (day 1)\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA (day 2)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
+    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n\n\n📝 notes  🖥️ slides ”\n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nEffective Data visualization\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n⌨️ lab 03\n\n\n4\nMon, Oct 19\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n\n\n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n\n\nSun, Oct 25\n\n\n\n\n\n\n📚 hw 02\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nWed, Oct 28\nEffective (Written) Communication\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02 Intro/Data + Final Project\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
     "crumbs": [
       "Schedule & Policies",
       "Schedule"
@@ -4233,6 +4375,72 @@
     ]
   },
   {
+    "objectID": "content/cs/cs-example.html",
+    "href": "content/cs/cs-example.html",
+    "title": "CS: Example",
+    "section": "",
+    "text": "Skip to main content",
+    "crumbs": [
+      "Case Studies",
+      "Example Case Study"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs-example.html#introduction",
+    "href": "content/cs/cs-example.html#introduction",
+    "title": "CS: Example",
+    "section": "Introduction",
+    "text": "Introduction\nIn this case study, we seek to analyze the youth disconnection among minority groups within the United States. The disconnected youth are the young people who are between the ages of 16 and 24 who are neither working nor in school. Following the aftermath of the Great Recession in 2008, we witnessed a peak youth disconnection rate of 14.7 percent in 2010 which has since been trending downwards to as low as a youth disconnection rate of 11.5 percent in 2017. While analyzing racial and ethnic groups is imperative for viewing any evident disparities, we also intend on analyzing how gender may play a role in affecting the rates of disconnection. Seeing as how we can already see existing disparities between genders within the workforce, we also want to see to what extent, if at all, gender plays a role in youth disconnection among groups.\nThis specific period of young adulthood is one of the most critical in developing the necessary skills and capabilities required of them to be successful in adulthood and their professional careers as youth disconnection during this period stunts development and limits their potential. Measure of America, a nonpartisan project of the nonprofit Social Science Research, claims that “people who experience a period of disconnection as young adults go on to earn less and are less likely to be employed, own a home, or report good health by the time they reach their thirties”. Understanding how these trends among groups arise may be critical for finding solutions to preventing youth disconnection, and analyzing what groups may need more resources in order to prevent further prevent youth disconnection.\n\n\n\n\n\n\nProf Note\n\n\n\nThis introduction is missing citations! Statements that are not your own original thoughts must be cited. See Effective Communication lecture for possible ways to cite. We don’t care what format you use. We do care that you cite others’ work. Also, definitely feel free to find information on the topic beyond what was presented in class.",
+    "crumbs": [
+      "Case Studies",
+      "Example Case Study"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs-example.html#questions",
+    "href": "content/cs/cs-example.html#questions",
+    "title": "CS: Example",
+    "section": "Questions",
+    "text": "Questions\n\nHow have youth disconnection rates in American youth changed since 2008?\nIn particular, how has this changed for different gender and ethnic groups? Are any groups particularly disconnected?\nDoes removing 2008 (pre-Great Recession time period) data points change our answer?\n\n\n\n\n\n\n\nProf Note\n\n\n\nThe third question here was their extension. Note that this is an ok extension all things considered. But, explaining the why this is their focus and giving necessary background in the introduction would have been great.",
+    "crumbs": [
+      "Case Studies",
+      "Example Case Study"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs-example.html#the-data",
+    "href": "content/cs/cs-example.html#the-data",
+    "title": "CS: Example",
+    "section": "The Data",
+    "text": "The Data\nThe data set that we will be using for our case study is provided by two reports from the Measure of America project related to youth disconnect. The data provided will be in the form of images.\n\nData Import\nIn order to begin our analysis, we imported our raw data from the OCSdata library on youth disconnection.\n\n# Data is imported so I get overwrite error when not commented\n# Download raw data files\n# load_raw_data(\"ocs-bp-youth-disconnection\", outpath = '.')\n\n\n\n\n\n\n\nProf Note\n\n\n\nReminder that you can control chunk behavior for each chunk within the curly braces. This also applies for the warnings that are displayed later on. Best to suppress those in final HTML.\n\n\nSince the raw data is in images, we need to convert to a usable R data set. We started with the major racial ethnic groups.\n\n## Import data for major racial/ethnic groups\nmajor_racial_ethnic_groups &lt;- magick::image_read(\"data/Major_ethnic_groups_screenshot.png\")\nmajor_groups &lt;- magick::image_ocr(major_racial_ethnic_groups)\n\nFor Asian subgroups, we had to import the raw data for 2017 and 2018.\n\n## Import data for Asian subgroups\n\n# 2017 data\nasian_sub_2017 &lt;- image_read(\"data/asian_subgroups_2017.png\")\nasian_sub_2017_A &lt;- image_read(\"data/asian_sub_2017_A.png\")\nasian_sub_2017_B &lt;- image_read(\"data/asian_sub_2017_B.png\")\nasian_sub_2017_C &lt;- image_read(\"data/asian_sub_2017_C.png\")\nasian_sub_2017 &lt;- image_ocr(asian_sub_2017)\nasian_sub_2017_A &lt;- image_ocr(asian_sub_2017_A)\nasian_sub_2017_B &lt;- image_ocr(asian_sub_2017_B)\nasian_sub_2017_C &lt;- image_ocr(asian_sub_2017_C)\n\n# 2018 data\nasian_sub_2018_A &lt;- image_read(\"data/asian_sub_2018_A.png\")\nasian_sub_2018_A &lt;- image_ocr(asian_sub_2018_A)\nasian_sub_2018_B &lt;- image_read(\"data/asian_sub_2018_B.png\")\nasian_sub_2018_B &lt;- image_ocr(asian_sub_2018_B)\n\nFor Latinx subgroups, we also imported 2017 and 2018 data.\n\n## Import data for Latinx subgroups\n\n# 2017 data\nlatinx_imageA &lt;- image_read(\"data/latinx_sub_2017_A.png\")\nlatinx_imageB &lt;- image_read(\"data/latinx_sub_2017_B.png\")\nlatinx_imageC &lt;- image_read(\"data/latinx_sub_2017_C.png\")\nlatinx_sub_2017_A &lt;- image_ocr(latinx_imageA)\nlatinx_sub_2017_B &lt;- image_ocr(latinx_imageB)\nlatinx_sub_2017_C &lt;- image_ocr(latinx_imageC)\n\n# 2018 data\nlatinx_sub_2018 &lt;- image_read(\"data/latinx_subgroups_2018.png\")\nlatinx_sub_2018 &lt;- image_ocr(latinx_sub_2018)\n\nOnce the data import is complete, we saved our data.\n\n# Save data\nsave(\n  major_groups,\n  asian_sub_2017,\n  asian_sub_2017_A,\n  asian_sub_2017_B,\n  asian_sub_2017_C,\n  latinx_sub_2017_A,\n  latinx_sub_2017_B,\n  latinx_sub_2017_C,\n  asian_sub_2018_A,\n  asian_sub_2018_B,\n  latinx_sub_2018,\n  file = \"data/imported_data.rda\")\n\n\n\nData Wrangling\n\n\n\n\n\n\nProf Note\n\n\n\nJust a heads up this case study required A LOT more wrangling than your case study will. So, when your code is simpler/shorter for our first case study, that’s expected.\n\n\nNow that we have our data properly imported, we need to wrangle our data in R so we can begin our analysis.\n\n\n\n\n\n\nProf Note\n\n\n\nThere is text to guide the viewer, clear code, and code comments as needed. I like this.\n\n\n\nMajor Group Data\nTo begin our data wrangling, we took the imported data that is in a single string and separated the data by new line characters and transformed it into a table.\n\n# Separates string by new line and transforms into a table\nmajor_groups &lt;- major_groups |&gt;\n  stringr::str_split(pattern = \"\\n\") |&gt;\n  unlist() |&gt; \n  tibble::as_tibble()\n\nNow that our data has rows, we created columns Group and Year and assigned the corresponding values according to the data as well as normalizing the capitalization throughout the data set.\n\n# Separate into columns Group and Year\nmajor_groups &lt;- \n  major_groups |&gt;\n  tidyr::separate(col = value, \n                  into = c(\"Group\", \"Years\"), # Set column names\n                  sep = \"(?&lt;=[[:alpha:]])\\\\s(?=[0-9])\")  # Separate after letter string; beginning numerics\n\nWarning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [19].\n\n# Make capitalization format the same\nmajor_groups &lt;- major_groups |&gt; \n  mutate(Group = stringr::str_to_title(Group))\n\n\n\n\n\n\n\nProf Note\n\n\n\nBy displaying these warnings in your output, it makes your report harder to read. This can be controlled in the chunk settings {r warning=FALSE} for a single chunk or for the entire document using knitr::opts_chunk$set(warning=FALSE)\n\n\nWe have our data in two columns but need to separate our Years column into each individual year. We thus separated the column by every space character, assigned appropriate years for its corresponding values, and made the data values numeric.\n\n# Separate `Years` into columns by individual years\nmajor_groups &lt;- major_groups |&gt; \n  tidyr::separate(col = Years, \n                  into = c(\"2008\", \"2010\", \"2012\", \"2014\", \"2016\", \"2017\"),  # Set column names\n                  sep = \" \") # Separate by spaces\n\n# Remove empty rows\nmajor_groups &lt;- major_groups |&gt; \n  tidyr::drop_na()\n \n# Make data numeric\nmajor_groups &lt;- major_groups |&gt;\n  mutate(\n    across(.cols = -Group,\n           ~ str_remove(string = ., pattern = \"\\\\.\")),  # Remove decimal points from string\n    across(.cols = -Group, as.numeric),  # Convert to numeric\n    across(.cols = -Group, ~ . * 0.1)   # Add decimal point back\n  )\n\nWe have a lot of information in our Group column, so we separated that information and created two new columns, Race_Ethnicity and Gender, to make it easier to analyze our data.\n\n# Create Race_Ethnicity column\nmajor_groups  &lt;- major_groups |&gt;\n  # First, create entries for `All_races`\n  mutate(Race_Ethnicity = dplyr::recode(Group, \"United States\" = \"All_races\",\n                                        \"Female\" = \"All_races\",\n                                        \"Male\" = \"All_races\"),\n  # Second, create entries for all other races by importing data from group column and removing gender  \n         Race_Ethnicity = str_remove(string = Race_Ethnicity,\n                                     pattern = \"Female|Male\"))\n# Create Gender column\nmajor_groups  &lt;- major_groups |&gt;\n  # Extract gender from `Group` column\n  mutate(Gender = str_extract(string = Group, \n                              pattern = \"Female|Male\")) |&gt;\n  # Assign `All' if gender was not in `Group`\n  mutate(Gender = replace_na(Gender, replace = \"All\"))\n\nNow that we have all of our data, we moved the columns containing years into rows and added a new column Percent to log the value contained in the, now former, year column.\n\n# Puts years in rows instead of columns with percent values\nmajor_groups_long &lt;- major_groups |&gt;\n  tidyr::pivot_longer(cols = contains(\"20\"), # any column containing 20\n                      names_to = \"Year\", # Assigns column for year\n                      values_to = \"Percent\", # Assigns column for percent\n                      names_prefix = \"Perc_\") |&gt;\n  dplyr::mutate(Year = as.numeric(Year))\n\n\n\nSubgroup Data\n\nData Wrangling Functions\nWe wrangled the major group data but now have to wrangle the subgroup data, which is a little more complicated. We first created a make_rows function to take the imported raw data and convert it into a table with rows separated by new line characters.\n\n# Create function to separate string into rows\nmake_rows &lt;- function(text){\n  text |&gt;\n  str_split(\"\\n\") |&gt;\n  unlist() |&gt;\n  as_tibble()\n}\n\nWe also created two functions clean_table and clean_table_2018 to clean our subgroup data just like the major group data – separating Group and Years columns, converting data to numeric, and creating Race_Ethnicity and Gender columns.\n\n# Create function to clean 2017 subgroup data \nclean_table &lt;- function(table){\n  table |&gt;\n    separate(col = value,\n             into = c(\"Group\", \"Percentage\"), # Create column names\n             sep =  \"(?&lt;=[[:alpha:]])\\\\s(?=[0-9])\") |&gt; # Split into columns after string of letters\n    drop_na() |&gt; # Remove NA rows\n    # Make percentage data numeric\n    mutate(Group = str_to_title(Group)) |&gt;\n    mutate(Percentage = str_remove(string = Percentage,\n                                   pattern = \"\\\\.\")) |&gt; # Remove decimal points from string\n    separate(Percentage, c(\"Percent\"), sep = \" \") |&gt; # Separate by space\n    mutate(Percent = as.numeric(Percent)) |&gt; # Convert to numeric\n    mutate(Percent = Percent * 0.1) |&gt; # Add back decimal point\n    # Create Race_Ethnicity column\n    mutate(Race_Ethnicity = recode(Group, \n                                   # Create entries for All_races\n                                   \"United States\" = \"All_races\",\n                                   \"Female\" = \"All_races\",\n                                   \"Male\" = \"All_races\")) |&gt;\n    # Create entries for all other races by importing data from group column and removing gender  \n    mutate(Race_Ethnicity = str_remove(string = Race_Ethnicity, \n                                       pattern = \" Female| Male\")) |&gt; \n    # Create Gender column\n    mutate(Gender = str_extract(string = Group,\n                                pattern =\"Female|Male\")) |&gt; # Extract gender from `Group` column\n    mutate(Gender = replace_na(Gender, replace = \"All\"))  # Assign `All' if gender was not in `Group`\n}\n\n# Create function to clean 2018 subgroup data \nclean_table_2018 &lt;- function(table){\n  table |&gt;\n    separate(col = value, \n             into = c(\"Group\", \"Percent\"), # Create column names\n             sep =  \"(?&lt;=[[:alpha:]])\\\\s:\\\\s|\\\\s(?=[0-9])\") |&gt;  # Split into columns after colon\n    mutate(Group = str_remove(string = Group, \n                            pattern = \":\")) |&gt; # Remove colon\n    drop_na() |&gt; # Remove NA rows\n    # Make percentage data numeric\n    mutate(Group = str_to_title(string = Group)) |&gt; \n    mutate(Percent = str_remove(string = Percent, \n                               pattern = \"\\\\.\")) |&gt; # Remove decimal points from string\n    mutate(Percent = as.numeric(Percent)) |&gt; # Convert to numeric\n    mutate(Percent = Percent * 0.1) |&gt; # Add back decimal point\n    # Create Race_Ethnicity column\n    mutate(Race_Ethnicity = str_replace(string = Group,\n                                        pattern = \"Men|Women\", \n                                        replacement = \"missing\")) |&gt; # Replace gender with missing\n    mutate(Race_Ethnicity = na_if(Race_Ethnicity, \"missing\")) |&gt; # Make missing values NA\n    fill(Race_Ethnicity, .direction = \"down\") |&gt; # Fill Race/Ethnicity in missing fields\n    # Create Gender column\n    mutate(Gender = str_extract(string = Group, \n                                pattern = \"Men|Women\")) |&gt; # Extract gender from `Group` column\n    mutate(Gender = replace_na(Gender, replace = \"All\")) # Assign `All' if gender was not in `Group`\n}\n\n\n\nAsian Subgroup Data\nWe ran our make_rows function on our raw data and combined the initially wrangled 2017 data.\n\n## Asian subgroup data\n# 2017 data\n# Apply make_rows function to subgroup data\nasian_sub_2017 &lt;- make_rows(asian_sub_2017)\nasian_sub_2017_A &lt;- make_rows(asian_sub_2017_A)\nasian_sub_2017_B &lt;- make_rows(asian_sub_2017_B)\nasian_sub_2017_C &lt;- make_rows(asian_sub_2017_C)\n\n# Combine data\nasian_sub_2017 &lt;- bind_rows(asian_sub_2017_A, \n                            asian_sub_2017_B,\n                            asian_sub_2017_C)\n\nSimilarly, we applied make_rows to 2018 data.\n\n# 2018 data\n# Combine data\nasian_sub_2018 &lt;- str_c(asian_sub_2018_A, asian_sub_2018_B)\n\n# Apply make_rows function\nasian_sub_2018 &lt;- make_rows(asian_sub_2018)\n\nWe next cleaned both the 2017 and 2018 data using our clean_table and clean_table_2018 functions.\n\n# Apply clean table function to both years data\nasian_sub_2017 &lt;- clean_table(asian_sub_2017)\n\nWarning: Expected 2 pieces. Missing pieces filled with `NA` in 3 rows [17, 22,\n28].\n\nasian_sub_2018 &lt;- clean_table_2018(asian_sub_2018)\n\nWarning: Expected 2 pieces. Missing pieces filled with `NA` in 6 rows [4, 8, 15, 19, 21,\n23].\n\n\nThe imported data was missing part of the data, so we manually added it back in as well as created a Year column.\n\n# Add missing data\nasian_sub_2018 &lt;- asian_sub_2018 |&gt;\n  add_row(Group = \"Asian\", Percent = 6.2,\n          Race_Ethnicity = \"Asian\", Gender = \"All\") |&gt;\n  add_row(Group = \"Asian\", Percent = 6.4,\n          Race_Ethnicity = \"Asian\", Gender = \"Men\") |&gt;\n  add_row(Group = \"Asian\", Percent = 6.1,\n          Race_Ethnicity = \"Asian\", Gender = \"Women\")\n\n# Add years to data\nasian_sub_2017 &lt;- asian_sub_2017 |&gt;\n  mutate(Year = 2017)\nasian_sub_2018 &lt;- asian_sub_2018 |&gt;\n  mutate(Year = 2018)\n\nSince the naming convention for males and females different across the 2017 and 2018 data, we standardized the Gender column to only contain Male and Female entries and then combined the data into one data set, and once again moved the years into rows and added a Percent column, just like our major group data.\n\n# Make Male/Female the values for gender across both datasets\nasian_sub_2018 &lt;- asian_sub_2018 |&gt; \n  mutate(across(.cols = c(Gender, Group),\n               ~ str_replace(string = ., \n                             pattern = \"Men\", \n                             replacement = \"Male\")),\n         across(.cols = c(Gender, Group),\n               ~ str_replace(string = ., \n                             pattern = \"Women\", \n                             replacement = \"Female\")))\n\n# Combine 2017 and 2018 data\nasian_subgroups &lt;- bind_rows(asian_sub_2017, asian_sub_2018)\n\n# Add missing categories\nasian_subgroups &lt;- asian_subgroups |&gt; \n  select(-Group) |&gt;\n  pivot_wider(names_from = Year, \n              values_from = Percent) |&gt;\n  pivot_longer(cols = -c(Race_Ethnicity, Gender),\n               names_to = \"Year\",\n               values_to= \"Percent\")\n\n\n\nLatinx Subgroup Data\nTo wrangle our Latinx subgroup data, we followed the same steps as our Asian subgroup data – applying make_rows, clean_table, and clean_table_2018 functions, standardizing the Gender naming convention, combining 2017 and 2018 data, and moving the years into rows while adding a Percent column. For the Latinx data, we also appropriately labeled the Puerto Rican, Dominican, Cuban groups and cleaned the names for Latino/Latina group.\n\n## Latinx subgroup data\n# 2017 data\n# Combine data\nlatinx_sub_2017 &lt;- stringr::str_c(latinx_sub_2017_A,\n                                  latinx_sub_2017_B, \n                                  latinx_sub_2017_C)\n\n# Fix typo\nlatinx_sub_2017 &lt;- latinx_sub_2017 |&gt;\n  str_replace(pattern = \"DR, Cuban Female 15.7\\nPR\", # Identify typo\n              replacement = \"DR, Cuban Male 15.7\\nPR\") # Replace gender\n\n# Apply functions to Latinx data\nlatinx_sub_2017 &lt;- make_rows(latinx_sub_2017)\nlatinx_sub_2017 &lt;- clean_table(table = latinx_sub_2017)\n\nWarning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [19].\n\n# 2018 data\n# Clean the data string\nlatinx_sub_2018 &lt;- str_replace_all(string = latinx_sub_2018, \n                                  pattern = \"\\\\s:\\n{2}|\\n{2}\", #remove two newline characters\n                                  replacement = \" \")\n\n# Apply make_rows function\nlatinx_sub_2018 &lt;- make_rows(latinx_sub_2018)\n\n# Apply clean table function\nlatinx_sub_2018 &lt;- clean_table_2018(latinx_sub_2018)\n\nWarning: Expected 2 pieces. Missing pieces filled with `NA` in 1 rows [12].\n\n# Create function to fix naming issues\nfix_latinx_naming &lt;- function(table){\n  table |&gt;\n    # Appropriately label Puerto Rican, Dominican, Cuban group\n  mutate(Group = str_replace(string = Group,\n                             pattern = \"Pr, Dr, Cuban\",\n                             replacement = \"Puerto Rican, Dominican, Cuban\"),\n          Race_Ethnicity = str_replace(string = Race_Ethnicity,\n                                       pattern = \"Pr, Dr, Cuban\",\n                                       replacement = \"Puerto Rican, Dominican, Cuban\"))\n}\n\n# Apply function to both data sets\nlatinx_sub_2017 &lt;- fix_latinx_naming(latinx_sub_2017)\nlatinx_sub_2018 &lt;- fix_latinx_naming(latinx_sub_2018)\n\n# Add missing data\nlatinx_sub_2018 &lt;- latinx_sub_2018 |&gt;\n  add_row(Group = \"Latinx\", Percent = 12.8,\n          Race_Ethnicity = \"Latinx\", Gender = \"All\") |&gt;\n  add_row(Group = \"Latinx\", Percent = 12.3,\n          Race_Ethnicity = \"Latinx\", Gender = \"Men\") |&gt;\n  add_row(Group = \"Latinx\", Percent = 13.3,\n          Race_Ethnicity = \"Latinx\", Gender = \"Women\")\n\n# Make Male/Female the values for gender across both datasets\nlatinx_sub_2018 &lt;- latinx_sub_2018 |&gt;\n  mutate(across(.cols = c(Gender, Group),\n                ~ str_replace(string = ., pattern = \"Men\", replacement = \"Male\")),\n         across(.cols = c(Gender, Group),\n                ~ str_replace(string = ., pattern = \"Women\", replacement = \"Female\")))\n\n# Add years to data\nlatinx_sub_2017 &lt;- latinx_sub_2017 |&gt;\n  mutate(Year = 2017)\nlatinx_sub_2018 &lt;- latinx_sub_2018 |&gt;\n  mutate(Year = 2018)\n\n# Combine 2017 and 2018 data\nlatinx_subgroups &lt;- bind_rows(latinx_sub_2017, latinx_sub_2018)\n\n# Add missing categories\nlatinx_subgroups &lt;- latinx_subgroups |&gt;\n  select(-Group) |&gt;\n  pivot_wider(names_from = Year,\n              values_from = Percent) |&gt;\n  pivot_longer(cols = -c(Race_Ethnicity, Gender),\n               names_to =\"Year\" ,\n               values_to=\"Percent\")\n\n# Clean up Latinx group names\nlatinx_subgroups &lt;- latinx_subgroups |&gt;\n  # Convert Latino/Latina to Latinx\n  mutate(Race_Ethnicity = replace(Race_Ethnicity, Race_Ethnicity == \"Latina\", \"Latinx\")) |&gt;\n  mutate(Race_Ethnicity = replace(Race_Ethnicity, Race_Ethnicity == \"Latino\", \"Latinx\")) |&gt;\n  drop_na()\n\n\n\n\n\nExploratory Data Analysis\n\n\n\n\n\n\nProf Note\n\n\n\nNote that plots are clear, have titles, it’s clear what’s plotted, and there’s a corresponding interpretation guiding the reader. This is all good! These could be improved by having more informative titles that make clear to the viewer what the take-home message is, by handling years as factors, and ensuring that every included plot adds to the story.\n\n\nTo get a glance of our overall data set, we plotted overall youth disconnection over time in the United States.\n\nmajor_groups_long |&gt;\n  filter(Gender == \"All\", Race_Ethnicity == \"All_races\") |&gt;\n  ggplot(aes(x = Year, y = Percent)) +\n    geom_line(size = 0.5) +\n    geom_point(size = 3) +\n  labs(\n    title = \"Youth Disconnection over Time\",\n    x = \"Year\")\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\n\n\n\n\nWe are able to visualize that from 2008 to 2010 there was an increase in youth disconnect; however, after 2010, there seems to be a consistent downtrend in youth disconnect.\nTo account for differences in gender, we plotted overall youth disconnection over time by gender.\n\nmajor_groups_long |&gt;\n  filter(Gender != \"All\", Race_Ethnicity == \"All_races\") |&gt;\n  ggplot(aes(x = Year, y = Percent, color = Gender)) +\n    geom_line(size = 0.5) +\n    geom_point(size = 3) +\n    scale_color_viridis_d() +\n  labs(\n    title = \"Youth Disconnection over Time by Gender\"\n  )\n\n\n\n\n\n\n\n\nInitially in 2008, females faced more disconnect than males. However, throughout the next years, males consistently faced greater disconnect that females. Both male and female disconnect trended downwards 2010 and after.\nWe then separated major groups by race/ethnicity and visualized youth disconnect over time.\n\nmajor_groups_long |&gt;\n  filter(Gender == \"All\", Group != \"United States\") |&gt;\n  ggplot(aes(x = Year, y = Percent, color = Race_Ethnicity)) +\n    geom_line(size = 0.5) +\n    geom_point(size = 3) +\n    scale_color_viridis_d() +\n    labs(\n    title = \"Youth Disconnection over Time by Race/Ethnicity\",\n    color = \"Race/Ethnicity\"\n  )\n\n\n\n\n\n\n\n\nWe can see that Native Americans faced the most youth disconnect at about 25% and Asian faced the least with about 7.5% throughout all years in our data set. Overall, there is a small downtrend throughout the pass years in all races/ethnicities 2010 and after.\nWe visualized male/female youth disconnection by race/ethnicity across the observed years.\n\nmajor_groups_long |&gt;\n  filter(Gender != \"All\") |&gt; # Filter for only Male and Female\n  # Combine Latino and Latina into Latinx\n  mutate(Race_Ethnicity = replace(Race_Ethnicity, Race_Ethnicity == \"Latina \", \"Latinx\")) |&gt;\n  mutate(Race_Ethnicity = replace(Race_Ethnicity, Race_Ethnicity == \"Latino \", \"Latinx\")) |&gt;\n  #renaming all races column\n  mutate(Race_Ethnicity = replace(Race_Ethnicity, Race_Ethnicity == \"All_races\", \"All Races\")) |&gt;\n  # Plot scatter line plot of Percent vs Year by Gender and Ethnicity\n  ggplot(aes(x = Year, y = Percent, color = Gender)) +\n  geom_line(size = 0.5) +\n  geom_point(size = 3) +\n  facet_wrap(~Race_Ethnicity, nrow = 2) +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Youth Disconnection over Time by Race/Ethnicity and Gender\"\n  )\n\n\n\n\n\n\n\n\nGender does not seem to affect the percentage much except in Black, Latinx, and Native American groups where there is a marginal difference. However, the main indicator in determining youth disconnection seems to be stronger aligned to Race/Ethnicity as that is where we see the largest disparity, while gender has smaller differences within a group.\nTaking a deeper dive into the Latinx group, we visualized youth disconnection of the different subgroups within the Latinx group.\n\nlatinx_subgroups |&gt;\n  filter(Gender == \"All\", Race_Ethnicity != \"Latinx\") |&gt; # Filter by overall not specific gender\n  # Plot Percent vs Year by Ethnicity\n  ggplot(aes(x = as.numeric(Year), y = Percent, color = Race_Ethnicity)) +\n  geom_line(size = 0.5) +\n  geom_point(size = 3) +\n    scale_color_viridis_d() +\n    labs(\n    title = \"Youth Disconnection of Latinx Subgroups over Time by Race/Ethnicity\",\n    color = \"Race/Ethnicity\",\n    x = \"Year\"\n  )\n\n\n\n\n\n\n\n\nMost groups have a relatively similar youth disconnection percentage, however, the South American group clearly has the lowest rate of youth disconnection at around 8% while Puerto Rico, Cuba, Dominican Republic have the highest with around 14.5% across 2017 and 2018.\nTaking a deeper dive into the Asian group, we visualized youth disconnection of the different subgroups within the Asian group.\n\nasian_subgroups |&gt;\n  filter(Gender == \"All\", Race_Ethnicity != \"All_races\") |&gt; # Filter by overall not specific gender\n  # Plot Percent vs Year by Ethnicity\n  ggplot(aes(x = as.numeric(Year), y = Percent, color = Race_Ethnicity)) +\n  geom_line(size = 0.5) +\n  geom_point(size = 3) +\n    scale_color_viridis_d() +\n    labs(\n    title = \"Youth Disconnection of Asian Subgroups over Time by Race/Ethnicity\",\n    color = \"Race/Ethnicity\",\n    x = \"Year\"\n  )\n\nWarning: Removed 3 rows containing missing values (`geom_line()`).\n\n\nWarning: Removed 3 rows containing missing values (`geom_point()`).\n\n\n\n\n\n\n\n\n\nMost groups are in the 4-7% range for youth disconnection percentage; however, China has the lowest at about 4% and Hmong and Cambodia have the highest at about 13% across 2017 and 2018.\n\n\nData Analysis\nWe graphed youth disconnection over time with a line of best-fit layered on top of it.\n\nmajor_groups_long |&gt;\n  # Scatterplot with linear model for overall youth disconnection over time\n  filter(Gender == \"All\", Race_Ethnicity == \"All_races\") |&gt;\n  ggplot(aes(x = Year, y = Percent)) +\n    geom_point(size = 3) +\n    geom_smooth(method = \"lm\") + \n    labs(\n    title = \"Youth Disconnection over Time\",\n    subtitle = \"Includes linear model and standard error\",\n    x = \"Year\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThe line of best-fit exhibits a slight negative relationship, showing there is some correlation with youth disconnection and time; however, there is a decent amount of standard error throughout, which may be due to the 2008 data point defying the trend of the other data points.\nTo test our hypothesis that youth disconnection does not have a decreasing trend over time, we did a Mann-Kendall test for monotonicity.\n\n# M-K test\nmajor_groups_long |&gt;\n  filter(Gender == \"All\", Race_Ethnicity == \"All_races\") |&gt;\n  pull(Percent) |&gt;\n  MannKendall() |&gt;\n  tidy()\n\n# A tibble: 1 × 5\n  statistic p.value kendall_score denominator var_kendall_score\n      &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;\n1    -0.600   0.133            -9        15.0              28.3\n\n\nWe see there the p-value is 13.3% percent, which is not statistically significant at the traditional 5% level. This means our data is likely not monotonic and we would fail to reject our null hypothesis that youth disconnection is decreasing over time.\nKnowing that the Great Recession occurred in 2008 and could provide an anomaly in our data, we ran a linear model on the data for 2010 and after.\n\n# Scatterplot with linear model for overall youth disconnection over time after 2010\nmajor_groups_long |&gt;\n  filter(Gender == \"All\", Race_Ethnicity == \"All_races\", Year != 2008) |&gt;\n  ggplot(aes(x = Year, y = Percent)) +\n    geom_point(size = 3) +\n    geom_smooth(method = \"lm\") +\n  labs(\n    title = \"Youth Disconnection over Time (2010 and after)\",\n    subtitle = \"Includes linear model and standard error\",\n    x = \"Year\")\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\nThis graph seems to show a stronger linear relationship between youth disconnection over time as there is a steeper slope and less standard error than our first linear model visualization.\nAgain, to test our hypothesis that youth disconnection does not have a decreasing trend over time for 2010 and after, we did another Mann-Kendall test.\n\n# M-K test for data after 2008\nmajor_groups_long |&gt;\n  filter(Gender == \"All\", Race_Ethnicity == \"All_races\", Year != 2008) |&gt;\n  pull(Percent) |&gt;\n  MannKendall() |&gt;\n  tidy()\n\n# A tibble: 1 × 5\n  statistic p.value kendall_score denominator var_kendall_score\n      &lt;dbl&gt;   &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;             &lt;dbl&gt;\n1        -1  0.0275           -10          10              16.7\n\n\nThis time, the p-value is 2.75% and significant at the 5% level. Thus, this data set is likely monotonic and we would reject the null hypothesis that there is no decreasing trend between youth disconnection and time.\n\n\n\n\n\n\nProf Note\n\n\n\nModel is not fully quantified nor explained in the context of the data. Also, p-values are proportions and should take a value [0,1]. Be sure that if you’re stating numbers, you’re contextualizing them. Be sure if you’re stating things that are true and that you’re quantifying them when possible.",
+    "crumbs": [
+      "Case Studies",
+      "Example Case Study"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs-example.html#resultsdiscussion",
+    "href": "content/cs/cs-example.html#resultsdiscussion",
+    "title": "CS: Example",
+    "section": "Results/Discussion",
+    "text": "Results/Discussion\nThrough our exploratory data analysis, we observed that there does seem to be a decreasing trend of youth disconnection in the United States over the time frame of our data with the 2008 data being a slight anomaly. The decreasing trend with the exception of the initial 2010 spike remained generally consistent regardless of separation by gender, race/ethnicity, and both as seen through out first four visualizations. Although the trend is fairly consistent, there are additional takeaways from our visualizations.\nRace/ethnicity is a major determinant in the magnitude of youth disconnection rates while gender is a much weaker determinant. Through our third visualization we see that the Native American group has a youth disconnection percentage of about 25%, which is over three time the lowest group, Asian, at about 7.5%. The Black group, although not as high as Native American, has a youth disconnection rate higher than the overall average across the years at about 20% versus 13%. Additionally, every group’s rate is 2-5% different from the nearest group with no two groups being similar to each other. This leads us to believe that although a decreasing trend is apparent across all groups, groups still have differences in how disconnected their youth are. Gender, on the other hand, does not show the same disparity. Our second visualization shows that males may be more disconnected, but when broken down into race/ethnicity in our fourth visualization we see the effect of gender depends greatly on the race/ethnic group. Females are more disconnected in Latinx and Asian groups, while the youth disconnection rate is fairly similar across gender overall and in the Asian and White group. The Black group has the most interesting data where males are fairly more disconnected than females but even in other groups such as Latinx and Native American where there is a difference in female and male disconnection, it is not a major difference.\nIn taking a deeper dive into the Latinx and Asian subgroups in visualizations five and six, it can be seen that there are not big differences in youth disconnection between subgroups except in two cases. The South American subgroup has a substantially lower rate at about 8% versus the 12-15% range that the other Latinx subgroups are in. Oppositely, Hmong and Cambodia groups have a much higher youth disconnection rate at about 13% versus its Asian peers in the 4-7% range.\nTo quantify our observations in our exploratory data analysis, we created a linear model for our major group data and performed a Mann-Kendall test. The linear model shows a decreasing trend in youth disconnection rate over time but it does not seem to be a very strong relationship and has relatively high standard error. When performing the Mann-Kendall test, the p-value was 13.3%, which is not statistically significant at the 5% level, implying that there is not a monotonic trend in the data. We decided to create a second linear model and Mann-Kendall test without the 2008 data since youth disconnection likely increased in 2010 due to the Great Recession that the United States faced. When doing this, a much stronger decreasing trend can be seen in the linear model and the Mann-Kendall test has a p-value of 2.75%, which is statistically significant at the 5%, implying that there is a monotonic trend in the data. In this case, a decreasing trend over time.\n\n\n\n\n\n\nProf Note\n\n\n\nYour case study will need to discuss the limitations of your work.",
+    "crumbs": [
+      "Case Studies",
+      "Example Case Study"
+    ]
+  },
+  {
+    "objectID": "content/cs/cs-example.html#conclusion",
+    "href": "content/cs/cs-example.html#conclusion",
+    "title": "CS: Example",
+    "section": "Conclusion",
+    "text": "Conclusion\nWhen taking account our entire data set, we cannot mathematically state that youth disconnection rates have changed over time, although visually and when excluding 2008 data, we can see that youth disconnection has been trending downwards starting in 2010 and after. This trend remains consistent across gender and race/ethnicity; however, there are still differences between groups in how disconnected are youth. Native American and Black are the most disconnected groups with Native American clearly have the highest youth disconnection rate. Although gender is not a major factor in determining youth disconnection in most cases, Black males are notably more disconnected than Black females. All other Latinx groups are more disconnected than the South American group and Hmong and Combodian groups are notably more disconnected than the other Asian groups. In conclusion, youth disconnection rates are experiencing a downward trend in 2010 and after and its magnitude is most heavily influenced by race/ethnicity in most cases.\n\n\n\n\n\n\nProf Note\n\n\n\nBe sure that if someone read only your Question and Conclusion, they’d know the answer to the questions you’ve set out to answer. (This group did that, but just a note to be sure to do that.)",
+    "crumbs": [
+      "Case Studies",
+      "Example Case Study"
+    ]
+  },
+  {
     "objectID": "content/lectures/04-dplyr-slides.html#qa-107",
     "href": "content/lectures/04-dplyr-slides.html#qa-107",
     "title": "04-dplyr",
@@ -5555,14 +5763,14 @@
     "href": "content/lectures/08-cs01-eda-slides.html#qa",
     "title": "08-cs01-eda",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: How exactly do color choice and visualization are restricted to certain geom plots?\n\n\nA: I’m not sure I totally understand the question. But, you can control color on all geoms. The specific parameter may differ, but all color can be controlled.\n\n\n\n\n\n\n\n\n\n\n\nQ: Is there a guide to different data visualizations and what is best where?\n\n\nA: Yup! https://www.data-to-viz.com/\n\n\n\n\n\n\n\n\n\n\n\nQ: I’m curious about how group assignments are divided into groups.\n\n\nA: I break it into those who typically attend class, those who occassionally attend class, and those who don’t attend class and then randomly assign within those groups. This will be announced this week."
   },
   {
     "objectID": "content/lectures/08-cs01-eda-slides.html#course-announcements",
     "href": "content/lectures/08-cs01-eda-slides.html#course-announcements",
     "title": "08-cs01-eda",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/16 (11:59 PM)\n📚 HW 02 due Sun 10/18 (11:59 PM)\n⌨️ Lab 03 due Fri 10/23 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\n\n\n\n\n\n\nImportant\n\n\nThe CS01 data are data for you only. My collaborator is excited that y’all will be working on this…but these are still research data, so please do not share with others or post publicly."
+    "text": "Course Announcements\nDue Dates:\n\nLab 04 due Fri (11:59 PM)\nHW 02 due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNote: cs01 groups will (for real this time) be sent out tomorrow"
   },
   {
     "objectID": "content/lectures/08-cs01-eda-slides.html#suggested-reading",
@@ -5612,41 +5820,6 @@
     "title": "08-cs01-eda",
     "section": "Notes",
     "text": "Notes\n\n\nLots of code/plots will be provided here\nYou are free to include any of it in your own case study (no attribution needed)\nYou probably should NOT include all of them in your final report\nFor any of the “basic” plots you include in your report, you’ll want to clean them up/improve their design.\nYour final report should be polished from start to finish"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#reminder-tidy-data",
-    "href": "content/lectures/08-cs01-eda-slides.html#reminder-tidy-data",
-    "title": "08-cs01-eda",
-    "section": "Reminder: Tidy Data",
-    "text": "Reminder: Tidy Data"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#pivoting",
-    "href": "content/lectures/08-cs01-eda-slides.html#pivoting",
-    "title": "08-cs01-eda",
-    "section": "Pivoting",
-    "text": "Pivoting\nStoring the same data in a different format\n\nlong vs. wide\n\nwide data contains values that do not repeat in the first column. (analysis; storage)\nlong format contains values that do repeat in the first column. (plotting)"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#pivots",
-    "href": "content/lectures/08-cs01-eda-slides.html#pivots",
-    "title": "08-cs01-eda",
-    "section": "pivots",
-    "text": "pivots\n\npivot_longer | take wide data and make it long\npivot_wider | take long data and make it wide"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#joins",
-    "href": "content/lectures/08-cs01-eda-slides.html#joins",
-    "title": "08-cs01-eda",
-    "section": "Joins",
-    "text": "Joins\nCombining data across different datasets, using common information (often: IDs)\n\nMutating Joins\nadd new variables to a data frame from matching observations in another\n\n\n\nleft_join: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information\nright_join: keeps all observations in second df\nfull_join: keeps all observations in either df\n\n\n\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html\n\n\n\n\ninner_join: takes only rows in both dfs\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#binding-dataframes",
-    "href": "content/lectures/08-cs01-eda-slides.html#binding-dataframes",
-    "title": "08-cs01-eda",
-    "section": "Binding dataframes",
-    "text": "Binding dataframes\n\nbind_rows() - stack different dataframes on top of one another, combining information where column names are the same &lt;- what I used to combine the three datasets after wrangling\nbind_cols() - stack dataframes next to one another; will assume rows match up &lt;- use with caution"
   },
   {
     "objectID": "content/lectures/08-cs01-eda-slides.html#eda",
@@ -5712,11 +5885,11 @@
     "text": "At this point…\nWe start to get a sense of the data with these quick and dirty plots, but we’re really only scratching the surface of what’s going on in these data.\n\nThese data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects."
   },
   {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#day-2-mon-1019",
-    "href": "content/lectures/08-cs01-eda-slides.html#day-2-mon-1019",
+    "objectID": "content/lectures/08-cs01-eda-slides.html#day-2-wed-1021",
+    "href": "content/lectures/08-cs01-eda-slides.html#day-2-wed-1021",
     "title": "08-cs01-eda",
-    "section": "Day 2 · Mon 10/19",
-    "text": "Day 2 · Mon 10/19\nFunctions & working across time windows."
+    "section": "Day 2 · Wed 10/21",
+    "text": "Day 2 · Wed 10/21\nFunctions & working across time windows."
   },
   {
     "objectID": "content/lectures/08-cs01-eda-slides.html#brief-aside-user-defined-functions",
@@ -5754,11 +5927,11 @@
     "text": "Group Differences: Treatment\n\nFunctionWBOFBRThoughts\n\n\nSame function as before…just a different x:\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = treatment)\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"OF\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"BR\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\n\nArgument for combining treatment groups?\nShared ggplot2 settings live in theme_cs01() and cs01_colors, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that’s a function waiting to happen.\nThese last two sets of plots have only focused on that first timepoint. You’ll probably want to look beyond that."
   },
   {
-    "objectID": "content/lectures/08-cs01-eda-slides.html#day-3-wed-1021",
-    "href": "content/lectures/08-cs01-eda-slides.html#day-3-wed-1021",
+    "objectID": "content/lectures/08-cs01-eda-slides.html#day-3-fri-1023",
+    "href": "content/lectures/08-cs01-eda-slides.html#day-3-fri-1023",
     "title": "08-cs01-eda",
-    "section": "Day 3 · Wed 10/21",
-    "text": "Day 3 · Wed 10/21\nSensitivity, specificity & choosing cutoffs: the core of the CS01 question."
+    "section": "Day 3 · Fri 10/23",
+    "text": "Day 3 · Fri 10/23\nSensitivity, specificity & choosing cutoffs: the core of the CS01 question."
   },
   {
     "objectID": "content/lectures/08-cs01-eda-slides.html#sensitivity-specificity",
@@ -5835,287 +6008,396 @@
     "href": "content/lectures/08-cs01-eda.html",
     "title": "08-cs01-eda",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#qa",
     "href": "content/lectures/08-cs01-eda.html#qa",
     "title": "08-cs01-eda",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\nQ: How exactly do color choice and visualization are restricted to certain geom plots?\n\n\n\n\n\nA: I’m not sure I totally understand the question. But, you can control color on all geoms. The specific parameter may differ, but all color can be controlled.\n\n\n\n\n\n\n\n\n\nQ: Is there a guide to different data visualizations and what is best where?\n\n\n\n\n\nA: Yup! https://www.data-to-viz.com/\n\n\n\n\n\n\n\n\n\nQ: I’m curious about how group assignments are divided into groups.\n\n\n\n\n\nA: I break it into those who typically attend class, those who occassionally attend class, and those who don’t attend class and then randomly assign within those groups. This will be announced this week.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#course-announcements",
     "href": "content/lectures/08-cs01-eda.html#course-announcements",
     "title": "08-cs01-eda",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 02 due Fri 10/16 (11:59 PM)\n📚 HW 02 due Sun 10/18 (11:59 PM)\n⌨️ Lab 03 due Fri 10/23 (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\n\n\n\n\n\n\nImportant\n\n\n\nThe CS01 data are data for you only. My collaborator is excited that y’all will be working on this…but these are still research data, so please do not share with others or post publicly."
+    "text": "Course Announcements\nDue Dates:\n\nLab 04 due Fri (11:59 PM)\nHW 02 due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNote: cs01 groups will (for real this time) be sent out tomorrow",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#suggested-reading",
     "href": "content/lectures/08-cs01-eda.html#suggested-reading",
     "title": "08-cs01-eda",
     "section": "Suggested Reading",
-    "text": "Suggested Reading\n\n📕 R4DS Chapter 10: EDA\n📕 R4DS Chapter 25: Functions"
+    "text": "Suggested Reading\n\n📕 R4DS Chapter 10: EDA\n📕 R4DS Chapter 25: Functions",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#agenda",
     "href": "content/lectures/08-cs01-eda.html#agenda",
     "title": "08-cs01-eda",
     "section": "Agenda",
-    "text": "Agenda\n\nCS01\n\nInstructions\nPrevious Projects\nCS01 EDA\n\ntidyr\nExploratory Data Analysis (EDA)"
+    "text": "Agenda\n\nCS01\n\nInstructions\nPrevious Projects\nCS01 EDA\n\ntidyr\nExploratory Data Analysis (EDA)",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#cs01-instructions",
     "href": "content/lectures/08-cs01-eda.html#cs01-instructions",
     "title": "08-cs01-eda",
     "section": "CS01 Instructions",
-    "text": "CS01 Instructions\nInstructions are on course website.\nNote:\n\nDeliverables: Full report (.html) + general communication\nCommon Deductions"
+    "text": "CS01 Instructions\nInstructions are on course website.\nNote:\n\nDeliverables: Full report (.html) + general communication\nCommon Deductions",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#example-case-study",
     "href": "content/lectures/08-cs01-eda.html#example-case-study",
     "title": "08-cs01-eda",
     "section": "Example Case Study",
-    "text": "Example Case Study\nSee & Discuss: https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html"
+    "text": "Example Case Study\nSee & Discuss: https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#feedback-scores",
     "href": "content/lectures/08-cs01-eda.html#feedback-scores",
     "title": "08-cs01-eda",
     "section": "Feedback & Scores",
-    "text": "Feedback & Scores\nFeedback to other students here\n\n\nYou cannot see the projects, but can read all of the comments and see the associated score. Also, note that the same row is not the same group.\n. . .\nCommon comments:\n\ncontext/explanation/guidance/lacking\nmissing citations\nfailure to introduce/describe the data\nmaking statements without evidence\nneed to edit for cohesiveness, story, clarity"
+    "text": "Feedback & Scores\nFeedback to other students here\n\n\nYou cannot see the projects, but can read all of the comments and see the associated score. Also, note that the same row is not the same group.\n. . .\nCommon comments:\n\ncontext/explanation/guidance/lacking\nmissing citations\nfailure to introduce/describe the data\nmaking statements without evidence\nneed to edit for cohesiveness, story, clarity",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#an-example-rubric",
     "href": "content/lectures/08-cs01-eda.html#an-example-rubric",
     "title": "08-cs01-eda",
     "section": "An (Example) Rubric",
-    "text": "An (Example) Rubric\nThis is NOT the rubric for your case study, but it will be similar:"
+    "text": "An (Example) Rubric\nThis is NOT the rubric for your case study, but it will be similar:",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#notes",
     "href": "content/lectures/08-cs01-eda.html#notes",
     "title": "08-cs01-eda",
     "section": "Notes",
-    "text": "Notes\n\n\nLots of code/plots will be provided here\nYou are free to include any of it in your own case study (no attribution needed)\nYou probably should NOT include all of them in your final report\nFor any of the “basic” plots you include in your report, you’ll want to clean them up/improve their design.\nYour final report should be polished from start to finish"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda.html#reminder-tidy-data",
-    "href": "content/lectures/08-cs01-eda.html#reminder-tidy-data",
-    "title": "08-cs01-eda",
-    "section": "Reminder: Tidy Data",
-    "text": "Reminder: Tidy Data\n\n. . .\n\n. . ."
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda.html#pivoting",
-    "href": "content/lectures/08-cs01-eda.html#pivoting",
-    "title": "08-cs01-eda",
-    "section": "Pivoting",
-    "text": "Pivoting\nStoring the same data in a different format\n. . .\n\nlong vs. wide\n\nwide data contains values that do not repeat in the first column. (analysis; storage)\nlong format contains values that do repeat in the first column. (plotting)"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda.html#pivots",
-    "href": "content/lectures/08-cs01-eda.html#pivots",
-    "title": "08-cs01-eda",
-    "section": "pivots",
-    "text": "pivots\n\npivot_longer | take wide data and make it long\npivot_wider | take long data and make it wide"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda.html#joins",
-    "href": "content/lectures/08-cs01-eda.html#joins",
-    "title": "08-cs01-eda",
-    "section": "Joins",
-    "text": "Joins\nCombining data across different datasets, using common information (often: IDs)\n. . .\nMutating Joins\nadd new variables to a data frame from matching observations in another\n. . .\n\nleft_join: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information\nright_join: keeps all observations in second df\nfull_join: keeps all observations in either df\n\n. . .\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html\n\n\n. . .\ninner_join: takes only rows in both dfs\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html"
-  },
-  {
-    "objectID": "content/lectures/08-cs01-eda.html#binding-dataframes",
-    "href": "content/lectures/08-cs01-eda.html#binding-dataframes",
-    "title": "08-cs01-eda",
-    "section": "Binding dataframes",
-    "text": "Binding dataframes\n\nbind_rows() - stack different dataframes on top of one another, combining information where column names are the same &lt;- what I used to combine the three datasets after wrangling\nbind_cols() - stack dataframes next to one another; will assume rows match up &lt;- use with caution"
+    "text": "Notes\n\n\nLots of code/plots will be provided here\nYou are free to include any of it in your own case study (no attribution needed)\nYou probably should NOT include all of them in your final report\nFor any of the “basic” plots you include in your report, you’ll want to clean them up/improve their design.\nYour final report should be polished from start to finish",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#eda",
     "href": "content/lectures/08-cs01-eda.html#eda",
     "title": "08-cs01-eda",
     "section": "EDA",
-    "text": "EDA\nThe process of really getting to “know” your data:\n\ncalculating descriptive statistics (min, mean, median, max, etc.)\nunivariate plots (histograms, densityplots, barplots) - distributions of single variables\nbivariate plots (scatterplots, boxplots) - relationships between variables\n\n. . .\nNotes:\n\n\nNot every plot you generate in this process has to end up in your final report, but each plot should help you learn\nEvery plot should NOT be beautiful. Save that time for the ones you ultimately use to communicate your findings\nThere is NOT a formula for carrying out EDA. You stop once you understand your data fully.\nLab03 is to get you started. Three plots is probably not enough for you to be fully comfortable with these data."
+    "text": "EDA\nThe process of really getting to “know” your data:\n\ncalculating descriptive statistics (min, mean, median, max, etc.)\nunivariate plots (histograms, densityplots, barplots) - distributions of single variables\nbivariate plots (scatterplots, boxplots) - relationships between variables\n\n. . .\nNotes:\n\n\nNot every plot you generate in this process has to end up in your final report, but each plot should help you learn\nEvery plot should NOT be beautiful. Save that time for the ones you ultimately use to communicate your findings\nThere is NOT a formula for carrying out EDA. You stop once you understand your data fully.\nLab03 is to get you started. Three plots is probably not enough for you to be fully comfortable with these data.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#our-datasets",
     "href": "content/lectures/08-cs01-eda.html#our-datasets",
     "title": "08-cs01-eda",
     "section": "Our Datasets",
-    "text": "Our Datasets\nThree matrices:\n\nBlood (WB): 8 compounds; 190 participants\nOral Fluid (OF): 7 compounds; 192 participants\nBreath (BR): 1 compound; 191 participants\n\n. . .\nVariables:\n\nID | participants identifier\nTreatment | placebo, 5.90%, 13.40%\nGroup | Occasional user, Frequent user\nTimepoint | indicator of which point in the timeline participant’s collection occurred\ntime.from.start | number of minutes from consumption\n& measurements for individual compounds"
+    "text": "Our Datasets\nThree matrices:\n\nBlood (WB): 8 compounds; 190 participants\nOral Fluid (OF): 7 compounds; 192 participants\nBreath (BR): 1 compound; 191 participants\n\n. . .\nVariables:\n\nID | participants identifier\nTreatment | placebo, 5.90%, 13.40%\nGroup | Occasional user, Frequent user\nTimepoint | indicator of which point in the timeline participant’s collection occurred\ntime.from.start | number of minutes from consumption\n& measurements for individual compounds",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#the-data",
     "href": "content/lectures/08-cs01-eda.html#the-data",
     "title": "08-cs01-eda",
     "section": "The Data",
-    "text": "The Data\nReading in the csv provided in lab03/cs01:\n\ncs01_data &lt;- read_csv(\"data/cs01_combined.csv\") |&gt; \n  mutate(treatment = fct_relevel(treatment, \"Placebo\", \"5.9% THC (low dose)\"))"
+    "text": "The Data\nReading in the csv provided in lab03/cs01:\n\ncs01_data &lt;- read_csv(\"data/cs01_combined.csv\") |&gt; \n  mutate(treatment = fct_relevel(treatment, \"Placebo\", \"5.9% THC (low dose)\"))",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#time-windows-compounds",
     "href": "content/lectures/08-cs01-eda.html#time-windows-compounds",
     "title": "08-cs01-eda",
     "section": "Time windows & compounds",
-    "text": "Time windows & compounds\nDefined once in src/cs01_functions.R (and used by clean_cs01(), which made the time windows in this file):\n\n# ==== Time windows ============================================================\n# Windows (minutes from start of smoking) differ by matrix, following the paper.\n# `cut()` intervals are right-closed: (0, 30] is \"0-30 min\"; anything &lt;= 0 is\n# pre-smoking; the last window is open-ended.\ncs01_windows &lt;- list(\n  WB = list(breaks = c(-Inf, 0, 30, 70, 100, 180, 210, 240, 270, 300, Inf),\n            labels = c(\"pre-smoking\", \"0-30 min\", \"31-70 min\", \"71-100 min\",\n                       \"101-180 min\", \"181-210 min\", \"211-240 min\",\n                       \"241-270 min\", \"271-300 min\", \"301+ min\")),\n  OF = list(breaks = c(-Inf, 0, 30, 90, 180, 210, 240, 270, Inf),\n            labels = c(\"pre-smoking\", \"0-30 min\", \"31-90 min\", \"91-180 min\",\n                       \"181-210 min\", \"211-240 min\", \"241-270 min\", \"271+ min\")),\n  BR = list(breaks = c(-Inf, 0, 40, 90, 180, 210, 240, 270, Inf),\n            labels = c(\"pre-smoking\", \"0-40 min\", \"41-90 min\", \"91-180 min\",\n                       \"181-210 min\", \"211-240 min\", \"241-270 min\", \"271+ min\"))\n)\n\n# The first window after smoking, for each matrix\ncs01_early_windows &lt;- c(\"0-30 min\", \"0-40 min\")\n\n# Compounds measured (not every matrix has every compound)\ncs01_compounds &lt;- c(\"cbn\", \"cbd\", \"thc\", \"thcoh\", \"thccooh\", \"thccooh_gluc\",\n                    \"cbg\", \"thcv\", \"thca_a\")"
+    "text": "Time windows & compounds\nDefined once in src/cs01_functions.R (and used by clean_cs01(), which made the time windows in this file):\n\n# ==== Time windows ============================================================\n# Windows (minutes from start of smoking) differ by matrix, following the paper.\n# `cut()` intervals are right-closed: (0, 30] is \"0-30 min\"; anything &lt;= 0 is\n# pre-smoking; the last window is open-ended.\ncs01_windows &lt;- list(\n  WB = list(breaks = c(-Inf, 0, 30, 70, 100, 180, 210, 240, 270, 300, Inf),\n            labels = c(\"pre-smoking\", \"0-30 min\", \"31-70 min\", \"71-100 min\",\n                       \"101-180 min\", \"181-210 min\", \"211-240 min\",\n                       \"241-270 min\", \"271-300 min\", \"301+ min\")),\n  OF = list(breaks = c(-Inf, 0, 30, 90, 180, 210, 240, 270, Inf),\n            labels = c(\"pre-smoking\", \"0-30 min\", \"31-90 min\", \"91-180 min\",\n                       \"181-210 min\", \"211-240 min\", \"241-270 min\", \"271+ min\")),\n  BR = list(breaks = c(-Inf, 0, 40, 90, 180, 210, 240, 270, Inf),\n            labels = c(\"pre-smoking\", \"0-40 min\", \"41-90 min\", \"91-180 min\",\n                       \"181-210 min\", \"211-240 min\", \"241-270 min\", \"271+ min\"))\n)\n\n# The first window after smoking, for each matrix\ncs01_early_windows &lt;- c(\"0-30 min\", \"0-40 min\")\n\n# Compounds measured (not every matrix has every compound)\ncs01_compounds &lt;- c(\"cbn\", \"cbd\", \"thc\", \"thcoh\", \"thccooh\", \"thccooh_gluc\",\n                    \"cbg\", \"thcv\", \"thca_a\")",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#single-variable-basic-plots",
     "href": "content/lectures/08-cs01-eda.html#single-variable-basic-plots",
     "title": "08-cs01-eda",
     "section": "Single Variable (basic) plots",
-    "text": "Single Variable (basic) plots\nFor a single compound…\n\nggplot(cs01_data, aes(x=thc)) + \n  geom_histogram()\n\n\n\n\n\n\n\n\n. . .\nBut, we have three different matrices…\n\nggplot(cs01_data, aes(x=thc)) + \n  geom_histogram() +\n  facet_wrap(~fluid_type)\n\n\n\n\n\n\n\n\nBut what if we consider our experiment/the structure of our data? We have three different matrices…and a whole bunch of compounds. With wide data, it’s not easy to plot these distributions, so you may want to pivot those data….\n\n# Wide -&gt; long: one row per measurement of one compound\ncs01_to_long &lt;- function(df) {\n  df |&gt;\n    pivot_longer(any_of(cs01_compounds),\n                 names_to = \"compound\", values_to = \"value\")\n}\n\n\ncs01_long &lt;- cs01_to_long(cs01_data)\n\n\n\nWe select the compound columns by name (cs01_compounds), not by position (e.g. 7:15), so this keeps working if the columns move.\n. . .\nDistributions across all compounds:\n\nggplot(cs01_long, aes(x=value)) + \n  geom_histogram() +\n  facet_wrap(~compound)\n\n\n\n\n\n\n\n\n…but this still doesn’t get at the differences between matrices and compound.\n. . .\nPlotting some of these data…\n\ncs01_long |&gt;\n  mutate(group_compound=paste0(fluid_type, \": \", compound)) |&gt;\nggplot(aes(x=value)) + \n  geom_histogram() + \n  facet_wrap(~group_compound, scales=\"free\")"
+    "text": "Single Variable (basic) plots\nFor a single compound…\n\nggplot(cs01_data, aes(x=thc)) + \n  geom_histogram()\n\n\n\n\n\n\n\n\n. . .\nBut, we have three different matrices…\n\nggplot(cs01_data, aes(x=thc)) + \n  geom_histogram() +\n  facet_wrap(~fluid_type)\n\n\n\n\n\n\n\n\nBut what if we consider our experiment/the structure of our data? We have three different matrices…and a whole bunch of compounds. With wide data, it’s not easy to plot these distributions, so you may want to pivot those data….\n\n# Wide -&gt; long: one row per measurement of one compound\ncs01_to_long &lt;- function(df) {\n  df |&gt;\n    pivot_longer(any_of(cs01_compounds),\n                 names_to = \"compound\", values_to = \"value\")\n}\n\n\ncs01_long &lt;- cs01_to_long(cs01_data)\n\n\n\nWe select the compound columns by name (cs01_compounds), not by position (e.g. 7:15), so this keeps working if the columns move.\n. . .\nDistributions across all compounds:\n\nggplot(cs01_long, aes(x=value)) + \n  geom_histogram() +\n  facet_wrap(~compound)\n\n\n\n\n\n\n\n\n…but this still doesn’t get at the differences between matrices and compound.\n. . .\nPlotting some of these data…\n\ncs01_long |&gt;\n  mutate(group_compound=paste0(fluid_type, \": \", compound)) |&gt;\nggplot(aes(x=value)) + \n  geom_histogram() + \n  facet_wrap(~group_compound, scales=\"free\")",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#thc-frequency",
     "href": "content/lectures/08-cs01-eda.html#thc-frequency",
     "title": "08-cs01-eda",
     "section": "THC & Frequency",
-    "text": "THC & Frequency\n\ncs01_long |&gt; \n  filter(compound == \"thc\") |&gt;\n  ggplot(aes(x=group, y=value)) + \n  geom_boxplot() +\n  facet_wrap(~fluid_type, scales=\"free\")"
+    "text": "THC & Frequency\n\ncs01_long |&gt; \n  filter(compound == \"thc\") |&gt;\n  ggplot(aes(x=group, y=value)) + \n  geom_boxplot() +\n  facet_wrap(~fluid_type, scales=\"free\")",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#thc-treatment-group",
     "href": "content/lectures/08-cs01-eda.html#thc-treatment-group",
     "title": "08-cs01-eda",
     "section": "THC & Treatment Group",
-    "text": "THC & Treatment Group\n\ncs01_long |&gt; \n  filter(compound == \"thc\") |&gt;\n  ggplot(aes(x=treatment, y=value)) + \n  geom_boxplot() +\n  facet_wrap(~fluid_type, scales=\"free\")"
+    "text": "THC & Treatment Group\n\ncs01_long |&gt; \n  filter(compound == \"thc\") |&gt;\n  ggplot(aes(x=treatment, y=value)) + \n  geom_boxplot() +\n  facet_wrap(~fluid_type, scales=\"free\")",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#focus-on-a-specific-timepoint",
     "href": "content/lectures/08-cs01-eda.html#focus-on-a-specific-timepoint",
     "title": "08-cs01-eda",
     "section": "Focus on a specific timepoint…",
-    "text": "Focus on a specific timepoint…\n\ncs01_long |&gt; \n  filter(compound == \"thc\", timepoint %in% cs01_early_windows) |&gt;\n  ggplot(aes(x=treatment, y=value)) + \n  geom_boxplot() +\n  facet_wrap(~fluid_type, scales=\"free\")"
+    "text": "Focus on a specific timepoint…\n\ncs01_long |&gt; \n  filter(compound == \"thc\", timepoint %in% cs01_early_windows) |&gt;\n  ggplot(aes(x=treatment, y=value)) + \n  geom_boxplot() +\n  facet_wrap(~fluid_type, scales=\"free\")",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#at-this-point",
     "href": "content/lectures/08-cs01-eda.html#at-this-point",
     "title": "08-cs01-eda",
     "section": "At this point…",
-    "text": "At this point…\nWe start to get a sense of the data with these quick and dirty plots, but we’re really only scratching the surface of what’s going on in these data.\n. . .\nThese data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects."
+    "text": "At this point…\nWe start to get a sense of the data with these quick and dirty plots, but we’re really only scratching the surface of what’s going on in these data.\n. . .\nThese data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
-    "objectID": "content/lectures/08-cs01-eda.html#day-2-mon-1019",
-    "href": "content/lectures/08-cs01-eda.html#day-2-mon-1019",
+    "objectID": "content/lectures/08-cs01-eda.html#day-2-wed-1021",
+    "href": "content/lectures/08-cs01-eda.html#day-2-wed-1021",
     "title": "08-cs01-eda",
-    "section": "Day 2 · Mon 10/19",
-    "text": "Day 2 · Mon 10/19\nFunctions & working across time windows."
+    "section": "Day 2 · Wed 10/21",
+    "text": "Day 2 · Wed 10/21\nFunctions & working across time windows.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#brief-aside-user-defined-functions",
     "href": "content/lectures/08-cs01-eda.html#brief-aside-user-defined-functions",
     "title": "08-cs01-eda",
     "section": "Brief Aside: User-Defined Functions",
-    "text": "Brief Aside: User-Defined Functions\n\nYou should consider writing a function whenever you’ve copied and pasted a block of code more than twice -Hadley\n\n\nfunction_name &lt;- function(input){\n  # operations using input\n}\n\n. . .\nFor example…\n\ndouble_value &lt;- function(val){\n  val * 2\n}\n\n. . .\nTo use/execute:\n\ndouble_value(3)\n\n[1] 6\n\n\nAdditional resource: https://r4ds.hadley.nz/functions"
+    "text": "Brief Aside: User-Defined Functions\n\nYou should consider writing a function whenever you’ve copied and pasted a block of code more than twice -Hadley\n\n\nfunction_name &lt;- function(input){\n  # operations using input\n}\n\n. . .\nFor example…\n\ndouble_value &lt;- function(val){\n  val * 2\n}\n\n. . .\nTo use/execute:\n\ndouble_value(3)\n\n[1] 6\n\n\nAdditional resource: https://r4ds.hadley.nz/functions",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#compounds-across-time",
     "href": "content/lectures/08-cs01-eda.html#compounds-across-time",
     "title": "08-cs01-eda",
     "section": "Compounds across time",
-    "text": "Compounds across time\n\nFunctionPlots (WB)OFBRThoughts\n\n\nShared colors & theme (used by every CS01 plot):\n\n# ==== Plotting ================================================================\ncs01_colors &lt;- c(\"Frequent user\" = \"#19831C\", \"Occasional user\" = \"#A27FC9\")\n\ntheme_cs01 &lt;- function(base_size = 12) {\n  theme_classic(base_size = base_size) +\n    theme(legend.position = \"bottom\",\n          legend.title = element_blank(),\n          panel.grid = element_blank(),\n          plot.title.position = \"plot\",\n          strip.background = element_blank())\n}\n\nOur first user-defined function takes the data and the matrix as arguments:\n\n# Every measurement over time for one matrix, one panel per compound\nplot_scatter_time &lt;- function(df_long, matrix) {\n  df_long |&gt;\n    filter(fluid_type == matrix, !is.na(time_from_start), !is.na(value)) |&gt;\n    ggplot(aes(x = time_from_start, y = value, color = group)) +\n    geom_point() +\n    facet_wrap(~compound, scales = \"free\") +\n    scale_color_manual(values = cs01_colors) +\n    labs(title = matrix, x = \"Time From Start (min)\", y = \"Measurement\") +\n    theme_cs01()\n}\n\n\n\n\nplot_scatter_time(cs01_long, \"WB\")\n\n\n\n\n\n\n\n\n\n\n\nplot_scatter_time(cs01_long, \"OF\")\n\n\n\n\n\n\n\n\n\n\n\nplot_scatter_time(cs01_long, \"BR\")\n\n\n\n\n\n\n\n\n\n\n\n\nWe do NOT have clear delineations in time\nThis means there could be multiple measurements from a single individual within a specified timepoint (i.e. “0-30 min”)\nWe wouldn’t want to include duplicate measures from the same individual within timepoint\nWe wouldn’t have known this without looking at our data…why EDA is necessary"
+    "text": "Compounds across time\n\nFunctionPlots (WB)OFBRThoughts\n\n\nShared colors & theme (used by every CS01 plot):\n\n# ==== Plotting ================================================================\ncs01_colors &lt;- c(\"Frequent user\" = \"#19831C\", \"Occasional user\" = \"#A27FC9\")\n\ntheme_cs01 &lt;- function(base_size = 12) {\n  theme_classic(base_size = base_size) +\n    theme(legend.position = \"bottom\",\n          legend.title = element_blank(),\n          panel.grid = element_blank(),\n          plot.title.position = \"plot\",\n          strip.background = element_blank())\n}\n\nOur first user-defined function takes the data and the matrix as arguments:\n\n# Every measurement over time for one matrix, one panel per compound\nplot_scatter_time &lt;- function(df_long, matrix) {\n  df_long |&gt;\n    filter(fluid_type == matrix, !is.na(time_from_start), !is.na(value)) |&gt;\n    ggplot(aes(x = time_from_start, y = value, color = group)) +\n    geom_point() +\n    facet_wrap(~compound, scales = \"free\") +\n    scale_color_manual(values = cs01_colors) +\n    labs(title = matrix, x = \"Time From Start (min)\", y = \"Measurement\") +\n    theme_cs01()\n}\n\n\n\n\nplot_scatter_time(cs01_long, \"WB\")\n\n\n\n\n\n\n\n\n\n\n\nplot_scatter_time(cs01_long, \"OF\")\n\n\n\n\n\n\n\n\n\n\n\nplot_scatter_time(cs01_long, \"BR\")\n\n\n\n\n\n\n\n\n\n\n\n\nWe do NOT have clear delineations in time\nThis means there could be multiple measurements from a single individual within a specified timepoint (i.e. “0-30 min”)\nWe wouldn’t want to include duplicate measures from the same individual within timepoint\nWe wouldn’t have known this without looking at our data…why EDA is necessary",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#dropping-duplicates-wn-time-window",
     "href": "content/lectures/08-cs01-eda.html#dropping-duplicates-wn-time-window",
     "title": "08-cs01-eda",
     "section": "Dropping Duplicates (w/n time window)",
-    "text": "Dropping Duplicates (w/n time window)\n\n# Keep one measurement per person per matrix per time window (the first one)\ndrop_dups &lt;- function(df) {\n  df |&gt;\n    filter(!is.na(timepoint)) |&gt;\n    distinct(fluid_type, timepoint, id, .keep_all = TRUE)\n}\n\n\ncs01_nodups &lt;- drop_dups(cs01_data)\n\n. . .\nNow to pivot_longer that…\n\ncs01_nodups_long &lt;- cs01_to_long(cs01_nodups)\n\n\n\n\n\n\n\nNote\n\n\n\nWhile I drop duplicates after making the plots above, you and your group will want to think about when it should be done for telling the clearest story. The order we do things in EDA is not typically the order in which we communicate information."
+    "text": "Dropping Duplicates (w/n time window)\n\n# Keep one measurement per person per matrix per time window (the first one)\ndrop_dups &lt;- function(df) {\n  df |&gt;\n    filter(!is.na(timepoint)) |&gt;\n    distinct(fluid_type, timepoint, id, .keep_all = TRUE)\n}\n\n\ncs01_nodups &lt;- drop_dups(cs01_data)\n\n. . .\nNow to pivot_longer that…\n\ncs01_nodups_long &lt;- cs01_to_long(cs01_nodups)\n\n\n\n\n\n\n\nNote\n\n\n\nWhile I drop duplicates after making the plots above, you and your group will want to think about when it should be done for telling the clearest story. The order we do things in EDA is not typically the order in which we communicate information.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#group-differences-frequency-of-use",
     "href": "content/lectures/08-cs01-eda.html#group-differences-frequency-of-use",
     "title": "08-cs01-eda",
     "section": "Group Differences: Frequency of Use",
-    "text": "Group Differences: Frequency of Use\n\nFunctionWBOFBRThoughts\n\n\nOne function for both “frequency of use” and “treatment” comparisons: x says what to compare.\n\n# Boxplots at the first post-smoking window for one matrix.\n#   x: the variable to compare (e.g., group or treatment), unquoted\nplot_boxplots &lt;- function(df_long, matrix, x) {\n  df_long |&gt;\n    filter(fluid_type == matrix,\n           timepoint %in% cs01_early_windows,\n           !is.na(value)) |&gt;\n    ggplot(aes(x = {{ x }}, y = value, fill = group)) +\n    geom_boxplot(outlier.shape = NA, alpha = 0.6) +\n    geom_point(position = position_jitterdodge(jitter.width = 0.2, jitter.height = 0),\n               size = 0.8, color = \"gray40\") +\n    facet_wrap(~compound, scales = \"free\") +\n    scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +\n    scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.1))) +\n    scale_fill_manual(values = cs01_colors) +\n    labs(title = matrix, x = NULL, y = \"Measurement (ng/mL)\") +\n    theme_cs01()\n}\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = group)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"OF\", x = group)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"BR\", x = group)\n\n\n\n\n\n\n\n\n\n\n\n\nCertain compounds show different values between frequent and infrequent users. Worth considering what that means for our ultimate goal\nBreath at this first timepoint likely not very helpful…what about other timepoints?"
+    "text": "Group Differences: Frequency of Use\n\nFunctionWBOFBRThoughts\n\n\nOne function for both “frequency of use” and “treatment” comparisons: x says what to compare.\n\n# Boxplots at the first post-smoking window for one matrix.\n#   x: the variable to compare (e.g., group or treatment), unquoted\nplot_boxplots &lt;- function(df_long, matrix, x) {\n  df_long |&gt;\n    filter(fluid_type == matrix,\n           timepoint %in% cs01_early_windows,\n           !is.na(value)) |&gt;\n    ggplot(aes(x = {{ x }}, y = value, fill = group)) +\n    geom_boxplot(outlier.shape = NA, alpha = 0.6) +\n    geom_point(position = position_jitterdodge(jitter.width = 0.2, jitter.height = 0),\n               size = 0.8, color = \"gray40\") +\n    facet_wrap(~compound, scales = \"free\") +\n    scale_x_discrete(labels = function(x) str_wrap(x, width = 10)) +\n    scale_y_continuous(limits = c(0, NA), expand = expansion(mult = c(0, 0.1))) +\n    scale_fill_manual(values = cs01_colors) +\n    labs(title = matrix, x = NULL, y = \"Measurement (ng/mL)\") +\n    theme_cs01()\n}\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = group)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"OF\", x = group)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"BR\", x = group)\n\n\n\n\n\n\n\n\n\n\n\n\nCertain compounds show different values between frequent and infrequent users. Worth considering what that means for our ultimate goal\nBreath at this first timepoint likely not very helpful…what about other timepoints?",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#group-differences-treatment",
     "href": "content/lectures/08-cs01-eda.html#group-differences-treatment",
     "title": "08-cs01-eda",
     "section": "Group Differences: Treatment",
-    "text": "Group Differences: Treatment\n\nFunctionWBOFBRThoughts\n\n\nSame function as before…just a different x:\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = treatment)\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"OF\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"BR\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\n\nArgument for combining treatment groups?\nShared ggplot2 settings live in theme_cs01() and cs01_colors, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that’s a function waiting to happen.\nThese last two sets of plots have only focused on that first timepoint. You’ll probably want to look beyond that."
+    "text": "Group Differences: Treatment\n\nFunctionWBOFBRThoughts\n\n\nSame function as before…just a different x:\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = treatment)\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"WB\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"OF\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\nplot_boxplots(cs01_nodups_long, \"BR\", x = treatment)\n\n\n\n\n\n\n\n\n\n\n\n\nArgument for combining treatment groups?\nShared ggplot2 settings live in theme_cs01() and cs01_colors, and one function makes both sets of boxplots. When you find yourself copy-pasting plot code, that’s a function waiting to happen.\nThese last two sets of plots have only focused on that first timepoint. You’ll probably want to look beyond that.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
-    "objectID": "content/lectures/08-cs01-eda.html#day-3-wed-1021",
-    "href": "content/lectures/08-cs01-eda.html#day-3-wed-1021",
+    "objectID": "content/lectures/08-cs01-eda.html#day-3-fri-1023",
+    "href": "content/lectures/08-cs01-eda.html#day-3-fri-1023",
     "title": "08-cs01-eda",
-    "section": "Day 3 · Wed 10/21",
-    "text": "Day 3 · Wed 10/21\nSensitivity, specificity & choosing cutoffs: the core of the CS01 question."
+    "section": "Day 3 · Fri 10/23",
+    "text": "Day 3 · Fri 10/23\nSensitivity, specificity & choosing cutoffs: the core of the CS01 question.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#sensitivity-specificity",
     "href": "content/lectures/08-cs01-eda.html#sensitivity-specificity",
     "title": "08-cs01-eda",
     "section": "Sensitivity & Specificity",
-    "text": "Sensitivity & Specificity\nSensitivity | the ability of a test to correctly identify patients with a disease/trait/condition. \\[TP/(TP + FN)\\]\n. . .\nSpecificity | the ability of a test to correctly identify people without the disease/trait/condition. \\[TN/(TN + FP)\\]\n. . .\n❓ For this analysis, do you care more about sensitivity? about specificity? equally about both?"
+    "text": "Sensitivity & Specificity\nSensitivity | the ability of a test to correctly identify patients with a disease/trait/condition. \\[TP/(TP + FN)\\]\n. . .\nSpecificity | the ability of a test to correctly identify people without the disease/trait/condition. \\[TN/(TN + FP)\\]\n. . .\n❓ For this analysis, do you care more about sensitivity? about specificity? equally about both?",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#what-is-a-tp-here-tn-fp-fn",
     "href": "content/lectures/08-cs01-eda.html#what-is-a-tp-here-tn-fp-fn",
     "title": "08-cs01-eda",
     "section": "What is a TP here? TN? FP? FN?",
-    "text": "What is a TP here? TN? FP? FN?\nPost-smoking (cutoff &gt; 0)\n\n\nTP = THC group, value &gt;= cutoff\nFN = THC group, value &lt; cutoff\nFP = Placebo group, value &gt;= cutoff\nTN = Placebo group, value &lt; cutoff\n\n\n. . .\nPre-smoking\nCannot be a TP or FN before consuming…\n\nTP = 0\nFN = 0\nFP = value &gt;= cutoff\nTN = value &lt; cutoff"
+    "text": "What is a TP here? TN? FP? FN?\nPost-smoking (cutoff &gt; 0)\n\n\nTP = THC group, value &gt;= cutoff\nFN = THC group, value &lt; cutoff\nFP = Placebo group, value &gt;= cutoff\nTN = Placebo group, value &lt; cutoff\n\n\n. . .\nPre-smoking\nCannot be a TP or FN before consuming…\n\nTP = 0\nFN = 0\nFP = value &gt;= cutoff\nTN = value &lt; cutoff",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#the-code-to-come",
     "href": "content/lectures/08-cs01-eda.html#the-code-to-come",
     "title": "08-cs01-eda",
     "section": "The Code to come",
-    "text": "The Code to come\n\n\n\n\n\n\nWarning\n\n\n\nThis is beyond code I would expect you all to be able to write yourself. It’s here so that 1) you can make these calculations and interpret the results, 2) because we have a wide range of background and experience. I want everyone to get as much as they can out of this course, and 3) I do want you all to talk to one another. That’s one reason you all are in groups for case studies."
+    "text": "The Code to come\n\n\n\n\n\n\nWarning\n\n\n\nThis is beyond code I would expect you all to be able to write yourself. It’s here so that 1) you can make these calculations and interpret the results, 2) because we have a wide range of background and experience. I want everyone to get as much as they can out of this course, and 3) I do want you all to talk to one another. That’s one reason you all are in groups for case studies.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#calculating-sensitivity-and-specificity",
     "href": "content/lectures/08-cs01-eda.html#calculating-sensitivity-and-specificity",
     "title": "08-cs01-eda",
     "section": "Calculating Sensitivity and Specificity",
-    "text": "Calculating Sensitivity and Specificity\n\nThe ideaCodeRunTHC @ 5 ng/mL\n\n\nFor every matrix × compound × time window × cutoff, count TPs, FNs, FPs, and TNs.\n\n\nStart with the long, de-duplicated data (one row per person × window × compound)\nCopy each row once per cutoff (cross_join())\nLabel each row: used (THC group, after smoking)? detected (value ≥ cutoff)?\ngroup_by() + summarize() to count…exactly what you learned in the dplyr notes\n\n\n\n\n\n# ==== Sensitivity & specificity ===============================================\n# For every matrix x compound x time window x cutoff:\n#   \"used\"     = received THC AND sample taken after smoking\n#   \"detected\" = value at or above the cutoff\n# Pre-smoking samples count as true negatives/false positives only.\nsens_spec &lt;- function(df_long, cutoffs = c(0.5, 1, 2, 5, 10)) {\n  df_long |&gt;\n    filter(!is.na(value), !is.na(timepoint)) |&gt;\n    cross_join(tibble(cutoff = cutoffs)) |&gt;\n    mutate(used = treatment != \"Placebo\" & timepoint != \"pre-smoking\",\n           detected = value &gt;= cutoff) |&gt;\n    group_by(fluid_type, compound, timepoint, cutoff) |&gt;\n    summarize(TP = sum(used & detected),\n              FN = sum(used & !detected),\n              FP = sum(!used & detected),\n              TN = sum(!used & !detected),\n              .groups = \"drop\") |&gt;\n    mutate(N = TP + FN + FP + TN,\n           sensitivity = TP / (TP + FN),\n           specificity = TN / (TN + FP),\n           ppv         = TP / (TP + FP),\n           npv         = TN / (TN + FN),\n           efficiency  = (TP + TN) / N)\n}\n\n\n\nReminder: Currently, states have laws on the books from zero tolerance (detection of any level) to 5ng/mL THC\n\ncs01_ss &lt;- sens_spec(cs01_nodups_long, cutoffs = c(0.5, 1, 2, 5, 10))\ncs01_ss\n\n# A tibble: 720 × 14\n   fluid_type compound timepoint   cutoff    TP    FN    FP    TN     N\n   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1 BR         thc      0-40 min       0.5   124     1    16    47   188\n 2 BR         thc      0-40 min       1     124     1    16    47   188\n 3 BR         thc      0-40 min       2     124     1    16    47   188\n 4 BR         thc      0-40 min       5     124     1    16    47   188\n 5 BR         thc      0-40 min      10     124     1    16    47   188\n 6 BR         thc      181-210 min    0.5     7    51     1    31    90\n 7 BR         thc      181-210 min    1       7    51     1    31    90\n 8 BR         thc      181-210 min    2       7    51     1    31    90\n 9 BR         thc      181-210 min    5       7    51     1    31    90\n10 BR         thc      181-210 min   10       7    51     1    31    90\n# ℹ 710 more rows\n# ℹ 5 more variables: sensitivity &lt;dbl&gt;, specificity &lt;dbl&gt;, ppv &lt;dbl&gt;,\n#   npv &lt;dbl&gt;, efficiency &lt;dbl&gt;\n\n\n\n\n\ncs01_ss |&gt;\n  filter(compound == \"thc\", cutoff == 5) |&gt;\n  select(fluid_type, timepoint, TP, FN, FP, TN, sensitivity, specificity)\n\n# A tibble: 26 × 8\n   fluid_type timepoint      TP    FN    FP    TN sensitivity specificity\n   &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n 1 BR         0-40 min      124     1    16    47      0.992        0.746\n 2 BR         181-210 min     7    51     1    31      0.121        0.969\n 3 BR         211-240 min    12    53     1    33      0.185        0.971\n 4 BR         241-270 min     4    53     0    26      0.0702       1    \n 5 BR         271+ min       10    53     2    24      0.159        0.923\n 6 BR         41-90 min      18    30     1    40      0.375        0.976\n 7 BR         91-180 min     24    64     0    30      0.273        1    \n 8 BR         pre-smoking     0     0     6   185    NaN            0.969\n 9 OF         0-30 min      128     1     3    60      0.992        0.952\n10 OF         181-210 min    36    29     0    37      0.554        1    \n# ℹ 16 more rows"
+    "text": "Calculating Sensitivity and Specificity\n\nThe ideaCodeRunTHC @ 5 ng/mL\n\n\nFor every matrix × compound × time window × cutoff, count TPs, FNs, FPs, and TNs.\n\n\nStart with the long, de-duplicated data (one row per person × window × compound)\nCopy each row once per cutoff (cross_join())\nLabel each row: used (THC group, after smoking)? detected (value ≥ cutoff)?\ngroup_by() + summarize() to count…exactly what you learned in the dplyr notes\n\n\n\n\n\n# ==== Sensitivity & specificity ===============================================\n# For every matrix x compound x time window x cutoff:\n#   \"used\"     = received THC AND sample taken after smoking\n#   \"detected\" = value at or above the cutoff\n# Pre-smoking samples count as true negatives/false positives only.\nsens_spec &lt;- function(df_long, cutoffs = c(0.5, 1, 2, 5, 10)) {\n  df_long |&gt;\n    filter(!is.na(value), !is.na(timepoint)) |&gt;\n    cross_join(tibble(cutoff = cutoffs)) |&gt;\n    mutate(used = treatment != \"Placebo\" & timepoint != \"pre-smoking\",\n           detected = value &gt;= cutoff) |&gt;\n    group_by(fluid_type, compound, timepoint, cutoff) |&gt;\n    summarize(TP = sum(used & detected),\n              FN = sum(used & !detected),\n              FP = sum(!used & detected),\n              TN = sum(!used & !detected),\n              .groups = \"drop\") |&gt;\n    mutate(N = TP + FN + FP + TN,\n           sensitivity = TP / (TP + FN),\n           specificity = TN / (TN + FP),\n           ppv         = TP / (TP + FP),\n           npv         = TN / (TN + FN),\n           efficiency  = (TP + TN) / N)\n}\n\n\n\nReminder: Currently, states have laws on the books from zero tolerance (detection of any level) to 5ng/mL THC\n\ncs01_ss &lt;- sens_spec(cs01_nodups_long, cutoffs = c(0.5, 1, 2, 5, 10))\ncs01_ss\n\n# A tibble: 720 × 14\n   fluid_type compound timepoint   cutoff    TP    FN    FP    TN     N\n   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;        &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;\n 1 BR         thc      0-40 min       0.5   124     1    16    47   188\n 2 BR         thc      0-40 min       1     124     1    16    47   188\n 3 BR         thc      0-40 min       2     124     1    16    47   188\n 4 BR         thc      0-40 min       5     124     1    16    47   188\n 5 BR         thc      0-40 min      10     124     1    16    47   188\n 6 BR         thc      181-210 min    0.5     7    51     1    31    90\n 7 BR         thc      181-210 min    1       7    51     1    31    90\n 8 BR         thc      181-210 min    2       7    51     1    31    90\n 9 BR         thc      181-210 min    5       7    51     1    31    90\n10 BR         thc      181-210 min   10       7    51     1    31    90\n# ℹ 710 more rows\n# ℹ 5 more variables: sensitivity &lt;dbl&gt;, specificity &lt;dbl&gt;, ppv &lt;dbl&gt;,\n#   npv &lt;dbl&gt;, efficiency &lt;dbl&gt;\n\n\n\n\n\ncs01_ss |&gt;\n  filter(compound == \"thc\", cutoff == 5) |&gt;\n  select(fluid_type, timepoint, TP, FN, FP, TN, sensitivity, specificity)\n\n# A tibble: 26 × 8\n   fluid_type timepoint      TP    FN    FP    TN sensitivity specificity\n   &lt;chr&gt;      &lt;chr&gt;       &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;int&gt;       &lt;dbl&gt;       &lt;dbl&gt;\n 1 BR         0-40 min      124     1    16    47      0.992        0.746\n 2 BR         181-210 min     7    51     1    31      0.121        0.969\n 3 BR         211-240 min    12    53     1    33      0.185        0.971\n 4 BR         241-270 min     4    53     0    26      0.0702       1    \n 5 BR         271+ min       10    53     2    24      0.159        0.923\n 6 BR         41-90 min      18    30     1    40      0.375        0.976\n 7 BR         91-180 min     24    64     0    30      0.273        1    \n 8 BR         pre-smoking     0     0     6   185    NaN            0.969\n 9 OF         0-30 min      128     1     3    60      0.992        0.952\n10 OF         181-210 min    36    29     0    37      0.554        1    \n# ℹ 16 more rows",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#plot-results",
     "href": "content/lectures/08-cs01-eda.html#plot-results",
     "title": "08-cs01-eda",
     "section": "Plot Results",
-    "text": "Plot Results\n\nCodeWBOFBRThoughts\n\n\nNote: requires library(patchwork)\n\n# Sensitivity (left) & specificity (right) across time windows, one line per cutoff\nplot_cutoffs &lt;- function(ss, fluid, cpd, title = fluid) {\n  df &lt;- ss |&gt;\n    filter(fluid_type == fluid, compound == cpd) |&gt;\n    mutate(timepoint = factor(timepoint, levels = cs01_windows[[fluid]]$labels),\n           cutoff = factor(cutoff))\n\n  base &lt;- function(y, ylab) {\n    ggplot(df |&gt; filter(!is.na({{ y }})),\n           aes(x = timepoint, y = {{ y }} * 100, color = cutoff, group = cutoff)) +\n      geom_line(linewidth = 1.2) +\n      geom_point() +\n      scale_y_continuous(limits = c(0, 100)) +\n      scale_x_discrete(drop = FALSE) +\n      # colorblind-friendly sequential palette (darker = higher cutoff)\n      scale_color_viridis_d(name = \"Cutoff (ng/mL)\", end = 0.85, direction = -1) +\n      labs(x = \"Time Window\", y = ylab) +\n      theme_cs01() +\n      theme(axis.text.x = element_text(angle = 45, hjust = 1))\n  }\n\n  (base(sensitivity, \"Sensitivity (%)\") + labs(title = paste0(title, \": \", toupper(cpd)))) +\n    base(specificity, \"Specificity (%)\") +\n    patchwork::plot_layout(guides = \"collect\") &\n    theme(legend.position = \"bottom\", legend.title = element_text())\n}\n\n\n\n\nplot_cutoffs(cs01_ss, \"WB\", \"thc\", title = \"Blood\")\n\n\n\n\n\n\n\n\n\n\n\nplot_cutoffs(cs01_ss, \"OF\", \"thc\", title = \"Oral Fluid\")\n\n\n\n\n\n\n\n\n\n\n\nplot_cutoffs(cs01_ss, \"BR\", \"thc\", title = \"Breath\")\n\n\n\n\n\n\n\n\n\n\n\nThis is only THC\nFor five semi-random cutoffs\nThere are other compounds and other cutoffs to consider\nBreath THC is measured in pg/pad (not ng/mL), so these cutoffs don’t separate anything for breath (the lines overlap). What cutoffs would make sense there?"
+    "text": "Plot Results\n\nCodeWBOFBRThoughts\n\n\nNote: requires library(patchwork)\n\n# Sensitivity (left) & specificity (right) across time windows, one line per cutoff\nplot_cutoffs &lt;- function(ss, fluid, cpd, title = fluid) {\n  df &lt;- ss |&gt;\n    filter(fluid_type == fluid, compound == cpd) |&gt;\n    mutate(timepoint = factor(timepoint, levels = cs01_windows[[fluid]]$labels),\n           cutoff = factor(cutoff))\n\n  base &lt;- function(y, ylab) {\n    ggplot(df |&gt; filter(!is.na({{ y }})),\n           aes(x = timepoint, y = {{ y }} * 100, color = cutoff, group = cutoff)) +\n      geom_line(linewidth = 1.2) +\n      geom_point() +\n      scale_y_continuous(limits = c(0, 100)) +\n      scale_x_discrete(drop = FALSE) +\n      # colorblind-friendly sequential palette (darker = higher cutoff)\n      scale_color_viridis_d(name = \"Cutoff (ng/mL)\", end = 0.85, direction = -1) +\n      labs(x = \"Time Window\", y = ylab) +\n      theme_cs01() +\n      theme(axis.text.x = element_text(angle = 45, hjust = 1))\n  }\n\n  (base(sensitivity, \"Sensitivity (%)\") + labs(title = paste0(title, \": \", toupper(cpd)))) +\n    base(specificity, \"Specificity (%)\") +\n    patchwork::plot_layout(guides = \"collect\") &\n    theme(legend.position = \"bottom\", legend.title = element_text())\n}\n\n\n\n\nplot_cutoffs(cs01_ss, \"WB\", \"thc\", title = \"Blood\")\n\n\n\n\n\n\n\n\n\n\n\nplot_cutoffs(cs01_ss, \"OF\", \"thc\", title = \"Oral Fluid\")\n\n\n\n\n\n\n\n\n\n\n\nplot_cutoffs(cs01_ss, \"BR\", \"thc\", title = \"Breath\")\n\n\n\n\n\n\n\n\n\n\n\nThis is only THC\nFor five semi-random cutoffs\nThere are other compounds and other cutoffs to consider\nBreath THC is measured in pg/pad (not ng/mL), so these cutoffs don’t separate anything for breath (the lines overlap). What cutoffs would make sense there?",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#possible-extensions",
     "href": "content/lectures/08-cs01-eda.html#possible-extensions",
     "title": "08-cs01-eda",
     "section": "Possible Extensions",
-    "text": "Possible Extensions\nOur current question asks for a single compound…and you’ll need to decide that.\n. . .\n…but you could imagine a world where more than one compound or more than one matrix could be measured at the roadside.\n. . .\nSo:\n\n\ncombination of the oral fluid and blood that would better predict recent use? (For example if an officer stopped a driver and got a high oral fluid, but could not get a blood sample for a couple of hours and got a relatively low result would this predict recent use better than blood (or OF) alone?\nIs there a ratio of OF/blood that predicts recent use?\nMachine learning model to determine optimal combination of measurements/cutoffs to detect recent use?\n\n\n. . .\nThings to keep in mind:\n\nsome matrices are easier to get at the roadside\ntime from use matters (trying to detect recent use)\nwe may not care equally about sensitivity and specificity"
+    "text": "Possible Extensions\nOur current question asks for a single compound…and you’ll need to decide that.\n. . .\n…but you could imagine a world where more than one compound or more than one matrix could be measured at the roadside.\n. . .\nSo:\n\n\ncombination of the oral fluid and blood that would better predict recent use? (For example if an officer stopped a driver and got a high oral fluid, but could not get a blood sample for a couple of hours and got a relatively low result would this predict recent use better than blood (or OF) alone?\nIs there a ratio of OF/blood that predicts recent use?\nMachine learning model to determine optimal combination of measurements/cutoffs to detect recent use?\n\n\n. . .\nThings to keep in mind:\n\nsome matrices are easier to get at the roadside\ntime from use matters (trying to detect recent use)\nwe may not care equally about sensitivity and specificity",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#cs01-what-to-do-now",
     "href": "content/lectures/08-cs01-eda.html#cs01-what-to-do-now",
     "title": "08-cs01-eda",
     "section": "cs01: what to do now?",
-    "text": "cs01: what to do now?\n\nCommunicate with your group!\nDiscuss possible extensions\nMake a plan; figure out who’s doing what; set deadlines\nImplement the plan!"
+    "text": "cs01: what to do now?\n\nCommunicate with your group!\nDiscuss possible extensions\nMake a plan; figure out who’s doing what; set deadlines\nImplement the plan!",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#what-has-to-be-done",
     "href": "content/lectures/08-cs01-eda.html#what-has-to-be-done",
     "title": "08-cs01-eda",
     "section": "What has to be done:",
-    "text": "What has to be done:\n\n\nQuestion | include in qmd; add extension if applicable\nBackground | summarize and add to what was discussed in classed\nData\n\nDescribe data & variables\nData wrangling | likely copy + paste from notes/lab; add explanation as you go\n\nAnalysis\n\nEDA | likely borrowing parts from notes and modifying/adding more in to tell your story; be sure to include interpretations of output & guide the reader\nDrawing conclusions to answer the question\nExtension | must be completed\n\nDiscussion & Conclusion | summarize; discuss limitations\nProofread | ensure it makes sense from top to bottom\nGeneral Audience communication (submit on Canvas; 1 submission per group)\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAvoid the temptation to assign “Analysis” to one group member. You’ll all likely have to contribute here."
+    "text": "What has to be done:\n\n\nQuestion | include in qmd; add extension if applicable\nBackground | summarize and add to what was discussed in classed\nData\n\nDescribe data & variables\nData wrangling | likely copy + paste from notes/lab; add explanation as you go\n\nAnalysis\n\nEDA | likely borrowing parts from notes and modifying/adding more in to tell your story; be sure to include interpretations of output & guide the reader\nDrawing conclusions to answer the question\nExtension | must be completed\n\nDiscussion & Conclusion | summarize; discuss limitations\nProofread | ensure it makes sense from top to bottom\nGeneral Audience communication (submit on Canvas; 1 submission per group)\n\n\n\n\n\n\n\n\nImportant\n\n\n\nAvoid the temptation to assign “Analysis” to one group member. You’ll all likely have to contribute here.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#collaborating-on-github",
     "href": "content/lectures/08-cs01-eda.html#collaborating-on-github",
     "title": "08-cs01-eda",
     "section": "Collaborating on GitHub",
-    "text": "Collaborating on GitHub\n\nBe sure to pull changes every time you sit down to work\nAvoid working on the same part of the same file as another teammate OR work in separate files and combine at the end\npush your changes once you’re ready to add them to the group"
+    "text": "Collaborating on GitHub\n\nBe sure to pull changes every time you sit down to work\nAvoid working on the same part of the same file as another teammate OR work in separate files and combine at the end\npush your changes once you’re ready to add them to the group",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/lectures/08-cs01-eda.html#recap",
     "href": "content/lectures/08-cs01-eda.html#recap",
     "title": "08-cs01-eda",
     "section": "Recap",
-    "text": "Recap\n\nCan you explain/describe the plots generated in the context of these data?\nCan you generate EDA plots of your own for these data\nCan you understand/work through the more complicated code provided (even if you couldn’t have come up with it on your own)\nCan you describe sensitivity? Specificity?\nCan you explain how TP, TN, FP, and FN were calculated/defined in this experiment?\nCan you describe the code used to carry out the calculations?\nCan you interpret the results from these data?"
+    "text": "Recap\n\nCan you explain/describe the plots generated in the context of these data?\nCan you generate EDA plots of your own for these data\nCan you understand/work through the more complicated code provided (even if you couldn’t have come up with it on your own)\nCan you describe sensitivity? Specificity?\nCan you explain how TP, TN, FP, and FN were calculated/defined in this experiment?\nCan you describe the code used to carry out the calculations?\nCan you interpret the results from these data?",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
   },
   {
     "objectID": "content/labs/02-lab-cs01-dplyr.html",

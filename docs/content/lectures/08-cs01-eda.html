@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Professor Shannon Ellis">
-<meta name="dcterms.date" content="2026-10-16">
+<meta name="dcterms.date" content="2026-10-18">
 
 <title>COGS 137 - 08-cs01-eda</title>
 <style>
@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/06-viz-cs01.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -150,7 +152,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">08-cs01-eda</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/08-cs01-eda.html">07: CS01 EDA</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -221,13 +223,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
@@ -270,6 +272,12 @@ window.Quarto = {
  <span class="menu-text">06: Effective Data Visualization</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/08-cs01-eda.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">07: CS01 EDA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -299,11 +307,36 @@ window.Quarto = {
  <span class="menu-text">Lab 03: CS01 Data Visualization</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/04-lab-cs01-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 04: CS01 EDA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Case Studies</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Case Studies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs-example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Case Study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CS01: Biomarkers of Recent Use</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -382,17 +415,6 @@ window.Quarto = {
   <li><a href="#an-example-rubric" id="toc-an-example-rubric" class="nav-link" data-scroll-target="#an-example-rubric">An (Example) Rubric</a></li>
   <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">Notes</a></li>
   </ul></li>
-  <li><a href="#data-wrangling-tidyr" id="toc-data-wrangling-tidyr" class="nav-link" data-scroll-target="#data-wrangling-tidyr">Data Wrangling: <code>tidyr</code></a>
-  <ul class="collapse">
-  <li><a href="#reminder-tidy-data" id="toc-reminder-tidy-data" class="nav-link" data-scroll-target="#reminder-tidy-data">Reminder: Tidy Data</a></li>
-  <li><a href="#pivoting" id="toc-pivoting" class="nav-link" data-scroll-target="#pivoting">Pivoting</a>
-  <ul class="collapse">
-  <li><a href="#long-vs.-wide" id="toc-long-vs.-wide" class="nav-link" data-scroll-target="#long-vs.-wide">long vs.&nbsp;wide</a></li>
-  </ul></li>
-  <li><a href="#pivots" id="toc-pivots" class="nav-link" data-scroll-target="#pivots">pivots</a></li>
-  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a></li>
-  <li><a href="#binding-dataframes" id="toc-binding-dataframes" class="nav-link" data-scroll-target="#binding-dataframes">Binding dataframes</a></li>
-  </ul></li>
   <li><a href="#exploratory-data-analysis-eda" id="toc-exploratory-data-analysis-eda" class="nav-link" data-scroll-target="#exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</a>
   <ul class="collapse">
   <li><a href="#eda" id="toc-eda" class="nav-link" data-scroll-target="#eda">EDA</a></li>
@@ -411,13 +433,13 @@ window.Quarto = {
   <li><a href="#thc-treatment-group" id="toc-thc-treatment-group" class="nav-link" data-scroll-target="#thc-treatment-group">THC &amp; Treatment Group</a></li>
   <li><a href="#focus-on-a-specific-timepoint" id="toc-focus-on-a-specific-timepoint" class="nav-link" data-scroll-target="#focus-on-a-specific-timepoint">Focus on a specific timepoint…</a></li>
   <li><a href="#at-this-point" id="toc-at-this-point" class="nav-link" data-scroll-target="#at-this-point">At this point…</a></li>
-  <li><a href="#day-2-mon-1019" id="toc-day-2-mon-1019" class="nav-link" data-scroll-target="#day-2-mon-1019">Day 2 · Mon 10/19</a></li>
+  <li><a href="#day-2-wed-1021" id="toc-day-2-wed-1021" class="nav-link" data-scroll-target="#day-2-wed-1021">Day 2 · Wed 10/21</a></li>
   <li><a href="#brief-aside-user-defined-functions" id="toc-brief-aside-user-defined-functions" class="nav-link" data-scroll-target="#brief-aside-user-defined-functions">Brief Aside: User-Defined Functions</a></li>
   <li><a href="#compounds-across-time" id="toc-compounds-across-time" class="nav-link" data-scroll-target="#compounds-across-time">Compounds across time</a></li>
   <li><a href="#dropping-duplicates-wn-time-window" id="toc-dropping-duplicates-wn-time-window" class="nav-link" data-scroll-target="#dropping-duplicates-wn-time-window">Dropping Duplicates (w/n time window)</a></li>
   <li><a href="#group-differences-frequency-of-use" id="toc-group-differences-frequency-of-use" class="nav-link" data-scroll-target="#group-differences-frequency-of-use">Group Differences: Frequency of Use</a></li>
   <li><a href="#group-differences-treatment" id="toc-group-differences-treatment" class="nav-link" data-scroll-target="#group-differences-treatment">Group Differences: Treatment</a></li>
-  <li><a href="#day-3-wed-1021" id="toc-day-3-wed-1021" class="nav-link" data-scroll-target="#day-3-wed-1021">Day 3 · Wed 10/21</a></li>
+  <li><a href="#day-3-fri-1023" id="toc-day-3-fri-1023" class="nav-link" data-scroll-target="#day-3-fri-1023">Day 3 · Fri 10/23</a></li>
   </ul></li>
   <li><a href="#some-metrics" id="toc-some-metrics" class="nav-link" data-scroll-target="#some-metrics">Some Metrics</a>
   <ul class="collapse">
@@ -439,7 +461,7 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/08-cs01-eda.html">07: CS01 EDA</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">08-cs01-eda</h1>
 </div>
@@ -465,7 +487,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 16, 2026</p>
+      <p class="date">October 18, 2026</p>
     </div>
   </div>
   
@@ -481,20 +503,51 @@ window.Quarto = {
 <h1 data-background-color="#92A86A">CS01: Biomarkers of Recent Use (EDA)</h1>
 <section id="qa" class="level2 scrollable smaller">
 <h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div class="callout callout-style-default callout-note callout-titled" title="Q: ">
+<div class="callout callout-style-default callout-note callout-titled" title="Q: How exactly do color choice and visualization are restricted to certain geom plots?">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Q:
+Q: How exactly do color choice and visualization are restricted to certain geom plots?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A:</p>
+<p>A: I’m not sure I totally understand the question. But, you can control color on all geoms. The specific parameter may differ, but all color can be controlled.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: Is there a guide to different data visualizations and what is best where?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: Is there a guide to different data visualizations and what is best where?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: Yup! https://www.data-to-viz.com/</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: I'm curious about how group assignments are divided into groups.">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: I’m curious about how group assignments are divided into groups.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: I break it into those who typically attend class, those who occassionally attend class, and those who don’t attend class and then randomly assign within those groups. This will be announced this week.</p>
 </div>
 </div>
 </div>
@@ -503,45 +556,11 @@ Q:
 <h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 02</strong> due Fri 10/16 (11:59 PM)</li>
-<li>📚 <strong>HW 02</strong> due Sun 10/18 (11:59 PM)</li>
-<li>⌨️ <strong>Lab 03</strong> due Fri 10/23 (11:59 PM)</li>
+<li><strong>Lab 04</strong> due Fri (11:59 PM)</li>
+<li><strong>HW 02</strong> due Sun (11:59 PM)</li>
 <li>🔘 Lecture Participation survey “due” after class</li>
 </ul>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The CS01 data are data for you only. My collaborator is excited that y’all will be working on this…but these are still research data, so please do not share with others or post publicly.</p>
-</div>
-</div>
-<!-- FA24 announcements, kept for reference:
-**Due Dates**:
-
-- 🔬 **Lab 03** due Thursday (10/24; 11:59 PM)
-- 💻 **HW02** (Viz) due Mon (10/28; 11:59 PM)
-- 📋 Lecture Participation survey "due" after class
-
-**Notes**:
-
--   **hw01** and **lab02** scores posted; Scores on Canvas; feedback as "issue" on GH
--   **CS01 Groups** have been sent out
-    -   email for contact 
-    -   GitHub repo: `cs01-<team name>` in the [course GitHub organization](https://github.com/COGS137-FA26) \<- please open it and make sure you have access
-    -   group mate feedback is required (on submission)
-    
-. . . 
-
-::: callout-important
-The CS01 data are data for you only. My collaborator is excited that y'all will be working on this...but these are still research data, so please do not share with others or post publicly.
-:::
--->
+<p>Note: cs01 groups will (for real this time) be sent out tomorrow</p>
 </section>
 <section id="suggested-reading" class="level2">
 <h2 class="anchored" data-anchor-id="suggested-reading">Suggested Reading</h2>
@@ -577,7 +596,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 </section>
 <section id="example-case-study" class="level2">
 <h2 class="anchored" data-anchor-id="example-case-study">Example Case Study</h2>
-<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html</a></p>
+<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html" class="uri">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html</a></p>
 </section>
 <section id="feedback-scores" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="feedback-scores">Feedback &amp; Scores</h2>
@@ -611,75 +630,6 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <li>Your final report should be polished from start to finish</li>
 </ul>
 </div>
-</section>
-</section>
-<section id="data-wrangling-tidyr" class="level1" data-background-color="#92A86A">
-<h1 data-background-color="#92A86A">Data Wrangling: <code>tidyr</code></h1>
-<ul>
-<li>pivots (<code>tidyr</code>)</li>
-<li>joins (<code>dplyr</code>)</li>
-</ul>
-<section id="reminder-tidy-data" class="level2">
-<h2 class="anchored" data-anchor-id="reminder-tidy-data">Reminder: Tidy Data</h2>
-<p><img src="images/06/tidydata_1.jpg" class="img-fluid"></p>
-<p>. . .</p>
-<p><img src="images/06/tidydata_2.jpg" class="img-fluid"></p>
-<p>. . .</p>
-<p><img src="images/06/tidydata_3.jpg" class="img-fluid"></p>
-</section>
-<section id="pivoting" class="level2">
-<h2 class="anchored" data-anchor-id="pivoting">Pivoting</h2>
-<p>Storing the same data in a different format</p>
-<p>. . .</p>
-<section id="long-vs.-wide" class="level3">
-<h3 class="anchored" data-anchor-id="long-vs.-wide">long vs.&nbsp;wide</h3>
-<ul>
-<li><strong>wide</strong> data contains values that do not repeat in the first column. (analysis; storage)</li>
-<li><strong>long</strong> format contains values that do repeat in the first column. (plotting)</li>
-</ul>
-</section>
-</section>
-<section id="pivots" class="level2">
-<h2 class="anchored" data-anchor-id="pivots">pivots</h2>
-<ul>
-<li><code>pivot_longer</code> | take wide data and make it long</li>
-<li><code>pivot_wider</code> | take long data and make it wide</li>
-</ul>
-</section>
-<section id="joins" class="level2">
-<h2 class="anchored" data-anchor-id="joins">Joins</h2>
-<p>Combining data across different datasets, using common information (often: IDs)</p>
-<p>. . .</p>
-<p><strong>Mutating Joins</strong></p>
-<p>add new variables to a data frame from matching observations in another</p>
-<p>. . .</p>
-<ul>
-<li><strong><code>left_join</code></strong>: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information</li>
-<li><strong><code>right_join</code></strong>: keeps all observations in second df</li>
-<li><strong><code>full_join</code></strong>: keeps all observations in either df</li>
-</ul>
-<p>. . .</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/06/join-outer.png" class="img-fluid figure-img"></p>
-<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
-</figure>
-</div>
-<p>. . .</p>
-<p><strong><code>inner_join</code></strong>: takes only rows in <em>both</em> dfs</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/06/join-inner.png" class="img-fluid figure-img"></p>
-<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
-</figure>
-</div>
-</section>
-<section id="binding-dataframes" class="level2">
-<h2 class="anchored" data-anchor-id="binding-dataframes">Binding dataframes</h2>
-<ul>
-<li><code>bind_rows()</code> - stack different dataframes on top of one another, combining information where column names are the same &lt;- <em>what I used to combine the three datasets after wrangling</em></li>
-<li><code>bind_cols()</code> - stack dataframes next to one another; will assume rows match up &lt;- use with caution</li>
-</ul>
 </section>
 </section>
 <section id="exploratory-data-analysis-eda" class="level1" data-background-color="#92A86A">
@@ -778,7 +728,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -792,7 +742,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -821,7 +771,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -838,7 +788,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -855,7 +805,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -872,7 +822,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -889,7 +839,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -901,8 +851,8 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <p>. . .</p>
 <p>These data require a lot of exploration due to the number of compounds, multiple matrices, and data over time aspects.</p>
 </section>
-<section id="day-2-mon-1019" class="level2" data-background-color="#92A86A">
-<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-2-mon-1019">Day 2 · Mon 10/19</h2>
+<section id="day-2-wed-1021" class="level2" data-background-color="#92A86A">
+<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-2-wed-1021">Day 2 · Wed 10/21</h2>
 <p>Functions &amp; working across time windows.</p>
 </section>
 <section id="brief-aside-user-defined-functions" class="level2">
@@ -930,7 +880,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
-<p>Additional resource: <a href="https://r4ds.hadley.nz/functions">https://r4ds.hadley.nz/functions</a></p>
+<p>Additional resource: <a href="https://r4ds.hadley.nz/functions" class="uri">https://r4ds.hadley.nz/functions</a></p>
 </section>
 <section id="compounds-across-time" class="level2">
 <h2 class="anchored" data-anchor-id="compounds-across-time">Compounds across time</h2>
@@ -973,7 +923,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/compounds-wb-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/compounds-wb-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -985,7 +935,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/compounds-of-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/compounds-of-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -997,7 +947,7 @@ The CS01 data are data for you only. My collaborator is excited that y'all will 
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/compounds-br-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/compounds-br-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1082,7 +1032,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1094,7 +1044,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1106,7 +1056,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1140,7 +1090,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/all-the-plots-treatment-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="07-cs01-eda_files/figure-html/all-the-plots-treatment-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1152,7 +1102,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1164,7 +1114,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1182,8 +1132,8 @@ Note
 </div>
 </div>
 </section>
-<section id="day-3-wed-1021" class="level2" data-background-color="#92A86A">
-<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-3-wed-1021">Day 3 · Wed 10/21</h2>
+<section id="day-3-fri-1023" class="level2" data-background-color="#92A86A">
+<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-3-fri-1023">Day 3 · Fri 10/23</h2>
 <p>Sensitivity, specificity &amp; choosing cutoffs: the core of the CS01 question.</p>
 </section>
 </section>
@@ -1371,7 +1321,7 @@ Warning
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1383,7 +1333,7 @@ Warning
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -1395,7 +1345,7 @@ Warning
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-cs01-eda_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -2057,6 +2007,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/lectures/06-viz-cs01.html" class="pagination-link" aria-label="06: Effective Data Visualization">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">06: Effective Data Visualization</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

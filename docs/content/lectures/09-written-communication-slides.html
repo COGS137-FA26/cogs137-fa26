@@ -421,7 +421,6 @@ Professor Shannon Ellis
 </section>
 <section id="qa" class="slide level2 scrollable smaller">
 <h2>Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 <div title="Q: ">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -438,15 +437,6 @@ Professor Shannon Ellis
 </div>
 </div>
 </section>
-<section id="ad-css-masters-program" class="slide level2">
-<h2>[ad] CSS Masters Program</h2>
-<p><img data-src="images/07/CSS.png"> About the CSS MS Program:</p>
-<p>UC San Diego’s one-year M.S. in Computational Social Science combines coursework approaches and formal models across social science disciplines with modern computational data analysis techniques. With a hands-on curriculum involving a summer bootcamp, core foundational training, in-depth electives across fields, and a portfolio-building capstone project, this program provides substantive and wide-ranging practice applying skill sets to real-world problems preparing graduates for careers in industry, public policy, education, non-profits, or for further academic study in a Ph.D.&nbsp;program.</p>
-</section>
-<section id="ad-cogs-transfers" class="slide level2">
-<h2>[ad] COGS Transfers</h2>
-
-<img data-src="images/07/transfers.png" class="r-stretch"></section>
 <section id="course-announcements" class="slide level2">
 <h2>Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
@@ -486,6 +476,81 @@ Notes:
 <ul>
 <li>Quarto: <a href="https://quarto.org/docs/computations/execution-options.html">Execution Options</a> (code chunks &amp; inline code)</li>
 <li>Quarto: <a href="https://quarto.org/docs/output-formats/html-basics.html">HTML Basics</a> and <a href="https://quarto.org/docs/output-formats/html-code.html">HTML Code Blocks</a></li>
+</ul>
+</section></section>
+<section>
+<section id="data-wrangling-tidyr" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Data Wrangling: <code>tidyr</code></h1>
+<ul>
+<li>pivots (<code>tidyr</code>)</li>
+<li>joins (<code>dplyr</code>)</li>
+</ul>
+</section>
+<section id="reminder-tidy-data" class="slide level2">
+<h2>Reminder: Tidy Data</h2>
+<p><img data-src="images/06/tidydata_1.jpg"></p>
+<div class="fragment">
+<p><img data-src="images/06/tidydata_2.jpg"></p>
+</div>
+<div class="fragment">
+<p><img data-src="images/06/tidydata_3.jpg"></p>
+</div>
+</section>
+<section id="pivoting" class="slide level2">
+<h2>Pivoting</h2>
+<p>Storing the same data in a different format</p>
+<div class="fragment">
+<h3 id="long-vs.-wide">long vs.&nbsp;wide</h3>
+<ul>
+<li><strong>wide</strong> data contains values that do not repeat in the first column. (analysis; storage)</li>
+<li><strong>long</strong> format contains values that do repeat in the first column. (plotting)</li>
+</ul>
+</div>
+</section>
+<section id="pivots" class="slide level2">
+<h2>pivots</h2>
+<ul>
+<li><code>pivot_longer</code> | take wide data and make it long</li>
+<li><code>pivot_wider</code> | take long data and make it wide</li>
+</ul>
+</section>
+<section id="joins" class="slide level2">
+<h2>Joins</h2>
+<p>Combining data across different datasets, using common information (often: IDs)</p>
+<div class="fragment">
+<p><strong>Mutating Joins</strong></p>
+<p>add new variables to a data frame from matching observations in another</p>
+</div>
+<div class="fragment">
+<ul>
+<li><strong><code>left_join</code></strong>: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information</li>
+<li><strong><code>right_join</code></strong>: keeps all observations in second df</li>
+<li><strong><code>full_join</code></strong>: keeps all observations in either df</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/06/join-outer.png"></p>
+<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
+</figure>
+</div>
+</div>
+<div class="fragment">
+<p><strong><code>inner_join</code></strong>: takes only rows in <em>both</em> dfs</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/06/join-inner.png"></p>
+<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="binding-dataframes" class="slide level2">
+<h2>Binding dataframes</h2>
+<ul>
+<li><code>bind_rows()</code> - stack different dataframes on top of one another, combining information where column names are the same &lt;- <em>what I used to combine the three datasets after wrangling</em></li>
+<li><code>bind_cols()</code> - stack dataframes next to one another; will assume rows match up &lt;- use with caution</li>
 </ul>
 </section></section>
 <section>
@@ -678,9 +743,12 @@ format:
 <ul>
 <li>Specified at the top of the chunk, one per line, with <code>#|</code></li>
 </ul>
-<pre><code>::: {.cell}
-
-:::</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a></a><span class="in">#| label: chunk-label</span></span>
+<span id="cb6-3"><a></a><span class="in">#| results: hide</span></span>
+<span id="cb6-4"><a></a><span class="in">#| fig-height: 4</span></span>
+<span id="cb6-5"><a></a></span>
+<span id="cb6-6"><a></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="fragment">
 <ul>
 <li><code>eval</code>: whether to execute the code chunk</li>
@@ -818,7 +886,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-3-1.png" width="2100"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-2-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -842,7 +910,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-4-1.png" width="2100"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-3-1.png" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -895,7 +963,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-4-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -949,7 +1017,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-5-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1017,14 +1085,14 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-6-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-7-2.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-6-2.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1108,7 +1176,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-7-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1179,7 +1247,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-8-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1225,7 +1293,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-10-1.png" style="width:100.0%"></p>
+<p><img data-src="09-written-communication_files/figure-html/unnamed-chunk-9-1.png" style="width:100.0%"></p>
 </figure>
 </div>
 </div>

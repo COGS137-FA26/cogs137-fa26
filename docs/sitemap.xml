@@ -6,7 +6,7 @@
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/04-lab-cs01-eda.html</loc>
-    <lastmod>2026-09-24T21:47:05.359Z</lastmod>
+    <lastmod>2026-10-19T05:04:37.681Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/03-lab-cs01-viz.html</loc>
@@ -14,11 +14,11 @@
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/09-written-communication.html</loc>
-    <lastmod>2026-09-29T21:28:53.491Z</lastmod>
+    <lastmod>2026-10-19T05:00:24.672Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/09-written-communication-slides.html</loc>
-    <lastmod>2026-09-29T21:28:53.491Z</lastmod>
+    <lastmod>2026-10-19T05:00:24.672Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/07-ai-assisted-analysis.html</loc>
@@ -45,8 +45,12 @@
     <lastmod>2026-10-05T18:06:22.385Z</lastmod>
   </url>
   <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html</loc>
+    <lastmod>2026-10-19T05:12:30.234Z</lastmod>
+  </url>
+  <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/01-lab-intro-r.html</loc>
-    <lastmod>2026-09-28T04:22:22.341Z</lastmod>
+    <lastmod>2026-10-19T05:07:01.948Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/01-tooling.html</loc>
@@ -70,7 +74,7 @@
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/index.html</loc>
-    <lastmod>2026-09-27T20:21:31.488Z</lastmod>
+    <lastmod>2026-10-19T04:22:35.934Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/policies.html</loc>
@@ -105,6 +109,10 @@
     <lastmod>2026-10-05T16:12:07.288Z</lastmod>
   </url>
   <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs-example.html</loc>
+    <lastmod>2024-10-18T21:15:34.156Z</lastmod>
+  </url>
+  <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/04-dplyr-slides.html</loc>
     <lastmod>2026-10-09T22:49:08.955Z</lastmod>
   </url>
@@ -122,11 +130,11 @@
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/08-cs01-eda-slides.html</loc>
-    <lastmod>2026-10-02T04:37:03.203Z</lastmod>
+    <lastmod>2026-10-19T05:01:54.672Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/08-cs01-eda.html</loc>
-    <lastmod>2026-10-02T04:37:03.203Z</lastmod>
+    <lastmod>2026-10-19T05:01:54.672Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/02-lab-cs01-dplyr.html</loc>
@@ -138,6 +146,6 @@
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/05-lab-cs01-communication.html</loc>
-    <lastmod>2026-09-24T21:47:05.361Z</lastmod>
+    <lastmod>2026-10-19T05:07:01.950Z</lastmod>
   </url>
 </urlset>

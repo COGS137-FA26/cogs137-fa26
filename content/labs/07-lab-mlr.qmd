@@ -1,6 +1,5 @@
 ---
 title: "Lab 07 - Modelling course evaluations"
-date: "2024-11-21"
 output: 
   html: 
     highlight: pygments

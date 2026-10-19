@@ -240,6 +240,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">06: Effective Data Visualization</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/08-cs01-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07: CS01 EDA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -269,11 +275,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lab 03: CS01 Data Visualization</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/04-lab-cs01-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 04: CS01 EDA</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Case Studies</span></span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Case Studies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs-example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Case Study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CS01: Biomarkers of Recent Use</span></a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -340,11 +371,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#effective-written-communication" id="toc-effective-written-communication" class="nav-link active" data-scroll-target="#effective-written-communication">Effective Written Communication</a>
   <ul class="collapse">
   <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
-  <li><a href="#ad-css-masters-program" id="toc-ad-css-masters-program" class="nav-link" data-scroll-target="#ad-css-masters-program">[ad] CSS Masters Program</a></li>
-  <li><a href="#ad-cogs-transfers" id="toc-ad-cogs-transfers" class="nav-link" data-scroll-target="#ad-cogs-transfers">[ad] COGS Transfers</a></li>
   <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link" data-scroll-target="#course-announcements">Course Announcements</a></li>
   <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
   <li><a href="#suggested-reading" id="toc-suggested-reading" class="nav-link" data-scroll-target="#suggested-reading">Suggested Reading</a></li>
+  </ul></li>
+  <li><a href="#data-wrangling-tidyr" id="toc-data-wrangling-tidyr" class="nav-link" data-scroll-target="#data-wrangling-tidyr">Data Wrangling: <code>tidyr</code></a>
+  <ul class="collapse">
+  <li><a href="#reminder-tidy-data" id="toc-reminder-tidy-data" class="nav-link" data-scroll-target="#reminder-tidy-data">Reminder: Tidy Data</a></li>
+  <li><a href="#pivoting" id="toc-pivoting" class="nav-link" data-scroll-target="#pivoting">Pivoting</a>
+  <ul class="collapse">
+  <li><a href="#long-vs.-wide" id="toc-long-vs.-wide" class="nav-link" data-scroll-target="#long-vs.-wide">long vs.&nbsp;wide</a></li>
+  </ul></li>
+  <li><a href="#pivots" id="toc-pivots" class="nav-link" data-scroll-target="#pivots">pivots</a></li>
+  <li><a href="#joins" id="toc-joins" class="nav-link" data-scroll-target="#joins">Joins</a></li>
+  <li><a href="#binding-dataframes" id="toc-binding-dataframes" class="nav-link" data-scroll-target="#binding-dataframes">Binding dataframes</a></li>
   </ul></li>
   <li><a href="#consider-your-audience" id="toc-consider-your-audience" class="nav-link" data-scroll-target="#consider-your-audience">Consider your audience</a>
   <ul class="collapse">
@@ -430,7 +470,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 data-background-color="#92A86A">Effective Written Communication</h1>
 <section id="qa" class="level2 scrollable smaller">
 <h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 <div class="callout callout-style-default callout-note callout-titled" title="Q: ">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -447,15 +486,6 @@ Q:
 </div>
 </div>
 </div>
-</section>
-<section id="ad-css-masters-program" class="level2">
-<h2 class="anchored" data-anchor-id="ad-css-masters-program">[ad] CSS Masters Program</h2>
-<p><img src="images/07/CSS.png" class="img-fluid"> About the CSS MS Program:</p>
-<p>UC San Diego’s one-year M.S. in Computational Social Science combines coursework approaches and formal models across social science disciplines with modern computational data analysis techniques. With a hands-on curriculum involving a summer bootcamp, core foundational training, in-depth electives across fields, and a portfolio-building capstone project, this program provides substantive and wide-ranging practice applying skill sets to real-world problems preparing graduates for careers in industry, public policy, education, non-profits, or for further academic study in a Ph.D.&nbsp;program.</p>
-</section>
-<section id="ad-cogs-transfers" class="level2">
-<h2 class="anchored" data-anchor-id="ad-cogs-transfers">[ad] COGS Transfers</h2>
-<p><img src="images/07/transfers.png" class="img-fluid"></p>
 </section>
 <section id="course-announcements" class="level2">
 <h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
@@ -496,6 +526,75 @@ Notes:
 <ul>
 <li>Quarto: <a href="https://quarto.org/docs/computations/execution-options.html">Execution Options</a> (code chunks &amp; inline code)</li>
 <li>Quarto: <a href="https://quarto.org/docs/output-formats/html-basics.html">HTML Basics</a> and <a href="https://quarto.org/docs/output-formats/html-code.html">HTML Code Blocks</a></li>
+</ul>
+</section>
+</section>
+<section id="data-wrangling-tidyr" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Data Wrangling: <code>tidyr</code></h1>
+<ul>
+<li>pivots (<code>tidyr</code>)</li>
+<li>joins (<code>dplyr</code>)</li>
+</ul>
+<section id="reminder-tidy-data" class="level2">
+<h2 class="anchored" data-anchor-id="reminder-tidy-data">Reminder: Tidy Data</h2>
+<p><img src="images/06/tidydata_1.jpg" class="img-fluid"></p>
+<p>. . .</p>
+<p><img src="images/06/tidydata_2.jpg" class="img-fluid"></p>
+<p>. . .</p>
+<p><img src="images/06/tidydata_3.jpg" class="img-fluid"></p>
+</section>
+<section id="pivoting" class="level2">
+<h2 class="anchored" data-anchor-id="pivoting">Pivoting</h2>
+<p>Storing the same data in a different format</p>
+<p>. . .</p>
+<section id="long-vs.-wide" class="level3">
+<h3 class="anchored" data-anchor-id="long-vs.-wide">long vs.&nbsp;wide</h3>
+<ul>
+<li><strong>wide</strong> data contains values that do not repeat in the first column. (analysis; storage)</li>
+<li><strong>long</strong> format contains values that do repeat in the first column. (plotting)</li>
+</ul>
+</section>
+</section>
+<section id="pivots" class="level2">
+<h2 class="anchored" data-anchor-id="pivots">pivots</h2>
+<ul>
+<li><code>pivot_longer</code> | take wide data and make it long</li>
+<li><code>pivot_wider</code> | take long data and make it wide</li>
+</ul>
+</section>
+<section id="joins" class="level2">
+<h2 class="anchored" data-anchor-id="joins">Joins</h2>
+<p>Combining data across different datasets, using common information (often: IDs)</p>
+<p>. . .</p>
+<p><strong>Mutating Joins</strong></p>
+<p>add new variables to a data frame from matching observations in another</p>
+<p>. . .</p>
+<ul>
+<li><strong><code>left_join</code></strong>: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information</li>
+<li><strong><code>right_join</code></strong>: keeps all observations in second df</li>
+<li><strong><code>full_join</code></strong>: keeps all observations in either df</li>
+</ul>
+<p>. . .</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/06/join-outer.png" class="img-fluid figure-img"></p>
+<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
+</figure>
+</div>
+<p>. . .</p>
+<p><strong><code>inner_join</code></strong>: takes only rows in <em>both</em> dfs</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/06/join-inner.png" class="img-fluid figure-img"></p>
+<figcaption>Image Source: <a href="https://r4ds.had.co.nz/relational-data.html" class="uri">https://r4ds.had.co.nz/relational-data.html</a></figcaption>
+</figure>
+</div>
+</section>
+<section id="binding-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="binding-dataframes">Binding dataframes</h2>
+<ul>
+<li><code>bind_rows()</code> - stack different dataframes on top of one another, combining information where column names are the same &lt;- <em>what I used to combine the three datasets after wrangling</em></li>
+<li><code>bind_cols()</code> - stack dataframes next to one another; will assume rows match up &lt;- use with caution</li>
 </ul>
 </section>
 </section>
@@ -669,9 +768,12 @@ format:
 <ul>
 <li>Specified at the top of the chunk, one per line, with <code>#|</code></li>
 </ul>
-<pre><code>::: {.cell}
-
-:::</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: chunk-label</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| results: hide</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-height: 4</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>. . .</p>
 <ul>
 <li><code>eval</code>: whether to execute the code chunk</li>
@@ -795,7 +897,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -819,7 +921,7 @@ execute:
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="2100"></p>
 </figure>
 </div>
 </div>
@@ -870,7 +972,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -924,7 +1026,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -992,14 +1094,14 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1083,7 +1185,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1154,7 +1256,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1200,7 +1302,7 @@ Note
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-written-communication_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="09-written-communication_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
