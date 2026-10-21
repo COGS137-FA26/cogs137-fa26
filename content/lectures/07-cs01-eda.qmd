@@ -1,13 +1,13 @@
 ---
-title: "08-cs01-eda"
+title: "07-cs01-eda"
 author: "Professor Shannon Ellis"
 date: "2026-10-18"
 
 format:
   html: 
-    output-file: 08-cs01-eda.html
+    output-file: 07-cs01-eda.html
   revealjs:
-    output-file: 08-cs01-eda-slides.html
+    output-file: 07-cs01-eda-slides.html
 ---
 
 ```{r packages, echo=FALSE, message=FALSE, warning=FALSE}
@@ -75,7 +75,7 @@ Note:
 
 ## Example Case Study
 
-See & Discuss: <https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html>
+See & Discuss: <https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs-example.html>
 
 ## Feedback & Scores
 
@@ -235,6 +235,10 @@ ggplot(aes(x=value)) +
 ## THC & Frequency
 
 ```{r}
+#| class: wide-plot
+#| fig-width: 12
+#| fig-height: 6
+
 cs01_long |> 
   filter(compound == "thc") |>
   ggplot(aes(x=group, y=value)) + 
@@ -245,6 +249,10 @@ cs01_long |>
 ## THC & Treatment Group
 
 ```{r}
+#| class: wide-plot
+#| fig-width: 12
+#| fig-height: 6
+
 cs01_long |> 
   filter(compound == "thc") |>
   ggplot(aes(x=treatment, y=value)) + 
@@ -255,6 +263,10 @@ cs01_long |>
 ## Focus on a specific timepoint...
 
 ```{r}
+#| class: wide-plot
+#| fig-width: 12
+#| fig-height: 6
+
 cs01_long |> 
   filter(compound == "thc", timepoint %in% cs01_early_windows) |>
   ggplot(aes(x=treatment, y=value)) + 
@@ -273,6 +285,27 @@ These data require a lot of exploration due to the number of compounds, multiple
 ## Day 2 · Wed 10/21 {background-color="#92A86A"}
 
 Functions & working across time windows.
+
+## Q&A {.scrollable .smaller}
+
+::: {.callout-note collapse="true" title="Q: When is the due date for case study since I am busy with midterms this two weeks"}
+A: CS01 is due *next* Sunday, after week 5 (11/01)
+:::
+
+
+## Course Announcements
+
+**Due Dates**:
+
+-   **Lab 04** due Fri (11:59 PM)
+-   **HW 02** due Sun (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+
+Notes: 
+
+- CS01 groups were sent out - GH repo + email
+- hw01 scores (Canvas) /feedback (GH Issue) were posted
 
 ## Brief Aside: User-Defined Functions
 

@@ -9,7 +9,7 @@
 <meta name="author" content="Professor Shannon Ellis">
 <meta name="dcterms.date" content="2026-10-18">
 
-<title>COGS 137 - 08-cs01-eda</title>
+<title>COGS 137 - 07-cs01-eda</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -137,7 +137,7 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="COGS 137 - 08-cs01-eda">
+<meta property="og:title" content="COGS 137 - 07-cs01-eda">
 <meta property="og:description" content="Homepage for COGS 137 - Practical Data Science in R, Fall 2026.">
 <meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
 <meta property="og:site_name" content="COGS 137">
@@ -152,7 +152,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/08-cs01-eda.html">07: CS01 EDA</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/07-cs01-eda.html">07: CS01 EDA</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -274,7 +274,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../content/lectures/08-cs01-eda.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../content/lectures/07-cs01-eda.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">07: CS01 EDA</span></a>
   </div>
 </li>
@@ -434,6 +434,8 @@ window.Quarto = {
   <li><a href="#focus-on-a-specific-timepoint" id="toc-focus-on-a-specific-timepoint" class="nav-link" data-scroll-target="#focus-on-a-specific-timepoint">Focus on a specific timepoint…</a></li>
   <li><a href="#at-this-point" id="toc-at-this-point" class="nav-link" data-scroll-target="#at-this-point">At this point…</a></li>
   <li><a href="#day-2-wed-1021" id="toc-day-2-wed-1021" class="nav-link" data-scroll-target="#day-2-wed-1021">Day 2 · Wed 10/21</a></li>
+  <li><a href="#qa-1" id="toc-qa-1" class="nav-link" data-scroll-target="#qa-1">Q&amp;A</a></li>
+  <li><a href="#course-announcements-1" id="toc-course-announcements-1" class="nav-link" data-scroll-target="#course-announcements-1">Course Announcements</a></li>
   <li><a href="#brief-aside-user-defined-functions" id="toc-brief-aside-user-defined-functions" class="nav-link" data-scroll-target="#brief-aside-user-defined-functions">Brief Aside: User-Defined Functions</a></li>
   <li><a href="#compounds-across-time" id="toc-compounds-across-time" class="nav-link" data-scroll-target="#compounds-across-time">Compounds across time</a></li>
   <li><a href="#dropping-duplicates-wn-time-window" id="toc-dropping-duplicates-wn-time-window" class="nav-link" data-scroll-target="#dropping-duplicates-wn-time-window">Dropping Duplicates (w/n time window)</a></li>
@@ -455,15 +457,15 @@ window.Quarto = {
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08-cs01-eda-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="07-cs01-eda-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/08-cs01-eda.html">07: CS01 EDA</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/07-cs01-eda.html">07: CS01 EDA</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">08-cs01-eda</h1>
+<h1 class="title">07-cs01-eda</h1>
 </div>
 
 
@@ -596,7 +598,7 @@ Q: I’m curious about how group assignments are divided into groups.
 </section>
 <section id="example-case-study" class="level2">
 <h2 class="anchored" data-anchor-id="example-case-study">Example Case Study</h2>
-<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html" class="uri">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html</a></p>
+<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs-example.html" class="uri">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs-example.html</a></p>
 </section>
 <section id="feedback-scores" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="feedback-scores">Feedback &amp; Scores</h2>
@@ -796,7 +798,7 @@ Q: I’m curious about how group assignments are divided into groups.
 </section>
 <section id="thc-frequency" class="level2">
 <h2 class="anchored" data-anchor-id="thc-frequency">THC &amp; Frequency</h2>
-<div class="cell">
+<div class="cell wide-plot">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
@@ -805,7 +807,7 @@ Q: I’m curious about how group assignments are divided into groups.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="3600"></p>
 </figure>
 </div>
 </div>
@@ -813,7 +815,7 @@ Q: I’m curious about how group assignments are divided into groups.
 </section>
 <section id="thc-treatment-group" class="level2">
 <h2 class="anchored" data-anchor-id="thc-treatment-group">THC &amp; Treatment Group</h2>
-<div class="cell">
+<div class="cell wide-plot">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>treatment, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
@@ -822,7 +824,7 @@ Q: I’m curious about how group assignments are divided into groups.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="3600"></p>
 </figure>
 </div>
 </div>
@@ -830,7 +832,7 @@ Q: I’m curious about how group assignments are divided into groups.
 </section>
 <section id="focus-on-a-specific-timepoint" class="level2">
 <h2 class="anchored" data-anchor-id="focus-on-a-specific-timepoint">Focus on a specific timepoint…</h2>
-<div class="cell">
+<div class="cell wide-plot">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>cs01_long <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>, timepoint <span class="sc">%in%</span> cs01_early_windows) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>treatment, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
@@ -839,7 +841,7 @@ Q: I’m curious about how group assignments are divided into groups.
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="2100"></p>
+<p><img src="07-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="3600"></p>
 </figure>
 </div>
 </div>
@@ -854,6 +856,39 @@ Q: I’m curious about how group assignments are divided into groups.
 <section id="day-2-wed-1021" class="level2" data-background-color="#92A86A">
 <h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-2-wed-1021">Day 2 · Wed 10/21</h2>
 <p>Functions &amp; working across time windows.</p>
+</section>
+<section id="qa-1" class="level2 scrollable smaller">
+<h2 class="scrollable smaller anchored" data-anchor-id="qa-1">Q&amp;A</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: When is the due date for case study since I am busy with midterms this two weeks">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: When is the due date for case study since I am busy with midterms this two weeks
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: CS01 is due <em>next</em> Sunday, after week 5 (11/01)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="course-announcements-1" class="level2">
+<h2 class="anchored" data-anchor-id="course-announcements-1">Course Announcements</h2>
+<p><strong>Due Dates</strong>:</p>
+<ul>
+<li><strong>Lab 04</strong> due Fri (11:59 PM)</li>
+<li><strong>HW 02</strong> due Sun (11:59 PM)</li>
+<li>🔘 Lecture Participation survey “due” after class</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>CS01 groups were sent out - GH repo + email</li>
+<li>hw01 scores (Canvas) /feedback (GH Issue) were posted</li>
+</ul>
 </section>
 <section id="brief-aside-user-defined-functions" class="level2">
 <h2 class="anchored" data-anchor-id="brief-aside-user-defined-functions">Brief Aside: User-Defined Functions</h2>

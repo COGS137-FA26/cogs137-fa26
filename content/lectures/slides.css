@@ -112,6 +112,10 @@ details>summary {
   max-height: unset !important;
 }
 
+.reveal .wide-plot {
+  width: 100%;
+}
+
 // Sticky-note cues: the color is kept as a chip behind dark text
 // (#1a1a1a on green 8.1:1, on pink 6.3:1); the word itself names the color.
 .reveal .sticky-green, .reveal .sticky-pink {

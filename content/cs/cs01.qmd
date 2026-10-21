@@ -1,11 +1,11 @@
 ---
 title: "CS01: Biomarkers of Recent Use"
-output: 
-  html: 
-    highlight: pygments
+format:
+  html:
+    highlight-style: pygments
     preview-links: auto
-    execute:
-      eval: false
+execute:
+  eval: false
 ---
 
 This is where you get to put together all you've learned so far this quarter into a full data science report! This report will include your analysis from top (the background and question) to bottom (your analysis, interpretation, and conclusions.)

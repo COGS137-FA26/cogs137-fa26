@@ -13,7 +13,7 @@
 
   <meta name="author" content="Professor Shannon Ellis">
   <meta name="dcterms.date" content="2026-10-18">
-  <title>COGS 137 - 08-cs01-eda</title>
+  <title>COGS 137 - 07-cs01-eda</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -390,7 +390,7 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="COGS 137 - 08-cs01-eda">
+<meta property="og:title" content="COGS 137 - 07-cs01-eda">
 <meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
 <meta property="og:site_name" content="COGS 137">
 </head>
@@ -399,7 +399,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">08-cs01-eda</h1>
+  <h1 class="title">07-cs01-eda</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -513,7 +513,7 @@ Professor Shannon Ellis
 </section>
 <section id="example-case-study" class="slide level2">
 <h2>Example Case Study</h2>
-<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html" class="uri">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs01.html</a></p>
+<p>See &amp; Discuss: <a href="https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs-example.html" class="uri">https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs-example.html</a></p>
 </section>
 <section id="feedback-scores" class="slide level2">
 <h2>Feedback &amp; Scores</h2>
@@ -726,7 +726,7 @@ Professor Shannon Ellis
 </div></aside></section>
 <section id="thc-frequency" class="slide level2">
 <h2>THC &amp; Frequency</h2>
-<div class="cell">
+<div class="cell wide-plot">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>cs01_long <span class="sc">|&gt;</span> </span>
 <span id="cb9-2"><a></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb9-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
@@ -734,10 +734,10 @@ Professor Shannon Ellis
 <span id="cb9-5"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="07-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" width="2100" class="r-stretch"></section>
+<img data-src="07-cs01-eda_files/figure-html/unnamed-chunk-7-1.png" width="3600" class="r-stretch"></section>
 <section id="thc-treatment-group" class="slide level2">
 <h2>THC &amp; Treatment Group</h2>
-<div class="cell">
+<div class="cell wide-plot">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>cs01_long <span class="sc">|&gt;</span> </span>
 <span id="cb10-2"><a></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>) <span class="sc">|&gt;</span></span>
 <span id="cb10-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>treatment, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
@@ -745,10 +745,10 @@ Professor Shannon Ellis
 <span id="cb10-5"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="07-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" width="2100" class="r-stretch"></section>
+<img data-src="07-cs01-eda_files/figure-html/unnamed-chunk-8-1.png" width="3600" class="r-stretch"></section>
 <section id="focus-on-a-specific-timepoint" class="slide level2">
 <h2>Focus on a specific timepoint…</h2>
-<div class="cell">
+<div class="cell wide-plot">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>cs01_long <span class="sc">|&gt;</span> </span>
 <span id="cb11-2"><a></a>  <span class="fu">filter</span>(compound <span class="sc">==</span> <span class="st">"thc"</span>, timepoint <span class="sc">%in%</span> cs01_early_windows) <span class="sc">|&gt;</span></span>
 <span id="cb11-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>treatment, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
@@ -756,7 +756,7 @@ Professor Shannon Ellis
 <span id="cb11-5"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>fluid_type, <span class="at">scales=</span><span class="st">"free"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="07-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" width="2100" class="r-stretch"></section>
+<img data-src="07-cs01-eda_files/figure-html/unnamed-chunk-9-1.png" width="3600" class="r-stretch"></section>
 <section id="at-this-point" class="slide level2">
 <h2>At this point…</h2>
 <p>We start to get a sense of the data with these quick and dirty plots, but we’re really only scratching the surface of what’s going on in these data.</p>
@@ -767,6 +767,38 @@ Professor Shannon Ellis
 <section id="day-2-wed-1021" class="slide level2" data-background-color="#92A86A">
 <h2>Day 2 · Wed 10/21</h2>
 <p>Functions &amp; working across time windows.</p>
+</section>
+<section id="qa-1" class="slide level2 scrollable smaller">
+<h2>Q&amp;A</h2>
+<div title="Q: When is the due date for case study since I am busy with midterms this two weeks">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: When is the due date for case study since I am busy with midterms this two weeks</strong></p>
+</div>
+<div class="callout-content">
+<p>A: CS01 is due <em>next</em> Sunday, after week 5 (11/01)</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="course-announcements-1" class="slide level2">
+<h2>Course Announcements</h2>
+<p><strong>Due Dates</strong>:</p>
+<ul>
+<li><strong>Lab 04</strong> due Fri (11:59 PM)</li>
+<li><strong>HW 02</strong> due Sun (11:59 PM)</li>
+<li>🔘 Lecture Participation survey “due” after class</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>CS01 groups were sent out - GH repo + email</li>
+<li>hw01 scores (Canvas) /feedback (GH Issue) were posted</li>
+</ul>
 </section>
 <section id="brief-aside-user-defined-functions" class="slide level2">
 <h2>Brief Aside: User-Defined Functions</h2>
