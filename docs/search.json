@@ -5948,6 +5948,20 @@
     "text": "Day 3 · Fri 10/23\nSensitivity, specificity & choosing cutoffs: the core of the CS01 question."
   },
   {
+    "objectID": "content/lectures/07-cs01-eda-slides.html#qa-2",
+    "href": "content/lectures/07-cs01-eda-slides.html#qa-2",
+    "title": "07-cs01-eda",
+    "section": "Q&A",
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: on our case study, how much should we be leaving comments to explain the code? I typically leave a comment on every line in the hws/labs just to help me articulate why i did something but i don’t know if this would clutter the cs report we submit as a group. what’s your preference as the grader/person reading it?s\n\n\nA: Good question! For case studies, we want this to be an effective report. Commenting every line would make teh code less readable, so we’ll want to avoid that. Instead, we’ll want a bit of text before the code to explain at a high-level what was done and then let the code speak for itself. Comments here or there are great!"
+  },
+  {
+    "objectID": "content/lectures/07-cs01-eda-slides.html#course-announcements-2",
+    "href": "content/lectures/07-cs01-eda-slides.html#course-announcements-2",
+    "title": "07-cs01-eda",
+    "section": "Course Announcements",
+    "text": "Course Announcements\nDue Dates:\n\nLab 04 due today (10/23) (11:59 PM)\nHW 02 due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nCS01 group work in class planned for Monday - plan to come and work with your gorup"
+  },
+  {
     "objectID": "content/lectures/07-cs01-eda-slides.html#sensitivity-specificity",
     "href": "content/lectures/07-cs01-eda-slides.html#sensitivity-specificity",
     "title": "07-cs01-eda",
@@ -6320,6 +6334,28 @@
     "title": "07-cs01-eda",
     "section": "Day 3 · Fri 10/23",
     "text": "Day 3 · Fri 10/23\nSensitivity, specificity & choosing cutoffs: the core of the CS01 question.",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
+  },
+  {
+    "objectID": "content/lectures/07-cs01-eda.html#qa-2",
+    "href": "content/lectures/07-cs01-eda.html#qa-2",
+    "title": "07-cs01-eda",
+    "section": "Q&A",
+    "text": "Q&A\n\n\n\n\n\n\nQ: on our case study, how much should we be leaving comments to explain the code? I typically leave a comment on every line in the hws/labs just to help me articulate why i did something but i don’t know if this would clutter the cs report we submit as a group. what’s your preference as the grader/person reading it?s\n\n\n\n\n\nA: Good question! For case studies, we want this to be an effective report. Commenting every line would make teh code less readable, so we’ll want to avoid that. Instead, we’ll want a bit of text before the code to explain at a high-level what was done and then let the code speak for itself. Comments here or there are great!",
+    "crumbs": [
+      "Notes",
+      "07: CS01 EDA"
+    ]
+  },
+  {
+    "objectID": "content/lectures/07-cs01-eda.html#course-announcements-2",
+    "href": "content/lectures/07-cs01-eda.html#course-announcements-2",
+    "title": "07-cs01-eda",
+    "section": "Course Announcements",
+    "text": "Course Announcements\nDue Dates:\n\nLab 04 due today (10/23) (11:59 PM)\nHW 02 due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nCS01 group work in class planned for Monday - plan to come and work with your gorup",
     "crumbs": [
       "Notes",
       "07: CS01 EDA"
