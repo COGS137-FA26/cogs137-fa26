@@ -59,7 +59,6 @@ Note: cs01 groups will (for real this time) be sent out tomorrow
     -   Instructions
     -   Previous Projects
     -   CS01 EDA
--   `tidyr`
 -   Exploratory Data Analysis (EDA)
 
 # CS01 {background-color="#92A86A"}
@@ -499,7 +498,7 @@ A: Good question! For case studies, we want this to be an effective report. Comm
 
 Notes: 
 
-- CS01 group work in class planned for Monday - plan to come and work with your gorup
+- CS01 group work in class planned for Monday - plan to come and work with your group
 
 # Some Metrics {background-color="#92A86A"}
 

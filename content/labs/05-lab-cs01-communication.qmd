@@ -30,16 +30,15 @@ Load in the tidyverse using `library(tidyverse)`. However, you may have noticed 
 ### Exercise 2
 
 Let's customize the output a bit more by adding some additional information to your YAML. Edit the YAML of your document to:
- 
-1. use a different [theme](https://quarto.org/docs/output-formats/html-themes.html) than the default
-2. use a different option for code highlighting (`highlight-style`)
-3. include a table of contents, with a depth of 3
-4. enable code folding
 
-:::aside
+1.  use a different [theme](https://quarto.org/docs/output-formats/html-themes.html) than the default
+2.  use a different option for code highlighting (`highlight-style`)
+3.  include a table of contents, with a depth of 3
+4.  enable code folding
+
+::: aside
 A reminder that there are additional readings provided along with most lectures, including Quarto's [HTML Basics](https://quarto.org/docs/output-formats/html-basics.html) and [Execution Options](https://quarto.org/docs/computations/execution-options.html) pages for the effective communication notes
 :::
-
 
 ## Part 2: Citations
 
@@ -55,14 +54,17 @@ The following paragraph has been included in your lab...but it's missing citatio
 
 > In America, almost two-thirds of US trauma center admissions are the result of motor vehicle accidents (MVAs). Among these accidents, 60% result from drivers who test positive for a drug, and the most commonly-detected substances are alcohol and cannabis. Despite being federally illegal, cannabis use in America has increased steadily over the last 20 years, much of which has been attributed to its use being decriminalized and/or legal at the state level. Given its rise in popularity and the rate at which it shows up in toxicology reports completed at the roadside after accidents, public health concerns arise as to its safety while driving. Some states have recently begun to set limits for marijuana usage. Here, using a double-blinded randomized control trial, we identify a plausible biomarker for detection of recent marijuana usage for potential use at the roadside to determine if an individual has driven under the influence of cannabis.
 
-
 ### Exercise 5
 
 Determine two changes you would make to the above paragraph to improve its effectiveness (clarity, conciseness, etc.). Would you remove information? Add? Reorder? Change to include specifics? Etc. Feel free to state the changes, without actually making the edits.
 
-## Part 3: CS01
+## Part 3: Gen AI
 
-Feel free to use remaining time incorporating these changes/improvements into your group's CS01 Report. 
+Brainstorm three creative uses beyond the basics (e.g. beyond "looking something up" or "checking for typos") of how you could use GenAI to support your team's CS01 Work. Also explain at least two ways you will NOT use GenAI in CS01 completion, as it would either limit your learning or be an academic integrity violation.
+
+## Part 4: CS01
+
+Feel free to use remaining time incorporating these changes/improvements into your group's CS01 Report.
 
 # Submit
 
