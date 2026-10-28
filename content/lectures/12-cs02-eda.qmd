@@ -24,7 +24,7 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 <!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
 ::: {.callout-note collapse="true" title="Q: "}
-A: 
+A:
 :::
 
 ## Course Announcements
@@ -38,6 +38,7 @@ A:
 -   ⌨️ **Lab 05** due Fri 11/6 (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
 
+```{=html}
 <!-- FA24 announcements, kept for reference:
 -   `r emo::ji("science")` **Lab 05** due tonight
 -   🔘 [**CS01 Team Eval**](https://docs.google.com/forms/d/e/1FAIpQLSdmiYgXilgqMu5ZWBW8grpCLXeyhzrvwhsCbxYBp31qQMrRPg/viewform) survey due tonight
@@ -46,7 +47,7 @@ A:
 
 Note: Get the data data in RStudio for today if you haven't already (and `install.packages` `"OCSdata"`, `"skimr"`, and `"GGally"`.
 -->
-
+```
 ```{r}
 # install.packages("OCSdata")
 # OCSdata::raw_data("ocs-bp-air-pollution", outpath = getwd())
@@ -55,6 +56,70 @@ pm <- read_csv("OCS_data/data/raw/pm25_data.csv") |>
   # these are ID codes, not measurements
   mutate(across(c(id, fips, zcta), as.factor))
 ```
+
+# Data Wrangling: `tidyr` {background-color="#92A86A"}
+
+-   pivots (`tidyr`)
+-   joins (`dplyr`)
+
+## Reminder: Tidy Data
+
+![](images/06/tidydata_1.jpg)
+
+. . .
+
+![](images/06/tidydata_2.jpg)
+
+. . .
+
+![](images/06/tidydata_3.jpg)
+
+## Pivoting
+
+Storing the same data in a different format
+
+. . .
+
+### long vs. wide
+
+-   **wide** data contains values that do not repeat in the first column. (analysis; storage)
+-   **long** format contains values that do repeat in the first column. (plotting)
+
+## pivots
+
+-   `pivot_longer` \| take wide data and make it long
+-   `pivot_wider` \| take long data and make it wide
+
+## Joins
+
+Combining data across different datasets, using common information (often: IDs)
+
+. . .
+
+**Mutating Joins**
+
+add new variables to a data frame from matching observations in another
+
+. . .
+
+-   **`left_join`**: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information
+-   **`right_join`**: keeps all observations in second df
+-   **`full_join`**: keeps all observations in either df
+
+. . .
+
+![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-outer.png)
+
+. . .
+
+**`inner_join`**: takes only rows in *both* dfs
+
+![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-inner.png)
+
+## Binding dataframes
+
+-   `bind_rows()` - stack different dataframes on top of one another, combining information where column names are the same \<- *what I used to combine the three datasets after wrangling*
+-   `bind_cols()` - stack dataframes next to one another; will assume rows match up \<- use with caution
 
 # Question {background-color="#92A86A"}
 
@@ -99,7 +164,7 @@ Things to note:
 -   large range of possible values for many variables (i.e. population)
 :::
 
-. . . 
+. . .
 
 -   Consider variable type - need more factors?
 -   Understand why ID is not uniformally distributed; figure out which are overrepresented; decide what to do

@@ -104,8 +104,8 @@ website:
             href: content/lectures/07-cs01-eda.qmd
           - text: "08: CS01 In-class Work"
             href: content/lectures/08-cs01-inclass.qmd
-      #     - text: "09: Written Communication"
-      #       href: content/lectures/09-written-communication.qmd
+          - text: "09: Written Communication"
+            href: content/lectures/09-written-communication.qmd
 
       #     - text: "11: CS02 Intro"
       #       href: content/lectures/11-cs02-intro.qmd

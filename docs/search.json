@@ -125,245 +125,271 @@
     "href": "content/lectures/09-written-communication.html",
     "title": "09-written-communication",
     "section": "",
-    "text": "Skip to main content"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#qa",
-    "href": "content/lectures/09-written-communication.html#qa",
-    "title": "09-written-communication",
-    "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#course-announcements",
     "href": "content/lectures/09-written-communication.html#course-announcements",
     "title": "09-written-communication",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 03 due Fri 10/23 (11:59 PM)\n⌨️ Lab 04 due Fri 10/30 (11:59 PM)\n💻 CS01 (report in repo + general communication on Canvas) & 🔘 CS01 team eval survey due Fri 10/30 (11:59 PM)\n🔘 Mid-course survey due Fri 10/30 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\nLab 05 due Fri 10/30 (11:59 PM)\nMid-course survey “due” Fri 10/30 (11:59 PM)\nCS01 due Sunday (11:59 PM)\n\nreport in repo\nGeneral communication (Canvas)\nteam eval survey\n\nLecture Participation survey “due” after class\n\nNote: - lab03 (check feedback on GH issue) and lab04 grades posted",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#agenda",
     "href": "content/lectures/09-written-communication.html#agenda",
     "title": "09-written-communication",
     "section": "Agenda",
-    "text": "Agenda\n\nCommunicating for your audience\nWritten Communication\nVisual Communication\n\nNote: We’ll discuss oral communication closer to the end of the quarter, when you’ll have to present out loud."
+    "text": "Agenda\n\nCommunicating for your audience\nWritten Communication\nVisual Communication\n\nNote: We’ll discuss oral communication closer to the end of the quarter, when you’ll have to present out loud.",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#suggested-reading",
     "href": "content/lectures/09-written-communication.html#suggested-reading",
     "title": "09-written-communication",
     "section": "Suggested Reading",
-    "text": "Suggested Reading\n\nQuarto: Execution Options (code chunks & inline code)\nQuarto: HTML Basics and HTML Code Blocks"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#reminder-tidy-data",
-    "href": "content/lectures/09-written-communication.html#reminder-tidy-data",
-    "title": "09-written-communication",
-    "section": "Reminder: Tidy Data",
-    "text": "Reminder: Tidy Data\n\n. . .\n\n. . ."
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#pivoting",
-    "href": "content/lectures/09-written-communication.html#pivoting",
-    "title": "09-written-communication",
-    "section": "Pivoting",
-    "text": "Pivoting\nStoring the same data in a different format\n. . .\n\nlong vs. wide\n\nwide data contains values that do not repeat in the first column. (analysis; storage)\nlong format contains values that do repeat in the first column. (plotting)"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#pivots",
-    "href": "content/lectures/09-written-communication.html#pivots",
-    "title": "09-written-communication",
-    "section": "pivots",
-    "text": "pivots\n\npivot_longer | take wide data and make it long\npivot_wider | take long data and make it wide"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#joins",
-    "href": "content/lectures/09-written-communication.html#joins",
-    "title": "09-written-communication",
-    "section": "Joins",
-    "text": "Joins\nCombining data across different datasets, using common information (often: IDs)\n. . .\nMutating Joins\nadd new variables to a data frame from matching observations in another\n. . .\n\nleft_join: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information\nright_join: keeps all observations in second df\nfull_join: keeps all observations in either df\n\n. . .\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html\n\n\n. . .\ninner_join: takes only rows in both dfs\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#binding-dataframes",
-    "href": "content/lectures/09-written-communication.html#binding-dataframes",
-    "title": "09-written-communication",
-    "section": "Binding dataframes",
-    "text": "Binding dataframes\n\nbind_rows() - stack different dataframes on top of one another, combining information where column names are the same &lt;- what I used to combine the three datasets after wrangling\nbind_cols() - stack dataframes next to one another; will assume rows match up &lt;- use with caution"
+    "text": "Suggested Reading\n\nQuarto: Execution Options (code chunks & inline code)\nQuarto: HTML Basics and HTML Code Blocks",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#what-does-this-mean",
     "href": "content/lectures/09-written-communication.html#what-does-this-mean",
     "title": "09-written-communication",
     "section": "What does this mean?",
-    "text": "What does this mean?\n❓ What does it mean to “consider your audience?”\n. . .\nSimply: You do the work so they don’t have to.\n. . .\n…also the aesthetic-usability effect exists."
+    "text": "What does this mean?\n❓ What does it mean to “consider your audience?”\n. . .\nSimply: You do the work so they don’t have to.\n. . .\n…also the aesthetic-usability effect exists: people perceive polished, attractive work as easier to use (and are more forgiving of its flaws).",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#whats-the-right-level",
     "href": "content/lectures/09-written-communication.html#whats-the-right-level",
     "title": "09-written-communication",
     "section": "What’s the right level?",
-    "text": "What’s the right level?\n\n\nGeneral Audience\n✔ background\n🚫 limit technical details\n🎉 emphasize take-home\n\n\n\nTechnical Audience\n⬇ limit background\n💻 all-the-details\n🎉 emphasize take-home"
+    "text": "What’s the right level?\n\n\nGeneral Audience\n✔ background\n🚫 limit technical details\n🎉 emphasize take-home\n\n\n\nTechnical Audience\n⬇ limit background\n💻 all-the-details\n🎉 emphasize take-home",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#considerations",
     "href": "content/lectures/09-written-communication.html#considerations",
     "title": "09-written-communication",
     "section": "Considerations",
-    "text": "Considerations\n\nPlatform: written? oral?\n\n. . .\n\nSetting: informal? formal?\n\n. . .\n\nTiming: never go over your time limit!"
+    "text": "Considerations\n\nPlatform: written? oral?\n\n. . .\n\nSetting: informal? formal?\n\n. . .\n\nAudience: technical? general?",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#choose-informative-titles",
     "href": "content/lectures/09-written-communication.html#choose-informative-titles",
     "title": "09-written-communication",
     "section": "Choose informative titles",
-    "text": "Choose informative titles\nOn presentations: Balance b/w short and informative (goal: concise)\n. . .\n\nAvoid: “Analyzing NHANES”\n\nBetter: “Data from the NHANES study shows that diet is related to overall health”\n. . .\nOn visualizations: emphasize the take-home! (what’s learned or what action to take)\n. . .\n\nAvoid: “Boxplot of gender”\n\nBetter: “Twice as many females as males included for analysis”\n. . .\n\nAvoid: “Tickets vs. Time”\n\nBetter: “Staff unable to respond to incoming tickets; need to hire 2 FTEs”"
+    "text": "Choose informative titles\nIn written reports: Balance b/w short and informative (goal: concise)\n. . .\n\nAvoid: “Analyzing NHANES”\n\nBetter: “Data from the NHANES study shows that diet is related to overall health”\n. . .\nOn visualizations: emphasize the take-home! (what’s learned or what action to take)\n. . .\n\nAvoid: “Boxplot of gender”\n\nBetter: “Twice as many females as males included for analysis”\n. . .\n\nAvoid: “Tickets vs. Time”\n\nBetter: “Staff unable to respond to incoming tickets; need to hire 2 FTEs”",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/09-written-communication.html#benefits-of-written-communciation",
-    "href": "content/lectures/09-written-communication.html#benefits-of-written-communciation",
+    "objectID": "content/lectures/09-written-communication.html#benefits-of-written-communication",
+    "href": "content/lectures/09-written-communication.html#benefits-of-written-communication",
     "title": "09-written-communication",
-    "section": "Benefits of written communciation",
-    "text": "Benefits of written communciation\nYour audience has time to process…but the explanation has to be there!\n. . .\nVisually: more on a single visualization\n. . .\nYes, often there are different visualizations for reports/papers than for presentations/lectures."
+    "section": "Benefits of written communication",
+    "text": "Benefits of written communication\nYour audience has time to process…but the explanation has to be there!\n. . .\nVisually: more on a single visualization\n. . .\nYes, often there are different visualizations for reports/papers than for presentations/lectures.",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#when-you-have-time-to-digest-read",
     "href": "content/lectures/09-written-communication.html#when-you-have-time-to-digest-read",
     "title": "09-written-communication",
     "section": "When you have time to digest (read)",
-    "text": "When you have time to digest (read)\n\n. . .\n❓ What makes this an effective visualization for a written communication?”\nSource: Storytelling wtih data by cole nussbaumer knaflic"
+    "text": "When you have time to digest (read)\n\n. . .\n❓ What makes this an effective visualization for a written communication?\nSource: Storytelling with data by cole nussbaumer knaflic",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#written-explanations",
     "href": "content/lectures/09-written-communication.html#written-explanations",
     "title": "09-written-communication",
     "section": "Written Explanations",
-    "text": "Written Explanations\n\nVisualizations should be explained/interpreted\nAnalyses/Models should be explained\n\nshould be clear what question is being answered\nwhat conclusions is being drawn\nand what numbers were used to draw that conclusion"
+    "text": "Written Explanations\n\nVisualizations should be explained/interpreted\nAnalyses/Models should be explained\n\nshould be clear what question is being answered\nwhat conclusion is being drawn\nand what numbers were used to draw that conclusion",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#data-science-reports-in-.qmd",
     "href": "content/lectures/09-written-communication.html#data-science-reports-in-.qmd",
     "title": "09-written-communication",
     "section": "Data Science Reports in .qmd",
-    "text": "Data Science Reports in .qmd\n\n\nAs concise as possible\nImportant information introduced before referenced (datasets, jargon, etc.)\nNecessary details (for your audience); nothing more\n\nBe sure that the rendered output contains what you intended (plots displayed; headers etc.)\n…and does NOT display stuff that doesn’t need to be there (messages/warnings suppressed, brainstorming, etc.)\n\nTypical Sections: Introduction/Background, Setup, Data, Analysis, Conclusion, References"
+    "text": "Data Science Reports in .qmd\n\n\nAs concise as possible\nImportant information introduced before referenced (datasets, jargon, etc.)\nNecessary details (for your audience); nothing more\n\nBe sure that the rendered output contains what you intended (plots displayed; headers etc.)\n…and does NOT display stuff that doesn’t need to be there (messages/warnings suppressed, brainstorming, etc.)\n\nTypical Sections: Introduction/Background, Setup, Data, Analysis, Conclusion, References",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#controlling-html-document-settings",
     "href": "content/lectures/09-written-communication.html#controlling-html-document-settings",
     "title": "09-written-communication",
     "section": "Controlling HTML document settings",
-    "text": "Controlling HTML document settings\n\nTable of Contents\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n---\n. . .\n\nTheme\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    theme: united\n    highlight-style: tango\n---\n. . .\n\nFigure Options\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    fig-width: 7\n    fig-height: 6\n---\n. . .\n\nCode Folding\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    code-fold: true\n---\n. . .\n\nSelf-contained HTML (so the file on GitHub displays correctly on its own)\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    embed-resources: true\n---"
+    "text": "Controlling HTML document settings\n\nTable of Contents\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n---\n. . .\n\nTheme\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    theme: united\n    highlight-style: tango\n---\n. . .\n\nFigure Options\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    fig-width: 7\n    fig-height: 6\n---\n. . .\n\nCode Folding\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    code-fold: true\n---",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#sharing-your-html",
+    "href": "content/lectures/09-written-communication.html#sharing-your-html",
+    "title": "09-written-communication",
+    "section": "Sharing your HTML",
+    "text": "Sharing your HTML\n\nSelf-contained output: everything (plots, CSS, JS) packed into a single .html file\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    embed-resources: true\n---\n. . .\n\nWithout this, your plots/styling live in a separate _files/ folder…and break if the .html is shared/submitted on its own\nTrade-off: larger file size\n\n. . .\n\n\n\n\n\n\nWarning\n\n\n\nGitHub does not render .html files. Clicking your report on GitHub shows the source code. That’s expected! It doesn’t mean your render failed. Download the file and open it in a browser to check it.",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#controlling-code-chunk-output",
     "href": "content/lectures/09-written-communication.html#controlling-code-chunk-output",
     "title": "09-written-communication",
     "section": "Controlling code chunk output",
-    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n```{r}\n#| label: chunk-label\n#| results: hide\n#| fig-height: 4\n\n```\n. . .\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\n\n. . .\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
+    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n```{r}\n#| label: chunk-label\n#| results: hide\n#| fig-height: 4\n\n```\n. . .\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\ninclude: false: run the code, but show nothing (code or output) in the rendered document. Great for setup chunks (e.g., loading packages)\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\nfig-cap: add a caption to a figure\n\n. . .\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#inline-code-numbers-in-your-text",
+    "href": "content/lectures/09-written-communication.html#inline-code-numbers-in-your-text",
+    "title": "09-written-communication",
+    "section": "Inline code: numbers in your text",
+    "text": "Inline code: numbers in your text\nTyping numbers into your text by hand means they go stale (or are just wrong!) when your data or analysis changes.\nInstead, compute them with inline code:\nThe mtcars dataset includes `r nrow(mtcars)` cars, with an average fuel efficiency of `r round(mean(mtcars$mpg), 1)` mpg.\n. . .\n…which renders as:\n\nThe mtcars dataset includes 32 cars, with an average fuel efficiency of 20.1 mpg.\n\n. . .\nThe numbers in your conclusions are always the numbers from your analysis.",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#editing-proofreading",
     "href": "content/lectures/09-written-communication.html#editing-proofreading",
     "title": "09-written-communication",
     "section": "Editing & Proofreading",
-    "text": "Editing & Proofreading\n\nDid you end up telling a story?\n\nThings missing?\nThings to delete?\n\n\n. . .\n\nDo not fall in love with your words/code/plots\n\n. . .\n\nDo spell check\nDo read it over before sending/presenting/submitting"
+    "text": "Editing & Proofreading\n\nDid you end up telling a story?\n\nThings missing?\nThings to delete?\n\n\n. . .\n\nDo not fall in love with your words/code/plots\n\n. . .\n\nDo spell check\nDo read it over before sending/presenting/submitting",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#aside-citing-sources",
     "href": "content/lectures/09-written-communication.html#aside-citing-sources",
     "title": "09-written-communication",
     "section": "Aside: Citing Sources",
-    "text": "Aside: Citing Sources\nWhen are citations needed?\n. . .\n\n\n“We will be doing our analysis using two different data sets created by two different groups: Donohue and Mustard + Lott, or simply Lott”\n\n\n. . .\n\n\n“What turned from the idea of carrying firearms to protect oneself from enemies such as the British monarchy and the unknown frontier of North America has now become a nationwide issue.”\n\n\n. . .\n\n\n“Right to Carry Laws refer to laws that specify how citizens are allowed to carry concealed handguns when they’re away from home without a permit”\n\n\n. . .\n\n\n“In this case study, we are examining the relationship between unemployment rate, poverty rate, police staffing, and violent crime rate.”\n\n\n. . .\n\n\n“In the United States, the second amendment permits the right to bear arms, and this law has not been changed since its creation in 1791.”\n\n\n. . .\n\n\n“The Right to Carry Laws (RTC) is defined as”a law that specifies if and how citizens are allowed to have a firearm on their person or nearby in public.””\n\n\n. . .\nReminder: You do NOT get docked points for citing others’ work. You can be at risk of AI Violation if you don’t. When in doubt, give credit."
+    "text": "Aside: Citing Sources\nWhen are citations needed?\n. . .\n\n\n“We will be doing our analysis using two different data sets created by two different groups: Donohue and Mustard + Lott, or simply Lott”\n\n\n. . .\n\n\n“Right to Carry Laws refer to laws that specify how citizens are allowed to carry concealed handguns when they’re away from home without a permit”\n\n\n. . .\n\n\n“In this case study, we are examining the relationship between unemployment rate, poverty rate, police staffing, and violent crime rate.”\n\n\n. . .\n\n\n“In the United States, the second amendment permits the right to bear arms, and this law has not been changed since its creation in 1791.”\n\n\n. . .\n\n\n“The Right to Carry Laws (RTC) is defined as”a law that specifies if and how citizens are allowed to have a firearm on their person or nearby in public.””\n\n\n. . .\nReminder: You do NOT get docked points for citing others’ work. You can be at risk of an Academic Integrity violation if you don’t. When in doubt, give credit.",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#footnotes-in-.qmd",
     "href": "content/lectures/09-written-communication.html#footnotes-in-.qmd",
     "title": "09-written-communication",
     "section": "Footnotes in .qmd",
-    "text": "Footnotes in .qmd\nHow to specify a footnote in text:\nHere is some body text.[^1]\nHow to include the footnote’s reference:\n[^1]: This footnote will appear at the bottom of the page.\n\n\nNote: .bib files can be included with BibTeX references using the bibliography parameter in your YAML"
+    "text": "Footnotes in .qmd\nHow to specify a footnote in text:\nHere is some body text.[^1]\nHow to include the footnote’s reference:\n[^1]: This footnote will appear at the bottom of the page.\n\n\nNote: .bib files can be included with BibTeX references using the bibliography parameter in your YAML",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/09-written-communication.html#effective-genai-strategies",
+    "href": "content/lectures/09-written-communication.html#effective-genai-strategies",
+    "title": "09-written-communication",
+    "section": "Effective GenAI Strategies",
+    "text": "Effective GenAI Strategies\n❓ While generating your first draft, how can GenAI be helpful?\n❓ After you have a first draft, how can GenAI be helpful?\n❓ While completing your cs01, what to avoid with GenAI?",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#the-glamour-of-graphics",
     "href": "content/lectures/09-written-communication.html#the-glamour-of-graphics",
     "title": "09-written-communication",
     "section": "The Glamour of Graphics",
-    "text": "The Glamour of Graphics\n\nbuilds on top of the grammar (components) of a graphic\nconsiderations for the design of a graphic\ncolor, typography, layout\ngoing from 😬accurate to 😍effective\n\n\n\nThese ideas and slides are all modified from Will Chase’s rstudio::conf2020 slides/talk\n. . .\nThe following example uses the penguins dataset from the palmerpenguins package (would have to be installed to run these.)\n\nlibrary(palmerpenguins)"
+    "text": "The Glamour of Graphics\n\nbuilds on top of the grammar (components) of a graphic\nconsiderations for the design of a graphic\ncolor, typography, layout\ngoing from 😬accurate to 😍effective\n\n\n\nThese ideas and slides are all modified from Will Chase’s rstudio::conf2020 slides/talk\n. . .\nThe following example uses the penguins dataset from the palmerpenguins package (would have to be installed to run these.)\n\nlibrary(palmerpenguins)",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#an-example",
     "href": "content/lectures/09-written-communication.html#an-example",
     "title": "09-written-communication",
     "section": "An Example…",
-    "text": "An Example…\n\n😬 Accurate😍 EffectiveChanges\n\n\n\nggplot(penguins, aes(x = species, fill = species)) +\n  geom_bar() +\n  labs(title = \"Count vs. Species\") +\n  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))\n\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(y = fct_rev(fct_infreq(species)), fill = species)) +\n  geom_bar() +\n  geom_text(stat='count', aes(label=after_stat(count)), hjust = 1.5, color = \"white\", size = 7) +\n  scale_x_continuous(expand = c(0, 0)) +\n  scale_fill_manual(values = c(\"#454545\", rep(\"#adadad\", 2))) +\n  labs(title = \"Adelie Penguins are the most common in Antarctica\", \n       subtitle = \"Frequency of each penguin species studied near Palmer Station, Antarctica\") +\n  theme_minimal(base_size = 14) +\n  theme(axis.text.x = element_blank(),\n        plot.title.position = \"plot\", \n        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),\n        axis.title = element_blank(),\n        legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\nInformative Titles\nLeft Align Titles\nBorders & Backgrounds: 👎\nOrganize & Remove/Lighten as much as possible\nLegends Suck\nAvoid head-tilting\n\n\n\n\n\n\n\nNote\n\n\n\nA reminder that when you’re doing EDA, you’re going to generate a lot of plots. Don’t spend your time making all of them beautiful. Save that for the “editing” portion of your case study. Once you know which are needed to tell your story, add them in."
+    "text": "An Example…\n\n😬 Accurate😍 EffectiveChanges\n\n\n\nggplot(penguins, aes(x = species, fill = species)) +\n  geom_bar() +\n  labs(title = \"Count vs. Species\") +\n  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))\n\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(y = fct_rev(fct_infreq(species)), fill = species)) +\n  geom_bar() +\n  geom_text(stat='count', aes(label=after_stat(count)), hjust = 1.5, color = \"white\", size = 7) +\n  scale_x_continuous(expand = c(0, 0)) +\n  scale_fill_manual(values = c(\"#454545\", rep(\"#adadad\", 2))) +\n  labs(title = \"Adelie Penguins are the most common in Antarctica\", \n       subtitle = \"Frequency of each penguin species studied near Palmer Station, Antarctica\") +\n  theme_minimal(base_size = 14) +\n  theme(axis.text.x = element_blank(),\n        plot.title.position = \"plot\", \n        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),\n        axis.title = element_blank(),\n        legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\nInformative Titles\nLeft Align Titles\nBorders & Backgrounds: 👎\nOrganize & Remove/Lighten as much as possible\nDirect labels &gt; legends\nAvoid head-tilting\n\n\n\n\n\n\n\nNote\n\n\n\nA reminder that when you’re doing EDA, you’re going to generate a lot of plots. Don’t spend your time making all of them beautiful. Save that for the “editing” portion of your case study. Once you know which are needed to tell your story, add them in.",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/09-written-communication.html#part-i-imitation",
-    "href": "content/lectures/09-written-communication.html#part-i-imitation",
+    "objectID": "content/lectures/09-written-communication.html#tables-are-communication-too",
+    "href": "content/lectures/09-written-communication.html#tables-are-communication-too",
     "title": "09-written-communication",
-    "section": "Part I: Imitation",
-    "text": "Part I: Imitation"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#fight-songs",
-    "href": "content/lectures/09-written-communication.html#fight-songs",
-    "title": "09-written-communication",
-    "section": "Fight Songs",
-    "text": "Fight Songs\n\nOriginalPlot (Sailor)Code (Sailor)Plot (v2)Code (v2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight &lt;- read_csv('data/fight-songs.csv', show_col_types = FALSE)\n \n# Calculate avg_duration and avg_bpm across fight songs for classifying\navg_duration &lt;- mean(fight$sec_duration, na.rm = TRUE)\navg_bpm &lt;- mean(fight$bpm, na.rm = TRUE)\n\n# Begin ggplot\nggplot(fight, aes(x = sec_duration, y = bpm)) +\n  \n  # Making sure Notre Dame is colored and referenced differently \n  geom_point(aes(color = ifelse(school == \"Notre Dame\", \"Notre Dame\", factor(school))), size = 5, alpha = 0.5) +\n  scale_color_hue() +\n  geom_vline(xintercept = avg_duration, linetype = \"dotted\", color = \"black\", size = 0.7) +\n  geom_hline(yintercept = avg_bpm, linetype = \"dotted\", color = \"black\", size = 0.7) +\n   annotate(\"text\", x = avg_duration + 5, y = 100, label = \"AVERAGE\", angle = 90, vjust = -0.5, size = 3.5)  +\n  # Adding in my labels for quadrants + AVERAGE\n  annotate(\"text\", x = 0, y = avg_bpm + 5, label = \"AVERAGE\", hjust = -0.5, size = 3.5) +\n  annotate(\"text\", x = 30, y = 190, label = \"Fast and short\", size = 4) +\n  annotate(\"text\", x = 130, y = 190, label = \"Fast but long\", size = 4) +\n  annotate(\"text\", x = 30, y = 60, label = \"Slow but short\", size = 4) +\n  annotate(\"text\", x = 130, y = 60, label = \"Slow and long\", size = 4) +\n  geom_point(aes(x = 60, y = 150), color = \"black\", size = 5) +\n  annotate(\"text\", x = 60, y = 150, label = \"Notre Dame\", vjust = -1.5, fontface = \"bold\") +\n  labs(x = \"Duration\", y = \"Beats per minute\") +\n  \n  # Scale my axis to adjust to match original \n  \n  scale_x_continuous(breaks = seq(0, 180, by = 20)) +\n  scale_y_continuous(breaks = seq(40, 200, by = 20), limits = c(40, 200)) +\n  coord_fixed(ratio = 0.8) +  \n  theme_minimal() +\n  # Theme adjusting \n  \n  theme(\n    plot.margin = margin(t = 10, r = 10, b = 10, l = 20),\n    legend.position = \"none\",\n    panel.grid.minor = element_line(color = \"grey90\", linetype = \"solid\"),\n    panel.grid.major = element_line(color = \"grey80\", linetype = \"solid\"),\n    panel.border = element_rect(color = \"black\", fill = NA))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight_songs_data &lt;- fight\nmean_bpm &lt;- mean(fight_songs_data$bpm, na.rm = TRUE)\nmean_duration &lt;- mean(fight_songs_data$sec_duration, na.rm = TRUE)\n\nggplot(fight_songs_data, aes(x = sec_duration, y = bpm)) +\n    geom_point(aes(color = school), alpha = 0.2, size = 5) +\n    geom_vline(xintercept = mean_duration, linetype = \"dotted\", color = \"black\") +\n    geom_hline(yintercept = mean_bpm, linetype = \"dotted\", color = \"black\") +\n    geom_point(data = filter(fight_songs_data, school == \"Stanford\"), \n               aes(x = sec_duration, y = bpm), \n               color = \"red\", size = 5, shape = 21, fill = \"red\") +\n    geom_text(data = filter(fight_songs_data, school == \"Stanford\"), \n              aes(x = sec_duration, y = bpm, label = \"Stanford\", fontface = \"bold\", family = \"Arial\"), \n              vjust = -1, color = \"black\", size = 4) +\n    labs(\n        title = \"How Stanford's Fight Song stacks up\",\n        x = \"Duration\",\n        y = \"Beats per minute\"\n    ) +\n    scale_y_continuous(breaks = seq(60, 200, by = 20),\n                       labels = c(\"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\", \"200bpm\"),\n                       limits = c(60, 200)) +\n    scale_x_continuous(breaks = seq(0, 180, by = 20), \n                       labels = c(\"0 sec\", \"20\", \"40\", \"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\")) +\n    annotate(\"text\", x = 10, y = 190, label = \"Fast and short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 10, y = 70, label = \"Slow but short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 190, label = \"Fast but long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 70, label = \"Slow and long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = max(fight_songs_data$sec_duration) - 20, y = mean_bpm, \n             label = \"AVERAGE\", vjust = 0.5, hjust = -0.1, color = \"black\", size = 3, family = \"Arial\") +\n    theme_minimal() +\n    theme(\n        legend.position = \"none\",\n        plot.title = element_text(hjust = 0.5, face = \"bold\", family = \"Arial\"),\n        panel.grid.major = element_line(size = 0.5),\n        panel.grid.minor = element_blank()\n    )"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#hate-crimes-adam",
-    "href": "content/lectures/09-written-communication.html#hate-crimes-adam",
-    "title": "09-written-communication",
-    "section": "Hate Crimes (Adam)",
-    "text": "Hate Crimes (Adam)\n\nOriginalPlotCode\n\n\n\n\n\nalt text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\nurl &lt;- \"https://raw.githubusercontent.com/fivethirtyeight/data/master/hate-crimes/hate_crimes.csv\"\nhate_crimes &lt;- read_csv(url)\n\nstates_map &lt;- map_data(\"state\")\nhate_crimes &lt;- hate_crimes |&gt;\n  mutate(state = tolower(state)) \n\nmap_data &lt;- states_map |&gt;\n  left_join(hate_crimes, by = c(\"region\" = \"state\"))\n\n\n#Graph Numero Uno\n\nggplot(map_data, aes(x = long, y = lat, group = group, fill = avg_hatecrimes_per_100k_fbi)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#ffe4d0\", high = \"#ba3900\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"PRE-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch\n#Second Graph\nggplot(map_data, aes(x = long, y = lat, group = group, fill = hate_crimes_per_100k_splc)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#b0e2c8\", high = \"#006646\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"POST-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#congress-age",
-    "href": "content/lectures/09-written-communication.html#congress-age",
-    "title": "09-written-communication",
-    "section": "Congress Age",
-    "text": "Congress Age\n\nOriginalPlotCode\n\n\n\n\n\nMedian Age of Congress\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncongress_data = read_csv(\"data/data_aging_congress.csv\")\n\ncongress_data &lt;- congress_data |&gt;\n  mutate(year = as.numeric(format(start_date, \"%Y\")))  #Extracted year from start_date\n\n#Grouping Congress by session to calculate median age\ncongress_median_age &lt;- congress_data |&gt;\n  group_by(congress, year, chamber) |&gt;\n  summarise(median_age = median(age_years, na.rm = TRUE)) |&gt;\n  ungroup()\n\nggplot(congress_median_age, aes(x = year, y = median_age, color = chamber)) +\n  geom_step(linewidth = 1) +  \n  #Senate\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"Senate\", year == 2023),  \n            aes(label = \"65.3\"), \n            hjust = -0.2, vjust = +0.3, size = 3, color = \"black\", show.legend = FALSE) + \n  #House\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"House\", year == 2023), \n            aes(label = \"57.8\"), \n            hjust = -0.2, vjust = -0.5, size = 3, color = \"black\", show.legend = FALSE) +\n  #Titles\n  labs(title = \"Median Age of the U.S. Senate and House by Congress, 1919 to 2023\",\n       subtitle = \"The House and Senate are older than ever before\",\n       x = \"Year\",\n       y = \"Median Age\",\n       color = \"Chamber\") +  \n    scale_color_manual(values = c(\"Senate\" = \"#5b41d1\", \"House\" = \"#55aa5c\"))+\n  #Scaling both axis\n  scale_x_continuous(limits = c(min(congress_median_age$year), max(congress_median_age$year)), breaks = seq(1920, 2020, by =  10)) +\n  scale_y_continuous(limits = c(45, NA)) +\n  theme_minimal() +  \n  theme(plot.title = element_text(face = \"bold\", size = 14),  \n        plot.subtitle = element_text(size = 10),\n        axis.title = element_text(size = 12),\n        legend.position = \"top\",\n        aspect.ratio = 1/4,\n        panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.grid.minor.y = element_blank())"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#part-ii-sad-plot",
-    "href": "content/lectures/09-written-communication.html#part-ii-sad-plot",
-    "title": "09-written-communication",
-    "section": "Part II: Sad Plot",
-    "text": "Part II: Sad Plot"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#votes",
-    "href": "content/lectures/09-written-communication.html#votes",
-    "title": "09-written-communication",
-    "section": "Votes",
-    "text": "Votes\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# estimate data\nd &lt;- data.frame(\n  area = rep(c('Rural', 'Suburban', 'Urban'), each = 2),\n  voted = rep(c('Biden', 'Trump'), times = 3),\n  percentages = c(35, 65, 55, 45, 70, 30)\n)\n\n# plot\n\nggplot(d, aes(x = area, y = percentages, fill = voted)) +\n  geom_bar(stat = \"identity\", position = \"dodge\") +\n  labs(\n    title = \"Votes for Trump and Biden in 2020 Elecxtion Based on Location\",\n    x = \"Location\",\n    y = \"Percentage of Votes\",\n    fill = \"Candidate\"  # Legend title\n  ) +\n  scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 80)) +\n  theme_minimal() +\n  scale_fill_manual(values = c(\"#0033A0\", \"#C8102E\"))  # Custom colors for groups"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication.html#cs01-data-sandy",
-    "href": "content/lectures/09-written-communication.html#cs01-data-sandy",
-    "title": "09-written-communication",
-    "section": "CS01 Data (Sandy)",
-    "text": "CS01 Data (Sandy)\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"),\n         Group = fct_recode(Group,\n                            \"Frequent User\" = \"Frequent user\",\n                            \"Occasional User\" = \"Occasional user\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v) |&gt;\n  mutate(timepoint = case_when(time_from_start &lt; 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\nWB |&gt;\n  ggplot(mapping = aes(x = time_from_start,\n                       y = thccooh,\n                       color = group)) +\n  geom_point(size = 3) +\n  labs(x = \"Time After Smoking (Minutes)\", y = \"THCCOOH\", \n       title = \"Change in THCCOOH Levels After Smoking\",\n       subtitle = \"Levels measured over time for frequent and occasional users\",\n       color = \"Group\") +\n  theme(plot.title = element_text(size = 20, hjust = 0, vjust = 2),\n        plot.subtitle = element_text(size = 16, hjust = 0, vjust = 1)) +\n  scale_color_manual(values = c(\"Frequent User\" = \"#fc8d59\",\n                                \"Occasional User\" = \"#91bfdb\")) +\n  theme_minimal()"
+    "section": "Tables are communication, too",
+    "text": "Tables are communication, too\n\n😬 Accurate😍 EffectiveChanges\n\n\n\npenguins |&gt;\n  group_by(species) |&gt;\n  summarize(n = n(),\n            mean_mass = mean(body_mass_g, na.rm = TRUE),\n            mean_flipper = mean(flipper_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 4\n  species       n mean_mass mean_flipper\n  &lt;fct&gt;     &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 Adelie      152     3701.         190.\n2 Chinstrap    68     3733.         196.\n3 Gentoo      124     5076.         217.\n\n\n\n\n\npenguins |&gt;\n  group_by(species) |&gt;\n  summarize(n = n(),\n            mean_mass = mean(body_mass_g, na.rm = TRUE),\n            mean_flipper = mean(flipper_length_mm, na.rm = TRUE)) |&gt;\n  arrange(desc(n)) |&gt;\n  kable(col.names = c(\"Species\", \"N\", \"Body mass (g)\", \"Flipper length (mm)\"),\n        digits = 0,\n        format.args = list(big.mark = \",\"),\n        caption = \"Gentoo penguins are the largest, despite Adelie being most common\") |&gt;\n  kable_styling(full_width = FALSE)\n\n\n\nGentoo penguins are the largest, despite Adelie being most common\n\n\nSpecies\nN\nBody mass (g)\nFlipper length (mm)\n\n\n\n\nAdelie\n152\n3,701\n190\n\n\nGentoo\n124\n5,076\n217\n\n\nChinstrap\n68\n3,733\n196\n\n\n\n\n\n\n\n\n\n\n\nInformative caption (the take-home, like a plot title)\nHuman-readable column names (with units!)\nSensible rounding: 33.6234 is rarely more useful than 34\nOrdered rows\nNo raw R output (# A tibble: 3 x 4, &lt;fct&gt;, &lt;dbl&gt;) in a report",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication.html#recap",
     "href": "content/lectures/09-written-communication.html#recap",
     "title": "09-written-communication",
     "section": "Recap",
-    "text": "Recap\n\nTailor communication for setting and audience\nWritten communication has benefit of time; limitation of additional explanation\nCan you control your HTML output from a .qmd document?\nDo you know when to cite a source?\nCan you implement design choices when generating visualizations for communication?"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#qa",
-    "href": "content/lectures/09-written-communication-slides.html#qa",
-    "title": "09-written-communication",
-    "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\nA:"
+    "text": "Recap\n\nTailor communication for setting and audience\nWritten communication has benefit of time; limitation of additional explanation\nCan you control your HTML output from a .qmd document?\nCan you use inline code to keep numbers in your text accurate?\nDo you know when to cite a source?\nCan you implement design choices when generating visualizations for communication?",
+    "crumbs": [
+      "Notes",
+      "09: Written Communication"
+    ]
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#course-announcements",
     "href": "content/lectures/09-written-communication-slides.html#course-announcements",
     "title": "09-written-communication",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 03 due Fri 10/23 (11:59 PM)\n⌨️ Lab 04 due Fri 10/30 (11:59 PM)\n💻 CS01 (report in repo + general communication on Canvas) & 🔘 CS01 team eval survey due Fri 10/30 (11:59 PM)\n🔘 Mid-course survey due Fri 10/30 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\nLab 05 due Fri 10/30 (11:59 PM)\nMid-course survey “due” Fri 10/30 (11:59 PM)\nCS01 due Sunday (11:59 PM)\n\nreport in repo\nGeneral communication (Canvas)\nteam eval survey\n\nLecture Participation survey “due” after class\n\nNote: - lab03 (check feedback on GH issue) and lab04 grades posted"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#agenda",
@@ -380,46 +406,11 @@
     "text": "Suggested Reading\n\nQuarto: Execution Options (code chunks & inline code)\nQuarto: HTML Basics and HTML Code Blocks"
   },
   {
-    "objectID": "content/lectures/09-written-communication-slides.html#reminder-tidy-data",
-    "href": "content/lectures/09-written-communication-slides.html#reminder-tidy-data",
-    "title": "09-written-communication",
-    "section": "Reminder: Tidy Data",
-    "text": "Reminder: Tidy Data"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#pivoting",
-    "href": "content/lectures/09-written-communication-slides.html#pivoting",
-    "title": "09-written-communication",
-    "section": "Pivoting",
-    "text": "Pivoting\nStoring the same data in a different format\n\nlong vs. wide\n\nwide data contains values that do not repeat in the first column. (analysis; storage)\nlong format contains values that do repeat in the first column. (plotting)"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#pivots",
-    "href": "content/lectures/09-written-communication-slides.html#pivots",
-    "title": "09-written-communication",
-    "section": "pivots",
-    "text": "pivots\n\npivot_longer | take wide data and make it long\npivot_wider | take long data and make it wide"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#joins",
-    "href": "content/lectures/09-written-communication-slides.html#joins",
-    "title": "09-written-communication",
-    "section": "Joins",
-    "text": "Joins\nCombining data across different datasets, using common information (often: IDs)\n\nMutating Joins\nadd new variables to a data frame from matching observations in another\n\n\n\nleft_join: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information\nright_join: keeps all observations in second df\nfull_join: keeps all observations in either df\n\n\n\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html\n\n\n\n\ninner_join: takes only rows in both dfs\n\n\n\nImage Source: https://r4ds.had.co.nz/relational-data.html"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#binding-dataframes",
-    "href": "content/lectures/09-written-communication-slides.html#binding-dataframes",
-    "title": "09-written-communication",
-    "section": "Binding dataframes",
-    "text": "Binding dataframes\n\nbind_rows() - stack different dataframes on top of one another, combining information where column names are the same &lt;- what I used to combine the three datasets after wrangling\nbind_cols() - stack dataframes next to one another; will assume rows match up &lt;- use with caution"
-  },
-  {
     "objectID": "content/lectures/09-written-communication-slides.html#what-does-this-mean",
     "href": "content/lectures/09-written-communication-slides.html#what-does-this-mean",
     "title": "09-written-communication",
     "section": "What does this mean?",
-    "text": "What does this mean?\n❓ What does it mean to “consider your audience?”\n\nSimply: You do the work so they don’t have to.\n\n\n…also the aesthetic-usability effect exists."
+    "text": "What does this mean?\n❓ What does it mean to “consider your audience?”\n\nSimply: You do the work so they don’t have to.\n\n\n…also the aesthetic-usability effect exists: people perceive polished, attractive work as easier to use (and are more forgiving of its flaws)."
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#whats-the-right-level",
@@ -433,35 +424,35 @@
     "href": "content/lectures/09-written-communication-slides.html#considerations",
     "title": "09-written-communication",
     "section": "Considerations",
-    "text": "Considerations\n\nPlatform: written? oral?\n\n\n\nSetting: informal? formal?\n\n\n\n\nTiming: never go over your time limit!"
+    "text": "Considerations\n\nPlatform: written? oral?\n\n\n\nSetting: informal? formal?\n\n\n\n\nAudience: technical? general?"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#choose-informative-titles",
     "href": "content/lectures/09-written-communication-slides.html#choose-informative-titles",
     "title": "09-written-communication",
     "section": "Choose informative titles",
-    "text": "Choose informative titles\nOn presentations: Balance b/w short and informative (goal: concise)\n\n\nAvoid: “Analyzing NHANES”\n\nBetter: “Data from the NHANES study shows that diet is related to overall health”\n\n\nOn visualizations: emphasize the take-home! (what’s learned or what action to take)\n\n\n\nAvoid: “Boxplot of gender”\n\nBetter: “Twice as many females as males included for analysis”\n\n\n\nAvoid: “Tickets vs. Time”\n\nBetter: “Staff unable to respond to incoming tickets; need to hire 2 FTEs”"
+    "text": "Choose informative titles\nIn written reports: Balance b/w short and informative (goal: concise)\n\n\nAvoid: “Analyzing NHANES”\n\nBetter: “Data from the NHANES study shows that diet is related to overall health”\n\n\nOn visualizations: emphasize the take-home! (what’s learned or what action to take)\n\n\n\nAvoid: “Boxplot of gender”\n\nBetter: “Twice as many females as males included for analysis”\n\n\n\nAvoid: “Tickets vs. Time”\n\nBetter: “Staff unable to respond to incoming tickets; need to hire 2 FTEs”"
   },
   {
-    "objectID": "content/lectures/09-written-communication-slides.html#benefits-of-written-communciation",
-    "href": "content/lectures/09-written-communication-slides.html#benefits-of-written-communciation",
+    "objectID": "content/lectures/09-written-communication-slides.html#benefits-of-written-communication",
+    "href": "content/lectures/09-written-communication-slides.html#benefits-of-written-communication",
     "title": "09-written-communication",
-    "section": "Benefits of written communciation",
-    "text": "Benefits of written communciation\nYour audience has time to process…but the explanation has to be there!\n\nVisually: more on a single visualization\n\n\nYes, often there are different visualizations for reports/papers than for presentations/lectures."
+    "section": "Benefits of written communication",
+    "text": "Benefits of written communication\nYour audience has time to process…but the explanation has to be there!\n\nVisually: more on a single visualization\n\n\nYes, often there are different visualizations for reports/papers than for presentations/lectures."
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#when-you-have-time-to-digest-read",
     "href": "content/lectures/09-written-communication-slides.html#when-you-have-time-to-digest-read",
     "title": "09-written-communication",
     "section": "When you have time to digest (read)",
-    "text": "When you have time to digest (read)\n\n\n❓ What makes this an effective visualization for a written communication?”\nSource: Storytelling wtih data by cole nussbaumer knaflic"
+    "text": "When you have time to digest (read)\n\n\n❓ What makes this an effective visualization for a written communication?\nSource: Storytelling with data by cole nussbaumer knaflic"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#written-explanations",
     "href": "content/lectures/09-written-communication-slides.html#written-explanations",
     "title": "09-written-communication",
     "section": "Written Explanations",
-    "text": "Written Explanations\n\nVisualizations should be explained/interpreted\nAnalyses/Models should be explained\n\nshould be clear what question is being answered\nwhat conclusions is being drawn\nand what numbers were used to draw that conclusion"
+    "text": "Written Explanations\n\nVisualizations should be explained/interpreted\nAnalyses/Models should be explained\n\nshould be clear what question is being answered\nwhat conclusion is being drawn\nand what numbers were used to draw that conclusion"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#data-science-reports-in-.qmd",
@@ -475,14 +466,28 @@
     "href": "content/lectures/09-written-communication-slides.html#controlling-html-document-settings",
     "title": "09-written-communication",
     "section": "Controlling HTML document settings",
-    "text": "Controlling HTML document settings\n\nTable of Contents\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n---\n\n\nTheme\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    theme: united\n    highlight-style: tango\n---\n\n\n\nFigure Options\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    fig-width: 7\n    fig-height: 6\n---\n\n\n\nCode Folding\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    code-fold: true\n---\n\n\n\nSelf-contained HTML (so the file on GitHub displays correctly on its own)\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    embed-resources: true\n---"
+    "text": "Controlling HTML document settings\n\nTable of Contents\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    toc: true\n    toc-depth: 3\n---\n\n\nTheme\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    theme: united\n    highlight-style: tango\n---\n\n\n\nFigure Options\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    fig-width: 7\n    fig-height: 6\n---\n\n\n\nCode Folding\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    code-fold: true\n---"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#sharing-your-html",
+    "href": "content/lectures/09-written-communication-slides.html#sharing-your-html",
+    "title": "09-written-communication",
+    "section": "Sharing your HTML",
+    "text": "Sharing your HTML\n\nSelf-contained output: everything (plots, CSS, JS) packed into a single .html file\n\n---\ntitle: \"Document Title\"\nformat:\n  html:\n    embed-resources: true\n---\n\n\nWithout this, your plots/styling live in a separate _files/ folder…and break if the .html is shared/submitted on its own\nTrade-off: larger file size\n\n\n\n\n\n\n\n\n\nWarning\n\n\nGitHub does not render .html files. Clicking your report on GitHub shows the source code. That’s expected! It doesn’t mean your render failed. Download the file and open it in a browser to check it."
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#controlling-code-chunk-output",
     "href": "content/lectures/09-written-communication-slides.html#controlling-code-chunk-output",
     "title": "09-written-communication",
     "section": "Controlling code chunk output",
-    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n```{r}\n#| label: chunk-label\n#| results: hide\n#| fig-height: 4\n\n```\n\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\n\n\n\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
+    "text": "Controlling code chunk output\n\nSpecified at the top of the chunk, one per line, with #|\n\n```{r}\n#| label: chunk-label\n#| results: hide\n#| fig-height: 4\n\n```\n\n\neval: whether to execute the code chunk\necho: whether to include the code in the output\ninclude: false: run the code, but show nothing (code or output) in the rendered document. Great for setup chunks (e.g., loading packages)\nwarning, message, and error: whether to show warnings, messages, or errors in the rendered document\nfig-width and fig-height: control the width/height of plots\nfig-cap: add a caption to a figure\n\n\n\n\nControlling for the whole document (in the YAML):\n\n---\ntitle: \"Document Title\"\nexecute:\n  warning: false\n  message: false\n---"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#inline-code-numbers-in-your-text",
+    "href": "content/lectures/09-written-communication-slides.html#inline-code-numbers-in-your-text",
+    "title": "09-written-communication",
+    "section": "Inline code: numbers in your text",
+    "text": "Inline code: numbers in your text\nTyping numbers into your text by hand means they go stale (or are just wrong!) when your data or analysis changes.\nInstead, compute them with inline code:\nThe mtcars dataset includes `r nrow(mtcars)` cars, with an average fuel efficiency of `r round(mean(mtcars$mpg), 1)` mpg.\n\n…which renders as:\n\nThe mtcars dataset includes 32 cars, with an average fuel efficiency of 20.1 mpg.\n\n\n\nThe numbers in your conclusions are always the numbers from your analysis."
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#editing-proofreading",
@@ -496,7 +501,7 @@
     "href": "content/lectures/09-written-communication-slides.html#aside-citing-sources",
     "title": "09-written-communication",
     "section": "Aside: Citing Sources",
-    "text": "Aside: Citing Sources\nWhen are citations needed?\n\n\n\n“We will be doing our analysis using two different data sets created by two different groups: Donohue and Mustard + Lott, or simply Lott”\n\n\n\n\n\n\n“What turned from the idea of carrying firearms to protect oneself from enemies such as the British monarchy and the unknown frontier of North America has now become a nationwide issue.”\n\n\n\n\n\n\n“Right to Carry Laws refer to laws that specify how citizens are allowed to carry concealed handguns when they’re away from home without a permit”\n\n\n\n\n\n\n“In this case study, we are examining the relationship between unemployment rate, poverty rate, police staffing, and violent crime rate.”\n\n\n\n\n\n\n“In the United States, the second amendment permits the right to bear arms, and this law has not been changed since its creation in 1791.”\n\n\n\n\n\n\n“The Right to Carry Laws (RTC) is defined as”a law that specifies if and how citizens are allowed to have a firearm on their person or nearby in public.””\n\n\n\n\nReminder: You do NOT get docked points for citing others’ work. You can be at risk of AI Violation if you don’t. When in doubt, give credit."
+    "text": "Aside: Citing Sources\nWhen are citations needed?\n\n\n\n“We will be doing our analysis using two different data sets created by two different groups: Donohue and Mustard + Lott, or simply Lott”\n\n\n\n\n\n\n“Right to Carry Laws refer to laws that specify how citizens are allowed to carry concealed handguns when they’re away from home without a permit”\n\n\n\n\n\n\n“In this case study, we are examining the relationship between unemployment rate, poverty rate, police staffing, and violent crime rate.”\n\n\n\n\n\n\n“In the United States, the second amendment permits the right to bear arms, and this law has not been changed since its creation in 1791.”\n\n\n\n\n\n\n“The Right to Carry Laws (RTC) is defined as”a law that specifies if and how citizens are allowed to have a firearm on their person or nearby in public.””\n\n\n\n\nReminder: You do NOT get docked points for citing others’ work. You can be at risk of an Academic Integrity violation if you don’t. When in doubt, give credit."
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#footnotes-in-.qmd",
@@ -504,6 +509,13 @@
     "title": "09-written-communication",
     "section": "Footnotes in .qmd",
     "text": "Footnotes in .qmd\nHow to specify a footnote in text:\nHere is some body text.[^1]\nHow to include the footnote’s reference:\n[^1]: This footnote will appear at the bottom of the page.\n\n\nNote: .bib files can be included with BibTeX references using the bibliography parameter in your YAML"
+  },
+  {
+    "objectID": "content/lectures/09-written-communication-slides.html#effective-genai-strategies",
+    "href": "content/lectures/09-written-communication-slides.html#effective-genai-strategies",
+    "title": "09-written-communication",
+    "section": "Effective GenAI Strategies",
+    "text": "Effective GenAI Strategies\n❓ While generating your first draft, how can GenAI be helpful?\n❓ After you have a first draft, how can GenAI be helpful?\n❓ While completing your cs01, what to avoid with GenAI?"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#the-glamour-of-graphics",
@@ -517,63 +529,21 @@
     "href": "content/lectures/09-written-communication-slides.html#an-example",
     "title": "09-written-communication",
     "section": "An Example…",
-    "text": "An Example…\n\n😬 Accurate😍 EffectiveChanges\n\n\n\nggplot(penguins, aes(x = species, fill = species)) +\n  geom_bar() +\n  labs(title = \"Count vs. Species\") +\n  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))\n\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(y = fct_rev(fct_infreq(species)), fill = species)) +\n  geom_bar() +\n  geom_text(stat='count', aes(label=after_stat(count)), hjust = 1.5, color = \"white\", size = 7) +\n  scale_x_continuous(expand = c(0, 0)) +\n  scale_fill_manual(values = c(\"#454545\", rep(\"#adadad\", 2))) +\n  labs(title = \"Adelie Penguins are the most common in Antarctica\", \n       subtitle = \"Frequency of each penguin species studied near Palmer Station, Antarctica\") +\n  theme_minimal(base_size = 14) +\n  theme(axis.text.x = element_blank(),\n        plot.title.position = \"plot\", \n        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),\n        axis.title = element_blank(),\n        legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\nInformative Titles\nLeft Align Titles\nBorders & Backgrounds: 👎\nOrganize & Remove/Lighten as much as possible\nLegends Suck\nAvoid head-tilting\n\n\n\n\n\n\n\nNote\n\n\nA reminder that when you’re doing EDA, you’re going to generate a lot of plots. Don’t spend your time making all of them beautiful. Save that for the “editing” portion of your case study. Once you know which are needed to tell your story, add them in."
+    "text": "An Example…\n\n😬 Accurate😍 EffectiveChanges\n\n\n\nggplot(penguins, aes(x = species, fill = species)) +\n  geom_bar() +\n  labs(title = \"Count vs. Species\") +\n  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))\n\n\n\n\n\n\n\n\n\n\n\nggplot(penguins, aes(y = fct_rev(fct_infreq(species)), fill = species)) +\n  geom_bar() +\n  geom_text(stat='count', aes(label=after_stat(count)), hjust = 1.5, color = \"white\", size = 7) +\n  scale_x_continuous(expand = c(0, 0)) +\n  scale_fill_manual(values = c(\"#454545\", rep(\"#adadad\", 2))) +\n  labs(title = \"Adelie Penguins are the most common in Antarctica\", \n       subtitle = \"Frequency of each penguin species studied near Palmer Station, Antarctica\") +\n  theme_minimal(base_size = 14) +\n  theme(axis.text.x = element_blank(),\n        plot.title.position = \"plot\", \n        panel.grid.major = element_blank(), panel.grid.minor = element_blank(),\n        axis.title = element_blank(),\n        legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\nInformative Titles\nLeft Align Titles\nBorders & Backgrounds: 👎\nOrganize & Remove/Lighten as much as possible\nDirect labels &gt; legends\nAvoid head-tilting\n\n\n\n\n\n\n\nNote\n\n\nA reminder that when you’re doing EDA, you’re going to generate a lot of plots. Don’t spend your time making all of them beautiful. Save that for the “editing” portion of your case study. Once you know which are needed to tell your story, add them in."
   },
   {
-    "objectID": "content/lectures/09-written-communication-slides.html#part-i-imitation",
-    "href": "content/lectures/09-written-communication-slides.html#part-i-imitation",
+    "objectID": "content/lectures/09-written-communication-slides.html#tables-are-communication-too",
+    "href": "content/lectures/09-written-communication-slides.html#tables-are-communication-too",
     "title": "09-written-communication",
-    "section": "Part I: Imitation",
-    "text": "Part I: Imitation"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#fight-songs",
-    "href": "content/lectures/09-written-communication-slides.html#fight-songs",
-    "title": "09-written-communication",
-    "section": "Fight Songs",
-    "text": "Fight Songs\n\nOriginalPlot (Sailor)Code (Sailor)Plot (v2)Code (v2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight &lt;- read_csv('data/fight-songs.csv', show_col_types = FALSE)\n \n# Calculate avg_duration and avg_bpm across fight songs for classifying\navg_duration &lt;- mean(fight$sec_duration, na.rm = TRUE)\navg_bpm &lt;- mean(fight$bpm, na.rm = TRUE)\n\n# Begin ggplot\nggplot(fight, aes(x = sec_duration, y = bpm)) +\n  \n  # Making sure Notre Dame is colored and referenced differently \n  geom_point(aes(color = ifelse(school == \"Notre Dame\", \"Notre Dame\", factor(school))), size = 5, alpha = 0.5) +\n  scale_color_hue() +\n  geom_vline(xintercept = avg_duration, linetype = \"dotted\", color = \"black\", size = 0.7) +\n  geom_hline(yintercept = avg_bpm, linetype = \"dotted\", color = \"black\", size = 0.7) +\n   annotate(\"text\", x = avg_duration + 5, y = 100, label = \"AVERAGE\", angle = 90, vjust = -0.5, size = 3.5)  +\n  # Adding in my labels for quadrants + AVERAGE\n  annotate(\"text\", x = 0, y = avg_bpm + 5, label = \"AVERAGE\", hjust = -0.5, size = 3.5) +\n  annotate(\"text\", x = 30, y = 190, label = \"Fast and short\", size = 4) +\n  annotate(\"text\", x = 130, y = 190, label = \"Fast but long\", size = 4) +\n  annotate(\"text\", x = 30, y = 60, label = \"Slow but short\", size = 4) +\n  annotate(\"text\", x = 130, y = 60, label = \"Slow and long\", size = 4) +\n  geom_point(aes(x = 60, y = 150), color = \"black\", size = 5) +\n  annotate(\"text\", x = 60, y = 150, label = \"Notre Dame\", vjust = -1.5, fontface = \"bold\") +\n  labs(x = \"Duration\", y = \"Beats per minute\") +\n  \n  # Scale my axis to adjust to match original \n  \n  scale_x_continuous(breaks = seq(0, 180, by = 20)) +\n  scale_y_continuous(breaks = seq(40, 200, by = 20), limits = c(40, 200)) +\n  coord_fixed(ratio = 0.8) +  \n  theme_minimal() +\n  # Theme adjusting \n  \n  theme(\n    plot.margin = margin(t = 10, r = 10, b = 10, l = 20),\n    legend.position = \"none\",\n    panel.grid.minor = element_line(color = \"grey90\", linetype = \"solid\"),\n    panel.grid.major = element_line(color = \"grey80\", linetype = \"solid\"),\n    panel.border = element_rect(color = \"black\", fill = NA))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight_songs_data &lt;- fight\nmean_bpm &lt;- mean(fight_songs_data$bpm, na.rm = TRUE)\nmean_duration &lt;- mean(fight_songs_data$sec_duration, na.rm = TRUE)\n\nggplot(fight_songs_data, aes(x = sec_duration, y = bpm)) +\n    geom_point(aes(color = school), alpha = 0.2, size = 5) +\n    geom_vline(xintercept = mean_duration, linetype = \"dotted\", color = \"black\") +\n    geom_hline(yintercept = mean_bpm, linetype = \"dotted\", color = \"black\") +\n    geom_point(data = filter(fight_songs_data, school == \"Stanford\"), \n               aes(x = sec_duration, y = bpm), \n               color = \"red\", size = 5, shape = 21, fill = \"red\") +\n    geom_text(data = filter(fight_songs_data, school == \"Stanford\"), \n              aes(x = sec_duration, y = bpm, label = \"Stanford\", fontface = \"bold\", family = \"Arial\"), \n              vjust = -1, color = \"black\", size = 4) +\n    labs(\n        title = \"How Stanford's Fight Song stacks up\",\n        x = \"Duration\",\n        y = \"Beats per minute\"\n    ) +\n    scale_y_continuous(breaks = seq(60, 200, by = 20),\n                       labels = c(\"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\", \"200bpm\"),\n                       limits = c(60, 200)) +\n    scale_x_continuous(breaks = seq(0, 180, by = 20), \n                       labels = c(\"0 sec\", \"20\", \"40\", \"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\")) +\n    annotate(\"text\", x = 10, y = 190, label = \"Fast and short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 10, y = 70, label = \"Slow but short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 190, label = \"Fast but long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 70, label = \"Slow and long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = max(fight_songs_data$sec_duration) - 20, y = mean_bpm, \n             label = \"AVERAGE\", vjust = 0.5, hjust = -0.1, color = \"black\", size = 3, family = \"Arial\") +\n    theme_minimal() +\n    theme(\n        legend.position = \"none\",\n        plot.title = element_text(hjust = 0.5, face = \"bold\", family = \"Arial\"),\n        panel.grid.major = element_line(size = 0.5),\n        panel.grid.minor = element_blank()\n    )"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#hate-crimes-adam",
-    "href": "content/lectures/09-written-communication-slides.html#hate-crimes-adam",
-    "title": "09-written-communication",
-    "section": "Hate Crimes (Adam)",
-    "text": "Hate Crimes (Adam)\n\nOriginalPlotCode\n\n\n\n\n\nalt text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\nurl &lt;- \"https://raw.githubusercontent.com/fivethirtyeight/data/master/hate-crimes/hate_crimes.csv\"\nhate_crimes &lt;- read_csv(url)\n\nstates_map &lt;- map_data(\"state\")\nhate_crimes &lt;- hate_crimes |&gt;\n  mutate(state = tolower(state)) \n\nmap_data &lt;- states_map |&gt;\n  left_join(hate_crimes, by = c(\"region\" = \"state\"))\n\n\n#Graph Numero Uno\n\nggplot(map_data, aes(x = long, y = lat, group = group, fill = avg_hatecrimes_per_100k_fbi)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#ffe4d0\", high = \"#ba3900\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"PRE-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch\n#Second Graph\nggplot(map_data, aes(x = long, y = lat, group = group, fill = hate_crimes_per_100k_splc)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#b0e2c8\", high = \"#006646\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"POST-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#congress-age",
-    "href": "content/lectures/09-written-communication-slides.html#congress-age",
-    "title": "09-written-communication",
-    "section": "Congress Age",
-    "text": "Congress Age\n\nOriginalPlotCode\n\n\n\n\n\nMedian Age of Congress\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncongress_data = read_csv(\"data/data_aging_congress.csv\")\n\ncongress_data &lt;- congress_data |&gt;\n  mutate(year = as.numeric(format(start_date, \"%Y\")))  #Extracted year from start_date\n\n#Grouping Congress by session to calculate median age\ncongress_median_age &lt;- congress_data |&gt;\n  group_by(congress, year, chamber) |&gt;\n  summarise(median_age = median(age_years, na.rm = TRUE)) |&gt;\n  ungroup()\n\nggplot(congress_median_age, aes(x = year, y = median_age, color = chamber)) +\n  geom_step(linewidth = 1) +  \n  #Senate\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"Senate\", year == 2023),  \n            aes(label = \"65.3\"), \n            hjust = -0.2, vjust = +0.3, size = 3, color = \"black\", show.legend = FALSE) + \n  #House\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"House\", year == 2023), \n            aes(label = \"57.8\"), \n            hjust = -0.2, vjust = -0.5, size = 3, color = \"black\", show.legend = FALSE) +\n  #Titles\n  labs(title = \"Median Age of the U.S. Senate and House by Congress, 1919 to 2023\",\n       subtitle = \"The House and Senate are older than ever before\",\n       x = \"Year\",\n       y = \"Median Age\",\n       color = \"Chamber\") +  \n    scale_color_manual(values = c(\"Senate\" = \"#5b41d1\", \"House\" = \"#55aa5c\"))+\n  #Scaling both axis\n  scale_x_continuous(limits = c(min(congress_median_age$year), max(congress_median_age$year)), breaks = seq(1920, 2020, by =  10)) +\n  scale_y_continuous(limits = c(45, NA)) +\n  theme_minimal() +  \n  theme(plot.title = element_text(face = \"bold\", size = 14),  \n        plot.subtitle = element_text(size = 10),\n        axis.title = element_text(size = 12),\n        legend.position = \"top\",\n        aspect.ratio = 1/4,\n        panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.grid.minor.y = element_blank())"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#part-ii-sad-plot",
-    "href": "content/lectures/09-written-communication-slides.html#part-ii-sad-plot",
-    "title": "09-written-communication",
-    "section": "Part II: Sad Plot",
-    "text": "Part II: Sad Plot"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#votes",
-    "href": "content/lectures/09-written-communication-slides.html#votes",
-    "title": "09-written-communication",
-    "section": "Votes",
-    "text": "Votes\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# estimate data\nd &lt;- data.frame(\n  area = rep(c('Rural', 'Suburban', 'Urban'), each = 2),\n  voted = rep(c('Biden', 'Trump'), times = 3),\n  percentages = c(35, 65, 55, 45, 70, 30)\n)\n\n# plot\n\nggplot(d, aes(x = area, y = percentages, fill = voted)) +\n  geom_bar(stat = \"identity\", position = \"dodge\") +\n  labs(\n    title = \"Votes for Trump and Biden in 2020 Elecxtion Based on Location\",\n    x = \"Location\",\n    y = \"Percentage of Votes\",\n    fill = \"Candidate\"  # Legend title\n  ) +\n  scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 80)) +\n  theme_minimal() +\n  scale_fill_manual(values = c(\"#0033A0\", \"#C8102E\"))  # Custom colors for groups"
-  },
-  {
-    "objectID": "content/lectures/09-written-communication-slides.html#cs01-data-sandy",
-    "href": "content/lectures/09-written-communication-slides.html#cs01-data-sandy",
-    "title": "09-written-communication",
-    "section": "CS01 Data (Sandy)",
-    "text": "CS01 Data (Sandy)\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"),\n         Group = fct_recode(Group,\n                            \"Frequent User\" = \"Frequent user\",\n                            \"Occasional User\" = \"Occasional user\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v) |&gt;\n  mutate(timepoint = case_when(time_from_start &lt; 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\nWB |&gt;\n  ggplot(mapping = aes(x = time_from_start,\n                       y = thccooh,\n                       color = group)) +\n  geom_point(size = 3) +\n  labs(x = \"Time After Smoking (Minutes)\", y = \"THCCOOH\", \n       title = \"Change in THCCOOH Levels After Smoking\",\n       subtitle = \"Levels measured over time for frequent and occasional users\",\n       color = \"Group\") +\n  theme(plot.title = element_text(size = 20, hjust = 0, vjust = 2),\n        plot.subtitle = element_text(size = 16, hjust = 0, vjust = 1)) +\n  scale_color_manual(values = c(\"Frequent User\" = \"#fc8d59\",\n                                \"Occasional User\" = \"#91bfdb\")) +\n  theme_minimal()"
+    "section": "Tables are communication, too",
+    "text": "Tables are communication, too\n\n😬 Accurate😍 EffectiveChanges\n\n\n\npenguins |&gt;\n  group_by(species) |&gt;\n  summarize(n = n(),\n            mean_mass = mean(body_mass_g, na.rm = TRUE),\n            mean_flipper = mean(flipper_length_mm, na.rm = TRUE))\n\n# A tibble: 3 × 4\n  species       n mean_mass mean_flipper\n  &lt;fct&gt;     &lt;int&gt;     &lt;dbl&gt;        &lt;dbl&gt;\n1 Adelie      152     3701.         190.\n2 Chinstrap    68     3733.         196.\n3 Gentoo      124     5076.         217.\n\n\n\n\n\npenguins |&gt;\n  group_by(species) |&gt;\n  summarize(n = n(),\n            mean_mass = mean(body_mass_g, na.rm = TRUE),\n            mean_flipper = mean(flipper_length_mm, na.rm = TRUE)) |&gt;\n  arrange(desc(n)) |&gt;\n  kable(col.names = c(\"Species\", \"N\", \"Body mass (g)\", \"Flipper length (mm)\"),\n        digits = 0,\n        format.args = list(big.mark = \",\"),\n        caption = \"Gentoo penguins are the largest, despite Adelie being most common\") |&gt;\n  kable_styling(full_width = FALSE)\n\n\n\nGentoo penguins are the largest, despite Adelie being most common\n\n\nSpecies\nN\nBody mass (g)\nFlipper length (mm)\n\n\n\n\nAdelie\n152\n3,701\n190\n\n\nGentoo\n124\n5,076\n217\n\n\nChinstrap\n68\n3,733\n196\n\n\n\n\n\n\n\n\n\n\n\nInformative caption (the take-home, like a plot title)\nHuman-readable column names (with units!)\nSensible rounding: 33.6234 is rarely more useful than 34\nOrdered rows\nNo raw R output (# A tibble: 3 x 4, &lt;fct&gt;, &lt;dbl&gt;) in a report"
   },
   {
     "objectID": "content/lectures/09-written-communication-slides.html#recap",
     "href": "content/lectures/09-written-communication-slides.html#recap",
     "title": "09-written-communication",
     "section": "Recap",
-    "text": "Recap\n\nTailor communication for setting and audience\nWritten communication has benefit of time; limitation of additional explanation\nCan you control your HTML output from a .qmd document?\nDo you know when to cite a source?\nCan you implement design choices when generating visualizations for communication?\n\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
+    "text": "Recap\n\nTailor communication for setting and audience\nWritten communication has benefit of time; limitation of additional explanation\nCan you control your HTML output from a .qmd document?\nCan you use inline code to keep numbers in your text accurate?\nDo you know when to cite a source?\nCan you implement design choices when generating visualizations for communication?\n\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
   },
   {
     "objectID": "content/lectures/07-cs01-eda.html",
@@ -4031,7 +4001,7 @@
     "href": "schedule.html",
     "title": "COGS 137 Course Schedule",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nEffective Data visualization\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n⌨️ lab 03\n\n\n4\nMon, Oct 19\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n\n\nSun, Oct 25\n\n\n\n\n\n\n📚 hw 02\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 28\nEffective (Written) Communication\n💻 OCS: Air Pollution\n\n\n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02 Intro/Data + Final Project\n\n\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
+    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nEffective Data visualization\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n⌨️ lab 03\n\n\n4\nMon, Oct 19\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n\n\nSun, Oct 25\n\n\n\n\n\n\n📚 hw 02\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nWed, Oct 28\nEffective (Written) Communication\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n\n\n⌨️ lab 05 🔘 mid-course survey\n\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA\n\n\n\n\n\n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n\n\n\n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7 \n\n\n⌨️ lab 06 \n\n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n📕 IMS Ch8 \n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n\n\n⌨️ lab 07 \n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n\n\n\n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey  📄 Final Project - rough draft \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n\n\n\n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation  🎥 In-class presentation interest form \n\n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\n\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
     "crumbs": [
       "Schedule & Policies",
       "Schedule"
@@ -6490,7 +6460,7 @@
     "href": "content/lectures/08-cs01-inclass-slides.html#cs01-questions",
     "title": "08-cs01-inclass",
     "section": "CS01: Questions?",
-    "text": "CS01: Questions?\n\ngroup work\nGH\nreport completion\nextension\nhow to effectively use GenAI to help?\ngeneral communication (hold these for now)"
+    "text": "CS01: Questions?\n\ngroup work\nGH\nreport completion\nextension\nhow to effectively use GenAI to help?\ngeneral communication (hold these for now)\n\ngit in collaboration\nSuggestions:\n\npull groupmates changes before you get started working\nonly add .qmd as you’re working (e.g. don’t check .html or .RProj)\nwhen done, render to HTML and push final HTML"
   },
   {
     "objectID": "content/lectures/08-cs01-inclass-slides.html#example-infographic",
@@ -6525,7 +6495,7 @@
     "href": "content/lectures/08-cs01-inclass-slides.html#plan-for-today",
     "title": "08-cs01-inclass",
     "section": "Plan for today",
-    "text": "Plan for today\n\n\nDiscuss/have a plan\nClear on tasks - division of labor; specific deadlines; assignments\nFirst pass: background, data, Wrangling, Viz\nSecond pass/editing: switch roles [background, data] &lt;&gt; [wrangling, viz]\nMake progress & discuss\nHelp one another\nRecap at end & revisit plan, progress, and who’s doing what/when\n\n\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
+    "text": "Plan for today\n\n\nDiscuss/have a plan\nClear on tasks - division of labor; specific deadlines; assignments\n\nFirst pass: background, data, Wrangling, Viz\nSecond pass/editing: switch roles [background, data] &lt;&gt; [wrangling, viz]\n\nMake progress & discuss\nHelp one another\nRecap at end & revisit plan, progress, and who’s doing what/when\n\n\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
   },
   {
     "objectID": "content/lectures/08-cs01-inclass.html",
@@ -6565,7 +6535,7 @@
     "href": "content/lectures/08-cs01-inclass.html#cs01-questions",
     "title": "08-cs01-inclass",
     "section": "CS01: Questions?",
-    "text": "CS01: Questions?\n\ngroup work\nGH\nreport completion\nextension\nhow to effectively use GenAI to help?\ngeneral communication (hold these for now)",
+    "text": "CS01: Questions?\n\ngroup work\nGH\nreport completion\nextension\nhow to effectively use GenAI to help?\ngeneral communication (hold these for now)\n\n\ngit in collaboration\nSuggestions:\n\npull groupmates changes before you get started working\nonly add .qmd as you’re working (e.g. don’t check .html or .RProj)\nwhen done, render to HTML and push final HTML",
     "crumbs": [
       "Notes",
       "08: CS01 In-class Work"
@@ -6620,7 +6590,7 @@
     "href": "content/lectures/08-cs01-inclass.html#plan-for-today",
     "title": "08-cs01-inclass",
     "section": "Plan for today",
-    "text": "Plan for today\n\n\nDiscuss/have a plan\nClear on tasks - division of labor; specific deadlines; assignments\nFirst pass: background, data, Wrangling, Viz\nSecond pass/editing: switch roles [background, data] &lt;&gt; [wrangling, viz]\nMake progress & discuss\nHelp one another\nRecap at end & revisit plan, progress, and who’s doing what/when",
+    "text": "Plan for today\n\n\nDiscuss/have a plan\nClear on tasks - division of labor; specific deadlines; assignments\n\nFirst pass: background, data, Wrangling, Viz\nSecond pass/editing: switch roles [background, data] &lt;&gt; [wrangling, viz]\n\nMake progress & discuss\nHelp one another\nRecap at end & revisit plan, progress, and who’s doing what/when",
     "crumbs": [
       "Notes",
       "08: CS01 In-class Work"

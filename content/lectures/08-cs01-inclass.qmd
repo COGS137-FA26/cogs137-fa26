@@ -45,6 +45,14 @@ A: Yes! This is intended. We've discussed it in class. You've explored it a bit 
 -   how to effectively use GenAI to help?
 -   ~~general communication~~ (hold these for now)
 
+### git in collaboration
+
+Suggestions: 
+
+- pull groupmates changes before you get started working
+- only add .qmd as you're working (e.g. don't check .html or .RProj)
+- when done, render to HTML and push final HTML
+
 # General Communication {background-color="#92A86A"}
 
 ## Example: infographic
@@ -70,11 +78,11 @@ Link [here](https://www.canva.com/design/DAF1alZjz2Q/TsnYWt6FBRhD-pjVUh0kuA/view
 ## Plan for today
 
 ::: incremental
--   Discuss/have a plan
--   Clear on tasks - division of labor; specific deadlines; assignments
+- Discuss/have a plan
+- Clear on tasks - division of labor; specific deadlines; assignments
   - First pass: background, data, Wrangling, Viz
   - Second pass/editing: switch roles [background, data] <> [wrangling, viz]
--   Make progress & discuss
--   Help one another
--   Recap at end & revisit plan, progress, and who's doing what/when
+- Make progress & discuss
+- Help one another
+- Recap at end & revisit plan, progress, and who's doing what/when
 :::
