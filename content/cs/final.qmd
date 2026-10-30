@@ -1,6 +1,5 @@
 ---
 title: "Final Project"
-date: "Due: Dec 10, 2024 (11:59 PM)"
 output: 
   html: 
     highlight: pygments
@@ -11,14 +10,13 @@ output:
 
 ## Introduction
 
-For the final project, you and your group mates (groups of 4-5 people) will carry out a data analysis on a topic of your choosing.
+For the final project, you and your group mates (groups of 3-5 people) will carry out a data analysis on a topic of your choosing.
 
 Each group will be provided with a private `final-<team name>` repo in the [course GitHub organization](https://github.com/COGS137-FA26) that all members as well as course instructional staff will have access to. Final projects will be "submitted" by pushing the project requirements to the group repo by the deadline.
 
 Presentations will be completed in class during week 10. All group members must be present.
 
 Written, visual, and presented content will be graded on their technical merits as well as the effectiveness of their communication.
-
 
 ## The Project
 
@@ -39,7 +37,6 @@ Your analysis will be submitted as a .qmd document and rendered to HTML (both of
 ::: callout-note
 **Outside resources & AI use:** Your team's .qmd includes an *Outside Resources & AI Use* section. Keep it updated as you go, including which team member(s) used each resource (write "None" if your team didn't use any). This is required.
 :::
-
 
 This will likely *not* be quite as long as a case study in this course, but will likely have the same sections.
 

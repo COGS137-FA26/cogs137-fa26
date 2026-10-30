@@ -1,0 +1,53 @@
+---
+title: "Final Project"
+output: 
+  html: 
+    highlight: pygments
+    preview-links: auto
+    execute:
+      eval: false
+---
+
+## Introduction
+
+For the final project, you and your group mates (groups of 3-5 people) will carry out a data analysis on a topic of your choosing.
+
+Each group will be provided with a private `final-<team name>` repo in the [course GitHub organization](https://github.com/COGS137-FA26) that all members as well as course instructional staff will have access to. Final projects will be "submitted" by pushing the project requirements to the group repo by the deadline.
+
+Presentations will be completed in class during week 10. All group members must be present.
+
+Written, visual, and presented content will be graded on their technical merits as well as the effectiveness of their communication.
+
+## The Project
+
+Each group will carry out a full data science project. This will include question formation, finding the data, doing background research, wrangling the data, doing EDA, analyzing the data, and answering your question of interest.
+
+::: callout-note
+Unlike the case studies, you do NOT need an extension for the final project. Since the ideas/work are all your own, your question and analysis are enough!
+:::
+
+You can think of this as a mini case report in the fact that the process is the same, but we would not expect the work completed to be as extensive as what you did in a case study. That said, we want to see demonstration of the skills you've learned in the class, so **we will be looking for some data wrangling in your case study**. If you have a single dataset that requires no wrangling, consider if additional datasets could be incorporated to answer your question(s) of interest more deeply.
+
+You are strongly encouraged to think of your topic/question before looking for datasets. More interesting case studies start with the topic/question. Boring case studies look for the dataset first.
+
+### Deliverable: Report (.qmd + HTML)
+
+Your analysis will be submitted as a .qmd document and rendered to HTML (both of which should be pushed to GitHub).
+
+::: callout-note
+**Outside resources & AI use:** Your team's .qmd includes an *Outside Resources & AI Use* section. Keep it updated as you go, including which team member(s) used each resource (write "None" if your team didn't use any). This is required.
+:::
+
+This will likely *not* be quite as long as a case study in this course, but will likely have the same sections.
+
+### Deliverable: Presentation
+
+Students must present their case study in a presentation that is **5 minutes long**. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. All presentations will take place in class during week 10, and every group member must be present. Not everyone has to speak, but everyone in the group is responsible for the contents, and individual understanding will be assessed during the questions after your presentation.
+
+### Deliverable: General Communication
+
+This will be a communication targeted to the general public (non-technical, non-data scientists) conveying the most important finding(s) from your project.
+
+## Group Feedback
+
+There will be a form to submit upon submission of the final project to provide feedback about working with your group mates. As with the case studies, this is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn't happen, I want to be sure I'm aware of the circumstances and follow up as necessary.

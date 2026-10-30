@@ -132,3 +132,8 @@ details>summary {
   color: #516b2e;
   font-weight: bold;
 }
+
+.reveal .slide aside, .reveal .slide div.aside {
+  position: relative;
+  margin-top: 1em;
+}

@@ -18,7 +18,7 @@ project:
     - content/cs/cs01.qmd
     - content/cs/cs-example.qmd
     - content/lectures/0[3-9]-*.qmd
-    # - content/lectures/10-*.qmd
+    - content/lectures/10-*.qmd
     - content/labs/0[2-5]-*.qmd
     - content/hw/hw-02.qmd
     # # CS02
@@ -106,9 +106,8 @@ website:
             href: content/lectures/08-cs01-inclass.qmd
           - text: "09: Written Communication"
             href: content/lectures/09-written-communication.qmd
-
-      #     - text: "11: CS02 Intro"
-      #       href: content/lectures/11-cs02-intro.qmd
+          - text: "10: CS02 Intro"
+            href: content/lectures/10-cs02-intro.qmd
       #     - text: "12: CS02 EDA"
       #       href: content/lectures/12-cs02-eda.qmd
       #     - text: "13: Inference vs. Prediction"
@@ -149,10 +148,10 @@ website:
             href: content/cs/cs-example.qmd
           - text: "CS01: Biomarkers of Recent Use"
             href: content/cs/cs01.qmd
-        #   - text: "CS02: Predicting Air Pollution"
-        #     href: content/cs/cs02.qmd
-        #   - text: "Final Project"
-        #     href: content/cs/final.qmd
+          - text: "CS02: Predicting Air Pollution"
+            href: content/cs/cs02.qmd
+          - text: "Final Project"
+            href: content/cs/final.qmd
       - section: "Homework"
         contents:
           - text: "HW 01: R Basics"

@@ -1,6 +1,5 @@
 ---
 title: "CS02: Predicting Annual Air Pollution"
-date: "Due: Nov 25, 2024 (11:59 PM)"
 output: 
   html: 
     highlight: pygments
@@ -9,7 +8,7 @@ output:
       eval: false
 ---
 
-This is where you get to put together all you've learned so far this quarter - including what you've leared from completing cs01 - into a full data science report! This report will include your analysis from top (the background and question) to bottom (your analysis, interpretation, and conclusions.)
+This is where you get to put together all you've learned so far this quarter - including what you've learned from completing cs01 - into a full data science report! This report will include your analysis from top (the background and question) to bottom (your analysis, interpretation, and conclusions.)
 
 We'll be grading to see that you have: 1) all necessary code for each section of the project. 2) explanatory text that guides the reader from start to finish. 3) polished visualizations that allow the reader to both understand the data you're working with an your conclusions.
 
@@ -22,6 +21,7 @@ Here are the steps for getting started:
 ::: aside
 Avoid waiting until the end to render for the first time. It will be better/easier/less of a headache if you render periodically and know it's all working as intended.
 :::
+
 -   Figure out what group you want to work with for cs02 and the final project
 -   This will be completed in a `cs02-<team name>` group repository, which will be created for you and your group mates in the [course GitHub organization](https://github.com/COGS137-FA26) once groups are formed.
 -   Code + write away in the provided .qmd document!
@@ -32,7 +32,6 @@ Avoid waiting until the end to render for the first time. It will be better/easi
 ::: callout-note
 **Outside resources & AI use:** Your team's .qmd includes an *Outside Resources & AI Use* section. Keep it updated as you go, including which team member(s) used each resource (write "None" if your team didn't use any). This is required.
 :::
-
 
 ::: aside
 A reminder that the [Quarto documentation on HTML output](https://quarto.org/docs/output-formats/html-basics.html) covers controlling HTML output (table of contents, code folding, themes, etc.), in case you want to customize your output in some way.
@@ -49,7 +48,7 @@ All groups will be answering the following question in their case study:
 > With what accuracy can we predict US annual average air pollution concentrations?
 
 ::: aside
-As noted in class, different groups may have different answers or different specific values, and that's ok. You have to explain your thinking and use your analysis to help guide your conclusions.
+As noted in class, different groups may have different answers or different specific values, and that's OK. You have to explain your thinking and use your analysis to help guide your conclusions.
 :::
 
 ## Case Study Report
@@ -89,4 +88,3 @@ This is very open-ended in its format. It could be a short video, an infographic
 ## Group Feedback
 
 There will be a form to submit upon submission of the case study to provide feedback about working with your group mates. This is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn't happen, I want to be sure I'm aware of the circumstances and follow up as necessary.
-
