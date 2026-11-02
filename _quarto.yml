@@ -19,14 +19,15 @@ project:
     - content/cs/cs-example.qmd
     - content/lectures/0[3-9]-*.qmd
     - content/lectures/10-*.qmd
+    - content/lectures/11-*.qmd
     - content/labs/0[2-5]-*.qmd
     - content/hw/hw-02.qmd
     # # CS02
-    # - content/cs/cs02.qmd
-    # - content/lectures/1[1-7]-*.qmd
-    # - content/labs/0[6-7]-*.qmd
-    # # Final project
-    # - content/cs/final.qmd
+    - content/cs/cs02.qmd
+    - content/lectures/1[1-7]-*.qmd
+    - content/labs/0[6-7]-*.qmd
+    # Final project
+    - content/cs/final.qmd
     # - content/lectures/1[89]-*.qmd
     # - content/lectures/20-*.qmd
     
@@ -108,8 +109,8 @@ website:
             href: content/lectures/09-written-communication.qmd
           - text: "10: CS02 Intro"
             href: content/lectures/10-cs02-intro.qmd
-      #     - text: "12: CS02 EDA"
-      #       href: content/lectures/12-cs02-eda.qmd
+          - text: "11: CS02 EDA"
+            href: content/lectures/11-cs02-eda.qmd
       #     - text: "13: Inference vs. Prediction"
       #       href: content/lectures/13-inference-prediction.qmd
       #     - text: "14: Regression"
@@ -138,8 +139,8 @@ website:
             href: content/labs/04-lab-cs01-eda.qmd
           - text: "Lab 05: CS01 Communication"
             href: content/labs/05-lab-cs01-communication.qmd
-      #     - text: "Lab 06: CS02 EDA"
-      #       href: content/labs/06-lab-cs02-eda.qmd
+          - text: "Lab 06: CS02 EDA"
+            href: content/labs/06-lab-cs02-eda.qmd
       #     - text: "Lab 07: Multiple Linear Regression"
       #       href: content/labs/07-lab-mlr.qmd
       - section: "Case Studies"

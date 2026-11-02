@@ -1,0 +1,2714 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.554">
+
+  <meta name="author" content="Professor Shannon Ellis">
+  <meta name="dcterms.date" content="2026-11-13">
+  <title>COGS 137 - 15-cs02-analysis</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+<meta property="og:title" content="COGS 137 - 15-cs02-analysis">
+<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
+<meta property="og:site_name" content="COGS 137">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">15-cs02-analysis</h1>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Professor Shannon Ellis 
+</div>
+        <p class="quarto-title-affiliation">
+            UC San Diego <br> COGS 137 - Fall 2026
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-11-13</p>
+</section>
+<section>
+<section id="cs02-predicting-air-pollution-analysis" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>CS02: Predicting Air Pollution (Analysis)</h1>
+
+</section>
+<section id="qa" class="slide level2 scrollable smaller">
+<h2>Q&amp;A</h2>
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+<div title="Q: ">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q:</strong></p>
+</div>
+<div class="callout-content">
+<p>A:</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="course-announcements" class="slide level2">
+<h2>Course Announcements</h2>
+<p><strong>Due Dates</strong>:</p>
+<ul>
+<li>⌨️ <strong>Lab 06</strong> due Fri 11/13 (11:59 PM)</li>
+<li>⌨️ <strong>Lab 07</strong> due Fri 11/20 (11:59 PM)</li>
+<li>🔘 Lecture Participation survey “due” after class</li>
+</ul>
+<!-- FA24 announcements, kept for reference:
+- **Lab07** due Thursday
+- **HW03** due Friday
+- **CS02** due Monday
+- **Final Project - rough draft** due Monday
+
+Notes: 
+
+- **Lab06** scores/feedback posted
+- **CS01** scores/feedback posted
+  - Feedback as issue on repo
+  - If your score on CS02 is higher than CS01 that score will automatically be used for both CS01 and CS02
+- Class Thursday will be time to work on CS02
+-->
+</section>
+<section id="progress-check-in" class="slide level2">
+<h2>Progress Check-in</h2>
+<p><span style="background-color: #ADD8E6">❓ Where should you and your group be for CSO2 completion?</span></p>
+<div class="fragment">
+<p><span style="background-color: #ADD8E6">❓ Where should you be at right now for your final project? What should you have done for rough draft on Monday?</span></p>
+</div>
+</section></section>
+<section id="question" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Question</h1>
+<blockquote>
+<p>With what accuracy can we predict US annual average air pollution concentrations?</p>
+</blockquote>
+</section>
+
+<section>
+<section id="analysis" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Analysis</h1>
+
+</section>
+<section id="building-our-tidymodels-knowledge" class="slide level2">
+<h2>Building our <code>tidymodels</code> knowledge:</h2>
+
+<img data-src="images/14/Updated_tidymodels_basics.png" class="r-stretch"></section>
+<section id="the-data" class="slide level2">
+<h2>The Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># in your CS02 repo, the file is at "data/pm25_data.csv"</span></span>
+<span id="cb1-2"><a></a>pm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"OCS_data/data/raw/pm25_data.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a></a>  <span class="co"># these are ID codes, not measurements</span></span>
+<span id="cb1-4"><a></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(id, fips, zcta), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-splitting" class="slide level2">
+<h2>Data Splitting</h2>
+<p align="center">
+</p>
+<img src="images/17/split.png" width="800" class="r-stretch"><p></p>
+<div class="fragment">
+<p>Specify the split:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb2-2"><a></a>pm_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(<span class="at">data =</span> pm, <span class="at">prop =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb2-3"><a></a>pm_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;Training/Testing/Total&gt;
+&lt;584/292/876&gt;</code></pre>
+</div>
+</div>
+<ul>
+<li><code>set.seed</code> &lt;- ensures we all get the exact same random split</li>
+<li>output displayed: <code>&lt;training data sample number, testing data sample number, original sample number&gt;</code></li>
+</ul>
+<p>More on how people decide what proportions to use for data splitting <a href="https://onlinelibrary.wiley.com/doi/full/10.1002/sam.11583">here</a></p>
+</div>
+</section>
+<section id="split-the-data" class="slide level2">
+<h2>Split the Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>train_pm <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(pm_split)</span>
+<span id="cb4-2"><a></a>test_pm <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(pm_split)</span>
+<span id="cb4-3"><a></a> </span>
+<span id="cb4-4"><a></a><span class="co"># Scroll through the output!</span></span>
+<span id="cb4-5"><a></a><span class="fu">count</span>(train_pm, state)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 49 × 2
+   state                    n
+   &lt;chr&gt;                &lt;int&gt;
+ 1 Alabama                 13
+ 2 Arizona                 12
+ 3 Arkansas                 8
+ 4 California              55
+ 5 Colorado                10
+ 6 Connecticut             12
+ 7 Delaware                 3
+ 8 District Of Columbia     2
+ 9 Florida                 22
+10 Georgia                 20
+# ℹ 39 more rows</code></pre>
+</div>
+</div>
+<p><span style="background-color: #ADD8E6">❓ What do you observe about the output?</span></p>
+</section>
+<section id="pre-processing-recipe-bake" class="slide level2">
+<h2>Pre-processing: <code>recipe()</code> + <code>bake()</code></h2>
+<p>Need to:</p>
+<ul>
+<li>specify predictors vs.&nbsp;outcome</li>
+<li>scale variables</li>
+<li>remove redundant variables (feature engineering)</li>
+</ul>
+<div class="fragment">
+<p><code>recipe</code> provides a standardized format for a sequence of steps for pre-processing the data</p>
+</div>
+<div class="fragment">
+<p align="center">
+</p><p><img src="images/17/Starting_a_recipe_recipes1.png" width="550"></p>
+<p></p>
+</div>
+</section>
+<section id="step-1-specify-variable-roles" class="slide level2">
+<h2>Step 1: Specify variable roles</h2>
+<p>The simplest approach…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>simple_rec <span class="ot">&lt;-</span> train_pm <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  recipes<span class="sc">::</span><span class="fu">recipe</span>(value <span class="sc">~</span> .)</span>
+<span id="cb6-3"><a></a></span>
+<span id="cb6-4"><a></a>simple_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:    1
+predictor: 49</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>…but we need to specify which column includes ID information</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>simple_rec <span class="ot">&lt;-</span> train_pm <span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a></a>  recipes<span class="sc">::</span><span class="fu">recipe</span>(value <span class="sc">~</span> .) <span class="sc">|&gt;</span></span>
+<span id="cb13-3"><a></a>  recipes<span class="sc">::</span><span class="fu">update_role</span>(id, <span class="at">new_role =</span> <span class="st">"id variable"</span>)</span>
+<span id="cb13-4"><a></a></span>
+<span id="cb13-5"><a></a>simple_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   48
+id variable:  1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>…and which are our predictors and which is our outcome</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>simple_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(train_pm) <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a></a>    <span class="fu">update_role</span>(<span class="fu">everything</span>(), <span class="at">new_role =</span> <span class="st">"predictor"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-3"><a></a>    <span class="fu">update_role</span>(value, <span class="at">new_role =</span> <span class="st">"outcome"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb20-4"><a></a>    <span class="fu">update_role</span>(id, <span class="at">new_role =</span> <span class="st">"id variable"</span>)</span>
+<span id="cb20-5"><a></a></span>
+<span id="cb20-6"><a></a>simple_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   48
+id variable:  1</code></pre>
+</div>
+</div>
+<p><span style="background-color: #ADD8E6">❓ Can someone summarize what this code is specifying?</span></p>
+</div>
+<div class="fragment">
+<p>Summarizing our recipe thus far:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="fu">summary</span>(simple_rec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 50 × 4
+   variable type      role        source  
+   &lt;chr&gt;    &lt;list&gt;    &lt;chr&gt;       &lt;chr&gt;   
+ 1 id       &lt;chr [3]&gt; id variable original
+ 2 value    &lt;chr [2]&gt; outcome     original
+ 3 fips     &lt;chr [3]&gt; predictor   original
+ 4 lat      &lt;chr [2]&gt; predictor   original
+ 5 lon      &lt;chr [2]&gt; predictor   original
+ 6 state    &lt;chr [3]&gt; predictor   original
+ 7 county   &lt;chr [3]&gt; predictor   original
+ 8 city     &lt;chr [3]&gt; predictor   original
+ 9 CMAQ     &lt;chr [2]&gt; predictor   original
+10 zcta     &lt;chr [3]&gt; predictor   original
+# ℹ 40 more rows</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="step-2-pre-process-with-step" class="slide level2">
+<h2>Step 2: Pre-process with <code>step*()</code></h2>
+
+<img data-src="images/17/Making_a_recipe_recipes2.png" class="r-stretch"></section>
+<section id="steps" class="slide level2 smaller scrollable">
+<h2>Steps</h2>
+<p><u>There are step functions for a variety of purposes:</u></p>
+<ol type="1">
+<li><a href="https://en.wikipedia.org/wiki/Imputation_(statistics)" target="_blank"><strong>Imputation</strong></a> – filling in missing values based on the existing data</li>
+<li><a href="https://en.wikipedia.org/wiki/Data_transformation_(statistics)" target="_blank"><strong>Transformation</strong></a> – changing all values of a variable in the same way, typically to make it more normal or easier to interpret</li>
+<li><a href="https://en.wikipedia.org/wiki/Discretization_of_continuous_features" target="_blank"><strong>Discretization</strong></a> – converting continuous values into discrete or nominal values - binning for example to reduce the number of possible levels (However this is generally not advisable!)</li>
+<li><a href="https://en.wikipedia.org/wiki/Dummy_variable_(statistics)" target="_blank"><strong>Encoding / Creating Dummy Variables</strong></a> – creating a numeric code for categorical variables (<a href="https://medium.com/p/b5840be3c41a/responses/show" target="_blank"><strong>More on one-hot and Dummy Variables encoding</strong></a>)</li>
+<li><a href="https://cran.r-project.org/web/packages/hablar/vignettes/convert.html" target="_blank"><strong>Data type conversions</strong></a> – which means changing from integer to factor or numeric to date etc.</li>
+<li><a href="https://statisticsbyjim.com/regression/interaction-effects/" target="_blank"><strong>Interaction</strong></a> term addition to the model – which means that we would be modeling for predictors that would influence the capacity of each other to predict the outcome</li>
+<li><a href="https://en.wikipedia.org/wiki/Normalization_(statistics)" target="_blank"><strong>Normalization</strong></a> – centering and scaling the data to a similar range of values</li>
+<li><a href="https://en.wikipedia.org/wiki/Dimensionality_reduction" target="_blank"><strong>Dimensionality Reduction/ Signal Extraction</strong></a> – reducing the space of features or predictors to a smaller set of variables that capture the variation or signal in the original variables (ex. Principal Component Analysis and Independent Component Analysis)</li>
+<li><strong>Filtering</strong> – filtering options for removing variables (ex. remove variables that are highly correlated to others or remove variables with very little variance and therefore likely little predictive capacity)</li>
+<li><a href="https://tartarus.org/gareth/maths/Linear_Algebra/row_operations.pdf" target="_blank"><strong>Row operations</strong></a> – performing functions on the values within the rows (ex. rearranging, filtering, imputing)</li>
+<li><strong>Checking functions</strong> – Gut checks to look for missing values, to look at the variable classes etc.</li>
+</ol>
+<p><strong>This <a href="https://tidymodels.github.io/recipes/reference/index.html" target="_blank">link</a> and this <a href="https://cran.r-project.org/web/packages/recipes/recipes.pdf" target="_blank">link</a> show the many options for recipe step functions.</strong></p>
+</section>
+<section id="selecting-variables" class="slide level2 smaller scrollable">
+<h2>Selecting Variables</h2>
+<p>There are several ways to select what variables to apply steps to:</p>
+<ol type="1">
+<li>Using <code>tidyselect</code> methods: <code>contains()</code>, <code>matches()</code>, <code>starts_with()</code>, <code>ends_with()</code>, <code>everything()</code>, <code>num_range()</code><br>
+</li>
+<li>Using the type: <code>all_nominal()</code>, <code>all_numeric()</code> , <code>has_type()</code></li>
+<li>Using the role: <code>all_predictors()</code>, <code>all_outcomes()</code>, <code>has_role()</code></li>
+<li>Using the name - use the actual name of the variable/variables of interest</li>
+</ol>
+</section>
+<section id="one-hot-encoding" class="slide level2">
+<h2>One-hot Encoding</h2>
+<p>One-hot encoding categorical variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>simple_rec <span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">step_dummy</span>(state, county, city, zcta, <span class="at">one_hot =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   48
+id variable:  1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Operations </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Dummy variables from: state, county, city, zcta</code></pre>
+</div>
+</div>
+<p><span style="background-color: #ADD8E6">❓ Can anyone explain what one-hot encoding does?</span></p>
+<div class="fragment">
+<ul>
+<li><code>fips</code> includes numeric code for state and county, so it’s another way to specify county</li>
+<li>so, we’ll change <code>fips</code>’ role</li>
+<li>we get to decide what to call it (<code>"county id"</code>)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>simple_rec <span class="sc">|&gt;</span></span>
+<span id="cb39-2"><a></a>  <span class="fu">update_role</span>(<span class="st">"fips"</span>, <span class="at">new_role =</span> <span class="st">"county id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   47
+county id:    1
+id variable:  1</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Removing variables with near-zero variance:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>simple_rec <span class="sc">|&gt;</span></span>
+<span id="cb46-2"><a></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span> CMAQ, <span class="sc">-</span> aod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   48
+id variable:  1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Operations </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Sparse, unbalanced variable filter on: all_predictors(), -CMAQ, -aod</code></pre>
+</div>
+</div>
+<ul>
+<li>specifying to KEEP <code>CMAQ</code> and <code>aod</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p>Removing highly correlated variables:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>simple_rec <span class="sc">|&gt;</span></span>
+<span id="cb56-2"><a></a>  <span class="fu">step_corr</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span> CMAQ, <span class="sc">-</span> aod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   48
+id variable:  1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Operations </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Correlation filter on: all_predictors(), -CMAQ, -aod</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="putting-our-recipe-together" class="slide level2">
+<h2>Putting our <code>recipe</code> together</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a></a>simple_rec <span class="ot">&lt;-</span> simple_rec <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a></a>  <span class="fu">update_role</span>(<span class="st">"fips"</span>, <span class="at">new_role =</span> <span class="st">"county id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-3"><a></a>  <span class="fu">step_dummy</span>(state, county, city, zcta, <span class="at">one_hot =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb66-4"><a></a>  <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span> CMAQ, <span class="sc">-</span> aod) <span class="sc">|&gt;</span></span>
+<span id="cb66-5"><a></a>  <span class="fu">step_corr</span>(<span class="fu">all_predictors</span>(), <span class="sc">-</span> CMAQ, <span class="sc">-</span> aod)</span>
+<span id="cb66-6"><a></a>  </span>
+<span id="cb66-7"><a></a>simple_rec</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Recipe ──────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Inputs </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Number of variables by role</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>outcome:      1
+predictor:   47
+county id:    1
+id variable:  1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code></code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Operations </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Dummy variables from: state, county, city, zcta</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Sparse, unbalanced variable filter on: all_predictors(), -CMAQ, -aod</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>• Correlation filter on: all_predictors(), -CMAQ, -aod</code></pre>
+</div>
+</div>
+<p>Note: order of steps matters. Removing (near-)constant columns <em>before</em> computing correlations avoids “the standard deviation is zero” warnings from <code>step_corr()</code>.</p>
+</section>
+<section id="step-3-running-the-pre-processing-prep" class="slide level2 smaller scrollable">
+<h2>Step 3: Running the pre-processing (<code>prep</code>)</h2>
+<p>There are some important arguments to know about:</p>
+<ol type="1">
+<li><code>training</code> - you must supply a training data set to estimate parameters for pre-processing operations (recipe steps) - this may already be included in your recipe - as is the case for us</li>
+<li><code>fresh</code> - if <code>fresh=TRUE</code>, will retrain and estimate parameters for any previous steps that were already prepped if you add more steps to the recipe (default is <code>FALSE</code>)</li>
+<li><code>verbose</code> - if <code>verbose=TRUE</code>, shows the progress as the steps are evaluated and the size of the pre-processed training set (default is <code>FALSE</code>)</li>
+<li><code>retain</code> - if <code>retain=TRUE</code>, then the pre-processed training set will be saved within the recipe (as template). This is good if you are likely to add more steps and do not want to rerun the <code>prep()</code> on the previous steps. However this can make the recipe size large. This is necessary if you want to actually look at the pre-processed data (default is <code>TRUE</code>)</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a></a>prepped_rec <span class="ot">&lt;-</span> <span class="fu">prep</span>(simple_rec, </span>
+<span id="cb78-2"><a></a>                    <span class="at">verbose =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb78-3"><a></a>                    <span class="at">retain =</span> <span class="cn">TRUE</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>oper 1 step dummy [training] 
+oper 2 step nzv [training] 
+oper 3 step corr [training] 
+The retained training set is ~ 0.27 Mb  in memory.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a></a><span class="fu">names</span>(prepped_rec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "var_info"       "term_info"      "steps"          "template"      
+ [5] "levels"         "retained"       "requirements"   "tr_info"       
+ [9] "orig_lvls"      "last_term_info"</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>This output includes a lot of information:</p>
+<ol type="1">
+<li>the <code>steps</code> that were run<br>
+</li>
+<li>the original variable info (<code>var_info</code>)<br>
+</li>
+<li>the updated variable info after pre-processing (<code>term_info</code>)</li>
+<li>the new <code>levels</code> of the variables</li>
+<li>the original levels of the variables (<code>orig_lvls</code>)</li>
+<li>info about the training data set size and completeness (<code>tr_info</code>)</li>
+</ol>
+</div>
+</section>
+<section id="step-4-extract-pre-processed-training-data-using-bake" class="slide level2 smaller">
+<h2>Step 4: Extract pre-processed training data using <code>bake()</code></h2>
+
+<img data-src="images/17/training_preprocessing_recipes3.png" class="r-stretch"><p><code>bake()</code>: apply our modeling steps (in this case just pre-processing on the training data) and see what it would do the data</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a></a>baked_train <span class="ot">&lt;-</span> <span class="fu">bake</span>(prepped_rec, <span class="at">new_data =</span> <span class="cn">NULL</span>)</span>
+<span id="cb82-2"><a></a></span>
+<span id="cb82-3"><a></a><span class="fu">glimpse</span>(baked_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 584
+Columns: 39
+$ id                          &lt;fct&gt; 18003.0004, 55041.0007, 6065.1003, 39009.0…
+$ value                       &lt;dbl&gt; 11.699065, 6.956780, 13.289744, 10.742000,…
+$ fips                        &lt;fct&gt; 18003, 55041, 6065, 39009, 39061, 24510, 6…
+$ lat                         &lt;dbl&gt; 41.09497, 45.56300, 33.94603, 39.44217, 39…
+$ lon                         &lt;dbl&gt; -85.10182, -88.80880, -117.40063, -81.9088…
+$ CMAQ                        &lt;dbl&gt; 10.383231, 3.411247, 11.404085, 7.971165, …
+$ zcta_area                   &lt;dbl&gt; 16696709, 370280916, 41957182, 132383592, …
+$ zcta_pop                    &lt;dbl&gt; 21306, 4141, 44001, 1115, 6566, 934, 41192…
+$ imp_a500                    &lt;dbl&gt; 28.9783737, 0.0000000, 30.3901384, 0.00000…
+$ imp_a15000                  &lt;dbl&gt; 13.0547959, 0.3676404, 23.7457506, 0.33079…
+$ county_area                 &lt;dbl&gt; 1702419942, 2626421270, 18664696661, 13043…
+$ county_pop                  &lt;dbl&gt; 355329, 9304, 2189641, 64757, 802374, 6209…
+$ log_dist_to_prisec          &lt;dbl&gt; 6.621891, 8.415468, 7.419762, 6.344681, 5.…
+$ log_pri_length_5000         &lt;dbl&gt; 8.517193, 8.517193, 10.150514, 8.517193, 9…
+$ log_pri_length_10000        &lt;dbl&gt; 11.77541, 9.21034, 11.59435, 9.21034, 11.5…
+$ log_pri_length_25000        &lt;dbl&gt; 12.77378, 10.16440, 13.14450, 10.12663, 13…
+$ log_prisec_length_500       &lt;dbl&gt; 6.214608, 6.214608, 6.214608, 6.214608, 7.…
+$ log_prisec_length_1000      &lt;dbl&gt; 9.240294, 7.600902, 7.600902, 8.793450, 8.…
+$ log_prisec_length_5000      &lt;dbl&gt; 11.485093, 9.425537, 10.155961, 10.562382,…
+$ log_prisec_length_10000     &lt;dbl&gt; 12.75582, 11.44833, 11.59563, 11.69093, 12…
+$ log_prisec_length_25000     &lt;dbl&gt; 13.98749, 13.15082, 13.44293, 13.58697, 14…
+$ log_nei_2008_pm10_sum_10000 &lt;dbl&gt; 4.91110140, 3.86982666, 4.03184660, 0.0000…
+$ log_nei_2008_pm10_sum_15000 &lt;dbl&gt; 5.399131, 3.883689, 5.459257, 0.000000, 6.…
+$ log_nei_2008_pm10_sum_25000 &lt;dbl&gt; 5.816047, 3.887264, 6.884537, 3.765635, 6.…
+$ popdens_county              &lt;dbl&gt; 208.719947, 3.542463, 117.314577, 49.64834…
+$ popdens_zcta                &lt;dbl&gt; 1276.059851, 11.183401, 1048.711994, 8.422…
+$ nohs                        &lt;dbl&gt; 4.3, 5.1, 3.7, 4.8, 2.1, 0.0, 2.5, 7.7, 0.…
+$ somehs                      &lt;dbl&gt; 6.7, 10.4, 5.9, 11.5, 10.5, 0.0, 4.3, 7.5,…
+$ hs                          &lt;dbl&gt; 31.7, 40.3, 17.9, 47.3, 30.0, 0.0, 17.8, 2…
+$ somecollege                 &lt;dbl&gt; 27.2, 24.1, 26.3, 20.0, 27.1, 0.0, 26.1, 2…
+$ associate                   &lt;dbl&gt; 8.2, 7.4, 8.3, 3.1, 8.5, 71.4, 13.2, 7.6, …
+$ bachelor                    &lt;dbl&gt; 15.0, 8.6, 20.2, 9.8, 14.2, 0.0, 23.4, 17.…
+$ grad                        &lt;dbl&gt; 6.8, 4.2, 17.7, 3.5, 7.6, 28.6, 12.6, 12.3…
+$ pov                         &lt;dbl&gt; 13.500, 18.900, 6.700, 14.400, 12.500, 3.5…
+$ hs_orless                   &lt;dbl&gt; 42.7, 55.8, 27.5, 63.6, 42.6, 0.0, 24.6, 3…
+$ urc2006                     &lt;dbl&gt; 3, 6, 1, 5, 1, 1, 2, 1, 2, 6, 4, 4, 4, 4, …
+$ aod                         &lt;dbl&gt; 54.11111, 31.16667, 83.12500, 33.36364, 50…
+$ state_California            &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, …
+$ city_Not.in.a.city          &lt;dbl&gt; 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, …</code></pre>
+</div>
+</div>
+<ul>
+<li><code>new_data = NULL</code> specifies that we’re not (yet) looking at our testing data</li>
+<li>We only have 39 variables (36 predictors + 2 id variables + outcome)</li>
+<li>categorical variables (<code>state</code>) are gone (one-hot encoding)</li>
+<li><code>state_California</code> remains - only state with nonzero variance (largest # of monitors)</li>
+</ul>
+</div>
+</section>
+<section id="step-5-extract-pre-processed-testing-data-using-bake" class="slide level2 smaller">
+<h2>Step 5: Extract pre-processed testing data using <code>bake()</code></h2>
+<blockquote>
+<p><code>bake()</code> takes a trained recipe and applies the operations to a data set to create a design matrix. For example: it applies the centering to new data sets using these means used to create the recipe. - <code>tidymodels</code> documentation</p>
+</blockquote>
+<div class="fragment">
+<p>Typically, you want to avoid using your testing data…but our data set is not that large and NA values in our testing dataset could cause issues later on.</p>
+<p align="center">
+</p><p><img src="images/17/testing_preprocessing_recipes4.png" width="550"></p>
+<p></p>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a></a>baked_test_pm <span class="ot">&lt;-</span> recipes<span class="sc">::</span><span class="fu">bake</span>(prepped_rec, <span class="at">new_data =</span> test_pm)</span>
+<span id="cb84-2"><a></a><span class="fu">glimpse</span>(baked_test_pm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 292
+Columns: 39
+$ id                          &lt;fct&gt; 1033.1002, 1055.001, 1069.0003, 1073.0023,…
+$ value                       &lt;dbl&gt; 11.212174, 12.375394, 10.508850, 15.591017…
+$ fips                        &lt;fct&gt; 1033, 1055, 1069, 1073, 1073, 1073, 1073, …
+$ lat                         &lt;dbl&gt; 34.75878, 33.99375, 31.22636, 33.55306, 33…
+$ lon                         &lt;dbl&gt; -87.65056, -85.99107, -85.39077, -86.81500…
+$ CMAQ                        &lt;dbl&gt; 9.402679, 9.241744, 9.121892, 10.235612, 1…
+$ zcta_area                   &lt;dbl&gt; 16716984, 154069359, 162685124, 26929603, …
+$ zcta_pop                    &lt;dbl&gt; 9042, 20045, 30217, 9010, 16140, 3699, 137…
+$ imp_a500                    &lt;dbl&gt; 19.17301038, 16.49307958, 19.13927336, 41.…
+$ imp_a15000                  &lt;dbl&gt; 5.2472094, 5.1612102, 4.7401296, 17.452484…
+$ county_area                 &lt;dbl&gt; 1534877333, 1385618994, 1501737720, 287819…
+$ county_pop                  &lt;dbl&gt; 54428, 104430, 101547, 658466, 658466, 194…
+$ log_dist_to_prisec          &lt;dbl&gt; 5.760131, 5.261457, 7.112373, 6.600958, 6.…
+$ log_pri_length_5000         &lt;dbl&gt; 8.517193, 9.066563, 8.517193, 11.156977, 1…
+$ log_pri_length_10000        &lt;dbl&gt; 9.274303, 11.137360, 9.210340, 11.849658, …
+$ log_pri_length_25000        &lt;dbl&gt; 10.15769, 12.01356, 10.12663, 12.98762, 12…
+$ log_prisec_length_500       &lt;dbl&gt; 8.611945, 8.740680, 6.214608, 6.214608, 6.…
+$ log_prisec_length_1000      &lt;dbl&gt; 9.735569, 9.627898, 7.600902, 9.075921, 8.…
+$ log_prisec_length_5000      &lt;dbl&gt; 11.770407, 11.728889, 12.298627, 12.281645…
+$ log_prisec_length_10000     &lt;dbl&gt; 12.840663, 12.768279, 12.994141, 13.278416…
+$ log_prisec_length_25000     &lt;dbl&gt; 13.79973, 13.70026, 13.85550, 14.45221, 13…
+$ log_nei_2008_pm10_sum_10000 &lt;dbl&gt; 6.69187313, 4.43719884, 0.92888890, 8.2097…
+$ log_nei_2008_pm10_sum_15000 &lt;dbl&gt; 6.70127741, 4.46267932, 3.67473904, 8.6488…
+$ log_nei_2008_pm10_sum_25000 &lt;dbl&gt; 7.148858, 4.678311, 3.744629, 8.858019, 8.…
+$ popdens_county              &lt;dbl&gt; 35.460814, 75.367038, 67.619664, 228.77763…
+$ popdens_zcta                &lt;dbl&gt; 540.8870404, 130.1037411, 185.7391706, 334…
+$ nohs                        &lt;dbl&gt; 7.3, 4.3, 5.8, 7.1, 2.7, 11.1, 9.7, 3.0, 8…
+$ somehs                      &lt;dbl&gt; 15.8, 13.3, 11.6, 17.1, 6.6, 11.6, 21.6, 1…
+$ hs                          &lt;dbl&gt; 30.6, 27.8, 29.8, 37.2, 30.7, 46.0, 39.3, …
+$ somecollege                 &lt;dbl&gt; 20.9, 29.2, 21.4, 23.5, 25.7, 17.2, 21.6, …
+$ associate                   &lt;dbl&gt; 7.6, 10.1, 7.9, 7.3, 8.0, 4.1, 5.2, 6.6, 4…
+$ bachelor                    &lt;dbl&gt; 12.7, 10.0, 13.7, 5.9, 17.6, 7.1, 2.2, 7.8…
+$ grad                        &lt;dbl&gt; 5.1, 5.4, 9.8, 2.0, 8.7, 2.9, 0.4, 4.2, 3.…
+$ pov                         &lt;dbl&gt; 19.0, 8.8, 15.6, 25.5, 7.3, 8.1, 13.3, 23.…
+$ hs_orless                   &lt;dbl&gt; 53.7, 45.4, 47.2, 61.4, 40.0, 68.7, 70.6, …
+$ urc2006                     &lt;dbl&gt; 4, 4, 4, 1, 1, 1, 2, 3, 3, 3, 2, 5, 4, 1, …
+$ aod                         &lt;dbl&gt; 36.000000, 43.416667, 33.000000, 39.583333…
+$ state_California            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ city_Not.in.a.city          &lt;dbl&gt; NA, NA, NA, 0, 1, 1, 1, NA, NA, NA, 0, NA,…</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Hmm….lots of NAs now in <code>city_Not.in.a.city</code></p>
+<p>Likely b/c there are cities in our testing dataset that were not in our training dataset…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a></a>traincities <span class="ot">&lt;-</span> train_pm <span class="sc">|&gt;</span> <span class="fu">distinct</span>(city)</span>
+<span id="cb86-2"><a></a>testcities <span class="ot">&lt;-</span> test_pm <span class="sc">|&gt;</span> <span class="fu">distinct</span>(city)</span>
+<span id="cb86-3"><a></a></span>
+<span id="cb86-4"><a></a><span class="co">#get the number of cities that were different</span></span>
+<span id="cb86-5"><a></a><span class="fu">dim</span>(dplyr<span class="sc">::</span><span class="fu">setdiff</span>(traincities, testcities))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 381   1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a></a><span class="co">#get the number of cities that overlapped</span></span>
+<span id="cb88-2"><a></a><span class="fu">dim</span>(dplyr<span class="sc">::</span><span class="fu">intersect</span>(traincities, testcities))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 55  1</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="aside-return-to-wrangling" class="slide level2">
+<h2>Aside: return to wrangling</h2>
+<p>A quick return to wrangling…and re-splitting our data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a></a>pm <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span></span>
+<span id="cb90-2"><a></a>  <span class="fu">mutate</span>(<span class="at">city =</span> <span class="fu">case_when</span>(city <span class="sc">==</span> <span class="st">"Not in a city"</span> <span class="sc">~</span> <span class="st">"Not in a city"</span>,</span>
+<span id="cb90-3"><a></a>                          city <span class="sc">!=</span> <span class="st">"Not in a city"</span> <span class="sc">~</span> <span class="st">"In a city"</span>))</span>
+<span id="cb90-4"><a></a></span>
+<span id="cb90-5"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>) <span class="co"># same seed as before</span></span>
+<span id="cb90-6"><a></a>pm_split <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">initial_split</span>(<span class="at">data =</span> pm, <span class="at">prop =</span> <span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>)</span>
+<span id="cb90-7"><a></a>pm_split</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;Training/Testing/Total&gt;
+&lt;584/292/876&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a></a>train_pm <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">training</span>(pm_split)</span>
+<span id="cb92-2"><a></a>test_pm <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">testing</span>(pm_split)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>This recode is a fixed rule that doesn’t <em>learn</em> anything from the data, so it’s OK to do before splitting (unlike, say, filling in missing values with the mean)</li>
+</ul>
+<div class="fragment">
+<p>And a recipe update…(putting it all together)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a></a>novel_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(train_pm) <span class="sc">|&gt;</span></span>
+<span id="cb93-2"><a></a>    <span class="fu">update_role</span>(<span class="fu">everything</span>(), <span class="at">new_role =</span> <span class="st">"predictor"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb93-3"><a></a>    <span class="fu">update_role</span>(value, <span class="at">new_role =</span> <span class="st">"outcome"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb93-4"><a></a>    <span class="fu">update_role</span>(id, <span class="at">new_role =</span> <span class="st">"id variable"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb93-5"><a></a>    <span class="fu">update_role</span>(<span class="st">"fips"</span>, <span class="at">new_role =</span> <span class="st">"county id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb93-6"><a></a>    <span class="fu">step_rm</span>(county, zcta) <span class="sc">|&gt;</span></span>
+<span id="cb93-7"><a></a>    <span class="fu">step_dummy</span>(state, city) <span class="sc">|&gt;</span></span>
+<span id="cb93-8"><a></a>    <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb93-9"><a></a>    <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb93-10"><a></a>    <span class="fu">step_lincomb</span>(<span class="fu">all_numeric_predictors</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>What changed?</p>
+<ul>
+<li><code>step_rm(county, zcta)</code>: nearly every monitor has its own county/zip code, so these can’t generalize to new monitors (and create new-level problems in the test set)</li>
+<li><code>step_dummy()</code> without <code>one_hot</code>: for linear regression, one-hot encoding adds a redundant column (it’s perfectly predictable from the others + the intercept)</li>
+<li><code>all_predictors()</code>/<code>all_numeric_predictors()</code> (not <code>all_numeric()</code>): never let a filter step touch the outcome</li>
+<li><code>step_lincomb()</code>: removes exact linear combinations (e.g., <code>hs_orless</code> = <code>nohs</code> + <code>somehs</code> + <code>hs</code>), which <code>lm()</code> would otherwise report as <code>NA</code></li>
+</ul>
+</div>
+<div class="fragment">
+<p>re-<code>bake()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a></a>prepped_rec <span class="ot">&lt;-</span> <span class="fu">prep</span>(novel_rec, <span class="at">verbose =</span> <span class="cn">TRUE</span>, <span class="at">retain =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>oper 1 step rm [training] 
+oper 2 step dummy [training] 
+oper 3 step nzv [training] 
+oper 4 step corr [training] 
+oper 5 step lincomb [training] 
+The retained training set is ~ 0.27 Mb  in memory.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a></a>baked_train <span class="ot">&lt;-</span> <span class="fu">bake</span>(prepped_rec, <span class="at">new_data =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div class="fragment">
+<p>Looking at the output</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a></a><span class="fu">glimpse</span>(baked_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 584
+Columns: 38
+$ id                          &lt;fct&gt; 18003.0004, 55041.0007, 6065.1003, 39009.0…
+$ value                       &lt;dbl&gt; 11.699065, 6.956780, 13.289744, 10.742000,…
+$ fips                        &lt;fct&gt; 18003, 55041, 6065, 39009, 39061, 24510, 6…
+$ lat                         &lt;dbl&gt; 41.09497, 45.56300, 33.94603, 39.44217, 39…
+$ lon                         &lt;dbl&gt; -85.10182, -88.80880, -117.40063, -81.9088…
+$ CMAQ                        &lt;dbl&gt; 10.383231, 3.411247, 11.404085, 7.971165, …
+$ zcta_area                   &lt;dbl&gt; 16696709, 370280916, 41957182, 132383592, …
+$ zcta_pop                    &lt;dbl&gt; 21306, 4141, 44001, 1115, 6566, 934, 41192…
+$ imp_a500                    &lt;dbl&gt; 28.9783737, 0.0000000, 30.3901384, 0.00000…
+$ imp_a15000                  &lt;dbl&gt; 13.0547959, 0.3676404, 23.7457506, 0.33079…
+$ county_area                 &lt;dbl&gt; 1702419942, 2626421270, 18664696661, 13043…
+$ county_pop                  &lt;dbl&gt; 355329, 9304, 2189641, 64757, 802374, 6209…
+$ log_dist_to_prisec          &lt;dbl&gt; 6.621891, 8.415468, 7.419762, 6.344681, 5.…
+$ log_pri_length_5000         &lt;dbl&gt; 8.517193, 8.517193, 10.150514, 8.517193, 9…
+$ log_pri_length_10000        &lt;dbl&gt; 11.77541, 9.21034, 11.59435, 9.21034, 11.5…
+$ log_pri_length_25000        &lt;dbl&gt; 12.77378, 10.16440, 13.14450, 10.12663, 13…
+$ log_prisec_length_500       &lt;dbl&gt; 6.214608, 6.214608, 6.214608, 6.214608, 7.…
+$ log_prisec_length_1000      &lt;dbl&gt; 9.240294, 7.600902, 7.600902, 8.793450, 8.…
+$ log_prisec_length_5000      &lt;dbl&gt; 11.485093, 9.425537, 10.155961, 10.562382,…
+$ log_prisec_length_10000     &lt;dbl&gt; 12.75582, 11.44833, 11.59563, 11.69093, 12…
+$ log_prisec_length_25000     &lt;dbl&gt; 13.98749, 13.15082, 13.44293, 13.58697, 14…
+$ log_nei_2008_pm10_sum_10000 &lt;dbl&gt; 4.91110140, 3.86982666, 4.03184660, 0.0000…
+$ log_nei_2008_pm10_sum_15000 &lt;dbl&gt; 5.399131, 3.883689, 5.459257, 0.000000, 6.…
+$ log_nei_2008_pm10_sum_25000 &lt;dbl&gt; 5.816047, 3.887264, 6.884537, 3.765635, 6.…
+$ popdens_county              &lt;dbl&gt; 208.719947, 3.542463, 117.314577, 49.64834…
+$ popdens_zcta                &lt;dbl&gt; 1276.059851, 11.183401, 1048.711994, 8.422…
+$ nohs                        &lt;dbl&gt; 4.3, 5.1, 3.7, 4.8, 2.1, 0.0, 2.5, 7.7, 0.…
+$ somehs                      &lt;dbl&gt; 6.7, 10.4, 5.9, 11.5, 10.5, 0.0, 4.3, 7.5,…
+$ hs                          &lt;dbl&gt; 31.7, 40.3, 17.9, 47.3, 30.0, 0.0, 17.8, 2…
+$ somecollege                 &lt;dbl&gt; 27.2, 24.1, 26.3, 20.0, 27.1, 0.0, 26.1, 2…
+$ associate                   &lt;dbl&gt; 8.2, 7.4, 8.3, 3.1, 8.5, 71.4, 13.2, 7.6, …
+$ bachelor                    &lt;dbl&gt; 15.0, 8.6, 20.2, 9.8, 14.2, 0.0, 23.4, 17.…
+$ grad                        &lt;dbl&gt; 6.8, 4.2, 17.7, 3.5, 7.6, 28.6, 12.6, 12.3…
+$ pov                         &lt;dbl&gt; 13.500, 18.900, 6.700, 14.400, 12.500, 3.5…
+$ urc2006                     &lt;dbl&gt; 3, 6, 1, 5, 1, 1, 2, 1, 2, 6, 4, 4, 4, 4, …
+$ aod                         &lt;dbl&gt; 54.11111, 31.16667, 83.12500, 33.36364, 50…
+$ state_California            &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 0, …
+$ city_Not.in.a.city          &lt;dbl&gt; 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, …</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Making sure the NA issue is taken are of:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a></a>baked_test_pm <span class="ot">&lt;-</span> <span class="fu">bake</span>(prepped_rec, <span class="at">new_data =</span> test_pm)</span>
+<span id="cb99-2"><a></a></span>
+<span id="cb99-3"><a></a><span class="fu">glimpse</span>(baked_test_pm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 292
+Columns: 38
+$ id                          &lt;fct&gt; 1033.1002, 1055.001, 1069.0003, 1073.0023,…
+$ value                       &lt;dbl&gt; 11.212174, 12.375394, 10.508850, 15.591017…
+$ fips                        &lt;fct&gt; 1033, 1055, 1069, 1073, 1073, 1073, 1073, …
+$ lat                         &lt;dbl&gt; 34.75878, 33.99375, 31.22636, 33.55306, 33…
+$ lon                         &lt;dbl&gt; -87.65056, -85.99107, -85.39077, -86.81500…
+$ CMAQ                        &lt;dbl&gt; 9.402679, 9.241744, 9.121892, 10.235612, 1…
+$ zcta_area                   &lt;dbl&gt; 16716984, 154069359, 162685124, 26929603, …
+$ zcta_pop                    &lt;dbl&gt; 9042, 20045, 30217, 9010, 16140, 3699, 137…
+$ imp_a500                    &lt;dbl&gt; 19.17301038, 16.49307958, 19.13927336, 41.…
+$ imp_a15000                  &lt;dbl&gt; 5.2472094, 5.1612102, 4.7401296, 17.452484…
+$ county_area                 &lt;dbl&gt; 1534877333, 1385618994, 1501737720, 287819…
+$ county_pop                  &lt;dbl&gt; 54428, 104430, 101547, 658466, 658466, 194…
+$ log_dist_to_prisec          &lt;dbl&gt; 5.760131, 5.261457, 7.112373, 6.600958, 6.…
+$ log_pri_length_5000         &lt;dbl&gt; 8.517193, 9.066563, 8.517193, 11.156977, 1…
+$ log_pri_length_10000        &lt;dbl&gt; 9.274303, 11.137360, 9.210340, 11.849658, …
+$ log_pri_length_25000        &lt;dbl&gt; 10.15769, 12.01356, 10.12663, 12.98762, 12…
+$ log_prisec_length_500       &lt;dbl&gt; 8.611945, 8.740680, 6.214608, 6.214608, 6.…
+$ log_prisec_length_1000      &lt;dbl&gt; 9.735569, 9.627898, 7.600902, 9.075921, 8.…
+$ log_prisec_length_5000      &lt;dbl&gt; 11.770407, 11.728889, 12.298627, 12.281645…
+$ log_prisec_length_10000     &lt;dbl&gt; 12.840663, 12.768279, 12.994141, 13.278416…
+$ log_prisec_length_25000     &lt;dbl&gt; 13.79973, 13.70026, 13.85550, 14.45221, 13…
+$ log_nei_2008_pm10_sum_10000 &lt;dbl&gt; 6.69187313, 4.43719884, 0.92888890, 8.2097…
+$ log_nei_2008_pm10_sum_15000 &lt;dbl&gt; 6.70127741, 4.46267932, 3.67473904, 8.6488…
+$ log_nei_2008_pm10_sum_25000 &lt;dbl&gt; 7.148858, 4.678311, 3.744629, 8.858019, 8.…
+$ popdens_county              &lt;dbl&gt; 35.460814, 75.367038, 67.619664, 228.77763…
+$ popdens_zcta                &lt;dbl&gt; 540.8870404, 130.1037411, 185.7391706, 334…
+$ nohs                        &lt;dbl&gt; 7.3, 4.3, 5.8, 7.1, 2.7, 11.1, 9.7, 3.0, 8…
+$ somehs                      &lt;dbl&gt; 15.8, 13.3, 11.6, 17.1, 6.6, 11.6, 21.6, 1…
+$ hs                          &lt;dbl&gt; 30.6, 27.8, 29.8, 37.2, 30.7, 46.0, 39.3, …
+$ somecollege                 &lt;dbl&gt; 20.9, 29.2, 21.4, 23.5, 25.7, 17.2, 21.6, …
+$ associate                   &lt;dbl&gt; 7.6, 10.1, 7.9, 7.3, 8.0, 4.1, 5.2, 6.6, 4…
+$ bachelor                    &lt;dbl&gt; 12.7, 10.0, 13.7, 5.9, 17.6, 7.1, 2.2, 7.8…
+$ grad                        &lt;dbl&gt; 5.1, 5.4, 9.8, 2.0, 8.7, 2.9, 0.4, 4.2, 3.…
+$ pov                         &lt;dbl&gt; 19.0, 8.8, 15.6, 25.5, 7.3, 8.1, 13.3, 23.…
+$ urc2006                     &lt;dbl&gt; 4, 4, 4, 1, 1, 1, 2, 3, 3, 3, 2, 5, 4, 1, …
+$ aod                         &lt;dbl&gt; 36.000000, 43.416667, 33.000000, 39.583333…
+$ state_California            &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+$ city_Not.in.a.city          &lt;dbl&gt; 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, …</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="specifying-our-model-parsnip" class="slide level2 smaller scrollable">
+<h2>Specifying our model (<code>parsnip</code>)</h2>
+<p>There are four things we need to define about our model:</p>
+<div>
+<ol type="1">
+<li class="fragment">The <strong>type</strong> of model (using specific functions in parsnip like <code>rand_forest()</code>, <code>logistic_reg()</code> etc.)<br>
+</li>
+<li class="fragment">The package or <strong>engine</strong> that we will use to implement the type of model selected (using the <code>set_engine()</code> function)</li>
+<li class="fragment">The <strong>mode</strong> of learning - classification or regression (using the <code>set_mode()</code> function)</li>
+<li class="fragment">Any <strong>arguments</strong> necessary for the model/package selected (using the <code>set_args()</code>function - for example the <code>mtry =</code> argument for random forest which is the number of variables to be used as options for splitting at each tree node)</li>
+</ol>
+</div>
+</section>
+<section id="step-1-specify-the-model" class="slide level2">
+<h2>Step 1: Specify the model</h2>
+<ul>
+<li>We’ll start with linear regression, but move to random forest</li>
+<li>See <a href="https://www.tidymodels.org/find/parsnip/" target="_blank">here</a> for modeling options in <code>parsnip</code>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a></a>lm_PM_model <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb101-2"><a></a>  parsnip<span class="sc">::</span><span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb101-3"><a></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
+<span id="cb101-4"><a></a></span>
+<span id="cb101-5"><a></a>lm_PM_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Linear Regression Model Specification (regression)
+
+Computational engine: lm </code></pre>
+</div>
+</div>
+</section>
+<section id="step-2-fit-the-model" class="slide level2">
+<h2>Step 2: Fit the model</h2>
+<ul>
+<li><code>workflows</code> package allows us to keep track of both our pre-processing steps and our model specification</li>
+<li>It also allows us to implement fancier optimizations in an automated way and it can also handle post-processing operations.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a></a>PM_wflow <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb103-2"><a></a>            workflows<span class="sc">::</span><span class="fu">add_recipe</span>(novel_rec) <span class="sc">|&gt;</span></span>
+<span id="cb103-3"><a></a>            workflows<span class="sc">::</span><span class="fu">add_model</span>(lm_PM_model)</span>
+<span id="cb103-4"><a></a>PM_wflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: linear_reg()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_rm()
+• step_dummy()
+• step_nzv()
+• step_corr()
+• step_lincomb()
+
+── Model ───────────────────────────────────────────────────────────────────────
+Linear Regression Model Specification (regression)
+
+Computational engine: lm </code></pre>
+</div>
+</div>
+<p><span style="background-color: #ADD8E6">❓ Who can explain the difference between a recipe, baking, and a workflow?</span></p>
+</section>
+<section id="step-3-prepare-the-recipe-estimate-the-parameters" class="slide level2">
+<h2>Step 3: Prepare the recipe (estimate the parameters)</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a></a>PM_wflow_fit <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">fit</span>(PM_wflow, <span class="at">data =</span> train_pm)</span>
+<span id="cb105-2"><a></a>PM_wflow_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow [trained] ══════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: linear_reg()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_rm()
+• step_dummy()
+• step_nzv()
+• step_corr()
+• step_lincomb()
+
+── Model ───────────────────────────────────────────────────────────────────────
+
+Call:
+stats::lm(formula = ..y ~ ., data = data)
+
+Coefficients:
+                (Intercept)                          lat  
+                  2.905e+02                    3.264e-02  
+                        lon                         CMAQ  
+                  1.571e-02                    2.486e-01  
+                  zcta_area                     zcta_pop  
+                 -3.477e-10                    1.002e-05  
+                   imp_a500                   imp_a15000  
+                  5.294e-03                   -2.692e-03  
+                county_area                   county_pop  
+                 -2.352e-11                   -7.585e-08  
+         log_dist_to_prisec          log_pri_length_5000  
+                  5.488e-02                   -8.944e-02  
+       log_pri_length_10000         log_pri_length_25000  
+                 -2.288e-01                    6.753e-02  
+      log_prisec_length_500       log_prisec_length_1000  
+                  2.076e-01                    1.184e-01  
+     log_prisec_length_5000      log_prisec_length_10000  
+                  1.421e-01                    1.889e-01  
+    log_prisec_length_25000  log_nei_2008_pm10_sum_10000  
+                  3.957e-01                    1.830e-01  
+log_nei_2008_pm10_sum_15000  log_nei_2008_pm10_sum_25000  
+                 -2.493e-02                    2.462e-02  
+             popdens_county                 popdens_zcta  
+                  1.854e-05                   -6.098e-07  
+                       nohs                       somehs  
+                 -2.953e+00                   -2.925e+00  
+                         hs                  somecollege  
+                 -2.931e+00                   -2.936e+00  
+                  associate                     bachelor  
+                 -2.968e+00                   -2.949e+00  
+                       grad                          pov  
+                 -2.947e+00                    2.851e-03  
+                    urc2006                          aod  
+                  2.651e-01                    1.516e-02  
+           state_California           city_Not.in.a.city  
+                  3.124e+00                   -3.939e-02  </code></pre>
+</div>
+</div>
+</section>
+<section id="step-4-assess-model-fit" class="slide level2">
+<h2>Step 4: Assess model fit</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a></a>wflowoutput <span class="ot">&lt;-</span> PM_wflow_fit <span class="sc">|&gt;</span> </span>
+<span id="cb107-2"><a></a>  <span class="fu">extract_fit_parsnip</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb107-3"><a></a>  broom<span class="sc">::</span><span class="fu">tidy</span>() </span>
+<span id="cb107-4"><a></a></span>
+<span id="cb107-5"><a></a>wflowoutput</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 36 × 5
+   term         estimate std.error statistic  p.value
+   &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+ 1 (Intercept)  2.91e+ 2  1.18e+ 2     2.46  1.41e- 2
+ 2 lat          3.26e- 2  2.28e- 2     1.43  1.53e- 1
+ 3 lon          1.57e- 2  1.01e- 2     1.56  1.19e- 1
+ 4 CMAQ         2.49e- 1  3.98e- 2     6.25  8.25e-10
+ 5 zcta_area   -3.48e-10  1.60e-10    -2.18  3.00e- 2
+ 6 zcta_pop     1.00e- 5  5.33e- 6     1.88  6.08e- 2
+ 7 imp_a500     5.29e- 3  7.42e- 3     0.713 4.76e- 1
+ 8 imp_a15000  -2.69e- 3  1.17e- 2    -0.231 8.17e- 1
+ 9 county_area -2.35e-11  1.97e-11    -1.20  2.32e- 1
+10 county_pop  -7.58e- 8  9.29e- 8    -0.816 4.15e- 1
+# ℹ 26 more rows</code></pre>
+</div>
+</div>
+<ul>
+<li>We have fit our model on our training data</li>
+<li>We have created a model to predict values of air pollution based on the predictors that we have included</li>
+</ul>
+<div class="fragment">
+<p>Understanding what variables are most important in our model…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a></a>PM_wflow_fit <span class="sc">|&gt;</span> </span>
+<span id="cb109-2"><a></a>  <span class="fu">extract_fit_parsnip</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb109-3"><a></a>  vip<span class="sc">::</span><span class="fu">vip</span>(<span class="at">num_features =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-26-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>A closer look at monitors in CA:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a></a>baked_train <span class="sc">|&gt;</span> </span>
+<span id="cb110-2"><a></a>  <span class="fu">mutate</span>(<span class="at">state_California =</span> <span class="fu">as.factor</span>(state_California)) <span class="sc">|&gt;</span></span>
+<span id="cb110-3"><a></a>  <span class="fu">mutate</span>(<span class="at">state_California =</span> <span class="fu">recode</span>(state_California, </span>
+<span id="cb110-4"><a></a>                                   <span class="st">"0"</span> <span class="ot">=</span> <span class="st">"Not California"</span>, </span>
+<span id="cb110-5"><a></a>                                   <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"California"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb110-6"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> state_California, <span class="at">y =</span> value)) <span class="sc">+</span> </span>
+<span id="cb110-7"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb110-8"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> .<span class="dv">05</span>) <span class="sc">+</span> </span>
+<span id="cb110-9"><a></a>  <span class="fu">xlab</span>(<span class="st">"Location of Monitor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-27-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Remember: machine learning (ML) as an optimization problem that tries to minimize the distance between our predicted outcome <span class="math inline">\(\hat{Y} = f(X)\)</span> and actual outcome <span class="math inline">\(Y\)</span> using our features (or predictor variables) <span class="math inline">\(X\)</span> as input to a function <span class="math inline">\(f\)</span> that we want to estimate.</p>
+<p><span class="math display">\[d(Y - \hat{Y})\]</span></p>
+</div>
+<div class="fragment">
+<p>Let’s pull out our predicted outcome values <span class="math inline">\(\hat{Y} = f(X)\)</span> from the models we fit (using different approaches).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a></a>wf_fitted_values <span class="ot">&lt;-</span> PM_wflow_fit <span class="sc">|&gt;</span></span>
+<span id="cb111-2"><a></a>  <span class="fu">augment</span>(<span class="at">new_data =</span> train_pm) <span class="sc">|&gt;</span></span>
+<span id="cb111-3"><a></a>  <span class="fu">select</span>(value, <span class="at">.fitted =</span> .pred)</span>
+<span id="cb111-4"><a></a></span>
+<span id="cb111-5"><a></a><span class="fu">head</span>(wf_fitted_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 2
+  value .fitted
+  &lt;dbl&gt;   &lt;dbl&gt;
+1 11.7    12.0 
+2  6.96    9.19
+3 13.3    12.6 
+4 10.7    10.3 
+5 14.5    11.9 
+6 12.2     9.44</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="visualizing-model-performance" class="slide level2">
+<h2>Visualizing Model Performance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a></a>wf_fitted_values <span class="sc">|&gt;</span> </span>
+<span id="cb113-2"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span>  value, <span class="at">y =</span> .fitted)) <span class="sc">+</span> </span>
+<span id="cb113-3"><a></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb113-4"><a></a>  <span class="fu">xlab</span>(<span class="st">"actual outcome values"</span>) <span class="sc">+</span> </span>
+<span id="cb113-5"><a></a>  <span class="fu">ylab</span>(<span class="st">"predicted outcome values"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-29-1.png" width="2100" class="r-stretch"><p><span style="background-color: #ADD8E6">❓ What do you notice about/learn from these results?</span></p>
+</section>
+<section id="quantifying-model-performance" class="slide level2 smaller">
+<h2>Quantifying Model Performance</h2>
+<p><span class="math display">\[RMSE = \sqrt{\frac{\sum_{i=1}^{n}{(\hat{y_t}- y_t)}^2}{n}}\]</span></p>
+<div class="fragment">
+<p>Can use the <code>yardstick</code> package using the <code>rmse</code>()` function to calculate:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a></a>yardstick<span class="sc">::</span><span class="fu">metrics</span>(wf_fitted_values,</span>
+<span id="cb114-2"><a></a>                   <span class="at">truth =</span> value, <span class="at">estimate =</span> .fitted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 3
+  .metric .estimator .estimate
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+1 rmse    standard       1.98 
+2 rsq     standard       0.392
+3 mae     standard       1.47 </code></pre>
+</div>
+</div>
+<ul>
+<li>These are <strong>training</strong> metrics: the model is being graded on the same data it was fit to, so they’re optimistic by design</li>
+<li><span class="math inline">\(R^2\)</span> suggests the model explains about 39% of the variance in the training data</li>
+<li>MAE: on average, predictions are off by about 1.47 µg/m³ (values range from 3 to 22)</li>
+<li>To know how the model does on data it <em>hasn’t</em> seen, we need cross-validation (next!)</li>
+</ul>
+</div>
+</section>
+<section id="day-2-mon-1116" class="slide level2" data-background-color="#92A86A">
+<h2>Day 2 · Mon 11/16</h2>
+<p>Cross-validation, random forest &amp; tuning.</p>
+</section>
+<section id="cross-validation" class="slide level2">
+<h2>Cross-Validation</h2>
+<p>Resampling + Re-partitioning:</p>
+<p align="center">
+</p><p><img src="images/17/resampling.png" width="550"></p>
+<p></p>
+<div class="fragment">
+<p>Preparing the data for cross-validation:</p>
+<p align="center">
+</p><p><img src="images/17/vfold.png" width="550"></p>
+<p></p>
+<p>Note: this is called v-fold or k-fold CV</p>
+</div>
+</section>
+<section id="implementing-in-rsample" class="slide level2">
+<h2>Implementing in <code>rsample()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
+<span id="cb116-2"><a></a>vfold_pm <span class="ot">&lt;-</span> rsample<span class="sc">::</span><span class="fu">vfold_cv</span>(<span class="at">data =</span> train_pm, <span class="at">v =</span> <span class="dv">4</span>)</span>
+<span id="cb116-3"><a></a>vfold_pm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>#  4-fold cross-validation 
+# A tibble: 4 × 2
+  splits            id   
+  &lt;list&gt;            &lt;chr&gt;
+1 &lt;split [438/146]&gt; Fold1
+2 &lt;split [438/146]&gt; Fold2
+3 &lt;split [438/146]&gt; Fold3
+4 &lt;split [438/146]&gt; Fold4</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a></a><span class="fu">pull</span>(vfold_pm, splits)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+&lt;Analysis/Assess/Total&gt;
+&lt;438/146/584&gt;
+
+[[2]]
+&lt;Analysis/Assess/Total&gt;
+&lt;438/146/584&gt;
+
+[[3]]
+&lt;Analysis/Assess/Total&gt;
+&lt;438/146/584&gt;
+
+[[4]]
+&lt;Analysis/Assess/Total&gt;
+&lt;438/146/584&gt;</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Visualizing this process:</p>
+<p align="center">
+</p><p><img src="images/17/cross_validation.png" width="550"></p>
+<p></p>
+</div>
+</section>
+<section id="model-assessment-on-v-folds" class="slide level2">
+<h2>Model Assessment on v-folds</h2>
+<p>Where this workflow thing really shines…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a></a>resample_fit <span class="ot">&lt;-</span> tune<span class="sc">::</span><span class="fu">fit_resamples</span>(PM_wflow, vfold_pm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>Gives us a sense of the RMSE across the four folds:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a></a>tune<span class="sc">::</span><span class="fu">show_best</span>(resample_fit, <span class="at">metric =</span> <span class="st">"rmse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 6
+  .metric .estimator  mean     n std_err .config             
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard    2.12     4  0.0402 Preprocessor1_Model1</code></pre>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="a-different-model" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>A different model?</h1>
+
+</section>
+<section id="random-forest" class="slide level2">
+<h2>Random Forest</h2>
+<p>Fitting a different model…is based on a decision tree:</p>
+
+<img data-src="https://miro.medium.com/max/1000/1*LMoJmXCsQlciGTEyoSN39g.jpeg" alt="Diagram of a single decision tree: the data are split again and again on predictor values until each branch ends in a prediction." class="r-stretch"><h5 id="source"><a href="https://towardsdatascience.com/understanding-random-forest-58381e0602d2" target="_blank">[source]</a></h5>
+</section>
+<section id="but-not-just-one-tree" class="slide level2">
+<h2>But not just one tree…</h2>
+<p>But…in the case of <a href="https://towardsdatascience.com/decision-tree-ensembles-bagging-and-boosting-266a8ba60fd9" target="_blank">random forest</a>:</p>
+<div>
+<ul>
+<li class="fragment">multiple decision trees are created (hence: forest),</li>
+<li class="fragment">each tree is built using a random subset of the training data (with replacement) (hence: random)</li>
+<li class="fragment">helps to keep the algorithm from overfitting the data</li>
+<li class="fragment">The mean of the predictions from each of the trees is used in the final output.</li>
+</ul>
+</div>
+</section>
+<section id="visualizing-a-rf" class="slide level2">
+<h2>Visualizing a RF</h2>
+
+<img data-src="https://miro.medium.com/max/1400/0*f_qQPFpdofWGLQqc.png" alt="Diagram of a random forest: many decision trees, each built on a random sample of the data, whose predictions are combined into one." class="r-stretch"></section>
+<section id="updating-our-recipe" class="slide level2">
+<h2>Updating our <code>recipe()</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a></a>RF_rec <span class="ot">&lt;-</span> <span class="fu">recipe</span>(train_pm) <span class="sc">|&gt;</span></span>
+<span id="cb123-2"><a></a>    <span class="fu">update_role</span>(<span class="fu">everything</span>(), <span class="at">new_role =</span> <span class="st">"predictor"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb123-3"><a></a>    <span class="fu">update_role</span>(value, <span class="at">new_role =</span> <span class="st">"outcome"</span>)<span class="sc">|&gt;</span></span>
+<span id="cb123-4"><a></a>    <span class="fu">update_role</span>(id, <span class="at">new_role =</span> <span class="st">"id variable"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb123-5"><a></a>    <span class="fu">update_role</span>(<span class="st">"fips"</span>, <span class="at">new_role =</span> <span class="st">"county id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb123-6"><a></a>    <span class="fu">step_rm</span>(county, zcta) <span class="sc">|&gt;</span></span>
+<span id="cb123-7"><a></a>    <span class="fu">step_novel</span>(state) <span class="sc">|&gt;</span></span>
+<span id="cb123-8"><a></a>    <span class="fu">step_string2factor</span>(city) <span class="sc">|&gt;</span></span>
+<span id="cb123-9"><a></a>    <span class="fu">step_nzv</span>(<span class="fu">all_predictors</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb123-10"><a></a>    <span class="fu">step_corr</span>(<span class="fu">all_numeric_predictors</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>can use our categorical data as is (no dummy coding)</li>
+<li><code>county</code> &amp; <code>zcta</code> are still removed: nearly one level per monitor (and <code>randomForest</code> can’t handle factors with more than 53 levels)</li>
+<li><code>step_novel()</code>necessary here for the <code>state</code> variable to get all cross validation folds to work, (b/c there will be different levels included in each fold test and training sets. The new levels for some of the test sets would otherwise result in an error.; “step_novel creates a specification of a recipe step that will assign a previously unseen factor level to a new value.”</li>
+</ul>
+</section>
+<section id="model-specification" class="slide level2 scrollable">
+<h2>Model Specification</h2>
+<p>Model parameters:</p>
+<ol type="1">
+<li><code>mtry</code> - The number of predictor variables (or features) that will be randomly sampled at each split when creating the tree models. The default number for regression analyses is the number of predictors divided by 3.</li>
+<li><code>min_n</code> - The minimum number of data points in a node that are required for the node to be split further.</li>
+<li><code>trees</code> - the number of trees in the ensemble</li>
+</ol>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a></a><span class="co"># install.packages("randomForest")</span></span>
+<span id="cb124-2"><a></a>RF_PM_model <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">rand_forest</span>(<span class="at">mtry =</span> <span class="dv">10</span>, <span class="at">min_n =</span> <span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb124-3"><a></a>  <span class="fu">set_engine</span>(<span class="st">"randomForest"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb124-4"><a></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
+<span id="cb124-5"><a></a></span>
+<span id="cb124-6"><a></a>RF_PM_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Random Forest Model Specification (regression)
+
+Main Arguments:
+  mtry = 10
+  min_n = 3
+
+Computational engine: randomForest </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="workflow" class="slide level2">
+<h2>Workflow</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a></a>RF_wflow <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb126-2"><a></a>  workflows<span class="sc">::</span><span class="fu">add_recipe</span>(RF_rec) <span class="sc">|&gt;</span></span>
+<span id="cb126-3"><a></a>  workflows<span class="sc">::</span><span class="fu">add_model</span>(RF_PM_model)</span>
+<span id="cb126-4"><a></a></span>
+<span id="cb126-5"><a></a>RF_wflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: rand_forest()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_rm()
+• step_novel()
+• step_string2factor()
+• step_nzv()
+• step_corr()
+
+── Model ───────────────────────────────────────────────────────────────────────
+Random Forest Model Specification (regression)
+
+Main Arguments:
+  mtry = 10
+  min_n = 3
+
+Computational engine: randomForest </code></pre>
+</div>
+</div>
+</section>
+<section id="fit-the-data" class="slide level2">
+<h2>Fit the Data</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a></a>RF_wflow_fit <span class="ot">&lt;-</span> parsnip<span class="sc">::</span><span class="fu">fit</span>(RF_wflow, <span class="at">data =</span> train_pm)</span>
+<span id="cb128-2"><a></a></span>
+<span id="cb128-3"><a></a>RF_wflow_fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow [trained] ══════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: rand_forest()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_rm()
+• step_novel()
+• step_string2factor()
+• step_nzv()
+• step_corr()
+
+── Model ───────────────────────────────────────────────────────────────────────
+
+Call:
+ randomForest(x = maybe_data_frame(x), y = y, mtry = min_cols(~10,      x), nodesize = min_rows(~3, x)) 
+               Type of random forest: regression
+                     Number of trees: 500
+No. of variables tried at each split: 10
+
+          Mean of squared residuals: 2.665192
+                    % Var explained: 58.8</code></pre>
+</div>
+</div>
+</section>
+<section id="assess-feature-importance" class="slide level2">
+<h2>Assess Feature Importance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a></a>RF_wflow_fit <span class="sc">|&gt;</span> </span>
+<span id="cb130-2"><a></a>  <span class="fu">extract_fit_parsnip</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb130-3"><a></a>  vip<span class="sc">::</span><span class="fu">vip</span>(<span class="at">num_features =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-41-1.png" width="2100" class="r-stretch"><p><span style="background-color: #ADD8E6">❓ What’s your interpretation of these results?</span></p>
+</section>
+<section id="assess-model-performance" class="slide level2">
+<h2>Assess Model Performance</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb131-2"><a></a>resample_RF_fit <span class="ot">&lt;-</span> tune<span class="sc">::</span><span class="fu">fit_resamples</span>(RF_wflow, vfold_pm)</span>
+<span id="cb131-3"><a></a><span class="fu">collect_metrics</span>(resample_RF_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  .metric .estimator  mean     n std_err .config             
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard   1.67      4  0.101  Preprocessor1_Model1
+2 rsq     standard   0.591     4  0.0514 Preprocessor1_Model1</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>For comparison:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a></a><span class="fu">collect_metrics</span>(resample_fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 6
+  .metric .estimator  mean     n std_err .config             
+  &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard   2.12      4  0.0402 Preprocessor1_Model1
+2 rsq     standard   0.306     4  0.0253 Preprocessor1_Model1</code></pre>
+</div>
+</div>
+<p><span style="background-color: #ADD8E6">❓ Thoughts on which model better achieves our goal?</span></p>
+</div>
+</section>
+<section id="model-tuning" class="slide level2">
+<h2>Model Tuning</h2>
+<p><a href="https://machinelearningmastery.com/difference-between-a-parameter-and-a-hyperparameter/">Hyperparameters</a> are often things that we need to specify about a model. Instead of arbitrarily specifying this, we can try to determine the best option for model performance by a process called tuning.</p>
+<div class="fragment">
+<p>Rather than specifying values, we can use <code>tune()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a></a>tune_RF_model <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>(<span class="at">mtry =</span> <span class="fu">tune</span>(), <span class="at">min_n =</span> <span class="fu">tune</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb135-2"><a></a>  <span class="fu">set_engine</span>(<span class="st">"randomForest"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb135-3"><a></a>  <span class="fu">set_mode</span>(<span class="st">"regression"</span>)</span>
+<span id="cb135-4"><a></a>    </span>
+<span id="cb135-5"><a></a>tune_RF_model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Random Forest Model Specification (regression)
+
+Main Arguments:
+  mtry = tune()
+  min_n = tune()
+
+Computational engine: randomForest </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Create Workflow:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a></a>RF_tune_wflow <span class="ot">&lt;-</span> workflows<span class="sc">::</span><span class="fu">workflow</span>() <span class="sc">|&gt;</span></span>
+<span id="cb137-2"><a></a>  workflows<span class="sc">::</span><span class="fu">add_recipe</span>(RF_rec) <span class="sc">|&gt;</span></span>
+<span id="cb137-3"><a></a>  workflows<span class="sc">::</span><span class="fu">add_model</span>(tune_RF_model)</span>
+<span id="cb137-4"><a></a></span>
+<span id="cb137-5"><a></a>RF_tune_wflow</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>══ Workflow ════════════════════════════════════════════════════════════════════
+Preprocessor: Recipe
+Model: rand_forest()
+
+── Preprocessor ────────────────────────────────────────────────────────────────
+5 Recipe Steps
+
+• step_rm()
+• step_novel()
+• step_string2factor()
+• step_nzv()
+• step_corr()
+
+── Model ───────────────────────────────────────────────────────────────────────
+Random Forest Model Specification (regression)
+
+Main Arguments:
+  mtry = tune()
+  min_n = tune()
+
+Computational engine: randomForest </code></pre>
+</div>
+</div>
+<p>Detect how many cores you have access to:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a></a><span class="co"># availableCores() respects limits on shared servers like DataHub</span></span>
+<span id="cb139-2"><a></a><span class="co"># (parallel::detectCores() reports the whole machine)</span></span>
+<span id="cb139-3"><a></a>n_cores <span class="ot">&lt;-</span> future<span class="sc">::</span><span class="fu">availableCores</span>()</span>
+<span id="cb139-4"><a></a>n_cores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>system 
+    10 </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>This code will take some time to run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a></a><span class="co"># install.packages("future")</span></span>
+<span id="cb141-2"><a></a><span class="co"># run the tuning in parallel</span></span>
+<span id="cb141-3"><a></a>future<span class="sc">::</span><span class="fu">plan</span>(<span class="st">"multisession"</span>, <span class="at">workers =</span> n_cores)</span>
+<span id="cb141-4"><a></a></span>
+<span id="cb141-5"><a></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb141-6"><a></a>tune_RF_results <span class="ot">&lt;-</span> <span class="fu">tune_grid</span>(<span class="at">object =</span> RF_tune_wflow, <span class="at">resamples =</span> vfold_pm, <span class="at">grid =</span> <span class="dv">20</span>)</span>
+<span id="cb141-7"><a></a>tune_RF_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># Tuning results
+# 4-fold cross-validation 
+# A tibble: 4 × 4
+  splits            id    .metrics          .notes          
+  &lt;list&gt;            &lt;chr&gt; &lt;list&gt;            &lt;list&gt;          
+1 &lt;split [438/146]&gt; Fold1 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 3]&gt;
+2 &lt;split [438/146]&gt; Fold2 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 3]&gt;
+3 &lt;split [438/146]&gt; Fold3 &lt;tibble [40 × 6]&gt; &lt;tibble [1 × 3]&gt;
+4 &lt;split [438/146]&gt; Fold4 &lt;tibble [40 × 6]&gt; &lt;tibble [0 × 3]&gt;
+
+There were issues with some computations:
+
+  - Warning(s) x1: 36 columns were requested but there were 35 predictors in the dat...
+
+Run `show_notes(.Last.tune.result)` for more information.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a></a><span class="co"># back to running one thing at a time</span></span>
+<span id="cb143-2"><a></a>future<span class="sc">::</span><span class="fu">plan</span>(<span class="st">"sequential"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note: older guides use <code>doParallel::registerDoParallel()</code>; <code>tune</code> no longer supports that approach (as of v2.0).</p>
+</div>
+</section>
+<section id="check-metrics" class="slide level2">
+<h2>Check Metrics:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a></a>tune_RF_results <span class="sc">|&gt;</span></span>
+<span id="cb144-2"><a></a>  <span class="fu">collect_metrics</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 40 × 8
+    mtry min_n .metric .estimator  mean     n std_err .config              
+   &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+ 1    12    33 rmse    standard   1.72      4  0.0866 Preprocessor1_Model01
+ 2    12    33 rsq     standard   0.562     4  0.0466 Preprocessor1_Model01
+ 3    27    35 rmse    standard   1.69      4  0.102  Preprocessor1_Model02
+ 4    27    35 rsq     standard   0.563     4  0.0511 Preprocessor1_Model02
+ 5    22    40 rmse    standard   1.71      4  0.106  Preprocessor1_Model03
+ 6    22    40 rsq     standard   0.556     4  0.0543 Preprocessor1_Model03
+ 7     1    27 rmse    standard   2.03      4  0.0501 Preprocessor1_Model04
+ 8     1    27 rsq     standard   0.440     4  0.0245 Preprocessor1_Model04
+ 9     6    32 rmse    standard   1.77      4  0.0756 Preprocessor1_Model05
+10     6    32 rsq     standard   0.552     4  0.0435 Preprocessor1_Model05
+# ℹ 30 more rows</code></pre>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a></a><span class="fu">show_best</span>(tune_RF_results, <span class="at">metric =</span> <span class="st">"rmse"</span>, <span class="at">n =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 8
+   mtry min_n .metric .estimator  mean     n std_err .config              
+  &lt;int&gt; &lt;int&gt; &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;int&gt;   &lt;dbl&gt; &lt;chr&gt;                
+1    32    11 rmse    standard    1.65     4   0.113 Preprocessor1_Model10</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="final-model-evaluation" class="slide level2">
+<h2>Final Model Evaluation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a></a>tuned_RF_values <span class="ot">&lt;-</span> <span class="fu">select_best</span>(tune_RF_results, <span class="at">metric =</span> <span class="st">"rmse"</span>)</span>
+<span id="cb148-2"><a></a>tuned_RF_values</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+   mtry min_n .config              
+  &lt;int&gt; &lt;int&gt; &lt;chr&gt;                
+1    32    11 Preprocessor1_Model10</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>The testing data!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a></a><span class="co"># specify best combination from tune in workflow</span></span>
+<span id="cb150-2"><a></a>RF_tuned_wflow <span class="ot">&lt;-</span> RF_tune_wflow <span class="sc">|&gt;</span></span>
+<span id="cb150-3"><a></a>  tune<span class="sc">::</span><span class="fu">finalize_workflow</span>(tuned_RF_values)</span>
+<span id="cb150-4"><a></a></span>
+<span id="cb150-5"><a></a><span class="co"># fit on ALL the training data, then evaluate ONCE on the test data</span></span>
+<span id="cb150-6"><a></a>overallfit <span class="ot">&lt;-</span> RF_tuned_wflow <span class="sc">|&gt;</span></span>
+<span id="cb150-7"><a></a>  tune<span class="sc">::</span><span class="fu">last_fit</span>(pm_split)</span>
+<span id="cb150-8"><a></a></span>
+<span id="cb150-9"><a></a><span class="fu">collect_metrics</span>(overallfit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  .metric .estimator .estimate .config             
+  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               
+1 rmse    standard       1.83  Preprocessor1_Model1
+2 rsq     standard       0.533 Preprocessor1_Model1</code></pre>
+</div>
+</div>
+<p>Test RMSE (1.83) is similar to the cross-validated RMSE of the tuned model (1.65): CV gave us an honest preview.</p>
+</div>
+<div class="fragment">
+<p>Getting the predictions for the test data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a></a>test_predictions <span class="ot">&lt;-</span> <span class="fu">collect_predictions</span>(overallfit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="visualizing-our-results" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Visualizing our results</h1>
+
+</section>
+<section id="a-map-of-the-us" class="slide level2 smaller scrollable">
+<h2>A map of the US</h2>
+<p>Packages needed:</p>
+<ol type="1">
+<li><code>sf</code> - the simple features package helps to convert geographical coordinates into <code>geometry</code> variables which are useful for making 2D plots</li>
+<li><code>maps</code> - this package contains geographical outlines and plotting functions to create plots with maps</li>
+<li><code>rnaturalearth</code>- this allows for easy interaction with map data from <a href="http://www.naturalearthdata.com/">Natural Earth</a> which is a public domain map dataset</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a></a><span class="fu">library</span>(sf)</span>
+<span id="cb153-2"><a></a><span class="fu">library</span>(maps)</span>
+<span id="cb153-3"><a></a><span class="fu">library</span>(rnaturalearth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="outline-of-the-us" class="slide level2">
+<h2>Outline of the US</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a></a>world <span class="ot">&lt;-</span> <span class="fu">ne_countries</span>(<span class="at">scale =</span> <span class="st">"medium"</span>, <span class="at">returnclass =</span> <span class="st">"sf"</span>)</span>
+<span id="cb154-2"><a></a><span class="fu">glimpse</span>(world)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 241
+Columns: 64
+$ scalerank  &lt;int&gt; 3, 1, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 5, 3, 1, 1, 1, 1, 1, 1,…
+$ featurecla &lt;chr&gt; "Admin-0 country", "Admin-0 country", "Admin-0 country", "A…
+$ labelrank  &lt;dbl&gt; 5, 3, 3, 6, 6, 6, 6, 4, 2, 6, 4, 4, 5, 6, 6, 2, 4, 5, 6, 2,…
+$ sovereignt &lt;chr&gt; "Netherlands", "Afghanistan", "Angola", "United Kingdom", "…
+$ sov_a3     &lt;chr&gt; "NL1", "AFG", "AGO", "GB1", "ALB", "FI1", "AND", "ARE", "AR…
+$ adm0_dif   &lt;dbl&gt; 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0,…
+$ level      &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+$ type       &lt;chr&gt; "Country", "Sovereign country", "Sovereign country", "Depen…
+$ admin      &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ adm0_a3    &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
+$ geou_dif   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ geounit    &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ gu_a3      &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
+$ su_dif     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ subunit    &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ su_a3      &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
+$ brk_diff   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ name       &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ name_long  &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ brk_a3     &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
+$ brk_name   &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ brk_group  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ abbrev     &lt;chr&gt; "Aruba", "Afg.", "Ang.", "Ang.", "Alb.", "Aland", "And.", "…
+$ postal     &lt;chr&gt; "AW", "AF", "AO", "AI", "AL", "AI", "AND", "AE", "AR", "ARM…
+$ formal_en  &lt;chr&gt; "Aruba", "Islamic State of Afghanistan", "People's Republic…
+$ formal_fr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ note_adm0  &lt;chr&gt; "Neth.", NA, NA, "U.K.", NA, "Fin.", NA, NA, NA, NA, "U.S.A…
+$ note_brk   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "Multiple claim…
+$ name_sort  &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ name_alt   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ mapcolor7  &lt;dbl&gt; 4, 5, 3, 6, 1, 4, 1, 2, 3, 3, 4, 4, 1, 7, 2, 1, 3, 1, 2, 3,…
+$ mapcolor8  &lt;dbl&gt; 2, 6, 2, 6, 4, 1, 4, 1, 1, 1, 5, 5, 2, 5, 2, 2, 1, 6, 2, 2,…
+$ mapcolor9  &lt;dbl&gt; 2, 8, 6, 6, 1, 4, 1, 3, 3, 2, 1, 1, 2, 9, 5, 2, 3, 5, 5, 1,…
+$ mapcolor13 &lt;dbl&gt; 9, 7, 1, 3, 6, 6, 8, 3, 13, 10, 1, NA, 7, 11, 5, 7, 4, 8, 8…
+$ pop_est    &lt;dbl&gt; 103065, 28400000, 12799293, 14436, 3639453, 27153, 83888, 4…
+$ gdp_md_est &lt;dbl&gt; 2258.0, 22270.0, 110300.0, 108.9, 21810.0, 1563.0, 3660.0, …
+$ pop_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ lastcensus &lt;dbl&gt; 2010, 1979, 1970, NA, 2001, NA, 1989, 2010, 2010, 2001, 201…
+$ gdp_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ economy    &lt;chr&gt; "6. Developing region", "7. Least developed region", "7. Le…
+$ income_grp &lt;chr&gt; "2. High income: nonOECD", "5. Low income", "3. Upper middl…
+$ wikipedia  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fips_10    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ iso_a2     &lt;chr&gt; "AW", "AF", "AO", "AI", "AL", "AX", "AD", "AE", "AR", "AM",…
+$ iso_a3     &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALA", "AND", "ARE", "AR…
+$ iso_n3     &lt;chr&gt; "533", "004", "024", "660", "008", "248", "020", "784", "03…
+$ un_a3      &lt;chr&gt; "533", "004", "024", "660", "008", "248", "020", "784", "03…
+$ wb_a2      &lt;chr&gt; "AW", "AF", "AO", NA, "AL", NA, "AD", "AE", "AR", "AM", "AS…
+$ wb_a3      &lt;chr&gt; "ABW", "AFG", "AGO", NA, "ALB", NA, "ADO", "ARE", "ARG", "A…
+$ woe_id     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ adm0_a3_is &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALA", "AND", "ARE", "AR…
+$ adm0_a3_us &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
+$ adm0_a3_un &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ adm0_a3_wb &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ continent  &lt;chr&gt; "North America", "Asia", "Africa", "North America", "Europe…
+$ region_un  &lt;chr&gt; "Americas", "Asia", "Africa", "Americas", "Europe", "Europe…
+$ subregion  &lt;chr&gt; "Caribbean", "Southern Asia", "Middle Africa", "Caribbean",…
+$ region_wb  &lt;chr&gt; "Latin America &amp; Caribbean", "South Asia", "Sub-Saharan Afr…
+$ name_len   &lt;dbl&gt; 5, 11, 6, 8, 7, 5, 7, 20, 9, 7, 14, 10, 23, 22, 17, 9, 7, 1…
+$ long_len   &lt;dbl&gt; 5, 11, 6, 8, 7, 13, 7, 20, 9, 7, 14, 10, 27, 35, 19, 9, 7, …
+$ abbrev_len &lt;dbl&gt; 5, 4, 4, 4, 4, 5, 4, 6, 4, 4, 9, 4, 7, 10, 6, 4, 5, 4, 4, 5…
+$ tiny       &lt;dbl&gt; 4, NA, NA, NA, NA, 5, 5, NA, NA, NA, 3, NA, NA, 2, 4, NA, N…
+$ homepart   &lt;dbl&gt; NA, 1, 1, NA, 1, NA, 1, 1, 1, 1, NA, 1, NA, NA, 1, 1, 1, 1,…
+$ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-69.89912 1..., MULTIPOLYGON (…</code></pre>
+</div>
+</div>
+</section>
+<section id="world-map" class="slide level2">
+<h2>World map:</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> world) <span class="sc">+</span></span>
+<span id="cb156-2"><a></a>    <span class="fu">geom_sf</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-56-1.png" width="2100" class="r-stretch"></section>
+<section id="just-the-us" class="slide level2">
+<h2>Just the US</h2>
+<p>According to this <a href="https://en.wikipedia.org/wiki/List_of_extreme_points_of_the_United_States#Westernmost" target="_blank">link</a>, these are the latitude and longitude bounds of the continental US:</p>
+<ul>
+<li>top = 49.3457868 # north lat</li>
+<li>left = -124.7844079 # west long</li>
+<li>right = -66.9513812 # east long</li>
+<li>bottom = 24.7433195 # south lat</li>
+</ul>
+</section>
+<section id="just-the-us-1" class="slide level2">
+<h2>Just the US</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> world) <span class="sc">+</span></span>
+<span id="cb157-2"><a></a>    <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb157-3"><a></a>    <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>, <span class="sc">-</span><span class="dv">66</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">24.5</span>, <span class="dv">50</span>), </span>
+<span id="cb157-4"><a></a>             <span class="at">expand =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-57-1.png" width="2100" class="r-stretch"></section>
+<section id="monitor-data" class="slide level2">
+<h2>Monitor Data</h2>
+<p>Adding in our monitors…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> world) <span class="sc">+</span></span>
+<span id="cb158-2"><a></a>    <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
+<span id="cb158-3"><a></a>    <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>, <span class="sc">-</span><span class="dv">66</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">24.5</span>, <span class="dv">50</span>), </span>
+<span id="cb158-4"><a></a>             <span class="at">expand =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb158-5"><a></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> pm, <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat), <span class="at">size =</span> <span class="dv">2</span>, </span>
+<span id="cb158-6"><a></a>               <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">fill =</span> <span class="st">"darkred"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-58-1.png" width="2100" class="r-stretch"></section>
+<section id="county-lines" class="slide level2">
+<h2>County Lines</h2>
+<p>Adding in county lines</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a></a>counties <span class="ot">&lt;-</span> sf<span class="sc">::</span><span class="fu">st_as_sf</span>(maps<span class="sc">::</span><span class="fu">map</span>(<span class="st">"county"</span>, <span class="at">plot =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb159-2"><a></a>                                   <span class="at">fill =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb159-3"><a></a></span>
+<span id="cb159-4"><a></a>counties</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 3076 features and 1 field
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: -124.6813 ymin: 25.12993 xmax: -67.00742 ymax: 49.38323
+Geodetic CRS:  +proj=longlat +ellps=clrk66 +no_defs +type=crs
+First 10 features:
+                               ID                           geom
+alabama,autauga   alabama,autauga MULTIPOLYGON (((-86.50517 3...
+alabama,baldwin   alabama,baldwin MULTIPOLYGON (((-87.93757 3...
+alabama,barbour   alabama,barbour MULTIPOLYGON (((-85.42801 3...
+alabama,bibb         alabama,bibb MULTIPOLYGON (((-87.02083 3...
+alabama,blount     alabama,blount MULTIPOLYGON (((-86.9578 33...
+alabama,bullock   alabama,bullock MULTIPOLYGON (((-85.66866 3...
+alabama,butler     alabama,butler MULTIPOLYGON (((-86.8604 31...
+alabama,calhoun   alabama,calhoun MULTIPOLYGON (((-85.74313 3...
+alabama,chambers alabama,chambers MULTIPOLYGON (((-85.59416 3...
+alabama,cherokee alabama,cherokee MULTIPOLYGON (((-85.46812 3...</code></pre>
+</div>
+</div>
+</section>
+<section id="the-map" class="slide level2">
+<h2>The Map</h2>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Code</a></li><li><a href="#tabset-1-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a></a>monitors <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> world) <span class="sc">+</span></span>
+<span id="cb161-2"><a></a>    <span class="fu">geom_sf</span>(<span class="at">data =</span> counties, <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="fu">gray</span>(.<span class="dv">5</span>))<span class="sc">+</span></span>
+<span id="cb161-3"><a></a>      <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>, <span class="sc">-</span><span class="dv">66</span>), <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">24.5</span>, <span class="dv">50</span>), </span>
+<span id="cb161-4"><a></a>             <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb161-5"><a></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> pm, <span class="fu">aes</span>(<span class="at">x =</span> lon, <span class="at">y =</span> lat), <span class="at">size =</span> <span class="dv">2</span>, </span>
+<span id="cb161-6"><a></a>               <span class="at">shape =</span> <span class="dv">23</span>, <span class="at">fill =</span> <span class="st">"darkred"</span>) <span class="sc">+</span></span>
+<span id="cb161-7"><a></a>    <span class="fu">ggtitle</span>(<span class="st">"Monitor Locations"</span>) <span class="sc">+</span></span>
+<span id="cb161-8"><a></a>    <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb161-9"><a></a>          <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb161-10"><a></a>          <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb161-11"><a></a>          <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb161-12"><a></a>          <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb161-13"><a></a>          <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-1-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-61-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="counties" class="slide level2">
+<h2>Counties</h2>
+<p>Wrangle counties:</p>
+<ul>
+<li>separate county and state into separate columns</li>
+<li>build a matching key from <strong>state + county</strong> (county names repeat across states: 30+ states have a Washington County!)</li>
+<li>average the monitors within each county (160 counties have more than one)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a></a><span class="co"># lower case, letters only, "saint" -&gt; "st", so "St. Lucie" matches "st lucie"</span></span>
+<span id="cb162-2"><a></a>county_key <span class="ot">&lt;-</span> <span class="cf">function</span>(state, county) {</span>
+<span id="cb162-3"><a></a>  county <span class="ot">&lt;-</span> county <span class="sc">|&gt;</span></span>
+<span id="cb162-4"><a></a>    <span class="fu">str_to_lower</span>() <span class="sc">|&gt;</span></span>
+<span id="cb162-5"><a></a>    <span class="fu">str_remove</span>(<span class="st">":.*"</span>) <span class="sc">|&gt;</span>            <span class="co"># maps splits some counties into parts</span></span>
+<span id="cb162-6"><a></a>    <span class="fu">str_replace</span>(<span class="st">"^saint"</span>, <span class="st">"st"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb162-7"><a></a>    <span class="fu">str_remove_all</span>(<span class="st">"[^a-z]"</span>)</span>
+<span id="cb162-8"><a></a>  <span class="fu">paste</span>(<span class="fu">str_to_lower</span>(state), county, <span class="at">sep =</span> <span class="st">","</span>)</span>
+<span id="cb162-9"><a></a>}</span>
+<span id="cb162-10"><a></a></span>
+<span id="cb162-11"><a></a>counties <span class="ot">&lt;-</span> counties <span class="sc">|&gt;</span> </span>
+<span id="cb162-12"><a></a>  tidyr<span class="sc">::</span><span class="fu">separate</span>(ID, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"state"</span>, <span class="st">"county"</span>), <span class="at">sep =</span> <span class="st">","</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb162-13"><a></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">county_key</span>(state, county))</span>
+<span id="cb162-14"><a></a></span>
+<span id="cb162-15"><a></a>county_truth <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span></span>
+<span id="cb162-16"><a></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">county_key</span>(state, county)) <span class="sc">|&gt;</span></span>
+<span id="cb162-17"><a></a>  <span class="fu">group_by</span>(key) <span class="sc">|&gt;</span></span>
+<span id="cb162-18"><a></a>  <span class="fu">summarize</span>(<span class="at">value =</span> <span class="fu">mean</span>(value))</span>
+<span id="cb162-19"><a></a></span>
+<span id="cb162-20"><a></a>map_data <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(counties, county_truth, <span class="at">by =</span> <span class="st">"key"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span style="background-color: #ADD8E6">❓ What would go wrong if we joined on <code>county</code> alone?</span></p>
+</section>
+<section id="map-truth" class="slide level2">
+<h2>Map: Truth</h2>
+<div class="panel-tabset">
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Code</a></li><li><a href="#tabset-2-2">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a></a>truth <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> world) <span class="sc">+</span></span>
+<span id="cb163-2"><a></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>,<span class="sc">-</span><span class="dv">66</span>),</span>
+<span id="cb163-3"><a></a>           <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">24.5</span>, <span class="dv">50</span>),</span>
+<span id="cb163-4"><a></a>           <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb163-5"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_data, <span class="fu">aes</span>(<span class="at">fill =</span> value)) <span class="sc">+</span></span>
+<span id="cb163-6"><a></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">topo.colors</span>(<span class="dv">7</span>),</span>
+<span id="cb163-7"><a></a>                       <span class="at">na.value =</span> <span class="st">"transparent"</span>,</span>
+<span id="cb163-8"><a></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>),</span>
+<span id="cb163-9"><a></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>),</span>
+<span id="cb163-10"><a></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">23.5</span>),</span>
+<span id="cb163-11"><a></a>                       <span class="at">name =</span> <span class="st">"PM ug/m3"</span>) <span class="sc">+</span></span>
+<span id="cb163-12"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"True PM 2.5 levels"</span>) <span class="sc">+</span></span>
+<span id="cb163-13"><a></a>  <span class="fu">theme</span>(<span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb163-14"><a></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb163-15"><a></a>        <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb163-16"><a></a>        <span class="at">axis.title.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb163-17"><a></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb163-18"><a></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Coordinate system already present. Adding new coordinate system, which will
+replace the existing one.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-63-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="map-predictions" class="slide level2">
+<h2>Map: Predictions</h2>
+<div class="panel-tabset">
+<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">Data</a></li><li><a href="#tabset-3-2">Code</a></li><li><a href="#tabset-3-3">Plot</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1">
+<p>Every monitor gets a prediction from a model that <strong>never saw it</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a></a><span class="co"># training monitors: out-of-fold predictions from cross-validation</span></span>
+<span id="cb165-2"><a></a><span class="co"># (.row = row number in train_pm)</span></span>
+<span id="cb165-3"><a></a><span class="fu">set.seed</span>(<span class="dv">456</span>)</span>
+<span id="cb165-4"><a></a>cv_preds <span class="ot">&lt;-</span> <span class="fu">fit_resamples</span>(RF_tuned_wflow, vfold_pm,</span>
+<span id="cb165-5"><a></a>                          <span class="at">control =</span> <span class="fu">control_resamples</span>(<span class="at">save_pred =</span> <span class="cn">TRUE</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb165-6"><a></a>  <span class="fu">collect_predictions</span>()</span>
+<span id="cb165-7"><a></a></span>
+<span id="cb165-8"><a></a>train_preds <span class="ot">&lt;-</span> train_pm <span class="sc">|&gt;</span></span>
+<span id="cb165-9"><a></a>  <span class="fu">mutate</span>(<span class="at">.row =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb165-10"><a></a>  <span class="fu">inner_join</span>(<span class="fu">select</span>(cv_preds, .row, .pred), <span class="at">by =</span> <span class="st">".row"</span>)</span>
+<span id="cb165-11"><a></a></span>
+<span id="cb165-12"><a></a><span class="co"># test monitors: predictions from last_fit() (.row = row number in pm)</span></span>
+<span id="cb165-13"><a></a>test_preds <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span></span>
+<span id="cb165-14"><a></a>  <span class="fu">mutate</span>(<span class="at">.row =</span> <span class="fu">row_number</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb165-15"><a></a>  <span class="fu">inner_join</span>(<span class="fu">select</span>(test_predictions, .row, .pred), <span class="at">by =</span> <span class="st">".row"</span>)</span>
+<span id="cb165-16"><a></a></span>
+<span id="cb165-17"><a></a><span class="co"># combine and average within county</span></span>
+<span id="cb165-18"><a></a>county_pred <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(train_preds, test_preds) <span class="sc">|&gt;</span></span>
+<span id="cb165-19"><a></a>  <span class="fu">mutate</span>(<span class="at">key =</span> <span class="fu">county_key</span>(state, county)) <span class="sc">|&gt;</span></span>
+<span id="cb165-20"><a></a>  <span class="fu">group_by</span>(key) <span class="sc">|&gt;</span></span>
+<span id="cb165-21"><a></a>  <span class="fu">summarize</span>(<span class="at">.pred =</span> <span class="fu">mean</span>(.pred))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Note: <em>don’t</em> predict the training data with a model fit to the training data (or the test data with a model fit to the test data). Those predictions look great…because the model has already seen the answers.</p>
+</div>
+<div id="tabset-3-2">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a></a>map_data <span class="ot">&lt;-</span> <span class="fu">inner_join</span>(counties, county_pred, <span class="at">by =</span> <span class="st">"key"</span>)</span>
+<span id="cb166-2"><a></a></span>
+<span id="cb166-3"><a></a>pred <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> world) <span class="sc">+</span></span>
+<span id="cb166-4"><a></a>  <span class="fu">coord_sf</span>(<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">125</span>,<span class="sc">-</span><span class="dv">66</span>),</span>
+<span id="cb166-5"><a></a>           <span class="at">ylim =</span> <span class="fu">c</span>(<span class="fl">24.5</span>, <span class="dv">50</span>),</span>
+<span id="cb166-6"><a></a>           <span class="at">expand =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb166-7"><a></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> map_data, <span class="fu">aes</span>(<span class="at">fill =</span> .pred)) <span class="sc">+</span></span>
+<span id="cb166-8"><a></a>  <span class="fu">scale_fill_gradientn</span>(<span class="at">colours =</span> <span class="fu">topo.colors</span>(<span class="dv">7</span>),</span>
+<span id="cb166-9"><a></a>                       <span class="at">na.value =</span> <span class="st">"transparent"</span>,</span>
+<span id="cb166-10"><a></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>),</span>
+<span id="cb166-11"><a></a>                       <span class="at">labels =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="dv">20</span>),</span>
+<span id="cb166-12"><a></a>                       <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">23.5</span>),</span>
+<span id="cb166-13"><a></a>                       <span class="at">name =</span> <span class="st">"PM ug/m3"</span>) <span class="sc">+</span></span>
+<span id="cb166-14"><a></a>  <span class="fu">ggtitle</span>(<span class="st">"Predicted PM 2.5 levels"</span>) <span class="sc">+</span></span>
+<span id="cb166-15"><a></a>  <span class="fu">theme</span>(<span class="at">axis.title.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb166-16"><a></a>        <span class="at">axis.text.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb166-17"><a></a>        <span class="at">axis.ticks.x=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb166-18"><a></a>        <span class="at">axis.title.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb166-19"><a></a>        <span class="at">axis.text.y=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb166-20"><a></a>        <span class="at">axis.ticks.y=</span><span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Coordinate system already present. Adding new coordinate system, which will
+replace the existing one.</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-3-3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-65-1.png" width="2100"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="final-plot" class="slide level2">
+<h2>Final Plot</h2>
+<p>:::panel-tabset</p>
+<h3 id="code-3">Code</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb168-2"><a></a></span>
+<span id="cb168-3"><a></a>final_plot <span class="ot">&lt;-</span> (truth<span class="sc">/</span>pred) <span class="sc">+</span> </span>
+<span id="cb168-4"><a></a>  <span class="fu">plot_annotation</span>(<span class="at">title =</span> <span class="st">"Machine Learning Methods Allow for Prediction of Air Pollution"</span>, <span class="at">subtitle =</span> <span class="fu">paste0</span>(<span class="st">"A random forest model predicts annual fine particulate matter (PM 2.5) levels at monitors it was not trained on to within</span><span class="sc">\n</span><span class="st">about "</span>, <span class="fu">round</span>(test_rmse, <span class="dv">1</span>), <span class="st">" ug/m3 on average (test RMSE), using population density, emissions, and other predictors. Similar methods</span><span class="sc">\n</span><span class="st">could help estimate pollution in places with poor monitoring."</span>),</span>
+<span id="cb168-5"><a></a>                  <span class="at">theme =</span> <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span><span class="dv">12</span>, <span class="at">face =</span> <span class="st">"bold"</span>), </span>
+<span id="cb168-6"><a></a>                                <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">8</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="plot-3">Plot</h3>
+
+<img data-src="15-cs02-analysis_files/figure-html/unnamed-chunk-67-1.png" width="2100" class="r-stretch"><p><span style="background-color: #ADD8E6">❓ What do you learn from these results?</span></p>
+</section>
+<section id="your-case-study" class="slide level2">
+<h2>Your Case Study</h2>
+<div>
+<ul>
+<li class="fragment">Can you copy + paste code directly from here to answer the question? Yes.</li>
+<li class="fragment">Do you have to present linear regression model <em>and</em> random forest? No</li>
+<li class="fragment">Should you present anything from the 14-regression notes? Probably not. (This is why HW03 and lab07 focus on regression)</li>
+<li class="fragment">Could you try an additional model as your extension? Yes!</li>
+<li class="fragment">Does that model have to be “better”? No! But, consider the story!</li>
+<li class="fragment">Could you try to identify the simplest, accurate model as an extension? Yes.</li>
+</ul>
+</div>
+
+<div class="quarto-auto-generated-content">
+<p><img src="images/cogs137-logo-hex.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p><a href="https://cogs137-fa26.github.io/cogs137-fa26/">🔗 https://cogs137-fa26.github.io/cogs137-fa26/</a></p>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp("https:\/\/cogs137-fa26\.github\.io\/cogs137-fa26\/");
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

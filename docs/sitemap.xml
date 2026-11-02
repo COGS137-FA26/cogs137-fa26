@@ -1,16 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/hw/hw-02.html</loc>
-    <lastmod>2026-10-12T16:14:24.645Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/cs/final.html</loc>
+    <lastmod>2026-10-30T04:18:44.208Z</lastmod>
   </url>
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/04-lab-cs01-eda.html</loc>
-    <lastmod>2026-10-19T05:04:37.681Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/06-lab-cs02-eda.html</loc>
+    <lastmod>2026-11-02T05:54:59.443Z</lastmod>
   </url>
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/03-lab-cs01-viz.html</loc>
-    <lastmod>2026-10-09T23:24:05.079Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/16-putting-it-together.html</loc>
+    <lastmod>2026-10-02T04:37:03.223Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/16-putting-it-together-slides.html</loc>
+    <lastmod>2026-10-02T04:37:03.223Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/14-regression.html</loc>
+    <lastmod>2026-10-02T04:37:03.217Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/14-regression-slides.html</loc>
+    <lastmod>2026-10-02T04:37:03.217Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/cs/cs02.html</loc>
+    <lastmod>2026-10-30T04:14:52.867Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/05-lab-cs01-communication.html</loc>
+    <lastmod>2026-10-26T16:21:35.293Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/03-lab-cs01-wrangle.html</loc>
+    <lastmod>2026-10-09T23:02:57.729Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/02-lab-cs01-dplyr.html</loc>
+    <lastmod>2026-10-05T16:27:00.649Z</lastmod>
   </url>
   <url>
     <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/10-cs02-intro.html</loc>
@@ -153,15 +181,51 @@
     <lastmod>2026-10-28T04:44:51.406Z</lastmod>
   </url>
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/02-lab-cs01-dplyr.html</loc>
-    <lastmod>2026-10-05T16:27:00.649Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/11-cs02-eda-slides.html</loc>
+    <lastmod>2026-11-02T05:12:01.097Z</lastmod>
   </url>
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/03-lab-cs01-wrangle.html</loc>
-    <lastmod>2026-10-09T23:02:57.729Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/11-cs02-eda.html</loc>
+    <lastmod>2026-11-02T05:12:01.097Z</lastmod>
   </url>
   <url>
-    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/05-lab-cs01-communication.html</loc>
-    <lastmod>2026-10-26T16:21:35.293Z</lastmod>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/03-lab-cs01-viz.html</loc>
+    <lastmod>2026-10-09T23:24:05.079Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/04-lab-cs01-eda.html</loc>
+    <lastmod>2026-10-19T05:04:37.681Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/hw/hw-02.html</loc>
+    <lastmod>2026-10-12T16:14:24.645Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/13-inference-prediction-slides.html</loc>
+    <lastmod>2026-11-02T04:45:47.453Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/13-inference-prediction.html</loc>
+    <lastmod>2026-11-02T04:45:47.453Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/15-cs02-analysis-slides.html</loc>
+    <lastmod>2026-10-02T04:37:03.221Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/15-cs02-analysis.html</loc>
+    <lastmod>2026-10-02T04:37:03.221Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/17-cs02-inclass-slides.html</loc>
+    <lastmod>2026-10-02T04:37:03.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/17-cs02-inclass.html</loc>
+    <lastmod>2026-10-02T04:37:03.226Z</lastmod>
+  </url>
+  <url>
+    <loc>https://cogs137-fa26.github.io/cogs137-fa26/content/labs/07-lab-mlr.html</loc>
+    <lastmod>2026-10-19T05:07:01.953Z</lastmod>
   </url>
 </urlset>

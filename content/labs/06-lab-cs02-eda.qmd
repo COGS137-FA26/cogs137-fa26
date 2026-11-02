@@ -25,7 +25,7 @@ To get started, find your `lab06-<your GitHub username>` repo in the [course Git
 
 # Packages
 
-Be sure to import the `tidyverse` prior to completing the lab. Additional packages are allowed, but not expected nor required.
+Be sure to import the `tidyverse` prior to completing the lab. Additional packages are allowed, but not expected nor required. The packages we used for EDA in class (`skimr`, `GGally`, and `corrplot`) are all fair game here.
 
 # Data
 
@@ -43,6 +43,8 @@ pm_data <- read_csv("data/pm25_data.csv")
 
 Consider all we have discussed and learned through the EDA presented in class. Now, carry out additional EDA to learn something beyond what was previously displayed/discussed in class. This may be a single plot. It may be more than one plot. It could be a table....or multiple tables. But, work to fully understand the data to the best of your abilities.
 
+It's OK to build on (or include) what you explored during the in-class "Your Turn" in the CS02 EDA notes. Just be sure what you include here goes beyond what we presented and discussed together as a class.
+
 ### Exercise 2
 
 Describe what new information you learned from what you generated above.
@@ -51,7 +53,7 @@ Describe what new information you learned from what you generated above.
 
 ### Exercise 3
 
-Think about the data you have access to, the background discussed in class, and the question each group has been asked to address. What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't "good" or you aren't sure if they are "possible." This can be used as a jumping off point for when you start discussing analysis extensions with your group.
+Think about the data you have access to, the background discussed in class, and the CS02 main question that all groups will be answering. What *possible* extensions to this analysis would you be interested in carrying out? This is a space for brainstorming. Include any possible thoughts you have here, even if they aren't "good" or you aren't sure if they are "possible." This can be used as a jumping off point once CS02 groups are formed and you start discussing analysis extensions with your group.
 
 # Submit
 
@@ -63,4 +65,4 @@ You'll always want to render your Quarto document to HTML and review that HTML d
 **Outside resources & AI use:** Before submitting, fill in the *Outside Resources & AI Use* section at the end of your .qmd (write "None" if you didn't use any). This is required on every assignment.
 :::
 
-*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes, use the commit message "Done with Lab 6! 💪", and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*
+*Yay, you're done! To finish up and submit, **first render your file to HTML**. Be sure to select both your .qmd and .html documents when choosing what to commit! Then, commit all remaining changes and push. Before you wrap up the assignment, make sure all documents are updated on your GitHub repo.*

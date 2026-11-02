@@ -1,0 +1,63 @@
+# Data Wrangling: `tidyr` {background-color="#92A86A"}
+
+-   pivots (`tidyr`)
+-   joins (`dplyr`)
+
+## Reminder: Tidy Data
+
+![](images/06/tidydata_1.jpg)
+
+. . .
+
+![](images/06/tidydata_2.jpg)
+
+. . .
+
+![](images/06/tidydata_3.jpg)
+
+## Pivoting
+
+Storing the same data in a different format
+
+. . .
+
+### long vs. wide
+
+-   **wide** data contains values that do not repeat in the first column. (analysis; storage)
+-   **long** format contains values that do repeat in the first column. (plotting)
+
+## pivots
+
+-   `pivot_longer` \| take wide data and make it long
+-   `pivot_wider` \| take long data and make it wide
+
+## Joins
+
+Combining data across different datasets, using common information (often: IDs)
+
+. . .
+
+**Mutating Joins**
+
+add new variables to a data frame from matching observations in another
+
+. . .
+
+-   **`left_join`**: keeps all rows in first df; adds all matching information from second df; adds NAs for any observations missing information
+-   **`right_join`**: keeps all observations in second df
+-   **`full_join`**: keeps all observations in either df
+
+. . .
+
+![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-outer.png)
+
+. . .
+
+**`inner_join`**: takes only rows in *both* dfs
+
+![Image Source: <https://r4ds.had.co.nz/relational-data.html>](images/06/join-inner.png)
+
+## Binding dataframes
+
+-   `bind_rows()` - stack different dataframes on top of one another, combining information where column names are the same \<- *what I used to combine the three datasets after wrangling*
+-   `bind_cols()` - stack dataframes next to one another; will assume rows match up \<- use with caution

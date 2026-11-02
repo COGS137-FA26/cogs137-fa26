@@ -1,0 +1,368 @@
+---
+title: "11-cs02-eda"
+author: "Professor Shannon Ellis"
+date: "2026-11-02"
+
+format:
+  html: 
+    output-file: 11-cs02-eda.html
+  revealjs:
+    output-file: 11-cs02-eda-slides.html
+---
+
+```{r packages, echo = FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE) 
+```
+
+# CS02: Predicting Air Pollution (EDA) {background-color="#92A86A"}
+
+## Q&A {.scrollable .smaller}
+
+
+::: {.callout-note collapse="true" title="Q: if our extension for cs02 was to update the data to something more recent, would we have to work with both the 2008 data and the new data, or just use the new data? "}
+A: We'd want to see both, with a comparison with what has changed.
+:::
+
+
+::: {.callout-note collapse="true" title="Q: I'm curious about some more of the ways people use gen AI to help them during and after their first draft. "}
+A: I'm curious too for more thoughts on the lecture-specific disucssion! From what y'all said in lab 05 (summarized):
+
+Creative ways to use GenAI:
+
+- Feedback on visualizations 
+- AI as grader or critical reviewer (Catching duplicated work across teammates; jargon-only proofread; grader primed with your past feedback)
+- AI as a naive audience (Explain it back to me.)
+- Debugging and code cleanup (AI-generated edge cases to stress-test code, like how cutoff values would be handled)
+- Brainstorming analyses 
+- Challenging conclusions: Alternative explanations, limitations, confounders, counterarguments.
+- Report structure and flow
+- Finding sources or background
+- explaining concepts like sensitivity and specificity (mock debate on sensitivity vs. specificity)
+- team planning and dividing tasks
+- and generating test data for code 
+
+Note: Telling AI to use Socratic mode
+
+How to NOT use GenAI:
+
+- Having AI write the report, analysis or conclusions 
+- Copying code they don’t understand 
+- Made-up data, results or citations
+- Having AI do the whole project or a whole section 
+- Letting AI make the decisions 
+- Having AI build the visualizations from scratch
+- Having AI make the general-audience piece
+- Not disclosing AI use
+- Not uploading the CS01 data to an AI tool
+:::
+
+## Course Announcements
+
+**Due Dates**:
+
+-   **Lab 06** due Fri (11:59 PM)
+-   📄 **Final Project Proposal** due Sun (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+Note: Get the data in RStudio for today if you haven't already (and `install.packages()` `"OCSdata"`, `"skimr"`, `"GGally"`, and `"corrplot"`).
+
+```{r}
+# install.packages("OCSdata")
+# OCSdata::raw_data("ocs-bp-air-pollution", outpath = getwd())
+# once CS02 repos are created (after proposals are due 11/8), the file will also be at "data/pm25_data.csv" in your repo
+pm <- read_csv("OCS_data/data/raw/pm25_data.csv")
+```
+
+# Question {background-color="#92A86A"}
+
+> With what accuracy can we predict US annual average air pollution concentrations?
+
+# Wrangling {background-color="#92A86A"}
+
+## Viewing the data
+
+Take a look...
+
+. . .
+
+[<i class="fa fa-user" aria-hidden="true"></i>   Given the dataset we're working with, what wrangling should we consider doing here?]{style="background-color: #ADD8E6"}
+
+. . .
+
+Last lecture, you looked for columns stored as numbers that aren't really measurements:
+
+```{r}
+pm |>
+  select(id, fips, zcta) |>
+  head(3)
+```
+
+. . .
+
+These are ID codes: averaging or correlating them doesn't mean anything. So we store them as factors:
+
+```{r}
+pm <- pm |>
+  mutate(across(c(id, fips, zcta), as.factor))
+```
+
+# EDA {background-color="#92A86A"}
+
+Getting to "know" the data
+
+## `skimr` {.smaller}
+
+`skimr` \| A helpful way to get an overall sense of a dataset
+
+```{r}
+# install.packages("skimr")
+skimr::skim(pm)
+```
+
+. . .
+
+[<i class="fa fa-user" aria-hidden="true"></i>   What's something you've learned about the data from the <code>skimr</code> output?]{style="background-color: #ADD8E6"}
+
+. . .
+
+Things to note:
+
+::: incremental
+-   data are summarized by variable type
+-   `empty`/`n_missing` gives you a sense of how much data are missing for each variable
+-   `n_unique` for `state` indicates that we have data for 49 states
+-   many different distributions for continuous data, but many show bimodal distribution
+-   large range of possible values for many variables (i.e. population)
+:::
+
+. . .
+
+-   Consider variable type - need more factors?
+-   Check how monitors are spread across states and cities: which places are overrepresented? decide what to do
+-   log or other transformations necessary? decide during EDA
+
+## Why 49 "states"?
+
+```{r}
+pm |>
+  distinct(state)
+```
+
+-   DC is included
+-   Alaska and Hawaii are not
+
+## Where are the monitors? {.scrollable}
+
+[<i class="fa fa-brain" aria-hidden="true"></i>   Guess: how many monitors does San Diego County have?]{style="background-color: #ADD8E6"}
+
+. . .
+
+```{r}
+pm |>
+  filter(county == "San Diego") |>
+  select(city, county, county_pop, popdens_county, value)
+```
+
+. . .
+
+```{r}
+pm |>
+  filter(city == "Baltimore") |>
+  select(city, county, county_pop, popdens_county, value)
+```
+
+. . .
+
+San Diego County has 6 monitors for about 3.1 million people. Baltimore, a city that is its own (small) county, has 5 monitors for about 621,000 people. Monitor placement doesn't simply follow population.
+
+. . .
+
+And not every monitor is in a city:
+
+```{r}
+pm |>
+  count(city, sort = TRUE) |>
+  head(5)
+```
+
+## The outcome: `value`
+
+```{r}
+#| fig-height: 3.5
+pm |>
+  ggplot(aes(x = value)) +
+  geom_histogram(binwidth = 0.5, fill = "#2b6a99", color = "white") +
+  labs(x = "Annual average PM2.5 in 2008 (ug/m^3)", y = "Number of monitors") +
+  theme_minimal()
+```
+
+. . .
+
+Which states have the highest averages?
+
+```{r}
+pm |>
+  group_by(state) |>
+  summarize(n_monitors = n(), mean_pm25 = mean(value)) |>
+  arrange(desc(mean_pm25)) |>
+  head(5)
+```
+
+## How many monitors exceed health guidelines? {.scrollable}
+
+[<i class="fa fa-brain" aria-hidden="true"></i>   Guess: what share of these monitors would exceed today's EPA annual standard (9 ug/m^3^)?]{style="background-color: #ADD8E6"}
+
+. . .
+
+```{r}
+pm |>
+  summarize(
+    epa_2008 = sum(value > 15),
+    who_2005 = sum(value > 10),
+    epa_2024 = sum(value > 9),
+    who_2021 = sum(value > 5)
+  )
+```
+
+. . .
+
+Of `r nrow(pm)` monitors, `r sum(pm$value > 15)` (`r round(100 * mean(pm$value > 15))`%) were above the EPA standard in effect in 2008 (15 ug/m^3^). By today's EPA standard (9 ug/m^3^), `r sum(pm$value > 9)` (`r round(100 * mean(pm$value > 9))`%) would be. By WHO's current guideline (5 ug/m^3^), `r sum(pm$value > 5)` (`r round(100 * mean(pm$value > 5))`%).
+
+::: aside
+A rough comparison: EPA's official test uses a 3-year average, and these are 2008 values, not today's air.
+:::
+
+## Feature Correlation
+
+On Friday, you looked for variables that seemed **redundant**. Let's check.
+
+Why do we care if variables in our dataset are correlated?
+
+-   we don't want to include redundant variables
+-   can add unnecessary noise to our algorithm causing a reduction in prediction accuracy
+-   can cause our algorithm to be slower
+-   can also make it difficult to interpret what variables are actually predictive
+
+## Which features track the outcome?
+
+[<i class="fa fa-brain" aria-hidden="true"></i>   Guess: which feature is most correlated with `value`?]{style="background-color: #ADD8E6"}
+
+. . .
+
+```{r}
+#| fig-height: 3.5
+pm |>
+  select(where(is.numeric)) |>
+  cor() |>
+  as_tibble(rownames = "feature") |>
+  select(feature, r = value) |>
+  filter(feature != "value") |>
+  slice_max(abs(r), n = 10) |>
+  ggplot(aes(x = r, y = fct_reorder(feature, r))) +
+  geom_col(fill = "#2b6a99") +
+  labs(x = "Correlation with value (r)", y = NULL, title = "Top 10 features") +
+  theme_minimal()
+```
+
+. . .
+
+-   `CMAQ` (the chemical model) is the strongest, followed by emissions (`nei`), roads (`prisec`), and the satellite measure (`aod`)
+-   These are moderate correlations: no single feature predicts PM~2.5~ on its own
+
+## Correlations among features
+
+```{r}
+PM_cor <- cor(pm |> select(where(is.numeric)))
+```
+
+::: {.content-hidden when-format="revealjs"}
+Taking a look at all of our numeric variables...
+
+```{r}
+corrplot::corrplot(PM_cor, tl.cex = 0.5)
+```
+
+-   deep blue \| strongly, positively correlated
+-   deep red \| strongly, negatively correlated
+
+If we don't care about direction, but only strength...*and* using [hierarchical clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering):
+
+```{r}
+corrplot::corrplot(abs(PM_cor), order = "hclust", tl.cex = 0.5, col.lim = c(0, 1))
+```
+:::
+
+Observations:
+
+-   development variables (`imp`), road density (`pri`), and the emission (`nei`) variables all seem to be correlated with their group
+-   several predictors are moderately correlated with `value` (our outcome), but none strongly
+
+## Development (`imp`)
+
+```{r}
+select(pm, contains("imp")) |>
+  GGally::ggpairs()
+```
+
+. . .
+
+The same measure at different radii is strongly correlated with itself. The emissions (`nei`) and road (`pri`) groups show the same pattern (see the notes).
+
+::: {.content-hidden when-format="revealjs"}
+### Emissions (`nei`)
+
+```{r}
+select(pm, contains("nei")) |>
+  GGally::ggpairs()
+```
+
+### Road Density (`pri`)
+
+```{r}
+select(pm, contains("pri")) |>
+  GGally::ggcorr(hjust = .85, size = 3,
+       layout.exp = 2, label = TRUE,
+       # same colors as corrplot above: blue = positive, red = negative
+       low = "#67001F", mid = "#F7F7F7", high = "#053061")
+```
+:::
+
+## Are the categories correlated with one another?
+
+```{r}
+pm |>
+select(log_nei_2008_pm25_sum_10000, popdens_county,
+       log_pri_length_10000, imp_a10000, county_pop) |>
+  GGally::ggpairs()
+```
+
+. . .
+
+Reminder:
+
+-   **log_nei_2008_pm25_sum_10000** \| Tons of emissions from major sources database (annual data) sum of all sources within a circle with a radius of 10000 meters of distance around the monitor (Natural log)\
+-   **popdens_county** \| Population density (number of people per kilometer squared area of the county)
+-   **log_pri_length_10000** \| Count of primary road length in meters in a circle with a radius of 10000 meters around the monitor (Natural log) <br> -- Highways only\
+-   **imp_a10000** \| Impervious surface measure <br> -- Within a circle with a radius of 10000 meters around the monitor\
+-   **county_pop** \| Population of the county of the monitor
+
+## Log-transforming right-skewed data
+
+```{r}
+pm |>
+  mutate(log_popdens_county=log(popdens_county),
+         log_pop_county = log(county_pop)) |>
+  select(log_nei_2008_pm25_sum_10000, log_popdens_county,
+       log_pri_length_10000, imp_a10000, log_pop_county) |>
+  GGally::ggpairs()
+```
+
+## Your Turn {.scrollable}
+
+[<i class="fa fa-laptop" aria-hidden="true"></i>   Try to learn at least three things about the data that we haven't yet discussed now on your own.]{style="background-color: #ADD8E6"}
+
+::: aside
+Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
+:::
