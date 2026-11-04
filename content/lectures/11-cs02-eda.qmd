@@ -67,8 +67,9 @@ How to NOT use GenAI:
 -   🔘 Lecture Participation survey "due" after class
 
 Notes: 
+
 - My office hours moved from today to Fri at 11AM (this week only)
-- Either ** work from lab06 data** or et the data in RStudio for today (and `install.packages()` `"OCSdata"`, `"skimr"`, `"GGally"`, and `"corrplot"`).
+- Either **work from lab06 data** or et the data in RStudio for today (and `install.packages()` `"OCSdata"`, `"skimr"`, `"GGally"`, and `"corrplot"`).
 
 ```{r}
 # install.packages("OCSdata")

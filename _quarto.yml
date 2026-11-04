@@ -111,8 +111,8 @@ website:
             href: content/lectures/10-cs02-intro.qmd
           - text: "11: CS02 EDA"
             href: content/lectures/11-cs02-eda.qmd
-      #     - text: "13: Inference vs. Prediction"
-      #       href: content/lectures/13-inference-prediction.qmd
+          - text: "12: Inference vs. Prediction"
+            href: content/lectures/12-inference-prediction.qmd
       #     - text: "14: Regression"
       #       href: content/lectures/14-regression.qmd
       #     - text: "15: CS02 Analysis (ML)"

@@ -7796,7 +7796,7 @@
     "href": "content/lectures/11-cs02-eda-slides.html#course-announcements",
     "title": "11-cs02-eda",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\nLab 06 due Fri (11:59 PM)\n📄 Final Project Proposal due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes: - My office hours moved from today to Fri at 11AM (this week only) - Either ** work from lab06 data** or et the data in RStudio for today (and install.packages() \"OCSdata\", \"skimr\", \"GGally\", and \"corrplot\").\n\n# install.packages(\"OCSdata\")\n# OCSdata::raw_data(\"ocs-bp-air-pollution\", outpath = getwd())\n# once CS02 repos are created (after proposals are due 11/8), the file will also be at \"data/pm25_data.csv\" in your repo\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\")"
+    "text": "Course Announcements\nDue Dates:\n\nLab 06 due Fri (11:59 PM)\n📄 Final Project Proposal due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nMy office hours moved from today to Fri at 11AM (this week only)\nEither ** work from lab06 data** or et the data in RStudio for today (and install.packages() \"OCSdata\", \"skimr\", \"GGally\", and \"corrplot\").\n\n\n# install.packages(\"OCSdata\")\n# OCSdata::raw_data(\"ocs-bp-air-pollution\", outpath = getwd())\n# once CS02 repos are created (after proposals are due 11/8), the file will also be at \"data/pm25_data.csv\" in your repo\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\")"
   },
   {
     "objectID": "content/lectures/11-cs02-eda-slides.html#viewing-the-data",
@@ -7916,7 +7916,7 @@
     "href": "content/lectures/11-cs02-eda.html#course-announcements",
     "title": "11-cs02-eda",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\nLab 06 due Fri (11:59 PM)\n📄 Final Project Proposal due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes: - My office hours moved from today to Fri at 11AM (this week only) - Either ** work from lab06 data** or et the data in RStudio for today (and install.packages() \"OCSdata\", \"skimr\", \"GGally\", and \"corrplot\").\n\n# install.packages(\"OCSdata\")\n# OCSdata::raw_data(\"ocs-bp-air-pollution\", outpath = getwd())\n# once CS02 repos are created (after proposals are due 11/8), the file will also be at \"data/pm25_data.csv\" in your repo\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\")",
+    "text": "Course Announcements\nDue Dates:\n\nLab 06 due Fri (11:59 PM)\n📄 Final Project Proposal due Sun (11:59 PM)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nMy office hours moved from today to Fri at 11AM (this week only)\nEither ** work from lab06 data** or et the data in RStudio for today (and install.packages() \"OCSdata\", \"skimr\", \"GGally\", and \"corrplot\").\n\n\n# install.packages(\"OCSdata\")\n# OCSdata::raw_data(\"ocs-bp-air-pollution\", outpath = getwd())\n# once CS02 repos are created (after proposals are due 11/8), the file will also be at \"data/pm25_data.csv\" in your repo\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\")",
     "crumbs": [
       "Notes",
       "11: CS02 EDA"
@@ -8187,403 +8187,357 @@
     ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#topic-brainstorming",
-    "href": "content/lectures/13-inference-prediction-slides.html#topic-brainstorming",
-    "title": "13-inference-prediction",
-    "section": "Topic Brainstorming",
-    "text": "Topic Brainstorming\nLet’s brainstorm some topics together…"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#part-i-imitation",
-    "href": "content/lectures/13-inference-prediction-slides.html#part-i-imitation",
-    "title": "13-inference-prediction",
-    "section": "Part I: Imitation",
-    "text": "Part I: Imitation"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#fight-songs",
-    "href": "content/lectures/13-inference-prediction-slides.html#fight-songs",
-    "title": "13-inference-prediction",
-    "section": "Fight Songs",
-    "text": "Fight Songs\n\nOriginalPlot (Sailor)Code (Sailor)Plot (v2)Code (v2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight &lt;- read_csv('data/fight-songs.csv', show_col_types = FALSE)\n \n# Calculate avg_duration and avg_bpm across fight songs for classifying\navg_duration &lt;- mean(fight$sec_duration, na.rm = TRUE)\navg_bpm &lt;- mean(fight$bpm, na.rm = TRUE)\n\n# Begin ggplot\nggplot(fight, aes(x = sec_duration, y = bpm)) +\n  \n  # Making sure Notre Dame is colored and referenced differently \n  geom_point(aes(color = ifelse(school == \"Notre Dame\", \"Notre Dame\", factor(school))), size = 5, alpha = 0.5) +\n  scale_color_hue() +\n  geom_vline(xintercept = avg_duration, linetype = \"dotted\", color = \"black\", size = 0.7) +\n  geom_hline(yintercept = avg_bpm, linetype = \"dotted\", color = \"black\", size = 0.7) +\n   annotate(\"text\", x = avg_duration + 5, y = 100, label = \"AVERAGE\", angle = 90, vjust = -0.5, size = 3.5)  +\n  # Adding in my labels for quadrants + AVERAGE\n  annotate(\"text\", x = 0, y = avg_bpm + 5, label = \"AVERAGE\", hjust = -0.5, size = 3.5) +\n  annotate(\"text\", x = 30, y = 190, label = \"Fast and short\", size = 4) +\n  annotate(\"text\", x = 130, y = 190, label = \"Fast but long\", size = 4) +\n  annotate(\"text\", x = 30, y = 60, label = \"Slow but short\", size = 4) +\n  annotate(\"text\", x = 130, y = 60, label = \"Slow and long\", size = 4) +\n  geom_point(aes(x = 60, y = 150), color = \"black\", size = 5) +\n  annotate(\"text\", x = 60, y = 150, label = \"Notre Dame\", vjust = -1.5, fontface = \"bold\") +\n  labs(x = \"Duration\", y = \"Beats per minute\") +\n  \n  # Scale my axis to adjust to match original \n  \n  scale_x_continuous(breaks = seq(0, 180, by = 20)) +\n  scale_y_continuous(breaks = seq(40, 200, by = 20), limits = c(40, 200)) +\n  coord_fixed(ratio = 0.8) +  \n  theme_minimal() +\n  # Theme adjusting \n  \n  theme(\n    plot.margin = margin(t = 10, r = 10, b = 10, l = 20),\n    legend.position = \"none\",\n    panel.grid.minor = element_line(color = \"grey90\", linetype = \"solid\"),\n    panel.grid.major = element_line(color = \"grey80\", linetype = \"solid\"),\n    panel.border = element_rect(color = \"black\", fill = NA))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight_songs_data &lt;- fight\nmean_bpm &lt;- mean(fight_songs_data$bpm, na.rm = TRUE)\nmean_duration &lt;- mean(fight_songs_data$sec_duration, na.rm = TRUE)\n\nggplot(fight_songs_data, aes(x = sec_duration, y = bpm)) +\n    geom_point(aes(color = school), alpha = 0.2, size = 5) +\n    geom_vline(xintercept = mean_duration, linetype = \"dotted\", color = \"black\") +\n    geom_hline(yintercept = mean_bpm, linetype = \"dotted\", color = \"black\") +\n    geom_point(data = filter(fight_songs_data, school == \"Stanford\"), \n               aes(x = sec_duration, y = bpm), \n               color = \"red\", size = 5, shape = 21, fill = \"red\") +\n    geom_text(data = filter(fight_songs_data, school == \"Stanford\"), \n              aes(x = sec_duration, y = bpm, label = \"Stanford\", fontface = \"bold\", family = \"Arial\"), \n              vjust = -1, color = \"black\", size = 4) +\n    labs(\n        title = \"How Stanford's Fight Song stacks up\",\n        x = \"Duration\",\n        y = \"Beats per minute\"\n    ) +\n    scale_y_continuous(breaks = seq(60, 200, by = 20),\n                       labels = c(\"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\", \"200bpm\"),\n                       limits = c(60, 200)) +\n    scale_x_continuous(breaks = seq(0, 180, by = 20), \n                       labels = c(\"0 sec\", \"20\", \"40\", \"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\")) +\n    annotate(\"text\", x = 10, y = 190, label = \"Fast and short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 10, y = 70, label = \"Slow but short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 190, label = \"Fast but long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 70, label = \"Slow and long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = max(fight_songs_data$sec_duration) - 20, y = mean_bpm, \n             label = \"AVERAGE\", vjust = 0.5, hjust = -0.1, color = \"black\", size = 3, family = \"Arial\") +\n    theme_minimal() +\n    theme(\n        legend.position = \"none\",\n        plot.title = element_text(hjust = 0.5, face = \"bold\", family = \"Arial\"),\n        panel.grid.major = element_line(size = 0.5),\n        panel.grid.minor = element_blank()\n    )"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#hate-crimes-adam",
-    "href": "content/lectures/13-inference-prediction-slides.html#hate-crimes-adam",
-    "title": "13-inference-prediction",
-    "section": "Hate Crimes (Adam)",
-    "text": "Hate Crimes (Adam)\n\nOriginalPlotCode\n\n\n\n\n\nalt text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\nurl &lt;- \"https://raw.githubusercontent.com/fivethirtyeight/data/master/hate-crimes/hate_crimes.csv\"\nhate_crimes &lt;- read_csv(url)\n\nstates_map &lt;- map_data(\"state\")\nhate_crimes &lt;- hate_crimes |&gt;\n  mutate(state = tolower(state)) \n\nmap_data &lt;- states_map |&gt;\n  left_join(hate_crimes, by = c(\"region\" = \"state\"))\n\n\n#Graph Numero Uno\n\nggplot(map_data, aes(x = long, y = lat, group = group, fill = avg_hatecrimes_per_100k_fbi)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#ffe4d0\", high = \"#ba3900\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"PRE-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch\n#Second Graph\nggplot(map_data, aes(x = long, y = lat, group = group, fill = hate_crimes_per_100k_splc)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#b0e2c8\", high = \"#006646\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"POST-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#congress-age",
-    "href": "content/lectures/13-inference-prediction-slides.html#congress-age",
-    "title": "13-inference-prediction",
-    "section": "Congress Age",
-    "text": "Congress Age\n\nOriginalPlotCode\n\n\n\n\n\nMedian Age of Congress\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncongress_data = read_csv(\"data/data_aging_congress.csv\")\n\ncongress_data &lt;- congress_data |&gt;\n  mutate(year = as.numeric(format(start_date, \"%Y\")))  #Extracted year from start_date\n\n#Grouping Congress by session to calculate median age\ncongress_median_age &lt;- congress_data |&gt;\n  group_by(congress, year, chamber) |&gt;\n  summarise(median_age = median(age_years, na.rm = TRUE)) |&gt;\n  ungroup()\n\nggplot(congress_median_age, aes(x = year, y = median_age, color = chamber)) +\n  geom_step(linewidth = 1) +  \n  #Senate\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"Senate\", year == 2023),  \n            aes(label = \"65.3\"), \n            hjust = -0.2, vjust = +0.3, size = 3, color = \"black\", show.legend = FALSE) + \n  #House\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"House\", year == 2023), \n            aes(label = \"57.8\"), \n            hjust = -0.2, vjust = -0.5, size = 3, color = \"black\", show.legend = FALSE) +\n  #Titles\n  labs(title = \"Median Age of the U.S. Senate and House by Congress, 1919 to 2023\",\n       subtitle = \"The House and Senate are older than ever before\",\n       x = \"Year\",\n       y = \"Median Age\",\n       color = \"Chamber\") +  \n    scale_color_manual(values = c(\"Senate\" = \"#5b41d1\", \"House\" = \"#55aa5c\"))+\n  #Scaling both axis\n  scale_x_continuous(limits = c(min(congress_median_age$year), max(congress_median_age$year)), breaks = seq(1920, 2020, by =  10)) +\n  scale_y_continuous(limits = c(45, NA)) +\n  theme_minimal() +  \n  theme(plot.title = element_text(face = \"bold\", size = 14),  \n        plot.subtitle = element_text(size = 10),\n        axis.title = element_text(size = 12),\n        legend.position = \"top\",\n        aspect.ratio = 1/4,\n        panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.grid.minor.y = element_blank())"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#part-ii-sad-plot",
-    "href": "content/lectures/13-inference-prediction-slides.html#part-ii-sad-plot",
-    "title": "13-inference-prediction",
-    "section": "Part II: Sad Plot",
-    "text": "Part II: Sad Plot"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#votes",
-    "href": "content/lectures/13-inference-prediction-slides.html#votes",
-    "title": "13-inference-prediction",
-    "section": "Votes",
-    "text": "Votes\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# estimate data\nd &lt;- data.frame(\n  area = rep(c('Rural', 'Suburban', 'Urban'), each = 2),\n  voted = rep(c('Biden', 'Trump'), times = 3),\n  percentages = c(35, 65, 55, 45, 70, 30)\n)\n\n# plot\n\nggplot(d, aes(x = area, y = percentages, fill = voted)) +\n  geom_bar(stat = \"identity\", position = \"dodge\") +\n  labs(\n    title = \"Votes for Trump and Biden in 2020 Elecxtion Based on Location\",\n    x = \"Location\",\n    y = \"Percentage of Votes\",\n    fill = \"Candidate\"  # Legend title\n  ) +\n  scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 80)) +\n  theme_minimal() +\n  scale_fill_manual(values = c(\"#0033A0\", \"#C8102E\"))  # Custom colors for groups"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#cs01-data-sandy",
-    "href": "content/lectures/13-inference-prediction-slides.html#cs01-data-sandy",
-    "title": "13-inference-prediction",
-    "section": "CS01 Data (Sandy)",
-    "text": "CS01 Data (Sandy)\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"),\n         Group = fct_recode(Group,\n                            \"Frequent User\" = \"Frequent user\",\n                            \"Occasional User\" = \"Occasional user\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v) |&gt;\n  mutate(timepoint = case_when(time_from_start &lt; 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\nWB |&gt;\n  ggplot(mapping = aes(x = time_from_start,\n                       y = thccooh,\n                       color = group)) +\n  geom_point(size = 3) +\n  labs(x = \"Time After Smoking (Minutes)\", y = \"THCCOOH\", \n       title = \"Change in THCCOOH Levels After Smoking\",\n       subtitle = \"Levels measured over time for frequent and occasional users\",\n       color = \"Group\") +\n  theme(plot.title = element_text(size = 20, hjust = 0, vjust = 2),\n        plot.subtitle = element_text(size = 16, hjust = 0, vjust = 1)) +\n  scale_color_manual(values = c(\"Frequent User\" = \"#fc8d59\",\n                                \"Occasional User\" = \"#91bfdb\")) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#qa",
-    "href": "content/lectures/13-inference-prediction-slides.html#qa",
-    "title": "13-inference-prediction",
-    "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#suggested-reading",
-    "href": "content/lectures/13-inference-prediction-slides.html#suggested-reading",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#suggested-reading",
+    "href": "content/lectures/12-inference-prediction-slides.html#suggested-reading",
+    "title": "12-inference-prediction",
     "section": "Suggested Reading",
     "text": "Suggested Reading\n\nTidy Modeling with R Chapter 7: A Model Workflow\nThe package itself has some worked examples: https://www.tidymodels.org/start/models/"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#course-announcements",
-    "href": "content/lectures/13-inference-prediction-slides.html#course-announcements",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#course-announcements",
+    "href": "content/lectures/12-inference-prediction-slides.html#course-announcements",
+    "title": "12-inference-prediction",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n📄 Final Project Proposal due Wed 11/4 (11:59 PM)\n⌨️ Lab 05 due Fri 11/6 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 06 due Fri 11/6 (11:59 PM)\n📄 Final Project Proposal due Sun\n🔘 Lecture Participation survey “due” after class\n\nNote: hw02 graded; feedback posted as Issue on GH"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#agenda",
-    "href": "content/lectures/13-inference-prediction-slides.html#agenda",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#agenda",
+    "href": "content/lectures/12-inference-prediction-slides.html#agenda",
+    "title": "12-inference-prediction",
     "section": "Agenda",
     "text": "Agenda\n\nmodelling (conceptually)\ntidymodels\n\ninference\nmachine learning"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#discussion",
-    "href": "content/lectures/13-inference-prediction-slides.html#discussion",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#discussion",
+    "href": "content/lectures/12-inference-prediction-slides.html#discussion",
+    "title": "12-inference-prediction",
     "section": "🧠 Discussion",
     "text": "🧠 Discussion\n\nWhat is a model?\nHow are models used in inference? In machine learning?"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#tidymodels-philosophy",
-    "href": "content/lectures/13-inference-prediction-slides.html#tidymodels-philosophy",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#tidymodels-philosophy",
+    "href": "content/lectures/12-inference-prediction-slides.html#tidymodels-philosophy",
+    "title": "12-inference-prediction",
     "section": "tidymodels: philosophy",
     "text": "tidymodels: philosophy\n\n“Other packages, such as caret and mlr, help to solve the R model API issue. These packages do a lot of other things too: pre-processing, model tuning, resampling, feature selection, ensembling, and so on. In the tidyverse, we strive to make our packages modular and parsnip is designed only to solve the interface issue. It is not designed to be a drop-in replacement for caret. The tidymodels package collection, which includes parsnip, has other packages for many of these tasks, and they are designed to work together. We are working towards higher-level APIs that can replicate and extend what the current model packages can do.” - Max Kuhn (tidymodels developer)\n\n\nBenefits:\n\nStandardized workflow/format/notation across different types of machine learning algorithms\nCan easily modify pre-processing, algorithm choice, and hyper-parameter tuning making optimization easy"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#tidymodels-ecosystem",
-    "href": "content/lectures/13-inference-prediction-slides.html#tidymodels-ecosystem",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#tidymodels-ecosystem",
+    "href": "content/lectures/12-inference-prediction-slides.html#tidymodels-ecosystem",
+    "title": "12-inference-prediction",
     "section": "tidymodels: ecosystem",
     "text": "tidymodels: ecosystem\nThe main packages (and their roles):"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#inference-intro",
-    "href": "content/lectures/13-inference-prediction-slides.html#inference-intro",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#inference-intro",
+    "href": "content/lectures/12-inference-prediction-slides.html#inference-intro",
+    "title": "12-inference-prediction",
     "section": "Inference: intro",
     "text": "Inference: intro\nIn intro stats, you should have learned the central dogma of statistics: we sample from a population\n\n\nThe data from the sample are used to make an inference about the population:"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#inference-packages",
-    "href": "content/lectures/13-inference-prediction-slides.html#inference-packages",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#inference-packages",
+    "href": "content/lectures/12-inference-prediction-slides.html#inference-packages",
+    "title": "12-inference-prediction",
     "section": "Inference: packages",
     "text": "Inference: packages"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#tidymodels-1",
-    "href": "content/lectures/13-inference-prediction-slides.html#tidymodels-1",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#tidymodels-1",
+    "href": "content/lectures/12-inference-prediction-slides.html#tidymodels-1",
+    "title": "12-inference-prediction",
     "section": "tidymodels",
     "text": "tidymodels\nNot part of tidyverse; load separately\n\n# should already be installed for you on datahub\nlibrary(tidymodels)"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#step-1-specify-model",
-    "href": "content/lectures/13-inference-prediction-slides.html#step-1-specify-model",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#step-1-specify-model",
+    "href": "content/lectures/12-inference-prediction-slides.html#step-1-specify-model",
+    "title": "12-inference-prediction",
     "section": "Step 1: Specify model",
     "text": "Step 1: Specify model\n\nlinear_reg()"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#step-2-set-model-fitting-engine",
-    "href": "content/lectures/13-inference-prediction-slides.html#step-2-set-model-fitting-engine",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#step-2-set-model-fitting-engine",
+    "href": "content/lectures/12-inference-prediction-slides.html#step-2-set-model-fitting-engine",
+    "title": "12-inference-prediction",
     "section": "Step 2: Set model fitting engine",
     "text": "Step 2: Set model fitting engine\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") # lm: linear model"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#step-3-fit-model-estimate-parameters",
-    "href": "content/lectures/13-inference-prediction-slides.html#step-3-fit-model-estimate-parameters",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#step-3-fit-model-estimate-parameters",
+    "href": "content/lectures/12-inference-prediction-slides.html#step-3-fit-model-estimate-parameters",
+    "title": "12-inference-prediction",
     "section": "Step 3: Fit model & estimate parameters",
     "text": "Step 3: Fit model & estimate parameters\n… using formula syntax\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(outcome ~ predictor, data = df)"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#a-closer-look-at-model-output",
-    "href": "content/lectures/13-inference-prediction-slides.html#a-closer-look-at-model-output",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#a-closer-look-at-model-output",
+    "href": "content/lectures/12-inference-prediction-slides.html#a-closer-look-at-model-output",
+    "title": "12-inference-prediction",
     "section": "A closer look at model output",
     "text": "A closer look at model output\n\\[\\widehat{outcome}_{i} = \\beta_0 + \\beta_1 \\times predictor_{i}\\] . . .\n🧠   How do we read/interpret this model?"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#slope-and-intercept",
-    "href": "content/lectures/13-inference-prediction-slides.html#slope-and-intercept",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#slope-and-intercept",
+    "href": "content/lectures/12-inference-prediction-slides.html#slope-and-intercept",
+    "title": "12-inference-prediction",
     "section": "Slope and intercept",
     "text": "Slope and intercept\n\\[\\widehat{outcome}_{i} = \\beta_0 + \\beta_1 \\times predictor_{i}\\]\n\n\nSlope: For each additional unit increase in the predictor, we could expect the outcome, on average, to be higher, by \\(\\beta_1\\).\n\n\n\n\nIntercept: When the predictor is zero, we would expect the outcome to be \\(\\beta_0\\) on average."
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#ml-intro",
-    "href": "content/lectures/13-inference-prediction-slides.html#ml-intro",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#ml-intro",
+    "href": "content/lectures/12-inference-prediction-slides.html#ml-intro",
+    "title": "12-inference-prediction",
     "section": "ML: intro",
     "text": "ML: intro\nFor prediction, we have a similar sampling problem:\n\n\nBut now we are trying to build a rule that can be used to predict a single observation’s value of some characteristic using characteristics of the other observations."
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#ml-the-goal",
-    "href": "content/lectures/13-inference-prediction-slides.html#ml-the-goal",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#ml-the-goal",
+    "href": "content/lectures/12-inference-prediction-slides.html#ml-the-goal",
+    "title": "12-inference-prediction",
     "section": "ML: the goal",
     "text": "ML: the goal\nThe goal is to:\nbuild a machine learning algorithm\n\nthat uses features as input\n\n\nand predicts an outcome variable\n\n\nin the situation where we do not know the outcome variable.\n\n\n🧠   Summarize/Evaluate: How is this similar/different from inference?"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#classic-ml",
-    "href": "content/lectures/13-inference-prediction-slides.html#classic-ml",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#classic-ml",
+    "href": "content/lectures/12-inference-prediction-slides.html#classic-ml",
+    "title": "12-inference-prediction",
     "section": "Classic ML",
     "text": "Classic ML\nTypically, you use data where you have both the input and output data to train a machine learning algorithm.\n\nWhat you need:\n\n\nA data set to train from.\nAn algorithm or set of algorithms you can use to try values of \\(f\\).\nA distance metric \\(d\\) for measuring how close \\(Y\\) is to \\(\\hat{Y}\\).\nA definition of what a “good” distance is."
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#tidymodels-for-ml",
-    "href": "content/lectures/13-inference-prediction-slides.html#tidymodels-for-ml",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#tidymodels-for-ml",
+    "href": "content/lectures/12-inference-prediction-slides.html#tidymodels-for-ml",
+    "title": "12-inference-prediction",
     "section": "tidymodels for ML",
     "text": "tidymodels for ML\nHow these packages fit together for carrying out machine learning:"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction-slides.html#tidymodels-steps",
-    "href": "content/lectures/13-inference-prediction-slides.html#tidymodels-steps",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction-slides.html#tidymodels-steps",
+    "href": "content/lectures/12-inference-prediction-slides.html#tidymodels-steps",
+    "title": "12-inference-prediction",
     "section": "tidymodels: steps",
     "text": "tidymodels: steps"
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html",
-    "href": "content/lectures/13-inference-prediction.html",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html",
+    "href": "content/lectures/12-inference-prediction.html",
+    "title": "12-inference-prediction",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#topic-brainstorming",
-    "href": "content/lectures/13-inference-prediction.html#topic-brainstorming",
-    "title": "13-inference-prediction",
-    "section": "Topic Brainstorming",
-    "text": "Topic Brainstorming\nLet’s brainstorm some topics together…"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#part-i-imitation",
-    "href": "content/lectures/13-inference-prediction.html#part-i-imitation",
-    "title": "13-inference-prediction",
-    "section": "Part I: Imitation",
-    "text": "Part I: Imitation"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#fight-songs",
-    "href": "content/lectures/13-inference-prediction.html#fight-songs",
-    "title": "13-inference-prediction",
-    "section": "Fight Songs",
-    "text": "Fight Songs\n\nOriginalPlot (Sailor)Code (Sailor)Plot (v2)Code (v2)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight &lt;- read_csv('data/fight-songs.csv', show_col_types = FALSE)\n \n# Calculate avg_duration and avg_bpm across fight songs for classifying\navg_duration &lt;- mean(fight$sec_duration, na.rm = TRUE)\navg_bpm &lt;- mean(fight$bpm, na.rm = TRUE)\n\n# Begin ggplot\nggplot(fight, aes(x = sec_duration, y = bpm)) +\n  \n  # Making sure Notre Dame is colored and referenced differently \n  geom_point(aes(color = ifelse(school == \"Notre Dame\", \"Notre Dame\", factor(school))), size = 5, alpha = 0.5) +\n  scale_color_hue() +\n  geom_vline(xintercept = avg_duration, linetype = \"dotted\", color = \"black\", size = 0.7) +\n  geom_hline(yintercept = avg_bpm, linetype = \"dotted\", color = \"black\", size = 0.7) +\n   annotate(\"text\", x = avg_duration + 5, y = 100, label = \"AVERAGE\", angle = 90, vjust = -0.5, size = 3.5)  +\n  # Adding in my labels for quadrants + AVERAGE\n  annotate(\"text\", x = 0, y = avg_bpm + 5, label = \"AVERAGE\", hjust = -0.5, size = 3.5) +\n  annotate(\"text\", x = 30, y = 190, label = \"Fast and short\", size = 4) +\n  annotate(\"text\", x = 130, y = 190, label = \"Fast but long\", size = 4) +\n  annotate(\"text\", x = 30, y = 60, label = \"Slow but short\", size = 4) +\n  annotate(\"text\", x = 130, y = 60, label = \"Slow and long\", size = 4) +\n  geom_point(aes(x = 60, y = 150), color = \"black\", size = 5) +\n  annotate(\"text\", x = 60, y = 150, label = \"Notre Dame\", vjust = -1.5, fontface = \"bold\") +\n  labs(x = \"Duration\", y = \"Beats per minute\") +\n  \n  # Scale my axis to adjust to match original \n  \n  scale_x_continuous(breaks = seq(0, 180, by = 20)) +\n  scale_y_continuous(breaks = seq(40, 200, by = 20), limits = c(40, 200)) +\n  coord_fixed(ratio = 0.8) +  \n  theme_minimal() +\n  # Theme adjusting \n  \n  theme(\n    plot.margin = margin(t = 10, r = 10, b = 10, l = 20),\n    legend.position = \"none\",\n    panel.grid.minor = element_line(color = \"grey90\", linetype = \"solid\"),\n    panel.grid.major = element_line(color = \"grey80\", linetype = \"solid\"),\n    panel.border = element_rect(color = \"black\", fill = NA))\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nfight_songs_data &lt;- fight\nmean_bpm &lt;- mean(fight_songs_data$bpm, na.rm = TRUE)\nmean_duration &lt;- mean(fight_songs_data$sec_duration, na.rm = TRUE)\n\nggplot(fight_songs_data, aes(x = sec_duration, y = bpm)) +\n    geom_point(aes(color = school), alpha = 0.2, size = 5) +\n    geom_vline(xintercept = mean_duration, linetype = \"dotted\", color = \"black\") +\n    geom_hline(yintercept = mean_bpm, linetype = \"dotted\", color = \"black\") +\n    geom_point(data = filter(fight_songs_data, school == \"Stanford\"), \n               aes(x = sec_duration, y = bpm), \n               color = \"red\", size = 5, shape = 21, fill = \"red\") +\n    geom_text(data = filter(fight_songs_data, school == \"Stanford\"), \n              aes(x = sec_duration, y = bpm, label = \"Stanford\", fontface = \"bold\", family = \"Arial\"), \n              vjust = -1, color = \"black\", size = 4) +\n    labs(\n        title = \"How Stanford's Fight Song stacks up\",\n        x = \"Duration\",\n        y = \"Beats per minute\"\n    ) +\n    scale_y_continuous(breaks = seq(60, 200, by = 20),\n                       labels = c(\"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\", \"200bpm\"),\n                       limits = c(60, 200)) +\n    scale_x_continuous(breaks = seq(0, 180, by = 20), \n                       labels = c(\"0 sec\", \"20\", \"40\", \"60\", \"80\", \"100\", \"120\", \"140\", \"160\", \"180\")) +\n    annotate(\"text\", x = 10, y = 190, label = \"Fast and short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 10, y = 70, label = \"Slow but short\", size = 4, hjust = 0, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 190, label = \"Fast but long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = 140, y = 70, label = \"Slow and long\", size = 4, hjust = 1, family = \"Courier\") +\n    annotate(\"text\", x = max(fight_songs_data$sec_duration) - 20, y = mean_bpm, \n             label = \"AVERAGE\", vjust = 0.5, hjust = -0.1, color = \"black\", size = 3, family = \"Arial\") +\n    theme_minimal() +\n    theme(\n        legend.position = \"none\",\n        plot.title = element_text(hjust = 0.5, face = \"bold\", family = \"Arial\"),\n        panel.grid.major = element_line(size = 0.5),\n        panel.grid.minor = element_blank()\n    )"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#hate-crimes-adam",
-    "href": "content/lectures/13-inference-prediction.html#hate-crimes-adam",
-    "title": "13-inference-prediction",
-    "section": "Hate Crimes (Adam)",
-    "text": "Hate Crimes (Adam)\n\nOriginalPlotCode\n\n\n\n\n\nalt text\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# Load data\nurl &lt;- \"https://raw.githubusercontent.com/fivethirtyeight/data/master/hate-crimes/hate_crimes.csv\"\nhate_crimes &lt;- read_csv(url)\n\nstates_map &lt;- map_data(\"state\")\nhate_crimes &lt;- hate_crimes |&gt;\n  mutate(state = tolower(state)) \n\nmap_data &lt;- states_map |&gt;\n  left_join(hate_crimes, by = c(\"region\" = \"state\"))\n\n\n#Graph Numero Uno\n\nggplot(map_data, aes(x = long, y = lat, group = group, fill = avg_hatecrimes_per_100k_fbi)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#ffe4d0\", high = \"#ba3900\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"PRE-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch\n#Second Graph\nggplot(map_data, aes(x = long, y = lat, group = group, fill = hate_crimes_per_100k_splc)) +\n  geom_polygon(color = \"white\") +\n  scale_fill_gradient(low = \"#b0e2c8\", high = \"#006646\", na.value = \"gray\", name = \"Hate Crimes\\nper 100k\") +\n  labs(title = \"POST-ELECTION HATE CRIME RATES POST-ELECTION\",\n       subtitle = \"Average annual hate crimes per 100,000 residents, 2010-15\") +\n  theme_minimal() +\n  theme(    axis.text.x = element_blank(),\n    plot.title = element_text(face = 'bold'),\n    axis.ticks.x = element_blank(),\n    axis.text.y = element_blank(),\n    axis.ticks.y = element_blank(),\n    axis.title.x = element_blank(),\n    axis.title.y = element_blank(),\n    panel.grid = element_blank(),\n    legend.position = \"top\", \n    legend.title = element_text(size=6),\n    \n  ) +\n  coord_fixed(1.3) #Unstretch"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#congress-age",
-    "href": "content/lectures/13-inference-prediction.html#congress-age",
-    "title": "13-inference-prediction",
-    "section": "Congress Age",
-    "text": "Congress Age\n\nOriginalPlotCode\n\n\n\n\n\nMedian Age of Congress\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncongress_data = read_csv(\"data/data_aging_congress.csv\")\n\ncongress_data &lt;- congress_data |&gt;\n  mutate(year = as.numeric(format(start_date, \"%Y\")))  #Extracted year from start_date\n\n#Grouping Congress by session to calculate median age\ncongress_median_age &lt;- congress_data |&gt;\n  group_by(congress, year, chamber) |&gt;\n  summarise(median_age = median(age_years, na.rm = TRUE)) |&gt;\n  ungroup()\n\nggplot(congress_median_age, aes(x = year, y = median_age, color = chamber)) +\n  geom_step(linewidth = 1) +  \n  #Senate\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"Senate\", year == 2023),  \n            aes(label = \"65.3\"), \n            hjust = -0.2, vjust = +0.3, size = 3, color = \"black\", show.legend = FALSE) + \n  #House\n  geom_text(data = congress_median_age |&gt; \n              filter(chamber == \"House\", year == 2023), \n            aes(label = \"57.8\"), \n            hjust = -0.2, vjust = -0.5, size = 3, color = \"black\", show.legend = FALSE) +\n  #Titles\n  labs(title = \"Median Age of the U.S. Senate and House by Congress, 1919 to 2023\",\n       subtitle = \"The House and Senate are older than ever before\",\n       x = \"Year\",\n       y = \"Median Age\",\n       color = \"Chamber\") +  \n    scale_color_manual(values = c(\"Senate\" = \"#5b41d1\", \"House\" = \"#55aa5c\"))+\n  #Scaling both axis\n  scale_x_continuous(limits = c(min(congress_median_age$year), max(congress_median_age$year)), breaks = seq(1920, 2020, by =  10)) +\n  scale_y_continuous(limits = c(45, NA)) +\n  theme_minimal() +  \n  theme(plot.title = element_text(face = \"bold\", size = 14),  \n        plot.subtitle = element_text(size = 10),\n        axis.title = element_text(size = 12),\n        legend.position = \"top\",\n        aspect.ratio = 1/4,\n        panel.grid.major.x = element_blank(),\n        panel.grid.minor.x = element_blank(),\n        panel.grid.minor.y = element_blank())"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#part-ii-sad-plot",
-    "href": "content/lectures/13-inference-prediction.html#part-ii-sad-plot",
-    "title": "13-inference-prediction",
-    "section": "Part II: Sad Plot",
-    "text": "Part II: Sad Plot"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#votes",
-    "href": "content/lectures/13-inference-prediction.html#votes",
-    "title": "13-inference-prediction",
-    "section": "Votes",
-    "text": "Votes\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n# estimate data\nd &lt;- data.frame(\n  area = rep(c('Rural', 'Suburban', 'Urban'), each = 2),\n  voted = rep(c('Biden', 'Trump'), times = 3),\n  percentages = c(35, 65, 55, 45, 70, 30)\n)\n\n# plot\n\nggplot(d, aes(x = area, y = percentages, fill = voted)) +\n  geom_bar(stat = \"identity\", position = \"dodge\") +\n  labs(\n    title = \"Votes for Trump and Biden in 2020 Elecxtion Based on Location\",\n    x = \"Location\",\n    y = \"Percentage of Votes\",\n    fill = \"Candidate\"  # Legend title\n  ) +\n  scale_y_continuous(breaks = seq(0, 100, by = 10), limits = c(0, 80)) +\n  theme_minimal() +\n  scale_fill_manual(values = c(\"#0033A0\", \"#C8102E\"))  # Custom colors for groups"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#cs01-data-sandy",
-    "href": "content/lectures/13-inference-prediction.html#cs01-data-sandy",
-    "title": "13-inference-prediction",
-    "section": "CS01 Data (Sandy)",
-    "text": "CS01 Data (Sandy)\n\nOriginalPlotCode\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWB &lt;- read_csv(\"data/Blood.csv\")\n\nWB &lt;- WB |&gt; \n  mutate(Treatment = fct_recode(Treatment, \n                                \"5.9% THC (low dose)\" = \"5.90%\",\n                                \"13.4% THC (high dose)\" = \"13.40%\"),\n         Treatment = fct_relevel(Treatment, \"Placebo\", \"5.9% THC (low dose)\"),\n         Group = fct_recode(Group,\n                            \"Frequent User\" = \"Frequent user\",\n                            \"Occasional User\" = \"Occasional user\")) |&gt; \n  janitor::clean_names() |&gt;\n  rename(thcoh = x11_oh_thc,\n         thccooh = thc_cooh,\n         thccooh_gluc = thc_cooh_gluc,\n         thcv = thc_v) |&gt;\n  mutate(timepoint = case_when(time_from_start &lt; 0 ~ \"pre-smoking\",\n                               time_from_start &gt; 0 & time_from_start &lt;= 30 ~ \"0-30 min\",\n                               time_from_start &gt; 30 & time_from_start &lt;= 70 ~ \"31-70 min\",\n                               time_from_start &gt; 70 & time_from_start &lt;= 100 ~ \"71-100 min\",\n                               time_from_start &gt; 100 & time_from_start &lt;= 180 ~ \"101-180 min\",\n                               time_from_start &gt; 180 & time_from_start &lt;= 210 ~ \"181-210 min\",\n                               time_from_start &gt; 210 & time_from_start &lt;= 240 ~ \"211-240 min\",\n                               time_from_start &gt; 240 & time_from_start &lt;= 270 ~ \"241-270 min\",\n                               time_from_start &gt; 270 & time_from_start &lt;= 300 ~ \"271-300 min\",\n                               time_from_start &gt; 300 ~ \"301+ min\"))\n\nWB |&gt;\n  ggplot(mapping = aes(x = time_from_start,\n                       y = thccooh,\n                       color = group)) +\n  geom_point(size = 3) +\n  labs(x = \"Time After Smoking (Minutes)\", y = \"THCCOOH\", \n       title = \"Change in THCCOOH Levels After Smoking\",\n       subtitle = \"Levels measured over time for frequent and occasional users\",\n       color = \"Group\") +\n  theme(plot.title = element_text(size = 20, hjust = 0, vjust = 2),\n        plot.subtitle = element_text(size = 16, hjust = 0, vjust = 1)) +\n  scale_color_manual(values = c(\"Frequent User\" = \"#fc8d59\",\n                                \"Occasional User\" = \"#91bfdb\")) +\n  theme_minimal()"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#qa",
-    "href": "content/lectures/13-inference-prediction.html#qa",
-    "title": "13-inference-prediction",
-    "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
-  },
-  {
-    "objectID": "content/lectures/13-inference-prediction.html#suggested-reading",
-    "href": "content/lectures/13-inference-prediction.html#suggested-reading",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#suggested-reading",
+    "href": "content/lectures/12-inference-prediction.html#suggested-reading",
+    "title": "12-inference-prediction",
     "section": "Suggested Reading",
-    "text": "Suggested Reading\n\nTidy Modeling with R Chapter 7: A Model Workflow\nThe package itself has some worked examples: https://www.tidymodels.org/start/models/"
+    "text": "Suggested Reading\n\nTidy Modeling with R Chapter 7: A Model Workflow\nThe package itself has some worked examples: https://www.tidymodels.org/start/models/",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#course-announcements",
-    "href": "content/lectures/13-inference-prediction.html#course-announcements",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#course-announcements",
+    "href": "content/lectures/12-inference-prediction.html#course-announcements",
+    "title": "12-inference-prediction",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n📄 Final Project Proposal due Wed 11/4 (11:59 PM)\n⌨️ Lab 05 due Fri 11/6 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 06 due Fri 11/6 (11:59 PM)\n📄 Final Project Proposal due Sun\n🔘 Lecture Participation survey “due” after class\n\nNote: hw02 graded; feedback posted as Issue on GH",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#agenda",
-    "href": "content/lectures/13-inference-prediction.html#agenda",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#agenda",
+    "href": "content/lectures/12-inference-prediction.html#agenda",
+    "title": "12-inference-prediction",
     "section": "Agenda",
-    "text": "Agenda\n\nmodelling (conceptually)\ntidymodels\n\ninference\nmachine learning"
+    "text": "Agenda\n\nmodelling (conceptually)\ntidymodels\n\ninference\nmachine learning",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#discussion",
-    "href": "content/lectures/13-inference-prediction.html#discussion",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#discussion",
+    "href": "content/lectures/12-inference-prediction.html#discussion",
+    "title": "12-inference-prediction",
     "section": "🧠 Discussion",
-    "text": "🧠 Discussion\n\nWhat is a model?\nHow are models used in inference? In machine learning?"
+    "text": "🧠 Discussion\n\nWhat is a model?\nHow are models used in inference? In machine learning?",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#tidymodels-philosophy",
-    "href": "content/lectures/13-inference-prediction.html#tidymodels-philosophy",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#tidymodels-philosophy",
+    "href": "content/lectures/12-inference-prediction.html#tidymodels-philosophy",
+    "title": "12-inference-prediction",
     "section": "tidymodels: philosophy",
-    "text": "tidymodels: philosophy\n\n“Other packages, such as caret and mlr, help to solve the R model API issue. These packages do a lot of other things too: pre-processing, model tuning, resampling, feature selection, ensembling, and so on. In the tidyverse, we strive to make our packages modular and parsnip is designed only to solve the interface issue. It is not designed to be a drop-in replacement for caret. The tidymodels package collection, which includes parsnip, has other packages for many of these tasks, and they are designed to work together. We are working towards higher-level APIs that can replicate and extend what the current model packages can do.” - Max Kuhn (tidymodels developer)\n\n. . .\nBenefits:\n\nStandardized workflow/format/notation across different types of machine learning algorithms\nCan easily modify pre-processing, algorithm choice, and hyper-parameter tuning making optimization easy"
+    "text": "tidymodels: philosophy\n\n“Other packages, such as caret and mlr, help to solve the R model API issue. These packages do a lot of other things too: pre-processing, model tuning, resampling, feature selection, ensembling, and so on. In the tidyverse, we strive to make our packages modular and parsnip is designed only to solve the interface issue. It is not designed to be a drop-in replacement for caret. The tidymodels package collection, which includes parsnip, has other packages for many of these tasks, and they are designed to work together. We are working towards higher-level APIs that can replicate and extend what the current model packages can do.” - Max Kuhn (tidymodels developer)\n\n. . .\nBenefits:\n\nStandardized workflow/format/notation across different types of machine learning algorithms\nCan easily modify pre-processing, algorithm choice, and hyper-parameter tuning making optimization easy",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#tidymodels-ecosystem",
-    "href": "content/lectures/13-inference-prediction.html#tidymodels-ecosystem",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#tidymodels-ecosystem",
+    "href": "content/lectures/12-inference-prediction.html#tidymodels-ecosystem",
+    "title": "12-inference-prediction",
     "section": "tidymodels: ecosystem",
-    "text": "tidymodels: ecosystem\nThe main packages (and their roles):"
+    "text": "tidymodels: ecosystem\nThe main packages (and their roles):",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#inference-intro",
-    "href": "content/lectures/13-inference-prediction.html#inference-intro",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#inference-intro",
+    "href": "content/lectures/12-inference-prediction.html#inference-intro",
+    "title": "12-inference-prediction",
     "section": "Inference: intro",
-    "text": "Inference: intro\nIn intro stats, you should have learned the central dogma of statistics: we sample from a population\n\n. . .\nThe data from the sample are used to make an inference about the population:"
+    "text": "Inference: intro\nIn intro stats, you should have learned the central dogma of statistics: we sample from a population\n\n. . .\nThe data from the sample are used to make an inference about the population:",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#inference-packages",
-    "href": "content/lectures/13-inference-prediction.html#inference-packages",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#inference-packages",
+    "href": "content/lectures/12-inference-prediction.html#inference-packages",
+    "title": "12-inference-prediction",
     "section": "Inference: packages",
-    "text": "Inference: packages"
+    "text": "Inference: packages",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#tidymodels-1",
-    "href": "content/lectures/13-inference-prediction.html#tidymodels-1",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#tidymodels-1",
+    "href": "content/lectures/12-inference-prediction.html#tidymodels-1",
+    "title": "12-inference-prediction",
     "section": "tidymodels",
-    "text": "tidymodels\nNot part of tidyverse; load separately\n\n# should already be installed for you on datahub\nlibrary(tidymodels)"
+    "text": "tidymodels\nNot part of tidyverse; load separately\n\n# should already be installed for you on datahub\nlibrary(tidymodels)",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#step-1-specify-model",
-    "href": "content/lectures/13-inference-prediction.html#step-1-specify-model",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#step-1-specify-model",
+    "href": "content/lectures/12-inference-prediction.html#step-1-specify-model",
+    "title": "12-inference-prediction",
     "section": "Step 1: Specify model",
-    "text": "Step 1: Specify model\n\nlinear_reg()"
+    "text": "Step 1: Specify model\n\nlinear_reg()",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#step-2-set-model-fitting-engine",
-    "href": "content/lectures/13-inference-prediction.html#step-2-set-model-fitting-engine",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#step-2-set-model-fitting-engine",
+    "href": "content/lectures/12-inference-prediction.html#step-2-set-model-fitting-engine",
+    "title": "12-inference-prediction",
     "section": "Step 2: Set model fitting engine",
-    "text": "Step 2: Set model fitting engine\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") # lm: linear model"
+    "text": "Step 2: Set model fitting engine\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") # lm: linear model",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#step-3-fit-model-estimate-parameters",
-    "href": "content/lectures/13-inference-prediction.html#step-3-fit-model-estimate-parameters",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#step-3-fit-model-estimate-parameters",
+    "href": "content/lectures/12-inference-prediction.html#step-3-fit-model-estimate-parameters",
+    "title": "12-inference-prediction",
     "section": "Step 3: Fit model & estimate parameters",
-    "text": "Step 3: Fit model & estimate parameters\n… using formula syntax\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(outcome ~ predictor, data = df)"
+    "text": "Step 3: Fit model & estimate parameters\n… using formula syntax\n\nlinear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  fit(outcome ~ predictor, data = df)",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#a-closer-look-at-model-output",
-    "href": "content/lectures/13-inference-prediction.html#a-closer-look-at-model-output",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#a-closer-look-at-model-output",
+    "href": "content/lectures/12-inference-prediction.html#a-closer-look-at-model-output",
+    "title": "12-inference-prediction",
     "section": "A closer look at model output",
-    "text": "A closer look at model output\n\\[\\widehat{outcome}_{i} = \\beta_0 + \\beta_1 \\times predictor_{i}\\] . . .\n🧠   How do we read/interpret this model?"
+    "text": "A closer look at model output\n\\[\\widehat{outcome}_{i} = \\beta_0 + \\beta_1 \\times predictor_{i}\\] . . .\n🧠   How do we read/interpret this model?",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#slope-and-intercept",
-    "href": "content/lectures/13-inference-prediction.html#slope-and-intercept",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#slope-and-intercept",
+    "href": "content/lectures/12-inference-prediction.html#slope-and-intercept",
+    "title": "12-inference-prediction",
     "section": "Slope and intercept",
-    "text": "Slope and intercept\n\\[\\widehat{outcome}_{i} = \\beta_0 + \\beta_1 \\times predictor_{i}\\]\n. . .\n\nSlope: For each additional unit increase in the predictor, we could expect the outcome, on average, to be higher, by \\(\\beta_1\\).\n\n. . .\n\nIntercept: When the predictor is zero, we would expect the outcome to be \\(\\beta_0\\) on average."
+    "text": "Slope and intercept\n\\[\\widehat{outcome}_{i} = \\beta_0 + \\beta_1 \\times predictor_{i}\\]\n. . .\n\nSlope: For each additional unit increase in the predictor, we could expect the outcome, on average, to be higher, by \\(\\beta_1\\).\n\n. . .\n\nIntercept: When the predictor is zero, we would expect the outcome to be \\(\\beta_0\\) on average.",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#ml-intro",
-    "href": "content/lectures/13-inference-prediction.html#ml-intro",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#ml-intro",
+    "href": "content/lectures/12-inference-prediction.html#ml-intro",
+    "title": "12-inference-prediction",
     "section": "ML: intro",
-    "text": "ML: intro\nFor prediction, we have a similar sampling problem:\n\n. . .\nBut now we are trying to build a rule that can be used to predict a single observation’s value of some characteristic using characteristics of the other observations."
+    "text": "ML: intro\nFor prediction, we have a similar sampling problem:\n\n. . .\nBut now we are trying to build a rule that can be used to predict a single observation’s value of some characteristic using characteristics of the other observations.",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#ml-the-goal",
-    "href": "content/lectures/13-inference-prediction.html#ml-the-goal",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#ml-the-goal",
+    "href": "content/lectures/12-inference-prediction.html#ml-the-goal",
+    "title": "12-inference-prediction",
     "section": "ML: the goal",
-    "text": "ML: the goal\nThe goal is to:\nbuild a machine learning algorithm\n. . .\nthat uses features as input\n. . .\nand predicts an outcome variable\n. . .\nin the situation where we do not know the outcome variable.\n. . .\n🧠   Summarize/Evaluate: How is this similar/different from inference?"
+    "text": "ML: the goal\nThe goal is to:\nbuild a machine learning algorithm\n. . .\nthat uses features as input\n. . .\nand predicts an outcome variable\n. . .\nin the situation where we do not know the outcome variable.\n. . .\n🧠   Summarize/Evaluate: How is this similar/different from inference?",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#classic-ml",
-    "href": "content/lectures/13-inference-prediction.html#classic-ml",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#classic-ml",
+    "href": "content/lectures/12-inference-prediction.html#classic-ml",
+    "title": "12-inference-prediction",
     "section": "Classic ML",
-    "text": "Classic ML\nTypically, you use data where you have both the input and output data to train a machine learning algorithm.\n. . .\nWhat you need:\n\n\nA data set to train from.\nAn algorithm or set of algorithms you can use to try values of \\(f\\).\nA distance metric \\(d\\) for measuring how close \\(Y\\) is to \\(\\hat{Y}\\).\nA definition of what a “good” distance is."
+    "text": "Classic ML\nTypically, you use data where you have both the input and output data to train a machine learning algorithm.\n. . .\nWhat you need:\n\n\nA data set to train from.\nAn algorithm or set of algorithms you can use to try values of \\(f\\).\nA distance metric \\(d\\) for measuring how close \\(Y\\) is to \\(\\hat{Y}\\).\nA definition of what a “good” distance is.",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#tidymodels-for-ml",
-    "href": "content/lectures/13-inference-prediction.html#tidymodels-for-ml",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#tidymodels-for-ml",
+    "href": "content/lectures/12-inference-prediction.html#tidymodels-for-ml",
+    "title": "12-inference-prediction",
     "section": "tidymodels for ML",
-    "text": "tidymodels for ML\nHow these packages fit together for carrying out machine learning:"
+    "text": "tidymodels for ML\nHow these packages fit together for carrying out machine learning:",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
-    "objectID": "content/lectures/13-inference-prediction.html#tidymodels-steps",
-    "href": "content/lectures/13-inference-prediction.html#tidymodels-steps",
-    "title": "13-inference-prediction",
+    "objectID": "content/lectures/12-inference-prediction.html#tidymodels-steps",
+    "href": "content/lectures/12-inference-prediction.html#tidymodels-steps",
+    "title": "12-inference-prediction",
     "section": "tidymodels: steps",
-    "text": "tidymodels: steps"
+    "text": "tidymodels: steps",
+    "crumbs": [
+      "Notes",
+      "12: Inference vs. Prediction"
+    ]
   },
   {
     "objectID": "content/lectures/15-cs02-analysis-slides.html#qa",
