@@ -1,14 +1,15 @@
 ---
-title: "14-regression"
+title: "13-regression"
 author: "Professor Shannon Ellis"
 date: "2026-11-06"
 
 format:
   html: 
-    output-file: 14-regression.html
+    output-file: 13-regression.html
   revealjs:
-    output-file: 14-regression-slides.html
+    output-file: 13-regression-slides.html
 ---
+
 ```{r echo = FALSE, message=FALSE, warning=FALSE}
 library(patchwork)
 
@@ -22,56 +23,38 @@ color_palette <- list(gray = "#999999",
                       purple = "#CC79A7")
 ```
 
-## Q&A {.scrollable .smaller}
-
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-
-::: {.callout-note collapse="true" title="Q: "}
-A: 
-:::
-
 ## Course Announcements
 
 **Due Dates**:
 
--   ⌨️ **Lab 05** due Fri 11/6 (11:59 PM)
--   ⌨️ **Lab 06** due Fri 11/13 (11:59 PM)
+-   ⌨️ **Lab 06** due today (11:59 PM)
+-   📄 **Final Project Proposal** due Sun
 -   🔘 Lecture Participation survey "due" after class
-
-<!-- FA24 announcements, kept for reference:
-**Due Dates**
-
--   `r emo::ji("science")` **Lab 06** due Thursday
--   `r emo::ji('clipboard')` Lecture Participation survey "due" after class
-
-**Notes**
-
-- lab05 scores posted; cs01 scores/feedback posted by EOD
-- lab07 now available | longer than typical labs
-- Reminder to add any CS02 EDA you want to share with your classmates to the [padlet from last class](https://padlet.com/shannon0ellis/cs02-eda-9fn2bbxjm3qfc3d3)
--->
 
 ## Agenda
 
-- Simple linear regression (review)
-- Multiple linear regression
-- Model Comparison
-- Backward Selection
+-   Simple linear regression (review)
+-   Multiple linear regression
+-   Model Comparison
+-   Backward Selection
 
 ## Suggested Reading
 
-- [IMS Ch7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
-- [IMS Ch8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
+-   [IMS Ch7: Linear regression with a single predictor](https://openintro-ims.netlify.app/model-slr)
+-   [IMS Ch8: Linear regression with multiple predictors](https://openintro-ims.netlify.app/model-mlr)
 
 # Linear Regression {background-color="#92A86A"}
 
 ## Setup
-```{r, message=FALSE}
+
+```{r}
+#| warning: false
+#| message: false
+
+
 library(tidyverse)
 library(tidymodels)
-library(olsrr) # will need to be installed
 ```
-
 
 ## Data
 
@@ -101,10 +84,10 @@ ggplot(pm, aes(x=CMAQ, y=value)) +
 
 $$ \hat{y} = b_0 + b_1~x_1 $$
 
-- $\hat{y}$ | outcome
-- $x_1$ | predictor
-- $b_0$ | y-intercept
-- $b_1$ | slope (effect size)
+-   $\hat{y}$ \| outcome
+-   $x_1$ \| predictor
+-   $b_0$ \| y-intercept
+-   $b_1$ \| slope (effect size)
 
 ## Step 1: Specify model
 
@@ -133,7 +116,7 @@ mod_cmaq_value |>
   tidy()
 ```
 
-. . . 
+. . .
 
 $$\widehat{PM2.5}_{i} = 7.40 + 0.405 \times CMAQ_{i}$$
 
@@ -149,14 +132,13 @@ ggplot(data = pm, aes(x = CMAQ, y = value)) +
 
 $$\widehat{PM2.5}_{i} = 7.40 + 0.405 \times CMAQ_{i}$$
 
-. . . 
+. . .
 
--   **Slope:** For each one unit increase in CMAQ, we expect PM2.5 to increase, on average, by 0.405 ug/m^3.
+-   **Slope:** For each one unit increase in CMAQ, we expect PM2.5 to increase, on average, by 0.405 ug/m\^3.
 
-. . . 
+. . .
 
--   **Intercept:** Monitors in areas with a CMAQ of zero are expected to have PM2.5 values of 7.4 ug/m^3, on average. (Recall: WHO exposure guideline is < 10 ug/m^3 on average annually for PM2.5)
-
+-   **Intercept:** Monitors in areas with a CMAQ of zero are expected to have PM2.5 values of 7.4 ug/m\^3, on average. (Recall: WHO exposure guideline is \< 10 ug/m\^3 on average annually for PM2.5)
 
 ## Model Understanding
 
@@ -166,10 +148,9 @@ $$\widehat{PM2.5}_{i} = 7.40 + 0.405 \times CMAQ_{i}$$
 
 ## ❗️Prediction vs. extrapolation
 
-[`r emo::ji("question")` What would we expect the PM2.5 value to be in an area with a CMAQ of 100? $$\widehat{PM2.5}_{i} = 7.40 + 0.405 \times 100$$
-]{style="background-color: #ADD8E6"}
+[`r emo::ji("question")` What would we expect the PM2.5 value to be in an area with a CMAQ of 100? $$\widehat{PM2.5}_{i} = 7.40 + 0.405 \times 100$$]{style="background-color: #ADD8E6"}
 
-. . . 
+. . .
 
 ```{r extrapolate, warning = FALSE, echo=FALSE, message=FALSE, fig.height=2.75}
 newdata <- tibble(CMAQ = 100)
@@ -184,7 +165,6 @@ ggplot(data = pm, aes(x = CMAQ, y = value)) +
   geom_segment(data = newdata, mapping = aes(x = CMAQ, y = 0, xend = CMAQ, yend = value$.pred), color = color_palette$salmon, lty = 2) +
   geom_segment(data = newdata, mapping = aes(x = CMAQ, y = value$.pred, xend = 0, yend = value$.pred), color = color_palette$salmon, lty = 2)
 ```
-
 
 ## Measuring the strength of the fit
 
@@ -205,13 +185,13 @@ glance(mod_cmaq_value)$r.squared # extract R-squared
 
 Roughly 21.7% of the variability in PM2.5 values can be explained by CMAQ.
 
-. . . 
+. . .
 
 ...suggests that we can do better to explain the variance in PM2.5 values
 
 # Multiple predictors (MLR) {background-color="#92A86A"}
 
-## MLR 
+## MLR
 
 -   Sample model that we use to estimate the population model:
 
@@ -219,7 +199,7 @@ $$ \hat{y} = b_0 + b_1~x_1 + b_2~x_2 + \cdots + b_k~x_k $$
 
 ## Updated question
 
-> What is the relationship between CMAQ & population density (predictors) and  and PM2.5 values (outcome)?
+> What is the relationship between CMAQ & population density (predictors) and and PM2.5 values (outcome)?
 
 -   Response variable: `value` (PM2.5)
 -   Explanatory variables: `CMAQ` and Population Density hi/low
@@ -241,9 +221,8 @@ pm <- pm |>
 ::: panel-tabset
 ### Plot
 
-```{r ref.label = "pm25", echo = FALSE, warning = FALSE, out.width="100%"}
+```{r ref.label = "pm25", echo = FALSE, warning = FALSE, out.width="80%"}
 ```
-
 
 ### Code
 
@@ -259,7 +238,7 @@ ggplot(data = pm, aes(x = value, fill = popdens)) +
 
 ## Two ways to model
 
-:::incremental
+::: incremental
 -   **Main effects:** Assuming relationship between CMAQ and PM2.5 **does not vary** by whether it's a low or high population density monitor.
 -   **Interaction effects:** Assuming relationship between CMAQ and PM2. **varies** by whether or not it's a low or high population density monitor.
 :::
@@ -313,7 +292,7 @@ p_main /
 :::
 :::
 
-. . . 
+. . .
 
 [`r emo::ji("question")` Which does your intuition/knowledge of the data suggest is more appropriate?]{style="background-color: #ADD8E6"}
 
@@ -328,11 +307,11 @@ pm_main_fit <- lin_mod |>
 pm_main_fit |> tidy()
 ```
 
-. . . 
+. . .
 
 $$\widehat{PM2.5} = 7.70 + 0.389 \times CMAQ - 0.345 \times popdens$$
 
-. . . 
+. . .
 
 [`r emo::ji("question")` How do we interpret this model?]{style="background-color: #ADD8E6"}
 
@@ -343,7 +322,7 @@ $$\widehat{PM2.5} = 7.70 + 0.389 \times CMAQ - 0.345 \times popdens$$
 $$\widehat{PM2.5} = 7.70 + 0.389 \times CMAQ - 0.345 \times 0$$\
 $= 7.70 + 0.389 \times CMAQ$
 
-. . . 
+. . .
 
 -   Low-population density: Plug in 1 for `popdens`
 
@@ -379,11 +358,6 @@ pm_main_fit |>
 -   PM2.5 values in high-density areas with a CMAQ of zero, would expect to have a PM2.5 value of 7.7.
 :::
 
-
-## Day 2 · Mon 11/9 {background-color="#92A86A"}
-
-Interaction effects, comparing models & model selection.
-
 ## Interaction: `CMAQ * popdens` {.smaller}
 
 ```{r out.width="80%", echo = FALSE}
@@ -415,7 +389,7 @@ $$\widehat{PM2.5} = 8.35 + 0.32 \times CMAQ - 1.45 \times popdens + 0.13 \times 
 -   Rate of change in PM2.5 as CMAQ increases varies depending upon PopDens (different slopes & intercepts)
 :::
 
-. . . 
+. . .
 
 ::: {.column width="50%"}
 ```{r viz-interaction-effects2, out.width="100%", echo = FALSE}
@@ -423,11 +397,9 @@ p_int
 ```
 :::
 
-
 # Comparing models {background-color="#92A86A"}
 
 ## R-squared {.small}
-
 
 -   $R^2$ is the percentage of variability in the response variable explained by the regression model.
 
@@ -437,16 +409,15 @@ glance(pm_main_fit)$r.squared
 glance(pm_int_fit)$r.squared
 ```
 
-. . . 
+. . .
 
 -   The model with interactions has a slightly higher $R^2$.
 
-. . . 
+. . .
 
 -   However using $R^2$ for model selection in models with multiple explanatory variables is not a good idea as $R^2$ increases when **any** variable is added to the model.
 
 ## Adjusted R-squared {.small}
-
 
 Adjusted R-squared adjusts for number of terms in the model
 
@@ -456,7 +427,6 @@ glance(pm_int_fit)$adj.r.squared
 ```
 
 It appears that adding the interaction actually increased adjusted $R^2$, so we should indeed use the model with the interactions.
-
 
 ## In pursuit of Occam's razor {.smaller}
 
@@ -474,8 +444,7 @@ It appears that adding the interaction actually increased adjusted $R^2$, so we 
 
 ## Backward selection {.small}
 
-
-::: {.small}
+::: small
 For this demo, we'll ignore interaction effects...and just model main effects:
 :::
 
@@ -500,7 +469,7 @@ pm_full <-  lin_mod |>
 
 -   Adjusted $R^2$ (full): `r round(glance(pm_full)$adj.r.squared, 4)`
 
-. . . 
+. . .
 
 **Remove `zcta_area`**
 
@@ -511,71 +480,20 @@ pm_noarea <-  lin_mod |>
 glance(pm_noarea)$adj.r.squared
 ```
 
-. . . 
+. . .
 
 -   Adjusted $R^2$ (full): `r round(glance(pm_full)$adj.r.squared, 4)`
 -   Adjusted $R^2$ (no `zcta_area`): `r round(glance(pm_noarea)$adj.r.squared, 4)`
 
 ...*Increased* improved variance explained, so remove variable
 
-. . . 
+. . .
 
-... continue to remove one by one until max variance explained is achieved. But, that process is tedious.
+... continue to remove one variable at a time until adjusted $R^2$ stops improving. (You'll do this yourself in Lab 07.)
 
-## Other approach: `olsrr` {.small}
-
-```{r}
-# requires package installation: 
-# install.packages("olsrr")
-library(olsrr)
-```
-
-. . . 
-
-**Step 1: Fit full model (w/o `tidymodels`)**
-
-::: {.smallest}
-Note: I'm only fitting a handful of variables to demo how it works. Theoretically, you would fit the full model and compare all combinations.
-:::
-
-```{r}
-# fit the model (not using tidymodels)
-mod <- lm(value ~ log_pri_length_25000 + log_prisec_length_15000 +
-          log_nei_2008_pm25_sum_15000 , data=pm)
-```
-
-. . . 
-
-**Step 2: Determine which variables to remove**
-
-```{r,  cache=TRUE}
-ols_step_backward_p(mod)
-```
-
-...specifies that `log_pri_length_25000` should be removed
-
-. . . 
-
-**Step 2 (alternate): Compare all possible models...**
-
-```{r, cache=TRUE}
-ols_step_all_possible(mod) |>
-  arrange(desc(adjr))
-```
-
-## On the full model
-
-This will take a while to run: 
-
-```{r, cache=TRUE, message=FALSE}
-mod_full <- lm(value ~ ., data = pm_model)
-ols_step_backward_p(mod_full)
-```
-
-. . . 
+## Why this matters for CS02
 
 [`r emo::ji("question")` How does this maybe inform our ultimate goal (building a prediction model)?]{style="background-color: #ADD8E6"}
-
 
 ## Recap {.smaller background-color="#92A86A"}
 
@@ -583,6 +501,3 @@ ols_step_backward_p(mod_full)
 -   Can you explain the difference in a model with main effects vs. interaction effects?
 -   Can you compare different models and determine how to proceed?
 -   Can you carry out and explain backward selection?
-
-
-

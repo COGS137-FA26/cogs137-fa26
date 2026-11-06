@@ -20,42 +20,40 @@ knitr::opts_chunk$set(dpi = 300, echo=TRUE, warning=FALSE, message=FALSE)
 
 ## Q&A {.scrollable .smaller}
 
-
 ::: {.callout-note collapse="true" title="Q: if our extension for cs02 was to update the data to something more recent, would we have to work with both the 2008 data and the new data, or just use the new data? "}
 A: We'd want to see both, with a comparison with what has changed.
 :::
-
 
 ::: {.callout-note collapse="true" title="Q: I'm curious about some more of the ways people use gen AI to help them during and after their first draft. "}
 A: I'm curious too for more thoughts on the lecture-specific disucssion! From what y'all said in lab 05 (summarized):
 
 Creative ways to use GenAI:
 
-- Feedback on visualizations 
-- AI as grader or critical reviewer (Catching duplicated work across teammates; jargon-only proofread; grader primed with your past feedback)
-- AI as a naive audience (Explain it back to me.)
-- Debugging and code cleanup (AI-generated edge cases to stress-test code, like how cutoff values would be handled)
-- Brainstorming analyses 
-- Challenging conclusions: Alternative explanations, limitations, confounders, counterarguments.
-- Report structure and flow
-- Finding sources or background
-- explaining concepts like sensitivity and specificity (mock debate on sensitivity vs. specificity)
-- team planning and dividing tasks
-- and generating test data for code 
+-   Feedback on visualizations
+-   AI as grader or critical reviewer (Catching duplicated work across teammates; jargon-only proofread; grader primed with your past feedback)
+-   AI as a naive audience (Explain it back to me.)
+-   Debugging and code cleanup (AI-generated edge cases to stress-test code, like how cutoff values would be handled)
+-   Brainstorming analyses
+-   Challenging conclusions: Alternative explanations, limitations, confounders, counterarguments.
+-   Report structure and flow
+-   Finding sources or background
+-   explaining concepts like sensitivity and specificity (mock debate on sensitivity vs. specificity)
+-   team planning and dividing tasks
+-   and generating test data for code
 
 Note: Telling AI to use Socratic mode
 
 How to NOT use GenAI:
 
-- Having AI write the report, analysis or conclusions 
-- Copying code they don’t understand 
-- Made-up data, results or citations
-- Having AI do the whole project or a whole section 
-- Letting AI make the decisions 
-- Having AI build the visualizations from scratch
-- Having AI make the general-audience piece
-- Not disclosing AI use
-- Not uploading the CS01 data to an AI tool
+-   Having AI write the report, analysis or conclusions
+-   Copying code they don’t understand
+-   Made-up data, results or citations
+-   Having AI do the whole project or a whole section
+-   Letting AI make the decisions
+-   Having AI build the visualizations from scratch
+-   Having AI make the general-audience piece
+-   Not disclosing AI use
+-   Not uploading the CS01 data to an AI tool
 :::
 
 ## Course Announcements
@@ -66,10 +64,10 @@ How to NOT use GenAI:
 -   📄 **Final Project Proposal** due Sun (11:59 PM)
 -   🔘 Lecture Participation survey "due" after class
 
-Notes: 
+Notes:
 
-- My office hours moved from today to Fri at 11AM (this week only)
-- Either **work from lab06 data** or et the data in RStudio for today (and `install.packages()` `"OCSdata"`, `"skimr"`, `"GGally"`, and `"corrplot"`).
+-   My office hours moved from today to Fri at 11AM (this week only)
+-   Either **work from lab06 data** or et the data in RStudio for today (and `install.packages()` `"OCSdata"`, `"skimr"`, `"GGally"`, and `"corrplot"`).
 
 ```{r}
 # install.packages("OCSdata")
@@ -90,7 +88,7 @@ Take a look...
 
 . . .
 
-[<i class="fa fa-user" aria-hidden="true"></i>   Given the dataset we're working with, what wrangling should we consider doing here?]{style="background-color: #ADD8E6"}
+[<i class="fa fa-user" aria-hidden="true"></i> Given the dataset we're working with, what wrangling should we consider doing here?]{style="background-color: #ADD8E6"}
 
 . . .
 
@@ -126,7 +124,7 @@ skimr::skim(pm)
 
 . . .
 
-[<i class="fa fa-user" aria-hidden="true"></i>   What's something you've learned about the data from the <code>skimr</code> output?]{style="background-color: #ADD8E6"}
+[<i class="fa fa-user" aria-hidden="true"></i> What's something you've learned about the data from the <code>skimr</code> output?]{style="background-color: #ADD8E6"}
 
 . . .
 
@@ -158,7 +156,7 @@ pm |>
 
 ## Where are the monitors? {.scrollable}
 
-[<i class="fa fa-brain" aria-hidden="true"></i>   Guess: how many monitors does San Diego County have?]{style="background-color: #ADD8E6"}
+[<i class="fa fa-brain" aria-hidden="true"></i> Guess: how many monitors does San Diego County have?]{style="background-color: #ADD8E6"}
 
 . . .
 
@@ -215,7 +213,7 @@ pm |>
 
 ## How many monitors exceed health guidelines? {.scrollable}
 
-[<i class="fa fa-brain" aria-hidden="true"></i>   Guess: what share of these monitors would exceed today's EPA annual standard (9 ug/m^3^)?]{style="background-color: #ADD8E6"}
+[<i class="fa fa-brain" aria-hidden="true"></i> Guess: what share of these monitors would exceed today's EPA annual standard (9 ug/m^3^)?]{style="background-color: #ADD8E6"}
 
 . . .
 
@@ -250,7 +248,7 @@ Why do we care if variables in our dataset are correlated?
 
 ## Which features track the outcome?
 
-[<i class="fa fa-brain" aria-hidden="true"></i>   Guess: which feature is most correlated with `value`?]{style="background-color: #ADD8E6"}
+[<i class="fa fa-brain" aria-hidden="true"></i> Guess: which feature is most correlated with `value`?]{style="background-color: #ADD8E6"}
 
 . . .
 
@@ -280,7 +278,6 @@ pm |>
 PM_cor <- cor(pm |> select(where(is.numeric)))
 ```
 
-::: {.content-hidden when-format="revealjs"}
 Taking a look at all of our numeric variables...
 
 ```{r}
@@ -289,6 +286,8 @@ corrplot::corrplot(PM_cor, tl.cex = 0.5)
 
 -   deep blue \| strongly, positively correlated
 -   deep red \| strongly, negatively correlated
+
+::: {.content-hidden when-format="revealjs"}
 
 If we don't care about direction, but only strength...*and* using [hierarchical clustering](https://en.wikipedia.org/wiki/Hierarchical_clustering):
 
@@ -364,7 +363,7 @@ pm |>
 
 ## Your Turn {.scrollable}
 
-[<i class="fa fa-laptop" aria-hidden="true"></i>   Try to learn at least three things about the data that we haven't yet discussed now on your own.]{style="background-color: #ADD8E6"}
+[<i class="fa fa-laptop" aria-hidden="true"></i> Try to learn at least three things about the data that we haven't yet discussed now on your own.]{style="background-color: #ADD8E6"}
 
 ::: aside
 Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.

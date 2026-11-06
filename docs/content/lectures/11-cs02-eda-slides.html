@@ -490,7 +490,7 @@ Professor Shannon Ellis
 <p>Notes:</p>
 <ul>
 <li>My office hours moved from today to Fri at 11AM (this week only)</li>
-<li>Either ** work from lab06 data** or et the data in RStudio for today (and <code>install.packages()</code> <code>"OCSdata"</code>, <code>"skimr"</code>, <code>"GGally"</code>, and <code>"corrplot"</code>).</li>
+<li>Either <strong>work from lab06 data</strong> or et the data in RStudio for today (and <code>install.packages()</code> <code>"OCSdata"</code>, <code>"skimr"</code>, <code>"GGally"</code>, and <code>"corrplot"</code>).</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># install.packages("OCSdata")</span></span>
@@ -1525,6 +1525,15 @@ Professor Shannon Ellis
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>PM_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(pm <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">where</span>(is.numeric)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Taking a look at all of our numeric variables…</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>corrplot<span class="sc">::</span><span class="fu">corrplot</span>(PM_cor, <span class="at">tl.cex =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="11-cs02-eda_files/figure-html/unnamed-chunk-14-1.png" width="2100" class="r-stretch"><ul>
+<li>deep blue | strongly, positively correlated</li>
+<li>deep red | strongly, negatively correlated</li>
+</ul>
 <p>Observations:</p>
 <ul>
 <li>development variables (<code>imp</code>), road density (<code>pri</code>), and the emission (<code>nei</code>) variables all seem to be correlated with their group</li>
@@ -1534,8 +1543,8 @@ Professor Shannon Ellis
 <section id="development-imp" class="slide level2">
 <h2>Development (<code>imp</code>)</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">select</span>(pm, <span class="fu">contains</span>(<span class="st">"imp"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">select</span>(pm, <span class="fu">contains</span>(<span class="st">"imp"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="11-cs02-eda_files/figure-html/unnamed-chunk-16-1.png" width="2100" class="r-stretch"><div class="fragment">
@@ -1545,10 +1554,10 @@ Professor Shannon Ellis
 <section id="are-the-categories-correlated-with-one-another" class="slide level2">
 <h2>Are the categories correlated with one another?</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>pm <span class="sc">|&gt;</span></span>
-<span id="cb22-2"><a></a><span class="fu">select</span>(log_nei_2008_pm25_sum_10000, popdens_county,</span>
-<span id="cb22-3"><a></a>       log_pri_length_10000, imp_a10000, county_pop) <span class="sc">|&gt;</span></span>
-<span id="cb22-4"><a></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pm <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a></a><span class="fu">select</span>(log_nei_2008_pm25_sum_10000, popdens_county,</span>
+<span id="cb23-3"><a></a>       log_pri_length_10000, imp_a10000, county_pop) <span class="sc">|&gt;</span></span>
+<span id="cb23-4"><a></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="11-cs02-eda_files/figure-html/unnamed-chunk-19-1.png" width="2100" class="r-stretch"><div class="fragment">
@@ -1568,12 +1577,12 @@ Professor Shannon Ellis
 <section id="log-transforming-right-skewed-data" class="slide level2">
 <h2>Log-transforming right-skewed data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a>pm <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a></a>  <span class="fu">mutate</span>(<span class="at">log_popdens_county=</span><span class="fu">log</span>(popdens_county),</span>
-<span id="cb23-3"><a></a>         <span class="at">log_pop_county =</span> <span class="fu">log</span>(county_pop)) <span class="sc">|&gt;</span></span>
-<span id="cb23-4"><a></a>  <span class="fu">select</span>(log_nei_2008_pm25_sum_10000, log_popdens_county,</span>
-<span id="cb23-5"><a></a>       log_pri_length_10000, imp_a10000, log_pop_county) <span class="sc">|&gt;</span></span>
-<span id="cb23-6"><a></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>pm <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">mutate</span>(<span class="at">log_popdens_county=</span><span class="fu">log</span>(popdens_county),</span>
+<span id="cb24-3"><a></a>         <span class="at">log_pop_county =</span> <span class="fu">log</span>(county_pop)) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a></a>  <span class="fu">select</span>(log_nei_2008_pm25_sum_10000, log_popdens_county,</span>
+<span id="cb24-5"><a></a>       log_pri_length_10000, imp_a10000, log_pop_county) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a></a>  GGally<span class="sc">::</span><span class="fu">ggpairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="11-cs02-eda_files/figure-html/unnamed-chunk-20-1.png" width="2100" class="r-stretch"></section>

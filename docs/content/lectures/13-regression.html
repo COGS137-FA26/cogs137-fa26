@@ -9,7 +9,7 @@
 <meta name="author" content="Professor Shannon Ellis">
 <meta name="dcterms.date" content="2026-11-06">
 
-<title>COGS 137 - 14-regression</title>
+<title>COGS 137 - 13-regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/12-inference-prediction.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -135,7 +137,7 @@ window.Quarto = {
 };
 </script>
 
-<meta property="og:title" content="COGS 137 - 14-regression">
+<meta property="og:title" content="COGS 137 - 13-regression">
 <meta property="og:description" content="Homepage for COGS 137 - Practical Data Science in R, Fall 2026.">
 <meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
 <meta property="og:site_name" content="COGS 137">
@@ -150,7 +152,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">14-regression</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/13-regression.html">13: Regression</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -221,13 +223,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
@@ -304,6 +306,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/12-inference-prediction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">12: Inference vs.&nbsp;Prediction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/13-regression.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">13: Regression</span></a>
   </div>
 </li>
       </ul>
@@ -452,8 +460,7 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#qa" id="toc-qa" class="nav-link active" data-scroll-target="#qa">Q&amp;A</a></li>
-  <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link" data-scroll-target="#course-announcements">Course Announcements</a></li>
+  <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link active" data-scroll-target="#course-announcements">Course Announcements</a></li>
   <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
   <li><a href="#suggested-reading" id="toc-suggested-reading" class="nav-link" data-scroll-target="#suggested-reading">Suggested Reading</a></li>
   <li><a href="#linear-regression" id="toc-linear-regression" class="nav-link" data-scroll-target="#linear-regression">Linear Regression</a>
@@ -489,7 +496,6 @@ window.Quarto = {
   <li><a href="#solving-the-model" id="toc-solving-the-model" class="nav-link" data-scroll-target="#solving-the-model">Solving the model</a></li>
   <li><a href="#visualizing-main-effects" id="toc-visualizing-main-effects" class="nav-link" data-scroll-target="#visualizing-main-effects">Visualizing main effects</a></li>
   <li><a href="#interpreting-main-effects" id="toc-interpreting-main-effects" class="nav-link" data-scroll-target="#interpreting-main-effects">Interpreting main effects</a></li>
-  <li><a href="#day-2-mon-119" id="toc-day-2-mon-119" class="nav-link" data-scroll-target="#day-2-mon-119">Day 2 · Mon 11/9</a></li>
   <li><a href="#interaction-cmaq-popdens" id="toc-interaction-cmaq-popdens" class="nav-link" data-scroll-target="#interaction-cmaq-popdens">Interaction: <code>CMAQ * popdens</code></a></li>
   <li><a href="#fit-model-with-interaction-effects" id="toc-fit-model-with-interaction-effects" class="nav-link" data-scroll-target="#fit-model-with-interaction-effects">Fit model with interaction effects</a></li>
   <li><a href="#linear-model-with-interaction-effects" id="toc-linear-model-with-interaction-effects" class="nav-link" data-scroll-target="#linear-model-with-interaction-effects">Linear model with interaction effects</a></li>
@@ -504,20 +510,19 @@ window.Quarto = {
   <li><a href="#backward-selection" id="toc-backward-selection" class="nav-link" data-scroll-target="#backward-selection">Backward selection</a>
   <ul class="collapse">
   <li><a href="#backward-selection-1" id="toc-backward-selection-1" class="nav-link" data-scroll-target="#backward-selection-1">Backward selection</a></li>
-  <li><a href="#other-approach-olsrr" id="toc-other-approach-olsrr" class="nav-link" data-scroll-target="#other-approach-olsrr">Other approach: <code>olsrr</code></a></li>
-  <li><a href="#on-the-full-model" id="toc-on-the-full-model" class="nav-link" data-scroll-target="#on-the-full-model">On the full model</a></li>
+  <li><a href="#why-this-matters-for-cs02" id="toc-why-this-matters-for-cs02" class="nav-link" data-scroll-target="#why-this-matters-for-cs02">Why this matters for CS02</a></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="14-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="13-regression-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/13-regression.html">13: Regression</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">14-regression</h1>
+<h1 class="title">13-regression</h1>
 </div>
 
 
@@ -553,46 +558,14 @@ window.Quarto = {
 </header>
 
 
-<section id="qa" class="level2 scrollable smaller">
-<h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div class="callout callout-style-default callout-note callout-titled" title="Q: ">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Q:
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>A:</p>
-</div>
-</div>
-</div>
-</section>
 <section id="course-announcements" class="level2">
 <h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 05</strong> due Fri 11/6 (11:59 PM)</li>
-<li>⌨️ <strong>Lab 06</strong> due Fri 11/13 (11:59 PM)</li>
+<li>⌨️ <strong>Lab 06</strong> due today (11:59 PM)</li>
+<li>📄 <strong>Final Project Proposal</strong> due Sun</li>
 <li>🔘 Lecture Participation survey “due” after class</li>
 </ul>
-<!-- FA24 announcements, kept for reference:
-**Due Dates**
-
--   🔬 **Lab 06** due Thursday
--   📋 Lecture Participation survey "due" after class
-
-**Notes**
-
-- lab05 scores posted; cs01 scores/feedback posted by EOD
-- lab07 now available | longer than typical labs
-- Reminder to add any CS02 EDA you want to share with your classmates to the [padlet from last class](https://padlet.com/shannon0ellis/cs02-eda-9fn2bbxjm3qfc3d3)
--->
 </section>
 <section id="agenda" class="level2">
 <h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
@@ -615,24 +588,17 @@ Q:
 <section id="setup" class="level2">
 <h2 class="anchored" data-anchor-id="setup">Setup</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'ggplot2' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'scales' was built under R version 4.3.3</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(olsrr) <span class="co"># will need to be installed</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidymodels)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in your CS02 repo, the file is at "data/pm25_data.csv"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>pm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"OCS_data/data/raw/pm25_data.csv"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># these are ID codes, not measurements</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(id, fips, zcta), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in your CS02 repo, the file is at "data/pm25_data.csv"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>pm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"OCS_data/data/raw/pm25_data.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># these are ID codes, not measurements</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(id, fips, zcta), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 876 Columns: 50
 ── Column specification ────────────────────────────────────────────────────────
@@ -655,12 +621,12 @@ dbl (47): id, value, fips, lat, lon, CMAQ, zcta, zcta_area, zcta_pop, imp_a5...
 <section id="quick-look" class="level2">
 <h2 class="anchored" data-anchor-id="quick-look">Quick Look</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pm, <span class="fu">aes</span>(<span class="at">x=</span>CMAQ, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pm, <span class="fu">aes</span>(<span class="at">x=</span>CMAQ, <span class="at">y=</span>value)) <span class="sc">+</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="13-regression_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -682,7 +648,7 @@ dbl (47): id, value, fips, lat, lon, CMAQ, zcta, zcta_area, zcta_pop, imp_a5...
 <section id="step-1-specify-model" class="level2">
 <h2 class="anchored" data-anchor-id="step-1-specify-model">Step 1: Specify model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">linear_reg</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Linear Regression Model Specification (regression)
 
@@ -693,21 +659,21 @@ Computational engine: lm </code></pre>
 <section id="step-2-set-model-fitting-engine" class="level2">
 <h2 class="anchored" data-anchor-id="step-2-set-model-fitting-engine">Step 2: Set model fitting <em>engine</em></h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>lin_mod <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="co"># lm: linear model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>lin_mod <span class="ot">&lt;-</span> <span class="fu">linear_reg</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"lm"</span>) <span class="co"># lm: linear model</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="step-3-fit-model-estimate-parameters" class="level2">
 <h2 class="anchored" data-anchor-id="step-3-fit-model-estimate-parameters">Step 3: Fit model &amp; estimate parameters</h2>
 <p>… using <strong>formula syntax</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>mod_cmaq_value <span class="ot">&lt;-</span> lin_mod <span class="sc">|&gt;</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> CMAQ, <span class="at">data =</span> pm) </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># display results</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>mod_cmaq_value <span class="sc">|&gt;</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit model</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>mod_cmaq_value <span class="ot">&lt;-</span> lin_mod <span class="sc">|&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> CMAQ, <span class="at">data =</span> pm) </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># display results</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>mod_cmaq_value <span class="sc">|&gt;</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 5
   term        estimate std.error statistic   p.value
@@ -722,13 +688,13 @@ Computational engine: lm </code></pre>
 <section id="visualizing-the-model" class="level2">
 <h2 class="anchored" data-anchor-id="visualizing-the-model">Visualizing the model</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pm, <span class="fu">aes</span>(<span class="at">x =</span> CMAQ, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">fullrange =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#8E2C90"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pm, <span class="fu">aes</span>(<span class="at">x =</span> CMAQ, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">fullrange =</span> <span class="cn">TRUE</span>, <span class="at">color =</span> <span class="st">"#8E2C90"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="13-regression_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -759,7 +725,7 @@ Computational engine: lm </code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/extrapolate-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="13-regression_files/figure-html/extrapolate-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -777,7 +743,7 @@ Computational engine: lm </code></pre>
 <section id="obtaining-r2-in-r" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="obtaining-r2-in-r">Obtaining <span class="math inline">\(R^2\)</span> in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_cmaq_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_cmaq_value)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 12
   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
@@ -785,7 +751,7 @@ Computational engine: lm </code></pre>
 1     0.217         0.216  2.29      243. 1.83e-48     1 -1966. 3939. 3953.
 # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_cmaq_value)<span class="sc">$</span>r.squared <span class="co"># extract R-squared</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_cmaq_value)<span class="sc">$</span>r.squared <span class="co"># extract R-squared</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2172969</code></pre>
 </div>
@@ -817,11 +783,11 @@ Computational engine: lm </code></pre>
 <section id="creating-a-lowhigh-population-density-variable" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-lowhigh-population-density-variable">Creating a low/high population density variable</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pm <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popdens =</span> <span class="fu">case_when</span>(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    popdens_zcta <span class="sc">&gt;=</span> <span class="fu">median</span>(pm<span class="sc">$</span>popdens_zcta) <span class="sc">~</span> <span class="st">"hi"</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    popdens_zcta <span class="sc">&lt;</span> <span class="fu">median</span>(pm<span class="sc">$</span>popdens_zcta) <span class="sc">~</span> <span class="st">"low"</span>          </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>pm <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">popdens =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    popdens_zcta <span class="sc">&gt;=</span> <span class="fu">median</span>(pm<span class="sc">$</span>popdens_zcta) <span class="sc">~</span> <span class="st">"hi"</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    popdens_zcta <span class="sc">&lt;</span> <span class="fu">median</span>(pm<span class="sc">$</span>popdens_zcta) <span class="sc">~</span> <span class="st">"low"</span>          </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="background-color: #ADD8E6">❓ What is this accomplishing?</span></p>
 </section>
@@ -835,7 +801,7 @@ Computational engine: lm </code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="13-regression_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -843,12 +809,12 @@ Computational engine: lm </code></pre>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pm, <span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">fill =</span> popdens)) <span class="sc">+</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">2.5</span>) <span class="sc">+</span> </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(popdens <span class="sc">~</span> .) <span class="sc">+</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#071381"</span>, <span class="st">"#E48957"</span>)) <span class="sc">+</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pm, <span class="fu">aes</span>(<span class="at">x =</span> value, <span class="at">fill =</span> popdens)) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">2.5</span>) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(popdens <span class="sc">~</span> .) <span class="sc">+</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"#071381"</span>, <span class="st">"#E48957"</span>)) <span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"PM2.5"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -884,7 +850,7 @@ Computational engine: lm </code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/pp-main-int-viz-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="13-regression_files/figure-html/pp-main-int-viz-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -898,10 +864,10 @@ Computational engine: lm </code></pre>
 <section id="fit-model-with-main-effects" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="fit-model-with-main-effects">Fit model with main effects</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pm_main_fit <span class="ot">&lt;-</span> lin_mod <span class="sc">|&gt;</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> CMAQ <span class="sc">+</span> popdens, <span class="at">data =</span> pm)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>pm_main_fit <span class="sc">|&gt;</span> <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pm_main_fit <span class="ot">&lt;-</span> lin_mod <span class="sc">|&gt;</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> CMAQ <span class="sc">+</span> popdens, <span class="at">data =</span> pm)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>pm_main_fit <span class="sc">|&gt;</span> <span class="fu">tidy</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   term        estimate std.error statistic   p.value
@@ -943,7 +909,7 @@ Computational engine: lm </code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="13-regression_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -954,9 +920,9 @@ Computational engine: lm </code></pre>
 <section id="interpreting-main-effects" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="interpreting-main-effects">Interpreting main effects</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pm_main_fit <span class="sc">|&gt;</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>pm_main_fit <span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tidy</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(term, estimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   term        estimate
@@ -974,17 +940,13 @@ Computational engine: lm </code></pre>
 </ul>
 </div>
 </section>
-<section id="day-2-mon-119" class="level2" data-background-color="#92A86A">
-<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="day-2-mon-119">Day 2 · Mon 11/9</h2>
-<p>Interaction effects, comparing models &amp; model selection.</p>
-</section>
 <section id="interaction-cmaq-popdens" class="level2 smaller">
 <h2 class="smaller anchored" data-anchor-id="interaction-cmaq-popdens">Interaction: <code>CMAQ * popdens</code></h2>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<p><img src="13-regression_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
 </figure>
 </div>
 </div>
@@ -997,8 +959,8 @@ Computational engine: lm </code></pre>
 <li>Explanatory variables: <code>CMAQ</code>, <code>popdens</code>, and their interaction</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pm_int_fit <span class="ot">&lt;-</span> lin_mod <span class="sc">|&gt;</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> CMAQ <span class="sc">*</span> popdens, <span class="at">data =</span> pm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>pm_int_fit <span class="ot">&lt;-</span> lin_mod <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> CMAQ <span class="sc">*</span> popdens, <span class="at">data =</span> pm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="linear-model-with-interaction-effects" class="level2 smaller">
@@ -1029,7 +991,7 @@ Computational engine: lm </code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="14-regression_files/figure-html/viz-interaction-effects2-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<p><img src="13-regression_files/figure-html/viz-interaction-effects2-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1045,15 +1007,15 @@ Computational engine: lm </code></pre>
 <li><span class="math inline">\(R^2\)</span> is the percentage of variability in the response variable explained by the regression model.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_cmaq_value)<span class="sc">$</span>r.squared <span class="co">#single predictor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mod_cmaq_value)<span class="sc">$</span>r.squared <span class="co">#single predictor</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2172969</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_main_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_main_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2214237</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_int_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_int_fit)<span class="sc">$</span>r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2266283</code></pre>
 </div>
@@ -1071,11 +1033,11 @@ Computational engine: lm </code></pre>
 <h2 class="small anchored" data-anchor-id="adjusted-r-squared">Adjusted R-squared</h2>
 <p>Adjusted R-squared adjusts for number of terms in the model</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_main_fit)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_main_fit)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.21964</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_int_fit)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_int_fit)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2239676</code></pre>
 </div>
@@ -1103,17 +1065,17 @@ Computational engine: lm </code></pre>
 </div>
 <p>First, keep only columns that make sense as predictors:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>pm_model <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ID codes &amp; names with (nearly) one level per monitor</span></span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id, <span class="sc">-</span>fips, <span class="sc">-</span>zcta, <span class="sc">-</span>county, <span class="sc">-</span>city) <span class="sc">|&gt;</span></span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># hs_orless = nohs + somehs + hs, so it adds no information</span></span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>hs_orless)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pm_model <span class="ot">&lt;-</span> pm <span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ID codes &amp; names with (nearly) one level per monitor</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>id, <span class="sc">-</span>fips, <span class="sc">-</span>zcta, <span class="sc">-</span>county, <span class="sc">-</span>city) <span class="sc">|&gt;</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># hs_orless = nohs + somehs + hs, so it adds no information</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>hs_orless)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><span style="background-color: #ADD8E6">❓ What would happen if we left <code>city</code> (607 different values) in the model?</span></p>
 <p>. . .</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pm_full <span class="ot">&lt;-</span>  lin_mod <span class="sc">|&gt;</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> ., <span class="at">data =</span> pm_model) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pm_full <span class="ot">&lt;-</span>  lin_mod <span class="sc">|&gt;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> ., <span class="at">data =</span> pm_model) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Adjusted <span class="math inline">\(R^2\)</span> (full): 0.5726</li>
@@ -1121,10 +1083,10 @@ Computational engine: lm </code></pre>
 <p>. . .</p>
 <p><strong>Remove <code>zcta_area</code></strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pm_noarea <span class="ot">&lt;-</span>  lin_mod <span class="sc">|&gt;</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> . <span class="sc">-</span>zcta_area, <span class="at">data =</span> pm_model) </span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_noarea)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>pm_noarea <span class="ot">&lt;-</span>  lin_mod <span class="sc">|&gt;</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fit</span>(value <span class="sc">~</span> . <span class="sc">-</span>zcta_area, <span class="at">data =</span> pm_model) </span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(pm_noarea)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.5731684</code></pre>
 </div>
@@ -1136,106 +1098,10 @@ Computational engine: lm </code></pre>
 </ul>
 <p>…<em>Increased</em> improved variance explained, so remove variable</p>
 <p>. . .</p>
-<p>… continue to remove one by one until max variance explained is achieved. But, that process is tedious.</p>
+<p>… continue to remove one variable at a time until adjusted <span class="math inline">\(R^2\)</span> stops improving. (You’ll do this yourself in Lab 07.)</p>
 </section>
-<section id="other-approach-olsrr" class="level2 small">
-<h2 class="small anchored" data-anchor-id="other-approach-olsrr">Other approach: <code>olsrr</code></h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># requires package installation: </span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("olsrr")</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(olsrr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>. . .</p>
-<p><strong>Step 1: Fit full model (w/o <code>tidymodels</code>)</strong></p>
-<div class="smallest">
-<p>Note: I’m only fitting a handful of variables to demo how it works. Theoretically, you would fit the full model and compare all combinations.</p>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit the model (not using tidymodels)</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(value <span class="sc">~</span> log_pri_length_25000 <span class="sc">+</span> log_prisec_length_15000 <span class="sc">+</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>          log_nei_2008_pm25_sum_15000 , <span class="at">data=</span>pm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>. . .</p>
-<p><strong>Step 2: Determine which variables to remove</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_backward_p</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-                                 Elimination Summary                                  
--------------------------------------------------------------------------------------
-        Variable                              Adj.                                       
-Step          Removed           R-Square    R-Square     C(p)        AIC        RMSE     
--------------------------------------------------------------------------------------
-   1    log_pri_length_25000      0.1643      0.1624    2.3628    3998.1896    2.3638    
--------------------------------------------------------------------------------------</code></pre>
-</div>
-</div>
-<p>…specifies that <code>log_pri_length_25000</code> should be removed</p>
-<p>. . .</p>
-<p><strong>Step 2 (alternate): Compare all possible models…</strong></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_all_possible</span>(mod) <span class="sc">|&gt;</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(adjr))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Index N
-1     4 2
-2     7 3
-3     5 2
-4     1 1
-5     2 1
-6     6 2
-7     3 1
-                                                                Predictors
-1                      log_prisec_length_15000 log_nei_2008_pm25_sum_15000
-2 log_pri_length_25000 log_prisec_length_15000 log_nei_2008_pm25_sum_15000
-3                         log_pri_length_25000 log_nei_2008_pm25_sum_15000
-4                                              log_nei_2008_pm25_sum_15000
-5                                                  log_prisec_length_15000
-6                             log_pri_length_25000 log_prisec_length_15000
-7                                                     log_pri_length_25000
-    R-Square Adj. R-Square Mallow's Cp
-1 0.16433852    0.16242406    2.362832
-2 0.16468608    0.16181230    4.000000
-3 0.13894927    0.13697665   28.867142
-4 0.12833737    0.12734004   37.945112
-5 0.12004781    0.11904100   46.598742
-6 0.12047519    0.11846024   48.152590
-7 0.06827606    0.06721001  100.644250</code></pre>
-</div>
-</div>
-</section>
-<section id="on-the-full-model" class="level2">
-<h2 class="anchored" data-anchor-id="on-the-full-model">On the full model</h2>
-<p>This will take a while to run:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>mod_full <span class="ot">&lt;-</span> <span class="fu">lm</span>(value <span class="sc">~</span> ., <span class="at">data =</span> pm_model)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ols_step_backward_p</span>(mod_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-                                     Elimination Summary                                       
-----------------------------------------------------------------------------------------------
-        Variable                                     Adj.                                         
-Step              Removed              R-Square    R-Square      C(p)         AIC        RMSE     
-----------------------------------------------------------------------------------------------
-   1    popdens_zcta                     0.6171      0.5732     -3.9996    3490.5553    1.6874    
-   2    log_prisec_length_1000           0.6171      0.5737     -5.9882    3488.5681    1.6864    
-   3    log_nei_2008_pm10_sum_10000      0.6171      0.5743     -7.9756    3486.5822    1.6853    
-   4    log_prisec_length_10000          0.6171      0.5748     -9.9613    3484.5981    1.6843    
-   5    zcta_area                        0.6171      0.5753    -11.9413    3482.6205    1.6832    
-   6    urc2006                           0.617      0.5758    -13.8241    3480.7515    1.6823    
-   7    log_dist_to_prisec               0.6169      0.5762    -15.6688    3478.9249    1.6814    
-   8    imp_a5000                        0.6168      0.5767    -17.5171    3477.0943    1.6805    
-   9    log_prisec_length_5000           0.6168      0.5771    -19.3594    3475.2704    1.6796    
-  10    pov                              0.6167      0.5776    -21.1885    3473.4612    1.6787    
-  11    log_prisec_length_25000          0.6166       0.578    -22.9172    3471.7639    1.6779    
-  12    log_pri_length_5000              0.6164      0.5784    -24.6554    3470.0560    1.6772    
-  13    log_pri_length_10000             0.6163      0.5787    -26.3746    3468.3692    1.6764    
-  14    lat                              0.6158      0.5788    -27.4230    3467.4296    1.6764    
-  15    imp_a500                         0.6153      0.5787    -28.4085    3466.5587    1.6764    
-----------------------------------------------------------------------------------------------</code></pre>
-</div>
-</div>
-<p>. . .</p>
+<section id="why-this-matters-for-cs02" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-for-cs02">Why this matters for CS02</h2>
 <p><span style="background-color: #ADD8E6">❓ How does this maybe inform our ultimate goal (building a prediction model)?</span></p>
 </section>
 <section id="recap" class="level2 smaller" data-background-color="#92A86A">
@@ -1805,6 +1671,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/lectures/12-inference-prediction.html" class="pagination-link" aria-label="12: Inference vs. Prediction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">12: Inference vs.&nbsp;Prediction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
