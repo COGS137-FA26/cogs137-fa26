@@ -141,8 +141,8 @@ website:
             href: content/labs/05-lab-cs01-communication.qmd
           - text: "Lab 06: CS02 EDA"
             href: content/labs/06-lab-cs02-eda.qmd
-      #     - text: "Lab 07: Multiple Linear Regression"
-      #       href: content/labs/07-lab-mlr.qmd
+          - text: "Lab 07: Multiple Linear Regression"
+            href: content/labs/07-lab-mlr.qmd
       - section: "Case Studies"
         contents:
           - text: "Example Case Study"

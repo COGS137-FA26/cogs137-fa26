@@ -63,6 +63,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/cs/cs-example.html" rel="next">
+<link href="../../content/labs/06-lab-cs02-eda.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -148,7 +150,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Lab 07 - Modelling course evaluations</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/labs/01-lab-intro-r.html">Labs</a></li><li class="breadcrumb-item"><a href="../../content/labs/07-lab-mlr.html">Lab 07: Multiple Linear Regression</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -314,13 +316,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Labs</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
@@ -355,6 +357,12 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../../content/labs/06-lab-cs02-eda.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lab 06: CS02 EDA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/07-lab-mlr.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lab 07: Multiple Linear Regression</span></a>
   </div>
 </li>
       </ul>
@@ -489,10 +497,10 @@ window.Quarto = {
   <li><a href="#exercise-14" id="toc-exercise-14" class="nav-link" data-scroll-target="#exercise-14">Exercise 14</a></li>
   <li><a href="#exercise-15" id="toc-exercise-15" class="nav-link" data-scroll-target="#exercise-15">Exercise 15</a></li>
   <li><a href="#exercise-16" id="toc-exercise-16" class="nav-link" data-scroll-target="#exercise-16">Exercise 16</a></li>
-  <li><a href="#exercise-17" id="toc-exercise-17" class="nav-link" data-scroll-target="#exercise-17">Exercise 17</a></li>
   </ul></li>
   <li><a href="#part-4-the-search-for-the-best-model" id="toc-part-4-the-search-for-the-best-model" class="nav-link" data-scroll-target="#part-4-the-search-for-the-best-model">Part 4: The search for the best model</a>
   <ul class="collapse">
+  <li><a href="#exercise-17" id="toc-exercise-17" class="nav-link" data-scroll-target="#exercise-17">Exercise 17</a></li>
   <li><a href="#exercise-18" id="toc-exercise-18" class="nav-link" data-scroll-target="#exercise-18">Exercise 18</a></li>
   <li><a href="#exercise-19" id="toc-exercise-19" class="nav-link" data-scroll-target="#exercise-19">Exercise 19</a></li>
   <li><a href="#exercise-20" id="toc-exercise-20" class="nav-link" data-scroll-target="#exercise-20">Exercise 20</a></li>
@@ -500,7 +508,6 @@ window.Quarto = {
   <li><a href="#exercise-22" id="toc-exercise-22" class="nav-link" data-scroll-target="#exercise-22">Exercise 22</a></li>
   <li><a href="#exercise-23" id="toc-exercise-23" class="nav-link" data-scroll-target="#exercise-23">Exercise 23</a></li>
   <li><a href="#exercise-24" id="toc-exercise-24" class="nav-link" data-scroll-target="#exercise-24">Exercise 24</a></li>
-  <li><a href="#exercise-25" id="toc-exercise-25" class="nav-link" data-scroll-target="#exercise-25">Exercise 25</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#submit" id="toc-submit" class="nav-link" data-scroll-target="#submit">Submit</a></li>
@@ -511,7 +518,7 @@ window.Quarto = {
 <main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/labs/01-lab-intro-r.html">Labs</a></li><li class="breadcrumb-item"><a href="../../content/labs/07-lab-mlr.html">Lab 07: Multiple Linear Regression</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Lab 07 - Modelling course evaluations</h1>
 </div>
@@ -535,22 +542,9 @@ window.Quarto = {
 <p>Many college courses conclude by giving students the opportunity to evaluate the course and the instructor anonymously. However, the use of these student evaluations as an indicator of course quality and teaching effectiveness is often criticized because these measures may reflect the influence of non-teaching related characteristics, such as the physical appearance of the instructor. The article titled, “Beauty in the classroom: instructors’ pulchritude and putative pedagogical productivity” (Hamermesh and Parker, 2005) found that instructors who are viewed to be better looking receive higher instructional ratings.</p>
 
 <div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p>Daniel S. Hamermesh, Amy Parker, Beauty in the classroom: instructors pulchritude and putative pedagogical productivity, Economics of Education Review, Volume 24, Issue 4, August 2005, Pages 369-376, ISSN 0272-7757, 10.1016/j.econedurev.2004.07.013. <a href="http://www.sciencedirect.com/science/article/pii/S0272775704001165">link</a>.</p>
+<p>Daniel S. Hamermesh, Amy Parker, Beauty in the classroom: instructors pulchritude and putative pedagogical productivity, Economics of Education Review, Volume 24, Issue 4, August 2005, Pages 369-376, ISSN 0272-7757, <a href="https://doi.org/10.1016/j.econedurev.2004.07.013">doi:10.1016/j.econedurev.2004.07.013</a>.</p>
 </div></div><p>For this assignment you will analyze the data from this study in order to learn what goes into a positive professor evaluation.</p>
 <p>The data were gathered from end of semester student evaluations for a large sample of professors from the University of Texas at Austin. In addition, six students rated the professors’ physical appearance. (This is a slightly modified version of the original data set that was released as part of the replication data for Data Analysis Using Regression and Multilevel/Hierarchical Models (Gelman and Hill, 2007).) The result is a data frame where each row contains a different course and columns represent variables about the courses and professors.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This lab is longer than what you’ll be able to complete in an hour. We will be looking to see that you minimally ran <em>and interpreted</em> at least a single model (completed Part 2). If you’re able to finish the whole thing, awesome! If not, that’s OK.</p>
-</div>
-</div>
 </section>
 <section id="getting-started" class="level1">
 <h1>Getting started</h1>
@@ -562,13 +556,13 @@ Important
 </section>
 <section id="the-data" class="level1">
 <h1>The data</h1>
-<p>In this lab you will first read in the data (‘evals-mod.csv’) from the <code>data/</code> folder (provided in the template).</p>
+<p>In this lab you will first read in the data (<code>evals-mod.csv</code>) from the <code>data/</code> folder (provided in the template) into a data frame called <code>evals</code>.</p>
 <section id="codebook" class="level2">
 <h2 class="anchored" data-anchor-id="codebook">Codebook</h2>
 <table class="table">
 <colgroup>
-<col style="width: 29%">
-<col style="width: 70%">
+<col style="width: 17%">
+<col style="width: 82%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -675,17 +669,13 @@ Important
 <h3 class="anchored" data-anchor-id="exercise-2">Exercise 2</h3>
 <p>Visualize the distribution of <code>score</code>. Is the distribution skewed? What does that tell you about how students rate courses? Is this what you expected to see? Why, or why not? Include any summary statistics and visualizations you use in your response.</p>
 </section>
-<section id="exercise-3" class="level3 page-columns page-full">
+<section id="exercise-3" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-3">Exercise 3</h3>
 <p>Visualize and describe the relationship between <code>score</code> and the new variable you created, <code>bty_avg</code>.</p>
-
-<div class="no-row-height column-margin column-container"><div class="margin-aside">
-<p><strong>Hint:</strong> See the help page for the function at http://ggplot2.tidyverse.org/reference/index.html.</p>
-</div></div></section>
+</section>
 <section id="exercise-4" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-4">Exercise 4</h3>
-<p>Replot the scatterplot from Exercise 3, but this time use<br>
-<code>geom_jitter()</code>? What does “jitter” mean? What was misleading about the initial scatterplot?</p>
+<p>Replot the scatterplot from Exercise 3, but this time use <code>geom_jitter()</code>. What does “jitter” mean? What was misleading about the initial scatterplot?</p>
 </section>
 </section>
 <section id="part-2-linear-regression-with-a-numerical-predictor" class="level2 page-columns page-full">
@@ -718,7 +708,7 @@ Important
 <h2 class="anchored" data-anchor-id="part-3-multiple-linear-regression">Part 3: Multiple linear regression</h2>
 <section id="exercise-10" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-10">Exercise 10</h3>
-<p>Fit a linear model: <code>m_bty_gen</code>, predicting average professor evaluation <code>score</code> based on average beauty rating (<code>bty_avg</code>) and <code>gender</code>. Write the linear model, and note the <span class="math inline">\(R^2\)</span> and the adjusted <span class="math inline">\(R^2\)</span>.</p>
+<p>Fit a linear model: <code>m_bty_gen</code>, predicting average professor evaluation <code>score</code> based on average beauty rating (<code>bty_avg</code>) and <code>gender</code>. Write the linear model, and report the <span class="math inline">\(R^2\)</span> and the adjusted <span class="math inline">\(R^2\)</span>. What percent of the variability in <code>score</code> is explained by <code>m_bty_gen</code>?</p>
 </section>
 <section id="exercise-11" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-11">Exercise 11</h3>
@@ -726,62 +716,58 @@ Important
 </section>
 <section id="exercise-12" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-12">Exercise 12</h3>
-<p>What percent of the variability in <code>score</code> is explained by the model <code>m_bty_gen</code>.</p>
+<p>What is the equation of the line corresponding to <em>just</em> male professors?</p>
 </section>
 <section id="exercise-13" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-13">Exercise 13</h3>
-<p>What is the equation of the line corresponding to <em>just</em> male professors?</p>
+<p>For two professors who received the same beauty rating, which gender tends to have the higher course evaluation score?</p>
 </section>
 <section id="exercise-14" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-14">Exercise 14</h3>
-<p>For two professors who received the same beauty rating, which gender tends to have the higher course evaluation score?</p>
+<p>How do the adjusted <span class="math inline">\(R^2\)</span> values of <code>m_bty_gen</code> and <code>m_bty</code> compare? What does this tell us about how useful <code>gender</code> is in explaining the variability in evaluation scores when we already have information on the beauty score of the professor?</p>
 </section>
 <section id="exercise-15" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-15">Exercise 15</h3>
-<p>How do the adjusted <span class="math inline">\(R^2\)</span> values of <code>m_bty_gen</code> and <code>m_bty</code> compare? What does this tell us about how useful <code>gender</code> is in explaining the variability in evaluation scores when we already have information on the beauty score of the professor.</p>
+<p>Compare the slopes of <code>bty_avg</code> under the two models (<code>m_bty</code> and <code>m_bty_gen</code>). Has the addition of <code>gender</code> to the model changed the parameter estimate (slope) for <code>bty_avg</code>?</p>
 </section>
 <section id="exercise-16" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-16">Exercise 16</h3>
-<p>Compare the slopes of <code>bty_avg</code> under the two models (<code>m_bty</code> and <code>m_bty_gen</code>). Has the addition of <code>gender</code> to the model changed the parameter estimate (slope) for <code>bty_avg</code>?</p>
-</section>
-<section id="exercise-17" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-17">Exercise 17</h3>
 <p>Create a new model called <code>m_bty_rank</code> with <code>gender</code> removed and <code>rank</code> added in. Write the equation of the linear model and interpret the slopes and intercept in context of the data.</p>
 </section>
 </section>
 <section id="part-4-the-search-for-the-best-model" class="level2">
 <h2 class="anchored" data-anchor-id="part-4-the-search-for-the-best-model">Part 4: The search for the best model</h2>
 <p>Going forward, only consider the following variables as potential predictors: <code>rank</code>, <code>ethnicity</code>, <code>gender</code>, <code>language</code>, <code>age</code>, <code>cls_perc_eval</code>, <code>cls_did_eval</code>, <code>cls_students</code>, <code>cls_level</code>, <code>cls_profs</code>, <code>cls_credits</code>, <code>bty_avg</code>.</p>
+<section id="exercise-17" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-17">Exercise 17</h3>
+<p>Which variable, on its own, would you expect to be the worst predictor of evaluation scores? Why? <em>Hint:</em> Think about which variable would you expect to not have any association with the professor’s score.</p>
+</section>
 <section id="exercise-18" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-18">Exercise 18</h3>
-<p>Which variable, on its own, would you expect to be the worst predictor of evaluation scores? Why? <em>Hint:</em> Think about which variable would you expect to not have any association with the professor’s score.</p>
+<p>Check your suspicions from the previous exercise. Include the model output for that variable in your response.</p>
 </section>
 <section id="exercise-19" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-19">Exercise 19</h3>
-<p>Check your suspicions from the previous exercise. Include the model output for that variable in your response.</p>
+<p>Suppose you wanted to fit a full model with the variables listed above. If you are already going to include <code>cls_perc_eval</code> and <code>cls_students</code>, which variable should you not include as an additional predictor? Why?</p>
 </section>
 <section id="exercise-20" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-20">Exercise 20</h3>
-<p>Suppose you wanted to fit a full model with the variables listed above. If you are already going to include <code>cls_perc_eval</code> and <code>cls_students</code>, which variable should you not include as an additional predictor? Why?</p>
+<p>Fit a full model with all predictors listed above (except for the one you decided to exclude) in the previous question.</p>
 </section>
 <section id="exercise-21" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-21">Exercise 21</h3>
-<p>Fit a full model with all predictors listed above (except for the one you decided to exclude) in the previous question.</p>
+<p>Using backward-selection (meaning fit all predictors and remove those that are not needed in the model) with adjusted R-squared as the selection criterion, determine the <em>best</em> model. You do not need to show all steps in your answer, just the output for the final model. Also, write out the linear model for predicting score based on the final model you settle on.</p>
 </section>
 <section id="exercise-22" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-22">Exercise 22</h3>
-<p>Using backward-selection (meaning fit all predictors and remove those that are not needed in the model) with adjusted R-squared as the selection criterion, determine the <em>best</em> model. You do not need to show all steps in your answer, just the output for the final model. Also, write out the linear model for predicting score based on the final model you settle on.</p>
+<p>Interpret the slopes of one numerical and one categorical predictor based on your final model.</p>
 </section>
 <section id="exercise-23" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-23">Exercise 23</h3>
-<p>Interpret the slopes of one numerical and one categorical predictor based on your final model.</p>
+<p>Based on your final model, describe the characteristics of a professor and course at University of Texas at Austin that would be associated with a high evaluation score.</p>
 </section>
 <section id="exercise-24" class="level3">
 <h3 class="anchored" data-anchor-id="exercise-24">Exercise 24</h3>
-<p>Based on your final model, describe the characteristics of a professor and course at University of Texas at Austin that would be associated with a high evaluation score.</p>
-</section>
-<section id="exercise-25" class="level3">
-<h3 class="anchored" data-anchor-id="exercise-25">Exercise 25</h3>
 <p>Would you be comfortable generalizing your conclusions to apply to professors generally (at any university)? Why or why not?</p>
 </section>
 </section>
@@ -1373,6 +1359,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/labs/06-lab-cs02-eda.html" class="pagination-link" aria-label="Lab 06: CS02 EDA">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Lab 06: CS02 EDA</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/cs/cs-example.html" class="pagination-link" aria-label="Example Case Study">
+        <span class="nav-page-text">Example Case Study</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
