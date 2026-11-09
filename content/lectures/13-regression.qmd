@@ -128,6 +128,24 @@ ggplot(data = pm, aes(x = CMAQ, y = value)) +
   geom_smooth(method = "lm", fullrange = TRUE, color = "#8E2C90", se = FALSE)
 ```
 
+## Q&A {.scrollable .smaller} (Mon 11/9)
+
+::: {.callout-note collapse="true" title="Q: I’m still a little confused about the difference between inference and prediction. If both can use a linear regression model, what is different about what we are trying to learn from the model?"}
+A: The question is what differs first (prediction vs. quantifying a relationship.). Then, *sometimes* the model used differs. In the case of linear regression, the model is the same. But for prediction, the approach will differ (training vs. validation vs. test set - we'll talk about this soon!). In other cases, models are built for prediction and only used to make predictions. We'll get to this too.
+:::
+
+
+## Course Announcements
+
+**Due Dates**:
+
+-    **Lab 7** due Friday (11:59 PM) <- *not* CS02 based
+-   🔘 Lecture Participation survey "due" after class
+
+Notes:
+
+- No lecture Wed
+
 ## Slope and intercept
 
 $$\widehat{PM2.5}_{i} = 7.40 + 0.405 \times CMAQ_{i}$$

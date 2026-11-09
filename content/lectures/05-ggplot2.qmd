@@ -34,12 +34,15 @@ A: You should factor when there is a natural/meaningful order to the values in t
 
 ::: {.callout-note collapse="true" title="Q: I want to pull a percentage of a group. Ie. the top 25% of THC values. not sure how to do this..."}
 A: To calculate a quantile:
-```r
+
+``` r
 df %>%
   summarise(q75 = quantile(score, 0.75, na.rm = TRUE))
 ```
+
 Multiple quantiles:
-```r
+
+``` r
 df %>%
   summarise(
     across(
@@ -54,15 +57,15 @@ df %>%
 
 **Due Dates**:
 
-- Lab03 due Fri
-- HW02 due Sun
-  - now available
-  - all text responses must come from and be written by you
-- Lecture Participation survey "due" after class
+-   Lab03 due Fri
+-   HW02 due Sun
+    -   now available
+    -   all text responses must come from and be written by you
+-   Lecture Participation survey "due" after class
 
-Notes: 
+Notes:
 
-- CS01 groups to be created soon
+-   CS01 groups to be created soon
 
 ## Suggested Reading
 
@@ -453,7 +456,7 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 
 # Reference: more aesthetics & faceting {background-color="#92A86A"}
 
-These slides aren't covered in lecture. Use them as a reference. [Time permitting we'll - in a later lecture - use these with GenAI]
+These slides aren't covered in lecture. Use them as a reference. \[Time permitting we'll - in a later lecture - use these with GenAI\]
 
 ## Shape
 

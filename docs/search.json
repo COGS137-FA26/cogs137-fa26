@@ -451,6 +451,28 @@
     ]
   },
   {
+    "objectID": "content/lectures/13-regression.html#qa-.scrollable-.smaller-mon-119",
+    "href": "content/lectures/13-regression.html#qa-.scrollable-.smaller-mon-119",
+    "title": "13-regression",
+    "section": "Q&A {.scrollable .smaller} (Mon 11/9)",
+    "text": "Q&A {.scrollable .smaller} (Mon 11/9)\n\n\n\n\n\n\nQ: I’m still a little confused about the difference between inference and prediction. If both can use a linear regression model, what is different about what we are trying to learn from the model?\n\n\n\n\n\nA: The question is what differs first (prediction vs. quantifying a relationship.). Then, sometimes the model used differs. In the case of linear regression, the model is the same. But for prediction, the approach will differ (training vs. validation vs. test set - we’ll talk about this soon!). In other cases, models are built for prediction and only used to make predictions. We’ll get to this too.",
+    "crumbs": [
+      "Notes",
+      "13: Regression"
+    ]
+  },
+  {
+    "objectID": "content/lectures/13-regression.html#course-announcements-1",
+    "href": "content/lectures/13-regression.html#course-announcements-1",
+    "title": "13-regression",
+    "section": "Course Announcements",
+    "text": "Course Announcements\nDue Dates:\n\nLab 7 due Friday (11:59 PM) &lt;- not CS02 based\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nNo lecture Wed",
+    "crumbs": [
+      "Notes",
+      "13: Regression"
+    ]
+  },
+  {
     "objectID": "content/lectures/13-regression.html#slope-and-intercept",
     "href": "content/lectures/13-regression.html#slope-and-intercept",
     "title": "13-regression",
@@ -819,6 +841,20 @@
     "title": "13-regression",
     "section": "Visualizing the model",
     "text": "Visualizing the model\n\nggplot(data = pm, aes(x = CMAQ, y = value)) +\n  geom_point(alpha = 0.4) +\n  geom_smooth(method = \"lm\", fullrange = TRUE, color = \"#8E2C90\", se = FALSE)"
+  },
+  {
+    "objectID": "content/lectures/13-regression-slides.html#qa-.scrollable-.smaller-mon-119",
+    "href": "content/lectures/13-regression-slides.html#qa-.scrollable-.smaller-mon-119",
+    "title": "13-regression",
+    "section": "Q&A {.scrollable .smaller} (Mon 11/9)",
+    "text": "Q&A {.scrollable .smaller} (Mon 11/9)\n\n\n\n\n\n\n\nQ: I’m still a little confused about the difference between inference and prediction. If both can use a linear regression model, what is different about what we are trying to learn from the model?\n\n\nA: The question is what differs first (prediction vs. quantifying a relationship.). Then, sometimes the model used differs. In the case of linear regression, the model is the same. But for prediction, the approach will differ (training vs. validation vs. test set - we’ll talk about this soon!). In other cases, models are built for prediction and only used to make predictions. We’ll get to this too."
+  },
+  {
+    "objectID": "content/lectures/13-regression-slides.html#course-announcements-1",
+    "href": "content/lectures/13-regression-slides.html#course-announcements-1",
+    "title": "13-regression",
+    "section": "Course Announcements",
+    "text": "Course Announcements\nDue Dates:\n\nLab 7 due Friday (11:59 PM) &lt;- not CS02 based\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nNo lecture Wed"
   },
   {
     "objectID": "content/lectures/13-regression-slides.html#slope-and-intercept",
