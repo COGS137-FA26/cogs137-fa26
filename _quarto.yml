@@ -115,18 +115,18 @@ website:
             href: content/lectures/12-inference-prediction.qmd
           - text: "13: Regression"
             href: content/lectures/13-regression.qmd
-      #     - text: "15: CS02 Analysis (ML)"
-      #       href: content/lectures/15-cs02-analysis.qmd
-      #     - text: "16: Putting the Model Together"
-      #       href: content/lectures/16-putting-it-together.qmd
-      #     - text: "17: CS02 In-class Work"
-      #       href: content/lectures/17-cs02-inclass.qmd
-      #     - text: "18: Oral Communication"
-      #       href: content/lectures/18-oral-communication.qmd
-      #     - text: "19: Project In-class Work"
-      #       href: content/lectures/19-project-inclass.qmd
-      #     - text: "20: Presentations"
-      #       href: content/lectures/20-presentations.qmd
+          - text: "14: CS02 Analysis (ML)"
+            href: content/lectures/14-cs02-analysis.qmd
+          # - text: "15: Putting the Model Together"
+          #   href: content/lectures/15-putting-it-together.qmd
+      #     - text: "16: CS02 In-class Work"
+      #       href: content/lectures/16-cs02-inclass.qmd
+      #     - text: "17: Oral Communication"
+      #       href: content/lectures/17-oral-communication.qmd
+      #     - text: "18: Project In-class Work"
+      #       href: content/lectures/18-project-inclass.qmd
+      #     - text: "19: Presentations"
+      #       href: content/lectures/19-presentations.qmd
       - section: "Labs"
         contents:
           - text: "Lab 01: Tooling and R"

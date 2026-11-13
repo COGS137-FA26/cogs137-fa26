@@ -1,0 +1,60 @@
+---
+title: "18-project-inclass"
+author: "Professor Shannon Ellis"
+date: "2026-11-25"
+
+format:
+  html: 
+    output-file: 18-project-inclass.html
+  revealjs:
+    output-file: 18-project-inclass-slides.html
+---
+
+# Final Project: In class {background-color="#92A86A"}
+
+## Q&A {.scrollable .smaller}
+
+<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
+
+::: {.callout-note collapse="true" title="Q: "}
+A: 
+:::
+
+## Course Announcements
+
+**Due Dates**:
+
+-   👯 **Peer Evaluation** & 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)
+-   🔘 Lecture Participation survey "due" after class
+
+<!-- FA24 announcements, kept for reference:
+**Due Dates**:
+
+- 📄 **Final Project** due Tuesday
+  - qmd/HTML in repo
+  - 3-5 min Presentation submitted on Canvas (1/group)
+  - General Communication submitted on Canvas (1/group)
+  - [final project team evaluation](https://docs.google.com/forms/d/e/1FAIpQLScOfGiWvHY4UVobL95Em1d2JIEZJf8UCejGtpxsxUjW-FSiyw/viewform?usp=sf_link) (individual submission; link on Canvas and website) <- also a place where you can praise teammates
+- 🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
+
+Notes:
+
+-   Final Project - peer review was sent to each group in original email assigning peer review
+- Grades posted: CS02 Team evaluation, peer evaluation, lab07
+-->
+
+## Plan for Thursday
+
+- Course Announcements
+- Group Presentations (for EC; do not have to submit on Canvas)
+  - team forcats
+  - Zoom Team
+  - Plan A
+  - Team 9
+  - team tune
+- Final Discussion & Wrap it up
+
+# Final Project Questions? {background-color="#92A86A"}
+
+# Project Time {background-color="#92A86A"}
+
