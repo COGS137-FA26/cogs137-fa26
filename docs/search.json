@@ -390,6 +390,28 @@
     ]
   },
   {
+    "objectID": "content/lectures/14-cs02-analysis.html#qa-1",
+    "href": "content/lectures/14-cs02-analysis.html#qa-1",
+    "title": "14-cs02-analysis",
+    "section": "Q&A",
+    "text": "Q&A\n\n\n\n\n\n\nQ: when are the repos with the teams going to be sent? ?\n\n\n\n\n\nA: Apologies for not announcement on Friday - those were sent mid last week",
+    "crumbs": [
+      "Notes",
+      "14: CS02 Analysis (ML)"
+    ]
+  },
+  {
+    "objectID": "content/lectures/14-cs02-analysis.html#course-announcements-1",
+    "href": "content/lectures/14-cs02-analysis.html#course-announcements-1",
+    "title": "14-cs02-analysis",
+    "section": "Course Announcements",
+    "text": "Course Announcements\nDue Dates:\n\nCS02 [Report + General Communication + team eval]\nFinal Project Rough Draft\nLecture Participation survey “due” after class\n\nNotes:\n\nlab06 scores posted\ncs02 + final repos were created (last week)\nNo labs to submit rest of quarter\nThis Friday: in class cs02 time",
+    "crumbs": [
+      "Notes",
+      "14: CS02 Analysis (ML)"
+    ]
+  },
+  {
     "objectID": "content/lectures/14-cs02-analysis.html#step-4-assess-model-fit",
     "href": "content/lectures/14-cs02-analysis.html#step-4-assess-model-fit",
     "title": "14-cs02-analysis",
@@ -978,6 +1000,20 @@
     "title": "14-cs02-analysis",
     "section": "Step 3: Fit the workflow",
     "text": "Step 3: Fit the workflow\n\nPM_wflow_fit &lt;- parsnip::fit(PM_wflow, data = train_pm)\n\n\nOne call does it all on the training data: prep() the recipe, bake() the training data, then fit the model"
+  },
+  {
+    "objectID": "content/lectures/14-cs02-analysis-slides.html#qa-1",
+    "href": "content/lectures/14-cs02-analysis-slides.html#qa-1",
+    "title": "14-cs02-analysis",
+    "section": "Q&A",
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: when are the repos with the teams going to be sent? ?\n\n\nA: Apologies for not announcement on Friday - those were sent mid last week"
+  },
+  {
+    "objectID": "content/lectures/14-cs02-analysis-slides.html#course-announcements-1",
+    "href": "content/lectures/14-cs02-analysis-slides.html#course-announcements-1",
+    "title": "14-cs02-analysis",
+    "section": "Course Announcements",
+    "text": "Course Announcements\nDue Dates:\n\nCS02 [Report + General Communication + team eval]\nFinal Project Rough Draft\nLecture Participation survey “due” after class\n\nNotes:\n\nlab06 scores posted\ncs02 + final repos were created (last week)\nNo labs to submit rest of quarter\nThis Friday: in class cs02 time"
   },
   {
     "objectID": "content/lectures/14-cs02-analysis-slides.html#step-4-assess-model-fit",
