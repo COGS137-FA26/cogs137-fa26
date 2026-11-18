@@ -9675,21 +9675,21 @@
     "href": "content/lectures/15-putting-it-together-slides.html#qa",
     "title": "15-putting-it-together",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\n\n\nQ: How do you measure external validity of models? Mainly how to understand the range of values for which the models are likely valid at predictin.\n\n\nA: A good question and one that I’m only going to superficially answer here and answer in some depth in today’s set of notes. The simplest is you validate the model on intentionally different data to see how the model performs on data it hasn’t seen (for example, hold out a whole group, region, or block of time - we’re doing this today!). The next simplest is the fact that models work for the joint data…meaning just knowing the range of each predictor on its own is not sufficient because predictions will be most accurate for new data points that fall within the range of the original data across all predictors. There are metrics for determining how “close” new data are to the training data. If you want ot dig into these, you’d be looking into things like leverage adn dissimilarity index. Hope this starts to help you answer!\n\n\n\n\n\n\n\n\n\n\n\nQ: How do we know when to use certain types of models? In class today we looked at both a linear regression and random forest model and decided that the random forest was better, but in real life would we test both or would there be some way to know which was better without running them?\n\n\nA: Great question! In this class we are just scratching the surface of modelling. In a true modelling course, you would want to understand the suite of models available for a given task, starting with regression vs. classification. There is a search tool for parsnip, but it still assumes you know the suite of models available. For machine learning, people do typically try multiple models and then compare in validation. For inference, the model chosen is dictated by the data you have (if modeling with parametric models, like linear regression) and the assumptions of the model."
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#course-announcements",
     "href": "content/lectures/15-putting-it-together-slides.html#course-announcements",
     "title": "15-putting-it-together",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 07 due Fri 11/20 (11:59 PM)\n💻 CS02 & 🔘 CS02 team eval survey due Sun 11/22 (11:59 PM)\n📄 Final Project rough draft (qmd + HTML in your final project repo) due Sun 11/22 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\nSunday: CS02 [Report + General Communication + team eval]\nSunday: Final Project Rough Draft\nLecture Participation survey “due” after class\n\nReminder: In-class CS02 on Friday; Vinu will be running the show"
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#progress-check-in",
     "href": "content/lectures/15-putting-it-together-slides.html#progress-check-in",
     "title": "15-putting-it-together",
     "section": "Progress Check-in",
-    "text": "Progress Check-in\n❓ Where should you and your group be for CSO2 completion?\n\n❓ Where should you be at right now for your final project? What should you have done for rough draft on Monday?"
+    "text": "Progress Check-in\n❓ Where should you and your group be for CSO2 completion?\n\n❓ Where should you be at right now for your final project? What should you have done for rough draft?"
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#agenda",
@@ -9703,7 +9703,7 @@
     "href": "content/lectures/15-putting-it-together-slides.html#why-today",
     "title": "15-putting-it-together",
     "section": "Why today?",
-    "text": "Why today?\nLast time students told us:\n\n“We did the whole recipe lecture in one lecture…a little bit confusing.”\n\n\nSo today: (almost) no new functions. Just the order things happen in, and why…applied to a question we haven’t answered yet."
+    "text": "Why today?\nFeedback from students in FA24:\n\n“We did the whole recipe lecture in one lecture…a little bit confusing.”\n\n\nSo today: (almost) no new functions. Just the order things happen in, and why…applied to a question we haven’t answered yet."
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#one-slide",
@@ -9713,18 +9713,18 @@
     "text": "One slide\n\n\n\n\n\n\n\n\nStep\nQuestion it answers\ntidymodels\n\n\n\n\n1. Split\nWhat data do I never peek at until the end?\ninitial_split(), training(), testing()\n\n\n2. Recipe\nWhat are my outcome, predictors, and pre-processing steps?\nrecipe(), update_role(), step_*()\n\n\n3. Model\nWhat kind of model, which engine, which mode?\nlinear_reg(), rand_forest(), set_engine(), set_mode()\n\n\n4. Workflow\nRecipe + model, bundled together\nworkflow(), add_recipe(), add_model()\n\n\n5. Resample\nHow well does each candidate model do on data it wasn’t fit on…and which kind of new data?\nvfold_cv() or clustering_cv(), fit_resamples(), collect_metrics()\n\n\n6. Final fit\nHow does my chosen model do on the test set (once!)?\nlast_fit(), collect_metrics()\n\n\n7. Interpret\nWhat does this mean for my question?\ncollect_predictions(), vip::vip(), a plot + a sentence\n\n\n\n🧠 Before we code: where have we already done each of these steps?"
   },
   {
-    "objectID": "content/lectures/15-putting-it-together-slides.html#where-we-left-off-monday",
-    "href": "content/lectures/15-putting-it-together-slides.html#where-we-left-off-monday",
+    "objectID": "content/lectures/15-putting-it-together-slides.html#where-we-left-off",
+    "href": "content/lectures/15-putting-it-together-slides.html#where-we-left-off",
     "title": "15-putting-it-together",
-    "section": "Where we left off Monday",
-    "text": "Where we left off Monday\nMonday’s monitor-level random forest, condensed (full pipeline in the Appendix):\n\n# in your CS02 repo, the file is at \"data/pm25_data.csv\"\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\") |&gt;\n  mutate(across(c(id, fips, zcta), as.factor),\n         city = case_when(city == \"Not in a city\" ~ \"Not in a city\",\n                          city != \"Not in a city\" ~ \"In a city\"))\n\nset.seed(1234)\npm_split &lt;- initial_split(pm, prop = 2/3)\ntrain_pm &lt;- training(pm_split)\n\nrf_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_novel(state) |&gt;\n  step_string2factor(city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors())\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rand_forest(mtry = 10, min_n = 3) |&gt;\n              set_engine(\"randomForest\") |&gt;\n              set_mode(\"regression\"))\n\n# outline of the world, for maps\nworld &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n🧠 Which pipeline steps does this chunk cover?"
+    "section": "Where we left off",
+    "text": "Where we left off\nMonitor-level random forest, condensed (full pipeline in the Appendix):\n\n# in your CS02 repo, the file is at \"data/pm25_data.csv\"\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\") |&gt;\n  mutate(across(c(id, fips, zcta), as.factor),\n         city = case_when(city == \"Not in a city\" ~ \"Not in a city\",\n                          city != \"Not in a city\" ~ \"In a city\"))\n\nset.seed(1234)\npm_split &lt;- initial_split(pm, prop = 2/3)\ntrain_pm &lt;- training(pm_split)\n\nrf_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_novel(state) |&gt;\n  step_string2factor(city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors())\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rand_forest(mtry = 10, min_n = 3) |&gt;\n              set_engine(\"randomForest\") |&gt;\n              set_mode(\"regression\"))\n\n# outline of the world, for maps\nworld &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n🧠 Which pipeline steps does this chunk cover?"
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#the-question",
     "href": "content/lectures/15-putting-it-together-slides.html#the-question",
     "title": "15-putting-it-together",
     "section": "The question",
-    "text": "The question\nIn the intro, our goal was estimates everywhere. But Monday’s maps only colored in counties with a monitor.\n\nn_monitor_counties &lt;- n_distinct(pm$fips)\nn_monitor_counties\n\n[1] 569\n\n\nThat’s 569 of the ~3,100 counties in the lower 48.\n\n❓ What would we need in order to predict PM2.5 for a county with no monitor?\n\n\n\nAn honest estimate of how well we do in places far from any monitor\nPredictors that we have for every county (not just at monitors)"
+    "text": "The question\nIn the intro, our goal was estimates everywhere. But last lecture’s maps only colored in counties with a monitor.\n\nn_monitor_counties &lt;- n_distinct(pm$fips)\nn_monitor_counties\n\n[1] 569\n\n\nThat’s 569 of the ~3,100 counties in the lower 48.\n\n❓ What would we need in order to predict PM2.5 for a county with no monitor?\n\n\n\nAn honest estimate of how well we do in places far from any monitor\nPredictors that we have for every county (not just at monitors)"
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#resample-random-splits-can-flatter-us",
@@ -9822,21 +9822,14 @@
     "href": "content/lectures/15-putting-it-together-slides.html#where-each-step-goes",
     "title": "15-putting-it-together",
     "section": "Where each step goes",
-    "text": "Where each step goes\n\n\n\n\n\n\n\nPipeline step\nReport section\n\n\n\n\nSplit, recipe\nData (wrangling) & Methods\n\n\nModels, resampling\nAnalysis\n\n\nFinal fit\nResults\n\n\nInterpret\nResults & Discussion (and limitations!)\n\n\nFilling in the map / spatial CV\nDiscussion (limitations) or Extension"
-  },
-  {
-    "objectID": "content/lectures/15-putting-it-together-slides.html#your-turn",
-    "href": "content/lectures/15-putting-it-together-slides.html#your-turn",
-    "title": "15-putting-it-together",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nWith your CS02 group:\n\nFill in the pipeline table for your analysis (including your extension)\nWhich step does your extension change? (new data? new recipe step? new model?)\nWhere are you currently stuck?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
+    "text": "Where each step goes\n\n\n\n\n\n\n\nPipeline step\nReport section\n\n\n\n\nSplit, recipe\nData (wrangling) & Methods\n\n\nModels, resampling\nAnalysis\n\n\nFinal fit\nResults\n\n\nInterpret\nResults & Discussion (and limitations!)\n\n\nFilling in the map / spatial CV\nRsults & Discussion (and limitations!)"
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#about-this-appendix",
     "href": "content/lectures/15-putting-it-together-slides.html#about-this-appendix",
     "title": "15-putting-it-together",
     "section": "About this appendix",
-    "text": "About this appendix\nThe monitor-level pipeline from Friday and Monday, start to finish, in one place. For review on your own: we won’t walk through it in class."
+    "text": "About this appendix\nThe monitor-level pipeline from 14-cs02-analysis, start to finish, in one place. For review on your own: we won’t walk through it in class."
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#split",
@@ -9864,7 +9857,7 @@
     "href": "content/lectures/15-putting-it-together-slides.html#workflows",
     "title": "15-putting-it-together",
     "section": "4. Workflows",
-    "text": "4. Workflows\n\nlm_wflow &lt;- workflow() |&gt;\n  add_recipe(lm_rec) |&gt;\n  add_model(lm_model)\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rf_model)\n\n\n🧠 Who can explain the difference between a recipe, a model, and a workflow…in one sentence each?"
+    "text": "4. Workflows\n\nlm_wflow &lt;- workflow() |&gt;\n  add_recipe(lm_rec) |&gt;\n  add_model(lm_model)\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rf_model)"
   },
   {
     "objectID": "content/lectures/15-putting-it-together-slides.html#resample-to-choose-a-model",
@@ -9899,231 +9892,352 @@
     "href": "content/lectures/15-putting-it-together.html",
     "title": "15-putting-it-together",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#qa",
     "href": "content/lectures/15-putting-it-together.html#qa",
     "title": "15-putting-it-together",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: How do you measure external validity of models? Mainly how to understand the range of values for which the models are likely valid at predictin.\n\n\n\n\n\nA: A good question and one that I’m only going to superficially answer here and answer in some depth in today’s set of notes. The simplest is you validate the model on intentionally different data to see how the model performs on data it hasn’t seen (for example, hold out a whole group, region, or block of time - we’re doing this today!). The next simplest is the fact that models work for the joint data…meaning just knowing the range of each predictor on its own is not sufficient because predictions will be most accurate for new data points that fall within the range of the original data across all predictors. There are metrics for determining how “close” new data are to the training data. If you want ot dig into these, you’d be looking into things like leverage adn dissimilarity index. Hope this starts to help you answer!\n\n\n\n\n\n\n\n\n\nQ: How do we know when to use certain types of models? In class today we looked at both a linear regression and random forest model and decided that the random forest was better, but in real life would we test both or would there be some way to know which was better without running them?\n\n\n\n\n\nA: Great question! In this class we are just scratching the surface of modelling. In a true modelling course, you would want to understand the suite of models available for a given task, starting with regression vs. classification. There is a search tool for parsnip, but it still assumes you know the suite of models available. For machine learning, people do typically try multiple models and then compare in validation. For inference, the model chosen is dictated by the data you have (if modeling with parametric models, like linear regression) and the assumptions of the model.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#course-announcements",
     "href": "content/lectures/15-putting-it-together.html#course-announcements",
     "title": "15-putting-it-together",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n⌨️ Lab 07 due Fri 11/20 (11:59 PM)\n💻 CS02 & 🔘 CS02 team eval survey due Sun 11/22 (11:59 PM)\n📄 Final Project rough draft (qmd + HTML in your final project repo) due Sun 11/22 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates:\n\nSunday: CS02 [Report + General Communication + team eval]\nSunday: Final Project Rough Draft\nLecture Participation survey “due” after class\n\nReminder: In-class CS02 on Friday; Vinu will be running the show",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#progress-check-in",
     "href": "content/lectures/15-putting-it-together.html#progress-check-in",
     "title": "15-putting-it-together",
     "section": "Progress Check-in",
-    "text": "Progress Check-in\n❓ Where should you and your group be for CSO2 completion?\n. . .\n❓ Where should you be at right now for your final project? What should you have done for rough draft on Monday?"
+    "text": "Progress Check-in\n❓ Where should you and your group be for CSO2 completion?\n. . .\n❓ Where should you be at right now for your final project? What should you have done for rough draft?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#agenda",
     "href": "content/lectures/15-putting-it-together.html#agenda",
     "title": "15-putting-it-together",
     "section": "Agenda",
-    "text": "Agenda\n\nThe whole pipeline, on one slide\nA second pass through it, on a new question: can we fill in the map?\nCommon pitfalls\nMapping it onto your CS02 report"
+    "text": "Agenda\n\nThe whole pipeline, on one slide\nA second pass through it, on a new question: can we fill in the map?\nCommon pitfalls\nMapping it onto your CS02 report",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#why-today",
     "href": "content/lectures/15-putting-it-together.html#why-today",
     "title": "15-putting-it-together",
     "section": "Why today?",
-    "text": "Why today?\nLast time students told us:\n\n“We did the whole recipe lecture in one lecture…a little bit confusing.”\n\n. . .\nSo today: (almost) no new functions. Just the order things happen in, and why…applied to a question we haven’t answered yet."
+    "text": "Why today?\nFeedback from students in FA24:\n\n“We did the whole recipe lecture in one lecture…a little bit confusing.”\n\n. . .\nSo today: (almost) no new functions. Just the order things happen in, and why…applied to a question we haven’t answered yet.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#one-slide",
     "href": "content/lectures/15-putting-it-together.html#one-slide",
     "title": "15-putting-it-together",
     "section": "One slide",
-    "text": "One slide\n\n\n\n\n\n\n\n\nStep\nQuestion it answers\ntidymodels\n\n\n\n\n1. Split\nWhat data do I never peek at until the end?\ninitial_split(), training(), testing()\n\n\n2. Recipe\nWhat are my outcome, predictors, and pre-processing steps?\nrecipe(), update_role(), step_*()\n\n\n3. Model\nWhat kind of model, which engine, which mode?\nlinear_reg(), rand_forest(), set_engine(), set_mode()\n\n\n4. Workflow\nRecipe + model, bundled together\nworkflow(), add_recipe(), add_model()\n\n\n5. Resample\nHow well does each candidate model do on data it wasn’t fit on…and which kind of new data?\nvfold_cv() or clustering_cv(), fit_resamples(), collect_metrics()\n\n\n6. Final fit\nHow does my chosen model do on the test set (once!)?\nlast_fit(), collect_metrics()\n\n\n7. Interpret\nWhat does this mean for my question?\ncollect_predictions(), vip::vip(), a plot + a sentence\n\n\n\n🧠 Before we code: where have we already done each of these steps?"
+    "text": "One slide\n\n\n\n\n\n\n\n\nStep\nQuestion it answers\ntidymodels\n\n\n\n\n1. Split\nWhat data do I never peek at until the end?\ninitial_split(), training(), testing()\n\n\n2. Recipe\nWhat are my outcome, predictors, and pre-processing steps?\nrecipe(), update_role(), step_*()\n\n\n3. Model\nWhat kind of model, which engine, which mode?\nlinear_reg(), rand_forest(), set_engine(), set_mode()\n\n\n4. Workflow\nRecipe + model, bundled together\nworkflow(), add_recipe(), add_model()\n\n\n5. Resample\nHow well does each candidate model do on data it wasn’t fit on…and which kind of new data?\nvfold_cv() or clustering_cv(), fit_resamples(), collect_metrics()\n\n\n6. Final fit\nHow does my chosen model do on the test set (once!)?\nlast_fit(), collect_metrics()\n\n\n7. Interpret\nWhat does this mean for my question?\ncollect_predictions(), vip::vip(), a plot + a sentence\n\n\n\n🧠 Before we code: where have we already done each of these steps?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
-    "objectID": "content/lectures/15-putting-it-together.html#where-we-left-off-monday",
-    "href": "content/lectures/15-putting-it-together.html#where-we-left-off-monday",
+    "objectID": "content/lectures/15-putting-it-together.html#where-we-left-off",
+    "href": "content/lectures/15-putting-it-together.html#where-we-left-off",
     "title": "15-putting-it-together",
-    "section": "Where we left off Monday",
-    "text": "Where we left off Monday\nMonday’s monitor-level random forest, condensed (full pipeline in the Appendix):\n\n# in your CS02 repo, the file is at \"data/pm25_data.csv\"\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\") |&gt;\n  mutate(across(c(id, fips, zcta), as.factor),\n         city = case_when(city == \"Not in a city\" ~ \"Not in a city\",\n                          city != \"Not in a city\" ~ \"In a city\"))\n\nset.seed(1234)\npm_split &lt;- initial_split(pm, prop = 2/3)\ntrain_pm &lt;- training(pm_split)\n\nrf_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_novel(state) |&gt;\n  step_string2factor(city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors())\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rand_forest(mtry = 10, min_n = 3) |&gt;\n              set_engine(\"randomForest\") |&gt;\n              set_mode(\"regression\"))\n\n# outline of the world, for maps\nworld &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n🧠 Which pipeline steps does this chunk cover?"
+    "section": "Where we left off",
+    "text": "Where we left off\nMonitor-level random forest, condensed (full pipeline in the Appendix):\n\n# in your CS02 repo, the file is at \"data/pm25_data.csv\"\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\") |&gt;\n  mutate(across(c(id, fips, zcta), as.factor),\n         city = case_when(city == \"Not in a city\" ~ \"Not in a city\",\n                          city != \"Not in a city\" ~ \"In a city\"))\n\nset.seed(1234)\npm_split &lt;- initial_split(pm, prop = 2/3)\ntrain_pm &lt;- training(pm_split)\n\nrf_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_novel(state) |&gt;\n  step_string2factor(city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors())\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rand_forest(mtry = 10, min_n = 3) |&gt;\n              set_engine(\"randomForest\") |&gt;\n              set_mode(\"regression\"))\n\n# outline of the world, for maps\nworld &lt;- rnaturalearth::ne_countries(scale = \"medium\", returnclass = \"sf\")\n\n🧠 Which pipeline steps does this chunk cover?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#the-question",
     "href": "content/lectures/15-putting-it-together.html#the-question",
     "title": "15-putting-it-together",
     "section": "The question",
-    "text": "The question\nIn the intro, our goal was estimates everywhere. But Monday’s maps only colored in counties with a monitor.\n\nn_monitor_counties &lt;- n_distinct(pm$fips)\nn_monitor_counties\n\n[1] 569\n\n\nThat’s 569 of the ~3,100 counties in the lower 48.\n. . .\n❓ What would we need in order to predict PM2.5 for a county with no monitor?\n. . .\n\nAn honest estimate of how well we do in places far from any monitor\nPredictors that we have for every county (not just at monitors)"
+    "text": "The question\nIn the intro, our goal was estimates everywhere. But last lecture’s maps only colored in counties with a monitor.\n\nn_monitor_counties &lt;- n_distinct(pm$fips)\nn_monitor_counties\n\n[1] 569\n\n\nThat’s 569 of the ~3,100 counties in the lower 48.\n. . .\n❓ What would we need in order to predict PM2.5 for a county with no monitor?\n. . .\n\nAn honest estimate of how well we do in places far from any monitor\nPredictors that we have for every county (not just at monitors)",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#resample-random-splits-can-flatter-us",
     "href": "content/lectures/15-putting-it-together.html#resample-random-splits-can-flatter-us",
     "title": "15-putting-it-together",
     "section": "Resample: random splits can flatter us",
-    "text": "Resample: random splits can flatter us\nOn Monday, our test set and CV folds assigned monitors to train/test at random. But monitors cluster in cities:\n\nmonitor_pts &lt;- pm |&gt;\n  sf::st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326, remove = FALSE) |&gt;\n  sf::st_transform(5070)   # an equal-area map projection of the US (units = meters)\n\n# distance (km) from each monitor to its nearest *other* monitor\nmonitor_dists &lt;- unclass(sf::st_distance(monitor_pts)) / 1000\ndiag(monitor_dists) &lt;- NA\nnearest_km &lt;- apply(monitor_dists, 1, min, na.rm = TRUE)\nmedian(nearest_km)\n\n[1] 18.61733\n\n\n\nHalf of all monitors are within 19 km of another monitor\nSo a “held-out” monitor usually has a neighbor in the training data…and neighbors tend to have similar PM2.5\nThat’s a fair test for predicting a new monitor somewhere we already monitor, but too easy a test for a county with no monitors nearby"
+    "text": "Resample: random splits can flatter us\nOn Monday, our test set and CV folds assigned monitors to train/test at random. But monitors cluster in cities:\n\nmonitor_pts &lt;- pm |&gt;\n  sf::st_as_sf(coords = c(\"lon\", \"lat\"), crs = 4326, remove = FALSE) |&gt;\n  sf::st_transform(5070)   # an equal-area map projection of the US (units = meters)\n\n# distance (km) from each monitor to its nearest *other* monitor\nmonitor_dists &lt;- unclass(sf::st_distance(monitor_pts)) / 1000\ndiag(monitor_dists) &lt;- NA\nnearest_km &lt;- apply(monitor_dists, 1, min, na.rm = TRUE)\nmedian(nearest_km)\n\n[1] 18.61733\n\n\n\nHalf of all monitors are within 19 km of another monitor\nSo a “held-out” monitor usually has a neighbor in the training data…and neighbors tend to have similar PM2.5\nThat’s a fair test for predicting a new monitor somewhere we already monitor, but too easy a test for a county with no monitors nearby",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#resample-spatial-cross-validation",
     "href": "content/lectures/15-putting-it-together.html#resample-spatial-cross-validation",
     "title": "15-putting-it-together",
     "section": "Resample: spatial cross-validation",
-    "text": "Resample: spatial cross-validation\nInstead of random folds, hold out whole regions:\n\nset.seed(1234)\nspatial_folds_pm &lt;- rsample::clustering_cv(train_pm, vars = c(lat, lon), v = 4)\nspatial_folds_pm\n\n# 4-cluster cross-validation \n# A tibble: 4 × 2\n  splits            id   \n  &lt;list&gt;            &lt;chr&gt;\n1 &lt;split [373/211]&gt; Fold1\n2 &lt;split [469/115]&gt; Fold2\n3 &lt;split [480/104]&gt; Fold3\n4 &lt;split [430/154]&gt; Fold4\n\n\n\nclustering_cv() uses k-means clustering on lat and lon, so nearby monitors land in the same fold\nEach fold is assessed by a model that never saw any monitor from that region\nThe spatialsample package has more options (e.g., buffers around each held-out area), but it needs sf data"
+    "text": "Resample: spatial cross-validation\nInstead of random folds, hold out whole regions:\n\nset.seed(1234)\nspatial_folds_pm &lt;- rsample::clustering_cv(train_pm, vars = c(lat, lon), v = 4)\nspatial_folds_pm\n\n# 4-cluster cross-validation \n# A tibble: 4 × 2\n  splits            id   \n  &lt;list&gt;            &lt;chr&gt;\n1 &lt;split [373/211]&gt; Fold1\n2 &lt;split [469/115]&gt; Fold2\n3 &lt;split [480/104]&gt; Fold3\n4 &lt;split [430/154]&gt; Fold4\n\n\n\nclustering_cv() uses k-means clustering on lat and lon, so nearby monitors land in the same fold\nEach fold is assessed by a model that never saw any monitor from that region\nThe spatialsample package has more options (e.g., buffers around each held-out area), but it needs sf data",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#resample-spatial-folds",
     "href": "content/lectures/15-putting-it-together.html#resample-spatial-folds",
     "title": "15-putting-it-together",
     "section": "Resample: spatial folds",
-    "text": "Resample: spatial folds\n\nfold_map &lt;- map2(spatial_folds_pm$splits, spatial_folds_pm$id,\n                 \\(split, fold_id) assessment(split) |&gt; mutate(fold = fold_id)) |&gt;\n  list_rbind()\n\nggplot(data = world) +\n  geom_sf() +\n  coord_sf(xlim = c(-125, -66), ylim = c(24.5, 50), expand = FALSE) +\n  geom_point(data = fold_map, aes(x = lon, y = lat, color = fold), size = 1.5) +\n  ggtitle(\"Training monitors, colored by spatial fold\")"
+    "text": "Resample: spatial folds\n\nfold_map &lt;- map2(spatial_folds_pm$splits, spatial_folds_pm$id,\n                 \\(split, fold_id) assessment(split) |&gt; mutate(fold = fold_id)) |&gt;\n  list_rbind()\n\nggplot(data = world) +\n  geom_sf() +\n  coord_sf(xlim = c(-125, -66), ylim = c(24.5, 50), expand = FALSE) +\n  geom_point(data = fold_map, aes(x = lon, y = lat, color = fold), size = 1.5) +\n  ggtitle(\"Training monitors, colored by spatial fold\")",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#resample-random-vs.-spatial-cv",
     "href": "content/lectures/15-putting-it-together.html#resample-random-vs.-spatial-cv",
     "title": "15-putting-it-together",
     "section": "Resample: random vs. spatial CV",
-    "text": "Resample: random vs. spatial CV\nSame random forest (rf_wflow), two kinds of folds:\n\nset.seed(1234)\nrandom_folds_pm &lt;- vfold_cv(train_pm, v = 4)\n\nset.seed(456)\nrandom_RF_fit &lt;- fit_resamples(rf_wflow, random_folds_pm)\nset.seed(456)\nspatial_RF_fit &lt;- fit_resamples(rf_wflow, spatial_folds_pm)\n\n# baseline: predict every held-out value with the mean of the training folds\nnull_cv_rmse &lt;- function(folds) {\n  map_dbl(folds$splits, \\(split) {\n    yardstick::rmse_vec(assessment(split)$value,\n                        rep(mean(analysis(split)$value), nrow(assessment(split))))\n  }) |&gt;\n    mean()\n}\n\nget_rmse &lt;- function(fit) {\n  collect_metrics(fit) |&gt; filter(.metric == \"rmse\") |&gt; pull(mean)\n}\n\ncv_compare &lt;- tibble(\n  folds = c(\"random (vfold_cv)\", \"spatial (clustering_cv)\", \"spatial: just predict the mean\"),\n  rmse = c(get_rmse(random_RF_fit),\n           get_rmse(spatial_RF_fit),\n           null_cv_rmse(spatial_folds_pm))\n)\ncv_compare\n\n# A tibble: 3 × 2\n  folds                           rmse\n  &lt;chr&gt;                          &lt;dbl&gt;\n1 random (vfold_cv)               1.67\n2 spatial (clustering_cv)         2.38\n3 spatial: just predict the mean  2.71\n\n\n❓ Why is the spatial CV error bigger? Which predictors might stop helping when a whole region is held out? (Hint: think about state.)"
+    "text": "Resample: random vs. spatial CV\nSame random forest (rf_wflow), two kinds of folds:\n\nset.seed(1234)\nrandom_folds_pm &lt;- vfold_cv(train_pm, v = 4)\n\nset.seed(456)\nrandom_RF_fit &lt;- fit_resamples(rf_wflow, random_folds_pm)\nset.seed(456)\nspatial_RF_fit &lt;- fit_resamples(rf_wflow, spatial_folds_pm)\n\n# baseline: predict every held-out value with the mean of the training folds\nnull_cv_rmse &lt;- function(folds) {\n  map_dbl(folds$splits, \\(split) {\n    yardstick::rmse_vec(assessment(split)$value,\n                        rep(mean(analysis(split)$value), nrow(assessment(split))))\n  }) |&gt;\n    mean()\n}\n\nget_rmse &lt;- function(fit) {\n  collect_metrics(fit) |&gt; filter(.metric == \"rmse\") |&gt; pull(mean)\n}\n\ncv_compare &lt;- tibble(\n  folds = c(\"random (vfold_cv)\", \"spatial (clustering_cv)\", \"spatial: just predict the mean\"),\n  rmse = c(get_rmse(random_RF_fit),\n           get_rmse(spatial_RF_fit),\n           null_cv_rmse(spatial_folds_pm))\n)\ncv_compare\n\n# A tibble: 3 × 2\n  folds                           rmse\n  &lt;chr&gt;                          &lt;dbl&gt;\n1 random (vfold_cv)               1.67\n2 spatial (clustering_cv)         2.38\n3 spatial: just predict the mean  2.71\n\n\n❓ Why is the spatial CV error bigger? Which predictors might stop helping when a whole region is held out? (Hint: think about state.)",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#data-features-we-have-everywhere",
     "href": "content/lectures/15-putting-it-together.html#data-features-we-have-everywhere",
     "title": "15-putting-it-together",
     "section": "Data: features we have everywhere",
-    "text": "Data: features we have everywhere\nOur monitor-level model leans on features measured at each monitor: CMAQ and aod at that spot, roads/emissions/impervious surface within a radius of the monitor, and demographics of the monitor’s ZCTA. We don’t have those for a county with no monitor.\n. . .\nSo we’ll build a simpler county-level model, using only features we have for every county:\n\n\n\nFeature\nSource\n\n\n\n\nlat, lon (a point inside the county)\ncounty shapes (maps)\n\n\narea_km2 (county area)\ncounty shapes (maps)\n\n\npop_2012 (population, July 2012) and urc2013 (urban-rural code)\nNCHS Urban-Rural Classification Scheme data file\n\n\npopdens (people per km2)\npop_2012 / area_km2\n\n\n\n. . .\n\n# one row per county in the lower 48 (+ DC)\ncounty_features &lt;- read_csv(\"OCS_data/data/raw/county_features.csv\",\n                            col_types = cols(fips = col_character()))\nglimpse(county_features)\n\nRows: 3,109\nColumns: 5\n$ fips     &lt;chr&gt; \"01001\", \"01003\", \"01005\", \"01007\", \"01009\", \"01011\", \"01013\"…\n$ state    &lt;chr&gt; \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"…\n$ county   &lt;chr&gt; \"Autauga County\", \"Baldwin County\", \"Barbour County\", \"Bibb C…\n$ urc2013  &lt;dbl&gt; 3, 4, 6, 2, 2, 6, 6, 4, 5, 6, 2, 6, 6, 6, 6, 5, 4, 6, 5, 6, 6…\n$ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296, 340…\n\n\nNote: the county-level columns in pm25_data.csv don’t always match the official files (e.g., Cook County, IL has urc2013 = 2, but NCHS codes it 1, “large central metro”). Taking every county’s features from one source keeps training and prediction consistent."
+    "text": "Data: features we have everywhere\nOur monitor-level model leans on features measured at each monitor: CMAQ and aod at that spot, roads/emissions/impervious surface within a radius of the monitor, and demographics of the monitor’s ZCTA. We don’t have those for a county with no monitor.\n. . .\nSo we’ll build a simpler county-level model, using only features we have for every county:\n\n\n\nFeature\nSource\n\n\n\n\nlat, lon (a point inside the county)\ncounty shapes (maps)\n\n\narea_km2 (county area)\ncounty shapes (maps)\n\n\npop_2012 (population, July 2012) and urc2013 (urban-rural code)\nNCHS Urban-Rural Classification Scheme data file\n\n\npopdens (people per km2)\npop_2012 / area_km2\n\n\n\n. . .\n\n# one row per county in the lower 48 (+ DC)\ncounty_features &lt;- read_csv(\"OCS_data/data/raw/county_features.csv\",\n                            col_types = cols(fips = col_character()))\nglimpse(county_features)\n\nRows: 3,109\nColumns: 5\n$ fips     &lt;chr&gt; \"01001\", \"01003\", \"01005\", \"01007\", \"01009\", \"01011\", \"01013\"…\n$ state    &lt;chr&gt; \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"AL\", \"…\n$ county   &lt;chr&gt; \"Autauga County\", \"Baldwin County\", \"Barbour County\", \"Bibb C…\n$ urc2013  &lt;dbl&gt; 3, 4, 6, 2, 2, 6, 6, 4, 5, 6, 2, 6, 6, 6, 6, 5, 4, 6, 5, 6, 6…\n$ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296, 340…\n\n\nNote: the county-level columns in pm25_data.csv don’t always match the official files (e.g., Cook County, IL has urc2013 = 2, but NCHS codes it 1, “large central metro”). Taking every county’s features from one source keeps training and prediction consistent.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#data-county-shapes-county-features",
     "href": "content/lectures/15-putting-it-together.html#data-county-shapes-county-features",
     "title": "15-putting-it-together",
     "section": "Data: county shapes → county features",
-    "text": "Data: county shapes → county features\n\n# county.fips links each maps county name (\"state,county\") to its FIPS code\ncounty_fips &lt;- maps::county.fips |&gt;\n  # sf merges counties drawn in pieces (\"washington,pierce:main\"), so drop the \":piece\"\n  mutate(polyname = str_remove(as.character(polyname), \":.*\")) |&gt;\n  distinct() |&gt;\n  # renamed from Shannon County (46113) in 2015; NCHS 2013 still uses 46113\n  add_row(fips = 46113, polyname = \"south dakota,oglala lakota\")\n\ncounty_shapes &lt;- sf::st_as_sf(maps::map(\"county\", plot = FALSE, fill = TRUE)) |&gt;\n  left_join(county_fips, by = c(\"ID\" = \"polyname\")) |&gt;\n  filter(!is.na(fips)) |&gt;\n  mutate(fips = sprintf(\"%05d\", as.integer(fips))) |&gt;\n  sf::st_transform(5070) |&gt;   # equal-area projection (meters), so areas are accurate\n  sf::st_make_valid() |&gt;\n  group_by(fips) |&gt;\n  summarize()                 # one shape per county (a few have two names in maps)\n\n# a point guaranteed to fall inside each county\ncounty_points &lt;- sf::st_point_on_surface(county_shapes)\ncounty_lonlat &lt;- county_points |&gt; sf::st_transform(4326) |&gt; sf::st_coordinates()\n\n# which monitor is closest to each county?\nnearest_monitor &lt;- sf::st_nearest_feature(county_points, monitor_pts)\n\ncounty_data &lt;- tibble(\n  fips = county_shapes$fips,\n  lon = county_lonlat[, \"X\"],\n  lat = county_lonlat[, \"Y\"],\n  area_km2 = as.numeric(sf::st_area(county_shapes)) / 1e6,\n  dist_km = as.numeric(sf::st_distance(county_points, monitor_pts[nearest_monitor, ],\n                                       by_element = TRUE)) / 1000\n) |&gt;\n  inner_join(county_features, by = \"fips\") |&gt;\n  mutate(popdens = pop_2012 / area_km2)\n\ncounty_data\n\n# A tibble: 3,075 × 10\n   fips    lon   lat area_km2 dist_km state county      urc2013 pop_2012 popdens\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n 1 01001 -86.7  32.5    1489.    36.3 AL    Autauga Co…       3    55514   37.3 \n 2 01003 -87.7  30.8    4108.    31.6 AL    Baldwin Co…       4   190790   46.4 \n 3 01005 -85.4  31.9    2332.    71.3 AL    Barbour Co…       6    27201   11.7 \n 4 01007 -87.1  33.0    1543.    35.1 AL    Bibb County       2    22597   14.6 \n 5 01009 -86.5  34.0    1634.    37.7 AL    Blount Cou…       2    57826   35.4 \n 6 01011 -85.7  32.1    1615.    63.8 AL    Bullock Co…       6    10474    6.49\n 7 01013 -86.7  31.8    1900.    81.5 AL    Butler Cou…       6    20307   10.7 \n 8 01015 -85.8  33.8    1545.    27.5 AL    Calhoun Co…       4   117296   75.9 \n 9 01017 -85.4  33.0    1498.    49.3 AL    Chambers C…       5    34064   22.7 \n10 01019 -85.6  34.3    1568.    26.4 AL    Cherokee C…       6    26021   16.6 \n# ℹ 3,065 more rows\n\n\n\ndist_km (distance to the nearest monitor) is not a predictor; we’ll use it to show where predictions are least certain"
+    "text": "Data: county shapes → county features\n\n# county.fips links each maps county name (\"state,county\") to its FIPS code\ncounty_fips &lt;- maps::county.fips |&gt;\n  # sf merges counties drawn in pieces (\"washington,pierce:main\"), so drop the \":piece\"\n  mutate(polyname = str_remove(as.character(polyname), \":.*\")) |&gt;\n  distinct() |&gt;\n  # renamed from Shannon County (46113) in 2015; NCHS 2013 still uses 46113\n  add_row(fips = 46113, polyname = \"south dakota,oglala lakota\")\n\ncounty_shapes &lt;- sf::st_as_sf(maps::map(\"county\", plot = FALSE, fill = TRUE)) |&gt;\n  left_join(county_fips, by = c(\"ID\" = \"polyname\")) |&gt;\n  filter(!is.na(fips)) |&gt;\n  mutate(fips = sprintf(\"%05d\", as.integer(fips))) |&gt;\n  sf::st_transform(5070) |&gt;   # equal-area projection (meters), so areas are accurate\n  sf::st_make_valid() |&gt;\n  group_by(fips) |&gt;\n  summarize()                 # one shape per county (a few have two names in maps)\n\n# a point guaranteed to fall inside each county\ncounty_points &lt;- sf::st_point_on_surface(county_shapes)\ncounty_lonlat &lt;- county_points |&gt; sf::st_transform(4326) |&gt; sf::st_coordinates()\n\n# which monitor is closest to each county?\nnearest_monitor &lt;- sf::st_nearest_feature(county_points, monitor_pts)\n\ncounty_data &lt;- tibble(\n  fips = county_shapes$fips,\n  lon = county_lonlat[, \"X\"],\n  lat = county_lonlat[, \"Y\"],\n  area_km2 = as.numeric(sf::st_area(county_shapes)) / 1e6,\n  dist_km = as.numeric(sf::st_distance(county_points, monitor_pts[nearest_monitor, ],\n                                       by_element = TRUE)) / 1000\n) |&gt;\n  inner_join(county_features, by = \"fips\") |&gt;\n  mutate(popdens = pop_2012 / area_km2)\n\ncounty_data\n\n# A tibble: 3,075 × 10\n   fips    lon   lat area_km2 dist_km state county      urc2013 pop_2012 popdens\n   &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;   &lt;dbl&gt;\n 1 01001 -86.7  32.5    1489.    36.3 AL    Autauga Co…       3    55514   37.3 \n 2 01003 -87.7  30.8    4108.    31.6 AL    Baldwin Co…       4   190790   46.4 \n 3 01005 -85.4  31.9    2332.    71.3 AL    Barbour Co…       6    27201   11.7 \n 4 01007 -87.1  33.0    1543.    35.1 AL    Bibb County       2    22597   14.6 \n 5 01009 -86.5  34.0    1634.    37.7 AL    Blount Cou…       2    57826   35.4 \n 6 01011 -85.7  32.1    1615.    63.8 AL    Bullock Co…       6    10474    6.49\n 7 01013 -86.7  31.8    1900.    81.5 AL    Butler Cou…       6    20307   10.7 \n 8 01015 -85.8  33.8    1545.    27.5 AL    Calhoun Co…       4   117296   75.9 \n 9 01017 -85.4  33.0    1498.    49.3 AL    Chambers C…       5    34064   22.7 \n10 01019 -85.6  34.3    1568.    26.4 AL    Cherokee C…       6    26021   16.6 \n# ℹ 3,065 more rows\n\n\n\ndist_km (distance to the nearest monitor) is not a predictor; we’ll use it to show where predictions are least certain",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#data-county-level-outcome",
     "href": "content/lectures/15-putting-it-together.html#data-county-level-outcome",
     "title": "15-putting-it-together",
     "section": "Data: county-level outcome",
-    "text": "Data: county-level outcome\n\ncounty_pm &lt;- pm |&gt;\n  mutate(fips = sprintf(\"%05d\", as.integer(as.character(fips)))) |&gt;\n  group_by(fips) |&gt;\n  summarize(value = mean(value), n_monitors = n())\n\ncounty_train &lt;- inner_join(county_data, county_pm, by = \"fips\")\nnrow(county_train)\n\n[1] 566\n\n\n\nTraining data: one row per county with a monitor; outcome = average PM2.5 across that county’s monitors\nWe’ll predict for all 3075 counties in county_data"
+    "text": "Data: county-level outcome\n\ncounty_pm &lt;- pm |&gt;\n  mutate(fips = sprintf(\"%05d\", as.integer(as.character(fips)))) |&gt;\n  group_by(fips) |&gt;\n  summarize(value = mean(value), n_monitors = n())\n\ncounty_train &lt;- inner_join(county_data, county_pm, by = \"fips\")\nnrow(county_train)\n\n[1] 566\n\n\n\nTraining data: one row per county with a monitor; outcome = average PM2.5 across that county’s monitors\nWe’ll predict for all 3075 counties in county_data",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#model-workflow-two-county-level-models",
     "href": "content/lectures/15-putting-it-together.html#model-workflow-two-county-level-models",
     "title": "15-putting-it-together",
     "section": "Model + workflow: two county-level models",
-    "text": "Model + workflow: two county-level models\n\ncounty_RF &lt;- rand_forest(trees = 500) |&gt;\n  set_engine(\"randomForest\") |&gt;\n  set_mode(\"regression\")\n\nlatlon_wflow &lt;- workflow() |&gt;\n  add_formula(value ~ lat + lon) |&gt;\n  add_model(county_RF)\n\ncounty_wflow &lt;- workflow() |&gt;\n  add_formula(value ~ lat + lon + area_km2 + pop_2012 + popdens + urc2013) |&gt;\n  add_model(county_RF)\n\n\nlatlon_wflow: location only (essentially smoothing between monitors)\ncounty_wflow: location + county features\nadd_formula() instead of a recipe: no pre-processing needed here"
+    "text": "Model + workflow: two county-level models\n\ncounty_RF &lt;- rand_forest(trees = 500) |&gt;\n  set_engine(\"randomForest\") |&gt;\n  set_mode(\"regression\")\n\nlatlon_wflow &lt;- workflow() |&gt;\n  add_formula(value ~ lat + lon) |&gt;\n  add_model(county_RF)\n\ncounty_wflow &lt;- workflow() |&gt;\n  add_formula(value ~ lat + lon + area_km2 + pop_2012 + popdens + urc2013) |&gt;\n  add_model(county_RF)\n\n\nlatlon_wflow: location only (essentially smoothing between monitors)\ncounty_wflow: location + county features\nadd_formula() instead of a recipe: no pre-processing needed here",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#resample-which-model-judged-how",
     "href": "content/lectures/15-putting-it-together.html#resample-which-model-judged-how",
     "title": "15-putting-it-together",
     "section": "Resample: which model? Judged how?",
-    "text": "Resample: which model? Judged how?\n\nset.seed(1234)\ncounty_random_folds &lt;- vfold_cv(county_train, v = 5)\nset.seed(1234)\ncounty_spatial_folds &lt;- clustering_cv(county_train, vars = c(lat, lon), v = 5)\n\nrmse_on &lt;- function(wflow, folds) {\n  fit_resamples(wflow, folds) |&gt;\n    collect_metrics() |&gt;\n    filter(.metric == \"rmse\") |&gt;\n    pull(mean)\n}\n\nset.seed(456)\ncounty_cv &lt;- tibble(\n  model = c(\"location only\", \"location + county features\", \"just predict the mean\"),\n  random_cv = c(rmse_on(latlon_wflow, county_random_folds),\n                rmse_on(county_wflow, county_random_folds),\n                null_cv_rmse(county_random_folds)),\n  spatial_cv = c(rmse_on(latlon_wflow, county_spatial_folds),\n                 rmse_on(county_wflow, county_spatial_folds),\n                 null_cv_rmse(county_spatial_folds))\n)\ncounty_cv\n\n# A tibble: 3 × 3\n  model                      random_cv spatial_cv\n  &lt;chr&gt;                          &lt;dbl&gt;      &lt;dbl&gt;\n1 location only                   1.61       2.71\n2 location + county features      1.65       2.53\n3 just predict the mean           2.40       2.71\n\n\n❓ Which model would you pick looking only at random CV? At spatial CV? Which column answers “how well can we predict a county with no monitor”?"
+    "text": "Resample: which model? Judged how?\n\nset.seed(1234)\ncounty_random_folds &lt;- vfold_cv(county_train, v = 5)\nset.seed(1234)\ncounty_spatial_folds &lt;- clustering_cv(county_train, vars = c(lat, lon), v = 5)\n\nrmse_on &lt;- function(wflow, folds) {\n  fit_resamples(wflow, folds) |&gt;\n    collect_metrics() |&gt;\n    filter(.metric == \"rmse\") |&gt;\n    pull(mean)\n}\n\nset.seed(456)\ncounty_cv &lt;- tibble(\n  model = c(\"location only\", \"location + county features\", \"just predict the mean\"),\n  random_cv = c(rmse_on(latlon_wflow, county_random_folds),\n                rmse_on(county_wflow, county_random_folds),\n                null_cv_rmse(county_random_folds)),\n  spatial_cv = c(rmse_on(latlon_wflow, county_spatial_folds),\n                 rmse_on(county_wflow, county_spatial_folds),\n                 null_cv_rmse(county_spatial_folds))\n)\ncounty_cv\n\n# A tibble: 3 × 3\n  model                      random_cv spatial_cv\n  &lt;chr&gt;                          &lt;dbl&gt;      &lt;dbl&gt;\n1 location only                   1.61       2.71\n2 location + county features      1.65       2.53\n3 just predict the mean           2.40       2.71\n\n\n❓ Which model would you pick looking only at random CV? At spatial CV? Which column answers “how well can we predict a county with no monitor”?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#final-fit-predict-every-county",
     "href": "content/lectures/15-putting-it-together.html#final-fit-predict-every-county",
     "title": "15-putting-it-together",
     "section": "Final fit: predict every county",
-    "text": "Final fit: predict every county\n\ncounty_fit &lt;- fit(county_wflow, data = county_train)\n\ncounty_preds &lt;- county_data |&gt;\n  bind_cols(predict(county_fit, new_data = county_data))\n\ncounty_random_rmse &lt;- county_cv |&gt;\n  filter(model == \"location + county features\") |&gt;\n  pull(random_cv)\nspatial_rmse &lt;- county_cv |&gt;\n  filter(model == \"location + county features\") |&gt;\n  pull(spatial_cv)\n\n\nFit on all counties with monitors, then predict all 3075 counties\nFor a county far from monitors, expect errors of roughly 2.5 µg/m³ (spatial CV RMSE), not the 1.7 that random CV suggests\nWhy no initial_split()/last_fit()? The counties we most care about have no measurements to test against, so spatial CV is our error estimate (a bit optimistic, since we also used it to pick the model)\n\n🧠 Which number belongs in your Results, and which in your Discussion of limitations?"
+    "text": "Final fit: predict every county\n\ncounty_fit &lt;- fit(county_wflow, data = county_train)\n\ncounty_preds &lt;- county_data |&gt;\n  bind_cols(predict(county_fit, new_data = county_data))\n\ncounty_random_rmse &lt;- county_cv |&gt;\n  filter(model == \"location + county features\") |&gt;\n  pull(random_cv)\nspatial_rmse &lt;- county_cv |&gt;\n  filter(model == \"location + county features\") |&gt;\n  pull(spatial_cv)\n\n\nFit on all counties with monitors, then predict all 3075 counties\nFor a county far from monitors, expect errors of roughly 2.5 µg/m³ (spatial CV RMSE), not the 1.7 that random CV suggests\nWhy no initial_split()/last_fit()? The counties we most care about have no measurements to test against, so spatial CV is our error estimate (a bit optimistic, since we also used it to pick the model)\n\n🧠 Which number belongs in your Results, and which in your Discussion of limitations?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#interpret-predictions-everywhere",
     "href": "content/lectures/15-putting-it-together.html#interpret-predictions-everywhere",
     "title": "15-putting-it-together",
     "section": "Interpret: predictions everywhere",
-    "text": "Interpret: predictions everywhere\n\nCodePlot\n\n\n\n# shared styling for our PM2.5 maps\nstates &lt;- sf::st_as_sf(maps::map(\"state\", plot = FALSE, fill = TRUE))\n\npm_scale &lt;- scale_fill_viridis_c(option = \"magma\", direction = -1,\n                                 limits = c(0, 23.5), na.value = \"grey92\",\n                                 name = \"PM2.5\\n(µg/m³)\")\n\nmap_style &lt;- list(\n  geom_sf(data = states, fill = NA, color = \"grey50\", linewidth = 0.2),\n  coord_sf(crs = 5070),   # equal-area projection: the US looks like the US\n  theme_void(),\n  theme(plot.title = element_text(face = \"bold\"))\n)\n\ncounty_map &lt;- left_join(county_shapes, county_preds, by = \"fips\")\n\npred_all &lt;- ggplot() +\n  geom_sf(data = county_map, aes(fill = .pred), color = NA) +\n  pm_scale +\n  map_style +\n  ggtitle(\"Predicted\", subtitle = \"every county\")"
+    "text": "Interpret: predictions everywhere\n\nCodePlot\n\n\n\n# shared styling for our PM2.5 maps\nstates &lt;- sf::st_as_sf(maps::map(\"state\", plot = FALSE, fill = TRUE))\n\npm_scale &lt;- scale_fill_viridis_c(option = \"magma\", direction = -1,\n                                 limits = c(0, 23.5), na.value = \"grey92\",\n                                 name = \"PM2.5\\n(µg/m³)\")\n\nmap_style &lt;- list(\n  geom_sf(data = states, fill = NA, color = \"grey50\", linewidth = 0.2),\n  coord_sf(crs = 5070),   # equal-area projection: the US looks like the US\n  theme_void(),\n  theme(plot.title = element_text(face = \"bold\"))\n)\n\ncounty_map &lt;- left_join(county_shapes, county_preds, by = \"fips\")\n\npred_all &lt;- ggplot() +\n  geom_sf(data = county_map, aes(fill = .pred), color = NA) +\n  pm_scale +\n  map_style +\n  ggtitle(\"Predicted\", subtitle = \"every county\")",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#interpret-where-to-trust-it",
     "href": "content/lectures/15-putting-it-together.html#interpret-where-to-trust-it",
     "title": "15-putting-it-together",
     "section": "Interpret: where to trust it",
-    "text": "Interpret: where to trust it\n\nCodePlot\n\n\n\ndist_map &lt;- ggplot() +\n  geom_sf(data = county_map, aes(fill = dist_km), color = NA) +\n  # a different palette than PM2.5, since this is a different quantity\n  scale_fill_viridis_c(option = \"mako\", direction = -1,\n                       name = \"km to nearest\\nmonitor\") +\n  map_style +\n  ggtitle(\"Distance to nearest monitor\", subtitle = \"darker = less certain\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDarker counties are farther from any monitor: predictions there lean hardest on the model, and spatial CV only tells us the average error, so errors there are likely larger\n\n❓ If you could add 50 new monitors, where would you put them?"
+    "text": "Interpret: where to trust it\n\nCodePlot\n\n\n\ndist_map &lt;- ggplot() +\n  geom_sf(data = county_map, aes(fill = dist_km), color = NA) +\n  # a different palette than PM2.5, since this is a different quantity\n  scale_fill_viridis_c(option = \"mako\", direction = -1,\n                       name = \"km to nearest\\nmonitor\") +\n  map_style +\n  ggtitle(\"Distance to nearest monitor\", subtitle = \"darker = less certain\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDarker counties are farther from any monitor: predictions there lean hardest on the model, and spatial CV only tells us the average error, so errors there are likely larger\n\n❓ If you could add 50 new monitors, where would you put them?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#interpret-final-plot",
     "href": "content/lectures/15-putting-it-together.html#interpret-final-plot",
     "title": "15-putting-it-together",
     "section": "Interpret: final plot",
-    "text": "Interpret: final plot\n\nCodePlot\n\n\n\ntruth_all &lt;- ggplot() +\n  geom_sf(data = left_join(county_shapes, county_pm, by = \"fips\"),\n          aes(fill = value), color = NA) +\n  pm_scale +\n  map_style +\n  ggtitle(\"Measured\", subtitle = \"grey = no monitor\")\n\nfill_plot &lt;- (truth_all | pred_all | dist_map) +\n  plot_layout(guides = \"collect\") +\n  plot_annotation(title = \"Estimating Air Pollution Where There Are No Monitors\",\n                  subtitle = paste0(\"A county-level random forest (location, area, population, urban-rural code) fills in every county in the lower 48.\\nHolding out whole regions (spatial CV), predictions are off by about \", round(spatial_rmse, 1), \" ug/m3 on average; expect larger errors far from monitors.\"),\n                  theme = theme(plot.title = element_text(size = 12, face = \"bold\"),\n                                plot.subtitle = element_text(size = 8))) &\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n❓ How would you describe what this model can and can’t tell us in your report?"
+    "text": "Interpret: final plot\n\nCodePlot\n\n\n\ntruth_all &lt;- ggplot() +\n  geom_sf(data = left_join(county_shapes, county_pm, by = \"fips\"),\n          aes(fill = value), color = NA) +\n  pm_scale +\n  map_style +\n  ggtitle(\"Measured\", subtitle = \"grey = no monitor\")\n\nfill_plot &lt;- (truth_all | pred_all | dist_map) +\n  plot_layout(guides = \"collect\") +\n  plot_annotation(title = \"Estimating Air Pollution Where There Are No Monitors\",\n                  subtitle = paste0(\"A county-level random forest (location, area, population, urban-rural code) fills in every county in the lower 48.\\nHolding out whole regions (spatial CV), predictions are off by about \", round(spatial_rmse, 1), \" ug/m3 on average; expect larger errors far from monitors.\"),\n                  theme = theme(plot.title = element_text(size = 12, face = \"bold\"),\n                                plot.subtitle = element_text(size = 8))) &\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n❓ How would you describe what this model can and can’t tell us in your report?",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#where-each-step-goes",
     "href": "content/lectures/15-putting-it-together.html#where-each-step-goes",
     "title": "15-putting-it-together",
     "section": "Where each step goes",
-    "text": "Where each step goes\n\n\n\n\n\n\n\nPipeline step\nReport section\n\n\n\n\nSplit, recipe\nData (wrangling) & Methods\n\n\nModels, resampling\nAnalysis\n\n\nFinal fit\nResults\n\n\nInterpret\nResults & Discussion (and limitations!)\n\n\nFilling in the map / spatial CV\nDiscussion (limitations) or Extension"
-  },
-  {
-    "objectID": "content/lectures/15-putting-it-together.html#your-turn",
-    "href": "content/lectures/15-putting-it-together.html#your-turn",
-    "title": "15-putting-it-together",
-    "section": "Your Turn",
-    "text": "Your Turn\n\nWith your CS02 group:\n\nFill in the pipeline table for your analysis (including your extension)\nWhich step does your extension change? (new data? new recipe step? new model?)\nWhere are you currently stuck?\n\n\nPut a green sticky on the front of your computer when you’re done. Put a pink if you want help/have a question."
+    "text": "Where each step goes\n\n\n\n\n\n\n\nPipeline step\nReport section\n\n\n\n\nSplit, recipe\nData (wrangling) & Methods\n\n\nModels, resampling\nAnalysis\n\n\nFinal fit\nResults\n\n\nInterpret\nResults & Discussion (and limitations!)\n\n\nFilling in the map / spatial CV\nRsults & Discussion (and limitations!)",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#about-this-appendix",
     "href": "content/lectures/15-putting-it-together.html#about-this-appendix",
     "title": "15-putting-it-together",
     "section": "About this appendix",
-    "text": "About this appendix\nThe monitor-level pipeline from Friday and Monday, start to finish, in one place. For review on your own: we won’t walk through it in class."
+    "text": "About this appendix\nThe monitor-level pipeline from 14-cs02-analysis, start to finish, in one place. For review on your own: we won’t walk through it in class.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#split",
     "href": "content/lectures/15-putting-it-together.html#split",
     "title": "15-putting-it-together",
     "section": "1. Split",
-    "text": "1. Split\n\n# in your CS02 repo, the file is at \"data/pm25_data.csv\"\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\") |&gt;\n  mutate(across(c(id, fips, zcta), as.factor),\n         city = case_when(city == \"Not in a city\" ~ \"Not in a city\",\n                          city != \"Not in a city\" ~ \"In a city\"))\n\nset.seed(1234)\npm_split &lt;- initial_split(pm, prop = 2/3)\ntrain_pm &lt;- training(pm_split)\ntest_pm  &lt;- testing(pm_split)\n\n\n\nWrangling that doesn’t learn anything from the data (like recoding city) can happen before the split. Anything that learns from the data (correlations, variances, means) goes in the recipe."
+    "text": "1. Split\n\n# in your CS02 repo, the file is at \"data/pm25_data.csv\"\npm &lt;- read_csv(\"OCS_data/data/raw/pm25_data.csv\") |&gt;\n  mutate(across(c(id, fips, zcta), as.factor),\n         city = case_when(city == \"Not in a city\" ~ \"Not in a city\",\n                          city != \"Not in a city\" ~ \"In a city\"))\n\nset.seed(1234)\npm_split &lt;- initial_split(pm, prop = 2/3)\ntrain_pm &lt;- training(pm_split)\ntest_pm  &lt;- testing(pm_split)\n\n\n\nWrangling that doesn’t learn anything from the data (like recoding city) can happen before the split. Anything that learns from the data (correlations, variances, means) goes in the recipe.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#recipe",
     "href": "content/lectures/15-putting-it-together.html#recipe",
     "title": "15-putting-it-together",
     "section": "2. Recipe",
-    "text": "2. Recipe\n\nlm_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_dummy(state, city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors()) |&gt;\n  step_lincomb(all_numeric_predictors())\n\n. . .\nA recipe is a plan. Nothing has been computed yet (no prep()/bake() needed when we use a workflow)."
+    "text": "2. Recipe\n\nlm_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_dummy(state, city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors()) |&gt;\n  step_lincomb(all_numeric_predictors())\n\n. . .\nA recipe is a plan. Nothing has been computed yet (no prep()/bake() needed when we use a workflow).",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#models",
     "href": "content/lectures/15-putting-it-together.html#models",
     "title": "15-putting-it-together",
     "section": "3. Model(s)",
-    "text": "3. Model(s)\nWe’ll compare two candidates:\n\nlm_model &lt;- linear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  set_mode(\"regression\")\n\nrf_model &lt;- rand_forest(mtry = 10, min_n = 3) |&gt;\n  set_engine(\"randomForest\") |&gt;\n  set_mode(\"regression\")\n\n. . .\nRandom forest gets its own recipe (it can use categorical variables directly):\n\nrf_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_novel(state) |&gt;\n  step_string2factor(city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors())"
+    "text": "3. Model(s)\nWe’ll compare two candidates:\n\nlm_model &lt;- linear_reg() |&gt;\n  set_engine(\"lm\") |&gt;\n  set_mode(\"regression\")\n\nrf_model &lt;- rand_forest(mtry = 10, min_n = 3) |&gt;\n  set_engine(\"randomForest\") |&gt;\n  set_mode(\"regression\")\n\n. . .\nRandom forest gets its own recipe (it can use categorical variables directly):\n\nrf_rec &lt;- recipe(train_pm) |&gt;\n  update_role(everything(), new_role = \"predictor\") |&gt;\n  update_role(value, new_role = \"outcome\") |&gt;\n  update_role(id, new_role = \"id variable\") |&gt;\n  update_role(\"fips\", new_role = \"county id\") |&gt;\n  step_rm(county, zcta) |&gt;\n  step_novel(state) |&gt;\n  step_string2factor(city) |&gt;\n  step_nzv(all_predictors()) |&gt;\n  step_corr(all_numeric_predictors())",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#workflows",
     "href": "content/lectures/15-putting-it-together.html#workflows",
     "title": "15-putting-it-together",
     "section": "4. Workflows",
-    "text": "4. Workflows\n\nlm_wflow &lt;- workflow() |&gt;\n  add_recipe(lm_rec) |&gt;\n  add_model(lm_model)\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rf_model)\n\n. . .\n🧠 Who can explain the difference between a recipe, a model, and a workflow…in one sentence each?"
+    "text": "4. Workflows\n\nlm_wflow &lt;- workflow() |&gt;\n  add_recipe(lm_rec) |&gt;\n  add_model(lm_model)\n\nrf_wflow &lt;- workflow() |&gt;\n  add_recipe(rf_rec) |&gt;\n  add_model(rf_model)",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#resample-to-choose-a-model",
     "href": "content/lectures/15-putting-it-together.html#resample-to-choose-a-model",
     "title": "15-putting-it-together",
     "section": "5. Resample to choose a model",
-    "text": "5. Resample to choose a model\n\nset.seed(1234)\npm_folds &lt;- vfold_cv(train_pm, v = 4)\n\nlm_cv &lt;- fit_resamples(lm_wflow, resamples = pm_folds)\nrf_cv &lt;- fit_resamples(rf_wflow, resamples = pm_folds)\n\nbind_rows(\n  collect_metrics(lm_cv) |&gt; mutate(model = \"linear regression\"),\n  collect_metrics(rf_cv) |&gt; mutate(model = \"random forest\")\n) |&gt;\n  select(model, .metric, mean, std_err)\n\n# A tibble: 4 × 4\n  model             .metric  mean std_err\n  &lt;chr&gt;             &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1 linear regression rmse    2.12   0.0402\n2 linear regression rsq     0.306  0.0253\n3 random forest     rmse    1.67   0.100 \n4 random forest     rsq     0.592  0.0513\n\n\n. . .\nWe choose using cross-validation on the training data, not the test set."
+    "text": "5. Resample to choose a model\n\nset.seed(1234)\npm_folds &lt;- vfold_cv(train_pm, v = 4)\n\nlm_cv &lt;- fit_resamples(lm_wflow, resamples = pm_folds)\nrf_cv &lt;- fit_resamples(rf_wflow, resamples = pm_folds)\n\nbind_rows(\n  collect_metrics(lm_cv) |&gt; mutate(model = \"linear regression\"),\n  collect_metrics(rf_cv) |&gt; mutate(model = \"random forest\")\n) |&gt;\n  select(model, .metric, mean, std_err)\n\n# A tibble: 4 × 4\n  model             .metric  mean std_err\n  &lt;chr&gt;             &lt;chr&gt;   &lt;dbl&gt;   &lt;dbl&gt;\n1 linear regression rmse    2.12   0.0402\n2 linear regression rsq     0.306  0.0253\n3 random forest     rmse    1.67   0.100 \n4 random forest     rsq     0.592  0.0513\n\n\n. . .\nWe choose using cross-validation on the training data, not the test set.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#final-fit-touch-the-test-set-once",
     "href": "content/lectures/15-putting-it-together.html#final-fit-touch-the-test-set-once",
     "title": "15-putting-it-together",
     "section": "6. Final fit: touch the test set once",
-    "text": "6. Final fit: touch the test set once\n\nrf_final &lt;- last_fit(rf_wflow, split = pm_split)\n\ncollect_metrics(rf_final)\n\n# A tibble: 2 × 4\n  .metric .estimator .estimate .config             \n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n1 rmse    standard       1.73  Preprocessor1_Model1\n2 rsq     standard       0.605 Preprocessor1_Model1\n\n\n. . .\nlast_fit() fits on all of the training data, then evaluates on the test data. Once."
+    "text": "6. Final fit: touch the test set once\n\nrf_final &lt;- last_fit(rf_wflow, split = pm_split)\n\ncollect_metrics(rf_final)\n\n# A tibble: 2 × 4\n  .metric .estimator .estimate .config             \n  &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;               \n1 rmse    standard       1.73  Preprocessor1_Model1\n2 rsq     standard       0.605 Preprocessor1_Model1\n\n\n. . .\nlast_fit() fits on all of the training data, then evaluates on the test data. Once.",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#interpret",
     "href": "content/lectures/15-putting-it-together.html#interpret",
     "title": "15-putting-it-together",
     "section": "7. Interpret",
-    "text": "7. Interpret\n\ncollect_predictions(rf_final) |&gt;\n  ggplot(aes(x = value, y = .pred)) +\n  geom_point(alpha = 0.5) +\n  geom_abline(linetype = \"dashed\") +\n  labs(x = \"Observed PM2.5 (µg/m³)\", y = \"Predicted PM2.5 (µg/m³)\",\n       title = \"Random forest predictions on held-out monitors\") +\n  theme_minimal(base_size = 14)"
+    "text": "7. Interpret\n\ncollect_predictions(rf_final) |&gt;\n  ggplot(aes(x = value, y = .pred)) +\n  geom_point(alpha = 0.5) +\n  geom_abline(linetype = \"dashed\") +\n  labs(x = \"Observed PM2.5 (µg/m³)\", y = \"Predicted PM2.5 (µg/m³)\",\n       title = \"Random forest predictions on held-out monitors\") +\n  theme_minimal(base_size = 14)",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/15-putting-it-together.html#interpret-cont.",
     "href": "content/lectures/15-putting-it-together.html#interpret-cont.",
     "title": "15-putting-it-together",
     "section": "7. Interpret (cont.)",
-    "text": "7. Interpret (cont.)\n\ntest_rmse &lt;- collect_metrics(rf_final) |&gt;\n  filter(.metric == \"rmse\") |&gt;\n  pull(.estimate)\n\n\nWith what accuracy can we predict US annual average air pollution concentrations?\n\n. . .\nOn monitors the model never saw, predictions were off by about 1.73 µg/m³ (RMSE), on a scale where values range from roughly 3 to 23 µg/m³.\n. . .\n🧠 Is that good? Good enough? For whom? (That’s the discussion section of your report.)"
+    "text": "7. Interpret (cont.)\n\ntest_rmse &lt;- collect_metrics(rf_final) |&gt;\n  filter(.metric == \"rmse\") |&gt;\n  pull(.estimate)\n\n\nWith what accuracy can we predict US annual average air pollution concentrations?\n\n. . .\nOn monitors the model never saw, predictions were off by about 1.73 µg/m³ (RMSE), on a scale where values range from roughly 3 to 23 µg/m³.\n. . .\n🧠 Is that good? Good enough? For whom? (That’s the discussion section of your report.)",
+    "crumbs": [
+      "Notes",
+      "15: Putting the Model Together"
+    ]
   },
   {
     "objectID": "content/lectures/17-oral-communication-slides.html#qa",

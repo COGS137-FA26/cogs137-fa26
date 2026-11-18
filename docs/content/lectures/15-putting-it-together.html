@@ -65,6 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/14-cs02-analysis.html" rel="prev">
 <link href="../../images/favicon.ico" rel="icon">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -120,7 +122,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">15-putting-it-together</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/15-putting-it-together.html">15: Putting the Model Together</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -191,13 +193,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
  <span class="menu-text">Notes</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
@@ -286,6 +288,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../../content/lectures/14-cs02-analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">14: CS02 Analysis (ML)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/15-putting-it-together.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">15: Putting the Model Together</span></a>
   </div>
 </li>
       </ul>
@@ -444,7 +452,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
   <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link" data-scroll-target="#course-announcements">Course Announcements</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   <li><a href="#progress-check-in" id="toc-progress-check-in" class="nav-link" data-scroll-target="#progress-check-in">Progress Check-in</a></li>
   <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
   <li><a href="#why-today" id="toc-why-today" class="nav-link" data-scroll-target="#why-today">Why today?</a></li>
@@ -452,7 +459,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#the-pipeline" id="toc-the-pipeline" class="nav-link" data-scroll-target="#the-pipeline">The pipeline</a>
   <ul class="collapse">
   <li><a href="#one-slide" id="toc-one-slide" class="nav-link" data-scroll-target="#one-slide">One slide</a></li>
-  <li><a href="#where-we-left-off-monday" id="toc-where-we-left-off-monday" class="nav-link" data-scroll-target="#where-we-left-off-monday">Where we left off Monday</a></li>
+  <li><a href="#where-we-left-off" id="toc-where-we-left-off" class="nav-link" data-scroll-target="#where-we-left-off">Where we left off</a></li>
   </ul></li>
   <li><a href="#second-pass-filling-in-the-map" id="toc-second-pass-filling-in-the-map" class="nav-link" data-scroll-target="#second-pass-filling-in-the-map">Second pass: filling in the map</a>
   <ul class="collapse">
@@ -475,7 +482,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#your-cs02-report" id="toc-your-cs02-report" class="nav-link" data-scroll-target="#your-cs02-report">Your CS02 report</a>
   <ul class="collapse">
   <li><a href="#where-each-step-goes" id="toc-where-each-step-goes" class="nav-link" data-scroll-target="#where-each-step-goes">Where each step goes</a></li>
-  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your Turn</a></li>
   </ul></li>
   <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   <li><a href="#appendix-one-pass-start-to-finish" id="toc-appendix-one-pass-start-to-finish" class="nav-link" data-scroll-target="#appendix-one-pass-start-to-finish">Appendix: one pass, start to finish</a>
@@ -497,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <main class="content page-columns page-full" id="quarto-document-content">
 <a class="skip-link" href="#quarto-document-content">Skip to main content</a>
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/15-putting-it-together.html">15: Putting the Model Together</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">15-putting-it-together</h1>
 </div>
@@ -540,19 +546,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="qa" class="level2 scrollable smaller">
 <h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
 <!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div class="callout callout-style-default callout-note callout-titled" title="Q: ">
+<div class="callout callout-style-default callout-note callout-titled" title="Q: How do you measure external validity of models? Mainly how to understand the range of values for which the models are likely valid at predictin.">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Q:
+Q: How do you measure external validity of models? Mainly how to understand the range of values for which the models are likely valid at predictin.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A:</p>
+<p>A: A good question and one that I’m only going to superficially answer here and answer in some depth in today’s set of notes. The simplest is you validate the model on intentionally different data to see how the model performs on data it hasn’t seen (for example, hold out a whole group, region, or block of time - we’re doing this today!). The next simplest is the fact that models work for the joint data…meaning just knowing the range of each predictor on its own is not sufficient because predictions will be most accurate for new data points that fall within the range of the original data <em>across all predictors</em>. There are metrics for determining how “close” new data are to the training data. If you want ot dig into these, you’d be looking into things like leverage adn dissimilarity index. Hope this starts to help you answer!</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: How do we know when to use certain types of models? In class today we looked at both a linear regression and random forest model and decided that the random forest was better, but in real life would we test both or would there be some way to know which was better without running them?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: How do we know when to use certain types of models? In class today we looked at both a linear regression and random forest model and decided that the random forest was better, but in real life would we test both or would there be some way to know which was better without running them?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: Great question! In this class we are just scratching the surface of modelling. In a true modelling course, you would want to understand the suite of models available for a given task, starting with regression vs.&nbsp;classification. There is a <a href="https://www.tidymodels.org/find/parsnip/">search tool</a> for parsnip, but it still assumes you know the suite of models available. For machine learning, people do typically try multiple models and then compare in validation. For inference, the model chosen is dictated by the data you have (if modeling with parametric models, like linear regression) and the assumptions of the model.</p>
 </div>
 </div>
 </div>
@@ -561,20 +583,17 @@ Q:
 <h2 class="anchored" data-anchor-id="course-announcements">Course Announcements</h2>
 <p><strong>Due Dates</strong>:</p>
 <ul>
-<li>⌨️ <strong>Lab 07</strong> due Fri 11/20 (11:59 PM)</li>
-<li>💻 <strong>CS02</strong> &amp; 🔘 CS02 team eval survey due Sun 11/22 (11:59 PM)</li>
-<li>📄 <strong>Final Project rough draft</strong> (qmd + HTML in your final project repo) due Sun 11/22 (11:59 PM)</li>
-<li>🔘 Lecture Participation survey “due” after class</li>
+<li>Sunday: CS02 [Report + General Communication + <a href="https://forms.gle/5xpyAMqGpbEaytbd9">team eval</a>]</li>
+<li>Sunday: Final Project Rough Draft</li>
+<li>Lecture Participation survey “due” after class</li>
 </ul>
-</section>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
+<p>Reminder: In-class CS02 on Friday; Vinu will be running the show</p>
 </section>
 <section id="progress-check-in" class="level2">
 <h2 class="anchored" data-anchor-id="progress-check-in">Progress Check-in</h2>
 <p><span style="background-color: #ADD8E6">❓ Where should you and your group be for CSO2 completion?</span></p>
 <p>. . .</p>
-<p><span style="background-color: #ADD8E6">❓ Where should you be at right now for your final project? What should you have done for rough draft on Monday?</span></p>
+<p><span style="background-color: #ADD8E6">❓ Where should you be at right now for your final project? What should you have done for rough draft?</span></p>
 </section>
 <section id="agenda" class="level2">
 <h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
@@ -587,7 +606,7 @@ Q:
 </section>
 <section id="why-today" class="level2">
 <h2 class="anchored" data-anchor-id="why-today">Why today?</h2>
-<p>Last time students told us:</p>
+<p>Feedback from students in FA24:</p>
 <blockquote class="blockquote">
 <p>“We did the whole recipe lecture in one lecture…a little bit confusing.”</p>
 </blockquote>
@@ -597,13 +616,13 @@ Q:
 </section>
 <section id="the-pipeline" class="level1" data-background-color="#92A86A">
 <h1 data-background-color="#92A86A">The pipeline</h1>
-<section id="one-slide" class="level2">
-<h2 class="anchored" data-anchor-id="one-slide">One slide</h2>
+<section id="one-slide" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="one-slide">One slide</h2>
 <table class="table">
 <colgroup>
-<col style="width: 8%">
-<col style="width: 51%">
-<col style="width: 40%">
+<col style="width: 20%">
+<col style="width: 45%">
+<col style="width: 34%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -652,9 +671,9 @@ Q:
 </table>
 <p><span style="background-color: #ADD8E6">🧠 Before we code: where have we already done each of these steps?</span></p>
 </section>
-<section id="where-we-left-off-monday" class="level2 scrollable smaller">
-<h2 class="scrollable smaller anchored" data-anchor-id="where-we-left-off-monday">Where we left off Monday</h2>
-<p>Monday’s monitor-level random forest, condensed (full pipeline in the Appendix):</p>
+<section id="where-we-left-off" class="level2 scrollable smaller">
+<h2 class="scrollable smaller anchored" data-anchor-id="where-we-left-off">Where we left off</h2>
+<p>Monitor-level random forest, condensed (full pipeline in the Appendix):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># in your CS02 repo, the file is at "data/pm25_data.csv"</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"OCS_data/data/raw/pm25_data.csv"</span>) <span class="sc">|&gt;</span></span>
@@ -693,7 +712,7 @@ Q:
 <h1 data-background-color="#92A86A">Second pass: filling in the map</h1>
 <section id="the-question" class="level2">
 <h2 class="anchored" data-anchor-id="the-question">The question</h2>
-<p>In the intro, our goal was <strong>estimates everywhere</strong>. But Monday’s maps only colored in counties <em>with a monitor</em>.</p>
+<p>In the intro, our goal was <strong>estimates everywhere</strong>. But last lecture’s maps only colored in counties <em>with a monitor</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_monitor_counties <span class="ot">&lt;-</span> <span class="fu">n_distinct</span>(pm<span class="sc">$</span>fips)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n_monitor_counties</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -733,8 +752,8 @@ Q:
 <li>That’s a fair test for predicting a <em>new monitor somewhere we already monitor</em>, but too easy a test for a county with <strong>no monitors nearby</strong></li>
 </ul>
 </section>
-<section id="resample-spatial-cross-validation" class="level2">
-<h2 class="anchored" data-anchor-id="resample-spatial-cross-validation">Resample: spatial cross-validation</h2>
+<section id="resample-spatial-cross-validation" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="resample-spatial-cross-validation">Resample: spatial cross-validation</h2>
 <p>Instead of random folds, hold out whole <strong>regions</strong>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span>
@@ -949,8 +968,8 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 <li>We’ll predict for all 3075 counties in <code>county_data</code></li>
 </ul>
 </section>
-<section id="model-workflow-two-county-level-models" class="level2">
-<h2 class="anchored" data-anchor-id="model-workflow-two-county-level-models">Model + workflow: two county-level models</h2>
+<section id="model-workflow-two-county-level-models" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="model-workflow-two-county-level-models">Model + workflow: two county-level models</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>county_RF <span class="ot">&lt;-</span> <span class="fu">rand_forest</span>(<span class="at">trees =</span> <span class="dv">500</span>) <span class="sc">|&gt;</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set_engine</span>(<span class="st">"randomForest"</span>) <span class="sc">|&gt;</span></span>
@@ -1007,8 +1026,8 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 </div>
 <p><span style="background-color: #ADD8E6">❓ Which model would you pick looking only at random CV? At spatial CV? Which column answers “how well can we predict a county with no monitor”?</span></p>
 </section>
-<section id="final-fit-predict-every-county" class="level2">
-<h2 class="anchored" data-anchor-id="final-fit-predict-every-county">Final fit: predict every county</h2>
+<section id="final-fit-predict-every-county" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="final-fit-predict-every-county">Final fit: predict every county</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>county_fit <span class="ot">&lt;-</span> <span class="fu">fit</span>(county_wflow, <span class="at">data =</span> county_train)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1073,8 +1092,8 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 </div>
 </div>
 </section>
-<section id="interpret-where-to-trust-it" class="level2">
-<h2 class="anchored" data-anchor-id="interpret-where-to-trust-it">Interpret: where to trust it</h2>
+<section id="interpret-where-to-trust-it" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="interpret-where-to-trust-it">Interpret: where to trust it</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Code</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Plot</a></li></ul>
 <div class="tab-content">
@@ -1146,8 +1165,8 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 <p><span style="background-color: #ADD8E6">❓ How would you describe what this model can and can’t tell us in your report?</span></p>
 </section>
 </section>
-<section id="common-pitfalls" class="level1" data-background-color="#92A86A">
-<h1 data-background-color="#92A86A">Common pitfalls</h1>
+<section id="common-pitfalls" class="level1 smaller scrollable" data-background-color="#92A86A">
+<h1 class="smaller scrollable" data-background-color="#92A86A">Common pitfalls</h1>
 <div class="incremental">
 <ul class="incremental">
 <li><strong>Pre-processing before splitting</strong> (data leakage): the test set “leaks” into your choices. (Fixed rules that learn nothing from the data, like recoding <code>city</code>, are fine.)</li>
@@ -1194,22 +1213,10 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 </tr>
 <tr class="odd">
 <td>Filling in the map / spatial CV</td>
-<td>Discussion (limitations) or Extension</td>
+<td>Rsults &amp; Discussion (and limitations!)</td>
 </tr>
 </tbody>
 </table>
-</section>
-<section id="your-turn" class="level2">
-<h2 class="anchored" data-anchor-id="your-turn">Your Turn</h2>
-<div class="task">
-<p>With your CS02 group:</p>
-<ol type="1">
-<li>Fill in the pipeline table for <strong>your</strong> analysis (including your extension)</li>
-<li>Which step does your extension change? (new data? new recipe step? new model?)</li>
-<li>Where are you currently stuck?</li>
-</ol>
-</div>
-<p>Put a <span class="sticky-green">green</span> sticky on the front of your computer when you’re done. Put a <span class="sticky-pink">pink</span> if you want help/have a question.</p>
 </section>
 </section>
 <section id="recap" class="level1" data-background-color="#92A86A">
@@ -1226,7 +1233,7 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 <h1 data-background-color="#92A86A">Appendix: one pass, start to finish</h1>
 <section id="about-this-appendix" class="level2">
 <h2 class="anchored" data-anchor-id="about-this-appendix">About this appendix</h2>
-<p>The monitor-level pipeline from Friday and Monday, start to finish, in one place. For review on your own: we won’t walk through it in class.</p>
+<p>The monitor-level pipeline from 14-cs02-analysis, start to finish, in one place. For review on your own: we won’t walk through it in class.</p>
 </section>
 <section id="split" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="split">1. Split</h2>
@@ -1301,8 +1308,6 @@ $ pop_2012 &lt;dbl&gt; 55514, 190790, 27201, 22597, 57826, 10474, 20307, 117296,
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_recipe</span>(rf_rec) <span class="sc">|&gt;</span></span>
 <span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_model</span>(rf_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>. . .</p>
-<p><span style="background-color: #ADD8E6">🧠 Who can explain the difference between a recipe, a model, and a workflow…in one sentence each?</span></p>
 </section>
 <section id="resample-to-choose-a-model" class="level2">
 <h2 class="anchored" data-anchor-id="resample-to-choose-a-model">5. Resample to choose a model</h2>
@@ -1940,6 +1945,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/lectures/14-cs02-analysis.html" class="pagination-link" aria-label="14: CS02 Analysis (ML)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">14: CS02 Analysis (ML)</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

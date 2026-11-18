@@ -27,20 +27,24 @@ knitr::opts_chunk$set(dpi = 300, echo = TRUE, warning = FALSE, message = FALSE)
 
 <!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-::: {.callout-note collapse="true" title="Q: "}
-A:
+
+::: {.callout-note collapse="true" title="Q: How do you measure external validity of models? Mainly how to understand the range of values for which the models are likely valid at predictin."}
+A: A good question and one that I'm only going to superficially answer here and answer in some depth in today's set of notes. The simplest is you validate the model on intentionally different data to see how the model performs on data it hasn't seen (for example, hold out a whole group, region, or block of time - we're doing this today!). The next simplest is the fact that models work for the joint data...meaning just knowing the range of each predictor on its own is not sufficient because predictions will be most accurate for new data points that fall within the range of the original data *across all predictors*. There are metrics for determining how "close" new data are to the training data. If you want ot dig into these, you'd be looking into things like leverage adn dissimilarity index. Hope this starts to help you answer!
+:::
+
+::: {.callout-note collapse="true" title="Q: How do we know when to use certain types of models? In class today we looked at both a linear regression and random forest model and decided that the random forest was better, but in real life would we test both or would there be some way to know which was better without running them?"}
+A: Great question! In this class we are just scratching the surface of modelling. In a true modelling course, you would want to understand the suite of models available for a given task, starting with regression vs. classification. There is a [search tool](https://www.tidymodels.org/find/parsnip/) for parsnip, but it still assumes you know the suite of models available. For machine learning, people do typically try multiple models and then compare in validation. For inference, the model chosen is dictated by the data you have (if modeling with parametric models, like linear regression) and the assumptions of the model.
 :::
 
 ## Course Announcements
 
 **Due Dates**:
 
--   ⌨️ **Lab 07** due Fri 11/20 (11:59 PM)
--   💻 **CS02** & 🔘 CS02 team eval survey due Sun 11/22 (11:59 PM)
--   📄 **Final Project rough draft** (qmd + HTML in your final project repo) due Sun 11/22 (11:59 PM)
--   🔘 Lecture Participation survey "due" after class
+- Sunday: CS02 [Report + General Communication + [team eval](https://forms.gle/5xpyAMqGpbEaytbd9)]
+- Sunday: Final Project Rough Draft
+- Lecture Participation survey "due" after class
 
-## 
+Reminder: In-class CS02 on Friday; Vinu will be running the show
 
 ## Progress Check-in
 
@@ -48,7 +52,7 @@ A:
 
 . . .
 
-[`r emo::ji("question")` Where should you be at right now for your final project? What should you have done for rough draft on Monday?]{style="background-color: #ADD8E6"}
+[`r emo::ji("question")` Where should you be at right now for your final project? What should you have done for rough draft?]{style="background-color: #ADD8E6"}
 
 ## Agenda
 
@@ -59,7 +63,7 @@ A:
 
 ## Why today?
 
-Last time students told us:
+Feedback from students in FA24:
 
 > "We did the whole recipe lecture in one lecture...a little bit confusing."
 
@@ -69,10 +73,10 @@ So today: (almost) no new functions. Just the **order** things happen in, and **
 
 # The pipeline {background-color="#92A86A"}
 
-## One slide
+## One slide {.smaller}
 
 | Step          | Question it answers                                                                            | `tidymodels`                                                              |
-|---------------|------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
+|---------------|---------------------------------|-------------------------|
 | 1\. Split     | What data do I *never* peek at until the end?                                                  | `initial_split()`, `training()`, `testing()`                              |
 | 2\. Recipe    | What are my outcome, predictors, and pre-processing steps?                                     | `recipe()`, `update_role()`, `step_*()`                                   |
 | 3\. Model     | What kind of model, which engine, which mode?                                                  | `linear_reg()`, `rand_forest()`, `set_engine()`, `set_mode()`             |
@@ -83,9 +87,9 @@ So today: (almost) no new functions. Just the **order** things happen in, and **
 
 [🧠 Before we code: where have we already done each of these steps?]{style="background-color: #ADD8E6"}
 
-## Where we left off Monday {.scrollable .smaller}
+## Where we left off {.scrollable .smaller}
 
-Monday's monitor-level random forest, condensed (full pipeline in the Appendix):
+Monitor-level random forest, condensed (full pipeline in the Appendix):
 
 ```{r}
 # in your CS02 repo, the file is at "data/pm25_data.csv"
@@ -125,7 +129,7 @@ world <- rnaturalearth::ne_countries(scale = "medium", returnclass = "sf")
 
 ## The question
 
-In the intro, our goal was **estimates everywhere**. But Monday's maps only colored in counties *with a monitor*.
+In the intro, our goal was **estimates everywhere**. But last lecture's maps only colored in counties *with a monitor*.
 
 ```{r}
 n_monitor_counties <- n_distinct(pm$fips)
@@ -163,7 +167,7 @@ median(nearest_km)
 -   So a "held-out" monitor usually has a neighbor in the training data...and neighbors tend to have similar PM~2.5~
 -   That's a fair test for predicting a *new monitor somewhere we already monitor*, but too easy a test for a county with **no monitors nearby**
 
-## Resample: spatial cross-validation
+## Resample: spatial cross-validation {.smaller}
 
 Instead of random folds, hold out whole **regions**:
 
@@ -237,7 +241,7 @@ Our monitor-level model leans on features measured **at each monitor**: `CMAQ` a
 So we'll build a simpler **county-level** model, using only features we have for **every** county:
 
 | Feature                                                             | Source                                                                                                                    |
-|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+|--------------------------|----------------------------------------------|
 | `lat`, `lon` (a point inside the county)                            | county shapes (`maps`)                                                                                                    |
 | `area_km2` (county area)                                            | county shapes (`maps`)                                                                                                    |
 | `pop_2012` (population, July 2012) and `urc2013` (urban-rural code) | [NCHS Urban-Rural Classification Scheme](https://www.cdc.gov/nchs/data_access/urban_rural.htm){target="_blank"} data file |
@@ -312,7 +316,7 @@ nrow(county_train)
 -   Training data: one row per **county with a monitor**; outcome = average PM~2.5~ across that county's monitors
 -   We'll predict for all `r nrow(county_data)` counties in `county_data`
 
-## Model + workflow: two county-level models
+## Model + workflow: two county-level models {.smaller}
 
 ```{r}
 county_RF <- rand_forest(trees = 500) |>
@@ -362,7 +366,7 @@ county_cv
 
 [`r emo::ji("question")` Which model would you pick looking only at random CV? At spatial CV? Which column answers "how well can we predict a county with no monitor"?]{style="background-color: #ADD8E6"}
 
-## Final fit: predict every county
+## Final fit: predict every county {.smaller}
 
 ```{r}
 county_fit <- fit(county_wflow, data = county_train)
@@ -420,7 +424,7 @@ pred_all
 ```
 :::
 
-## Interpret: where to trust it
+## Interpret: where to trust it {.smaller}
 
 ::: panel-tabset
 ### Code
@@ -477,7 +481,7 @@ fill_plot
 
 [`r emo::ji("question")` How would you describe what this model can and can't tell us in your report?]{style="background-color: #ADD8E6"}
 
-# Common pitfalls {background-color="#92A86A"}
+# Common pitfalls {background-color="#92A86A" .smaller .scrollable}
 
 ::: incremental
 -   **Pre-processing before splitting** (data leakage): the test set "leaks" into your choices. (Fixed rules that learn nothing from the data, like recoding `city`, are fine.)
@@ -494,25 +498,14 @@ fill_plot
 ## Where each step goes
 
 | Pipeline step                   | Report section                          |
-|---------------------------------|-----------------------------------------|
+|--------------------------------|----------------------------------------|
 | Split, recipe                   | Data (wrangling) & Methods              |
 | Models, resampling              | Analysis                                |
 | Final fit                       | Results                                 |
 | Interpret                       | Results & Discussion (and limitations!) |
-| Filling in the map / spatial CV | Discussion (limitations) or Extension   |
+| Filling in the map / spatial CV | Rsults & Discussion (and limitations!) |
 
-## Your Turn
-
-::: task
-With your CS02 group:
-
-1.  Fill in the pipeline table for **your** analysis (including your extension)
-2.  Which step does your extension change? (new data? new recipe step? new model?)
-3.  Where are you currently stuck?
-:::
-
-Put a [green]{.sticky-green} sticky on the front of your computer when you're done. Put a [pink]{.sticky-pink} if you want help/have a question.
-
+  
 # Recap {background-color="#92A86A"}
 
 -   Can you list the steps of the modeling pipeline, in order, and say why that order matters?
@@ -525,7 +518,7 @@ Put a [green]{.sticky-green} sticky on the front of your computer when you're do
 
 ## About this appendix
 
-The monitor-level pipeline from Friday and Monday, start to finish, in one place. For review on your own: we won't walk through it in class.
+The monitor-level pipeline from 14-cs02-analysis, start to finish, in one place. For review on your own: we won't walk through it in class.
 
 ## 1. Split
 
@@ -607,10 +600,6 @@ rf_wflow <- workflow() |>
   add_recipe(rf_rec) |>
   add_model(rf_model)
 ```
-
-. . .
-
-[🧠 Who can explain the difference between a recipe, a model, and a workflow...in one sentence each?]{style="background-color: #ADD8E6"}
 
 ## 5. Resample to choose a model
 

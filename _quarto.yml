@@ -117,8 +117,8 @@ website:
             href: content/lectures/13-regression.qmd
           - text: "14: CS02 Analysis (ML)"
             href: content/lectures/14-cs02-analysis.qmd
-          # - text: "15: Putting the Model Together"
-          #   href: content/lectures/15-putting-it-together.qmd
+          - text: "15: Putting the Model Together"
+            href: content/lectures/15-putting-it-together.qmd
       #     - text: "16: CS02 In-class Work"
       #       href: content/lectures/16-cs02-inclass.qmd
       #     - text: "17: Oral Communication"
