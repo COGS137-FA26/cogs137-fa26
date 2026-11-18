@@ -27,7 +27,6 @@ knitr::opts_chunk$set(dpi = 300, echo = TRUE, warning = FALSE, message = FALSE)
 
 <!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
 
-
 ::: {.callout-note collapse="true" title="Q: How do you measure external validity of models? Mainly how to understand the range of values for which the models are likely valid at predictin."}
 A: A good question and one that I'm only going to superficially answer here and answer in some depth in today's set of notes. The simplest is you validate the model on intentionally different data to see how the model performs on data it hasn't seen (for example, hold out a whole group, region, or block of time - we're doing this today!). The next simplest is the fact that models work for the joint data...meaning just knowing the range of each predictor on its own is not sufficient because predictions will be most accurate for new data points that fall within the range of the original data *across all predictors*. There are metrics for determining how "close" new data are to the training data. If you want ot dig into these, you'd be looking into things like leverage adn dissimilarity index. Hope this starts to help you answer!
 :::
@@ -40,9 +39,9 @@ A: Great question! In this class we are just scratching the surface of modelling
 
 **Due Dates**:
 
-- Sunday: CS02 [Report + General Communication + [team eval](https://forms.gle/5xpyAMqGpbEaytbd9)]
-- Sunday: Final Project Rough Draft
-- Lecture Participation survey "due" after class
+-   Sunday: CS02 \[Report + General Communication + [team eval](https://forms.gle/5xpyAMqGpbEaytbd9)\]
+-   ~~Sunday~~ Wed 11/25 (updated after in-class discussion): Final Project Rough Draft
+-   Lecture Participation survey "due" after class
 
 Reminder: In-class CS02 on Friday; Vinu will be running the show
 
@@ -76,7 +75,7 @@ So today: (almost) no new functions. Just the **order** things happen in, and **
 ## One slide {.smaller}
 
 | Step          | Question it answers                                                                            | `tidymodels`                                                              |
-|---------------|---------------------------------|-------------------------|
+|-----------------|-------------------------------|------------------------|
 | 1\. Split     | What data do I *never* peek at until the end?                                                  | `initial_split()`, `training()`, `testing()`                              |
 | 2\. Recipe    | What are my outcome, predictors, and pre-processing steps?                                     | `recipe()`, `update_role()`, `step_*()`                                   |
 | 3\. Model     | What kind of model, which engine, which mode?                                                  | `linear_reg()`, `rand_forest()`, `set_engine()`, `set_mode()`             |
@@ -481,7 +480,7 @@ fill_plot
 
 [`r emo::ji("question")` How would you describe what this model can and can't tell us in your report?]{style="background-color: #ADD8E6"}
 
-# Common pitfalls {background-color="#92A86A" .smaller .scrollable}
+# Common pitfalls {.smaller .scrollable background-color="#92A86A"}
 
 ::: incremental
 -   **Pre-processing before splitting** (data leakage): the test set "leaks" into your choices. (Fixed rules that learn nothing from the data, like recoding `city`, are fine.)
@@ -503,9 +502,8 @@ fill_plot
 | Models, resampling              | Analysis                                |
 | Final fit                       | Results                                 |
 | Interpret                       | Results & Discussion (and limitations!) |
-| Filling in the map / spatial CV | Rsults & Discussion (and limitations!) |
+| Filling in the map / spatial CV | Rsults & Discussion (and limitations!)  |
 
-  
 # Recap {background-color="#92A86A"}
 
 -   Can you list the steps of the modeling pipeline, in order, and say why that order matters?

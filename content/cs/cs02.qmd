@@ -88,3 +88,23 @@ This is very open-ended in its format. It could be a short video, an infographic
 ## Group Feedback
 
 There will be a form to submit upon submission of the case study to provide feedback about working with your group mates. This is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn't happen, I want to be sure I'm aware of the circumstances and follow up as necessary.
+
+## Common Deductions
+
+In past iterations of the course, students have commonly lost points on CS02 for the following reasons:
+
+-   **Background & Question** \| 1) never explaining what PM2.5 is or why we care about it. This is the outcome you're predicting, so the reader needs to understand it. 2) not introducing the topic of your extension (e.g., education, wildfires, weather) in the background, so it comes out of nowhere later. 3) not stating the extension question with the main question
+
+-   **Data** \| 1) not citing the data source(s). 2) not introducing the variables, especially those you later use or discuss, *before* using them. This applies to any additional dataset you bring in for your extension too
+
+-   **EDA** \| 1) never looking at the distribution of the outcome variable (PM2.5). 2) not exploring the data used in your extension. 3) plots displayed without interpretation or without tying them back to your question. 4) showing `glimpse()`/`skimr` output without telling the reader what to take from it
+
+-   **Analysis** \| 1) jumping into modeling without explaining *which* model you're using, *how* it works (briefly), and *why* it's appropriate for these data. 2) not explaining your data splitting and cross-validation (what training/testing data are, how and why you split the data the way you did, why that number of CV folds). 3) showing variable importance plots without explaining what "importance" means or interpreting the top predictors (what are they, and is a higher value better or worse for air pollution?). 4) reporting model performance only in a printed tibble/table rather than in the text, or not making clear when results come from the test data. 5) judging models on R² alone. Adding predictors always increases R², so include an error metric (e.g., RMSE) and give it context (how big is that error relative to typical PM2.5 values?). 6) an extension that isn't motivated by your EDA or a hypothesis, isn't explained, or whose results aren't quantified and compared to your main model
+
+-   **Results, Discussion & Conclusion** \| 1) not discussing limitations. 2) a conclusion that only covers model accuracy and says nothing about what we learned about air pollution itself (which predictors matter, and does that make sense?)
+
+-   **Written Communication & Layout** \| 1) code and output clutter (leftover sanity checks, `install.packages()`, repeated `glimpse()` output) that buries the story. Put explanatory text *before* code so the reader knows what they're about to see. 2) using abbreviated variable names (from the dataset) in the text and on plot labels instead of readable names. 3) missing transitions or subsection headers, so it's hard to tell how you got from one part of the analysis to the next
+
+-   **General Communication** \| 1) too much jargon for a general audience (e.g., random forest, RMSE, R², CMAQ, or PM2.5 without explaining it). 2) too much text. 3) presenting numbers (e.g., model error) without the context needed to tell whether they're big or small. 4) leaving out *what* predicts air pollution, which is often the most actionable take-home message
+
+To see specific comments previously received attached to scores received see cs02 tab [here](https://docs.google.com/spreadsheets/d/1GZINOZImtmkRDLGrWrBYVFxPxpK2GewC40_XMelLh1E/edit?usp=sharing).
