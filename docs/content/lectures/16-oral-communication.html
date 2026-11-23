@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.554">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Professor Shannon Ellis">
+<meta name="dcterms.date" content="2026-11-23">
+
+<title>COGS 137 - 16-oral-communication</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../content/labs/01-lab-intro-r.html" rel="next">
+<link href="../../content/lectures/15-putting-it-together.html" rel="prev">
+<link href="../../images/favicon.ico" rel="icon">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="COGS 137 - 16-oral-communication">
+<meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
+<meta property="og:site_name" content="COGS 137">
+</head>
+
+<body class="nav-sidebar docked slimcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/16-oral-communication.html">16: Oral Communication</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../../index.html" class="sidebar-logo-link">
+      <img src="../../images/cogs137-logo-hex.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Canvas" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Canvas"><i class="bi bi-person-fill"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/80042">
+            Homepage
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://canvas.ucsd.edu/courses/80042/gradebook">
+            Grades
+            </a>
+          </li>
+      </ul>
+    </div>
+    <a href="https://datahub.ucsd.edu/hub/spawn" title="Datahub" class="quarto-navigation-tool px-1" aria-label="Datahub"><i class="bi bi-cloud"></i></a>
+    <a href="https://piazza.com/class/muczvyliqy23y/" title="Piazza" class="quarto-navigation-tool px-1" aria-label="Piazza"><i class="bi bi-question"></i></a>
+    <a href="https://github.com/COGS137-FA26" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Schedule &amp; Policies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Policies</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Notes</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/00-welcome.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">00: Welcome</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/01-tooling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01: Tooling (Datahub, Quarto, Git/GitHub)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/02-intro-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02: Intro to R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/03-cs01-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03: CS01 Intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/04-dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04: Data Wrangling (dplyr)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/05-ggplot2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05: ggplot2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/06-viz-cs01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">06: Effective Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/07-cs01-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">07: CS01 EDA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/08-cs01-inclass.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08: CS01 In-class Work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/09-written-communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09: Written Communication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/10-cs02-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">10: CS02 Intro</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/11-cs02-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">11: CS02 EDA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/12-inference-prediction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">12: Inference vs.&nbsp;Prediction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/13-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">13: Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/14-cs02-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">14: CS02 Analysis (ML)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/15-putting-it-together.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">15: Putting the Model Together</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/lectures/16-oral-communication.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">16: Oral Communication</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Labs</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/01-lab-intro-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 01: Tooling and R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/02-lab-cs01-dplyr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 02: CS01 &amp; `dplyr`</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/03-lab-cs01-viz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 03: CS01 Data Visualization</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/04-lab-cs01-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 04: CS01 EDA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/05-lab-cs01-communication.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 05: CS01 Communication</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/06-lab-cs02-eda.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 06: CS02 EDA</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/labs/07-lab-mlr.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lab 07: Multiple Linear Regression</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Case Studies</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs-example.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Example Case Study</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CS01: Biomarkers of Recent Use</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/cs02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">CS02: Predicting Air Pollution</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/cs/final.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Final Project</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Homework</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/hw/hw-01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 01: R Basics</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../content/hw/hw-02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">HW 02: Data Visualization</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Computing</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-access.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Access</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-troubleshooting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Troubleshooting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../computing/computing-cheatsheets.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cheatsheets</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#effective-oral-communication" id="toc-effective-oral-communication" class="nav-link active" data-scroll-target="#effective-oral-communication">Effective Oral Communication</a>
+  <ul class="collapse">
+  <li><a href="#qa" id="toc-qa" class="nav-link" data-scroll-target="#qa">Q&amp;A</a></li>
+  <li><a href="#course-announcements" id="toc-course-announcements" class="nav-link" data-scroll-target="#course-announcements">Course Announcements</a></li>
+  <li><a href="#final-project-presentations" id="toc-final-project-presentations" class="nav-link" data-scroll-target="#final-project-presentations">Final Project: Presentations</a></li>
+  <li><a href="#final-project-fri-of-finals-week" id="toc-final-project-fri-of-finals-week" class="nav-link" data-scroll-target="#final-project-fri-of-finals-week">Final Project (Fri of finals week)</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#where-weve-been" id="toc-where-weve-been" class="nav-link" data-scroll-target="#where-weve-been">Where we’ve been</a></li>
+  </ul></li>
+  <li><a href="#reading-vs.-listening" id="toc-reading-vs.-listening" class="nav-link" data-scroll-target="#reading-vs.-listening">Reading vs.&nbsp;Listening</a>
+  <ul class="collapse">
+  <li><a href="#reports-are-for-reading-presentations-are-for-listening" id="toc-reports-are-for-reading-presentations-are-for-listening" class="nav-link" data-scroll-target="#reports-are-for-reading-presentations-are-for-listening">Reports are for reading; presentations are for listening</a></li>
+  <li><a href="#brainstorm" id="toc-brainstorm" class="nav-link" data-scroll-target="#brainstorm">Brainstorm</a></li>
+  </ul></li>
+  <li><a href="#plan-your-talk" id="toc-plan-your-talk" class="nav-link" data-scroll-target="#plan-your-talk">Plan Your Talk</a>
+  <ul class="collapse">
+  <li><a href="#start-with-your-take-home" id="toc-start-with-your-take-home" class="nav-link" data-scroll-target="#start-with-your-take-home">Start with your take-home</a></li>
+  <li><a href="#tell-a-story" id="toc-tell-a-story" class="nav-link" data-scroll-target="#tell-a-story">Tell a story</a></li>
+  <li><a href="#minutes-goes-fast" id="toc-minutes-goes-fast" class="nav-link" data-scroll-target="#minutes-goes-fast">5 minutes goes fast</a></li>
+  <li><a href="#know-your-audience-cogs-137-students" id="toc-know-your-audience-cogs-137-students" class="nav-link" data-scroll-target="#know-your-audience-cogs-137-students">Know your audience: COGS 137 students</a></li>
+  <li><a href="#what-to-leave-out" id="toc-what-to-leave-out" class="nav-link" data-scroll-target="#what-to-leave-out">What to leave out</a></li>
+  </ul></li>
+  <li><a href="#design-your-slides" id="toc-design-your-slides" class="nav-link" data-scroll-target="#design-your-slides">Design Your Slides</a>
+  <ul class="collapse">
+  <li><a href="#slide-titles-your-point" id="toc-slide-titles-your-point" class="nav-link" data-scroll-target="#slide-titles-your-point">Slide titles = your point</a></li>
+  <li><a href="#your-title-slide" id="toc-your-title-slide" class="nav-link" data-scroll-target="#your-title-slide">Your title slide</a></li>
+  <li><a href="#one-idea-per-slide" id="toc-one-idea-per-slide" class="nav-link" data-scroll-target="#one-idea-per-slide">One idea per slide</a></li>
+  <li><a href="#present-for-the-back-of-the-room" id="toc-present-for-the-back-of-the-room" class="nav-link" data-scroll-target="#present-for-the-back-of-the-room">Present for the back of the room</a></li>
+  <li><a href="#the-little-things" id="toc-the-little-things" class="nav-link" data-scroll-target="#the-little-things">The little things</a></li>
+  </ul></li>
+  <li><a href="#present-a-figure" id="toc-present-a-figure" class="nav-link" data-scroll-target="#present-a-figure">Present a Figure</a>
+  <ul class="collapse">
+  <li><a href="#how-to-present-a-figure" id="toc-how-to-present-a-figure" class="nav-link" data-scroll-target="#how-to-present-a-figure">How to present a figure</a></li>
+  <li><a href="#build-it-step-by-step" id="toc-build-it-step-by-step" class="nav-link" data-scroll-target="#build-it-step-by-step">Build it step by step</a></li>
+  <li><a href="#step-1-start-with-the-axes" id="toc-step-1-start-with-the-axes" class="nav-link" data-scroll-target="#step-1-start-with-the-axes">Step 1: Start with the axes</a></li>
+  <li><a href="#step-2-one-group-at-a-time" id="toc-step-2-one-group-at-a-time" class="nav-link" data-scroll-target="#step-2-one-group-at-a-time">Step 2: One group at a time</a></li>
+  <li><a href="#step-3-add-the-comparison" id="toc-step-3-add-the-comparison" class="nav-link" data-scroll-target="#step-3-add-the-comparison">Step 3: Add the comparison</a></li>
+  <li><a href="#step-4-highlight-state-the-take-home" id="toc-step-4-highlight-state-the-take-home" class="nav-link" data-scroll-target="#step-4-highlight-state-the-take-home">Step 4: Highlight &amp; state the take-home</a></li>
+  <li><a href="#making-a-build-in-r" id="toc-making-a-build-in-r" class="nav-link" data-scroll-target="#making-a-build-in-r">Making a build in R</a></li>
+  <li><a href="#your-turn" id="toc-your-turn" class="nav-link" data-scroll-target="#your-turn">Your turn</a></li>
+  </ul></li>
+  <li><a href="#delivery" id="toc-delivery" class="nav-link" data-scroll-target="#delivery">Delivery</a>
+  <ul class="collapse">
+  <li><a href="#presentations-are-for-listening" id="toc-presentations-are-for-listening" class="nav-link" data-scroll-target="#presentations-are-for-listening">Presentations are for listening</a></li>
+  <li><a href="#practice-out-loud" id="toc-practice-out-loud" class="nav-link" data-scroll-target="#practice-out-loud">Practice (out loud!)</a></li>
+  </ul></li>
+  <li><a href="#answering-questions" id="toc-answering-questions" class="nav-link" data-scroll-target="#answering-questions">Answering Questions</a>
+  <ul class="collapse">
+  <li><a href="#qa-5-10-minutes" id="toc-qa-5-10-minutes" class="nav-link" data-scroll-target="#qa-5-10-minutes">Q&amp;A: 5-10 minutes</a></li>
+  <li><a href="#answering-well" id="toc-answering-well" class="nav-link" data-scroll-target="#answering-well">Answering well</a></li>
+  <li><a href="#prepare-for-questions" id="toc-prepare-for-questions" class="nav-link" data-scroll-target="#prepare-for-questions">Prepare for questions</a></li>
+  <li><a href="#checklists" id="toc-checklists" class="nav-link" data-scroll-target="#checklists">Checklists</a></li>
+  <li><a href="#resources-credit" id="toc-resources-credit" class="nav-link" data-scroll-target="#resources-credit">Resources &amp; Credit</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="16-oral-communication-slides.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+<a class="skip-link" href="#quarto-document-content">Skip to main content</a>
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../content/lectures/00-welcome.html">Notes</a></li><li class="breadcrumb-item"><a href="../../content/lectures/16-oral-communication.html">16: Oral Communication</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">16-oral-communication</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Professor Shannon Ellis </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            UC San Diego <br> COGS 137 - Fall 2026
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 23, 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="effective-oral-communication" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Effective Oral Communication</h1>
+<section id="qa" class="level2 scrollable smaller">
+<h2 class="scrollable smaller anchored" data-anchor-id="qa">Q&amp;A</h2>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: What did you work on while in Austin at snake_case?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: What did you work on while in Austin at snake_case?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: We worked on extending ggplot2 into the python world. The package <a href="https://plotnine.org/">plotnine</a>) already exists and implements the grammar of graphics in python. But, many of the helpful extensions that exist for ggplot2 do not yet exist for python. So, we built them and you can see them here: https://github.com/snake-case-ggtext. To support this (also in that org), we also built an app that will compare the R and python output and iteratively improve the code until they match (<a href="https://github.com/snake-case-ggtext/plotparity"><code>plotparity</code></a>). And I went on a side-quest to build a package that could act as a plot linter to give students feedback on how the viz they generated fall short of best practices (<a href="https://github.com/snake-case-ggtext/plotnine-linter">plotnine-linter</a>)</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q: When talking about parts of our final project, how do we account for an area's income for college preparedness?">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q: When talking about parts of our final project, how do we account for an area’s income for college preparedness?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: Depends on what you’re doing, but typically this would be included as a covariate (predictor in the model), to adjust findings for effect of income.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled" title="Q:I'm still a little confused about what cross-validation is and how it works.">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Q:I’m still a little confused about what cross-validation is and how it works.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>A: Most simply cross-validation allows us to take our training data and split it into folds. Folds are a portion ofthe data. If you have 4 folds, 25% of the training data is in each fold. Then, you repeat the process of training the data on all but one of the folds and then seeing how it performs on the fold that was held out. Each time you repeat the process, a different fold is held out…and you calculate model performance on the held-out fold. Then you average across the folds for a performance metric. If you’re trying out two different models, you would then compare performance across models, selecting the better-performing model.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="course-announcements" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="course-announcements">Course Announcements</h2>
+<p><strong>Due Dates</strong> (rest of quarter):</p>
+<ul>
+<li>👯 Rough Draft - Final Project - due this Wed (11/25)</li>
+<li>👯 Peer review - due Mon (11/30) [we’ll talk about this in class Wed.]</li>
+<li>📊 Fri 12/11 (Finals week) - final project due (report + general communication + feedback)</li>
+<li>🔘 Lecture Participation survey “due” after class</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>Wed this week is for in-class project work</li>
+<li>🎥 Next week is final project presentations - <a href="https://docs.google.com/spreadsheets/d/111KcDoiAhFSplzHfG1B74Ae7deBrkiavAhEDSr_qVgA/edit?gid=0#gid=0">sign up for a slot</a> by adding your team name</li>
+<li>No section Thursday or class Friday (Happy Thanksgiving!)</li>
+</ul>
+</section>
+<section id="final-project-presentations" class="level2">
+<h2 class="anchored" data-anchor-id="final-project-presentations">Final Project: Presentations</h2>
+<ul>
+<li>5 min presentation - everyone should be present and speak
+<ul>
+<li>Audience: COGS 137 students</li>
+</ul></li>
+<li>5-10 min for questions
+<ul>
+<li>everyone will answer questions</li>
+<li>we’ll choose who answers which</li>
+</ul></li>
+<li>Presentation slots: 9 in class; 6 just after class on Fri (last day of class)</li>
+</ul>
+</section>
+<section id="final-project-fri-of-finals-week" class="level2">
+<h2 class="anchored" data-anchor-id="final-project-fri-of-finals-week">Final Project (Fri of finals week)</h2>
+<ul>
+<li>qmd/HTML Report
+<ul>
+<li>Audience: COGS 137 students
+<ul>
+<li>unfamiliar topic; needs introduction</li>
+<li>should walk through analysis and explain/interpret results</li>
+<li>NO Extension necessary .</li>
+</ul></li>
+</ul></li>
+<li>General Communication
+<ul>
+<li>For a general audience; like cs01/cs02</li>
+</ul></li>
+</ul>
+</section>
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
+<ul>
+<li>What carries over from written &amp; visual communication</li>
+<li>Plan your talk</li>
+<li>Design your slides</li>
+<li>Present a figure</li>
+<li>Deliver it (as a group)</li>
+<li>Answer questions</li>
+</ul>
+</section>
+<section id="where-weve-been" class="level2">
+<h2 class="anchored" data-anchor-id="where-weve-been">Where we’ve been</h2>
+<p>In <a href="09-written-communication.html">written communication</a> we covered:</p>
+<ul>
+<li><strong>Consider your audience</strong>: you do the work so they don’t have to</li>
+<li><strong>Informative titles</strong>: state the take-home, not the topic</li>
+<li><strong>The glamour of graphics</strong>: left-aligned titles, no head-tilting, remove/lighten, direct labels &gt; legends, color with a purpose</li>
+<li><strong>Tables are communication, too</strong></li>
+</ul>
+<p>. . .</p>
+<p>All of that still applies. Today: <strong>what changes when your audience is <em>listening</em> instead of <em>reading</em>?</strong></p>
+</section>
+</section>
+<section id="reading-vs.-listening" class="level1 smaller" data-background-color="#92A86A">
+<h1 class="smaller" data-background-color="#92A86A">Reading vs.&nbsp;Listening</h1>
+<section id="reports-are-for-reading-presentations-are-for-listening" class="level2">
+<h2 class="anchored" data-anchor-id="reports-are-for-reading-presentations-are-for-listening">Reports are for reading; presentations are for listening</h2>
+<table class="table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 27%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Report</strong> 📄</th>
+<th><strong>Presentation</strong> 🎤</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Who controls the pace?</td>
+<td>the reader</td>
+<td>you</td>
+</tr>
+<tr class="even">
+<td>Missed something?</td>
+<td>re-read it</td>
+<td>it’s gone</td>
+</tr>
+<tr class="odd">
+<td>Where does the explanation live?</td>
+<td>in the text</td>
+<td>in your voice</td>
+</tr>
+<tr class="even">
+<td>How much on one visualization?</td>
+<td>more (they have time)</td>
+<td>less; build it up</td>
+</tr>
+<tr class="odd">
+<td>How much detail?</td>
+<td>all the necessary details</td>
+<td>only what supports the take-home</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<p><strong>You’ve seen your figures 100 times. Your audience is seeing them for the first time.</strong></p>
+</section>
+<section id="brainstorm" class="level2">
+<h2 class="anchored" data-anchor-id="brainstorm">Brainstorm</h2>
+<p><span style="background-color: #ADD8E6">🧠 What’s the best (or worst) presentation advice you’ve ever been given?</span></p>
+</section>
+</section>
+<section id="plan-your-talk" class="level1 page-columns page-full" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Plan Your Talk</h1>
+<section id="start-with-your-take-home" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="start-with-your-take-home">Start with your take-home</h2>
+<p>Before you open Google Slides/PowerPoint/Quarto:</p>
+<p>. . .</p>
+<ul>
+<li>If your audience remembers <strong>one thing</strong>, what should it be?</li>
+<li>Write it as <strong>one sentence</strong>. Every slide should support it.</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li>Group check: if each of you wrote that sentence separately, would you all write the same one? If not, sort that out first.</li>
+</ul>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Nussbaumer Knaflic calls this the “Big Idea” in <a href="https://www.storytellingwithdata.com/book">Storytelling with Data</a>.</p>
+</div></div></section>
+<section id="tell-a-story" class="level2">
+<h2 class="anchored" data-anchor-id="tell-a-story">Tell a story</h2>
+<ul>
+<li>Stories have a beginning, a middle, and an end</li>
+<li>Stories do <strong>not</strong> include every detail of what you tried</li>
+</ul>
+<p>. . .</p>
+<ul>
+<li><strong>Tell them what you’re going to tell them. Tell them. Tell them what you told them.</strong></li>
+<li>Repetition is OK! Listeners can’t flip back a page.</li>
+</ul>
+</section>
+<section id="minutes-goes-fast" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="minutes-goes-fast">5 minutes goes fast</h2>
+<p>A rough budget:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Time</th>
+<th>Slides</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Title + hook: your question &amp; why it matters</td>
+<td>~45 sec</td>
+<td>1-2</td>
+</tr>
+<tr class="even">
+<td>Data: where it’s from, what’s measured</td>
+<td>~45 sec</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Approach: what you did (briefly!)</td>
+<td>~45 sec</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Results: your 1-2 key findings</td>
+<td>~2 min</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Conclusion: take-home + a limitation</td>
+<td>~45 sec</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>. . .</p>
+<ul>
+<li>Roughly a slide a minute. If you have more than ~8 slides, you will rush.</li>
+<li>Plan for 4.5 minutes. Live talks (often) run longer than practice runs.</li>
+<li>This means: practice before out loud. multiple times. time yourselves.</li>
+</ul>
+</section>
+<section id="know-your-audience-cogs-137-students" class="level2">
+<h2 class="anchored" data-anchor-id="know-your-audience-cogs-137-students">Know your audience: COGS 137 students</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>They already know</strong></p>
+<ul>
+<li>R &amp; the tidyverse</li>
+<li>regression, train/test splits, cross-validation</li>
+<li>what a boxplot is</li>
+</ul>
+<p>➡ does not need a review/explanation</p>
+</div><div class="column" style="width:50%;">
+<p><strong>They don’t know</strong></p>
+<ul>
+<li>your topic</li>
+<li>why your question matters</li>
+<li>your data &amp; variables</li>
+</ul>
+<p>➡ spend your time here</p>
+</div>
+</div>
+</section>
+<section id="what-to-leave-out" class="level2">
+<h2 class="anchored" data-anchor-id="what-to-leave-out">What to leave out</h2>
+<ul>
+<li>Your full EDA</li>
+<li>Every model you tried</li>
+<li>Code on slides</li>
+<li>Scrolling through your <code>.qmd</code>/HTML ❌</li>
+</ul>
+<p>. . .</p>
+<p>Those details belong in your <strong>report</strong> (or in backup slides after your conclusion).</p>
+</section>
+</section>
+<section id="design-your-slides" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Design Your Slides</h1>
+<section id="slide-titles-your-point" class="level2">
+<h2 class="anchored" data-anchor-id="slide-titles-your-point">Slide titles = your point</h2>
+<p>Same rule as figure titles: the title is the main point you want people to leave with.</p>
+<p>. . .</p>
+<div class="fragment semi-fade-out">
+<p>Avoid: “Introduction”</p>
+</div>
+<p>Better: “Cannabis use is on the rise”</p>
+<p>. . .</p>
+<div class="fragment semi-fade-out">
+<p>Avoid: “Results”</p>
+</div>
+<p>Better: “THC concentration &gt;5ng/mL suggests recent use”</p>
+<p>. . .</p>
+<p><strong>Headline test:</strong> read <em>only</em> your slide titles in order. Do they tell your story?</p>
+</section>
+<section id="your-title-slide" class="level2">
+<h2 class="anchored" data-anchor-id="your-title-slide">Your title slide</h2>
+<ul>
+<li><strong>Title</strong>: short and informative</li>
+<li><strong>Occasion</strong>: COGS 137 Final Project</li>
+<li><strong>Date</strong></li>
+<li><strong>Names</strong>: everyone in your group (and your team name)</li>
+</ul>
+</section>
+<section id="one-idea-per-slide" class="level2">
+<h2 class="anchored" data-anchor-id="one-idea-per-slide">One idea per slide</h2>
+<div class="incremental">
+<ul class="incremental">
+<li>Limit words. If you’re tempted to read it aloud, there’s too much.</li>
+<li>Space your bullets out; 3-5 max</li>
+<li>Reveal bullets <strong>one at a time</strong> (like this!)
+<ul class="incremental">
+<li>so the audience listens to you instead of reading ahead</li>
+<li>Quarto: <code>. . .</code> or <code>incremental</code>; Google Slides/PowerPoint: Animation ➡ Appear, on click</li>
+</ul></li>
+<li>Use animation to build your story, <strong>not</strong> to distract (no spinning, bouncing, flying)</li>
+</ul>
+</div>
+</section>
+<section id="present-for-the-back-of-the-room" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="present-for-the-back-of-the-room">Present for the back of the room</h2>
+<ul>
+<li><strong>Large text</strong>: ~24 pt+ for body text. Figure text too: <code>theme_minimal(base_size = 18)</code></li>
+<li><strong>Easy-to-read fonts</strong>: sans-serif (Helvetica, Calibri, Verdana, Source Sans, Fira Sans); not decorative (Jokerman, Snell Roundhand)</li>
+<li><strong>High contrast</strong>: dark text on light background. On a dark background, use white text, not gray.</li>
+<li><strong>Colors that project</strong>: projectors wash out light colors (yellow on white disappears). Use the colorblind-friendly palette we’ve been using.</li>
+<li><strong>Consistency</strong>: one theme, one set of fonts and colors…across <em>all</em> group members’ slides</li>
+<li><strong>Alignment</strong>: misaligned stuff is distracting</li>
+</ul>
+</section>
+<section id="the-little-things" class="level2">
+<h2 class="anchored" data-anchor-id="the-little-things">The little things</h2>
+<ul>
+<li><strong>Slide numbers</strong>: so someone can ask “Can you go back to slide 4?”</li>
+<li><strong>Citations</strong>: cite sources on the slide where you use them, and include a reference slide at the end…but don’t present it</li>
+<li><strong>Backup slides</strong>: put details you might be asked about <em>after</em> your conclusion</li>
+<li><strong>End on your take-home</strong>, not a “Questions?” slide. It stays up during Q&amp;A, so make it the slide you want people looking at.</li>
+</ul>
+</section>
+</section>
+<section id="present-a-figure" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Present a Figure</h1>
+<section id="how-to-present-a-figure" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-present-a-figure">How to present a figure</h2>
+<ol type="1">
+<li><strong>Axes</strong>: What’s on the x and y axis? (units? scale?)</li>
+<li><strong>Legend</strong>: What do the colors/shapes mean?</li>
+<li><strong>What do you see?</strong> Point to it. Highlight it.</li>
+<li><strong>Stats</strong>: test or model results, if you have them</li>
+<li><strong>Take-home</strong>: the main point (which should match your title)</li>
+</ol>
+<p>. . .</p>
+<p>It feels slow. It isn’t. This is how you get your audience to see what you see.</p>
+</section>
+<section id="build-it-step-by-step" class="level2">
+<h2 class="anchored" data-anchor-id="build-it-step-by-step">Build it step by step</h2>
+<ul>
+<li>Start with empty axes</li>
+<li>Add one group at a time</li>
+<li>Highlight what matters</li>
+<li>End on the take-home</li>
+</ul>
+<p>. . .</p>
+<p>The audience looks where you’re pointing, instead of at the whole figure at once.</p>
+<p>. . .</p>
+<p>Let’s try it with CS01 data: THC in whole blood after smoking, comparing frequent and occasional users (placebo group excluded).</p>
+</section>
+<section id="step-1-start-with-the-axes" class="level2">
+<h2 class="anchored" data-anchor-id="step-1-start-with-the-axes">Step 1: Start with the axes</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-oral-communication_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" style="width:100.0%" alt="Empty axes: time since smoking in minutes on the x-axis, from before smoking to 301+ minutes; median THC in blood in ng/mL on a log scale on the y-axis."></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>🗣️“Time since smoking is on the the x-axis, from before smoking out to five hours. y-axis is log scale THC measurements from blood.”</p>
+</blockquote>
+</section>
+<section id="step-2-one-group-at-a-time" class="level2">
+<h2 class="anchored" data-anchor-id="step-2-one-group-at-a-time">Step 2: One group at a time</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-oral-communication_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" style="width:100.0%" alt="A gray line for occasional users: median blood THC jumps to about 20 ng/mL in the first 30 minutes after smoking, then drops quickly, falling to around 1 ng/mL or less after about three hours."></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>🗣️ “Here are occasional users. THC spikes in the first 30 minutes, then drops fast. After about three hours, there’s very little left.”</p>
+</blockquote>
+</section>
+<section id="step-3-add-the-comparison" class="level2">
+<h2 class="anchored" data-anchor-id="step-3-add-the-comparison">Step 3: Add the comparison</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-oral-communication_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" style="width:100.0%" alt="A blue line for frequent users is added. It has the same shape as the gray occasional-user line, peaking near 50 ng/mL, but sits above it at every time point."></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>🗣️ “Frequent users follow the same pattern, but their line is above occasional users at every single time point.”</p>
+</blockquote>
+</section>
+<section id="step-4-highlight-state-the-take-home" class="level2">
+<h2 class="anchored" data-anchor-id="step-4-highlight-state-the-take-home">Step 4: Highlight &amp; state the take-home</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="16-oral-communication_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:100.0%" alt="The final figure, titled: Frequent users have more THC in their blood at every time point, even before smoking. An orange box highlights the before-smoking time point, where frequent users are above 1 ng/mL and occasional users are at 0."></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>🗣️ “And look before anyone smoked: frequent users already have THC in their blood (median 1.25 ng/mL); occasional users have none (median 0 ng/mL).”</p>
+</blockquote>
+</section>
+<section id="making-a-build-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="making-a-build-in-r">Making a build in R</h2>
+<p>Same plot code each time, adding one layer per step:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>base_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(thc_time, <span class="fu">aes</span>(<span class="at">x =</span> timepoint, <span class="at">y =</span> median_thc, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span>   <span class="co"># fix the axes so they don't jump</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)                   <span class="co"># reserve space for the title you add at the end</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>step1 <span class="ot">&lt;-</span> base_plot <span class="sc">+</span> <span class="fu">geom_blank</span>()                                 <span class="co"># just the axes</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>step2 <span class="ot">&lt;-</span> base_plot <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">filter</span>(thc_time, group <span class="sc">==</span> <span class="st">"Occasional user"</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ...and so on</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>One figure per slide, same size and position: clicking to the next slide looks like animation</li>
+<li>Works the same way with images in Google Slides/PowerPoint</li>
+</ul>
+<p>Full code for the figures above:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>cs01 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/cs01_combined.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>window_order <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"pre-smoking"</span>, <span class="st">"0-30 min"</span>, <span class="st">"31-70 min"</span>, <span class="st">"71-100 min"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"101-180 min"</span>, <span class="st">"181-210 min"</span>, <span class="st">"211-240 min"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                  <span class="st">"241-270 min"</span>, <span class="st">"271-300 min"</span>, <span class="st">"301+ min"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># median whole-blood THC per time window, THC groups only</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>thc_time <span class="ot">&lt;-</span> cs01 <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fluid_type <span class="sc">==</span> <span class="st">"WB"</span>, <span class="sc">!</span><span class="fu">is.na</span>(timepoint), treatment <span class="sc">!=</span> <span class="st">"Placebo"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">timepoint =</span> <span class="fu">fct_relevel</span>(timepoint, window_order)) <span class="sc">|&gt;</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, timepoint) <span class="sc">|&gt;</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">median_thc =</span> <span class="fu">median</span>(thc, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>group_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Frequent user"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>, <span class="st">"Occasional user"</span> <span class="ot">=</span> <span class="st">"#999999"</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># the parts that stay the same in every step, so the axes don't jump</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>base_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(thc_time, <span class="fu">aes</span>(<span class="at">x =</span> timepoint, <span class="at">y =</span> median_thc,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">color =</span> group, <span class="at">group =</span> group)) <span class="sc">+</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">transform =</span> <span class="st">"pseudo_log"</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                     <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">50</span>)) <span class="sc">+</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="cf">function</span>(x) <span class="fu">str_replace_all</span>(x, <span class="fu">c</span>(<span class="st">" min"</span> <span class="ot">=</span> <span class="st">""</span>, <span class="st">"pre-smoking"</span> <span class="ot">=</span> <span class="st">"before"</span>))) <span class="sc">+</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> group_colors) <span class="sc">+</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>), <span class="at">clip =</span> <span class="st">"off"</span>) <span class="sc">+</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>, <span class="co"># placeholder: keeps the plot the same size across steps</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Median THC in blood (ng/mL, log scale)"</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Time since smoking (minutes)"</span>, <span class="at">y =</span> <span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">16</span>) <span class="sc">+</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title.position =</span> <span class="st">"plot"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">150</span>, <span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># add one group's line, points, and direct label</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>add_group <span class="ot">&lt;-</span> <span class="cf">function</span>(p, which) {</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> <span class="fu">filter</span>(thc_time, group <span class="sc">==</span> which)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  p <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> d, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">data =</span> d, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_text</span>(<span class="at">data =</span> <span class="fu">filter</span>(d, timepoint <span class="sc">==</span> <span class="st">"301+ min"</span>),</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">str_replace</span>(group, <span class="st">" user"</span>, <span class="st">" users"</span>)),</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>              <span class="at">hjust =</span> <span class="sc">-</span><span class="fl">0.15</span>, <span class="at">size =</span> <span class="fl">5.5</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>)</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>step1 <span class="ot">&lt;-</span> base_plot <span class="sc">+</span> <span class="fu">geom_blank</span>()</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>step2 <span class="ot">&lt;-</span> <span class="fu">add_group</span>(base_plot, <span class="st">"Occasional user"</span>)</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>step3 <span class="ot">&lt;-</span> <span class="fu">add_group</span>(step2, <span class="st">"Frequent user"</span>)</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>step4 <span class="ot">&lt;-</span> step3 <span class="sc">+</span></span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"rect"</span>, <span class="at">xmin =</span> <span class="fl">0.6</span>, <span class="at">xmax =</span> <span class="fl">1.4</span>, <span class="at">ymin =</span> <span class="sc">-</span><span class="fl">0.15</span>, <span class="at">ymax =</span> <span class="dv">2</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>           <span class="at">fill =</span> <span class="cn">NA</span>, <span class="at">color =</span> <span class="st">"#D55E00"</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Frequent users have more THC in their blood at every time point,</span><span class="sc">\n</span><span class="st">even before smoking"</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># numbers for the text</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>pre <span class="ot">&lt;-</span> thc_time <span class="sc">|&gt;</span> <span class="fu">filter</span>(timepoint <span class="sc">==</span> <span class="st">"pre-smoking"</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>pre_freq <span class="ot">&lt;-</span> pre<span class="sc">$</span>median_thc[pre<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"Frequent user"</span>]</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>pre_occ <span class="ot">&lt;-</span> pre<span class="sc">$</span>median_thc[pre<span class="sc">$</span>group <span class="sc">==</span> <span class="st">"Occasional user"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="your-turn" class="level2">
+<h2 class="anchored" data-anchor-id="your-turn">Your turn</h2>
+<p><span style="background-color: #ADD8E6">🧠 Pick one figure from your final project rough draft. Walk your neighbor through it using the 5 steps. (~60 seconds)</span></p>
+<ol type="1">
+<li>Axes</li>
+<li>Legend</li>
+<li>What do you see?</li>
+<li>Stats?</li>
+<li>Take-home</li>
+</ol>
+<p>. . .</p>
+<p><strong>Listener</strong>: Could you follow it? Did you know what the axes were <em>before</em> you were told the point? Then swap.</p>
+</section>
+</section>
+<section id="delivery" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Delivery</h1>
+<section id="presentations-are-for-listening" class="level2">
+<h2 class="anchored" data-anchor-id="presentations-are-for-listening">Presentations are for listening</h2>
+<ul>
+<li><strong>Speak to the back of the room</strong></li>
+<li><strong>Face the audience</strong> when possible (not the screen)</li>
+<li><strong>Pause.</strong> Silence is OK. Pause after your key points.</li>
+<li><strong>Point</strong> to what you’re talking about</li>
+<li><strong>Be yourself.</strong></li>
+</ul>
+</section>
+<section id="practice-out-loud" class="level2">
+<h2 class="anchored" data-anchor-id="practice-out-loud">Practice (out loud!)</h2>
+<ul>
+<li>Practicing:
+<ul>
+<li>improves your explanations</li>
+<li>calms your nerves</li>
+<li>makes sure you’re within time</li>
+</ul></li>
+<li>Reading your slides silently ≠ practicing</li>
+<li>Do at least one full, timed run-through <strong>as a group</strong></li>
+<li>Record yourself once. You’ll catch filler words and speed.</li>
+</ul>
+</section>
+</section>
+<section id="answering-questions" class="level1" data-background-color="#92A86A">
+<h1 data-background-color="#92A86A">Answering Questions</h1>
+<section id="qa-5-10-minutes" class="level2">
+<h2 class="anchored" data-anchor-id="qa-5-10-minutes">Q&amp;A: 5-10 minutes</h2>
+<ul>
+<li>Everyone in your group answers questions</li>
+<li><strong>We choose who answers which</strong></li>
+</ul>
+<p>. . .</p>
+<p>So everyone needs to understand the <strong>whole</strong> project, not just their part:</p>
+<ul>
+<li>the question &amp; why it matters</li>
+<li>the data</li>
+<li>the main analysis choices (and why)</li>
+<li>the main result + a limitation</li>
+</ul>
+</section>
+<section id="answering-well" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="answering-well">Answering well</h2>
+<ul>
+<li><strong>Listen</strong> to the whole question. Pause before answering.</li>
+<li><strong>Repeat or rephrase</strong> it: helps the audience hear it, confirms you understood, buys you a moment</li>
+<li><strong>Answer directly first</strong>, then explain briefly</li>
+<li>Use your <strong>backup slides</strong></li>
+<li><strong>“I don’t know”</strong> is OK. Follow it with what you <em>do</em> know, or how you’d find out. Don’t make things up.</li>
+<li>If someone points out a real limitation: acknowledge it, and say how it affects your conclusion</li>
+</ul>
+</section>
+<section id="prepare-for-questions" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-for-questions">Prepare for questions</h2>
+<p><span style="background-color: #ADD8E6">🧠 As a group: write down 5 questions you’d ask if you were in the audience.</span></p>
+<p>. . .</p>
+<p>Common ones:</p>
+<ul>
+<li>Why this dataset? This outcome? This model?</li>
+<li>How did you handle missing data?</li>
+<li>How confident are you in this result?</li>
+<li>What surprised you?</li>
+<li>What would you do with more time/data?</li>
+</ul>
+<p>. . .</p>
+<p>Then practice answering them, rotating who answers.</p>
+</section>
+<section id="checklists" class="level2 smaller">
+<h2 class="smaller anchored" data-anchor-id="checklists">Checklists</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Talk</strong></p>
+<ul>
+<li>Clear one-sentence take-home</li>
+<li>Tells a story</li>
+<li>Right level of detail for the audience</li>
+<li>Orients audience to every figure</li>
+<li>Practiced out loud, as a group</li>
+<li>Within time</li>
+<li>Handoffs planned</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Slides</strong></p>
+<ul>
+<li>Informative title slide</li>
+<li>Titles state the point</li>
+<li>One idea per slide</li>
+<li>Readable fonts &amp; text size</li>
+<li>Consistent theme, fonts, colors</li>
+<li>Colors project well</li>
+<li>Slide numbers</li>
+<li>References &amp; backup slides</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Figures</strong></p>
+<ul>
+<li>Informative titles</li>
+<li>Appropriate plot type</li>
+<li>Less is more</li>
+<li>Clear mappings (direct labels)</li>
+<li>Consistent colors</li>
+<li>Text large enough</li>
+<li>Built up step by step</li>
+<li>Take-home clear</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="resources-credit" class="level2">
+<h2 class="anchored" data-anchor-id="resources-credit">Resources &amp; Credit</h2>
+<ul>
+<li>Quirine van Engen (former COGS 137 TA): <a href="Presentation_slides_101_week9.pdf">Mastering your slides</a></li>
+<li>Cole Nussbaumer Knaflic: <a href="https://www.storytellingwithdata.com/book">Storytelling with Data</a></li>
+<li>Will Chase: <a href="https://www.youtube.com/watch?v=h5cTacaWE6I">The Glamour of Graphics</a> (rstudio::conf2020)</li>
+<li>Matthew Butterick: <a href="https://practicaltypography.com/">Practical Typography</a></li>
+</ul>
+</section>
+<section id="recap" class="level2" data-background-color="#92A86A">
+<h2 data-background-color="#92A86A" class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li>Presentations are for listening: you do the explaining, so put less on each slide</li>
+<li>Plan from your one-sentence take-home; 5 minutes ≈ 5-7 slides</li>
+<li>Slide titles state your point</li>
+<li>Present every figure: axes, legend, what you see, stats, take-home…and build it step by step</li>
+<li>Practice out loud, as a group, and plan your handoffs</li>
+<li>Everyone should be able to answer questions about any part of the project</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/cogs137-fa26\.github\.io\/cogs137-fa26\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../content/lectures/15-putting-it-together.html" class="pagination-link" aria-label="15: Putting the Model Together">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">15: Putting the Model Together</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../content/labs/01-lab-intro-r.html" class="pagination-link" aria-label="Lab 01: Tooling and R">
+        <span class="nav-page-text">Lab 01: Tooling and R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../LICENSE.html">
+<p>License</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>This page is built with 🤍, inspiration from Mine Çetinkaya-Rundel, and <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

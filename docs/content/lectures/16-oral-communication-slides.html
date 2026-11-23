@@ -13,7 +13,7 @@
 
   <meta name="author" content="Professor Shannon Ellis">
   <meta name="dcterms.date" content="2026-11-23">
-  <title>COGS 137 - 17-oral-communication</title>
+  <title>COGS 137 - 16-oral-communication</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -31,6 +31,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -325,7 +390,7 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="COGS 137 - 17-oral-communication">
+<meta property="og:title" content="COGS 137 - 16-oral-communication">
 <meta property="og:image" content="https://cogs137-fa26.github.io/cogs137-fa26/content/lectures/images/background.png">
 <meta property="og:site_name" content="COGS 137">
 </head>
@@ -334,7 +399,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">17-oral-communication</h1>
+  <h1 class="title">16-oral-communication</h1>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -356,63 +421,85 @@ Professor Shannon Ellis
 </section>
 <section id="qa" class="slide level2 scrollable smaller">
 <h2>Q&amp;A</h2>
-<!-- Copy this box once per question. Put the question after "Q:" in the title and your answer in the body. -->
-<div title="Q: ">
+<div title="Q: What did you work on while in Austin at snake_case?">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Q:</strong></p>
+<p><strong>Q: What did you work on while in Austin at snake_case?</strong></p>
 </div>
 <div class="callout-content">
-<p>A:</p>
+<p>A: We worked on extending ggplot2 into the python world. The package <a href="https://plotnine.org/">plotnine</a>) already exists and implements the grammar of graphics in python. But, many of the helpful extensions that exist for ggplot2 do not yet exist for python. So, we built them and you can see them here: https://github.com/snake-case-ggtext. To support this (also in that org), we also built an app that will compare the R and python output and iteratively improve the code until they match (<a href="https://github.com/snake-case-ggtext/plotparity"><code>plotparity</code></a>). And I went on a side-quest to build a package that could act as a plot linter to give students feedback on how the viz they generated fall short of best practices (<a href="https://github.com/snake-case-ggtext/plotnine-linter">plotnine-linter</a>)</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q: When talking about parts of our final project, how do we account for an area's income for college preparedness?">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q: When talking about parts of our final project, how do we account for an area’s income for college preparedness?</strong></p>
+</div>
+<div class="callout-content">
+<p>A: Depends on what you’re doing, but typically this would be included as a covariate (predictor in the model), to adjust findings for effect of income.</p>
+</div>
+</div>
+</div>
+</div>
+<div title="Q:I'm still a little confused about what cross-validation is and how it works.">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Q:I’m still a little confused about what cross-validation is and how it works.</strong></p>
+</div>
+<div class="callout-content">
+<p>A: Most simply cross-validation allows us to take our training data and split it into folds. Folds are a portion ofthe data. If you have 4 folds, 25% of the training data is in each fold. Then, you repeat the process of training the data on all but one of the folds and then seeing how it performs on the fold that was held out. Each time you repeat the process, a different fold is held out…and you calculate model performance on the held-out fold. Then you average across the folds for a performance metric. If you’re trying out two different models, you would then compare performance across models, selecting the better-performing model.</p>
 </div>
 </div>
 </div>
 </div>
 </section>
-<section id="course-announcements" class="slide level2">
+<section id="course-announcements" class="slide level2 smaller">
 <h2>Course Announcements</h2>
-<p><strong>Due Dates</strong>:</p>
+<p><strong>Due Dates</strong> (rest of quarter):</p>
 <ul>
-<li>👯 <strong>Peer Evaluation</strong> &amp; 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)</li>
+<li>👯 Rough Draft - Final Project - due this Wed (11/25)</li>
+<li>👯 Peer review - due Mon (11/30) [we’ll talk about this in class Wed.]</li>
+<li>📊 Fri 12/11 (Finals week) - final project due (report + general communication + feedback)</li>
 <li>🔘 Lecture Participation survey “due” after class</li>
 </ul>
-<!-- FA24 announcements, kept for reference:
-- 🎥 [In-class presentation form](https://docs.google.com/forms/d/e/1FAIpQLSeAWBS4xwLJUGFQJWDEBV0ltfJlBWA-niB692CTZiEuKzdKPw/viewform?usp=sf_link) - complete by Monday
-- 🔘 [cs02 team eval survey](https://docs.google.com/forms/d/e/1FAIpQLSc210OYfhk23Ny7ozJ-5yG6OPMR9SV1snjUjURLrI03APsmOg/viewform?usp=sf_link) now due Monday
-- 👯 [Peer Evaluation Survey](https://docs.google.com/forms/d/e/1FAIpQLScz4WZC8R1HQLj6-zdUNE_HWEwrJa7siBeP4uE0RZVEY4Sykw/viewform?usp=sf_link) due Monday
-- 🔘 [Lecture Participation survey](https://docs.google.com/forms/d/e/1FAIpQLSebrcx8p0zG5YylzGoCFKRLPVW4wdHoTHIRNc8-YYi_wjleLg/viewform?usp=sf_link) "due" after class
-
-Notes:
-
-- Tues in class will be for working on your final project in groups
-- Remaining labs (Mon and Fri of week 10) will be for project progress
--->
+<p>Notes:</p>
+<ul>
+<li>Wed this week is for in-class project work</li>
+<li>🎥 Next week is final project presentations - <a href="https://docs.google.com/spreadsheets/d/111KcDoiAhFSplzHfG1B74Ae7deBrkiavAhEDSr_qVgA/edit?gid=0#gid=0">sign up for a slot</a> by adding your team name</li>
+<li>No section Thursday or class Friday (Happy Thanksgiving!)</li>
+</ul>
 </section>
-<section id="peer-evaluation-survey" class="slide level2">
-<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLScz4WZC8R1HQLj6-zdUNE_HWEwrJa7siBeP4uE0RZVEY4Sykw/viewform?usp=sf_link">Peer Evaluation Survey</a></h2>
+<section id="final-project-presentations" class="slide level2">
+<h2>Final Project: Presentations</h2>
 <ul>
-<li>each group received an email with their group to review (subject: <code>[COGS 137] peer review</code>)</li>
-<li>one peer eval form submission per group</li>
-</ul>
-<div class="fragment">
+<li>5 min presentation - everyone should be present and speak
 <ul>
-<li>Graded on completion…but make it as helpful to the other group as possible</li>
-<li>A more critical/negative review will NOT negatively affect the other team’s grade…but it may help them improve!</li>
-<li>The more free text you provide the more helpful it will be</li>
-</ul>
-</div>
-<div class="fragment">
+<li>Audience: COGS 137 students</li>
+</ul></li>
+<li>5-10 min for questions
 <ul>
-<li>If the file you got was empty/just the template, you’ll have a very quick time evaluating</li>
+<li>everyone will answer questions</li>
+<li>we’ll choose who answers which</li>
+</ul></li>
+<li>Presentation slots: 9 in class; 6 just after class on Fri (last day of class)</li>
 </ul>
-</div>
 </section>
-<section id="final-project-tues-of-finals-week" class="slide level2">
-<h2>Final Project (Tues of finals week)</h2>
+<section id="final-project-fri-of-finals-week" class="slide level2">
+<h2>Final Project (Fri of finals week)</h2>
 <ul>
 <li>qmd/HTML Report
 <ul>
@@ -420,32 +507,508 @@ Notes:
 <ul>
 <li>unfamiliar topic; needs introduction</li>
 <li>should walk through analysis and explain/interpret results</li>
-<li>NO Extension necessary</li>
+<li>NO Extension necessary .</li>
 </ul></li>
 </ul></li>
-</ul>
-<div class="fragment">
-<ul>
-<li>Presentation (3-5 min)
-<ul>
-<li>Audience: COGS 137 students</li>
-<li>If you present in class (next Thurs), no recording needs to be submitted (option for EC)</li>
-<li>If you do not present in class, will submit video/link to video on Canvas</li>
-</ul></li>
-</ul>
-</div>
-<div class="fragment">
-<ul>
 <li>General Communication
 <ul>
 <li>For a general audience; like cs01/cs02</li>
 </ul></li>
 </ul>
+</section>
+<section id="agenda" class="slide level2">
+<h2>Agenda</h2>
+<ul>
+<li>What carries over from written &amp; visual communication</li>
+<li>Plan your talk</li>
+<li>Design your slides</li>
+<li>Present a figure</li>
+<li>Deliver it (as a group)</li>
+<li>Answer questions</li>
+</ul>
+</section>
+<section id="where-weve-been" class="slide level2">
+<h2>Where we’ve been</h2>
+<p>In <a href="09-written-communication.html">written communication</a> we covered:</p>
+<ul>
+<li><strong>Consider your audience</strong>: you do the work so they don’t have to</li>
+<li><strong>Informative titles</strong>: state the take-home, not the topic</li>
+<li><strong>The glamour of graphics</strong>: left-aligned titles, no head-tilting, remove/lighten, direct labels &gt; legends, color with a purpose</li>
+<li><strong>Tables are communication, too</strong></li>
+</ul>
+<div class="fragment">
+<p>All of that still applies. Today: <strong>what changes when your audience is <em>listening</em> instead of <em>reading</em>?</strong></p>
+</div>
+</section></section>
+<section>
+<section id="reading-vs.-listening" class="title-slide slide level1 smaller center" data-background-color="#92A86A">
+<h1>Reading vs.&nbsp;Listening</h1>
+
+</section>
+<section id="reports-are-for-reading-presentations-are-for-listening" class="slide level2">
+<h2>Reports are for reading; presentations are for listening</h2>
+<table>
+<colgroup>
+<col style="width: 30%">
+<col style="width: 27%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><strong>Report</strong> 📄</th>
+<th><strong>Presentation</strong> 🎤</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Who controls the pace?</td>
+<td>the reader</td>
+<td>you</td>
+</tr>
+<tr class="even">
+<td>Missed something?</td>
+<td>re-read it</td>
+<td>it’s gone</td>
+</tr>
+<tr class="odd">
+<td>Where does the explanation live?</td>
+<td>in the text</td>
+<td>in your voice</td>
+</tr>
+<tr class="even">
+<td>How much on one visualization?</td>
+<td>more (they have time)</td>
+<td>less; build it up</td>
+</tr>
+<tr class="odd">
+<td>How much detail?</td>
+<td>all the necessary details</td>
+<td>only what supports the take-home</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<p><strong>You’ve seen your figures 100 times. Your audience is seeing them for the first time.</strong></p>
 </div>
 </section>
-<section id="effective-oral-communication-1" class="slide level2">
-<h2>Effective Oral Communication</h2>
-<p><object data="Presentation_slides_101_week9.pdf" type="application/pdf" width="100%" height="600"><p>Unable to display PDF file. <a href="Presentation_slides_101_week9.pdf">Download</a> instead.</p></object></p>
+<section id="brainstorm" class="slide level2">
+<h2>Brainstorm</h2>
+<p><span style="background-color: #ADD8E6">🧠 What’s the best (or worst) presentation advice you’ve ever been given?</span></p>
+</section></section>
+<section>
+<section id="plan-your-talk" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Plan Your Talk</h1>
+
+</section>
+<section id="start-with-your-take-home" class="slide level2">
+<h2>Start with your take-home</h2>
+<p>Before you open Google Slides/PowerPoint/Quarto:</p>
+<div class="fragment">
+<ul>
+<li>If your audience remembers <strong>one thing</strong>, what should it be?</li>
+<li>Write it as <strong>one sentence</strong>. Every slide should support it.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li>Group check: if each of you wrote that sentence separately, would you all write the same one? If not, sort that out first.</li>
+</ul>
+
+</div>
+<aside><div>
+<p>Nussbaumer Knaflic calls this the “Big Idea” in <a href="https://www.storytellingwithdata.com/book">Storytelling with Data</a>.</p>
+</div></aside></section>
+<section id="tell-a-story" class="slide level2">
+<h2>Tell a story</h2>
+<ul>
+<li>Stories have a beginning, a middle, and an end</li>
+<li>Stories do <strong>not</strong> include every detail of what you tried</li>
+</ul>
+<div class="fragment">
+<ul>
+<li><strong>Tell them what you’re going to tell them. Tell them. Tell them what you told them.</strong></li>
+<li>Repetition is OK! Listeners can’t flip back a page.</li>
+</ul>
+</div>
+</section>
+<section id="minutes-goes-fast" class="slide level2 smaller">
+<h2>5 minutes goes fast</h2>
+<p>A rough budget:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th>Time</th>
+<th>Slides</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Title + hook: your question &amp; why it matters</td>
+<td>~45 sec</td>
+<td>1-2</td>
+</tr>
+<tr class="even">
+<td>Data: where it’s from, what’s measured</td>
+<td>~45 sec</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>Approach: what you did (briefly!)</td>
+<td>~45 sec</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>Results: your 1-2 key findings</td>
+<td>~2 min</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>Conclusion: take-home + a limitation</td>
+<td>~45 sec</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<ul>
+<li>Roughly a slide a minute. If you have more than ~8 slides, you will rush.</li>
+<li>Plan for 4.5 minutes. Live talks (often) run longer than practice runs.</li>
+<li>This means: practice before out loud. multiple times. time yourselves.</li>
+</ul>
+</div>
+</section>
+<section id="know-your-audience-cogs-137-students" class="slide level2">
+<h2>Know your audience: COGS 137 students</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>They already know</strong></p>
+<ul>
+<li>R &amp; the tidyverse</li>
+<li>regression, train/test splits, cross-validation</li>
+<li>what a boxplot is</li>
+</ul>
+<p>➡ does not need a review/explanation</p>
+</div><div class="column" style="width:50%;">
+<p><strong>They don’t know</strong></p>
+<ul>
+<li>your topic</li>
+<li>why your question matters</li>
+<li>your data &amp; variables</li>
+</ul>
+<p>➡ spend your time here</p>
+</div>
+</div>
+</section>
+<section id="what-to-leave-out" class="slide level2">
+<h2>What to leave out</h2>
+<ul>
+<li>Your full EDA</li>
+<li>Every model you tried</li>
+<li>Code on slides</li>
+<li>Scrolling through your <code>.qmd</code>/HTML ❌</li>
+</ul>
+<div class="fragment">
+<p>Those details belong in your <strong>report</strong> (or in backup slides after your conclusion).</p>
+</div>
+</section></section>
+<section>
+<section id="design-your-slides" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Design Your Slides</h1>
+
+</section>
+<section id="slide-titles-your-point" class="slide level2">
+<h2>Slide titles = your point</h2>
+<p>Same rule as figure titles: the title is the main point you want people to leave with.</p>
+<div class="fragment">
+<div class="fragment semi-fade-out">
+<p>Avoid: “Introduction”</p>
+</div>
+<p>Better: “Cannabis use is on the rise”</p>
+</div>
+<div class="fragment">
+<div class="fragment semi-fade-out">
+<p>Avoid: “Results”</p>
+</div>
+<p>Better: “THC concentration &gt;5ng/mL suggests recent use”</p>
+</div>
+<div class="fragment">
+<p><strong>Headline test:</strong> read <em>only</em> your slide titles in order. Do they tell your story?</p>
+</div>
+</section>
+<section id="your-title-slide" class="slide level2">
+<h2>Your title slide</h2>
+<ul>
+<li><strong>Title</strong>: short and informative</li>
+<li><strong>Occasion</strong>: COGS 137 Final Project</li>
+<li><strong>Date</strong></li>
+<li><strong>Names</strong>: everyone in your group (and your team name)</li>
+</ul>
+</section>
+<section id="one-idea-per-slide" class="slide level2">
+<h2>One idea per slide</h2>
+<div>
+<ul>
+<li class="fragment">Limit words. If you’re tempted to read it aloud, there’s too much.</li>
+<li class="fragment">Space your bullets out; 3-5 max</li>
+<li class="fragment">Reveal bullets <strong>one at a time</strong> (like this!)
+<ul>
+<li class="fragment">so the audience listens to you instead of reading ahead</li>
+<li class="fragment">Quarto: <code>. . .</code> or <code>incremental</code>; Google Slides/PowerPoint: Animation ➡ Appear, on click</li>
+</ul></li>
+<li class="fragment">Use animation to build your story, <strong>not</strong> to distract (no spinning, bouncing, flying)</li>
+</ul>
+</div>
+</section>
+<section id="present-for-the-back-of-the-room" class="slide level2 smaller">
+<h2>Present for the back of the room</h2>
+<ul>
+<li><strong>Large text</strong>: ~24 pt+ for body text. Figure text too: <code>theme_minimal(base_size = 18)</code></li>
+<li><strong>Easy-to-read fonts</strong>: sans-serif (Helvetica, Calibri, Verdana, Source Sans, Fira Sans); not decorative (Jokerman, Snell Roundhand)</li>
+<li><strong>High contrast</strong>: dark text on light background. On a dark background, use white text, not gray.</li>
+<li><strong>Colors that project</strong>: projectors wash out light colors (yellow on white disappears). Use the colorblind-friendly palette we’ve been using.</li>
+<li><strong>Consistency</strong>: one theme, one set of fonts and colors…across <em>all</em> group members’ slides</li>
+<li><strong>Alignment</strong>: misaligned stuff is distracting</li>
+</ul>
+</section>
+<section id="the-little-things" class="slide level2">
+<h2>The little things</h2>
+<ul>
+<li><strong>Slide numbers</strong>: so someone can ask “Can you go back to slide 4?”</li>
+<li><strong>Citations</strong>: cite sources on the slide where you use them, and include a reference slide at the end…but don’t present it</li>
+<li><strong>Backup slides</strong>: put details you might be asked about <em>after</em> your conclusion</li>
+<li><strong>End on your take-home</strong>, not a “Questions?” slide. It stays up during Q&amp;A, so make it the slide you want people looking at.</li>
+</ul>
+</section></section>
+<section>
+<section id="present-a-figure" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Present a Figure</h1>
+
+</section>
+<section id="how-to-present-a-figure" class="slide level2 scrollable">
+<h2>How to present a figure</h2>
+<ol type="1">
+<li><strong>Axes</strong>: What’s on the x and y axis? (units? scale?)</li>
+<li><strong>Legend</strong>: What do the colors/shapes mean?</li>
+<li><strong>What do you see?</strong> Point to it. Highlight it.</li>
+<li><strong>Stats</strong>: test or model results, if you have them</li>
+<li><strong>Take-home</strong>: the main point (which should match your title)</li>
+</ol>
+<div class="fragment">
+<p>It feels slow. It isn’t. This is how you get your audience to see what you see.</p>
+</div>
+</section>
+<section id="build-it-step-by-step" class="slide level2">
+<h2>Build it step by step</h2>
+<ul>
+<li>Start with empty axes</li>
+<li>Add one group at a time</li>
+<li>Highlight what matters</li>
+<li>End on the take-home</li>
+</ul>
+<div class="fragment">
+<p>The audience looks where you’re pointing, instead of at the whole figure at once.</p>
+</div>
+<div class="fragment">
+<p>Let’s try it with CS01 data: THC in whole blood after smoking, comparing frequent and occasional users (placebo group excluded).</p>
+</div>
+</section>
+<section id="step-1-start-with-the-axes" class="slide level2">
+<h2>Step 1: Start with the axes</h2>
+
+<img data-src="16-oral-communication_files/figure-html/unnamed-chunk-1-1.png" style="width:100.0%" alt="Empty axes: time since smoking in minutes on the x-axis, from before smoking to 301+ minutes; median THC in blood in ng/mL on a log scale on the y-axis." class="r-stretch"><blockquote>
+<p>🗣️“Time since smoking is on the the x-axis, from before smoking out to five hours. y-axis is log scale THC measurements from blood.”</p>
+</blockquote>
+</section>
+<section id="step-2-one-group-at-a-time" class="slide level2">
+<h2>Step 2: One group at a time</h2>
+
+<img data-src="16-oral-communication_files/figure-html/unnamed-chunk-2-1.png" style="width:100.0%" alt="A gray line for occasional users: median blood THC jumps to about 20 ng/mL in the first 30 minutes after smoking, then drops quickly, falling to around 1 ng/mL or less after about three hours." class="r-stretch"><blockquote>
+<p>🗣️ “Here are occasional users. THC spikes in the first 30 minutes, then drops fast. After about three hours, there’s very little left.”</p>
+</blockquote>
+</section>
+<section id="step-3-add-the-comparison" class="slide level2">
+<h2>Step 3: Add the comparison</h2>
+
+<img data-src="16-oral-communication_files/figure-html/unnamed-chunk-3-1.png" style="width:100.0%" alt="A blue line for frequent users is added. It has the same shape as the gray occasional-user line, peaking near 50 ng/mL, but sits above it at every time point." class="r-stretch"><blockquote>
+<p>🗣️ “Frequent users follow the same pattern, but their line is above occasional users at every single time point.”</p>
+</blockquote>
+</section>
+<section id="step-4-highlight-state-the-take-home" class="slide level2">
+<h2>Step 4: Highlight &amp; state the take-home</h2>
+
+<img data-src="16-oral-communication_files/figure-html/unnamed-chunk-4-1.png" style="width:100.0%" alt="The final figure, titled: Frequent users have more THC in their blood at every time point, even before smoking. An orange box highlights the before-smoking time point, where frequent users are above 1 ng/mL and occasional users are at 0." class="r-stretch"><blockquote>
+<p>🗣️ “And look before anyone smoked: frequent users already have THC in their blood (median 1.25 ng/mL); occasional users have none (median 0 ng/mL).”</p>
+</blockquote>
+</section>
+<section id="making-a-build-in-r" class="slide level2">
+<h2>Making a build in R</h2>
+<p>Same plot code each time, adding one layer per step:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>base_plot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(thc_time, <span class="fu">aes</span>(<span class="at">x =</span> timepoint, <span class="at">y =</span> median_thc, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">60</span>)) <span class="sc">+</span>   <span class="co"># fix the axes so they don't jump</span></span>
+<span id="cb1-3"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)                   <span class="co"># reserve space for the title you add at the end</span></span>
+<span id="cb1-4"><a></a></span>
+<span id="cb1-5"><a></a>step1 <span class="ot">&lt;-</span> base_plot <span class="sc">+</span> <span class="fu">geom_blank</span>()                                 <span class="co"># just the axes</span></span>
+<span id="cb1-6"><a></a>step2 <span class="ot">&lt;-</span> base_plot <span class="sc">+</span> <span class="fu">geom_line</span>(<span class="at">data =</span> <span class="fu">filter</span>(thc_time, group <span class="sc">==</span> <span class="st">"Occasional user"</span>))</span>
+<span id="cb1-7"><a></a><span class="co"># ...and so on</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>One figure per slide, same size and position: clicking to the next slide looks like animation</li>
+<li>Works the same way with images in Google Slides/PowerPoint</li>
+</ul>
+</section>
+<section id="your-turn" class="slide level2 scrollable">
+<h2>Your turn</h2>
+<p><span style="background-color: #ADD8E6">🧠 Pick one figure from your final project rough draft. Walk your neighbor through it using the 5 steps. (~60 seconds)</span></p>
+<ol type="1">
+<li>Axes</li>
+<li>Legend</li>
+<li>What do you see?</li>
+<li>Stats?</li>
+<li>Take-home</li>
+</ol>
+<div class="fragment">
+<p><strong>Listener</strong>: Could you follow it? Did you know what the axes were <em>before</em> you were told the point? Then swap.</p>
+</div>
+</section></section>
+<section>
+<section id="delivery" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Delivery</h1>
+
+</section>
+<section id="presentations-are-for-listening" class="slide level2">
+<h2>Presentations are for listening</h2>
+<ul>
+<li><strong>Speak to the back of the room</strong></li>
+<li><strong>Face the audience</strong> when possible (not the screen)</li>
+<li><strong>Pause.</strong> Silence is OK. Pause after your key points.</li>
+<li><strong>Point</strong> to what you’re talking about</li>
+<li><strong>Be yourself.</strong></li>
+</ul>
+</section>
+<section id="practice-out-loud" class="slide level2">
+<h2>Practice (out loud!)</h2>
+<ul>
+<li>Practicing:
+<ul>
+<li>improves your explanations</li>
+<li>calms your nerves</li>
+<li>makes sure you’re within time</li>
+</ul></li>
+<li>Reading your slides silently ≠ practicing</li>
+<li>Do at least one full, timed run-through <strong>as a group</strong></li>
+<li>Record yourself once. You’ll catch filler words and speed.</li>
+</ul>
+</section></section>
+<section>
+<section id="answering-questions" class="title-slide slide level1 center" data-background-color="#92A86A">
+<h1>Answering Questions</h1>
+
+</section>
+<section id="qa-5-10-minutes" class="slide level2">
+<h2>Q&amp;A: 5-10 minutes</h2>
+<ul>
+<li>Everyone in your group answers questions</li>
+<li><strong>We choose who answers which</strong></li>
+</ul>
+<div class="fragment">
+<p>So everyone needs to understand the <strong>whole</strong> project, not just their part:</p>
+<ul>
+<li>the question &amp; why it matters</li>
+<li>the data</li>
+<li>the main analysis choices (and why)</li>
+<li>the main result + a limitation</li>
+</ul>
+</div>
+</section>
+<section id="answering-well" class="slide level2 smaller">
+<h2>Answering well</h2>
+<ul>
+<li><strong>Listen</strong> to the whole question. Pause before answering.</li>
+<li><strong>Repeat or rephrase</strong> it: helps the audience hear it, confirms you understood, buys you a moment</li>
+<li><strong>Answer directly first</strong>, then explain briefly</li>
+<li>Use your <strong>backup slides</strong></li>
+<li><strong>“I don’t know”</strong> is OK. Follow it with what you <em>do</em> know, or how you’d find out. Don’t make things up.</li>
+<li>If someone points out a real limitation: acknowledge it, and say how it affects your conclusion</li>
+</ul>
+</section>
+<section id="prepare-for-questions" class="slide level2">
+<h2>Prepare for questions</h2>
+<p><span style="background-color: #ADD8E6">🧠 As a group: write down 5 questions you’d ask if you were in the audience.</span></p>
+<div class="fragment">
+<p>Common ones:</p>
+<ul>
+<li>Why this dataset? This outcome? This model?</li>
+<li>How did you handle missing data?</li>
+<li>How confident are you in this result?</li>
+<li>What surprised you?</li>
+<li>What would you do with more time/data?</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Then practice answering them, rotating who answers.</p>
+</div>
+</section>
+<section id="checklists" class="slide level2 smaller">
+<h2>Checklists</h2>
+<div class="columns">
+<div class="column" style="width:33%;">
+<p><strong>Talk</strong></p>
+<ul>
+<li>Clear one-sentence take-home</li>
+<li>Tells a story</li>
+<li>Right level of detail for the audience</li>
+<li>Orients audience to every figure</li>
+<li>Practiced out loud, as a group</li>
+<li>Within time</li>
+<li>Handoffs planned</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Slides</strong></p>
+<ul>
+<li>Informative title slide</li>
+<li>Titles state the point</li>
+<li>One idea per slide</li>
+<li>Readable fonts &amp; text size</li>
+<li>Consistent theme, fonts, colors</li>
+<li>Colors project well</li>
+<li>Slide numbers</li>
+<li>References &amp; backup slides</li>
+</ul>
+</div><div class="column" style="width:33%;">
+<p><strong>Figures</strong></p>
+<ul>
+<li>Informative titles</li>
+<li>Appropriate plot type</li>
+<li>Less is more</li>
+<li>Clear mappings (direct labels)</li>
+<li>Consistent colors</li>
+<li>Text large enough</li>
+<li>Built up step by step</li>
+<li>Take-home clear</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="resources-credit" class="slide level2">
+<h2>Resources &amp; Credit</h2>
+<ul>
+<li>Quirine van Engen (former COGS 137 TA): <a href="Presentation_slides_101_week9.pdf">Mastering your slides</a></li>
+<li>Cole Nussbaumer Knaflic: <a href="https://www.storytellingwithdata.com/book">Storytelling with Data</a></li>
+<li>Will Chase: <a href="https://www.youtube.com/watch?v=h5cTacaWE6I">The Glamour of Graphics</a> (rstudio::conf2020)</li>
+<li>Matthew Butterick: <a href="https://practicaltypography.com/">Practical Typography</a></li>
+</ul>
+</section>
+<section id="recap" class="slide level2" data-background-color="#92A86A">
+<h2>Recap</h2>
+<ul>
+<li>Presentations are for listening: you do the explaining, so put less on each slide</li>
+<li>Plan from your one-sentence take-home; 5 minutes ≈ 5-7 slides</li>
+<li>Slide titles state your point</li>
+<li>Present every figure: axes, legend, what you see, stats, take-home…and build it step by step</li>
+<li>Practice out loud, as a group, and plan your handoffs</li>
+<li>Everyone should be able to answer questions about any part of the project</li>
+</ul>
 
 <div class="quarto-auto-generated-content">
 <p><img src="images/cogs137-logo-hex.png" class="slide-logo"></p>

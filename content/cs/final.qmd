@@ -14,7 +14,7 @@ For the final project, you and your group mates (groups of 3-5 people) will carr
 
 Each group will be provided with a private `final-<team name>` repo in the [course GitHub organization](https://github.com/COGS137-FA26) that all members as well as course instructional staff will have access to. Final projects will be "submitted" by pushing the project requirements to the group repo by the deadline.
 
-Presentations will be completed in class during week 10. All group members must be present.
+Presentations will be completed in class during week 10. All group members must be present and speak.
 
 Written, visual, and presented content will be graded on their technical merits as well as the effectiveness of their communication.
 
@@ -42,7 +42,7 @@ This will likely *not* be quite as long as a case study in this course, but will
 
 ### Deliverable: Presentation
 
-Students must present their case study in a presentation that is **5 minutes long**. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. All presentations will take place in class during week 10, and every group member must be present. Not everyone has to speak, but everyone in the group is responsible for the contents, and individual understanding will be assessed during the questions after your presentation.
+Students must present their case study in a presentation that is **5 minutes long**. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. All presentations will take place in class during week 10, and every group member must be present and speak. Everyone in the group is responsible for the contents, and individual understanding will be assessed during the questions after your presentation.
 
 ### Deliverable: General Communication
 

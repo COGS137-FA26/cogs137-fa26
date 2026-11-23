@@ -15,7 +15,7 @@
     "href": "content/cs/final.html#introduction",
     "title": "Final Project",
     "section": "Introduction",
-    "text": "Introduction\nFor the final project, you and your group mates (groups of 3-5 people) will carry out a data analysis on a topic of your choosing.\nEach group will be provided with a private final-&lt;team name&gt; repo in the course GitHub organization that all members as well as course instructional staff will have access to. Final projects will be “submitted” by pushing the project requirements to the group repo by the deadline.\nPresentations will be completed in class during week 10. All group members must be present.\nWritten, visual, and presented content will be graded on their technical merits as well as the effectiveness of their communication.",
+    "text": "Introduction\nFor the final project, you and your group mates (groups of 3-5 people) will carry out a data analysis on a topic of your choosing.\nEach group will be provided with a private final-&lt;team name&gt; repo in the course GitHub organization that all members as well as course instructional staff will have access to. Final projects will be “submitted” by pushing the project requirements to the group repo by the deadline.\nPresentations will be completed in class during week 10. All group members must be present and speak.\nWritten, visual, and presented content will be graded on their technical merits as well as the effectiveness of their communication.",
     "crumbs": [
       "Case Studies",
       "Final Project"
@@ -26,7 +26,7 @@
     "href": "content/cs/final.html#the-project",
     "title": "Final Project",
     "section": "The Project",
-    "text": "The Project\nEach group will carry out a full data science project. This will include question formation, finding the data, doing background research, wrangling the data, doing EDA, analyzing the data, and answering your question of interest.\n\n\n\n\n\n\nNote\n\n\n\nUnlike the case studies, you do NOT need an extension for the final project. Since the ideas/work are all your own, your question and analysis are enough!\n\n\nYou can think of this as a mini case report in the fact that the process is the same, but we would not expect the work completed to be as extensive as what you did in a case study. That said, we want to see demonstration of the skills you’ve learned in the class, so we will be looking for some data wrangling in your case study. If you have a single dataset that requires no wrangling, consider if additional datasets could be incorporated to answer your question(s) of interest more deeply.\nYou are strongly encouraged to think of your topic/question before looking for datasets. More interesting case studies start with the topic/question. Boring case studies look for the dataset first.\n\nDeliverable: Report (.qmd + HTML)\nYour analysis will be submitted as a .qmd document and rendered to HTML (both of which should be pushed to GitHub).\n\n\n\n\n\n\nNote\n\n\n\nOutside resources & AI use: Your team’s .qmd includes an Outside Resources & AI Use section. Keep it updated as you go, including which team member(s) used each resource (write “None” if your team didn’t use any). This is required.\n\n\nThis will likely not be quite as long as a case study in this course, but will likely have the same sections.\n\n\nDeliverable: Presentation\nStudents must present their case study in a presentation that is 5 minutes long. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. All presentations will take place in class during week 10, and every group member must be present. Not everyone has to speak, but everyone in the group is responsible for the contents, and individual understanding will be assessed during the questions after your presentation.\n\n\nDeliverable: General Communication\nThis will be a communication targeted to the general public (non-technical, non-data scientists) conveying the most important finding(s) from your project.",
+    "text": "The Project\nEach group will carry out a full data science project. This will include question formation, finding the data, doing background research, wrangling the data, doing EDA, analyzing the data, and answering your question of interest.\n\n\n\n\n\n\nNote\n\n\n\nUnlike the case studies, you do NOT need an extension for the final project. Since the ideas/work are all your own, your question and analysis are enough!\n\n\nYou can think of this as a mini case report in the fact that the process is the same, but we would not expect the work completed to be as extensive as what you did in a case study. That said, we want to see demonstration of the skills you’ve learned in the class, so we will be looking for some data wrangling in your case study. If you have a single dataset that requires no wrangling, consider if additional datasets could be incorporated to answer your question(s) of interest more deeply.\nYou are strongly encouraged to think of your topic/question before looking for datasets. More interesting case studies start with the topic/question. Boring case studies look for the dataset first.\n\nDeliverable: Report (.qmd + HTML)\nYour analysis will be submitted as a .qmd document and rendered to HTML (both of which should be pushed to GitHub).\n\n\n\n\n\n\nNote\n\n\n\nOutside resources & AI use: Your team’s .qmd includes an Outside Resources & AI Use section. Keep it updated as you go, including which team member(s) used each resource (write “None” if your team didn’t use any). This is required.\n\n\nThis will likely not be quite as long as a case study in this course, but will likely have the same sections.\n\n\nDeliverable: Presentation\nStudents must present their case study in a presentation that is 5 minutes long. What you use to visually support this presentation (slides, or something else) is up to you but should follow the effective communication aspects discussed in class. All presentations will take place in class during week 10, and every group member must be present and speak. Everyone in the group is responsible for the contents, and individual understanding will be assessed during the questions after your presentation.\n\n\nDeliverable: General Communication\nThis will be a communication targeted to the general public (non-technical, non-data scientists) conveying the most important finding(s) from your project.",
     "crumbs": [
       "Case Studies",
       "Final Project"
@@ -5924,7 +5924,7 @@
     "href": "schedule.html",
     "title": "COGS 137 Course Schedule",
     "section": "",
-    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nEffective Data visualization\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n⌨️ lab 03\n\n\n4\nMon, Oct 19\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n\nSun, Oct 25\n\n\n\n\n\n\n📚 hw 02\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 28\nEffective (Written) Communication\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n📝 notes  🖥️ slides \n⌨️ lab 05 🔘 mid-course survey\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7  📕 IMS Ch8 \n📝 notes  🖥️ slides \n⌨️ lab 06 \n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n\n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n📝 notes  🖥️ slides \n⌨️ lab 07\n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n\n\n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n📄 Final Project - rough draft \n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation \n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\nFinals\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
+    "text": "Skip to main content\n\n\n\n\nHere you’ll find topics, links to materials, and deadlines for the entire term. Should any dates changes, this page will be updated throughout the quarter.\n\n\n\n\n\n\n\n\n\nWEEK\nDATE\nTOPIC\nPREPARE\nMATERIALS\nDUE\n\n\n\n\n0\nFri, Sep 25\nWelcome\n\n\n📝 notes  🖥️ slides \n\n\n\n\n1\nMon, Sep 28\nTooling: Datahub, Quarto, Git/GitHub\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Sep 30\nIntro to R (day 1)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 1\nLab01: Intro to R\n\n\n\n\n\n\n\n\n\nFri, Oct 2\nIntro to R (day 2)\n\n\n\n\n🔘 Survey #finaid  ⌨️ lab 01\n\n\n2\nMon, Oct 5\nCS01: Introduction\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 7\nData Wrangling: dplyr\n📕 R4DS Chapter 5: Data Transformation  📕 R4DS Chapter 16: Factors \n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 8\nLab02: CS01 + dplyr\n\n\n\n\n\n\n\n\n\nFri, Oct 9\n\n\n📕 R4DS Chapter 9: Data Visualization  💻 Data to Viz: https://www.data-to-viz.com/ \n\n\n⌨️ lab 02\n\n\n\nSun, Oct 11\n\n\n\n\n\n\n📚 hw 01\n\n\n3\nMon, Oct 12\nData Visualization: ggplot2 (day1)\n📕 R4DS Chapter 11: Data Communication \n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 14\nData Visualization: ggplot2 (day2)\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 15\nLab 03: CS01 + Data Visualization\n\n\n\n\n\n\n\n\n\nFri, Oct 16\nEffective Data visualization\n🎥 The Glamour of Graphics: [video]; [slides]\n\n\n⌨️ lab 03\n\n\n4\nMon, Oct 19\nCS01: EDA (day 1: tidy data, pivots, joins)\n📕 R4DS Chapter 10: EDA  📕 R4DS Chapter 25: Functions \n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 21\nCS01: EDA (day 2: functions, time windows)\n\n\n\n\n\n\n\n\n\nThu, Oct 22\nLab 04: CS01 + EDA\n\n\n\n\n\n\n\n\n\nFri, Oct 23\nCS01: EDA (day 3: sensitivity/specificity & cutoffs)\n📕 Quarto: Execution Options  📕 Quarto: HTML Basics \n\n\n⌨️ lab 04\n\n\n\nSun, Oct 25\n\n\n\n\n\n\n📚 hw 02\n\n\n5\nMon, Oct 26\nCS01: In-class Group Work\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Oct 28\nEffective (Written) Communication\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Oct 29\nLab 05: Communication + Finalizing CS01\n\n\n\n\n\n\n\n\n\nFri, Oct 30\nCS02 Intro/Data + Final Project\n💻 OCS: Air Pollution\n📝 notes  🖥️ slides \n⌨️ lab 05 🔘 mid-course survey\n\n\n\nSun, Nov 1\n\n\n\n\n\n\n💻 cs 01  🔘 cs01 team eval survey \n\n\n6\nMon, Nov 2\nCS02: EDA\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Nov 4\nInference vs. Prediction (tidymodels concepts)\n💻 tidymodels \n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Nov 5\nLab 06: CS02 EDA\n\n\n\n\n\n\n\n\n\nFri, Nov 6\nCS02: Analysis – Regression (day 1: SLR & MLR)\n📕 IMS Ch7  📕 IMS Ch8 \n📝 notes  🖥️ slides \n⌨️ lab 06 \n\n\n\nSun, Nov 8\n\n\n\n\n\n\n📄 Final Project Proposal\n\n\n7\nMon, Nov 9\nCS02: Analysis – Regression (day 2: interactions & model selection)\n\n\n\n\n\n\n\n\n\nWed, Nov 11\n🎖️ Veterans Day - No Lecture\n\n\n\n\n\n\n\n\n\nThu, Nov 12\nLab 07: Regression\n\n\n\n\n\n\n\n\n\nFri, Nov 13\nCS02: Analysis – ML (day 1: recipes & workflows)\n📕 TMWR Chapter 7: A Model Workflow \n📝 notes  🖥️ slides \n⌨️ lab 07\n\n\n8\nMon, Nov 16\nCS02: Analysis – ML (day 2: cross-validation & random forest)\n\n\n\n\n\n\n\n\n\nWed, Nov 18\nPutting the Model Together: recipe → workflow → fit → evaluate → interpret\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nThu, Nov 19\nLab: CS02/Final Project Progress\n\n\n\n\n\n\n\n\n\nFri, Nov 20\nCS02: In-class Group Work\n\n\n\n\n\n\n\n\n\nSun, Nov 22\n\n\n\n\n\n\n💻 cs 02  🔘 cs02 team eval survey \n\n\n9\nMon, Nov 23\nEffective Oral Communication\n\n\n📝 notes  🖥️ slides \n\n\n\n\n\nWed, Nov 25\nFinal Project: In-class Group Work\n\n\n\n\n📄 Final Project - rough draft \n\n\n\nThu, Nov 26\n🦃 Thanksgiving Break - No Lab\n\n\n\n\n\n\n\n\n\nFri, Nov 27\n🦃 Thanksgiving Break - No Lecture\n\n\n\n\n\n\n\n\n10\nMon, Nov 30\nFinal Project Presentations\n\n\n\n\n👯‍♀️ Peer Evaluation \n\n\n\nWed, Dec 2\nFinal Project Presentations\n\n\n\n\n\n\n\n\n\nThu, Dec 3\nLab: Final Project Progress\n\n\n\n\n\n\n\n\n\nFri, Dec 4\nFinal Project Presentations\n\n\n\n\n\n\n\n\nFinals\nFri, Dec 11\n\n\n\n\n\n\n📄 Final Project  🔘 Final project team eval survey  🔘 Post-course Survey",
     "crumbs": [
       "Schedule & Policies",
       "Schedule"
@@ -10251,81 +10251,627 @@
     ]
   },
   {
-    "objectID": "content/lectures/17-oral-communication-slides.html#qa",
-    "href": "content/lectures/17-oral-communication-slides.html#qa",
-    "title": "17-oral-communication",
+    "objectID": "content/lectures/16-oral-communication-slides.html#qa",
+    "href": "content/lectures/16-oral-communication-slides.html#qa",
+    "title": "16-oral-communication",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\n\nQ:\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\n\nQ: What did you work on while in Austin at snake_case?\n\n\nA: We worked on extending ggplot2 into the python world. The package plotnine) already exists and implements the grammar of graphics in python. But, many of the helpful extensions that exist for ggplot2 do not yet exist for python. So, we built them and you can see them here: https://github.com/snake-case-ggtext. To support this (also in that org), we also built an app that will compare the R and python output and iteratively improve the code until they match (plotparity). And I went on a side-quest to build a package that could act as a plot linter to give students feedback on how the viz they generated fall short of best practices (plotnine-linter)\n\n\n\n\n\n\n\n\n\n\n\nQ: When talking about parts of our final project, how do we account for an area’s income for college preparedness?\n\n\nA: Depends on what you’re doing, but typically this would be included as a covariate (predictor in the model), to adjust findings for effect of income.\n\n\n\n\n\n\n\n\n\n\n\nQ:I’m still a little confused about what cross-validation is and how it works.\n\n\nA: Most simply cross-validation allows us to take our training data and split it into folds. Folds are a portion ofthe data. If you have 4 folds, 25% of the training data is in each fold. Then, you repeat the process of training the data on all but one of the folds and then seeing how it performs on the fold that was held out. Each time you repeat the process, a different fold is held out…and you calculate model performance on the held-out fold. Then you average across the folds for a performance metric. If you’re trying out two different models, you would then compare performance across models, selecting the better-performing model."
   },
   {
-    "objectID": "content/lectures/17-oral-communication-slides.html#course-announcements",
-    "href": "content/lectures/17-oral-communication-slides.html#course-announcements",
-    "title": "17-oral-communication",
+    "objectID": "content/lectures/16-oral-communication-slides.html#course-announcements",
+    "href": "content/lectures/16-oral-communication-slides.html#course-announcements",
+    "title": "16-oral-communication",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n👯 Peer Evaluation & 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates (rest of quarter):\n\n👯 Rough Draft - Final Project - due this Wed (11/25)\n👯 Peer review - due Mon (11/30) [we’ll talk about this in class Wed.]\n📊 Fri 12/11 (Finals week) - final project due (report + general communication + feedback)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nWed this week is for in-class project work\n🎥 Next week is final project presentations - sign up for a slot by adding your team name\nNo section Thursday or class Friday (Happy Thanksgiving!)"
   },
   {
-    "objectID": "content/lectures/17-oral-communication-slides.html#peer-evaluation-survey",
-    "href": "content/lectures/17-oral-communication-slides.html#peer-evaluation-survey",
-    "title": "17-oral-communication",
-    "section": "Peer Evaluation Survey",
-    "text": "Peer Evaluation Survey\n\neach group received an email with their group to review (subject: [COGS 137] peer review)\none peer eval form submission per group\n\n\n\nGraded on completion…but make it as helpful to the other group as possible\nA more critical/negative review will NOT negatively affect the other team’s grade…but it may help them improve!\nThe more free text you provide the more helpful it will be\n\n\n\n\nIf the file you got was empty/just the template, you’ll have a very quick time evaluating"
+    "objectID": "content/lectures/16-oral-communication-slides.html#final-project-presentations",
+    "href": "content/lectures/16-oral-communication-slides.html#final-project-presentations",
+    "title": "16-oral-communication",
+    "section": "Final Project: Presentations",
+    "text": "Final Project: Presentations\n\n5 min presentation - everyone should be present and speak\n\nAudience: COGS 137 students\n\n5-10 min for questions\n\neveryone will answer questions\nwe’ll choose who answers which\n\nPresentation slots: 9 in class; 6 just after class on Fri (last day of class)"
   },
   {
-    "objectID": "content/lectures/17-oral-communication-slides.html#final-project-tues-of-finals-week",
-    "href": "content/lectures/17-oral-communication-slides.html#final-project-tues-of-finals-week",
-    "title": "17-oral-communication",
-    "section": "Final Project (Tues of finals week)",
-    "text": "Final Project (Tues of finals week)\n\nqmd/HTML Report\n\nAudience: COGS 137 students\n\nunfamiliar topic; needs introduction\nshould walk through analysis and explain/interpret results\nNO Extension necessary\n\n\n\n\n\nPresentation (3-5 min)\n\nAudience: COGS 137 students\nIf you present in class (next Thurs), no recording needs to be submitted (option for EC)\nIf you do not present in class, will submit video/link to video on Canvas\n\n\n\n\n\nGeneral Communication\n\nFor a general audience; like cs01/cs02"
+    "objectID": "content/lectures/16-oral-communication-slides.html#final-project-fri-of-finals-week",
+    "href": "content/lectures/16-oral-communication-slides.html#final-project-fri-of-finals-week",
+    "title": "16-oral-communication",
+    "section": "Final Project (Fri of finals week)",
+    "text": "Final Project (Fri of finals week)\n\nqmd/HTML Report\n\nAudience: COGS 137 students\n\nunfamiliar topic; needs introduction\nshould walk through analysis and explain/interpret results\nNO Extension necessary .\n\n\nGeneral Communication\n\nFor a general audience; like cs01/cs02"
   },
   {
-    "objectID": "content/lectures/17-oral-communication-slides.html#effective-oral-communication-1",
-    "href": "content/lectures/17-oral-communication-slides.html#effective-oral-communication-1",
-    "title": "17-oral-communication",
-    "section": "Effective Oral Communication",
-    "text": "Effective Oral Communication\nUnable to display PDF file. Download instead.\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
+    "objectID": "content/lectures/16-oral-communication-slides.html#agenda",
+    "href": "content/lectures/16-oral-communication-slides.html#agenda",
+    "title": "16-oral-communication",
+    "section": "Agenda",
+    "text": "Agenda\n\nWhat carries over from written & visual communication\nPlan your talk\nDesign your slides\nPresent a figure\nDeliver it (as a group)\nAnswer questions"
   },
   {
-    "objectID": "content/lectures/17-oral-communication.html",
-    "href": "content/lectures/17-oral-communication.html",
-    "title": "17-oral-communication",
+    "objectID": "content/lectures/16-oral-communication-slides.html#where-weve-been",
+    "href": "content/lectures/16-oral-communication-slides.html#where-weve-been",
+    "title": "16-oral-communication",
+    "section": "Where we’ve been",
+    "text": "Where we’ve been\nIn written communication we covered:\n\nConsider your audience: you do the work so they don’t have to\nInformative titles: state the take-home, not the topic\nThe glamour of graphics: left-aligned titles, no head-tilting, remove/lighten, direct labels &gt; legends, color with a purpose\nTables are communication, too\n\n\nAll of that still applies. Today: what changes when your audience is listening instead of reading?"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#reports-are-for-reading-presentations-are-for-listening",
+    "href": "content/lectures/16-oral-communication-slides.html#reports-are-for-reading-presentations-are-for-listening",
+    "title": "16-oral-communication",
+    "section": "Reports are for reading; presentations are for listening",
+    "text": "Reports are for reading; presentations are for listening\n\n\n\n\n\n\n\n\n\nReport 📄\nPresentation 🎤\n\n\n\n\nWho controls the pace?\nthe reader\nyou\n\n\nMissed something?\nre-read it\nit’s gone\n\n\nWhere does the explanation live?\nin the text\nin your voice\n\n\nHow much on one visualization?\nmore (they have time)\nless; build it up\n\n\nHow much detail?\nall the necessary details\nonly what supports the take-home\n\n\n\n\nYou’ve seen your figures 100 times. Your audience is seeing them for the first time."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#brainstorm",
+    "href": "content/lectures/16-oral-communication-slides.html#brainstorm",
+    "title": "16-oral-communication",
+    "section": "Brainstorm",
+    "text": "Brainstorm\n🧠 What’s the best (or worst) presentation advice you’ve ever been given?"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#start-with-your-take-home",
+    "href": "content/lectures/16-oral-communication-slides.html#start-with-your-take-home",
+    "title": "16-oral-communication",
+    "section": "Start with your take-home",
+    "text": "Start with your take-home\nBefore you open Google Slides/PowerPoint/Quarto:\n\n\nIf your audience remembers one thing, what should it be?\nWrite it as one sentence. Every slide should support it.\n\n\n\n\nGroup check: if each of you wrote that sentence separately, would you all write the same one? If not, sort that out first.\n\n\n\n\nNussbaumer Knaflic calls this the “Big Idea” in Storytelling with Data."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#tell-a-story",
+    "href": "content/lectures/16-oral-communication-slides.html#tell-a-story",
+    "title": "16-oral-communication",
+    "section": "Tell a story",
+    "text": "Tell a story\n\nStories have a beginning, a middle, and an end\nStories do not include every detail of what you tried\n\n\n\nTell them what you’re going to tell them. Tell them. Tell them what you told them.\nRepetition is OK! Listeners can’t flip back a page."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#minutes-goes-fast",
+    "href": "content/lectures/16-oral-communication-slides.html#minutes-goes-fast",
+    "title": "16-oral-communication",
+    "section": "5 minutes goes fast",
+    "text": "5 minutes goes fast\nA rough budget:\n\n\n\nPart\nTime\nSlides\n\n\n\n\nTitle + hook: your question & why it matters\n~45 sec\n1-2\n\n\nData: where it’s from, what’s measured\n~45 sec\n1\n\n\nApproach: what you did (briefly!)\n~45 sec\n1\n\n\nResults: your 1-2 key findings\n~2 min\n2\n\n\nConclusion: take-home + a limitation\n~45 sec\n1\n\n\n\n\n\nRoughly a slide a minute. If you have more than ~8 slides, you will rush.\nPlan for 4.5 minutes. Live talks (often) run longer than practice runs.\nThis means: practice before out loud. multiple times. time yourselves."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#know-your-audience-cogs-137-students",
+    "href": "content/lectures/16-oral-communication-slides.html#know-your-audience-cogs-137-students",
+    "title": "16-oral-communication",
+    "section": "Know your audience: COGS 137 students",
+    "text": "Know your audience: COGS 137 students\n\n\nThey already know\n\nR & the tidyverse\nregression, train/test splits, cross-validation\nwhat a boxplot is\n\n➡ does not need a review/explanation\n\nThey don’t know\n\nyour topic\nwhy your question matters\nyour data & variables\n\n➡ spend your time here"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#what-to-leave-out",
+    "href": "content/lectures/16-oral-communication-slides.html#what-to-leave-out",
+    "title": "16-oral-communication",
+    "section": "What to leave out",
+    "text": "What to leave out\n\nYour full EDA\nEvery model you tried\nCode on slides\nScrolling through your .qmd/HTML ❌\n\n\nThose details belong in your report (or in backup slides after your conclusion)."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#slide-titles-your-point",
+    "href": "content/lectures/16-oral-communication-slides.html#slide-titles-your-point",
+    "title": "16-oral-communication",
+    "section": "Slide titles = your point",
+    "text": "Slide titles = your point\nSame rule as figure titles: the title is the main point you want people to leave with.\n\n\nAvoid: “Introduction”\n\nBetter: “Cannabis use is on the rise”\n\n\n\nAvoid: “Results”\n\nBetter: “THC concentration &gt;5ng/mL suggests recent use”\n\n\nHeadline test: read only your slide titles in order. Do they tell your story?"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#your-title-slide",
+    "href": "content/lectures/16-oral-communication-slides.html#your-title-slide",
+    "title": "16-oral-communication",
+    "section": "Your title slide",
+    "text": "Your title slide\n\nTitle: short and informative\nOccasion: COGS 137 Final Project\nDate\nNames: everyone in your group (and your team name)"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#one-idea-per-slide",
+    "href": "content/lectures/16-oral-communication-slides.html#one-idea-per-slide",
+    "title": "16-oral-communication",
+    "section": "One idea per slide",
+    "text": "One idea per slide\n\n\nLimit words. If you’re tempted to read it aloud, there’s too much.\nSpace your bullets out; 3-5 max\nReveal bullets one at a time (like this!)\n\nso the audience listens to you instead of reading ahead\nQuarto: . . . or incremental; Google Slides/PowerPoint: Animation ➡ Appear, on click\n\nUse animation to build your story, not to distract (no spinning, bouncing, flying)"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#present-for-the-back-of-the-room",
+    "href": "content/lectures/16-oral-communication-slides.html#present-for-the-back-of-the-room",
+    "title": "16-oral-communication",
+    "section": "Present for the back of the room",
+    "text": "Present for the back of the room\n\nLarge text: ~24 pt+ for body text. Figure text too: theme_minimal(base_size = 18)\nEasy-to-read fonts: sans-serif (Helvetica, Calibri, Verdana, Source Sans, Fira Sans); not decorative (Jokerman, Snell Roundhand)\nHigh contrast: dark text on light background. On a dark background, use white text, not gray.\nColors that project: projectors wash out light colors (yellow on white disappears). Use the colorblind-friendly palette we’ve been using.\nConsistency: one theme, one set of fonts and colors…across all group members’ slides\nAlignment: misaligned stuff is distracting"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#the-little-things",
+    "href": "content/lectures/16-oral-communication-slides.html#the-little-things",
+    "title": "16-oral-communication",
+    "section": "The little things",
+    "text": "The little things\n\nSlide numbers: so someone can ask “Can you go back to slide 4?”\nCitations: cite sources on the slide where you use them, and include a reference slide at the end…but don’t present it\nBackup slides: put details you might be asked about after your conclusion\nEnd on your take-home, not a “Questions?” slide. It stays up during Q&A, so make it the slide you want people looking at."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#how-to-present-a-figure",
+    "href": "content/lectures/16-oral-communication-slides.html#how-to-present-a-figure",
+    "title": "16-oral-communication",
+    "section": "How to present a figure",
+    "text": "How to present a figure\n\nAxes: What’s on the x and y axis? (units? scale?)\nLegend: What do the colors/shapes mean?\nWhat do you see? Point to it. Highlight it.\nStats: test or model results, if you have them\nTake-home: the main point (which should match your title)\n\n\nIt feels slow. It isn’t. This is how you get your audience to see what you see."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#build-it-step-by-step",
+    "href": "content/lectures/16-oral-communication-slides.html#build-it-step-by-step",
+    "title": "16-oral-communication",
+    "section": "Build it step by step",
+    "text": "Build it step by step\n\nStart with empty axes\nAdd one group at a time\nHighlight what matters\nEnd on the take-home\n\n\nThe audience looks where you’re pointing, instead of at the whole figure at once.\n\n\nLet’s try it with CS01 data: THC in whole blood after smoking, comparing frequent and occasional users (placebo group excluded)."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#step-1-start-with-the-axes",
+    "href": "content/lectures/16-oral-communication-slides.html#step-1-start-with-the-axes",
+    "title": "16-oral-communication",
+    "section": "Step 1: Start with the axes",
+    "text": "Step 1: Start with the axes\n\n\n🗣️“Time since smoking is on the the x-axis, from before smoking out to five hours. y-axis is log scale THC measurements from blood.”"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#step-2-one-group-at-a-time",
+    "href": "content/lectures/16-oral-communication-slides.html#step-2-one-group-at-a-time",
+    "title": "16-oral-communication",
+    "section": "Step 2: One group at a time",
+    "text": "Step 2: One group at a time\n\n\n🗣️ “Here are occasional users. THC spikes in the first 30 minutes, then drops fast. After about three hours, there’s very little left.”"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#step-3-add-the-comparison",
+    "href": "content/lectures/16-oral-communication-slides.html#step-3-add-the-comparison",
+    "title": "16-oral-communication",
+    "section": "Step 3: Add the comparison",
+    "text": "Step 3: Add the comparison\n\n\n🗣️ “Frequent users follow the same pattern, but their line is above occasional users at every single time point.”"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#step-4-highlight-state-the-take-home",
+    "href": "content/lectures/16-oral-communication-slides.html#step-4-highlight-state-the-take-home",
+    "title": "16-oral-communication",
+    "section": "Step 4: Highlight & state the take-home",
+    "text": "Step 4: Highlight & state the take-home\n\n\n🗣️ “And look before anyone smoked: frequent users already have THC in their blood (median 1.25 ng/mL); occasional users have none (median 0 ng/mL).”"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#making-a-build-in-r",
+    "href": "content/lectures/16-oral-communication-slides.html#making-a-build-in-r",
+    "title": "16-oral-communication",
+    "section": "Making a build in R",
+    "text": "Making a build in R\nSame plot code each time, adding one layer per step:\nbase_plot &lt;- ggplot(thc_time, aes(x = timepoint, y = median_thc, color = group)) +\n  coord_cartesian(ylim = c(0, 60)) +   # fix the axes so they don't jump\n  labs(title = \"\\n\")                   # reserve space for the title you add at the end\n\nstep1 &lt;- base_plot + geom_blank()                                 # just the axes\nstep2 &lt;- base_plot + geom_line(data = filter(thc_time, group == \"Occasional user\"))\n# ...and so on\n\nOne figure per slide, same size and position: clicking to the next slide looks like animation\nWorks the same way with images in Google Slides/PowerPoint"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#your-turn",
+    "href": "content/lectures/16-oral-communication-slides.html#your-turn",
+    "title": "16-oral-communication",
+    "section": "Your turn",
+    "text": "Your turn\n🧠 Pick one figure from your final project rough draft. Walk your neighbor through it using the 5 steps. (~60 seconds)\n\nAxes\nLegend\nWhat do you see?\nStats?\nTake-home\n\n\nListener: Could you follow it? Did you know what the axes were before you were told the point? Then swap."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#presentations-are-for-listening",
+    "href": "content/lectures/16-oral-communication-slides.html#presentations-are-for-listening",
+    "title": "16-oral-communication",
+    "section": "Presentations are for listening",
+    "text": "Presentations are for listening\n\nSpeak to the back of the room\nFace the audience when possible (not the screen)\nPause. Silence is OK. Pause after your key points.\nPoint to what you’re talking about\nBe yourself."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#practice-out-loud",
+    "href": "content/lectures/16-oral-communication-slides.html#practice-out-loud",
+    "title": "16-oral-communication",
+    "section": "Practice (out loud!)",
+    "text": "Practice (out loud!)\n\nPracticing:\n\nimproves your explanations\ncalms your nerves\nmakes sure you’re within time\n\nReading your slides silently ≠ practicing\nDo at least one full, timed run-through as a group\nRecord yourself once. You’ll catch filler words and speed."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#qa-5-10-minutes",
+    "href": "content/lectures/16-oral-communication-slides.html#qa-5-10-minutes",
+    "title": "16-oral-communication",
+    "section": "Q&A: 5-10 minutes",
+    "text": "Q&A: 5-10 minutes\n\nEveryone in your group answers questions\nWe choose who answers which\n\n\nSo everyone needs to understand the whole project, not just their part:\n\nthe question & why it matters\nthe data\nthe main analysis choices (and why)\nthe main result + a limitation"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#answering-well",
+    "href": "content/lectures/16-oral-communication-slides.html#answering-well",
+    "title": "16-oral-communication",
+    "section": "Answering well",
+    "text": "Answering well\n\nListen to the whole question. Pause before answering.\nRepeat or rephrase it: helps the audience hear it, confirms you understood, buys you a moment\nAnswer directly first, then explain briefly\nUse your backup slides\n“I don’t know” is OK. Follow it with what you do know, or how you’d find out. Don’t make things up.\nIf someone points out a real limitation: acknowledge it, and say how it affects your conclusion"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#prepare-for-questions",
+    "href": "content/lectures/16-oral-communication-slides.html#prepare-for-questions",
+    "title": "16-oral-communication",
+    "section": "Prepare for questions",
+    "text": "Prepare for questions\n🧠 As a group: write down 5 questions you’d ask if you were in the audience.\n\nCommon ones:\n\nWhy this dataset? This outcome? This model?\nHow did you handle missing data?\nHow confident are you in this result?\nWhat surprised you?\nWhat would you do with more time/data?\n\n\n\nThen practice answering them, rotating who answers."
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#checklists",
+    "href": "content/lectures/16-oral-communication-slides.html#checklists",
+    "title": "16-oral-communication",
+    "section": "Checklists",
+    "text": "Checklists\n\n\nTalk\n\nClear one-sentence take-home\nTells a story\nRight level of detail for the audience\nOrients audience to every figure\nPracticed out loud, as a group\nWithin time\nHandoffs planned\n\n\nSlides\n\nInformative title slide\nTitles state the point\nOne idea per slide\nReadable fonts & text size\nConsistent theme, fonts, colors\nColors project well\nSlide numbers\nReferences & backup slides\n\n\nFigures\n\nInformative titles\nAppropriate plot type\nLess is more\nClear mappings (direct labels)\nConsistent colors\nText large enough\nBuilt up step by step\nTake-home clear"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#resources-credit",
+    "href": "content/lectures/16-oral-communication-slides.html#resources-credit",
+    "title": "16-oral-communication",
+    "section": "Resources & Credit",
+    "text": "Resources & Credit\n\nQuirine van Engen (former COGS 137 TA): Mastering your slides\nCole Nussbaumer Knaflic: Storytelling with Data\nWill Chase: The Glamour of Graphics (rstudio::conf2020)\nMatthew Butterick: Practical Typography"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication-slides.html#recap",
+    "href": "content/lectures/16-oral-communication-slides.html#recap",
+    "title": "16-oral-communication",
+    "section": "Recap",
+    "text": "Recap\n\nPresentations are for listening: you do the explaining, so put less on each slide\nPlan from your one-sentence take-home; 5 minutes ≈ 5-7 slides\nSlide titles state your point\nPresent every figure: axes, legend, what you see, stats, take-home…and build it step by step\nPractice out loud, as a group, and plan your handoffs\nEveryone should be able to answer questions about any part of the project\n\n\n\n\n\n🔗 https://cogs137-fa26.github.io/cogs137-fa26/"
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html",
+    "href": "content/lectures/16-oral-communication.html",
+    "title": "16-oral-communication",
     "section": "",
-    "text": "Skip to main content"
+    "text": "Skip to main content",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/17-oral-communication.html#qa",
-    "href": "content/lectures/17-oral-communication.html#qa",
-    "title": "17-oral-communication",
+    "objectID": "content/lectures/16-oral-communication.html#qa",
+    "href": "content/lectures/16-oral-communication.html#qa",
+    "title": "16-oral-communication",
     "section": "Q&A",
-    "text": "Q&A\n\n\n\n\n\n\n\nQ:\n\n\n\n\n\nA:"
+    "text": "Q&A\n\n\n\n\n\n\nQ: What did you work on while in Austin at snake_case?\n\n\n\n\n\nA: We worked on extending ggplot2 into the python world. The package plotnine) already exists and implements the grammar of graphics in python. But, many of the helpful extensions that exist for ggplot2 do not yet exist for python. So, we built them and you can see them here: https://github.com/snake-case-ggtext. To support this (also in that org), we also built an app that will compare the R and python output and iteratively improve the code until they match (plotparity). And I went on a side-quest to build a package that could act as a plot linter to give students feedback on how the viz they generated fall short of best practices (plotnine-linter)\n\n\n\n\n\n\n\n\n\nQ: When talking about parts of our final project, how do we account for an area’s income for college preparedness?\n\n\n\n\n\nA: Depends on what you’re doing, but typically this would be included as a covariate (predictor in the model), to adjust findings for effect of income.\n\n\n\n\n\n\n\n\n\nQ:I’m still a little confused about what cross-validation is and how it works.\n\n\n\n\n\nA: Most simply cross-validation allows us to take our training data and split it into folds. Folds are a portion ofthe data. If you have 4 folds, 25% of the training data is in each fold. Then, you repeat the process of training the data on all but one of the folds and then seeing how it performs on the fold that was held out. Each time you repeat the process, a different fold is held out…and you calculate model performance on the held-out fold. Then you average across the folds for a performance metric. If you’re trying out two different models, you would then compare performance across models, selecting the better-performing model.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/17-oral-communication.html#course-announcements",
-    "href": "content/lectures/17-oral-communication.html#course-announcements",
-    "title": "17-oral-communication",
+    "objectID": "content/lectures/16-oral-communication.html#course-announcements",
+    "href": "content/lectures/16-oral-communication.html#course-announcements",
+    "title": "16-oral-communication",
     "section": "Course Announcements",
-    "text": "Course Announcements\nDue Dates:\n\n👯 Peer Evaluation & 🎥 in-class presentation interest form due Mon 11/30 (11:59 PM)\n🔘 Lecture Participation survey “due” after class"
+    "text": "Course Announcements\nDue Dates (rest of quarter):\n\n👯 Rough Draft - Final Project - due this Wed (11/25)\n👯 Peer review - due Mon (11/30) [we’ll talk about this in class Wed.]\n📊 Fri 12/11 (Finals week) - final project due (report + general communication + feedback)\n🔘 Lecture Participation survey “due” after class\n\nNotes:\n\nWed this week is for in-class project work\n🎥 Next week is final project presentations - sign up for a slot by adding your team name\nNo section Thursday or class Friday (Happy Thanksgiving!)",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/17-oral-communication.html#peer-evaluation-survey",
-    "href": "content/lectures/17-oral-communication.html#peer-evaluation-survey",
-    "title": "17-oral-communication",
-    "section": "Peer Evaluation Survey",
-    "text": "Peer Evaluation Survey\n\neach group received an email with their group to review (subject: [COGS 137] peer review)\none peer eval form submission per group\n\n. . .\n\nGraded on completion…but make it as helpful to the other group as possible\nA more critical/negative review will NOT negatively affect the other team’s grade…but it may help them improve!\nThe more free text you provide the more helpful it will be\n\n. . .\n\nIf the file you got was empty/just the template, you’ll have a very quick time evaluating"
+    "objectID": "content/lectures/16-oral-communication.html#final-project-presentations",
+    "href": "content/lectures/16-oral-communication.html#final-project-presentations",
+    "title": "16-oral-communication",
+    "section": "Final Project: Presentations",
+    "text": "Final Project: Presentations\n\n5 min presentation - everyone should be present and speak\n\nAudience: COGS 137 students\n\n5-10 min for questions\n\neveryone will answer questions\nwe’ll choose who answers which\n\nPresentation slots: 9 in class; 6 just after class on Fri (last day of class)",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/17-oral-communication.html#final-project-tues-of-finals-week",
-    "href": "content/lectures/17-oral-communication.html#final-project-tues-of-finals-week",
-    "title": "17-oral-communication",
-    "section": "Final Project (Tues of finals week)",
-    "text": "Final Project (Tues of finals week)\n\nqmd/HTML Report\n\nAudience: COGS 137 students\n\nunfamiliar topic; needs introduction\nshould walk through analysis and explain/interpret results\nNO Extension necessary\n\n\n\n. . .\n\nPresentation (3-5 min)\n\nAudience: COGS 137 students\nIf you present in class (next Thurs), no recording needs to be submitted (option for EC)\nIf you do not present in class, will submit video/link to video on Canvas\n\n\n. . .\n\nGeneral Communication\n\nFor a general audience; like cs01/cs02"
+    "objectID": "content/lectures/16-oral-communication.html#final-project-fri-of-finals-week",
+    "href": "content/lectures/16-oral-communication.html#final-project-fri-of-finals-week",
+    "title": "16-oral-communication",
+    "section": "Final Project (Fri of finals week)",
+    "text": "Final Project (Fri of finals week)\n\nqmd/HTML Report\n\nAudience: COGS 137 students\n\nunfamiliar topic; needs introduction\nshould walk through analysis and explain/interpret results\nNO Extension necessary .\n\n\nGeneral Communication\n\nFor a general audience; like cs01/cs02",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
   },
   {
-    "objectID": "content/lectures/17-oral-communication.html#effective-oral-communication-1",
-    "href": "content/lectures/17-oral-communication.html#effective-oral-communication-1",
-    "title": "17-oral-communication",
-    "section": "Effective Oral Communication",
-    "text": "Effective Oral Communication\nUnable to display PDF file. Download instead."
+    "objectID": "content/lectures/16-oral-communication.html#agenda",
+    "href": "content/lectures/16-oral-communication.html#agenda",
+    "title": "16-oral-communication",
+    "section": "Agenda",
+    "text": "Agenda\n\nWhat carries over from written & visual communication\nPlan your talk\nDesign your slides\nPresent a figure\nDeliver it (as a group)\nAnswer questions",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#where-weve-been",
+    "href": "content/lectures/16-oral-communication.html#where-weve-been",
+    "title": "16-oral-communication",
+    "section": "Where we’ve been",
+    "text": "Where we’ve been\nIn written communication we covered:\n\nConsider your audience: you do the work so they don’t have to\nInformative titles: state the take-home, not the topic\nThe glamour of graphics: left-aligned titles, no head-tilting, remove/lighten, direct labels &gt; legends, color with a purpose\nTables are communication, too\n\n. . .\nAll of that still applies. Today: what changes when your audience is listening instead of reading?",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#reports-are-for-reading-presentations-are-for-listening",
+    "href": "content/lectures/16-oral-communication.html#reports-are-for-reading-presentations-are-for-listening",
+    "title": "16-oral-communication",
+    "section": "Reports are for reading; presentations are for listening",
+    "text": "Reports are for reading; presentations are for listening\n\n\n\n\n\n\n\n\n\nReport 📄\nPresentation 🎤\n\n\n\n\nWho controls the pace?\nthe reader\nyou\n\n\nMissed something?\nre-read it\nit’s gone\n\n\nWhere does the explanation live?\nin the text\nin your voice\n\n\nHow much on one visualization?\nmore (they have time)\nless; build it up\n\n\nHow much detail?\nall the necessary details\nonly what supports the take-home\n\n\n\n. . .\nYou’ve seen your figures 100 times. Your audience is seeing them for the first time.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#brainstorm",
+    "href": "content/lectures/16-oral-communication.html#brainstorm",
+    "title": "16-oral-communication",
+    "section": "Brainstorm",
+    "text": "Brainstorm\n🧠 What’s the best (or worst) presentation advice you’ve ever been given?",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#start-with-your-take-home",
+    "href": "content/lectures/16-oral-communication.html#start-with-your-take-home",
+    "title": "16-oral-communication",
+    "section": "Start with your take-home",
+    "text": "Start with your take-home\nBefore you open Google Slides/PowerPoint/Quarto:\n. . .\n\nIf your audience remembers one thing, what should it be?\nWrite it as one sentence. Every slide should support it.\n\n. . .\n\nGroup check: if each of you wrote that sentence separately, would you all write the same one? If not, sort that out first.\n\n\n\nNussbaumer Knaflic calls this the “Big Idea” in Storytelling with Data.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#tell-a-story",
+    "href": "content/lectures/16-oral-communication.html#tell-a-story",
+    "title": "16-oral-communication",
+    "section": "Tell a story",
+    "text": "Tell a story\n\nStories have a beginning, a middle, and an end\nStories do not include every detail of what you tried\n\n. . .\n\nTell them what you’re going to tell them. Tell them. Tell them what you told them.\nRepetition is OK! Listeners can’t flip back a page.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#minutes-goes-fast",
+    "href": "content/lectures/16-oral-communication.html#minutes-goes-fast",
+    "title": "16-oral-communication",
+    "section": "5 minutes goes fast",
+    "text": "5 minutes goes fast\nA rough budget:\n\n\n\nPart\nTime\nSlides\n\n\n\n\nTitle + hook: your question & why it matters\n~45 sec\n1-2\n\n\nData: where it’s from, what’s measured\n~45 sec\n1\n\n\nApproach: what you did (briefly!)\n~45 sec\n1\n\n\nResults: your 1-2 key findings\n~2 min\n2\n\n\nConclusion: take-home + a limitation\n~45 sec\n1\n\n\n\n. . .\n\nRoughly a slide a minute. If you have more than ~8 slides, you will rush.\nPlan for 4.5 minutes. Live talks (often) run longer than practice runs.\nThis means: practice before out loud. multiple times. time yourselves.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#know-your-audience-cogs-137-students",
+    "href": "content/lectures/16-oral-communication.html#know-your-audience-cogs-137-students",
+    "title": "16-oral-communication",
+    "section": "Know your audience: COGS 137 students",
+    "text": "Know your audience: COGS 137 students\n\n\nThey already know\n\nR & the tidyverse\nregression, train/test splits, cross-validation\nwhat a boxplot is\n\n➡ does not need a review/explanation\n\nThey don’t know\n\nyour topic\nwhy your question matters\nyour data & variables\n\n➡ spend your time here",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#what-to-leave-out",
+    "href": "content/lectures/16-oral-communication.html#what-to-leave-out",
+    "title": "16-oral-communication",
+    "section": "What to leave out",
+    "text": "What to leave out\n\nYour full EDA\nEvery model you tried\nCode on slides\nScrolling through your .qmd/HTML ❌\n\n. . .\nThose details belong in your report (or in backup slides after your conclusion).",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#slide-titles-your-point",
+    "href": "content/lectures/16-oral-communication.html#slide-titles-your-point",
+    "title": "16-oral-communication",
+    "section": "Slide titles = your point",
+    "text": "Slide titles = your point\nSame rule as figure titles: the title is the main point you want people to leave with.\n. . .\n\nAvoid: “Introduction”\n\nBetter: “Cannabis use is on the rise”\n. . .\n\nAvoid: “Results”\n\nBetter: “THC concentration &gt;5ng/mL suggests recent use”\n. . .\nHeadline test: read only your slide titles in order. Do they tell your story?",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#your-title-slide",
+    "href": "content/lectures/16-oral-communication.html#your-title-slide",
+    "title": "16-oral-communication",
+    "section": "Your title slide",
+    "text": "Your title slide\n\nTitle: short and informative\nOccasion: COGS 137 Final Project\nDate\nNames: everyone in your group (and your team name)",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#one-idea-per-slide",
+    "href": "content/lectures/16-oral-communication.html#one-idea-per-slide",
+    "title": "16-oral-communication",
+    "section": "One idea per slide",
+    "text": "One idea per slide\n\n\nLimit words. If you’re tempted to read it aloud, there’s too much.\nSpace your bullets out; 3-5 max\nReveal bullets one at a time (like this!)\n\nso the audience listens to you instead of reading ahead\nQuarto: . . . or incremental; Google Slides/PowerPoint: Animation ➡ Appear, on click\n\nUse animation to build your story, not to distract (no spinning, bouncing, flying)",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#present-for-the-back-of-the-room",
+    "href": "content/lectures/16-oral-communication.html#present-for-the-back-of-the-room",
+    "title": "16-oral-communication",
+    "section": "Present for the back of the room",
+    "text": "Present for the back of the room\n\nLarge text: ~24 pt+ for body text. Figure text too: theme_minimal(base_size = 18)\nEasy-to-read fonts: sans-serif (Helvetica, Calibri, Verdana, Source Sans, Fira Sans); not decorative (Jokerman, Snell Roundhand)\nHigh contrast: dark text on light background. On a dark background, use white text, not gray.\nColors that project: projectors wash out light colors (yellow on white disappears). Use the colorblind-friendly palette we’ve been using.\nConsistency: one theme, one set of fonts and colors…across all group members’ slides\nAlignment: misaligned stuff is distracting",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#the-little-things",
+    "href": "content/lectures/16-oral-communication.html#the-little-things",
+    "title": "16-oral-communication",
+    "section": "The little things",
+    "text": "The little things\n\nSlide numbers: so someone can ask “Can you go back to slide 4?”\nCitations: cite sources on the slide where you use them, and include a reference slide at the end…but don’t present it\nBackup slides: put details you might be asked about after your conclusion\nEnd on your take-home, not a “Questions?” slide. It stays up during Q&A, so make it the slide you want people looking at.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#how-to-present-a-figure",
+    "href": "content/lectures/16-oral-communication.html#how-to-present-a-figure",
+    "title": "16-oral-communication",
+    "section": "How to present a figure",
+    "text": "How to present a figure\n\nAxes: What’s on the x and y axis? (units? scale?)\nLegend: What do the colors/shapes mean?\nWhat do you see? Point to it. Highlight it.\nStats: test or model results, if you have them\nTake-home: the main point (which should match your title)\n\n. . .\nIt feels slow. It isn’t. This is how you get your audience to see what you see.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#build-it-step-by-step",
+    "href": "content/lectures/16-oral-communication.html#build-it-step-by-step",
+    "title": "16-oral-communication",
+    "section": "Build it step by step",
+    "text": "Build it step by step\n\nStart with empty axes\nAdd one group at a time\nHighlight what matters\nEnd on the take-home\n\n. . .\nThe audience looks where you’re pointing, instead of at the whole figure at once.\n. . .\nLet’s try it with CS01 data: THC in whole blood after smoking, comparing frequent and occasional users (placebo group excluded).",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#step-1-start-with-the-axes",
+    "href": "content/lectures/16-oral-communication.html#step-1-start-with-the-axes",
+    "title": "16-oral-communication",
+    "section": "Step 1: Start with the axes",
+    "text": "Step 1: Start with the axes\n\n\n\n\n\n\n\n\n\n\n🗣️“Time since smoking is on the the x-axis, from before smoking out to five hours. y-axis is log scale THC measurements from blood.”",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#step-2-one-group-at-a-time",
+    "href": "content/lectures/16-oral-communication.html#step-2-one-group-at-a-time",
+    "title": "16-oral-communication",
+    "section": "Step 2: One group at a time",
+    "text": "Step 2: One group at a time\n\n\n\n\n\n\n\n\n\n\n🗣️ “Here are occasional users. THC spikes in the first 30 minutes, then drops fast. After about three hours, there’s very little left.”",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#step-3-add-the-comparison",
+    "href": "content/lectures/16-oral-communication.html#step-3-add-the-comparison",
+    "title": "16-oral-communication",
+    "section": "Step 3: Add the comparison",
+    "text": "Step 3: Add the comparison\n\n\n\n\n\n\n\n\n\n\n🗣️ “Frequent users follow the same pattern, but their line is above occasional users at every single time point.”",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#step-4-highlight-state-the-take-home",
+    "href": "content/lectures/16-oral-communication.html#step-4-highlight-state-the-take-home",
+    "title": "16-oral-communication",
+    "section": "Step 4: Highlight & state the take-home",
+    "text": "Step 4: Highlight & state the take-home\n\n\n\n\n\n\n\n\n\n\n🗣️ “And look before anyone smoked: frequent users already have THC in their blood (median 1.25 ng/mL); occasional users have none (median 0 ng/mL).”",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#making-a-build-in-r",
+    "href": "content/lectures/16-oral-communication.html#making-a-build-in-r",
+    "title": "16-oral-communication",
+    "section": "Making a build in R",
+    "text": "Making a build in R\nSame plot code each time, adding one layer per step:\nbase_plot &lt;- ggplot(thc_time, aes(x = timepoint, y = median_thc, color = group)) +\n  coord_cartesian(ylim = c(0, 60)) +   # fix the axes so they don't jump\n  labs(title = \"\\n\")                   # reserve space for the title you add at the end\n\nstep1 &lt;- base_plot + geom_blank()                                 # just the axes\nstep2 &lt;- base_plot + geom_line(data = filter(thc_time, group == \"Occasional user\"))\n# ...and so on\n\nOne figure per slide, same size and position: clicking to the next slide looks like animation\nWorks the same way with images in Google Slides/PowerPoint\n\nFull code for the figures above:\n\ncs01 &lt;- read_csv(\"data/cs01_combined.csv\")\n\nwindow_order &lt;- c(\"pre-smoking\", \"0-30 min\", \"31-70 min\", \"71-100 min\",\n                  \"101-180 min\", \"181-210 min\", \"211-240 min\",\n                  \"241-270 min\", \"271-300 min\", \"301+ min\")\n\n# median whole-blood THC per time window, THC groups only\nthc_time &lt;- cs01 |&gt;\n  filter(fluid_type == \"WB\", !is.na(timepoint), treatment != \"Placebo\") |&gt;\n  mutate(timepoint = fct_relevel(timepoint, window_order)) |&gt;\n  group_by(group, timepoint) |&gt;\n  summarize(median_thc = median(thc, na.rm = TRUE), .groups = \"drop\")\n\ngroup_colors &lt;- c(\"Frequent user\" = \"#0072B2\", \"Occasional user\" = \"#999999\")\n\n# the parts that stay the same in every step, so the axes don't jump\nbase_plot &lt;- ggplot(thc_time, aes(x = timepoint, y = median_thc,\n                                  color = group, group = group)) +\n  scale_y_continuous(transform = \"pseudo_log\",\n                     breaks = c(0, 1, 2, 5, 10, 20, 50)) +\n  scale_x_discrete(labels = function(x) str_replace_all(x, c(\" min\" = \"\", \"pre-smoking\" = \"before\"))) +\n  scale_color_manual(values = group_colors) +\n  coord_cartesian(ylim = c(0, 60), clip = \"off\") +\n  labs(title = \"\\n\", # placeholder: keeps the plot the same size across steps\n       subtitle = \"Median THC in blood (ng/mL, log scale)\",\n       x = \"Time since smoking (minutes)\", y = NULL) +\n  theme_minimal(base_size = 16) +\n  theme(legend.position = \"none\",\n        panel.grid.minor = element_blank(),\n        panel.grid.major.x = element_blank(),\n        plot.title.position = \"plot\",\n        plot.margin = margin(10, 150, 10, 10))\n\n# add one group's line, points, and direct label\nadd_group &lt;- function(p, which) {\n  d &lt;- filter(thc_time, group == which)\n  p + geom_line(data = d, linewidth = 1.5) +\n    geom_point(data = d, size = 3) +\n    geom_text(data = filter(d, timepoint == \"301+ min\"),\n              aes(label = str_replace(group, \" user\", \" users\")),\n              hjust = -0.15, size = 5.5, fontface = \"bold\")\n}\n\nstep1 &lt;- base_plot + geom_blank()\nstep2 &lt;- add_group(base_plot, \"Occasional user\")\nstep3 &lt;- add_group(step2, \"Frequent user\")\nstep4 &lt;- step3 +\n  annotate(\"rect\", xmin = 0.6, xmax = 1.4, ymin = -0.15, ymax = 2,\n           fill = NA, color = \"#D55E00\", linewidth = 1) +\n  labs(title = \"Frequent users have more THC in their blood at every time point,\\neven before smoking\")\n\n# numbers for the text\npre &lt;- thc_time |&gt; filter(timepoint == \"pre-smoking\")\npre_freq &lt;- pre$median_thc[pre$group == \"Frequent user\"]\npre_occ &lt;- pre$median_thc[pre$group == \"Occasional user\"]",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#your-turn",
+    "href": "content/lectures/16-oral-communication.html#your-turn",
+    "title": "16-oral-communication",
+    "section": "Your turn",
+    "text": "Your turn\n🧠 Pick one figure from your final project rough draft. Walk your neighbor through it using the 5 steps. (~60 seconds)\n\nAxes\nLegend\nWhat do you see?\nStats?\nTake-home\n\n. . .\nListener: Could you follow it? Did you know what the axes were before you were told the point? Then swap.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#presentations-are-for-listening",
+    "href": "content/lectures/16-oral-communication.html#presentations-are-for-listening",
+    "title": "16-oral-communication",
+    "section": "Presentations are for listening",
+    "text": "Presentations are for listening\n\nSpeak to the back of the room\nFace the audience when possible (not the screen)\nPause. Silence is OK. Pause after your key points.\nPoint to what you’re talking about\nBe yourself.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#practice-out-loud",
+    "href": "content/lectures/16-oral-communication.html#practice-out-loud",
+    "title": "16-oral-communication",
+    "section": "Practice (out loud!)",
+    "text": "Practice (out loud!)\n\nPracticing:\n\nimproves your explanations\ncalms your nerves\nmakes sure you’re within time\n\nReading your slides silently ≠ practicing\nDo at least one full, timed run-through as a group\nRecord yourself once. You’ll catch filler words and speed.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#qa-5-10-minutes",
+    "href": "content/lectures/16-oral-communication.html#qa-5-10-minutes",
+    "title": "16-oral-communication",
+    "section": "Q&A: 5-10 minutes",
+    "text": "Q&A: 5-10 minutes\n\nEveryone in your group answers questions\nWe choose who answers which\n\n. . .\nSo everyone needs to understand the whole project, not just their part:\n\nthe question & why it matters\nthe data\nthe main analysis choices (and why)\nthe main result + a limitation",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#answering-well",
+    "href": "content/lectures/16-oral-communication.html#answering-well",
+    "title": "16-oral-communication",
+    "section": "Answering well",
+    "text": "Answering well\n\nListen to the whole question. Pause before answering.\nRepeat or rephrase it: helps the audience hear it, confirms you understood, buys you a moment\nAnswer directly first, then explain briefly\nUse your backup slides\n“I don’t know” is OK. Follow it with what you do know, or how you’d find out. Don’t make things up.\nIf someone points out a real limitation: acknowledge it, and say how it affects your conclusion",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#prepare-for-questions",
+    "href": "content/lectures/16-oral-communication.html#prepare-for-questions",
+    "title": "16-oral-communication",
+    "section": "Prepare for questions",
+    "text": "Prepare for questions\n🧠 As a group: write down 5 questions you’d ask if you were in the audience.\n. . .\nCommon ones:\n\nWhy this dataset? This outcome? This model?\nHow did you handle missing data?\nHow confident are you in this result?\nWhat surprised you?\nWhat would you do with more time/data?\n\n. . .\nThen practice answering them, rotating who answers.",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#checklists",
+    "href": "content/lectures/16-oral-communication.html#checklists",
+    "title": "16-oral-communication",
+    "section": "Checklists",
+    "text": "Checklists\n\n\nTalk\n\nClear one-sentence take-home\nTells a story\nRight level of detail for the audience\nOrients audience to every figure\nPracticed out loud, as a group\nWithin time\nHandoffs planned\n\n\nSlides\n\nInformative title slide\nTitles state the point\nOne idea per slide\nReadable fonts & text size\nConsistent theme, fonts, colors\nColors project well\nSlide numbers\nReferences & backup slides\n\n\nFigures\n\nInformative titles\nAppropriate plot type\nLess is more\nClear mappings (direct labels)\nConsistent colors\nText large enough\nBuilt up step by step\nTake-home clear",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#resources-credit",
+    "href": "content/lectures/16-oral-communication.html#resources-credit",
+    "title": "16-oral-communication",
+    "section": "Resources & Credit",
+    "text": "Resources & Credit\n\nQuirine van Engen (former COGS 137 TA): Mastering your slides\nCole Nussbaumer Knaflic: Storytelling with Data\nWill Chase: The Glamour of Graphics (rstudio::conf2020)\nMatthew Butterick: Practical Typography",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
+  },
+  {
+    "objectID": "content/lectures/16-oral-communication.html#recap",
+    "href": "content/lectures/16-oral-communication.html#recap",
+    "title": "16-oral-communication",
+    "section": "Recap",
+    "text": "Recap\n\nPresentations are for listening: you do the explaining, so put less on each slide\nPlan from your one-sentence take-home; 5 minutes ≈ 5-7 slides\nSlide titles state your point\nPresent every figure: axes, legend, what you see, stats, take-home…and build it step by step\nPractice out loud, as a group, and plan your handoffs\nEveryone should be able to answer questions about any part of the project",
+    "crumbs": [
+      "Notes",
+      "16: Oral Communication"
+    ]
   },
   {
     "objectID": "content/labs/07-lab-mlr.html",
