@@ -47,6 +47,7 @@ Notes:
 
 -   5 min presentation - everyone should be present and speak
     -   Audience: COGS 137 students
+    -   We expect *either* an analysis w/ results OR what you plan to do for an analysis and a summary of what it means for possible results
 -   5-10 min for questions
     -   everyone will answer questions
     -   we'll choose who answers which
