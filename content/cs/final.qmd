@@ -51,3 +51,33 @@ This will be a communication targeted to the general public (non-technical, non-
 ## Group Feedback
 
 There will be a form to submit upon submission of the final project to provide feedback about working with your group mates. As with the case studies, this is meant to motivate not scare. Most groups work out really really well and everyone contributes to the best of their ability. However, if and when that doesn't happen, I want to be sure I'm aware of the circumstances and follow up as necessary.
+
+## Common Deductions
+
+::: callout-important
+**New this quarter: in-person presentations and a more rigorous Q&A.** Presentations must be given in person during week 10, and every group member must be present and speak. The Q&A after each presentation will also be more rigorous, because it's used to assess each group member's understanding of the project. In past quarters, presentations could be pre-recorded, presenting in class earned extra credit, and presentation feedback covered only slide design and oral communication. So expect presentation feedback this quarter to look different from the past comments summarized below. Additiionally, when there were more assignments/labs weren't case-study/project specific, students occasionally had the option to submit either CS02 OR an independent final project. So, the feedback will reflect this.
+:::
+
+In past iterations of the course, students have commonly lost points on the final project for the following reasons:
+
+-   **Background & Question** \| 1) only giving background on part of the question (e.g., introducing one variable of interest but not the other). Every variable of interest needs background. 2) citations that are referenced but missing, or a list of sources at the end with no clear link to the statements they support. 3) questions that can only be answered yes/no, or that use vague terms (e.g., "factors"). A question like "what is the relationship between X and Y?" better guides your EDA and analysis
+
+-   **Data** \| 1) not explaining where the data came from originally, who or what each row (observation) is, how inclusive the data are (all houses? one university?), and when they were collected. 2) not defining the variables you use, especially how they were measured (e.g., what is "financial stress" and how was it measured?). Write out abbreviations the first time you use them
+
+-   **Wrangling** \| 1) dropping missing values or filtering the data (e.g., to a single year) without explaining why. 2) wrangling steps and outputs displayed without text explaining what was done and why. Renaming cryptic variables during wrangling makes every later plot easier to read
+
+-   **EDA** \| 1) not exploring the variables you later use in your model. 2) plots that aren't interpreted until the results section (or at all). Interpret each plot when you show it, then explain why you're moving on to the next one. 3) skipping a model because EDA showed weak correlations, without exploring the data well enough to support that decision
+
+-   **Analysis** \| 1) not explaining *which* model you're using, *why* it's appropriate for your question and data, and what processing it requires. Introduce the model *before* you run it. 2) choosing a model that doesn't fit the data or the question, e.g., linear regression on clearly non-linear or heavily skewed data (consider a log transformation), a prediction model (with train/test splits) for a question that's really inferential, or a separate model for each predictor instead of one model. 3) displaying model output (coefficients, confusion matrices, ROC curves, variable importance, PCA) without interpreting it in the context of your question. 4) reporting only p-values or variance explained (R²). Include effect sizes and their direction, and use adjusted R² or an error metric to compare models. 5) claims the analysis can't support (e.g., calling something "significant" without a statistical test, or drawing conclusions from a model with a very low R²)
+
+-   **Conclusion** \| 1) not discussing limitations (e.g., a small dataset, or who is and isn't included in the data). 2) describing relationships only as "weak" or "strong" without saying which direction they go or quantifying them.
+
+-   **Visual Communication** \| 1) abbreviated variable names (and underscores) from the dataset on axes and labels. 2) plots that are too small, cramped, or have unreadable or angled text. 3) a legend that adds no information, or one used where directly labeling would be easier to read. 4) a plot type that hides information (e.g., bar plots of means where a boxplot would show the distribution), or categories that aren't ordered meaningfully
+
+-   **Written Communication & Layout** \| 1) printing `glimpse()`, `skim()`, `summary()`, or raw model output without telling the reader what to take from it. If you don't discuss it, remove it, and display results as formatted tables rather than printed output. 2) a story that's hard to follow because of the order sections and plots appear in. 3) subheaders that don't render, or leftover code comments and notes
+
+-   **General Communication** \| 1) jargon a general audience won't know (e.g., random forest, variance explained, R²). 2) too much text, or figures that are too small or detailed to read. 3) unclear or inaccurate take-home messages (e.g., claiming a relationship the data don't support). 4) not including *what* predicts the outcome and in which direction, which is often the most actionable take-home message
+
+-   **Presentation** \| 1) too much text on slides. Use animations to bring in text and plots as you talk about them, so the audience knows where to look. 2) not introducing the axes and orienting the audience to each plot, or moving on before the audience has time to take in what you want them to see. 3) showing something you don't discuss (including raw R output; summarize results in your own table instead). 4) going over the time limit (deductions increase the further over you go). 5) text on plots that's too small or pixelated to read
+
+To see specific comments previously received attached to scores received see the final_project tab [here](https://docs.google.com/spreadsheets/d/1GZINOZImtmkRDLGrWrBYVFxPxpK2GewC40_XMelLh1E/edit?usp=sharing).
