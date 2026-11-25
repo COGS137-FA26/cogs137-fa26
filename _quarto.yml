@@ -123,8 +123,8 @@ website:
       #       href: content/lectures/16-cs02-inclass.qmd
           - text: "16: Oral Communication"
             href: content/lectures/16-oral-communication.qmd
-      #     - text: "18: Project In-class Work"
-      #       href: content/lectures/18-project-inclass.qmd
+          - text: "17: Project In-class Work"
+            href: content/lectures/17-project-inclass.qmd
       #     - text: "19: Presentations"
       #       href: content/lectures/19-presentations.qmd
       - section: "Labs"
